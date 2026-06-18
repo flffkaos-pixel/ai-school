@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Week 9: challenges with llms — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,17 +33,17 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
@@ -66,7 +66,7 @@
 <p> Deploying LLMs at scale involves significant memory and computational resource demands. Managing these resources efficiently while maintaining high performance and low latency is a technical hurdle. Scalability challenges can limit the ability of LLMs to be integrated into real-time or resource-constrained applications, affecting their accessibility and utility.</p>
 <h3>2. Security &amp; Privacy</h3>
 <p>Protecting the data used by and generated from LLMs is critical, especially when dealing with personal or sensitive information. LLMs need robust security measures to prevent unauthorized access and ensure privacy. Without adequate security and privacy protections, there is a risk of data breaches, unauthorized data usage, and loss of user trust.</p>
-<p>Let’s dig a little deeper into each of issues and existing solutions for them</p>
+<p>Let?셲 dig a little deeper into each of issues and existing solutions for them</p>
 <h2>A1. Hallucinations</h2>
 <p>Hallucination refers to the model generating information that seems plausible but is actually false or made up. This happens because LLMs are designed to create text that mimics the patterns they&#39;ve seen in their training data, regardless of whether those patterns reflect real, accurate information. Hallucination is particularly harmful in RAG based applications where the model can generate content that is not supported by data but it is very hard to decipher.</p>
 <p>Hallucination can arise from several factors:</p>
@@ -81,11 +81,11 @@
 <p>These are only two of the popular methods, the list is not comprehensive by any means:</p>
 <ol>
 <li><p><strong>SELFCHECKGPT: Zero-Resource Black-Box Hallucination Detection<br>for Generative Large Language Models (<a href="https://arxiv.org/pdf/2303.08896.pdf">link</a>)</strong></p>
-<p> ✅Hallucination Detection</p>
-<p> ❌Hallucination Mitigation</p>
+<p> ?꿊allucination Detection</p>
+<p> ?똇allucination Mitigation</p>
 </li>
 </ol>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-16_at_3.21.36_PM.png" alt="Screenshot 2024-02-16 at 3.21.36 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-16_at_3.21.36_PM.png" alt="Screenshot 2024-02-16 at 3.21.36 PM.png"></p>
 <p>Image Source: <a href="https://arxiv.org/pdf/2303.08896.pdf">https://arxiv.org/pdf/2303.08896.pdf</a></p>
 <p>SelfCheckGPT uses the following steps to detect hallucinations</p>
 <ol>
@@ -98,12 +98,12 @@
 <ol>
 <li><strong>Self-Contradictory Hallucinations of LLMs: Evaluation, Detection, and Mitigation</strong> (<a href="https://arxiv.org/pdf/2305.15852.pdf">link</a>)</li>
 </ol>
-<p>✅Hallucination Detection</p>
-<p>✅Hallucination Mitigation</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-16_at_4.11.44_PM.png" alt="Screenshot 2024-02-16 at 4.11.44 PM.png"></p>
+<p>?꿊allucination Detection</p>
+<p>?꿊allucination Mitigation</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-16_at_4.11.44_PM.png" alt="Screenshot 2024-02-16 at 4.11.44 PM.png"></p>
 <p>Image Source: <a href="https://arxiv.org/pdf/2305.15852.pdf">https://arxiv.org/pdf/2305.15852.pdf</a></p>
 <p>This research presents a three-step pipeline to detect and mitigate hallucinations, specifically self-contradictions, in LLMs. </p>
-<p>💡 Self-contradiction refers to a scenario where a statement or series of statements within the same context logically conflict with each other, making them mutually incompatible. In the context of LLMs, self-contradiction occurs when the model generates two or more sentences that present opposing facts, ideas, or claims, such that if one sentence is true, the other must be false, given the same context.</p>
+<p>?뮕혻Self-contradiction refers to a scenario where a statement or series of statements within the same context logically conflict with each other, making them mutually incompatible. In the context of LLMs, self-contradiction occurs when the model generates two or more sentences that present opposing facts, ideas, or claims, such that if one sentence is true, the other must be false, given the same context.</p>
 <p>Here&#39;s a breakdown of the process:</p>
 <ol>
 <li><strong>Triggering Self-Contradictions:</strong> The process begins by generating sentence pairs that are likely to contain self-contradictions. This is done by applying constraints designed to elicit responses from the LLM that may logically conflict with each other within the same context.</li>
@@ -112,7 +112,7 @@
 </ol>
 <p>The framework is extensively evaluated across four modern LLMs, revealing a significant prevalence of self-contradictions in their outputs. For instance, 17.7% of all sentences generated by ChatGPT contained self-contradictions, many of which could not be verified using external knowledge bases like Wikipedia.</p>
 <h2>A2. Adversarial Attacks</h2>
-<p>Adversarial attacks involve manipulating the LLM’s behavior by providing crafted inputs or prompts, with the goal of causing unintended or malicious outcomes. There are many types of adversarial attacks, we discuss a few here:</p>
+<p>Adversarial attacks involve manipulating the LLM?셲 behavior by providing crafted inputs or prompts, with the goal of causing unintended or malicious outcomes. There are many types of adversarial attacks, we discuss a few here:</p>
 <ol>
 <li>Prompt Injection (PI): Injecting prompts to manipulate the behavior of the model, overriding original instructions and controls.</li>
 <li>Jailbreaking: Circumventing filtering or restrictions by simulating scenarios where the model has no constraints or accessing a developer mode that can bypass restrictions.</li>
@@ -126,11 +126,11 @@
 <p>Several efforts have been made to develop robust LLMs and evaluate them against adversarial attacks. One approach to mitigating such attacks involves training the LLM to become accustomed to adversarial inputs, instructing it not to respond to them. An example of this is presented in the paper <a href="https://arxiv.org/pdf/2310.03684.pdf">SmoothLLM</a>, which functions by perturbing multiple copies of a given input prompt at the character level and then consolidating the resulting predictions to identify adversarial inputs. Leveraging the fragility of prompts generated adversarially to changes at the character level, SmoothLLM notably decreases the success rate of jailbreaking attacks on various widely-used LLMs to less than one percent. Critically, this defensive strategy avoids unnecessary caution and provides demonstrable assurances regarding the mitigation of attacks.</p>
 <p>Another mechanism to defend LLMs against adversarial attacks involves the use of a perplexity filter as presented in <a href="https://arxiv.org/pdf/2309.00614v2.pdf">this</a> paper. This filter operates on the principle that unconstrained attacks on LLMs often result in gibberish strings with high perplexity, indicating a lack of fluency, grammar mistakes, or illogical sequences. In this approach, two variations of the perplexity filter are considered. The first is a simple threshold-based filter, where a prompt passes the filter if its log perplexity is below a predefined threshold. The second variation involves checking perplexity in windows, treating the text as a sequence of contiguous chunks and flagging the text as suspicious if any window has high perplexity.</p>
 <p>A good starting point to read about Adversarial techniques is <a href="https://arxiv.org/abs/2302.12173">Greshake et al. 2023</a>. The paper proposes a classification of attacks and potential causes, as depicted in the image below.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/challenges.png" alt="challenges.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/challenges.png" alt="challenges.png"></p>
 <h2>A3. Alignment</h2>
 <p>Alignment refers to the ability of LLMs to understand instructions and generate outputs that align with human expectations. Foundational LLMs, like GPT-3, are trained on massive textual datasets to predict subsequent tokens, giving them extensive world knowledge. However, they may still struggle with accurately interpreting instructions and producing outputs that match human expectations. This can lead to biased or incorrect content generation, limiting their practical usefulness.</p>
 <p>Alignment is a broad concept that can be explained in various dimensions, one such categorization is done in <a href="https://arxiv.org/pdf/2308.05374.pdf">this</a> paper. The paper proposes multiple dimensions and sub-classes for ensuring LLM alignment. For instance, harmful content generated by LLMs can be categorized into harms incurred to individual users (e.g., emotional harm, offensiveness, discrimination), society (e.g., instructions for creating violent or dangerous behaviors), or stakeholders (e.g., providing misinformation leading to wrong business decisions).</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_3.39.35_PM.png" alt="Screenshot 2024-02-17 at 3.39.35 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_3.39.35_PM.png" alt="Screenshot 2024-02-17 at 3.39.35 PM.png"></p>
 <p>In broad terms, LLM Alignment can be improved through the following process:</p>
 <ul>
 <li>Determine the most crucial dimensions for alignment depending on the specific use-case.</li>
@@ -138,12 +138,12 @@
 <li>Employ Supervised Fine-Tuning (SFT) methods to enhance the benchmarks.</li>
 </ul>
 <p>Some popular aligned LLMs and benchmarks are listed in the image below</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_3.52.00_PM.png" alt="Screenshot 2024-02-17 at 3.52.00 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_3.52.00_PM.png" alt="Screenshot 2024-02-17 at 3.52.00 PM.png"></p>
 <p>Image Source: <a href="https://arxiv.org/pdf/2307.12966.pdf">https://arxiv.org/pdf/2307.12966.pdf</a> </p>
 <h2>A4. Prompt Brittleness</h2>
 <p>During the prompt engineering segment of our course, we explored various techniques for prompting LLMs. These sophisticated methods are essential because providing instructions similar to humans isn&#39;t suitable for LLMs. An overview of commonly used prompting methods is shown in the image below.</p>
 <p>LLMs require precise prompting, and even slight alterations can impact LLMs, altering their responses. This poses a challenge during deployment, as individuals unfamiliar with prompting methods may struggle to obtain accurate answers from LLMs. </p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_4.00.44_PM.png" alt="Screenshot 2024-02-17 at 4.00.44 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_4.00.44_PM.png" alt="Screenshot 2024-02-17 at 4.00.44 PM.png"></p>
 <p>Image Source: <a href="https://arxiv.org/pdf/2307.10169.pdf">https://arxiv.org/pdf/2307.10169.pdf</a></p>
 <p>In general, prompt brittleness in LLMs can be reduced by adopting the following high level strategies:</p>
 <ol>
@@ -159,7 +159,7 @@
 <p>Let&#39;s explore these challenges and potential solutions in detail:</p>
 <ol>
 <li><p><strong>Fine-tuning LLMs:</strong> Continuous fine-tuning of LLMs is crucial to ensure they stay updated with the latest knowledge or adapt to specific domains. Fine-tuning involves adjusting pre-trained model parameters on smaller, task-specific datasets to enhance performance. However, fine-tuning entire LLMs requires substantial memory, making it impractical for many users and leading to computational inefficiencies during deployment.</p>
-<p> <strong>Solutions:</strong> One approach is to leverage systems like RAG, where information can be utilized as context, enabling the model to learn from any knowledge base. Another solution is Parameter-efficient Fine-tuning (PEFT), such as adapters, which update only a subset of model parameters, reducing memory requirements while maintaining task performance. Methods like prefix-tuning and prompt-tuning prepend learnable token embeddings to inputs, facilitating efficient adaptation to specific datasets without the need to store and load individual fine-tuned models for each task. All these methods have been discussed in our previous weeks’ content. Please read through for deeper insights.</p>
+<p> <strong>Solutions:</strong> One approach is to leverage systems like RAG, where information can be utilized as context, enabling the model to learn from any knowledge base. Another solution is Parameter-efficient Fine-tuning (PEFT), such as adapters, which update only a subset of model parameters, reducing memory requirements while maintaining task performance. Methods like prefix-tuning and prompt-tuning prepend learnable token embeddings to inputs, facilitating efficient adaptation to specific datasets without the need to store and load individual fine-tuned models for each task. All these methods have been discussed in our previous weeks??content. Please read through for deeper insights.</p>
 </li>
 <li><p><strong>Inference Latency:</strong> LLMs often suffer from high inference latencies due to low parallelizability and large memory footprints. This results from processing tokens sequentially during inference and the extensive memory needed for decoding.</p>
 <p> <strong>Solution:</strong> Various techniques address these challenges, including efficient attention mechanisms. These mechanisms aim to accelerate attention computations by reducing memory bandwidth bottlenecks and introducing sparsity patterns to the attention matrix. <a href="https://blog.fireworks.ai/multi-query-attention-is-all-you-need-db072e758055">Multi-query attention</a> and <a href="https://arxiv.org/abs/2205.14135">FlashAttention</a> optimize memory bandwidth usage, while <a href="https://www.tensorops.ai/post/what-are-quantized-llms">quantization</a> and <a href="https://medium.com/@bnjmn_marie/freeze-and-prune-to-fine-tune-your-llm-with-apt-dc750b7bfbae">pruning</a> techniques reduce memory footprint and computational complexity without sacrificing performance.</p>
@@ -172,7 +172,7 @@
 <p>Privacy risks stem from their ability to process and generate text based on vast and varied training datasets. Models like GPT-3 have the potential to inadvertently capture and replicate sensitive information present in their training data, leading to potential privacy concerns during text generation. Issues such as unintentional data memorization, data leakage, and the possibility of disclosing confidential or personally identifiable information (PII) are significant challenges.</p>
 <p>Moreover, when LLMs are fine-tuned for specific tasks, additional privacy considerations arise. Striking a balance between harnessing the utility of these powerful language models and safeguarding user privacy is crucial for ensuring their reliable and ethical use across various applications.</p>
 <p>We review key privacy risks and attacks, along with possible mitigation strategies. The classification provided below is adapted from <a href="https://arxiv.org/pdf/2402.00888.pdf">this</a> paper, which categorizes privacy attacks as:</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_4.23.14_PM.png" alt="Screenshot 2024-02-17 at 4.23.14 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_4.23.14_PM.png" alt="Screenshot 2024-02-17 at 4.23.14 PM.png"></p>
 <p>Image Source: <a href="https://arxiv.org/pdf/2402.00888.pdf">https://arxiv.org/pdf/2402.00888.pdf</a></p>
 <ol>
 <li><strong>Gradient Leakage Attack:</strong></li>
@@ -220,6 +220,6 @@
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../../js/main.js"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Part 9: real world agentic systems — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,118 +33,118 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
 <h1>Part 9: Real-world Agentic Systems (Under the hood)</h1>
 <hr>
-<p>So far, we’ve covered all the ingredients that make up an agent:<br><strong>tools</strong>, <strong>planning</strong>, <strong>RAG</strong>, <strong>memory</strong>, <strong>structure</strong>, and <strong>coordination</strong> in multi-agent setups.</p>
+<p>So far, we?셶e covered all the ingredients that make up an agent:<br><strong>tools</strong>, <strong>planning</strong>, <strong>RAG</strong>, <strong>memory</strong>, <strong>structure</strong>, and <strong>coordination</strong> in multi-agent setups.</p>
 <p>But you might be thinking:  </p>
 <blockquote>
-<p>“Where does all this actually show up in the real world?”</p>
+<p>?쏻here does all this actually show up in the real world???/p>
 </blockquote>
-<p>Let’s walk through a few public-facing systems that exhibit <strong>agentic behavior</strong> — as far as we can tell.</p>
-<p>⚠️ <strong>Note:</strong><br>These aren’t open source. We don’t know their exact internals.<br>What follows is an informed simplification based on how they behave externally — just enough to understand how the agentic stack might show up in practice.</p>
+<p>Let?셲 walk through a few public-facing systems that exhibit <strong>agentic behavior</strong> ??as far as we can tell.</p>
+<p>?좑툘 <strong>Note:</strong><br>These aren?셳 open source. We don?셳 know their exact internals.<br>What follows is an informed simplification based on how they behave externally ??just enough to understand how the agentic stack might show up in practice.</p>
 <hr>
 <h2><strong>NotebookLM (Google): Agentic Search on Your Own Data</strong></h2>
-<p>Google’s NotebookLM acts like a personal research assistant. You upload your files, and it helps you work with them — summarizing, answering questions, even generating audio versions or study guides.</p>
-<p><strong>Core focus:</strong> Q&amp;A over your content — essentially a scaled-up, personal RAG system.</p>
+<p>Google?셲 NotebookLM acts like a personal research assistant. You upload your files, and it helps you work with them ??summarizing, answering questions, even generating audio versions or study guides.</p>
+<p><strong>Core focus:</strong> Q&amp;A over your content ??essentially a scaled-up, personal RAG system.</p>
 <p><strong>How it likely works:</strong></p>
 <ol>
 <li><strong>User uploads files</strong> (PDFs, notes, slides, etc.)  </li>
-<li><strong>Preprocessing</strong> — Stores them for retrieval later.  </li>
-<li><strong>User asks a question</strong> — e.g., <em>“What were the key insights from my Q2 strategy deck?”</em>  </li>
-<li><strong>Planning</strong> — Interprets task type (summary, Q&amp;A, comparison?), identifies relevant docs/sections.  </li>
-<li><strong>RAG</strong> — Retrieves the most relevant document chunks.  </li>
-<li><strong>LLM Generation</strong> — Responds clearly, grounded in your content.  </li>
-<li><strong>Memory</strong> —  <ul>
+<li><strong>Preprocessing</strong> ??Stores them for retrieval later.  </li>
+<li><strong>User asks a question</strong> ??e.g., <em>?쏻hat were the key insights from my Q2 strategy deck???/em>  </li>
+<li><strong>Planning</strong> ??Interprets task type (summary, Q&amp;A, comparison?), identifies relevant docs/sections.  </li>
+<li><strong>RAG</strong> ??Retrieves the most relevant document chunks.  </li>
+<li><strong>LLM Generation</strong> ??Responds clearly, grounded in your content.  </li>
+<li><strong>Memory</strong> ?? <ul>
 <li>Short-term: Tracks the conversation.  </li>
 <li>Long-term: Likely minimal or none.</li>
 </ul>
 </li>
-<li><strong>Tools</strong> — Possibly file viewers, summarization modules.</li>
+<li><strong>Tools</strong> ??Possibly file viewers, summarization modules.</li>
 </ol>
-<p><strong>What makes it agentic:</strong> Interprets goals, searches across your data, and composes responses — not just static outputs.</p>
+<p><strong>What makes it agentic:</strong> Interprets goals, searches across your data, and composes responses ??not just static outputs.</p>
 <hr>
 <h2><strong>Perplexity: Agentic Search on the Open Web</strong></h2>
-<p>Perplexity gives you a direct, answer-like response with sources — instead of a page of links.</p>
+<p>Perplexity gives you a direct, answer-like response with sources ??instead of a page of links.</p>
 <p><strong>How it likely works:</strong></p>
 <ol>
-<li><strong>User asks a question</strong> — e.g., <em>“What’s the latest research on Alzheimer’s treatments?”</em>  </li>
-<li><strong>Planning</strong> — Interprets intent (“latest,” “credible”), decides search approach.  </li>
-<li><strong>Tool Use</strong> — Issues queries via web APIs.  </li>
-<li><strong>RAG</strong> — Retrieves relevant page snippets.  </li>
-<li><strong>LLM Response</strong> — Synthesizes an answer with citations.  </li>
-<li><strong>Memory</strong> —  <ul>
+<li><strong>User asks a question</strong> ??e.g., <em>?쏻hat?셲 the latest research on Alzheimer?셲 treatments???/em>  </li>
+<li><strong>Planning</strong> ??Interprets intent (?쐋atest,???쐁redible??, decides search approach.  </li>
+<li><strong>Tool Use</strong> ??Issues queries via web APIs.  </li>
+<li><strong>RAG</strong> ??Retrieves relevant page snippets.  </li>
+<li><strong>LLM Response</strong> ??Synthesizes an answer with citations.  </li>
+<li><strong>Memory</strong> ?? <ul>
 <li>Short-term: Session context.  </li>
-<li>Long-term: May store preferences (e.g., “always use WSJ for news”).</li>
+<li>Long-term: May store preferences (e.g., ?쏿lways use WSJ for news??.</li>
 </ul>
 </li>
 </ol>
 <p><strong>What makes it agentic:</strong> Fetches info, decides what to use, and constructs an answer in a multi-step loop.</p>
 <hr>
 <h2><strong>DeepResearch (OpenAI): Deep Agentic Workflows</strong></h2>
-<p>DeepResearch tackles <strong>open-ended, complex research tasks</strong> — e.g., market analysis, competitive landscapes, technical deep dives.</p>
+<p>DeepResearch tackles <strong>open-ended, complex research tasks</strong> ??e.g., market analysis, competitive landscapes, technical deep dives.</p>
 <p><strong>How it likely works:</strong></p>
 <ol>
-<li><strong>User asks a broad task</strong> — e.g., <em>“Analyze the generative AI landscape for education startups.”</em>  </li>
-<li><strong>Planning</strong> — Breaks into subtasks (funding, trends, companies, risks), forms an execution plan.  </li>
-<li><strong>Tools</strong> — Likely includes:  <ul>
+<li><strong>User asks a broad task</strong> ??e.g., <em>?쏛nalyze the generative AI landscape for education startups.??/em>  </li>
+<li><strong>Planning</strong> ??Breaks into subtasks (funding, trends, companies, risks), forms an execution plan.  </li>
+<li><strong>Tools</strong> ??Likely includes:  <ul>
 <li>Web search  </li>
 <li>Document readers (PDFs)  </li>
 <li>Data tools (spreadsheets, graphs)  </li>
 <li>Report generation modules</li>
 </ul>
 </li>
-<li><strong>Agentic RAG</strong> — Not one-shot retrieval — fetches, reflects, re-fetches as task evolves.  </li>
-<li><strong>Memory</strong> —  <ul>
+<li><strong>Agentic RAG</strong> ??Not one-shot retrieval ??fetches, reflects, re-fetches as task evolves.  </li>
+<li><strong>Memory</strong> ?? <ul>
 <li>Episodic: Tracks which parts are done.  </li>
 <li>Semantic: Stores key facts/names.</li>
 </ul>
 </li>
-<li><strong>Multi-step Reasoning</strong> — Loops: plan → retrieve → read → rethink → generate → refine → repeat.</li>
+<li><strong>Multi-step Reasoning</strong> ??Loops: plan ??retrieve ??read ??rethink ??generate ??refine ??repeat.</li>
 </ol>
 <p><strong>What makes it agentic:</strong> Heavy planning, iterative tool use, self-directed progress.</p>
 <hr>
 <h2><strong>Connecting to Day 2: Levels of Autonomy</strong></h2>
 <img width="694" height="370" alt="image" src="https://github.com/user-attachments/assets/48812496-309d-42cd-9c86-8ef3cb345ec2" />
-<img width="969" height="231" alt="image" src="https://github.com/user-attachments/assets/12489209-a75b-4a31-853e-33dda02e1aaa" /><p><strong>NotebookLM</strong> — Between Level 2 and Level 3.  </p>
+<img width="969" height="231" alt="image" src="https://github.com/user-attachments/assets/12489209-a75b-4a31-853e-33dda02e1aaa" /><p><strong>NotebookLM</strong> ??Between Level 2 and Level 3.  </p>
 <ul>
 <li>High-control workflow agent.  </li>
 <li>Strong retrieval, limited autonomous decision-making.</li>
 </ul>
-<p><strong>Perplexity</strong> — Level 3 (maybe touching Level 4).  </p>
+<p><strong>Perplexity</strong> ??Level 3 (maybe touching Level 4).  </p>
 <ul>
 <li>Plans queries, organizes sources, crafts answers.</li>
 </ul>
-<p><strong>DeepResearch</strong> — Strong Level 4.  </p>
+<p><strong>DeepResearch</strong> ??Strong Level 4.  </p>
 <ul>
 <li>Takes high-level goals, breaks down tasks, works iteratively with minimal guidance.</li>
 </ul>
 <hr>
 <h2>Try It Yourself</h2>
-<p>They all have free versions — experiment and watch for:  </p>
+<p>They all have free versions ??experiment and watch for:  </p>
 <ul>
 <li>How much <strong>control</strong> you have  </li>
 <li>How much the <strong>system decides</strong> on its own</li>
 </ul>
-<p>It’s a great way to sharpen your instinct for agent design.</p>
+<p>It?셲 a great way to sharpen your instinct for agent design.</p>
 <hr>
 <h2>Up Next</h2>
-<p>In the next part, we’ll wrap up the series:  </p>
+<p>In the next part, we?셪l wrap up the series:  </p>
 <ul>
-<li>Summarize what we’ve learned  </li>
+<li>Summarize what we?셶e learned  </li>
 <li>Share best practices  </li>
 <li>Take a quick look at where <strong>agentic AI</strong> is headed</li>
 </ul>
@@ -155,6 +155,6 @@
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../../js/main.js"></script>
 </body>
 </html>

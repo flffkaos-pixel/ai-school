@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Week 3: finetuning llms — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,23 +33,23 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
 <h1>[Week 3] Fine Tuning LLMs</h1>
 <h2>ETMI5: Explain to Me in 5</h2>
-<p>In this section, we will go over the Fine-Tuning domain adaptation method for LLMs. Fine-tuning involves further training pre-trained models for specific tasks or domains, adapting them to new data distributions, and enhancing efficiency by leveraging pre-existing knowledge. It is crucial for tasks where generic models may not excel. Two main types of fine-tuning include unsupervised (updating models without modifying behavior) and supervised (updating models with labeled data). We emphasize on the popular supervised method-Instruction fine-tuning which augments input-output examples with explicit instructions for better generalization. We’ll dig deeper into Reinforcement Learning from Human Feedback (RLHF) which incorporates human feedback for model fine-tuning and Direct Preference Optimization (DPO) that directly optimizes models based on user preferences. We provide an overview of Parameter-Efficient Fine-Tuning (PEFT) approaches as well where selective updates are made to model parameters, addressing computational challenges, memory efficiency, and allowing versatility across modalities.</p>
+<p>In this section, we will go over the Fine-Tuning domain adaptation method for LLMs. Fine-tuning involves further training pre-trained models for specific tasks or domains, adapting them to new data distributions, and enhancing efficiency by leveraging pre-existing knowledge. It is crucial for tasks where generic models may not excel. Two main types of fine-tuning include unsupervised (updating models without modifying behavior) and supervised (updating models with labeled data). We emphasize on the popular supervised method-Instruction fine-tuning which augments input-output examples with explicit instructions for better generalization. We?셪l dig deeper into Reinforcement Learning from Human Feedback (RLHF) which incorporates human feedback for model fine-tuning and Direct Preference Optimization (DPO) that directly optimizes models based on user preferences. We provide an overview of Parameter-Efficient Fine-Tuning (PEFT) approaches as well where selective updates are made to model parameters, addressing computational challenges, memory efficiency, and allowing versatility across modalities.</p>
 <h2>Introduction</h2>
 <p>Fine-tuning  is the process of taking pre-trained models and further training them on smaller, domain-specific datasets. The aim is to refine their capabilities and enhance performance in a specific task or domain. This process transforms general-purpose models into specialized ones, bridging the gap between generic pre-trained models and the unique requirements of particular applications.</p>
 <p>Consider OpenAI&#39;s GPT-3, a state-of-the-art LLM designed for a broad range of  NLP tasks. To illustrate the need for fine-tuning, imagine a healthcare organization wanting to use GPT-3 to assist doctors in generating patient reports from textual notes. While GPT-3 is proficient in general text understanding, it may not be optimized for intricate medical terms and specific healthcare jargon.</p>
@@ -98,10 +98,10 @@
 <p>Techniques such as contrastive learning, as well as supervised and unsupervised fine-tuning, are not exclusive to LLMs and have been employed for domain adaptation even before the advent of LLMs. However, following the rise of LLMs, there has been a notable increase in the prominence of techniques such as RLHF, instruction fine-tuning, and PEFT. In the upcoming sections, we will explore these methodologies in greater detail to comprehend their applications and significance.</p>
 <h2>Instruction Fine-Tuning</h2>
 <p>Instruction fine-tuning is a method that has gained prominence in making LLMs more practical for real-world applications. In contrast to standard supervised fine-tuning, where models are trained on input examples and corresponding outputs, instruction tuning involves augmenting input-output examples with explicit instructions. This unique approach enables instruction-tuned models to generalize more effectively to new tasks. The data for instruction tuning is constructed differently, with instructions providing additional context for the model.  </p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/finetuning.png" alt="finetuning.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/finetuning.png" alt="finetuning.png"></p>
 <p>Image Source: <a href="https://openreview.net/forum?id=gEZrGCozdqR">Wei et al., 2022</a></p>
 <p>One notable dataset for instruction tuning is &quot;Natural Instructions&quot;. This dataset consists of 193,000 instruction-output examples sourced from 61 existing English NLP tasks. The uniqueness of this dataset lies in its structured approach, where crowd-sourced instructions from each task are aligned to a common schema. Each instruction is associated with a task, providing explicit guidance on how the model should respond. The instructions cover various fields, including a definition, things to avoid, and positive and negative examples. This structured nature makes the dataset valuable for fine-tuning models, as it provides clear and detailed instructions for the desired task. However, it&#39;s worth noting that the outputs in this dataset are relatively short, which might make the data less suitable for generating long-form content. Despite this limitation, Natural Instructions serves as a rich resource for training models through instruction tuning, enhancing their adaptability to specific NLP tasks. The below image contains an example instruction format</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/finetuning_1.png" alt="finetuning_1.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/finetuning_1.png" alt="finetuning_1.png"></p>
 <p> Image Source: <strong><a href="https://aclanthology.org/2022.acl-long.244/">Mishra et al., 2022</a></strong></p>
 <p>Instruction fine-tuning has become a valuable tool in the evolving landscape of natural language processing and machine learning, enabling LLMs to adapt to specific tasks with nuanced instructions.</p>
 <h2><strong>Reinforcement Learning from Human Feedback (RLHF)</strong></h2>
@@ -109,14 +109,14 @@
 <p><strong>1. Pretraining Language Models (LMs):</strong><br>RLHF initiates with a pretrained LM, typically achieved through classical pretraining objectives. The initial LM, which can vary in size, is flexible in choice. While optional, the initial LM can undergo fine-tuning on additional data. The crucial aspect is to have a model that exhibits a positive response to diverse instructions.</p>
 <p><strong>2. Reward Model Training:</strong><br>The subsequent step involves generating a reward model (RM) calibrated with human preferences. This model assigns scalar rewards to sequences of text, reflecting human preferences. The dataset for training the reward model is generated by sampling prompts and passing them through the initial LM to produce text. Human annotators rank the generated text outputs, and these rankings are used to create a regularized dataset for training the reward model. The reward function combines the preference model and a penalty on the difference between the RL policy and the initial model.</p>
 <p><strong>3. Fine-Tuning with RL:</strong><br>The final step entails fine-tuning the initial LLM using reinforcement learning. Proximal Policy Optimization (PPO) is a commonly used RL algorithm for this task. The RL policy is the LM that takes in a prompt and produces text, with actions corresponding to tokens in the LM&#39;s vocabulary. The reward function, derived from the preference model and a constraint on policy shift, guides the fine-tuning. PPO updates the LM&#39;s parameters to maximize the reward metrics in the current batch of prompt-generation pairs. Some parameters of the LM are frozen due to computational constraints, and the fine-tuning aims to align the model with human preferences.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/finetuning_2.png" alt="finetuning_2.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/finetuning_2.png" alt="finetuning_2.png"></p>
 <p> Image Source: <a href="https://openai.com/research/instruction-following">https://openai.com/research/instruction-following</a></p>
-<p>💡If you’re lost understanding RL terms like PPO, policy etc. Think of this analogy- Fine-Tuning with RL, specifically using Proximal Policy Optimization (PPO), is similar to refining instructions to train a pet, such as teaching a dog tricks. Think of the dog initially learning with general guidance (policy) and receiving treats (rewards) for correct actions. Now, imagine the dog mastering a new trick but not quite perfectly. Fine-tuning, with PPO, involves adjusting your instructions slightly based on how well the dog performs, similar to tweaking the model&#39;s behavior (policy) in Reinforcement Learning. It&#39;s like refining the instructions to optimize the learning process, much like perfecting your pet&#39;s tricks through gradual adjustments and treats for better performance.</p>
+<p>?뮕If you?셱e lost understanding RL terms like PPO, policy etc. Think of this analogy- Fine-Tuning with RL, specifically using Proximal Policy Optimization (PPO), is similar to refining instructions to train a pet, such as teaching a dog tricks. Think of the dog initially learning with general guidance (policy) and receiving treats (rewards) for correct actions. Now, imagine the dog mastering a new trick but not quite perfectly. Fine-tuning, with PPO, involves adjusting your instructions slightly based on how well the dog performs, similar to tweaking the model&#39;s behavior (policy) in Reinforcement Learning. It&#39;s like refining the instructions to optimize the learning process, much like perfecting your pet&#39;s tricks through gradual adjustments and treats for better performance.</p>
 <h2>Direct Preference Optimization DPO (<em>Bonus Topic)</em></h2>
 <p>Direct Preference Optimization (DPO) is an equivalent of RLHF and has been gaining significant traction these days. DPO offers a straightforward method for fine-tuning large language models based on human preferences. It eliminates the need for a complex reward model and directly incorporates user feedback into the optimization process. In DPO, users simply compare two model-generated outputs and express their preferences, allowing the LLM to adjust its behavior accordingly. This user-friendly approach comes with several advantages, including ease of implementation, computational efficiency, and greater control over the LLM&#39;s behavior.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/finetuning_3.png" alt="finetuning_3.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/finetuning_3.png" alt="finetuning_3.png"></p>
 <p>  Image Source: <a href="https://arxiv.org/html/2305.18290v2">Rafailov, Rafael, et al.</a></p>
-<p>💡In the context of LLMs, maximum likelihood is a principle used during the training of the model. Imagine the model is like a writer trying to predict the next word in a sentence. Maximum likelihood training involves adjusting the model&#39;s parameters (the factors that influence its predictions) to maximize the likelihood of generating the actual sequences of words observed in the training data. It&#39;s like tuning the writer&#39;s skills to make the sentences they create most closely resemble the sentences they&#39;ve seen before. So, maximum likelihood helps the LLM learn to generate text that is most similar to the examples it was trained on.</p>
+<p>?뮕In the context of LLMs, maximum likelihood is a principle used during the training of the model. Imagine the model is like a writer trying to predict the next word in a sentence. Maximum likelihood training involves adjusting the model&#39;s parameters (the factors that influence its predictions) to maximize the likelihood of generating the actual sequences of words observed in the training data. It&#39;s like tuning the writer&#39;s skills to make the sentences they create most closely resemble the sentences they&#39;ve seen before. So, maximum likelihood helps the LLM learn to generate text that is most similar to the examples it was trained on.</p>
 <p><em><strong>DPO</strong>:</em> DPO takes a straightforward approach by directly optimizing the LM based on user preferences without the need for a separate reward model. Users compare two model-generated outputs, expressing their preferences to guide the optimization process.</p>
 <p><em><strong>RLHF</strong>:</em> RLHF follows a more structured path, leveraging reinforcement learning principles. It involves training a reward model that learns to identify and reward desirable LM outputs. The reward model then guides the LM&#39;s training process, shaping its behavior towards achieving positive outcomes.</p>
 <h3><strong>DPO (Direct Policy Optimization) vs. RLHF (Reinforcement Learning from Human Feedback): Understanding the Differences</strong></h3>
@@ -149,7 +149,7 @@
 </ol>
 <p>In summary, PEFT offers a practical and efficient solution for fine-tuning large language models, addressing computational and memory challenges while maintaining performance on downstream tasks.</p>
 <p>A summary of the most popular PEFT methods are in the chart below. Please download for improved visibility.</p>
-<p><a href="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/PEFT_(1).pdf">PEFT (1).pdf</a></p>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/PEFT_(1).pdf">PEFT (1).pdf</a></p>
 <h2>Read/Watch These Resources (Optional)</h2>
 <ol>
 <li><a href="https://www.superannotate.com/blog/llm-fine-tuning">https://www.superannotate.com/blog/llm-fine-tuning</a></li>
@@ -170,6 +170,6 @@
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../../js/main.js"></script>
 </body>
 </html>

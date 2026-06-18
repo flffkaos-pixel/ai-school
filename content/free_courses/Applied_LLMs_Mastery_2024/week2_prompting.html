@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Week 2: prompting — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,17 +33,17 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
@@ -52,7 +52,7 @@
 <p>In the section on prompting, you will learn the basics of formulating effective prompts to guide language models in generating desired outputs. You will explore prompt engineering techniques to refine these prompts for improved performance in various applications. We&#39;ll  cover the importance of contextual understanding, leveraging training data patterns, and utilizing transfer learning. Advanced prompting methods like Chain-of-Thought and Tree-of-Thought will be introduced, highlighting their roles in enhancing reasoning capabilities. Additionally, the section will address the risks associated with prompting, such as bias and prompt hacking, and provide strategies to mitigate these risks.</p>
 <h2>Introduction</h2>
 <h3>Prompting</h3>
-<p>In the realm of language models, &quot;<strong>prompting</strong>&quot; refers to the art and science of formulating precise instructions or queries provided to the model to generate desired outputs. It&#39;s the input—typically in the form of text—that users present to the language model to elicit specific responses. The effectiveness of a prompt lies in its ability to guide the model&#39;s understanding and generate outputs aligned with user expectations.</p>
+<p>In the realm of language models, &quot;<strong>prompting</strong>&quot; refers to the art and science of formulating precise instructions or queries provided to the model to generate desired outputs. It&#39;s the input?봳ypically in the form of text?봳hat users present to the language model to elicit specific responses. The effectiveness of a prompt lies in its ability to guide the model&#39;s understanding and generate outputs aligned with user expectations.</p>
 <h3>Prompt Engineering</h3>
 <ul>
 <li>Prompt engineering, a rapidly growing field, revolves around refining prompts to unleash the full potential of Language Models in various applications.</li>
@@ -60,7 +60,7 @@
 <li>Beyond crafting prompts, prompt engineering is a rich set of skills essential for interacting and developing with LLMs. It&#39;s not just about design; it&#39;s a crucial skill for understanding and exploiting LLM capabilities, ensuring safety, and introducing novel features like domain knowledge integration.</li>
 <li>This proficiency is vital in aligning AI behavior with human intent. While professional prompt engineers delve into the complexities of AI, the skill isn&#39;t exclusive to specialists. Anyone refining prompts for models like ChatGPT is engaging in prompt engineering, making it accessible to users exploring language model potentials.</li>
 </ul>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting.png" alt="prompting.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting.png" alt="prompting.png"></p>
 <pre><code>                Image Source: [https://zapier.com/blog/prompt-engineering/](https://zapier.com/blog/prompt-engineering/)
 </code></pre>
 <h2>Why Prompting?</h2>
@@ -73,7 +73,7 @@
 <li><strong>Contextual Prompts for Contextual Responses:</strong> By using prompts that resemble the language and context the model was trained on, users tap into the model&#39;s ability to understand and generate content within similar contexts. This leads to more accurate and contextually appropriate responses.</li>
 <li><strong>Mitigating Bias:</strong> The model may inherit biases present in its training data. Thoughtful prompts can help mitigate bias by providing additional context or framing questions in a way that encourages unbiased responses. This is crucial for aligning model outputs with ethical standards.</li>
 </ol>
-<p>To summarize, the training of LLMs involves learning from massive datasets, and prompting is the means by which users guide these models to produce useful, relevant, and policy-compliant responses. It&#39;s a collaborative process where users and models work together to achieve the desired outcome. There’s also a growing field called adversarial prompting which involves intentionally crafting prompts to exploit weaknesses or biases in a language model, with the goal of generating responses that may be misleading, inappropriate, or showcase the model&#39;s limitations. Safeguarding models from providing harmful responses is a challenge that needs to be solved and is an active research area.</p>
+<p>To summarize, the training of LLMs involves learning from massive datasets, and prompting is the means by which users guide these models to produce useful, relevant, and policy-compliant responses. It&#39;s a collaborative process where users and models work together to achieve the desired outcome. There?셲 also a growing field called adversarial prompting which involves intentionally crafting prompts to exploit weaknesses or biases in a language model, with the goal of generating responses that may be misleading, inappropriate, or showcase the model&#39;s limitations. Safeguarding models from providing harmful responses is a challenge that needs to be solved and is an active research area.</p>
 <h2>Prompting Basics</h2>
 <p>The basic principles of prompting involve the inclusion of specific elements tailored to the task at hand. These elements include:</p>
 <ol>
@@ -107,11 +107,11 @@ Sentiment:
 <li><strong>Provide Positive Guidance:</strong> Instead of stating what not to do, clearly state what actions should be taken in a given situation, offering positive guidance.</li>
 <li><strong>Code Generation Specific - Use &quot;Leading Words&quot;:</strong> When generating code, utilize &quot;leading words&quot; to guide the model toward a specific pattern or language, improving the accuracy of code generation.</li>
 </ol>
-<p>💡It’s also important to note that crafting effective prompts is an iterative process, and you may need to experiment to find the most suitable approach for your specific use case. Prompt patterns may be specific to models and how they were trained (architecture, datasets used etc.)</p>
+<p>?뮕It?셲 also important to note that crafting effective prompts is an iterative process, and you may need to experiment to find the most suitable approach for your specific use case. Prompt patterns may be specific to models and how they were trained (architecture, datasets used etc.)</p>
 <p>Explore these <a href="https://www.promptingguide.ai/introduction/examples">examples</a> of prompts to gain a better understanding of how to craft effective prompts in different use-cases.</p>
 <h2>Advanced Prompting Techniques</h2>
 <p>Prompting techniques constitute a rapidly evolving area of research, with researchers continually exploring novel methods to effectively prompt models for optimal performance. The simplest forms of prompting include zero-shot, where only instructions are provided, and few-shot, where examples are given, and the language model (LLM) is tasked with replication. More intricate techniques are elucidated in various research papers. While the provided list is not exhaustive, existing prompting methods can be tentatively classified into high-level categories. It&#39;s crucial to note that these classes are derived from current techniques and are not exhaustive or definitive; they are subject to evolution and modification, reflecting the dynamic nature of advancements in this field. It&#39;s important to highlight that numerous methods may fall into one or more of these classes, exhibiting overlapping characteristics to get the benefits offered by multiple categories.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_11.png" alt="prompting_11.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_11.png" alt="prompting_11.png"></p>
 <h3>A. Step**-by-Step Modular Decomposition**</h3>
 <p>These methods involve breaking down complex problems into smaller, manageable steps, facilitating a structured approach to problem-solving. These methods guide the LLM through a sequence of intermediate steps, allowing it to focus on solving one step at a time rather than tackling the entire problem in a single step. This approach enhances the reasoning abilities of LLMs and is particularly useful for tasks requiring multi-step thinking.</p>
 <p>Examples of methods falling under this category include:</p>
@@ -120,18 +120,18 @@ Sentiment:
 </ol>
 <p>Chain-of-Thought (CoT) Prompting is a technique to enhance complex reasoning capabilities through intermediate reasoning steps. This method involves providing a sequence of reasoning steps that guide a large language model (LLM) through a problem, allowing it to focus on solving one step at a time.</p>
 <p>In the provided example below, the prompt involves evaluating whether the sum of odd numbers in a given group is an even number. The LLM is guided to reason through each example step by step, providing intermediate reasoning before arriving at the final answer. The output shows that the model successfully solves the problem by considering the odd numbers and their sums.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_1.png" alt="prompting_1.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_1.png" alt="prompting_1.png"></p>
 <pre><code>                                      Image Source: [Wei et al. (2022)](https://arxiv.org/abs/2201.11903)
 </code></pre>
 <p>1a. <strong>Zero-shot/Few-Shot CoT Prompting:</strong></p>
 <p>Zero-shot involves adding the prompt &quot;Let&#39;s think step by step&quot; to the original question to guide the LLM through a systematic reasoning process. Few-shot prompting provides the model with a few examples of similar problems to enhance reasoning abilities. These CoT methods prompt significantly improves the model&#39;s performance by explicitly instructing it to think through the problem step by step. In contrast, without the special prompt, the model fails to provide the correct answer.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_2.png" alt="prompting_2.png"></p>
-<pre><code>                                    Image Source: [Kojima et al. (2022)](https://arxiv.org/abs/2205.11916)
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_2.png" alt="prompting_2.png"></p>
+<pre><code>                                    Image Source:혻[Kojima et al. (2022)](https://arxiv.org/abs/2205.11916)
 </code></pre>
 <p>1b. <strong>Automatic Chain-of-Thought (Auto-CoT):</strong></p>
 <p>Automatic Chain-of-Thought (Auto-CoT) was designed to automate the generation of reasoning chains for demonstrations. Instead of manually crafting examples, Auto-CoT leverages LLMs with a &quot;Let&#39;s think step by step&quot; prompt to automatically generate reasoning chains one by one.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_3.png" alt="prompting_3.png"></p>
-<p>Image Source: <a href="https://arxiv.org/abs/2210.03493">Zhang et al. (2022)</a></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_3.png" alt="prompting_3.png"></p>
+<p>Image Source:혻<a href="https://arxiv.org/abs/2210.03493">Zhang et al. (2022)</a></p>
 <p>The Auto-CoT process involves two main stages:</p>
 <ol>
 <li><strong>Question Clustering:</strong> Partition questions into clusters based on similarity.</li>
@@ -149,15 +149,15 @@ Sentiment:
 <li><strong>Deliberate Decision-Making:</strong> Enables models to make decisions intentionally and evaluate different reasoning paths.</li>
 <li><strong>Backtracking and Looking Ahead:</strong> Allows models to backtrack or look ahead during the reasoning process, providing flexibility in problem-solving.</li>
 </ul>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_4.png" alt="prompting_4.png"></p>
-<p>Image Source: <a href="https://arxiv.org/abs/2305.10601">Yao et el. (2023)</a></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_4.png" alt="prompting_4.png"></p>
+<p>Image Source:혻<a href="https://arxiv.org/abs/2305.10601">Yao et el. (2023)</a></p>
 <ol>
 <li><strong>Graph of Thought Prompting</strong></li>
 </ol>
 <p>This work arises from the fact that human thought processes often follow non-linear patterns, deviating from simple sequential chains. In response, the authors propose Graph-of-Thought (GoT) reasoning, a novel approach that models thoughts not just as chains but as graphs, capturing the intricacies of non-sequential thinking.</p>
 <p>This extension introduces a paradigm shift in representing thought units. Nodes in the graph symbolize these thought units, and edges depict connections, presenting a more realistic portrayal of the complexities inherent in human cognition. Unlike traditional trees, GoT employs Directed Acyclic Graphs (DAGs), allowing the modeling of paths that fork and converge. This divergence provides GoT with a significant advantage over conventional linear approaches.</p>
 <p>The GoT reasoning model operates in a two-stage framework. Initially, it generates rationales, and subsequently, it produces the final answer. To facilitate this, the model leverages a Graph-of-Thoughts encoder for representation learning. The integration of GoT representations with the original input occurs through a gated fusion mechanism, enabling the model to combine both linear and non-linear aspects of thought processes.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_5.png" alt="prompting_5.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_5.png" alt="prompting_5.png"></p>
 <pre><code>                               Image Source: [Yao et el. (2023)](https://arxiv.org/abs/2305.16582)
 </code></pre>
 <h3>B. Comprehensive <strong>Reasoning and Verification</strong></h3>
@@ -166,28 +166,28 @@ Sentiment:
 <li><strong>Automatic Prompt Engineer</strong></li>
 </ol>
 <p>Automatic Prompt Engineer (APE) is a technique that treats instructions as programmable elements and seeks to optimize them by conducting a search across a pool of instruction candidates proposed by an LLM. Drawing inspiration from classical program synthesis and human prompt engineering, APE employs a scoring function to evaluate the effectiveness of candidate instructions. The selected instruction, determined by the highest score, is then utilized as the prompt for the LLM. This automated approach aims to enhance the efficiency of prompt generation, aligning with classical program synthesis principles and leveraging the knowledge embedded in large language models to improve overall performance in producing desired outputs.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_6.png" alt="prompting_6.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_6.png" alt="prompting_6.png"></p>
 <pre><code>                                           Image Source: [Zhou et al., (2022)](https://arxiv.org/abs/2211.01910)
 </code></pre>
 <ol>
 <li><strong>Chain of Verification (CoVe)</strong></li>
 </ol>
 <p>The Chain-of-Verification (CoVe) method  addresses the challenge of hallucination in large language models by introducing a systematic verification process. It begins with the model drafting an initial response to a user query, potentially containing inaccuracies. CoVe then plans and poses independent verification questions, aiming to fact-check the initial response without bias. The model answers these questions, and based on the verification outcomes, generates a final response, incorporating corrections and improvements identified through the verification process. CoVe ensures unbiased verification, leading to enhanced factual accuracy in the final response, and contributes to improved overall model performance by mitigating the generation of inaccurate information.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_7.png" alt="prompting_7.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_7.png" alt="prompting_7.png"></p>
 <pre><code>                                  Image Source: [Dhuliawala et al.2023](https://arxiv.org/abs/2309.11495)
 </code></pre>
 <ol>
 <li><strong>Self Consistency</strong></li>
 </ol>
 <p>Self Consistency represents a refinement in prompt engineering, specifically targeting the limitations of naive greedy decoding in chain-of-thought prompting. The core concept involves sampling multiple diverse reasoning paths using few-shot CoT and leveraging the generated responses to identify the most consistent answer. This method aims to enhance the performance of CoT prompting, particularly in tasks that demand arithmetic and commonsense reasoning. By introducing diversity in reasoning paths and prioritizing consistency, Self Consistency contributes to more robust and accurate language model responses within the CoT framework.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-01-14_at_3.50.46_PM.png" alt="Screenshot 2024-01-14 at 3.50.46 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-01-14_at_3.50.46_PM.png" alt="Screenshot 2024-01-14 at 3.50.46 PM.png"></p>
 <pre><code>                                        Image Source: [Wang et al. (2022)](https://arxiv.org/pdf/2203.11171.pdf)
 </code></pre>
 <ol>
 <li><strong>ReACT</strong></li>
 </ol>
 <p>The ReAct framework combines reasoning and action in LLMs to enhance their capabilities in dynamic tasks. The framework involves generating both verbal reasoning traces and task-specific actions in an interleaved manner. ReAct aims to address the limitations of models, like chain-of-thought , that lack access to the external world and can encounter issues such as fact hallucination and error propagation. Inspired by the synergy between &quot;acting&quot; and &quot;reasoning&quot; in human learning and decision-making, ReAct prompts LLMs to create, maintain, and adjust plans for acting dynamically. The model can interact with external environments, such as knowledge bases, to retrieve additional information, leading to more reliable and factual responses.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-01-14_at_3.53.32_PM.png" alt="Screenshot 2024-01-14 at 3.53.32 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-01-14_at_3.53.32_PM.png" alt="Screenshot 2024-01-14 at 3.53.32 PM.png"></p>
 <pre><code>                                          Image Source: [Yao et al., 2022](https://arxiv.org/abs/2210.03629)
 </code></pre>
 <p><strong>How ReAct Works:</strong></p>
@@ -225,21 +225,21 @@ Sentiment:
 </li>
 </ol>
 <p>Active Prompting&#39;s dynamic adaptation mechanism enables LLMs to actively seek and incorporate task-specific examples that align with the challenges posed by different tasks. By leveraging human-annotated exemplars for uncertain cases, this approach contributes to a more contextually aware and effective performance across diverse tasks.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_8.png" alt="prompting_8.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_8.png" alt="prompting_8.png"></p>
 <pre><code>                                    Image Source: [Diao et al., (2023)](https://arxiv.org/pdf/2302.12246.pdf)
 </code></pre>
 <ol>
 <li><strong>Automatic Multi-step Reasoning and Tool-use (ART) (External Tools)</strong></li>
 </ol>
 <p>ART emphasizes on task handling with LLMs. This framework integrates Chain-of-Thought prompting and tool usage by employing a frozen LLM. Instead of manually crafting demonstrations, ART selects task-specific examples from a library and enables the model to automatically generate intermediate reasoning steps. During test time, it  integrates external tools into the reasoning process, fostering zero-shot generalization for new tasks. ART is not only extensible, allowing for human updates to task and tool libraries, but also promotes adaptability and versatility in addressing a variety of tasks with LLMs.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_9.png" alt="prompting_9.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_9.png" alt="prompting_9.png"></p>
 <pre><code>                                 Image Source: [Paranjape et al., (2023)](https://arxiv.org/abs/2303.09014)
 </code></pre>
 <ol>
 <li><strong>Chain-of-Knowledge (CoK)</strong></li>
 </ol>
 <p>This  framework aims to bolster LLMs by dynamically integrating grounding information from diverse sources, fostering more factual rationales and mitigating the risk of hallucination during generation. CoK operates through three key stages: reasoning preparation, dynamic knowledge adapting, and answer consolidation. It starts by formulating initial rationales and answers while identifying relevant knowledge domains. Subsequently, it refines these rationales incrementally by adapting knowledge from the identified domains, ultimately providing a robust foundation for the final answer. The figure below illustrates a comparison with other methods, highlighting CoK&#39;s incorporation of heterogeneous sources for knowledge retrieval and dynamic knowledge adapting.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_10.png" alt="prompting_10.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_10.png" alt="prompting_10.png"></p>
 <pre><code>                                        Image Source: [Li et al. 2024](https://arxiv.org/abs/2401.04398)
 </code></pre>
 <h2>Risks</h2>
@@ -331,6 +331,6 @@ Sentiment:
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../../js/main.js"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Mm llms guide — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,22 +33,22 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../index.html">Home</a>
+<a href="../../courses.html">Courses</a>
+<a href="../../interview.html">Interview</a>
+<a href="../../research.html">Research</a>
+<a href="../../resources.html">Resources</a>
+<a href="../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
 <h1>Introduction to MM LLMs</h1>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/Applied_LLMs_-_2024-05-03T122206.505.png" alt="Applied LLMs - 2024-05-03T122206.505.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/Applied_LLMs_-_2024-05-03T122206.505.png" alt="Applied LLMs - 2024-05-03T122206.505.png"></p>
 <h3><strong>1. Introduction to Multimodal LLMs</strong></h3>
 <p>Most people were incredibly impressed when OpenAI&#39;s Sora made its debut in Feb 2024, seamlessly producing lifelike videos. Sora is a prime example of a multimodal LLM (MM-LLM), employing text to influence the generation of videos, a direction in research that has been evolving for several years. In the past year particularly, MM-LLMs have witnessed remarkable advancements, paving way for  a new era of AI capable of processing and generating content across multiple modalities. These MM-LLMs represent a significant evolution of traditional LLMs, as they integrate information from various sources such as text, images, and audio to enhance their understanding and generation capabilities. </p>
 <p>It&#39;s essential to note that not all multimodal systems are MLLMs. While some models combine text and image processing, true MLLMs encompass a broader range of modalities and integrate them seamlessly to enhance understanding and generation capabilities. In essence, MM-LLMs augment off-the-shelf LLMs with cost-effective training strategies, enabling them to support multimodal inputs or outputs. By leveraging the inherent reasoning and decision-making capabilities of LLMs, MM-LLMs empower a diverse range of multimodal tasks, spanning natural language understanding, computer vision, and audio processing.</p>
@@ -57,9 +57,9 @@
 <p>Beyond these examples, MLLMs have the potential to improve various industries and domains, including healthcare, education, entertainment, and autonomous systems. By seamlessly integrating information from different modalities, MLLMs can enable AI systems to better understand and interact with the world, ultimately leading to more intelligent and human-like behavior.</p>
 <p>In the following sections of this beginner friendly guide, we will explore the core components, training paradigms, state-of-the-art advancements, evaluation methods, challenges, and future directions of MLLMs, shedding light on the exciting possibilities and implications of this groundbreaking technology.</p>
 <h2><strong>2. Core Components</strong></h2>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/Screenshot_2024-05-02_at_12.06.29_PM.png" alt="Screenshot 2024-05-02 at 12.06.29 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/Screenshot_2024-05-02_at_12.06.29_PM.png" alt="Screenshot 2024-05-02 at 12.06.29 PM.png"></p>
 <p>Image Source: <a href="https://arxiv.org/pdf/2401.13601">https://arxiv.org/pdf/2401.13601</a></p>
-<p>Most MM-LLMs can be categorized into key components, each differentiated by specific design choices. In this guide, we will adopt the component framework outlined in the paper &quot;MM-LLMs: Recent Advances in Multimodal Large Language Models” (<a href="https://arxiv.org/pdf/2401.13601">link</a>). These components are designed to seamlessly integrate information from diverse modalities, such as text, images, videos, audio, etc. enabling the model to understand and generate content that spans multiple modalities.</p>
+<p>Most MM-LLMs can be categorized into key components, each differentiated by specific design choices. In this guide, we will adopt the component framework outlined in the paper &quot;MM-LLMs: Recent Advances in Multimodal Large Language Models??(<a href="https://arxiv.org/pdf/2401.13601">link</a>). These components are designed to seamlessly integrate information from diverse modalities, such as text, images, videos, audio, etc. enabling the model to understand and generate content that spans multiple modalities.</p>
 <p><strong>2.1 Modality Encoder</strong></p>
 <p>The Modality Encoder (ME) plays a pivotal role in MM-LLMs by encoding inputs from various modalities into corresponding feature representations. Its function is akin to translating the information from different modalities into a common format that the model can process effectively. For example, ME processes images, videos, audio, and 3D data, converting them into feature vectors that capture their essential characteristics. This step is essential for facilitating the subsequent processing of multimodal inputs by the model. Examples of Modality Encoders for different modalities include <a href="https://huggingface.co/docs/transformers/model_doc/vit">ViT</a>, <a href="https://github.com/mlfoundations/open_clip">OpenCLIP</a> etc.</p>
 <p><strong>2.2 Input Projector</strong></p>
@@ -72,7 +72,7 @@
 <p>Finally, the Modality Generator is responsible for producing outputs in distinct modalities based on the aligned textual representations. By leveraging off-the-shelf <a href="https://huggingface.co/docs/diffusers/en/api/pipelines/latent_diffusion">Latent Diffusion Models</a> (LDMs), the Modality Generator synthesizes multimodal content that aligns with the input text and other modalities. During training, the Modality Generator utilizes ground truth content to learn to generate coherent and contextually relevant multimodal outputs.</p>
 <h3>2.1 Task Example:</h3>
 <p>Let&#39;s understand how all these components work together in an use-case for generating captions for multimedia content, given inputs from images and textual descriptions as shown in the image below:</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/Screenshot_2024-05-02_at_12.21.46_PM.png" alt="Screenshot 2024-05-02 at 12.21.46 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/Screenshot_2024-05-02_at_12.21.46_PM.png" alt="Screenshot 2024-05-02 at 12.21.46 PM.png"></p>
 <p>Here&#39;s how each component would function:</p>
 <ol>
 <li><strong>Modality Encoder</strong>:<ul>
@@ -116,7 +116,7 @@
 <li>Text Only: Additionally, text-only data is incorporated into the training process to uphold and bolster the language comprehension capabilities of the underlying pretrained language model.</li>
 </ol>
 <p>The below table from <a href="https://arxiv.org/pdf/2401.13601">this</a> paper provides a list of popular training datasets and their sizes: </p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/Screenshot_2024-05-03_at_10.55.00_AM.png" alt="Screenshot 2024-05-03 at 10.55.00 AM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/Screenshot_2024-05-03_at_10.55.00_AM.png" alt="Screenshot 2024-05-03 at 10.55.00 AM.png"></p>
 <h3>3.2 Instruction Tuning (MM-IT):</h3>
 <p>In the instruction tuning phase for MM-LLMs, the model is fine-tuned to perform specific task. Let us take the example of a task like Visual Question Answering (VQA). </p>
 <p>By providing explicit instructions alongside the input data. Let&#39;s break down how this works using a VQA example:</p>
@@ -132,7 +132,7 @@
 </ol>
 <p>Therefore, the instruction tuning phase for MM-LLMs involves fine-tuning the model on task-specific datasets while providing explicit instructions and feedback to guide the learning process, ultimately improving the model&#39;s ability to perform the desired task. In the above example, we studies a specific task: Visual Question Answering.</p>
 <h2><strong>4. State-of-the-Art MM-LLMs</strong></h2>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/Screenshot_2024-05-02_at_12.06.06_PM.png" alt="Screenshot 2024-05-02 at 12.06.06 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/Screenshot_2024-05-02_at_12.06.06_PM.png" alt="Screenshot 2024-05-02 at 12.06.06 PM.png"></p>
 <p>Image Source: <a href="https://arxiv.org/pdf/2401.13601">https://arxiv.org/pdf/2401.13601</a></p>
 <p>The above image lists some popular SoTA MM-LLMs.  At a high level, different MM-LLMs vary in several key aspects:</p>
 <ol>
@@ -231,6 +231,6 @@
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../js/main.js"></script>
 </body>
 </html>

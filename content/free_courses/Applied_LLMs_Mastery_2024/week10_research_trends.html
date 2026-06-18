@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Week 10: research trends — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,17 +33,17 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
@@ -53,13 +53,13 @@
 <h2>Multimodal LLMs (MM-LLMs)</h2>
 <p>In the past year, there have been notable advancements in MultiModal Large Language Models (MM-LLMs). Specifically, MM-LLMs represent a significant evolution in the space of language models, as they incorporate multimodal components alongside their text processing capabilities. While progress has also been made in multimodal models in general, MM-LLMs have experienced particularly substantial improvements, largely due to the remarkable enhancements in LLMs over the year, upon which they heavily rely.</p>
 <p>Moreover, the development of MM-LLMs has been greatly aided by the adoption of cost-effective training strategies. These strategies have enabled these models to efficiently manage inputs and outputs across multiple modalities. Unlike conventional models, MM-LLMs not only retain the impressive reasoning and decision-making capabilities inherent in Large Language Models but also expand their utility to address a diverse array of tasks spanning various modalities.</p>
-<p>To understand how MM-LLMs function, we can go over some common architectural components. Most MM-LLMs can be divided in 5 main components as shown in the image below. The components explained below are adapted from the paper “<a href="https://arxiv.org/pdf/2401.13601.pdf">MM-LLMs: Recent Advances in MultiModal Large Language Models</a>”. Let’s understand each of the components in detail.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-18_at_3.09.34_PM.png" alt="Screenshot 2024-02-18 at 3.09.34 PM.png"></p>
+<p>To understand how MM-LLMs function, we can go over some common architectural components. Most MM-LLMs can be divided in 5 main components as shown in the image below. The components explained below are adapted from the paper ??a href="https://arxiv.org/pdf/2401.13601.pdf">MM-LLMs: Recent Advances in MultiModal Large Language Models</a>?? Let?셲 understand each of the components in detail.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-18_at_3.09.34_PM.png" alt="Screenshot 2024-02-18 at 3.09.34 PM.png"></p>
 <p>Image Source: <a href="https://arxiv.org/pdf/2401.13601.pdf">https://arxiv.org/pdf/2401.13601.pdf</a></p>
 <p><strong>1. Modality Encoder:</strong> The Modality Encoder (ME) plays a pivotal role in encoding inputs from diverse modalities $I_X$ to extract corresponding features  $F_X$  Various pre-trained encoder options exist for different modalities, including visual, audio, and 3D inputs. For visual inputs, options like NFNet-F6, ViT, CLIP ViT, and Eva-CLIP ViT are commonly employed. Similarly, for audio inputs, frameworks such as CFormer, HuBERT, BEATs, and Whisper are utilized. Point cloud inputs are encoded using ULIP-2 with a PointBERT backbone. Some MM-LLMs leverage ImageBind, a unified encoder covering multiple modalities, including image, video, text, audio, and heat maps.</p>
-<p><strong>2. Input Projector:</strong> The Input Projector $Θ_(X→T)$ aligns the encoded features of other modalities $F_X$ with the text feature space $T$. This alignment is crucial for effectively integrating multimodal information into the LLM Backbone. The Input Projector can be implemented through various methods such as Linear Projectors, Multi-Layer Perceptrons (MLPs), Cross-attention, Q-Former, or P-Former, each with its unique approach to aligning features across modalities.</p>
+<p><strong>2. Input Projector:</strong> The Input Projector $?_(X?뭈)$ aligns the encoded features of other modalities $F_X$ with the text feature space $T$. This alignment is crucial for effectively integrating multimodal information into the LLM Backbone. The Input Projector can be implemented through various methods such as Linear Projectors, Multi-Layer Perceptrons (MLPs), Cross-attention, Q-Former, or P-Former, each with its unique approach to aligning features across modalities.</p>
 <p><strong>3. LLM Backbone:</strong> The LLM Backbone serves as the core agent in MM-LLMs, inheriting notable properties from LLMs such as zero-shot generalization, few-shot In-Context Learning (ICL), Chain-of-Thought (CoT), and instruction following. The backbone processes representations from various modalities, engaging in semantic understanding, reasoning, and decision-making regarding the inputs. Additionally, some MM-LLMs incorporate Parameter-Efficient Fine-Tuning (PEFT) methods like Prefix-tuning, Adapter, or LoRA to minimize the number of additional trainable parameters.</p>
-<p><strong>4. Output Projector:</strong> The Output Projector $Θ_(T→X)$ maps signal token representations $S_X$from the LLM Backbone into features $H_X$ understandable to the Modality Generator $MG_X$. This projection facilitates the generation of multimodal content. The Output Projector is typically implemented using a Tiny Transformer or MLP, and its optimization focuses on minimizing the distance between the mapped features $H_X$ and the conditional text representations of $MG_X$ .</p>
+<p><strong>4. Output Projector:</strong> The Output Projector $?_(T?뭎)$ maps signal token representations $S_X$from the LLM Backbone into features $H_X$ understandable to the Modality Generator $MG_X$. This projection facilitates the generation of multimodal content. The Output Projector is typically implemented using a Tiny Transformer or MLP, and its optimization focuses on minimizing the distance between the mapped features $H_X$ and the conditional text representations of $MG_X$ .</p>
 <p><strong>5. Modality Generator:</strong> The Modality Generator $MG_X$ is responsible for producing outputs in distinct modalities such as images, videos, or audio. Commonly, existing works leverage off-the-shelf Latent Diffusion Models (LDMs) for image, video, and audio synthesis. During training, ground truth content is transformed into latent features, which are then de-noised to generate multimodal content using LDMs conditioned on the mapped features $H_X$ from the Output Projector.</p>
 <h3>Training</h3>
 <p>MM-LLMs are trained in two main stages: MultiModal Pre-Training (MM PT) and MultiModal Instruction-Tuning (MM IT).</p>
@@ -71,7 +71,7 @@
 </ul>
 <p>Therefore MM-LLMs are trained to understand and generate content from multiple sources of information, and they can be fine-tuned to perform specific tasks better based on instructions and feedback.</p>
 <p>The below diagram summarizes popular MM-LLMs and models used for each of their components.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-18_at_3.18.49_PM.png" alt="Screenshot 2024-02-18 at 3.18.49 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-18_at_3.18.49_PM.png" alt="Screenshot 2024-02-18 at 3.18.49 PM.png"></p>
 <p>Image Source: <a href="https://arxiv.org/pdf/2401.13601.pdf">https://arxiv.org/pdf/2401.13601.pdf</a></p>
 <h3>Emerging Research Directions</h3>
 <p>Some potential future directions for MM-LLMs involve extending their capabilities through various avenues:</p>
@@ -112,7 +112,7 @@
 </ul>
 <h3><strong>Mistral</strong></h3>
 <ul>
-<li>Developed by a Paris-based startup, <strong>Mistral 7B</strong> set new benchmarks by outperforming all existing open-source LLMs up to 13B parameters in English and code benchmarks. Mistral AI later also released <strong>Mixtral 8x7B</strong>, a Sparse Mixture of Experts (SMoE) model. This model marks a departure from traditional AI architectures and training methods, aiming to provide the developer community with innovative tools that can inspire new applications and technologies. We’ll learn more about the Mixture of Experts paradigm in the next serction</li>
+<li>Developed by a Paris-based startup, <strong>Mistral 7B</strong> set new benchmarks by outperforming all existing open-source LLMs up to 13B parameters in English and code benchmarks. Mistral AI later also released <strong>Mixtral 8x7B</strong>, a Sparse Mixture of Experts (SMoE) model. This model marks a departure from traditional AI architectures and training methods, aiming to provide the developer community with innovative tools that can inspire new applications and technologies. We?셪l learn more about the Mixture of Experts paradigm in the next serction</li>
 </ul>
 <h3><strong>Open Language Model (OLMo)</strong></h3>
 <ul>
@@ -145,8 +145,8 @@
 <li><strong>Interactive Q&amp;A Session Planning</strong>: Develop a framework for an interactive Q&amp;A session, including pre-gathering questions from potential attendees, categorizing them, and preparing briefing documents for speakers. The agent can facilitate this by analyzing registration data and submitted queries.</li>
 </ol>
 <p>In this scenario, the LLM agent not only aids in the execution of complex and time-consuming tasks but also ensures that the planning process is thorough, informed by the latest developments in sustainable energy, and tailored to the specific goals of the conference. By leveraging external databases, tools for data analysis and visualization, and its innate language processing capabilities, the LLM agent acts as a comprehensive assistant, streamlining the organization of a large-scale event with numerous moving parts.</p>
-<p>The framework for LLM agents can be conceptualized through various lenses, and one such perspective is offered by the paper “<a href="https://arxiv.org/pdf/2308.11432.pdf">A Survey on Large Language Model based Autonomous Agents</a>”, through its distinctive components.  This architecture is composed of four key modules: the Profiling Module, Memory Module, Planning Module, and Action Module. Each of these modules plays a crucial role in enabling the LLM agent to act autonomously and effectively in various scenarios.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-18_at_3.46.23_PM.png" alt="Screenshot 2024-02-18 at 3.46.23 PM.png"></p>
+<p>The framework for LLM agents can be conceptualized through various lenses, and one such perspective is offered by the paper ??a href="https://arxiv.org/pdf/2308.11432.pdf">A Survey on Large Language Model based Autonomous Agents</a>?? through its distinctive components.  This architecture is composed of four key modules: the Profiling Module, Memory Module, Planning Module, and Action Module. Each of these modules plays a crucial role in enabling the LLM agent to act autonomously and effectively in various scenarios.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-18_at_3.46.23_PM.png" alt="Screenshot 2024-02-18 at 3.46.23 PM.png"></p>
 <p>Image Source : <a href="https://arxiv.org/pdf/2308.11432.pdf">https://arxiv.org/pdf/2308.11432.pdf</a></p>
 <h3><strong>Components of LLM Agents</strong></h3>
 <ol>
@@ -166,7 +166,7 @@
 <li>Hallucination, where models generate factually incorrect text, becomes more problematic in LLM agent systems due to the potential for cascading misinformation. Developing strategies to detect and mitigate hallucinations involves managing information flow to prevent inaccuracies from spreading across the network.</li>
 <li>While LLM agents learn from instant feedback, creating reliable interactive environments for scalable learning poses challenges. Furthermore, current methods focus on adjusting agents individually, not fully leveraging the collective intelligence that could emerge from coordinated interactions among multiple agents.</li>
 <li>Scaling the number of agents (multi-agent systems) for a use-case raises significant computational demands and complexities in coordination and communication among agents. Developing efficient orchestration methodologies is essential for optimizing workflows and ensuring effective multi-agent cooperation.</li>
-<li>Current benchmarks may not adequately capture the emergent behaviors critical to agents or span across diverse research domains. Developing comprehensive benchmarks is crucial for assessing agents’ capabilities in various fields, including science, economics, and healthcare.</li>
+<li>Current benchmarks may not adequately capture the emergent behaviors critical to agents or span across diverse research domains. Developing comprehensive benchmarks is crucial for assessing agents??capabilities in various fields, including science, economics, and healthcare.</li>
 </ol>
 <h2>Domain Specific LLMs</h2>
 <p>While general LLMs are versatile and perform well on a broad range of tasks, they often fall short when it comes to handling specialized or niche tasks due to a lack of training on domain-specific data. Additionally, running these generic models can be costly. In these scenarios, domain-specific LLMs emerge as a superior alternative. Their training is focused on data from specific fields, which enhances their accuracy and provides them with a deeper understanding of the relevant terminology and concepts. This tailored approach not only improves their performance on tasks specific to a certain domain but also minimizes the chances of generating irrelevant or incorrect information. </p>
@@ -201,7 +201,7 @@
 <p>Mixture of Experts (MoEs) represents a sophisticated architecture within the realm of transformer models, focusing on enhancing model scalability and computational efficiency. Here&#39;s a breakdown of what MoEs are and their significance:</p>
 <p><strong>Definition and Components</strong></p>
 <ul>
-<li><strong>MoEs in Transformers</strong>: In transformer models, MoEs replace traditional dense feed-forward network (FFN) layers with sparse MoE layers. These layers comprise a number of &quot;experts,&quot; each being a neural network—typically FFNs, but potentially more complex structures or even hierarchical MoEs.</li>
+<li><strong>MoEs in Transformers</strong>: In transformer models, MoEs replace traditional dense feed-forward network (FFN) layers with sparse MoE layers. These layers comprise a number of &quot;experts,&quot; each being a neural network?봳ypically FFNs, but potentially more complex structures or even hierarchical MoEs.</li>
 <li><strong>Experts</strong>: These are specialized neural networks (often FFNs) that handle specific portions of the data. An MoE layer may contain several experts, such as 8, allowing for a diverse range of data processing capabilities within the same model layer.</li>
 <li><strong>Gate Network/Router</strong>: This is a critical component that directs input tokens to the appropriate experts based on learned parameters. The router decides, for instance, which expert is best suited to process a given input token, thus enabling a dynamic allocation of computational resources.</li>
 </ul>
@@ -227,7 +227,7 @@
 <li><strong>Linear Time Processing</strong>: Unlike Transformers, which suffer from computational and memory costs that scale quadratically with sequence length, Mamba operates in linear time. This makes it much more efficient, especially for very long sequences.</li>
 <li><strong>Selective State Spaces</strong>: Mamba employs selective state spaces, allowing it to manage and process lengthy sequences effectively by focusing on relevant parts of the data at any given time.</li>
 </ul>
-<p>Selective State Spaces (SSS) in the context of models like Mamba refer to a sophisticated approach in neural network architecture that enables the model to efficiently handle and process very long sequences of data. This approach is particularly designed to improve upon the limitations of traditional models like Transformers and Recurrent Neural Networks (RNNs) when dealing with sequences of significant length. Here’s a breakdown of the key concepts behind Selective State Spaces:</p>
+<p>Selective State Spaces (SSS) in the context of models like Mamba refer to a sophisticated approach in neural network architecture that enables the model to efficiently handle and process very long sequences of data. This approach is particularly designed to improve upon the limitations of traditional models like Transformers and Recurrent Neural Networks (RNNs) when dealing with sequences of significant length. Here?셲 a breakdown of the key concepts behind Selective State Spaces:</p>
 <p><strong>Basis of Selective State Spaces:</strong></p>
 <ul>
 <li><strong>State Space Models (SSMs)</strong>: At the core, SSS builds upon the concept of State Space Models. SSMs are a class of models used for describing systems that evolve over time, capturing dynamics through state variables that change in response to external inputs. SSMs have been used in various fields, such as signal processing, control systems, and now, in sequence modeling for AI.</li>
@@ -280,6 +280,6 @@
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../../js/main.js"></script>
 </body>
 </html>

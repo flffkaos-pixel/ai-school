@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Part 6: planning in agents reasoning models — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,41 +33,41 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
 <h1>Part 6: Planning in Agents + Reasoning Models</h1>
 <hr>
-<h2>Woah! We’re more than halfway through our course!</h2>
+<h2>Woah! We?셱e more than halfway through our course!</h2>
 <p>Over the past few parts, we talked about what agents can do:  </p>
 <ul>
 <li>Use tools  </li>
 <li>Retrieve information through RAG  </li>
 <li>Pass everything in a clean format using MCP</li>
 </ul>
-<p>But all of that assumes something fundamental:<br><strong>That the agent actually knows what to do next.</strong><br>And that’s where things often break.</p>
-<p>Today, we shift focus from tools and inputs to <strong>how agents think</strong> — more specifically, how modern models are starting to plan and why that changes how we design real-world systems.</p>
+<p>But all of that assumes something fundamental:<br><strong>That the agent actually knows what to do next.</strong><br>And that?셲 where things often break.</p>
+<p>Today, we shift focus from tools and inputs to <strong>how agents think</strong> ??more specifically, how modern models are starting to plan and why that changes how we design real-world systems.</p>
 <hr>
 <h2>Why Planning Matters in Agentic Systems</h2>
 <p>Here are a few examples to start with.</p>
 <p>If you ask an agent:  </p>
 <blockquote>
-<p>“What’s 13 multiplied by 47?”<br>…it can either solve it directly or call a calculator. This is a one-step task — no real planning needed.</p>
+<p>?쏻hat?셲 13 multiplied by 47???br>?쫒t can either solve it directly or call a calculator. This is a one-step task ??no real planning needed.</p>
 </blockquote>
 <p>Now imagine asking:  </p>
 <blockquote>
-<p>“Find all our Q1 clients in the healthcare sector, check which ones are overdue on payments, and draft personalized emails with new payment links.”</p>
+<p>?쏤ind all our Q1 clients in the healthcare sector, check which ones are overdue on payments, and draft personalized emails with new payment links.??/p>
 </blockquote>
 <p>In this case, the agent needs to:  </p>
 <ul>
@@ -80,17 +80,17 @@
 <li>Know when the task is done</li>
 </ul>
 <p>That loop of interpreting, sequencing, and acting is <strong>planning</strong>.  </p>
-<p>The agent (meaning the model) is expected to figure this out on its own — including which tools to use and how to apply the information it has.</p>
+<p>The agent (meaning the model) is expected to figure this out on its own ??including which tools to use and how to apply the information it has.</p>
 <hr>
 <h2>Why Traditional LLMs Struggle With Planning</h2>
 <p>Most general-purpose LLMs were never trained to do this.</p>
-<p>They are trained to <strong>predict the next token</strong> based on the previous context — nothing more.<br>They excel at:  </p>
+<p>They are trained to <strong>predict the next token</strong> based on the previous context ??nothing more.<br>They excel at:  </p>
 <ul>
 <li>Continuing sentences  </li>
 <li>Generating summaries  </li>
 <li>Answering direct questions</li>
 </ul>
-<p>…but they behave more like <strong>short-sighted generators</strong>.<br>They complete what’s in front of them but aren’t wired to think ahead.</p>
+<p>?쫇ut they behave more like <strong>short-sighted generators</strong>.<br>They complete what?셲 in front of them but aren?셳 wired to think ahead.</p>
 <p>When asked to act as agents in multi-step, decision-making tasks, they tend to:  </p>
 <ul>
 <li>Skip steps  </li>
@@ -101,37 +101,37 @@
 <hr>
 <h2>Early Attempts to Improve Reasoning</h2>
 <p>To patch this gap, builders experimented with prompting techniques to nudge planning behavior.</p>
-<p>A popular example: <strong>Chain-of-Thought prompting</strong> — adding “Let’s think step by step” to break tasks into stages.</p>
+<p>A popular example: <strong>Chain-of-Thought prompting</strong> ??adding ?쏬et?셲 think step by step??to break tasks into stages.</p>
 <p>This worked for logic puzzles and structured Q&amp;A, but fell short for <strong>real agents</strong> working with:  </p>
 <ul>
 <li>Tools  </li>
 <li>Unpredictable inputs  </li>
 <li>Changing state</li>
 </ul>
-<p>Because underneath, these models still weren’t trained for planning — they were just responding to <strong>prompt tricks</strong>.</p>
+<p>Because underneath, these models still weren?셳 trained for planning ??they were just responding to <strong>prompt tricks</strong>.</p>
 <hr>
 <h2>Then Came Reasoning Models</h2>
 <p>The next shift: train models to plan <strong>by design</strong>.</p>
 <p>This gave rise to <strong>Large Reasoning Models (LRMs)</strong>.<br><img width="743" height="663" alt="image" src="https://github.com/user-attachments/assets/ce4d8d91-b539-4003-adfc-1fa6dcfd3631" /></p>
-<p><strong>LLMs:</strong><br>input → LLM → output statement</p>
-<p><strong>LRMs:</strong><br>input → LRM → plan step + output statement</p>
+<p><strong>LLMs:</strong><br>input ??LLM ??output statement</p>
+<p><strong>LRMs:</strong><br>input ??LRM ??plan step + output statement</p>
 <p>All still text, but LRMs are nudged during training to <strong>think before acting</strong>.</p>
 <hr>
 <p><strong>Examples:</strong>  </p>
 <ul>
-<li>OpenAI’s <strong>o-series</strong> (o1, o3) — first public examples  </li>
-<li>DeepSeek’s <strong>DeepSeek-R1</strong> — tuned for tool-augmented reasoning and planning  </li>
-<li>Google’s <strong>Gemini thinking models</strong>  </li>
-<li>Anthropic’s <strong>Claude 3.7 reasoning mode</strong></li>
+<li>OpenAI?셲 <strong>o-series</strong> (o1, o3) ??first public examples  </li>
+<li>DeepSeek?셲 <strong>DeepSeek-R1</strong> ??tuned for tool-augmented reasoning and planning  </li>
+<li>Google?셲 <strong>Gemini thinking models</strong>  </li>
+<li>Anthropic?셲 <strong>Claude 3.7 reasoning mode</strong></li>
 </ul>
 <p>Some even activate reasoning <strong>only when needed</strong>.</p>
 <hr>
 <h2>How They Fit in Agentic Design</h2>
-<p>The main value of reasoning models is in improving the <strong>planning component</strong> — the part that asks:  </p>
+<p>The main value of reasoning models is in improving the <strong>planning component</strong> ??the part that asks:  </p>
 <blockquote>
-<p>“What should I do next, and why?”</p>
+<p>?쏻hat should I do next, and why???/p>
 </blockquote>
-<p>In enterprise use cases, <strong>planning is where agents often fail</strong>.<br>Reasoning models can help, but they aren’t magic.</p>
+<p>In enterprise use cases, <strong>planning is where agents often fail</strong>.<br>Reasoning models can help, but they aren?셳 magic.</p>
 <hr>
 <h2>Use Them With Caution</h2>
 <p>Reasoning models are still <strong>new</strong> and come with tradeoffs:  </p>
@@ -143,13 +143,13 @@
 </ul>
 <p><strong>Rule of thumb:</strong>  </p>
 <ul>
-<li>Don’t start with a reasoning model.  </li>
+<li>Don?셳 start with a reasoning model.  </li>
 <li>Begin with a mid-size base model.  </li>
-<li>Only switch if you see clear planning failures — and even then, evaluate the real impact.</li>
+<li>Only switch if you see clear planning failures ??and even then, evaluate the real impact.</li>
 </ul>
 <hr>
 <h2>Up Next</h2>
-<p>In the next part, we’ll shift to another <strong>core component of agents</strong>: <strong>memory</strong> — how agents can remember effectively and why it matters.</p>
+<p>In the next part, we?셪l shift to another <strong>core component of agents</strong>: <strong>memory</strong> ??how agents can remember effectively and why it matters.</p>
 
 </div>
 <footer>
@@ -157,6 +157,6 @@
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../../js/main.js"></script>
 </body>
 </html>

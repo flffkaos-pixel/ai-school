@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Fine tuning 101 — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,22 +33,22 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../index.html">Home</a>
+<a href="../../courses.html">Courses</a>
+<a href="../../interview.html">Interview</a>
+<a href="../../research.html">Research</a>
+<a href="../../resources.html">Resources</a>
+<a href="../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
 <h1>Fine-Tuning 101 Guide</h1>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/fine-tuning-main.png" alt="main_agentic_rag.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/fine-tuning-main.png" alt="main_agentic_rag.png"></p>
 <h2>What is Fine Tuning?</h2>
 <p>Fine Tuning is the process of adapting a pre-trained language model for specific tasks or domains by further training it on a smaller, targeted dataset. This approach leverages the general knowledge and capabilities the model acquired during its initial pre-training phase while optimizing its performance for particular applications.</p>
 <p>During fine tuning, most of the model&#39;s parameters are updated, but at a lower learning rate than initial training. This allows the model to retain its foundational knowledge while adapting to new contexts.</p>
@@ -91,13 +91,13 @@
 <li><strong>PEFT/LoRA libraries</strong>: For parameter-efficient fine tuning methods  </li>
 <li><strong>Weights &amp; Biases</strong> or <strong>TensorBoard</strong>: For experiment tracking and visualization</li>
 </ul>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/fine-tuning-stack.png" alt="main_agentic_rag.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/fine-tuning-stack.png" alt="main_agentic_rag.png"></p>
 <hr>
 <h3>Hardware Requirements</h3>
 <p>Fine tuning requirements vary based on model size:</p>
 <ul>
-<li><strong>Small models (&lt; 1B parameters)</strong>: Consumer GPUs (8–16GB VRAM) can handle these  </li>
-<li><strong>Medium models (1–7B parameters)</strong>: Require high-end GPUs (24–48GB VRAM) or multiple GPUs  </li>
+<li><strong>Small models (&lt; 1B parameters)</strong>: Consumer GPUs (8??6GB VRAM) can handle these  </li>
+<li><strong>Medium models (1??B parameters)</strong>: Require high-end GPUs (24??8GB VRAM) or multiple GPUs  </li>
 <li><strong>Large models (&gt; 7B parameters)</strong>: Need multiple high-end GPUs, TPUs, or specialized hardware</li>
 </ul>
 <p><strong>Alternative approaches for resource constraints</strong>:</p>
@@ -183,13 +183,13 @@
 <p>Fine tuning a large language model transforms a general-purpose foundation model into a specialized tool tailored to your needs. Below is a structured, step-by-step workflow covering essential stages and tools.</p>
 <hr>
 <h3>1. Model Selection</h3>
-<p>Begin by choosing a pre-trained LLM that aligns with your task’s requirements—such as domain, size, and computational constraints. Platforms like Hugging Face host a vast library of models (e.g., BERT, LLaMA, GPT variants), each with distinct architectures and pre-training objectives.</p>
+<p>Begin by choosing a pre-trained LLM that aligns with your task?셲 requirements?봲uch as domain, size, and computational constraints. Platforms like Hugging Face host a vast library of models (e.g., BERT, LLaMA, GPT variants), each with distinct architectures and pre-training objectives.</p>
 <p>This decision sets the foundation for your fine tuning success, balancing capability and resource demands.</p>
 <hr>
 <h3>2. Data Preparation</h3>
 <p>High-quality training data is the backbone of effective fine tuning. This step involves:</p>
 <ul>
-<li><strong>Collection</strong>: Gather task-specific datasets using libraries like Hugging Face Datasets, NVIDIA’s data tools, or Pandas  </li>
+<li><strong>Collection</strong>: Gather task-specific datasets using libraries like Hugging Face Datasets, NVIDIA?셲 data tools, or Pandas  </li>
 <li><strong>Preprocessing</strong>: Clean and standardize text (e.g., normalization, removing noise) for consistency  </li>
 <li><strong>Formatting</strong>: Tokenize and structure data into model-compatible inputs, such as input-output pairs or instruction templates  </li>
 <li><strong>Splitting</strong>: Divide the dataset into training, validation, and test sets to ensure robust evaluation</li>
@@ -201,7 +201,7 @@
 <hr>
 <h3>4. Synthetic Data Generation</h3>
 <p>To bolster dataset size and diversity, generate synthetic examples using tools like <strong>MostlyAI</strong> or LLM-driven data augmentation.</p>
-<p>This enhances model robustness, mitigates data scarcity, and improves generalization across varied inputs—particularly useful for niche or low-resource domains.</p>
+<p>This enhances model robustness, mitigates data scarcity, and improves generalization across varied inputs?봯articularly useful for niche or low-resource domains.</p>
 <hr>
 <h3>5. Fine Tuning Framework Selection</h3>
 <p>Select a fine tuning strategy and framework suited to your goals and resources. Options include:</p>
@@ -222,7 +222,7 @@
 <p>This systematic approach prevents wasted effort and ensures reproducibility.</p>
 <hr>
 <h3>7. Model Evaluation</h3>
-<p>Assess the fine tuned model’s performance using task-specific benchmarks and frameworks like <strong>DeepEval</strong>. Key evaluation aspects include:</p>
+<p>Assess the fine tuned model?셲 performance using task-specific benchmarks and frameworks like <strong>DeepEval</strong>. Key evaluation aspects include:</p>
 <ul>
 <li><strong>Quantitative metrics</strong>: BLEU, F1, perplexity, etc., tailored to your use case  </li>
 <li><strong>Qualitative analysis</strong>: Output coherence, factual accuracy, and relevance  </li>
@@ -244,7 +244,7 @@
 <hr>
 <h2>Unlocking the Power of LLMs: A Deep Dive into Fine-Tuning Techniques &amp; Strategies</h2>
 <h2>Exploring Categories of Fine-Tuning in LLMs</h2>
-<p>Now, let’s explore the three major categories of fine-tuning: <strong>Task Adaptation</strong>, <strong>Alignment</strong>, and <strong>Parameter-Efficient Fine-Tuning</strong>—and the strategies within each that are shaping the possibilities with LLMs for different problem statements.</p>
+<p>Now, let?셲 explore the three major categories of fine-tuning: <strong>Task Adaptation</strong>, <strong>Alignment</strong>, and <strong>Parameter-Efficient Fine-Tuning</strong>?봞nd the strategies within each that are shaping the possibilities with LLMs for different problem statements.</p>
 <hr>
 <h3>1. Task Adaptation Fine-Tuning: Mastering Specific Jobs</h3>
 <p>This category focuses on adapting LLMs to perform particular tasks with high precision.</p>
@@ -391,6 +391,6 @@
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../js/main.js"></script>
 </body>
 </html>

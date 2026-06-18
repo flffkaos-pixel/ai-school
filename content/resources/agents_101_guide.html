@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Agents 101 guide — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,31 +33,31 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../index.html">Home</a>
+<a href="../../courses.html">Courses</a>
+<a href="../../interview.html">Interview</a>
+<a href="../../research.html">Research</a>
+<a href="../../resources.html">Resources</a>
+<a href="../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
 <h1>LLM Agents 101</h1>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/llm_guide.png" alt="llm_guide.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/llm_guide.png" alt="llm_guide.png"></p>
 <h2>Introduction to LLM Agents</h2>
 <p>LLM agents, short for Large Language Model agents, are gaining quite some popularity because they blend advanced language processing with other crucial components like planning and memory. They smart systems that can handle complex tasks by combining a large language model with other tools.</p>
 <p>Imagine you&#39;re trying to create a virtual assistant that helps people plan their vacations. You want it to be able to handle simple questions like &quot;What&#39;s the weather like in Paris next week?&quot; or &quot;How much does it cost to fly to Tokyo in July?&quot;</p>
 <p>A basic virtual assistant might be able to answer those questions using pre-programmed responses or by searching the internet. But what if someone asks a more complicated question, like &quot;I want to plan a trip to Europe next summer. Can you suggest an itinerary that includes visiting historic landmarks, trying local cuisine, and staying within a budget of $3000?&quot;</p>
 <p>That&#39;s a tough question because it involves planning, budgeting, and finding information about different destinations. An LLM agent could help with this by using its knowledge and tools to come up with a personalized itinerary. It could search for flights, hotels, and tourist attractions, while also keeping track of the budget and the traveler&#39;s preferences.</p>
 <p>To build this kind of virtual assistant, you&#39;d need an LLM as the main &quot;brain&quot; to understand and respond to questions. But you&#39;d also need other modules for planning, budgeting, and accessing travel information. Together, they would form an LLM agent capable of handling complex tasks and providing personalized assistance to users.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/Screenshot_2024-04-07_at_2.39.12_PM.png" alt="Screenshot 2024-04-07 at 2.39.12 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/Screenshot_2024-04-07_at_2.39.12_PM.png" alt="Screenshot 2024-04-07 at 2.39.12 PM.png"></p>
 <p>Image Source: <a href="https://arxiv.org/pdf/2309.07864.pdf">https://arxiv.org/pdf/2309.07864.pdf</a></p>
-<p>The above image represents a potential theoretical structure of an LLM-based agent proposed by the paper “<strong><a href="https://arxiv.org/pdf/2309.07864.pdf">The Rise and Potential of Large Language Model Based Agents: A Survey</a></strong>”</p>
+<p>The above image represents a potential theoretical structure of an LLM-based agent proposed by the paper ??strong><a href="https://arxiv.org/pdf/2309.07864.pdf">The Rise and Potential of Large Language Model Based Agents: A Survey</a></strong>??/p>
 <p>It comprises three integral components: the brain, perception, and action. </p>
 <ul>
 <li>Functioning as the central controller, the <strong>brain</strong> module engages in fundamental tasks such as storing information, processing thoughts, and making decisions.</li>
@@ -69,7 +69,7 @@
 <h2>LLM Agent Framework</h2>
 <p>In the preceding section, we discussed one framework for comprehending LLM agents, which involved breaking down the agent into three key components: the brain, perception, and action. In this section, we will explore a more widely used framework for structuring agent components. </p>
 <p>This framework comprises the following essential elements:</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/Screenshot_2024-04-07_at_2.53.23_PM.png" alt="Screenshot 2024-04-07 at 2.53.23 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/Screenshot_2024-04-07_at_2.53.23_PM.png" alt="Screenshot 2024-04-07 at 2.53.23 PM.png"></p>
 <p>Image Source: <a href="https://developer.nvidia.com/blog/introduction-to-llm-agents/">https://developer.nvidia.com/blog/introduction-to-llm-agents/</a></p>
 <ol>
 <li><p><strong>Agent Core:</strong> The agent core functions as the central decision-making component within an AI agent. It oversees the core logic and behavioral patterns of the agent. Within this core, various aspects are managed, including defining the agent&#39;s overarching goals, providing instructions for tool utilization, specifying guidelines for employing different planning modules, incorporating pertinent memory items from past interactions, and potentially shaping the agent&#39;s persona.</p>
@@ -93,7 +93,7 @@
 <p>An LLM-based multi-agent system offers several advantages, primarily based on the principle of the division of labor. Specialized agents equipped with domain knowledge can efficiently handle specific tasks, leading to enhanced task efficiency and collective decision improvement. Decomposing complex tasks into multiple subtasks can streamline processes, ultimately improving system efficiency and output quality.</p>
 <p><strong>Types of Multi-Agent Interactions</strong></p>
 <p>Multi-agent interactions in LLM-based systems can be broadly categorized into cooperative and adversarial interactions.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/Screenshot_2024-04-07_at_3.03.48_PM.png" alt="Screenshot 2024-04-07 at 3.03.48 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/Screenshot_2024-04-07_at_3.03.48_PM.png" alt="Screenshot 2024-04-07 at 3.03.48 PM.png"></p>
 <p>Image source: <a href="https://arxiv.org/pdf/2309.07864.pdf">https://arxiv.org/pdf/2309.07864.pdf</a></p>
 <h3><strong>Cooperative Interaction:</strong></h3>
 <p>In cooperative multi-agent systems, agents assess each other&#39;s needs and capabilities, actively seeking collaborative actions and information sharing. This approach enhances task efficiency, improves collective decision-making, and resolves complex real-world problems through synergistic complementarity. Existing cooperative multi-agent applications can be classified into disordered cooperation and ordered cooperation</p>
@@ -128,7 +128,7 @@
 <ul>
 <li>The system maintains a task list using a deque data structure, enabling it to manage and prioritize tasks autonomously. It dynamically generates new tasks based on completed results and adjusts task priorities accordingly.</li>
 </ul>
-<p> <img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/babyAGI.png" alt="babyAGI"></p>
+<p> <img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/babyAGI.png" alt="babyAGI"></p>
 <p> Image Source: <a href="https://yoheinakajima.com/task-driven-autonomous-agent-utilizing-gpt-4-pinecone-and-langchain-for-diverse-applications/">https://yoheinakajima.com/task-driven-autonomous-agent-utilizing-gpt-4-pinecone-and-langchain-for-diverse-applications/</a></p>
 </li>
 </ol>
@@ -149,7 +149,7 @@
 <li><a href="https://arxiv.org/abs/2305.16504">ToolBench</a></li>
 <li><a href="https://arxiv.org/pdf/2308.04030.pdf">GentBench</a></li>
 </ol>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/Screenshot_2024-04-07_at_3.28.33_PM.png" alt="Screenshot 2024-04-07 at 3.28.33 PM.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/Screenshot_2024-04-07_at_3.28.33_PM.png" alt="Screenshot 2024-04-07 at 3.28.33 PM.png"></p>
 <p>Image: Tasks and Datasets supported by the GentBench framework</p>
 <p>Apart from task specific metrics, some dimensions in which agents can be evaluated include</p>
 <ul>
@@ -183,6 +183,6 @@
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../js/main.js"></script>
 </body>
 </html>

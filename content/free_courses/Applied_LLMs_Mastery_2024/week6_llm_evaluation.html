@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Week 6: llm evaluation — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,17 +33,17 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
@@ -53,9 +53,9 @@
 <h2>Evaluating Large Language Models (Dimensions)</h2>
 <p>Understanding whether LLMs meet our specific needs is crucial. We must establish clear metrics to gauge the value added by LLM applications. When we refer to &quot;LLM evaluation&quot; in this section, we encompass assessing the entire pipeline, including the LLM itself, all input sources, and the content processed by it. This includes the prompts used for the LLM and, in the case of RAG use-cases, the quality of retrieved documents. To evaluate systems effectively, we&#39;ll break down LLM evaluation into dimensions:</p>
 <p>A. <strong>Pipeline Evaluation</strong>: Assessing the effectiveness of individual components within the LLM pipeline, including prompts and retrieved documents.<br>B. <strong>Model Evaluation</strong>: Evaluating the performance of the LLM model itself, focusing on the quality and relevance of its generated output.</p>
-<p>Now we’ll dig deeper into each of these two dimensions</p>
+<p>Now we?셪l dig deeper into each of these two dimensions</p>
 <h2>A. LLM Pipeline Evaluation</h2>
-<p>In this section, we’ll look at 2 types of evaluation:</p>
+<p>In this section, we?셪l look at 2 types of evaluation:</p>
 <ol>
 <li><strong>Evaluating Prompts</strong>: Given the significant impact prompts have on the output of LLM pipelines, we will delve into various methods for assessing and experimenting with prompts.</li>
 <li><strong>Evaluating the Retrieval Pipeline</strong>: Essential for LLM pipelines incorporating RAG, this involves retrieving the top-k documents to assess the LLM&#39;s performance.</li>
@@ -71,17 +71,17 @@
 <p>Commonly used tools for prompt testing include Promptfoo, PromptLayer, and others.</p>
 <p><strong>Automatic Prompt Generation</strong></p>
 <p>More recently there have also been methods to optimize prompts in an automatic manner, for instance-  <a href="https://arxiv.org/abs/2211.01910">Zhou et al., (2022)</a> introduced Automatic Prompt EngineerAPE, a framework for automatically generating and selecting instructions. It treats prompt generation as a language synthesis problem and uses the LLM itself to generate and explore candidate solutions. First, an LLM generates prompt candidates based on output demonstrations. These candidates guide the search process. Then, the prompts are executed using a target model, and the best instruction is chosen based on evaluation scores.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/eval_1.png" alt="eval_1.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/Applied_LLMs_Mastery_2024/img/eval_1.png" alt="eval_1.png"></p>
 <h3>A2. Evaluating Retrieval Pipeline</h3>
 <p>In RAG use-cases, solely assessing the end outcome doesn&#39;t capture the complete picture. Essentially, the LLM responds to queries based on the context provided. It&#39;s crucial to evaluate intermediate results, including the quality of retrieved documents. If the term RAG is unfamiliar to you, please refer to the Week 4 content explaining how RAG operates. Throughout this discussion, we&#39;ll refer to the top-k retrieved documents as &quot;context&quot; for the LLM, which requires evaluation. Below are some typical metrics to evaluate the quality of RAG context.</p>
 <p>The below mentioned metrics are sourced from <a href="https://docs.ragas.io/en/stable/concepts/metrics/faithfulness.html">RAGas</a> an open-source library for RAG pipeline evaluations</p>
 <ol>
 <li><strong>Context Precision (From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>):</strong></li>
 </ol>
-<p>Context Precision is a metric that evaluates whether all of the ground-truth relevant items present in the contexts are ranked higher or not. Ideally all the relevant chunks must appear at the top ranks. This metric is computed using the question and the contexts, with values ranging between 0 and 1, where higher scores indicate better precision.</p>
+<p>Context Precision is a metric that evaluates whether all of the ground-truth relevant items present in the혻contexts혻are ranked higher or not. Ideally all the relevant chunks must appear at the top ranks. This metric is computed using the혻question혻and the혻contexts, with values ranging between 0 and 1, where higher scores indicate better precision.</p>
 <p>$$<br>\text{Context Precision@k} = {\sum {\text{precision@k}} \over \text{total number of relevant items in the top K results}}<br>$$</p>
 <p>$$<br>\text{Precision@k} = {\text{true positives@k} \over  (\text{true positives@k} + \text{false positives@k})}<br>$$</p>
-<p>Where k is the total number of chunks in contexts</p>
+<p>Where k is the total number of chunks in혻contexts</p>
 <ol start="2">
 <li><strong>Context Relevancy(From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>)</strong></li>
 </ol>
@@ -93,7 +93,7 @@ Question: What is the capital of France?
 
 High context relevancy: France, in Western Europe, encompasses medieval cities, alpine villages and Mediterranean beaches. Paris, its capital, is famed for its fashion houses, classical art museums including the Louvre and monuments like the Eiffel Tower.
 
-Low context relevancy: France, in Western Europe, encompasses medieval cities, alpine villages and Mediterranean beaches. Paris, its capital, is famed for its fashion houses, classical art museums including the Louvre and monuments like the Eiffel Tower. The country is also renowned for its wines and sophisticated cuisine. Lascaux’s ancient cave drawings, Lyon’s Roman theater and the vast Palace of Versailles attest to its rich history.
+Low context relevancy: France, in Western Europe, encompasses medieval cities, alpine villages and Mediterranean beaches. Paris, its capital, is famed for its fashion houses, classical art museums including the Louvre and monuments like the Eiffel Tower. The country is also renowned for its wines and sophisticated cuisine. Lascaux?셲 ancient cave drawings, Lyon?셲 Roman theater and the vast Palace of Versailles attest to its rich history.
 </code></pre>
 <ol start="3">
 <li><p><strong>Context Recall(From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>):</strong> Context recall measures the extent to which the retrieved context aligns with the annotated answer, treated as the ground truth. It is computed based on the ground truth and the retrieved context, and the values range between 0 and 1, with higher values indicating better performance. To estimate context recall from the ground truth answer, each sentence in the ground truth answer is analyzed to determine whether it can be attributed to the retrieved context or not. In an ideal scenario, all sentences in the ground truth answer should be attributable to the retrieved context.</p>
@@ -145,21 +145,21 @@ Low faithfulness answer: Einstein was born in Germany on 20th March 1879.
 <ol start="2">
 <li><strong>Answer Relevance(From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>)</strong></li>
 </ol>
-<p>The evaluation metric, Answer Relevancy, focuses on assessing how pertinent the generated answer is to the given prompt. A lower score is assigned to answers that are incomplete or contain redundant information. This metric is computed using the  question and the answer with values ranging between 0 and 1, where higher scores indicate better relevancy.</p>
+<p>The evaluation metric, Answer Relevancy, focuses on assessing how pertinent the generated answer is to the given prompt. A lower score is assigned to answers that are incomplete or contain redundant information. This metric is computed using the혻 question and the answer with values ranging between 0 and 1, where higher scores indicate better relevancy.</p>
 <p>An answer is deemed relevant when it directly and appropriately addresses the original question. Importantly, our assessment of answer relevance does not consider factuality but instead penalizes cases where the answer lacks completeness or contains redundant details. To calculate this score, the LLM is prompted to generate an appropriate question for the generated answer multiple times, and the mean cosine similarity between these generated questions and the original question is measured. The underlying idea is that if the generated answer accurately addresses the initial question, the LLM should be able to generate questions from the answer that align with the original question.</p>
 <ol start="3">
 <li><strong>Answer semantic similarity(From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>)</strong></li>
 </ol>
-<p>The concept of Answer Semantic Similarity pertains to the assessment of the semantic resemblance between the generated answer and the ground truth. This evaluation is based on the ground truth answer and the generated LLM answer , with values falling within the range of 0 to 1. A higher score signifies a better alignment between the generated answer and the ground truth.</p>
+<p>The concept of Answer Semantic Similarity pertains to the assessment of the semantic resemblance between the generated answer and the ground truth. This evaluation is based on the ground truth answer and the generated LLM answer혻, with values falling within the range of 0 to 1. A higher score signifies a better alignment between the generated answer and the ground truth.</p>
 <p>Measuring the semantic similarity between answers can offer valuable insights into the quality of the generated response. This evaluation utilizes a cross-encoder model to calculate the semantic similarity score.</p>
 <h3>B2. Alignment Metrics</h3>
-<p>Metrics of this type are crucial, especially when LLMs are utilized in applications that interact directly with people, to ensure they conform to acceptable human standards. The challenge with these metrics is their difficulty to quantify mathematically. Instead, the assessment of LLM alignment involves conducting specific tests on benchmarks designed to evaluate alignment, using the results as an indirect measure. For instance, to evaluate a model&#39;s fairness, datasets are employed where the model must recognize stereotypes, and its performance in this regard serves as an indirect indicator of the LLM&#39;s fairness alignment. Thus, there&#39;s no universally correct method for this evaluation. In our course, we will adopt the approaches outlined in the influential study “<a href="https://arxiv.org/pdf/2401.05561.pdf">TRUSTLLM: Trustworthiness in Large Language Models</a>” to explore alignment dimensions and the proxy tasks that help gauge LLM alignment.</p>
+<p>Metrics of this type are crucial, especially when LLMs are utilized in applications that interact directly with people, to ensure they conform to acceptable human standards. The challenge with these metrics is their difficulty to quantify mathematically. Instead, the assessment of LLM alignment involves conducting specific tests on benchmarks designed to evaluate alignment, using the results as an indirect measure. For instance, to evaluate a model&#39;s fairness, datasets are employed where the model must recognize stereotypes, and its performance in this regard serves as an indirect indicator of the LLM&#39;s fairness alignment. Thus, there&#39;s no universally correct method for this evaluation. In our course, we will adopt the approaches outlined in the influential study ??a href="https://arxiv.org/pdf/2401.05561.pdf">TRUSTLLM: Trustworthiness in Large Language Models</a>??to explore alignment dimensions and the proxy tasks that help gauge LLM alignment.</p>
 <p>There is no single definition for Alignment, but here are some dimensions to quantify alignment, we use definitions from the paper mentioned above:</p>
 <ol>
 <li><strong>Truthfulness</strong>-Pertains to the accurate representation of information by LLMs. It encompasses evaluations of their tendency to generate misinformation, hallucinate, exhibit sycophantic behavior, and correct adversarial facts.</li>
 <li><strong>Safety</strong>: Entails ability of LLMs avoiding unsafe or illegal outputs and promoting healthy conversations. </li>
 <li><strong>Fairness</strong>: Entails preventing biased or discriminatory outcomes from LLMs, with assessing stereotypes, disparagement, and preference biases. </li>
-<li><strong>Robustness:</strong> Refers to LLM’s stability and performance across various input conditions, distinct from resilience against attacks. </li>
+<li><strong>Robustness:</strong> Refers to LLM?셲 stability and performance across various input conditions, distinct from resilience against attacks. </li>
 <li><strong>Privacy</strong>: Emphasizes preserving human and data autonomy, focusing on evaluating LLMs&#39; privacy awareness and potential leakage. </li>
 <li><strong>Machine Ethics</strong>: Defining machine ethics for LLMs remains challenging due to the lack of a comprehensive ethical theory. Instead, we can divide it into three segments: implicit ethics, explicit ethics, and emotional awareness. E</li>
 <li><strong>Transparency</strong>: Concerns the availability of information about LLMs and their outputs to users.</li>
@@ -167,8 +167,8 @@ Low faithfulness answer: Einstein was born in Germany on 20th March 1879.
 <li><strong>Regulations and Laws</strong>: Ability of LLMs to abide by rules and regulations posed by nations and organizations.</li>
 </ol>
 <p>In the paper, the authors further dissect each of these dimensions into more specific categories, as illustrated in the image below. For instance, Truthfulness is segmented into aspects such as misinformation, hallucination, sycophancy, and adversarial factuality. Moreover, each of these sub-dimensions is accompanied by corresponding datasets and metrics designed to quantify them.</p>
-<p>💡This serves as a basic illustration of utilizing proxy tasks, datasets, and metrics to evaluate an LLM&#39;s performance within a specific dimension. The choice of which dimensions are relevant will vary based on your specific task, requiring you to select the most applicable ones for your needs.</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Name.png" alt="Name.png"></p>
+<p>?뮕This serves as a basic illustration of utilizing proxy tasks, datasets, and metrics to evaluate an LLM&#39;s performance within a specific dimension. The choice of which dimensions are relevant will vary based on your specific task, requiring you to select the most applicable ones for your needs.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/Applied_LLMs_Mastery_2024/img/Name.png" alt="Name.png"></p>
 <h3>B3. Task-Specific Metrics</h3>
 <p>Often, it&#39;s necessary to create tailored benchmarks, including datasets and metrics, to evaluate an LLM&#39;s performance in a specific task. For example, if developing a chatbot requiring strong reasoning abilities, utilizing common-sense reasoning benchmarks can be beneficial. Similarly, for multilingual understanding, machine translation benchmarks are valuable. </p>
 <p>Below, we outline some popular examples.</p>
@@ -204,7 +204,7 @@ Low faithfulness answer: Einstein was born in Germany on 20th March 1879.
 </li>
 </ol>
 <p>The <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">Hugging Face OpenLLM Leaderboard</a> features an array of datasets and tasks used to assess foundational models and chatbots</p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/eval_0.png" alt="eval_0.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/Applied_LLMs_Mastery_2024/img/eval_0.png" alt="eval_0.png"></p>
 <h2>Read/Watch These Resources (Optional)</h2>
 <ol>
 <li>LLM Evaluation by Klu.ai: <a href="https://klu.ai/glossary/llm-evaluation">https://klu.ai/glossary/llm-evaluation</a></li>
@@ -223,6 +223,6 @@ Low faithfulness answer: Einstein was born in Germany on 20th March 1879.
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../../js/main.js"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Week 1: part2 domain task adaptation — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,17 +33,17 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
@@ -96,10 +96,10 @@
 </li>
 </ol>
 <h2><strong>Domain-Specific Pre-Training</strong></h2>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/domain_specific.png" alt="domain_specific"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/domain_specific.png" alt="domain_specific"></p>
 <pre><code>  Image Source [https://www.analyticsvidhya.com/blog/2023/08/domain-specific-llms/](https://www.analyticsvidhya.com/blog/2023/08/domain-specific-llms/)
 </code></pre>
-<p>Domain-specific pre-training involves training large language models on extensive datasets that specifically represent the language and characteristics of a particular domain or field. This process aims to enhance the model&#39;s understanding and performance within a defined subject area.  Let’s understand domain specific pretraining through the example of <a href="https://arxiv.org/pdf/2303.17564.pdf">BloombergGPT,</a> a large language model for finance. </p>
+<p>Domain-specific pre-training involves training large language models on extensive datasets that specifically represent the language and characteristics of a particular domain or field. This process aims to enhance the model&#39;s understanding and performance within a defined subject area.  Let?셲 understand domain specific pretraining through the example of <a href="https://arxiv.org/pdf/2303.17564.pdf">BloombergGPT,</a> a large language model for finance. </p>
 <p>BloombergGPT is a 50 billion parameter language model designed to excel in various tasks within the financial industry. While general models are versatile and perform well across diverse tasks, they may not outperform domain-specific models in specialized areas. At Bloomberg, where a significant majority of applications are within the financial domain, there is a need for a model that excels in financial tasks while maintaining competitive performance on general benchmarks. BloombergGPT can perform the following tasks:</p>
 <ol>
 <li><strong>Financial Sentiment Analysis:</strong> Analyzing and determining sentiment in financial texts, such as news articles, social media posts, or financial reports. This helps in understanding market sentiment and making informed investment decisions.</li>
@@ -112,7 +112,7 @@
 <p>The model architecture is based on guidelines from previous research efforts, containing 70 layers of transformer decoder blocks (read more in the <a href="https://arxiv.org/pdf/2303.17564.pdf">paper</a>)</p>
 <h2><strong>Domain-Specific Fine-Tuning</strong></h2>
 <p>Domain-specific fine-tuning is the process of refining a pre-existing language model for a particular task or within a specific domain to enhance its performance and tailor it to the unique context of that domain. This method involves taking an LLM that has undergone pre-training on a diverse dataset encompassing various language use cases and subsequently fine-tuning it on a narrower dataset specifically related to a particular domain or task. </p>
-<p>💡Note that the previous method, i.e., domain-specific pre-training involves training a language model exclusively on data from a specific domain, creating a specialized model for that domain. On the other hand, domain-specific fine-tuning takes a pre-trained general model and further trains it on domain-specific data, adapting it for tasks within that domain without starting from scratch. Pre-training is domain-exclusive from the beginning, while fine-tuning adapts a more versatile model to a specific domain.</p>
+<p>?뮕Note that the previous method, i.e., domain-specific pre-training involves training a language model exclusively on data from a specific domain, creating a specialized model for that domain. On the other hand, domain-specific fine-tuning takes a pre-trained general model and further trains it on domain-specific data, adapting it for tasks within that domain without starting from scratch. Pre-training is domain-exclusive from the beginning, while fine-tuning adapts a more versatile model to a specific domain.</p>
 <p>The key steps in domain-specific fine-tuning include:</p>
 <ol>
 <li><strong>Pre-training:</strong> Initially, a large language model is pre-trained on an extensive dataset, allowing it to grasp general language patterns, grammar, and contextual understanding (A general LLM).</li>
@@ -129,7 +129,7 @@
 <p>A popular example for domain-specific fine-tuning is the ChatDoctor LLM which is a specialized language model fine-tuned on Meta-AI&#39;s large language model meta-AI (LLaMA) using a dataset of 100,000 patient-doctor dialogues from an online medical consultation platform. The model undergoes fine-tuning on real-world patient interactions, significantly improving its understanding of patient needs and providing more accurate medical advice. ChatDoctor uses real-time information from online sources like Wikipedia and curated offline medical databases, enhancing the accuracy of its responses to medical queries. The model&#39;s contributions include a methodology for fine-tuning LLMs in the medical field, a publicly shared dataset, and an autonomous ChatDoctor model capable of retrieving updated medical knowledge. Read more about ChatDoctor in the paper <a href="https://arxiv.org/pdf/2303.14070.pdf">here</a>.</p>
 <h2>Retrieval Augmented Generation (RAG)</h2>
 <p>Retrieval Augmented Generation (RAG) is an AI framework that enhances the quality of responses generated by LLMs by incorporating up-to-date and contextually relevant information from external sources during the generation process. It addresses the inconsistency and lack of domain-specific knowledge in LLMs, reducing the chances of hallucinations or incorrect responses. RAG involves two phases: retrieval, where relevant information is searched and retrieved, and content generation, where the LLM synthesizes an answer based on the retrieved information and its internal training data. This approach improves accuracy, allows source verification, and reduces the need for continuous model retraining. </p>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/RAG_w1.png" alt="RAG_w1.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/RAG_w1.png" alt="RAG_w1.png"></p>
 <p>Image Source: <a href="https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/">https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/</a></p>
 <p>The diagram above outlines the fundamental RAG pipeline, consisting of three key components:</p>
 <ol>
@@ -147,7 +147,7 @@
 </ul>
 </li>
 </ol>
-<p>💡Unlike previous methods for domain adaptation, it&#39;s important to highlight that RAG doesn&#39;t necessitate any model training whatsoever. It can be readily applied without the need for training when specific domain data is provided.</p>
+<p>?뮕Unlike previous methods for domain adaptation, it&#39;s important to highlight that RAG doesn&#39;t necessitate any model training whatsoever. It can be readily applied without the need for training when specific domain data is provided.</p>
 <p>In contrast to earlier approaches for model updates (pre-training and fine-tuning), RAG comes with specific advantages and disadvantages. The decision to employ or refrain from using RAG depends on an evaluation of these factors.</p>
 <table>
 <thead>
@@ -174,7 +174,7 @@
 </tr>
 </tbody></table>
 <h2><strong>Choosing Between RAG, Domain-Specific Fine-Tuning, and Domain-Specific Pre-Training</strong></h2>
-<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/types_domain_task.png" alt="types_domain_task.png"></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/types_domain_task.png" alt="types_domain_task.png"></p>
 <h3><strong>Use Domain-Specific Pre-Training When:</strong></h3>
 <ul>
 <li><strong>Exclusive Domain Focus:</strong> Pre-training is suitable when you require a model exclusively trained on data from a specific domain, creating a specialized language model for that domain.</li>
@@ -214,6 +214,6 @@
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../../js/main.js"></script>
 </body>
 </html>

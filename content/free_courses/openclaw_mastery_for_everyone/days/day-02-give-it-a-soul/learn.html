@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Learn — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../../../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,17 +33,17 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
@@ -92,7 +92,7 @@
 <p><strong>Privacy boundaries.</strong> Once your Claw connects to messaging platforms (Day 3), you can add it to group chats. In a group chat, you want your finances, health situation, and relationship context kept out. MEMORY.md loads only in one-on-one conversations. The other three files load everywhere, so they should only contain information you&#39;re comfortable with others seeing.</p>
 <p><strong>Clean separation of concerns.</strong> A behavioral rule belongs in SOUL.md. A learned fact belongs in MEMORY.md. Mixing them creates a maintenance problem: updating a preference risks accidentally touching a behavioral constraint.</p>
 <pre><code>                 SOUL.md          USER.md          AGENTS.md        MEMORY.md
-                 ──────────       ──────────        ──────────       ──────────
+                 ??????????       ??????????        ??????????       ??????????
  Answers:        Who I am         Who you are       How to run       What I know
  Scope:          Character        Context           Operations       Learned facts
  Sensitivity:    Group-safe       Group-safe        Group-safe       PRIVATE ONLY
@@ -109,7 +109,7 @@
 <p>Research on persona stability (January 2026) confirmed this mechanically: the helpful assistant persona exists in a shallow activation basin. Structured constraints are what keep it stable across long sessions.</p>
 <p><strong>SOUL.md structure that works:</strong></p>
 <pre><code>SOUL.md Structure
-──────────────────────────────────────────────────────────────
+??????????????????????????????????????????????????????????????
 1. OPENING      One or two sentences: what this agent fundamentally is.
                 &quot;You are...&quot; (direct, specific, concrete)
 
@@ -130,7 +130,7 @@
 5. CONTINUITY   How it relates to memory and evolves over time.
                 &quot;Each session, you start fresh. These files are your
                 memory. As you learn who I am, update MEMORY.md.&quot;
-──────────────────────────────────────────────────────────────
+??????????????????????????????????????????????????????????????
 Target size: around 500 words (roughly one page). A common mistake
 is making SOUL.md too long. Above 200 lines, contradictions start
 appearing and the model begins trading off your instructions against
@@ -151,7 +151,7 @@ comprehensive.
 <p>USER.md is a briefing document. It contains what the agent needs to know about you as the person it is working with, distinct from its own identity.</p>
 <p>Because USER.md is group-safe, it loads in any context, including group chats. Keep sensitive personal information (financial situation, health context, relationship details) in MEMORY.md, which is private-session-only.</p>
 <pre><code>USER.md Structure
-──────────────────────────────────────────────────────────────
+??????????????????????????????????????????????????????????????
 WHO         Name, pronouns, timezone, location
 
 CONTACT     Primary email address(es), response time expectations
@@ -172,7 +172,7 @@ STYLE       Specific format preferences.
 
 PATTERNS    Working hours, preferred channels, standing rules about
             what gets messaged versus what gets emailed.
-──────────────────────────────────────────────────────────────
+??????????????????????????????????????????????????????????????
 Target size: around 250 words (about half a page).
 Sensitive personal context goes in MEMORY.md instead.
 </code></pre>
@@ -193,11 +193,11 @@ Sensitive personal context goes in MEMORY.md instead.
 <p>MEMORY.md is the one that grows over time. You can write to it directly and edit it whenever you want, but the agent also updates it as it learns about you. You can set up processes that keep it current automatically, so it improves without you having to maintain it by hand.</p>
 <p>The connection between the two tiers:</p>
 <pre><code>Daily conversations
-      ↓ (auto-written by OpenClaw)
+      ??(auto-written by OpenClaw)
 Daily logs  (memory/YYYY-MM-DD.md)
-      ↓ (via scheduled rule or periodic review)
+      ??(via scheduled rule or periodic review)
 MEMORY.md
-      ↓ (reloaded from disk every turn)
+      ??(reloaded from disk every turn)
 Agent context, alongside SOUL.md, USER.md, AGENTS.md
 </code></pre>
 <p>Daily logs require a promotion step to get into MEMORY.md. That step is either a rule in AGENTS.md that tells the agent to review recent logs on a schedule and append durable preferences to MEMORY.md, or a periodic manual request (&quot;review the past week of logs and suggest what should move into MEMORY.md&quot;). You can also explicitly tell the agent to save something to MEMORY.md during any conversation, and it will write it immediately. Day 4 covers how to configure the scheduled version.</p>
@@ -225,7 +225,7 @@ Agent context, alongside SOUL.md, USER.md, AGENTS.md
 <li>The SCAN method (documented at <a href="https://learnopenclaw.com">learnopenclaw.com</a>) is a community technique for maintaining identity adherence in very long sessions: embed verification questions at the end of SOUL.md sections and require the agent to answer them before each task.</li>
 </ul>
 <hr>
-<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/../day-01-install-secure/learn.md">← Day 1: Install and Secure</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/../day-03-connect-a-channel/learn.md">Day 3: Connect a Channel →</a></p>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/../day-01-install-secure/learn.md">??Day 1: Install and Secure</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/../day-03-connect-a-channel/learn.md">Day 3: Connect a Channel ??/a></p>
 
 </div>
 <footer>
@@ -233,6 +233,6 @@ Agent context, alongside SOUL.md, USER.md, AGENTS.md
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

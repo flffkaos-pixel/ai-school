@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Part 4: what is rag and agentic — Awesome Generative AI Guide</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../../css/style.css">
 <style>
 .content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 .content-viewer h1{font-size:2rem;margin:32px 0 16px}
@@ -33,38 +33,38 @@
 <body>
 <nav>
 <div class="container">
-<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
 <div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../courses.html">Courses</a>
-<a href="../interview.html">Interview</a>
-<a href="../research.html">Research</a>
-<a href="../resources.html">Resources</a>
-<a href="../about.html">About</a>
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
 </div>
 </nav>
 <div class="content-viewer">
 <h1>Part 4: Retrieval-Augmented Generation (RAG) and the Rise of Agentic RAG</h1>
-<p>In the previous part, we looked at how tools help AI agents interact with real-world systems — send emails, file tickets, trigger APIs.</p>
-<p>But what if the model doesn’t need to act?<br>What if it just needs access to the right information?</p>
-<p>That’s the case in many enterprise settings:  </p>
+<p>In the previous part, we looked at how tools help AI agents interact with real-world systems ??send emails, file tickets, trigger APIs.</p>
+<p>But what if the model doesn?셳 need to act?<br>What if it just needs access to the right information?</p>
+<p>That?셲 the case in many enterprise settings:  </p>
 <ul>
 <li>Internal docs spread across teams  </li>
 <li>Policy PDFs no one remembers writing  </li>
 <li>Customer insights buried in CRM notes  </li>
 <li>Dashboards and emails with useful context</li>
 </ul>
-<p>Tools won’t help here. The model needs to think with your data.<br>That’s where <strong>RAG</strong> comes in.</p>
+<p>Tools won?셳 help here. The model needs to think with your data.<br>That?셲 where <strong>RAG</strong> comes in.</p>
 <hr>
 <h2>What Is RAG?</h2>
-<p>RAG stands for <strong>Retrieval-Augmented Generation</strong>.<br>It’s a system design where the model retrieves relevant information from your own data — just before generating a response.</p>
+<p>RAG stands for <strong>Retrieval-Augmented Generation</strong>.<br>It?셲 a system design where the model retrieves relevant information from your own data ??just before generating a response.</p>
 <p>Instead of relying only on what the model was trained on, RAG gives it access to <strong>live, contextual information</strong> from your enterprise systems. This makes answers more accurate, grounded, and auditable.</p>
 <p>You might be wondering:  </p>
 <blockquote>
-<p>“Why not just give all the data to the model directly?”</p>
+<p>?쏻hy not just give all the data to the model directly???/p>
 </blockquote>
 <p>The problem is:  </p>
 <ul>
@@ -74,20 +74,20 @@
 </ul>
 <hr>
 <h2>The RAG Process (at a Glance)</h2>
-<img width="1024" height="356" alt="image" src="https://github.com/user-attachments/assets/2e7c2384-a564-45c1-9a08-57cfb02ee435" /><p>Here’s what it looks like in practice:</p>
+<img width="1024" height="356" alt="image" src="https://github.com/user-attachments/assets/2e7c2384-a564-45c1-9a08-57cfb02ee435" /><p>Here?셲 what it looks like in practice:</p>
 <ol>
-<li><strong>Data</strong> – Your internal content (PDFs, emails, notes, wikis)  </li>
-<li><strong>Chunking</strong> – Broken into smaller parts for better indexing  </li>
-<li><strong>Prompt + Context</strong> – At query time, the system retrieves relevant pieces (retrieval phase)  </li>
-<li><strong>LLM</strong> – The model uses that context to generate a response  </li>
-<li><strong>Output</strong> – The result is based on your data, not just what the model “knows”</li>
+<li><strong>Data</strong> ??Your internal content (PDFs, emails, notes, wikis)  </li>
+<li><strong>Chunking</strong> ??Broken into smaller parts for better indexing  </li>
+<li><strong>Prompt + Context</strong> ??At query time, the system retrieves relevant pieces (retrieval phase)  </li>
+<li><strong>LLM</strong> ??The model uses that context to generate a response  </li>
+<li><strong>Output</strong> ??The result is based on your data, not just what the model ?쐊nows??/li>
 </ol>
 <p><em>Image Source: <a href="https://hyperight.com/7-practical-applications-of-rag-models-and-their-impact-on-society/">https://hyperight.com/7-practical-applications-of-rag-models-and-their-impact-on-society/</a></em></p>
 <hr>
 <h2>Why RAG Is Everywhere in Enterprise AI</h2>
-<p>You’ll often hear this number:  </p>
+<p>You?셪l often hear this number:  </p>
 <blockquote>
-<p>From what I’ve seen across clients and systems, <strong>70% of enterprise GenAI use-cases use RAG</strong>.</p>
+<p>From what I?셶e seen across clients and systems, <strong>70% of enterprise GenAI use-cases use RAG</strong>.</p>
 </blockquote>
 <p>Why RAG is invaluable to enterprises:  </p>
 <ul>
@@ -99,7 +99,7 @@
 </ul>
 <p>So instead of asking:  </p>
 <blockquote>
-<p>“How do I teach the model everything we know?”<br>Most teams ask:<br>“How do I let the model fetch what we already have?”</p>
+<p>?쏦ow do I teach the model everything we know???br>Most teams ask:<br>?쏦ow do I let the model fetch what we already have???/p>
 </blockquote>
 <hr>
 <h2>RAG = LLM + Additional Retrieved Data</h2>
@@ -109,14 +109,14 @@
 <li>You take an LLM  </li>
 <li>You feed it additional, retrieved information right before generation</li>
 </ul>
-<p>This makes the model more accurate, more context-aware, and less reliant on memorized facts.<br>It’s especially useful for tasks like <strong>Q&amp;A, summarization, and policy lookups</strong> — particularly in data-rich environments like <strong>legal, finance, and support</strong>.</p>
-<p>No wonder 2024 was dubbed <strong>“the year of RAG.”</strong></p>
+<p>This makes the model more accurate, more context-aware, and less reliant on memorized facts.<br>It?셲 especially useful for tasks like <strong>Q&amp;A, summarization, and policy lookups</strong> ??particularly in data-rich environments like <strong>legal, finance, and support</strong>.</p>
+<p>No wonder 2024 was dubbed <strong>?쐔he year of RAG.??/strong></p>
 <hr>
-<h2>But Now We’re Moving Into the Agentic Era</h2>
-<p>RAG isn’t going away, but it’s evolving.</p>
-<p>Today’s systems don’t just retrieve once and generate an answer.<br>In <strong>agentic workflows</strong>, retrieval becomes part of a broader, dynamic reasoning loop.</p>
-<p>Agents plan, retrieve, reflect, and retrieve again — not just once, but as many times as needed throughout a task.</p>
-<p>That’s where <strong>Agentic RAG</strong> comes in.</p>
+<h2>But Now We?셱e Moving Into the Agentic Era</h2>
+<p>RAG isn?셳 going away, but it?셲 evolving.</p>
+<p>Today?셲 systems don?셳 just retrieve once and generate an answer.<br>In <strong>agentic workflows</strong>, retrieval becomes part of a broader, dynamic reasoning loop.</p>
+<p>Agents plan, retrieve, reflect, and retrieve again ??not just once, but as many times as needed throughout a task.</p>
+<p>That?셲 where <strong>Agentic RAG</strong> comes in.</p>
 <hr>
 <h2>What Is Agentic RAG?</h2>
 <img width="1456" height="971" alt="image" src="https://github.com/user-attachments/assets/8a7347b0-2ead-4d56-9f33-ef57667d0f00" /><p>Traditional RAG:  </p>
@@ -127,13 +127,13 @@
 </ul>
 <p>It works well for standalone questions like:  </p>
 <blockquote>
-<p>“What’s our policy on PTO rollover?”</p>
+<p>?쏻hat?셲 our policy on PTO rollover???/p>
 </blockquote>
-<p>But most real-world enterprise workflows aren’t one-shot.</p>
+<p>But most real-world enterprise workflows aren?셳 one-shot.</p>
 <hr>
-<p><strong>Example:</strong><br>Let’s say you’re building a deal assistant for your sales team.<br>In a single task, the agent may need to:  </p>
+<p><strong>Example:</strong><br>Let?셲 say you?셱e building a deal assistant for your sales team.<br>In a single task, the agent may need to:  </p>
 <ul>
-<li>Pull the customer’s CRM history  </li>
+<li>Pull the customer?셲 CRM history  </li>
 <li>Retrieve current pricing for their segment  </li>
 <li>Look up regional legal terms  </li>
 <li>Reference past contract clauses  </li>
@@ -142,7 +142,7 @@
 <li>Log the interaction</li>
 </ul>
 <hr>
-<p>In <strong>agentic systems</strong>, retrieval isn’t just a setup step.<br>It’s how the agent:  </p>
+<p>In <strong>agentic systems</strong>, retrieval isn?셳 just a setup step.<br>It?셲 how the agent:  </p>
 <ul>
 <li>Gathers missing context  </li>
 <li>Checks its assumptions  </li>
@@ -155,7 +155,7 @@
 <li>A mechanism for handling dynamic workflows  </li>
 <li>A bridge between reasoning and grounded enterprise knowledge</li>
 </ul>
-<p>Agentic RAG turns retrieval into a <strong>first-class decision-making loop</strong> by using retrieval as part of the model’s thinking process.</p>
+<p>Agentic RAG turns retrieval into a <strong>first-class decision-making loop</strong> by using retrieval as part of the model?셲 thinking process.</p>
 <hr>
 <h2>RAG as a Tool</h2>
 <p>If you think about it, RAG is also a kind of <strong>tool</strong>.<br>But instead of triggering an action, it helps the agent pull the right information from a large volume of data.</p>
@@ -165,18 +165,18 @@
 <li><strong>Tools</strong>  </li>
 <li><strong>Planning</strong></li>
 </ul>
-<p>…to complete complex tasks <strong>reliably and contextually</strong>.</p>
+<p>?쫡o complete complex tasks <strong>reliably and contextually</strong>.</p>
 <hr>
 <h2>A Note on Scope</h2>
-<p>RAG is a deep and rapidly evolving space — honestly, it could be its own course.<br>If you&#39;re curious to explore further:  </p>
+<p>RAG is a deep and rapidly evolving space ??honestly, it could be its own course.<br>If you&#39;re curious to explore further:  </p>
 <ul>
-<li>I’ve curated a <strong>GitHub repo</strong> of key RAG papers that covers the landscape well  </li>
+<li>I?셶e curated a <strong>GitHub repo</strong> of key RAG papers that covers the landscape well  </li>
 <li>I have a <strong>101 guide on Agentic RAG</strong> too</li>
 </ul>
 <p>That said, not every RAG optimization is necessary for every use-case.<br>In our 6-week course, we focus on helping you understand <strong>when and where</strong> each technique makes sense, rather than applying them blindly.</p>
 <hr>
-<p>In the next part, we’ll dive into one of the most talked-about concepts lately: <strong>Model Context Protocol (MCP)</strong>.  </p>
-<p>To get the most out of it, we’d recommend revisiting <strong>Part 3 on tools</strong>, since MCP builds directly on that concept!</p>
+<p>In the next part, we?셪l dive into one of the most talked-about concepts lately: <strong>Model Context Protocol (MCP)</strong>.  </p>
+<p>To get the most out of it, we?셝 recommend revisiting <strong>Part 3 on tools</strong>, since MCP builds directly on that concept!</p>
 
 </div>
 <footer>
@@ -184,6 +184,6 @@
 <p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
 </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../../../js/main.js"></script>
 </body>
 </html>
