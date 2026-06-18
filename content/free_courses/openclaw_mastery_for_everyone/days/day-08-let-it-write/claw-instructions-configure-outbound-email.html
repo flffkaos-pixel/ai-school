@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claw instructions configure outbound email — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 8: Configure Outbound Email</h1>
+<p>Goal: turn on the Gmail SMTP side of <code>imap-smtp-email</code> for this workspace and add the Day 8 outbound email rules.</p>
+<p>Key constraints:</p>
+<ul>
+<li>Do not ask the user to run shell commands.</li>
+<li>Reuse the Day 6 Gmail setup if it is already present.</li>
+<li>Keep Day 8 on compose-only email.</li>
+<li>Every outbound email must be shown in full and require explicit approval before sending.</li>
+</ul>
+<p>Do:</p>
+<ol>
+<li>Confirm whether <code>imap-smtp-email</code> is already installed and ready.</li>
+<li>Ask only for the Gmail address and App Password if you still need them.</li>
+<li>Configure the Gmail SMTP settings in <code>~/.config/imap-smtp-email/.env</code>:<ul>
+<li><code>SMTP_HOST=smtp.gmail.com</code></li>
+<li><code>SMTP_PORT=587</code></li>
+<li><code>SMTP_USER</code> should be the user&#39;s full Gmail address</li>
+<li><code>SMTP_PASS</code> should be the Gmail App Password</li>
+<li><code>SMTP_FROM</code> should match the Gmail address</li>
+</ul>
+</li>
+<li>Confirm the config file permissions are owner-only, without printing the password back to the user.</li>
+<li>Add an <code>Outbound Email Protocols</code> section to <code>AGENTS.md</code> that says:<ul>
+<li>all outbound email requires explicit approval before sending</li>
+<li>show the complete draft with <code>To</code>, <code>Subject</code>, and <code>Body</code></li>
+<li>match the tone in <code>SOUL.md</code> unless the user asks for a different tone</li>
+<li>attachments require explicit user instruction and file confirmation</li>
+<li>if the recipient address is uncertain, ask instead of guessing</li>
+<li>Day 8 scope is compose new messages only</li>
+</ul>
+</li>
+<li>Tell the user exactly what changed.</li>
+<li>Give the user one validation prompt to run next.</li>
+</ol>
+<p>In your final reply include:</p>
+<ul>
+<li>PASS or FAIL</li>
+<li>whether <code>imap-smtp-email</code> is ready</li>
+<li>where the SMTP settings were stored, without printing secrets</li>
+<li>whether <code>AGENTS.md</code> was updated</li>
+<li>the exact validation prompt</li>
+</ul>
+<p>Stop there.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

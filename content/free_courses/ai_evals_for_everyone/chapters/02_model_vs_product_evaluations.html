@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Model vs product evaluations — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Chapter 2: Model vs Product Evaluations</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/model_vs_product_evaluation.png" alt="Model vs Product Evaluation"></p>
+<h2>From Model Creation to Product Implementation</h2>
+<p>In the previous chapter, we established that AI evaluation is unavoidable. Now we need to understand how evaluation works across the AI ecosystem.</p>
+<p>When AI companies build models, they evaluate them to understand their general capabilities. But these same models get used in thousands of different applications, from customer support chatbots to legal document analysis to medical diagnosis tools. Each application has its own requirements, constraints, and success criteria.</p>
+<p>This creates a natural progression: models are evaluated for their general abilities, then they need additional evaluation when you use them for specific purposes. The first tells you what a model can do in theory. The second tells you whether it actually works for your particular use case.</p>
+<p>Model creators have their own perspective on evaluation worth understanding first.</p>
+<h2>Model Evaluations: Measuring General Capability</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/evaluation_benchmark_process.png" alt="Evaluation Benchmark Process"></p>
+<p>When AI companies develop models, they need to understand and communicate what their models can do. <strong>Model evaluations</strong> serve this purpose, measuring general capability across broad domains. Their goal is straightforward: <em>How capable is this model compared to others?</em></p>
+<p>You see these evaluations in research papers, vendor marketing materials, and leaderboards.</p>
+<p>These evaluations use standardized benchmarks that test different aspects of model capability:</p>
+<ul>
+<li><strong>MMLU (Massive Multitask Language Understanding)</strong>: Tests knowledge across 57 academic subjects from elementary math to professional law</li>
+<li><strong>HumanEval</strong>: Measures coding ability by testing whether models can write Python functions that pass unit tests  </li>
+<li><strong>GSM8K</strong>: Tests grade-school level mathematical reasoning</li>
+<li><strong>GPQA</strong>: Tests graduate-level reasoning in physics, chemistry, and biology</li>
+</ul>
+<p>Model evaluations serve as a competitive landscape for AI providers. When companies release new models, they publish benchmark scores to demonstrate improvements and establish market positioning. A model that scores 85% on MMLU versus 78% on the previous version signals meaningful progress to potential customers and the research community.</p>
+<p>The industry benefits from this standardization in several ways. Teams can track scientific progress over time, organizations can compare and choose between different models, and everyone gets objective measures that cut through marketing claims.</p>
+<p>The benchmarks are carefully designed to be objective, repeatable, and comparable across different models. Model evaluations can test both general capabilities and domain-specific knowledge, but they&#39;re designed to assess what models can do in standardized conditions, not how they&#39;ll perform in your specific business context with your particular constraints and requirements.</p>
+<h2>Why Model Evaluations Don&#39;t Predict Product Success</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/benchmark_vs_product_split.png" alt="Benchmark vs Product Split"></p>
+<p>Here&#39;s a concrete example. Suppose you&#39;re building an AI system to help insurance agents process claims. You&#39;re choosing between two models:</p>
+<ul>
+<li><strong>Model A</strong> scores 92% on MMLU and 85% on HumanEval</li>
+<li><strong>Model B</strong> scores 87% on MMLU and 79% on HumanEval</li>
+</ul>
+<p>Based on benchmark scores, Model A looks clearly superior. When you test them on actual insurance claims with your specific data, workflows, and business constraints, Model B might perform significantly better.</p>
+<p>Why? Because your insurance use case has specific requirements that general benchmarks don&#39;t capture:</p>
+<ul>
+<li><strong>Domain knowledge</strong>: Understanding insurance terminology, regulations, and claim types</li>
+<li><strong>Risk tolerance</strong>: The cost of approving a fraudulent claim versus denying a legitimate one</li>
+<li><strong>Business constraints</strong>: Processing time requirements, escalation policies, compliance needs</li>
+<li><strong>Real-world messiness</strong>: Incomplete forms, ambiguous language, edge cases specific to insurance</li>
+</ul>
+<p>Model B might have seen more insurance-related data during training, or its architecture might be better suited to the structured reasoning required for claims processing. The benchmark scores can&#39;t tell you this.</p>
+<h2>Real-World Context Is Far More Complicated</h2>
+<p>The data that powers your business lives in industry-specific silos that benchmark creators never see. Healthcare data has different patterns than financial data. Legal documents follow different structures than customer support conversations. Manufacturing quality reports contain domain knowledge that doesn&#39;t exist in academic datasets.</p>
+<p>This means benchmark performance often fails to predict real-world behavior. Consider a customer support AI that scores well on standard helpfulness benchmarks. When a frustrated customer types &quot;this is the third time I&#39;m contacting you about my broken order and nobody seems to care,&quot; the AI needs to:</p>
+<ul>
+<li>Recognize the emotional context and escalation history</li>
+<li>Know when to apologize versus when to escalate immediately  </li>
+<li>Understand your company&#39;s specific policies and capabilities</li>
+<li>Balance being helpful with managing expectations appropriately</li>
+</ul>
+<p>These nuanced requirements emerge from your specific business context, customer base, and operational constraints. They don&#39;t appear in general benchmarks, but they&#39;re critical for your product&#39;s success.</p>
+<h2>AI Product Evaluations: What Actually Matters for Your Business</h2>
+<p><strong>AI product evaluations</strong> focus on a different question: <em>Does this system behave acceptably for our specific use case, with our users, in our domain?</em></p>
+<p>Product evaluations are context-dependent by design. They test whether the AI system:</p>
+<ul>
+<li>Handles your specific user inputs appropriately</li>
+<li>Follows your business rules and constraints</li>
+<li>Escalates correctly when uncertain</li>
+<li>Maintains appropriate tone and style for your brand</li>
+<li>Manages risk according to your tolerance levels</li>
+</ul>
+<p>The metrics you track in product evaluation often look very different from model evaluation metrics. Instead of general correctness, you might measure:</p>
+<ul>
+<li><strong>Escalation accuracy</strong>: Does the system correctly identify when it should hand off to a human?</li>
+<li><strong>Policy compliance</strong>: Does it follow your company&#39;s specific guidelines and constraints?</li>
+<li><strong>Risk management</strong>: How often does it make decisions you later have to reverse?</li>
+<li><strong>User experience</strong>: Are users able to complete their tasks efficiently?</li>
+</ul>
+<h2>A Practical Example: Legal Document Analysis</h2>
+<p>Imagine you&#39;re building an AI system to help lawyers review contracts. Two different evaluation approaches would look completely different:</p>
+<h3>Model Evaluation Approach</h3>
+<ul>
+<li>Test general reading comprehension on legal text</li>
+<li>Measure accuracy on standardized legal reasoning benchmarks</li>
+<li>Compare performance to other models on academic legal datasets</li>
+</ul>
+<h3>Product Evaluation Approach</h3>
+<ul>
+<li>Test on your firm&#39;s actual contract types and templates</li>
+<li>Measure how often it catches the specific risk patterns your lawyers care about</li>
+<li>Evaluate whether it flags clauses that your legal team would want to review</li>
+<li>Test escalation behavior when it encounters unusual or high-risk terms</li>
+<li>Measure time savings for your lawyers while maintaining quality standards</li>
+</ul>
+<p>The model evaluation tells you the AI can understand legal language in general. The product evaluation tells you whether it can actually help your lawyers do their job better.</p>
+<h2>Focus on Product Evaluation for Builders</h2>
+<p>Now that we understand both approaches, it becomes clear that model evaluation alone isn&#39;t really useful for builders. While model evaluations help with initial model selection, the real work happens at the product evaluation level.</p>
+<p><strong>Baseline capability assessment</strong>: If a model performs poorly on relevant general benchmarks, it&#39;s unlikely to work well in your specific domain. Model evaluations can help you eliminate obviously unsuitable options.</p>
+<p><strong>Comparative analysis</strong>: When choosing between models with similar architectures, benchmark scores can provide useful signals about relative capability, especially when combined with product-specific testing.</p>
+<p><strong>Progress tracking</strong>: If you&#39;re fine-tuning or customizing a model, general benchmarks can help you verify that you&#39;re not degrading core capabilities while adding domain-specific knowledge.</p>
+<p>But model evaluations should be just the starting point, not the endpoint, of your evaluation process.</p>
+<h2>Building Your Product Evaluation Strategy</h2>
+<p>Given this distinction, how should you approach evaluation for your AI product?</p>
+<p><strong>Start with model evaluations as a filter</strong>. Use benchmark scores to eliminate models that lack the basic capabilities your application requires. If you need strong reasoning ability, look for models that perform well on reasoning benchmarks. If you need multilingual support, check language-specific evaluations.</p>
+<p><strong>But invest your time in product evaluations</strong>. This is where you&#39;ll discover whether the AI actually works for your use case. Design evaluations that test:</p>
+<ul>
+<li>Your specific user inputs and edge cases</li>
+<li>Your business constraints and requirements</li>
+<li>Your risk tolerance and escalation needs</li>
+<li>Your quality standards and success metrics</li>
+</ul>
+<p><strong>Use real data whenever possible</strong>. Synthetic test cases are useful for getting started, but nothing beats evaluating on actual examples from your domain with real user inputs and expected outputs.</p>
+<p><strong>Make it an ongoing process</strong>. Unlike model evaluations, which are typically done once during model selection, product evaluation should be continuous. User behavior evolves, business requirements change, and your AI system needs to adapt.</p>
+<h2>The Evaluation Hierarchy</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/evaluation_questions_overview.png" alt="Evaluation Questions Overview"></p>
+<p>Think of evaluation as a hierarchy:</p>
+<ol>
+<li><strong>Model capability</strong>: Can this model handle the type of task I need? (Model evaluation)</li>
+<li><strong>Domain fit</strong>: Does it work well with my specific data and requirements? (Basic product evaluation)  </li>
+<li><strong>Production readiness</strong>: Does it behave safely and reliably with real users? (Comprehensive product evaluation)</li>
+<li><strong>Continuous improvement</strong>: How do I maintain and improve performance over time? (Ongoing product evaluation)</li>
+</ol>
+<p>Most teams spend too much time on level 1 and not enough on levels 2-4. The companies that succeed with AI products flip this priority.</p>
+<h2>Key Takeaways</h2>
+<p>Model evaluations and product evaluations serve fundamentally different purposes. Model evaluations help you understand general capability and compare different models. Product evaluations tell you whether an AI system will actually work for your business.</p>
+<p>The benchmark illusion (assuming strong model evaluations guarantee product success) is one of the most common reasons AI projects fail to translate from demos to production.</p>
+<p>Your evaluation strategy should use model evaluations as an initial filter but invest most of your effort in product-specific evaluation that tests real use cases, real data, and real business requirements.</p>
+<p>In the next chapter, we&#39;ll dive into a systematic framework for thinking about AI system behavior that will help you design product evaluations that actually predict real-world performance.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

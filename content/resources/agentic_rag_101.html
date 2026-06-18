@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Agentic rag 101 — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/main_agentic_rag.png" alt="main_agentic_rag.png"></p>
+<p>Agentic Retrieval Augmented Generation or Agentic RAG is quickly becoming a popular approach in AI, as it combines the strengths of retrieval systems with the smart decision-making of agents. This makes it possible for large language models (LLMs) to pull in real-time data and use it to improve their answers. By doing this, these systems become more flexible and can handle more complex, ever-changing tasks.</p>
+<h3>Section 1: Understanding RAG and Agents</h3>
+<p><strong>Retrieval Augmented Generation (RAG)</strong> is a method used to improve LLMs by giving them access to real-time data. Normally, LLMs rely only on the data they were trained on, which can become outdated. RAG fixes this by allowing models to retrieve information from external sources, like databases or live web searches. This way, when the model is asked a question, it can pull in fresh, relevant data and combine it with its own knowledge to create a more accurate and useful response. RAG is especially valuable in areas like customer support or finance, where up-to-date information is crucial.</p>
+<p><strong>Agents</strong>, on the other hand, are systems that can make decisions and act on their own. In AI, agents are used to manage tasks and processes, automatically adjusting to whatever situation they are in. They can assess what needs to be done, choose the best way to do it, and then carry out the task, making them very flexible and efficient.</p>
+<p><strong>Enter Agentic RAG!</strong></p>
+<hr>
+<h3>Section 2: What is Agentic RAG?</h3>
+<p>When <strong>RAG and agents</strong> are combined, the agents take charge of the entire process, deciding how and when to retrieve the data and how to use it to generate the best possible response. Instead of simply retrieving information, the agents make smart choices about where to get the data, what is most important, and how to integrate it into the LLM’s answer. This results in a system that can handle more complex queries and deliver responses that are both accurate and tailored to the specific situation.</p>
+<p>The table below provides a clear overview of how <strong>Agents</strong>, <strong>RAG</strong>, and <strong>Agentic RAG</strong> differ in terms of their key features and functionalities:</p>
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/img/differences.png" alt="differences.png"></p>
+<p><strong>How Agentic RAG Works – Step-by-Step Example</strong></p>
+<p>Let’s walk through an example to understand how Agentic RAG operates in real-time. Suppose you’re using a customer support chatbot powered by Agentic RAG to resolve an issue with your internet service. The query you input is:</p>
+<p><strong>&quot;Why is my internet slow in the evenings?&quot;</strong></p>
+<h3>Step-by-Step Breakdown:</h3>
+<ol>
+<li><strong>User Query</strong><ul>
+<li>You type your query into the chatbot: &quot;Why is my internet slow in the evenings?&quot;</li>
+<li>The query is received by the system, which activates the intelligent agent to determine the next steps.</li>
+</ul>
+</li>
+<li><strong>Agent Analyzes the Query</strong><ul>
+<li>The agent analyzes your question, recognizing that it’s a service-related query that might need data on your internet usage patterns, network traffic, and potential service disruptions.</li>
+<li>Based on this, the agent identifies relevant data sources, such as your service history, network reports, and real-time traffic data.</li>
+</ul>
+</li>
+<li><strong>Agent Decides on Retrieval Strategy</strong><ul>
+<li>The agent determines which external data sources to query. In this case, it may decide to:<ul>
+<li>Fetch data from your account history to check if there are any noted service issues.</li>
+<li>Retrieve network traffic reports from the internet service provider (ISP) to analyze peak usage times in your area.</li>
+<li>Query a public knowledge base to gather information on common causes of evening slowdowns.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Data Retrieval</strong><ul>
+<li>The retrieval system, directed by the agent, pulls information from multiple sources. It fetches:<ul>
+<li>Your service history, showing an uptick in complaints during the evening.</li>
+<li>Network traffic reports indicating high congestion in your neighborhood between 6 PM and 10 PM.</li>
+<li>Articles from the knowledge base explaining how peak-time usage and congestion can cause slower speeds.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>LLM Generates Response</strong><ul>
+<li>Once the relevant data is retrieved, the large language model (LLM) processes it. The model takes into account both its pre-trained knowledge and the real-time data fetched by the agent.</li>
+<li>The LLM generates a response that integrates these insights:<strong>&quot;It appears that your internet speed slows down in the evenings due to high traffic in your area during peak hours. You might want to consider upgrading your plan or using the internet during off-peak times to avoid congestion.&quot;</strong></li>
+</ul>
+</li>
+<li><strong>Response Delivery</strong><ul>
+<li>The generated response is delivered to you, providing a clear and accurate explanation of why your internet is slow in the evenings, based on both real-time data and the model’s general understanding of network congestion.</li>
+</ul>
+</li>
+<li><strong>Follow-Up Actions</strong><ul>
+<li>If necessary, the agent could continue assisting by offering additional solutions. For instance, it could recommend a faster internet plan or schedule a technician visit if it detects any ongoing issues with your connection.</li>
+</ul>
+</li>
+</ol>
+<h3>Key Points of Agentic RAG in Action:</h3>
+<ul>
+<li>The <strong>agent</strong> autonomously decides which sources to query based on your question.</li>
+<li>The <strong>retrieval system</strong> pulls real-time data specific to your query, enhancing the LLM’s response.</li>
+<li>The <strong>LLM</strong> generates an answer that is more accurate and context-aware because it integrates both pre-trained knowledge and the fresh data fetched by the agent.</li>
+</ul>
+<p>Note that while this is a basic example of how Agentic RAG operates, it can also interact with not just knowledge bases but also other tools and services, similar to the way traditional agents do.</p>
+<hr>
+<h3>Section 3: Agentic RAG Capabilities</h3>
+<p>Agentic RAG offers a range of powerful features that make it an attractive option for systems requiring dynamic, real-time data retrieval and decision-making. Here are some of the standout features:</p>
+<ol>
+<li><p><strong>Dynamic Data Retrieval</strong></p>
+<p> One of the main features of Agentic RAG is its ability to fetch real-time information based on user queries. By incorporating intelligent agents, the system can decide which data sources to query, ensuring the most relevant and up-to-date information is retrieved. This allows for more accurate and contextually aware responses, especially in environments where data changes frequently, like news or finance.</p>
+</li>
+<li><p><strong>Autonomous Decision-Making</strong></p>
+<p> In a traditional RAG setup, the retrieval process is relatively straightforward. However, in Agentic RAG, intelligent agents make autonomous decisions throughout the pipeline. They determine what data to retrieve, when to retrieve it, and how to use it, all without the need for human intervention. This autonomy makes the system more flexible and adaptable, allowing it to handle a wide range of complex tasks efficiently.</p>
+</li>
+<li><p><strong>Context-Aware Responses</strong></p>
+<p> Agentic RAG doesn’t just retrieve information blindly. Agents assess the context of each query and adjust the retrieval process accordingly. This means that the system can tailor responses based on the specific needs of the user, improving relevance and accuracy. The agents consider the context in real-time, allowing the system to respond more intelligently to nuanced queries.</p>
+</li>
+<li><p><strong>Scalability</strong></p>
+<p> With agents taking control of the retrieval and decision-making processes, Agentic RAG scales more effectively than traditional RAG systems. It can handle more complex queries across different domains by leveraging multiple data sources and balancing workloads intelligently. The system is designed to expand in complexity and volume while maintaining performance, making it suitable for large-scale applications like customer support or enterprise search.</p>
+</li>
+<li><p><strong>Reduced Hallucination Risk</strong></p>
+<p> One of the challenges with traditional LLMs is hallucination, where the model generates incorrect or nonsensical responses. Since Agentic RAG pulls real-time data and intelligently integrates it into responses, the likelihood of hallucinations is significantly reduced. The agents ensure that the information used is accurate and relevant, lowering the chance of the system providing false information.</p>
+</li>
+<li><p><strong>Customizable Workflows</strong></p>
+<p> Agentic RAG allows for highly customizable workflows based on the task or domain. Agents can be fine-tuned to follow different retrieval strategies, prioritize certain data sources, or adapt to specific business needs. This flexibility makes the system highly versatile, capable of functioning effectively in different industries or application settings.</p>
+</li>
+<li><p><strong>Multi-Step Reasoning</strong></p>
+<p> Agentic RAG pipelines can handle complex tasks that require multiple steps to reach a solution. They can break down a user’s query into smaller steps, retrieve data, and progressively build an answer, allowing for more nuanced and logical responses.</p>
+</li>
+</ol>
+<hr>
+<h3>Section 4: Types of Agentic RAG</h3>
+<p>Agentic RAG systems can be classified based on how agents operate and the complexity of their interactions with the retrieval and generation components. There are several types, each suited for different tasks and levels of complexity:</p>
+<ol>
+<li><strong>Single-Agent RAG</strong><ul>
+<li>In this setup, a single intelligent agent is responsible for managing the entire retrieval and generation process. The agent decides which sources to query, what data to retrieve, and how the data should be used in generating the final response.</li>
+<li>This type is ideal for simpler tasks or systems where decision-making doesn’t require much complexity. Single-agent RAG is efficient when managing routine queries with straightforward information retrieval needs.</li>
+</ul>
+</li>
+<li><strong>Multi-Agent RAG</strong><ul>
+<li>Multi-agent RAG involves multiple agents working together, each handling different aspects of the retrieval and generation process. One agent might handle retrieval from a specific source, while another might focus on optimizing the integration of data into the LLM&#39;s response.</li>
+<li>Multi-agent systems are well-suited for more complex scenarios, where different types of data need to be fetched from various sources or when tasks need to be broken down into smaller, specialized parts.</li>
+</ul>
+</li>
+<li><strong>Hierarchical Agentic RAG</strong><ul>
+<li>In this setup, agents are organized in a hierarchy, where higher-level agents supervise and guide lower-level agents. Higher-level agents may decide which data sources are worth querying, while lower-level agents focus on executing those queries and returning the results.</li>
+<li>This type is beneficial for highly complex tasks, where strategic decision-making is required at multiple levels. For example, hierarchical Agentic RAG is useful in systems that need to prioritize certain data sources or balance competing priorities.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3>Section 5: Implementing Agentic RAG</h3>
+<p>Here are some resources you can use to get started with implementing Agentic RAG.</p>
+<ol>
+<li><a href="https://medium.com/the-ai-forum/implementing-agentic-rag-using-langchain-b22af7f6a3b5">https://medium.com/the-ai-forum/implementing-agentic-rag-using-langchain-b22af7f6a3b5</a></li>
+<li><a href="https://github.com/benitomartin/agentic-rag-langchain-pinecone">https://github.com/benitomartin/agentic-rag-langchain-pinecone</a></li>
+<li><a href="https://www.llamaindex.ai/blog/agentic-rag-with-llamaindex-2721b8a49ff6">https://www.llamaindex.ai/blog/agentic-rag-with-llamaindex-2721b8a49ff6</a></li>
+<li><a href="https://docs.llamaindex.ai/en/stable/examples/agent/agentic_rag_using_vertex_ai/">https://docs.llamaindex.ai/en/stable/examples/agent/agentic_rag_using_vertex_ai/</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2024/07/building-agentic-rag-systems-with-langgraph/">https://www.analyticsvidhya.com/blog/2024/07/building-agentic-rag-systems-with-langgraph/</a></li>
+</ol>
+<hr>
+<h3>Section 6: Agentic RAG Challenges and Future Directions</h3>
+<p>As Agentic Retrieval Augmented Generation (RAG) continues to evolve, it faces several challenges that need to be addressed to reach its full potential. At the same time, there are exciting future directions that promise to make the technology even more powerful and adaptable</p>
+<h3>Challenges:</h3>
+<ol>
+<li><strong>Coordination Complexity</strong><ul>
+<li>As systems integrate more agents, ensuring smooth coordination between them becomes more complex. Each agent may operate with different priorities, leading to potential bottlenecks or conflicts in decision-making.</li>
+<li>Inefficient coordination can lead to slower response times or incomplete answers if agents don’t properly sync their retrieval tasks.</li>
+</ul>
+</li>
+<li><strong>Scalability Concerns</strong><ul>
+<li>While agents can make systems more flexible, managing a large number of agents and data sources can be resource-intensive. As the system scales, maintaining real-time performance without sacrificing accuracy becomes more difficult.</li>
+<li>High-latency responses and overburdened retrieval pipelines can diminish the benefits of real-time, dynamic data integration.</li>
+</ul>
+</li>
+<li><strong>Data Quality and Reliability</strong><ul>
+<li>The quality of the retrieved information is crucial for accurate responses. If agents pull data from unreliable or low-quality sources, it could lead to misinformation or inaccurate answers.</li>
+<li>Poor data quality can undermine trust in the system and lead to incorrect decisions, particularly in critical fields like healthcare or finance.</li>
+</ul>
+</li>
+<li><strong>Agent Decision-Making Transparency</strong><ul>
+<li>Understanding and monitoring how agents make decisions about retrieval and data usage can be difficult. Without transparency, it’s challenging to ensure that agents are consistently making optimal choices.</li>
+<li>Lack of transparency can lead to a “black box” effect, where users and developers struggle to interpret why certain decisions were made, making debugging and optimization harder.</li>
+</ul>
+</li>
+</ol>
+<h3>Future Directions:</h3>
+<ol>
+<li><strong>Improved Agent Collaboration and Orchestration</strong><ul>
+<li>Future Agentic RAG systems will focus on better orchestration methods that allow agents to collaborate more efficiently. This includes smarter workflows, where agents can better divide tasks, communicate seamlessly, and resolve conflicts without human intervention.</li>
+<li>This will enable smoother operations, reducing bottlenecks, and ensuring faster, more accurate responses across complex queries.</li>
+</ul>
+</li>
+<li><strong>Hybrid Human-Agent Systems</strong><ul>
+<li>In the future, systems could integrate human oversight, where agents operate autonomously but humans intervene in cases of uncertainty or high stakes. This would allow agents to handle routine queries, while humans handle exceptions or complex situations.</li>
+<li>This would combine the efficiency of agents with human intuition and expertise, especially in areas where the consequences of errors are high, such as legal or medical decisions.</li>
+</ul>
+</li>
+<li><strong>Learning Agents</strong><ul>
+<li>RAG Agents may become more adaptive by incorporating learning mechanisms. Instead of following static rules, agents will be able to learn from past interactions, improving their ability to make decisions over time.</li>
+<li>Learning agents would allow systems to evolve, becoming better at handling new and complex queries as they accumulate more experience, leading to smarter, more personalized interactions.</li>
+</ul>
+</li>
+<li><strong>Ethical Decision-Making Agents</strong><ul>
+<li>As Agentic RAG systems become more integrated into sensitive applications, developing agents that can make ethical decisions will be crucial. These agents will need to consider factors such as fairness, bias mitigation, and responsible AI usage.</li>
+<li>Ethical decision-making agents will help reduce biases in responses, ensure fairness in automated processes, and build trust in AI systems, particularly in sectors like law enforcement or social services.</li>
+</ul>
+</li>
+</ol>
+<hr>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

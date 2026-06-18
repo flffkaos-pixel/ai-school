@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Build — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 9 Build: Give It a Team</h1>
+<p>This is the user-facing guide for Day 9. Stay inside OpenClaw chat for this entire lesson. Your main Claw will create a specialist writer agent and wire up delegation. The detailed work lives in two short instruction files. This file is for you. The instruction files are for your Claw.</p>
+<hr>
+<h2>What You Need Before Starting</h2>
+<ul>
+<li>Day 1 complete: OpenClaw installed and secured</li>
+<li>Day 2 complete: identity files created and loading correctly</li>
+<li>Day 3 complete: Telegram connected and working</li>
+<li>Day 4 complete: a proactive workflow already exists</li>
+<li>Day 5 complete: skills are working</li>
+<li>Day 6 complete: email triage is working</li>
+<li>Day 7 complete: web research is working</li>
+<li>Day 8 complete: outbound email with approval is working</li>
+<li>Access to OpenClaw through the web chat</li>
+</ul>
+<hr>
+<h2>How To Run Day 9</h2>
+<p>Work through the steps in this order:</p>
+<ol>
+<li>confirm the writer model in chat</li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/./claw-instructions-create-writer-agent.md"><code>claw-instructions-create-writer-agent.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/./claw-instructions-enable-teamwork.md"><code>claw-instructions-enable-teamwork.md</code></a></li>
+<li>run the writer and delegation checks</li>
+</ol>
+<p>This order keeps the setup clear. First you confirm which capable model family you are already using for the writer. Then the Claw creates a persistent writer with a detailed identity. Then it connects the main agent and the writer safely. Then you test the direct writer path and the delegated path.</p>
+<hr>
+<h2>Step 1: Confirm the Writer Model</h2>
+<p>Copy and paste this into the web chat:</p>
+<blockquote>
+<p>Before we change anything, inspect my current setup and tell me which primary model family my main Claw is using and whether the writer should use <code>gpt-5.4</code>, <code>claude-sonnet-4.6</code>, or <code>Gemini 3 Flash</code>. Do not make changes yet.</p>
+</blockquote>
+<p>This makes the model decision explicit before the new agent exists. The Day 9 writer should stay on the same high-capability provider family you already configured.</p>
+<hr>
+<h2>Step 2: Create <code>writer</code></h2>
+<p>After you are happy with the plan, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/claw-instructions-create-writer-agent.md</code> and follow every step. Ask the setup questions in order, create the <code>writer</code> agent, keep the writer identity files detailed, choose its model from my existing provider setup, and stop when you&#39;re done.</p>
+</blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/./claw-instructions-create-writer-agent.md"><code>claw-instructions-create-writer-agent.md</code></a> tells the Claw to:</p>
+<ul>
+<li>inspect your current config and main identity files first</li>
+<li>ask a few short questions about topics, audience, and voice</li>
+<li>create a named <code>writer</code> agent with its own workspace</li>
+<li>write a detailed <code>SOUL.md</code> plus scoped <code>USER.md</code>, <code>AGENTS.md</code>, and starter <code>MEMORY.md</code></li>
+<li>choose <code>gpt-5.4</code>, <code>claude-sonnet-4.6</code>, or <code>Gemini 3 Flash</code> based on the model family already running on your main setup</li>
+</ul>
+<p>The detail in the writer <code>SOUL.md</code> is the point. This agent is supposed to sound different from your generalist Claw.</p>
+<hr>
+<h2>Step 3: Connect the Team</h2>
+<p>After <code>writer</code> is created, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/claw-instructions-enable-teamwork.md</code> and follow every step. Enable delegation between <code>main</code> and <code>writer</code>, add a short rule so long-form writing goes to the writer, and stop when you&#39;re done.</p>
+</blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/./claw-instructions-enable-teamwork.md"><code>claw-instructions-enable-teamwork.md</code></a> tells the Claw to:</p>
+<ul>
+<li>enable agent-to-agent communication only between <code>main</code> and <code>writer</code></li>
+<li>add one short delegation rule to your main workspace <code>AGENTS.md</code></li>
+<li>report exactly what changed and whether it had to reload anything</li>
+</ul>
+<p>This keeps responsibility clear. The main Claw coordinates. The writer drafts.</p>
+<hr>
+<h2>Important: Read This Before You Run the Writer</h2>
+<p>Pause here before you run the checks below. Hostinger&#39;s current web chat has a sub-agent interface bug. After the <code>writer</code> finishes a draft, the chat can stop accepting follow-up messages. Your Day 9 setup usually completed correctly. The interface just needs a quick session switch.</p>
+<p>Use the session switcher at the top of the chat window to recover the conversation:</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/../../diagrams/day-09-subagents-section-toggle.png" alt="Session switcher for main and sub-agents"></p>
+<p>If the chat gets stuck after a writer or delegation run:</p>
+<ul>
+<li>open the session switcher at the top of the chat window</li>
+<li>click a different agent or sub-agent</li>
+<li>click <code>main</code> again</li>
+<li>continue the conversation from there</li>
+</ul>
+<p>Keep this in mind before you start the checks below. A quick toggle usually clears the interface immediately.</p>
+<hr>
+<h2>What Should Be True After Day 9</h2>
+<h3>Named Agents</h3>
+<ul>
+<li><input disabled="" type="checkbox"> A <code>writer</code> named agent exists</li>
+<li><input disabled="" type="checkbox"> The writer uses <code>gpt-5.4</code>, <code>claude-sonnet-4.6</code>, or <code>Gemini 3 Flash</code>, chosen from the same provider family as the main setup</li>
+<li><input disabled="" type="checkbox"> The writer workspace has a detailed <code>SOUL.md</code> tuned for long-form writing</li>
+<li><input disabled="" type="checkbox"> The writer workspace has <code>USER.md</code>, <code>AGENTS.md</code>, and <code>MEMORY.md</code></li>
+<li><input disabled="" type="checkbox"> Agent-to-agent communication is enabled between <code>main</code> and <code>writer</code></li>
+<li><input disabled="" type="checkbox"> The main workspace has a short delegation rule for long-form writing</li>
+<li><input disabled="" type="checkbox"> A writer-only test produced a convincing draft</li>
+<li><input disabled="" type="checkbox"> A delegated draft came back through the main Claw</li>
+<li><input disabled="" type="checkbox"> A revision request made a round trip through the writer</li>
+</ul>
+<hr>
+<h2>Troubleshooting</h2>
+<p><strong>The main Claw writes the draft itself</strong><br>Ask more directly: <code>Use the writer agent for this draft.</code> If it still writes the piece itself, ask it to show you the long-form delegation rule it added to the main workspace <code>AGENTS.md</code>.</p>
+<p><strong>The writer sounds generic</strong><br>Ask the Claw to show you the writer <code>SOUL.md</code> and tighten the voice section. Small changes there have a large effect on output.</p>
+<p><strong>The writer agent does not appear in the interface yet</strong><br>Ask your main Claw whether the Day 9 setup finished reloading cleanly and where it created the writer workspace.</p>
+<p><strong>Delegation fails</strong><br>Ask the Claw to inspect the current agent-to-agent allow list and fix only the <code>main</code> to <code>writer</code> connection.</p>
+<p><strong>The chat stops accepting follow-up messages after a writer run</strong><br>Use the session switcher at the top of the chat window. Click any other agent or sub-agent, then click <code>main</code> again and continue in the same conversation.</p>
+<p><strong>Costs feel high</strong><br>A named writer uses a capable model every time it drafts. Keep the writer for work that actually benefits from voice and structure.</p>
+<hr>
+<h2>Validation</h2>
+<p>Keep the session-switcher workaround above in mind while you run these checks.</p>
+<h3>Direct Writer Check</h3>
+<p>Open the <code>writer</code> agent in OpenClaw. If you are not sure how to switch agents in your interface, ask your main Claw:</p>
+<pre><code class="language-text">Tell me how to open the writer agent directly in this interface.
+</code></pre>
+<p>Then send:</p>
+<pre><code class="language-text">Write a short Substack post, about 500 to 700 words, on why most productivity advice is backwards. The audience is skeptical knowledge workers.
+</code></pre>
+<p>You are looking for:</p>
+<ul>
+<li>a real hook instead of a generic setup</li>
+<li>short paragraphs</li>
+<li>a suggested title and subtitle</li>
+<li>no em-dashes</li>
+<li>a complete draft instead of an outline</li>
+</ul>
+<h3>Delegation Check</h3>
+<p>Switch back to your main Claw and send:</p>
+<pre><code class="language-text">I need a Substack draft about how personal AI assistants are becoming the new operating system for knowledge work. Delegate this to the writer agent and bring me back the draft.
+</code></pre>
+<p>You are looking for:</p>
+<ul>
+<li>delegation instead of the main Claw drafting it itself</li>
+<li>the returned draft keeping the writer&#39;s voice</li>
+<li>the main Claw presenting the draft without flattening it into its own tone</li>
+</ul>
+<h3>Revision Check</h3>
+<p>In the same main chat, send:</p>
+<pre><code class="language-text">Ask the writer agent to revise that draft. The hook is too generic. Open with a specific example of someone using their AI assistant to do something that would have taken hours manually.
+</code></pre>
+<p>You should get a revised draft back through the main Claw.</p>
+<hr>
+<h2>Quick Wins</h2>
+<p>Ask the writer for three title options and a sharper opening on a real topic you care about.</p>
+<p>Then ask your main Claw to turn rough notes into a delegated writing brief:</p>
+<pre><code class="language-text">I want to publish something on [your topic]. Pull together the angle, audience, and key points, then delegate the draft to the writer agent.
+</code></pre>
+<p>This is the Day 9 shift. Your Claw no longer has to do every kind of work in one voice.</p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/./learn.md">← Day 9 Learn</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/../day-10-what-comes-next/build.md">Day 10: What Comes Next →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

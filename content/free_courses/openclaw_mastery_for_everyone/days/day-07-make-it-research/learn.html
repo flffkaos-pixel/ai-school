@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Learn — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 7: Make It Research</h1>
+<hr>
+<p><strong>What you&#39;ll learn today:</strong></p>
+<ul>
+<li>What live web search adds to OpenClaw, and why it changes the quality of current answers</li>
+<li>The difference between search and fetch, and which part we are actually using today</li>
+<li>How web content introduces the same injection risks you handled with email, and what changes</li>
+<li>What a well-designed research brief looks like versus a vague one</li>
+</ul>
+<p><strong>What you&#39;ll build today:</strong> By the end of today, your Claw can answer current questions with live Brave-backed search and source links, and it has one reusable <code>research-brief</code> skill built on top of that.</p>
+<hr>
+<h2>Your Claw Goes Out Into the World</h2>
+<p>Until now, your Claw has worked with information that comes to it: messages you send, emails that land in your inbox. Today we add a new kind of reach. Your Claw can go out, look up something current, and come back with sources.</p>
+<p>That changes the kind of questions it can answer well. &quot;What changed this week in AI agents?&quot; or &quot;What are people saying about this product launch?&quot; are live questions. Model memory alone is not enough there. The search tool is what turns your Claw into something useful on moving topics.</p>
+<p>By the end of today, you&#39;ll be able to message your Claw and ask a time-sensitive question, then get back a short answer with links you can inspect yourself. Then you turn that into a reusable <code>research-brief</code> skill.</p>
+<hr>
+<h2>Two Tools, Two Speeds</h2>
+<p>OpenClaw has a few ways to reach the web, and they do different jobs.</p>
+<p>The main one for today is <a href="https://docs.openclaw.ai/tools/web-search"><code>web_search</code></a>. It sends a query to a search provider and returns structured results: titles, URLs, snippets, and metadata. With <a href="https://docs.openclaw.ai/tools/brave-search"><code>Brave Search</code></a>, you bring your own API key and OpenClaw uses that provider for live queries. This is fast and good for breadth. You can ask, &quot;what happened this week?&quot; and get fresh results instead of a best guess.</p>
+<p>OpenClaw also has <a href="https://docs.openclaw.ai/tools/web-fetch"><code>web_fetch</code></a>, which is useful when you already know the page you want and need more than the search snippet. That is the next layer after search. This hosted lesson stays on <code>web_search</code>, because that is the path that is working reliably right now.</p>
+<p>That is enough for a surprising amount of day-to-day research. Search gives you the landscape, the source list, and the first useful answer. For a personal Claw, that is already a big step up from &quot;tell me what you remember.&quot;</p>
+<p>Here&#39;s how the flow works:</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-07-make-it-research/../../diagrams/day-07-research-flow.png" alt="How research flows through your Claw"></p>
+<p>The build walks you through one concrete version of this: Brave-backed <code>web_search</code>, configured through the Claw itself.</p>
+<hr>
+<h2>Extending Your Injection Protection</h2>
+<p>On Day 6, you learned that email is an open channel where anyone can put text in front of your Claw. The web works the same way. Search results, snippets, and fetched pages are all external content. Any of them can contain text that looks like instructions to the model.</p>
+<p>The good news is that the mental model is already familiar. The same rule still applies: external content is data, not instructions. OpenClaw&#39;s own <a href="https://docs.openclaw.ai/gateway/security">security guidance</a> treats tools like <code>web_search</code> and <code>web_fetch</code> as higher-risk because they bring untrusted content into the loop. So Day 7 adds one short rule to your workspace <code>AGENTS.md</code>: web content gets summarized, cited, and filtered. It does not get obeyed.</p>
+<p>That is the practical baseline. It will not solve prompt injection forever. It gives your Claw a sane posture before you start asking it to pull from the open web.</p>
+<hr>
+<h2>Designing a Research Brief That Works</h2>
+<p>A vague research prompt produces a vague answer. &quot;Tell me about AI news this week&quot; leaves too much up to the model. The answer might be fine. It might also miss the part you actually cared about.</p>
+<p>A good research brief has three elements: a clear question, named sources or source types to check, and an output format.</p>
+<pre><code>Research Brief: Vague vs. Specific
+──────────────────────────────────────────────────────────────
+VAGUE (produces inconsistent results)
+&quot;Tell me about AI news this week.&quot;
+
+SPECIFIC (produces useful output every time)
+&quot;What are the three most significant AI agent developments
+from the past week?
+
+Sources to check:
+- Recent posts from Anthropic, OpenAI, and Google research blogs
+- Top-linked articles in AI newsletters (Ben&#39;s Bites,
+  The Neuron, TLDR AI)
+- Any new open-source agent frameworks trending on GitHub
+
+Output format:
+Three items. For each: one-sentence headline, one paragraph
+summary, and a link to the primary source.&quot;
+──────────────────────────────────────────────────────────────
+</code></pre>
+<p>The pattern is simple: narrow the question, name the sources, define the shape of the answer. That is what turns search into useful research, and it is also the shape of the skill you create in the build.</p>
+<hr>
+<h2>Ready to Build?</h2>
+<p>You now understand what live search adds, where it fits in OpenClaw&#39;s tool stack, why web content needs the same security posture as email, and how a specific research prompt beats a vague one. The build gets you a Brave Search key, lets your Claw configure <code>web_search</code>, extends your research guardrails, and turns that into one reusable research skill. <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-07-make-it-research/build.md"><code>build.md</code></a> shows you the sequence and points to the short <code>claw-instructions-*.md</code> files that belong in OpenClaw chat.</p>
+<p>Tomorrow you go from reading and researching to actually writing things in the world.</p>
+<hr>
+<h2>Go Deeper</h2>
+<ul>
+<li>OpenClaw&#39;s <a href="https://docs.openclaw.ai/tools/web-search"><code>Web Search</code></a> page shows the provider model and tool parameters. The <a href="https://docs.openclaw.ai/tools/brave-search"><code>Brave Search</code></a> page shows the config shape and the canonical provider-specific settings.</li>
+<li><a href="https://docs.openclaw.ai/tools/web-fetch"><code>web_fetch</code></a> is the next thing to look at if you want to move from &quot;find me the right links&quot; to &quot;pull the body of this specific page.&quot;</li>
+</ul>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-07-make-it-research/../day-06-tame-your-inbox/learn.md">← Day 6: Tame Your Inbox</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-07-make-it-research/../day-08-let-it-write/learn.md">Day 8: Let It Write →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Production challenge — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Chapter 6: Production Deployment and Real User Behavior</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/production_scale_10000_interactions.png" alt="Production Scale 10000 Interactions"></p>
+<h2>From Lab to Real World</h2>
+<p>So far in this course, we&#39;ve covered the essential building blocks of AI evaluation. We started by understanding why evaluation matters for AI systems and distinguished between model evaluations and product evaluations. We explored the conceptual foundation of input, expected, and actual behavior. We walked through building reference datasets to systematically identify what matters for your specific use case. And we covered three approaches to implementing evaluation metrics: human evaluation, code-based metrics, and LLM judges.</p>
+<p>At this point, you have a solid evaluation framework. You&#39;ve built reference datasets that represent important scenarios for your system. You&#39;ve identified the key metrics that track behaviors you actually care about. You&#39;ve implemented ways to measure those behaviors, whether through human judgment, deterministic code checks, or calibrated LLM judges.</p>
+<p>But here&#39;s where things get interesting and more complex.</p>
+<p>Everything we&#39;ve discussed so far happens in controlled conditions. You&#39;re testing with carefully chosen examples, evaluating against clear expected behaviors, and working with stakeholders who understand your system&#39;s goals. You&#39;re essentially working in a lab environment where you control the inputs and can predict most of the scenarios.</p>
+<p>Production is different. When real users start interacting with your AI system, several things happen that change the evaluation game entirely.</p>
+<h2>The Reality of Real Users</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/production_challenges_real_world.png" alt="Production Challenges Real World"></p>
+<p>Real users don&#39;t behave like your reference datasets. They don&#39;t ask questions the way you expect, they don&#39;t provide complete information, and they often try to use your system for purposes you never intended.</p>
+<p><strong>Users bring unexpected context</strong>: Your customer service AI might be designed for product questions, but users will ask about competitor products, share personal stories, or try to use it for technical support issues outside your scope.</p>
+<p><strong>Users test edge cases you missed</strong>: No matter how thorough your reference dataset, real users will find scenarios you didn&#39;t anticipate. They&#39;ll phrase requests in ways that confuse your system, combine multiple intents in a single message, or operate under assumptions that don&#39;t match your business model.</p>
+<p><strong>User evolution</strong>: As users get comfortable with your system, their behavior evolves. They develop new ways to phrase requests, discover shortcuts, and use your system in increasingly sophisticated ways. Think about how people use ChatGPT today compared to when it first launched - the questions become more complex, the use cases expand, and the expectations change. This natural evolution means the distribution of inputs your system receives will shift over time.</p>
+<p><strong>Volume changes everything</strong>: When you test with 50 carefully chosen examples, you can review each interaction manually. When your system handles 10,000 interactions per day, you need fundamentally different approaches to understanding what&#39;s happening.</p>
+<h2>The Scale Challenge</h2>
+<p>In controlled testing, you can review every example and understand every failure. In production, this becomes impossible.</p>
+<p>Consider a customer support AI that handles 5,000 conversations daily. Even if 95% of interactions go perfectly, you still have 250 potentially problematic conversations every day. Manual review of each one would require dedicated staff just for evaluation.</p>
+<p>The challenge isn&#39;t just volume - it&#39;s also about detection. In your reference dataset, you know which examples should pass or fail your evaluation metrics. In production, you don&#39;t know ahead of time which conversations will be problematic. </p>
+<p>This shifts the evaluation question from &quot;How did we do on this specific set of examples?&quot; to &quot;How are we doing overall, and where should we focus our attention?&quot;</p>
+<h2>From Evaluation to Monitoring</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/validation_vs_monitoring_toggle.png" alt="Validation vs Monitoring Toggle"></p>
+<p>Moving to production fundamentally changes your relationship with evaluation. During development, evaluation was about validation (testing whether your system works as intended). In production, evaluation becomes monitoring (continuously checking whether your system continues to work well as conditions change).</p>
+<p>This affects how you think about measurement, response, and improvement:</p>
+<p><strong>Evaluation builds confidence before deployment</strong>: You test thoroughly to gain confidence that your system is ready for users.</p>
+<p><strong>Monitoring maintains quality during deployment</strong>: You track performance to catch problems early and guide improvements.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/continuous_improvement_flywheel.png" alt="Continuous Improvement Flywheel"></p>
+<p><strong>The flywheel of improvement</strong>: Good production monitoring feeds back into your evaluation process. Issues discovered in production become new test cases in your reference datasets. Patterns identified in monitoring inform better pre-deployment validation. The two work together in a continuous improvement cycle.</p>
+<p>This creates a natural progression: strong evaluation gives you confidence to deploy, effective monitoring helps you improve, and improved systems perform better in evaluation.</p>
+<h2>Four Core Challenges in Production</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/four_core_production_challenges.png" alt="Four Core Production Challenges"></p>
+<p>When you move from controlled evaluation to production monitoring, four key challenges emerge that require careful planning:</p>
+<h3>1. Log Filtering</h3>
+<p>With thousands of events happening daily, you can&#39;t manually review everything. You need systematic approaches to identify which logs deserve attention. This means developing filtering and sampling strategies that help you focus on the data most likely to reveal problems or insights.</p>
+<h3>2. Metric Selection</h3>
+<p>Remember that evaluation metrics aren&#39;t free. LLM judges cost money to run, human evaluation requires time and expertise, and even code-based metrics might not always be as trivial or cheap as running unit tests in traditional software setups. At scale, these costs add up quickly. You need to be strategic about which metrics provide the most valuable insights relative to their cost.</p>
+<h3>3. Online vs. Offline Evaluation</h3>
+<p>This is where we introduce an important distinction that will shape your production monitoring strategy:</p>
+<p><strong>Online evaluation</strong> happens in real-time as users interact with your system. These metrics run immediately and can trigger alerts or interventions. For example, you might have an online safety filter that flags inappropriate content before it reaches users.</p>
+<p><strong>Offline evaluation</strong> happens after the fact, often in batch processes. These metrics analyze interactions that already occurred to identify trends, assess quality over time, or conduct detailed investigations. For example, you might run expensive LLM judges overnight to assess the previous day&#39;s customer service interactions.</p>
+<p>The choice between online and offline evaluation affects cost, complexity, and responsiveness. Online evaluation gives you immediate feedback but needs to be fast and lightweight. Offline evaluation can be more thorough and sophisticated but only helps you improve future interactions.</p>
+<h3>4. Emerging Issue Discovery</h3>
+<p>Despite doing all of this systematically, it&#39;s possible that we have not anticipated some issues at all. What do we do about that?</p>
+<p>Even the most thorough offline evaluation process can&#39;t predict every problem that will emerge in production. Users will find new ways to confuse your system, edge cases you never considered will surface, and changing business requirements will create new failure modes.</p>
+<p>This means you need strategies for discovering issues that your existing evaluation framework doesn&#39;t catch. How do you identify problems you weren&#39;t looking for? How do you evolve your evaluation approach as new patterns emerge?</p>
+<p>These four challenges form the foundation of production monitoring strategy. Getting them right determines whether your monitoring system provides actionable insights or becomes an expensive distraction.</p>
+<h2>What Comes Next</h2>
+<p>The transition from controlled evaluation to production monitoring requires addressing these four core challenges systematically. The goal isn&#39;t to replicate your reference dataset evaluation at production scale (that would be impractical and expensive). Instead, you need smart strategies for each challenge.</p>
+<p>In the next chapter, we&#39;ll cover practical approaches to:</p>
+<ul>
+<li><strong>Log filtering</strong>: Strategies for identifying which data needs attention without drowning in information</li>
+<li><strong>Metric selection</strong>: Frameworks for choosing the right mix of evaluation approaches based on value and cost</li>
+<li><strong>Online vs offline evaluation</strong>: Designing systems that balance immediate responsiveness with thorough analysis</li>
+<li><strong>Emerging issue discovery</strong>: Methods for identifying problems that your existing evaluation framework doesn&#39;t catch</li>
+</ul>
+<p>These approaches will help you build a monitoring system that provides actionable insights while remaining sustainable and cost-effective as your AI system scales.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

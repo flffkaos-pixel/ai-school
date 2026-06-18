@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Building reference datasets — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Chapter 4: Building Reference Datasets</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/reference_dataset_steps.png" alt="Reference Dataset Steps"></p>
+<h2>Getting Started with Systematic Evaluation</h2>
+<p>In the previous chapter, we covered why you need specific evaluation metrics and how different stakeholders bring different perspectives to defining quality. Now let&#39;s talk about how to set this up systematically.</p>
+<p>You&#39;ve built a version of your AI product and you want to evaluate it properly before putting it in front of real users. Where do you start?</p>
+<p>The most practical approach is building a reference dataset. Think of this as a small, carefully chosen set of examples that represent the scenarios you care most about. It&#39;s not meant to be comprehensive - it&#39;s meant to be useful for validating your system&#39;s behavior in a controlled environment before deployment.</p>
+<p><strong>A note on system complexity</strong>: In this guide, we&#39;ll focus on single-step AI interactions (where the user asks something and the system responds). Many complex AI systems involve multiple steps like calling tools, multi-turn conversations, or reasoning chains, but the core ideas we&#39;ll cover can be translated to those more complex scenarios as well.</p>
+<h2>What Is a Reference Dataset?</h2>
+<p>A reference dataset is your first concrete representation of how the system should behave when deployed. It&#39;s a collection of realistic inputs paired with what you expect the system to do in those situations.</p>
+<p>The key word here is &quot;realistic.&quot; These aren&#39;t made-up test cases. They&#39;re examples that reflect how real users will actually interact with your system, including the messy, ambiguous, and edge-case scenarios that always happen in production.</p>
+<p>Each example in your dataset typically includes:</p>
+<ul>
+<li><strong>Input</strong>: A realistic user request or scenario</li>
+<li><strong>Expected output</strong>: What the system should do (written in plain language)</li>
+<li><strong>Context</strong>: Any additional information the system needs</li>
+</ul>
+<p>The expected output doesn&#39;t have to be a perfect response. It can be a description of the right behavior, like &quot;escalate to human agent&quot; or &quot;ask for clarification about the user&#39;s budget range.&quot;</p>
+<h2>Why Start Small and Specific</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/lab_vs_production_50_examples.png" alt="Lab vs Production 50 Examples"></p>
+<p>Teams often make the mistake of trying to build comprehensive test coverage from day one. This doesn&#39;t work well for AI systems.</p>
+<p>Instead, start with a small set of examples that represent scenarios you absolutely cannot get wrong. These are usually:</p>
+<ul>
+<li>High-risk situations where failure would be unacceptable</li>
+<li>Common user workflows that need to work smoothly</li>
+<li>Edge cases that reveal important system limitations</li>
+<li>Examples that expose different evaluation dimensions you care about</li>
+</ul>
+<p>For a customer support AI, this might include:</p>
+<ul>
+<li>A billing dispute that requires human escalation</li>
+<li>A simple return request that should be handled automatically</li>
+<li>An angry customer message that needs careful tone handling</li>
+<li>A request that&#39;s outside your company&#39;s service scope</li>
+</ul>
+<p>Starting small lets you focus on quality over quantity. It&#39;s better to have 20 well-chosen examples with clear expected behaviors than 200 generic test cases.</p>
+<h2>Step 1: Generate Your Initial Examples</h2>
+<p>The best source for examples is usually existing data from your domain. If you have historical customer support tickets, user queries, or domain-specific scenarios, start there.</p>
+<p>If you don&#39;t have existing data, this is where collaboration becomes essential:</p>
+<p><strong>Subject matter experts</strong> should contribute the majority of initial examples. They know the edge cases, the high-risk scenarios, and the subtle requirements that technical teams might miss. Don&#39;t rely on engineers to generate domain-specific examples because they&#39;ll miss important nuances.</p>
+<p><strong>Product teams</strong> can contribute examples based on user research, feature requirements, and common user journeys they&#39;ve observed.</p>
+<p><strong>Engineers</strong> can help identify technical edge cases and system boundary conditions.</p>
+<p>We recommend avoiding AI-generated synthetic examples at this stage. AI can help with formatting or expanding on human-written examples, but it tends to create shallow scenarios that miss real-world complexity.</p>
+<h3>Example: Customer Support Dataset</h3>
+<p>Here&#39;s what an initial reference dataset might look like for a customer support system:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Expected Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;I want to return my shoes but I lost the receipt&quot;</td>
+<td>Ask for order number or email, explain receipt alternatives, process if sufficient info available</td>
+</tr>
+<tr>
+<td>&quot;Your service is terrible and I&#39;m switching to a competitor&quot;</td>
+<td>Acknowledge frustration, apologize professionally, escalate to retention team</td>
+</tr>
+<tr>
+<td>&quot;How do I track my order?&quot;</td>
+<td>Ask for order number, provide tracking information, explain delivery timeline</td>
+</tr>
+<tr>
+<td>&quot;I was charged twice for the same order&quot;</td>
+<td>Apologize, escalate immediately to billing team with all available details</td>
+</tr>
+</tbody></table>
+<p>Notice these examples cover different scenarios (returns, complaints, tracking, billing) and different required behaviors (self-service, escalation, information gathering).</p>
+<h2>Step 2: Run Your System on the Examples</h2>
+<p>Once you have your initial set of examples, run your AI system on these inputs. Keep the system simple at this stage. Don&#39;t add complexity before you understand baseline behavior.</p>
+<p>This step often reveals immediate problems with your system design, prompts, or configuration. That&#39;s valuable information.</p>
+<p>Document both what the system outputs and any intermediate steps (which tools it used, what data it retrieved, how confident it was). This helps you understand not just what went wrong, but why.</p>
+<h2>Step 3: Evaluate Alignment with Domain Experts</h2>
+<p>Now you have three columns: input, expected behavior, and actual system output. The next step is getting domain experts to evaluate the alignment.</p>
+<p>Keep this process simple. Ask domain experts to review each example and answer: &quot;Was this response satisfactory? If not, why not?&quot;</p>
+<p>Avoid asking for numerical scores at this stage. Scores are harder to interpret and don&#39;t give you actionable feedback. Simple yes/no judgments with explanations are more useful.</p>
+<p><strong>Make it easy for domain experts to participate</strong>. Don&#39;t ask them to learn complex rubrics or scoring systems. Frame questions in their language and focus on their expertise.</p>
+<h3>Example Evaluation Session</h3>
+<p>Continuing with our customer support example:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>System Output</th>
+<th>Expected</th>
+<th>Satisfactory</th>
+<th>If not, why?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;Lost receipt for shoe return&quot;</td>
+<td>&quot;I can help you process a return. Please provide your order confirmation email.&quot;</td>
+<td>Ask for order number or email, explain alternatives</td>
+<td>Yes</td>
+<td>Handled appropriately</td>
+</tr>
+<tr>
+<td>&quot;Service is terrible, switching&quot;</td>
+<td>&quot;I understand you&#39;re frustrated. Let me see how I can help resolve your issue.&quot;</td>
+<td>Acknowledge, apologize, escalate to retention</td>
+<td>No</td>
+<td>Didn&#39;t escalate to retention team</td>
+</tr>
+</tbody></table>
+<p>This gives you specific, actionable feedback about where your system is failing.</p>
+<h2>Step 4: Identify Error Patterns</h2>
+<p>Now bring the engineering perspective back in. Look at the annotations from domain experts and identify patterns in the failures.</p>
+<p>Many issues that look different on the surface come from the same root cause. The goal is clustering errors into a small number of underlying problems that you can actually fix.</p>
+<p>Add two more columns to your analysis:</p>
+<ul>
+<li><strong>Error category</strong>: What type of failure is this?</li>
+<li><strong>Potential cause</strong>: Why might this be happening?</li>
+</ul>
+<p>Common error patterns include:</p>
+<ul>
+<li><strong>Missing context</strong>: System doesn&#39;t have access to information it needs</li>
+<li><strong>Prompt issues</strong>: Instructions aren&#39;t clear or specific enough</li>
+<li><strong>Business rule failures</strong>: System doesn&#39;t follow domain-specific policies</li>
+<li><strong>Escalation problems</strong>: Doesn&#39;t recognize when human intervention is needed</li>
+</ul>
+<h3>Example Error Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>System Output</th>
+<th>Satisfactory</th>
+<th>Error Category</th>
+<th>Potential Cause</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;Service terrible, switching&quot;</td>
+<td>Generic help offer</td>
+<td>No</td>
+<td>Missing escalation</td>
+<td>No escalation logic for retention cases</td>
+</tr>
+<tr>
+<td>&quot;Charged twice&quot;</td>
+<td>&quot;Let me help with that&quot;</td>
+<td>No</td>
+<td>Missing urgency</td>
+<td>Billing issues not flagged as high-priority</td>
+</tr>
+</tbody></table>
+<p>This helps you prioritize fixes and understand whether issues are implementation problems or deeper design issues.</p>
+<h2>Step 5: Decide Which Metrics You Need</h2>
+<p>Here&#39;s a key insight: if an issue can be fixed once and is unlikely to return, fix it and move on. If an issue represents a behavior that can reappear in different forms, you need an ongoing metric to track it.</p>
+<p>For example:</p>
+<ul>
+<li>A missing instruction in a prompt is usually a one-time fix</li>
+<li>Appropriate escalation behavior is an ongoing concern that needs monitoring</li>
+</ul>
+<p>Create metrics for recurring risks, not one-off bugs.</p>
+<p><strong>Be ruthless about what you measure</strong>. You want the minimum number of metrics that give you the maximum amount of signal. If there are issues in your use case that you&#39;re not really worried about (small things that don&#39;t significantly impact your users or business), don&#39;t add a metric for them. </p>
+<p>Only create metrics for behaviors you actually care about and can take action on. If you wouldn&#39;t change your system based on a metric, don&#39;t track it.</p>
+<p>Based on your error analysis, identify 2-4 key behaviors that need ongoing measurement. These become your evaluation metrics. More than that becomes difficult to manage and act upon effectively.</p>
+<p>For our customer support example, you might end up with:</p>
+<ul>
+<li><strong>Escalation accuracy</strong>: Does the system correctly identify when human intervention is needed?</li>
+<li><strong>Information gathering</strong>: Does it ask for the right information to resolve requests?</li>
+<li><strong>Tone appropriateness</strong>: Does it match the professional, helpful brand voice?</li>
+</ul>
+<p><strong>Focus on what matters, not implementation</strong>. At this stage, don&#39;t worry about how you&#39;ll measure these behaviors. Just identify which behaviors are most important for your use case. We&#39;ll cover implementation approaches in the next chapter.</p>
+<p>For now, examples of metrics you might track include:</p>
+<ul>
+<li>Response time stays under acceptable limits</li>
+<li>Required legal disclaimers appear in financial advice responses</li>
+<li>Billing-related queries get properly flagged for escalation</li>
+<li>System outputs maintain valid structure for downstream processing</li>
+<li>Appropriate tone and empathy in customer interactions</li>
+<li>Accurate assessment of query complexity for escalation decisions</li>
+<li>Relevant information gathering without being repetitive</li>
+</ul>
+<p>What matters most is identifying which failure modes are critical for your specific system and user needs.</p>
+<h2>Step 6: Iterate and Expand</h2>
+<p>Your reference dataset isn&#39;t static. As you fix issues and learn more about system behavior, add new examples that represent:</p>
+<ul>
+<li>Edge cases discovered in production</li>
+<li>New failure modes that emerge</li>
+<li>Additional scenarios your system needs to handle</li>
+</ul>
+<p>The dataset grows into a record of hard-won understanding about what good behavior looks like in your domain.</p>
+<h2>Common Pitfalls to Avoid</h2>
+<p><strong>Don&#39;t make it too big too fast</strong>: Start with 10-20 high-quality examples rather than 100 mediocre ones.</p>
+<p><strong>Don&#39;t rely entirely on synthetic data</strong>: AI-generated examples often miss real-world complexity and edge cases.</p>
+<p><strong>Don&#39;t skip domain expert involvement</strong>: Technical teams alone cannot define what good behavior looks like in specialized domains.</p>
+<p><strong>Don&#39;t create metrics for every issue</strong>: Focus on recurring risks that need ongoing monitoring.</p>
+<p><strong>Don&#39;t make rubrics too complex</strong>: Simple &quot;acceptable/not acceptable&quot; categories work better than elaborate scoring systems.</p>
+<h2>What You End Up With</h2>
+<p>After following this process, you&#39;ll have:</p>
+<ul>
+<li>A reference dataset that represents scenarios you care about</li>
+<li>Clear definitions of what good behavior looks like</li>
+<li>Specific metrics that track the most important behavioral dimensions</li>
+<li>Rubrics that make subjective evaluation consistent</li>
+<li>A process for expanding and refining your evaluation over time</li>
+</ul>
+<p>This becomes the foundation for ongoing evaluation and improvement. Every time you make changes to your system, you can run it against your reference dataset to check for regressions. Every time you discover new edge cases in production, you can add them to improve your evaluation coverage.</p>
+<p>The goal isn&#39;t perfect evaluation - it&#39;s systematic improvement. Your reference dataset helps you move from vague concerns about system behavior to concrete, measurable criteria you can act on.</p>
+<p>In this chapter, we&#39;ve identified what metrics are important to track based on your specific failure modes and business requirements. In the next chapter, we&#39;ll talk about how to implement these metrics, from simple code-based checks to more sophisticated evaluation approaches.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

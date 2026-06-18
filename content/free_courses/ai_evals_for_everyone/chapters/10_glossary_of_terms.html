@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Glossary of terms — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Chapter 10: Glossary of Terms</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_evaluation_conflicting_advice_maze.png" alt="Evaluation Conflicting Advice Maze"></p>
+<h2>Making Sense of the Evaluation Vocabulary</h2>
+<p>Throughout this course, we&#39;ve used specific terms to describe different aspects of AI evaluation. This glossary clarifies what we mean by each term, helping you navigate the sometimes confusing world of evaluation terminology.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_evaluation_three_phases.png" alt="Evaluation Three Phases"></p>
+<hr>
+<h3>Evals</h3>
+<p>The catch-all term that everyone uses for everything evaluation-related, which is exactly why it causes so much confusion. Someone might say &quot;we need better evals&quot; and mean anything from benchmark scores to production monitoring dashboards. We intentionally avoid this term in favor of more precise language.</p>
+<h3>Evaluation</h3>
+<p>The overall process of assessing how an AI system behaves. This includes everything from designing metrics to running tests to analyzing results. Evaluation answers the question: &quot;Is this system behaving the way we want it to?&quot;</p>
+<h3>Evaluation Metrics</h3>
+<p>The specific dimensions along which system behavior is judged. These answer &quot;what does good mean in this context?&quot; Examples include escalation accuracy, response time, or compliance adherence. Always context-dependent and require clear rubrics.</p>
+<h3>Expected Behavior</h3>
+<p>What your system should do in a given situation. Part of the Input-Expected-Actual framework. Often requires collaboration between domain experts and product teams to define clearly.</p>
+<h3>Explicit Signals</h3>
+<p>Direct indicators users give about their experience, such as ratings, explicit escalation requests (&quot;let me talk to a human&quot;), or direct complaints. Easier to interpret than implicit signals but less common.</p>
+<h3>Actual Behavior</h3>
+<p>What your system actually does when given specific inputs. This includes not just the final output, but intermediate steps and any actions taken.</p>
+<h3>Benchmark</h3>
+<p>A standardized test used to measure model capabilities across different systems. Examples include MMLU, HumanEval, or GSM8K. Useful for comparing models but don&#39;t predict performance in your specific use case.</p>
+<h3>Code-Based Metrics</h3>
+<p>Deterministic checks written in programming code that look for specific patterns or properties. Fast, reliable, and perfect for objective measurements like structure validation, required content presence, or performance monitoring.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_evaluation_methods_spectrum.png" alt="Evaluation Methods Spectrum"></p>
+<h3>Guardrails</h3>
+<p>Real-time evaluation metrics that monitor business-critical behaviors and trigger immediate interventions when problems occur. These are online metrics for situations where failure would have immediate, significant business impact. Examples include safety filters or compliance checks.</p>
+<h3>Implicit Signals</h3>
+<p>Indirect indicators of user satisfaction or system problems, revealed through user behavior rather than explicit feedback. Examples include conversation length anomalies, retry behavior, extensive editing of generated content, or abandonment patterns.</p>
+<h3>Improvement Flywheel</h3>
+<p>The offline evaluation process that powers long-term system enhancement through trend analysis, quality assessment, and systematic investigation of issues discovered in production.</p>
+<h3>Input</h3>
+<p>Everything that influences how your AI system behaves, including the user&#39;s request, conversation history, retrieved data, and system configuration. Part of the Input-Expected-Actual evaluation framework.</p>
+<h3>LLM Judge</h3>
+<p>Using one language model to evaluate another model&#39;s behavior. Powerful for assessing subjective qualities like tone or appropriateness, but requires extensive calibration against human judgment to be reliable.</p>
+<h3>Log Filtering</h3>
+<p>Systematic approaches to identify which production data deserves evaluation attention. Uses priority-based filtering and signal-based sampling since you can&#39;t review everything at scale.</p>
+<h3>Model Evaluation</h3>
+<p>Assessment of general AI model capabilities, typically using standardized benchmarks. Helps with model selection but doesn&#39;t predict performance in your specific product context.</p>
+<h3>Metric Selection</h3>
+<p>The process of choosing which evaluation approaches to implement based on their impact, reliability, and cost. Requires balancing value against computational and financial expenses.</p>
+<h3>Non-Deterministic</h3>
+<p>A key characteristic of AI systems where the same input can produce different outputs across runs. This breaks traditional software testing assumptions and makes evaluation more complex but essential.</p>
+<h3>Offline Evaluation</h3>
+<p>Evaluation that happens after interactions occur, often in batch processes. Used for trend analysis, detailed quality assessment, and system improvement insights. Allows for sophisticated, expensive analysis that would be impractical in real-time.</p>
+<h3>Online Evaluation</h3>
+<p>Real-time evaluation that runs as interactions happen and can trigger immediate responses. Must be fast and lightweight. Used for guardrails and situations requiring immediate intervention.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_online_vs_offline_evaluation.png" alt="Online vs Offline Evaluation"></p>
+<h3>Product Evaluation</h3>
+<p>Assessment of how an AI system behaves in your specific use case, with your users, data, and business context. This is what actually matters for building successful AI products, as opposed to general model capabilities.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_model_vs_product_evaluation.png" alt="Model vs Product Evaluation"></p>
+<h3>Production Monitoring</h3>
+<p>Continuous evaluation of AI system performance with real users at scale. Includes log filtering, metric deployment, guardrails, and emerging issue discovery.</p>
+<h3>Reference Dataset</h3>
+<p>A carefully chosen collection of realistic examples that represent scenarios you care most about. Includes inputs, expected behaviors, and serves as the foundation for systematic evaluation. Start small (10-20 examples) and expand based on learning.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_reference_dataset_components.png" alt="Reference Dataset Components"></p>
+<h3>Rubric</h3>
+<p>Explicit criteria that define what constitutes acceptable versus unacceptable performance. Essential for making subjective evaluation consistent. Should include specific examples and edge case guidance.</p>
+<h3>Signal-Based Sampling</h3>
+<p>Sampling production data based on implicit and explicit user signals rather than random selection. More effective for catching problems than uniform sampling across all interactions.</p>
+<h3>Signal-Metric Divergence</h3>
+<p>When user behavior signals indicate problems but your current evaluation metrics show no issues. This pattern suggests hidden quality dimensions that your existing evaluation framework doesn&#39;t capture.</p>
+<h3>User Evolution</h3>
+<p>The natural progression of how users interact with AI systems over time. As users become comfortable, they develop new interaction patterns, push boundaries, and use systems in increasingly sophisticated ways. This changes the distribution of inputs your system receives.</p>
+<hr>
+<h2>Framework Concepts</h2>
+<h3>Input-Expected-Actual Framework</h3>
+<p>The conceptual foundation for thinking about AI system behavior:</p>
+<ul>
+<li><strong>Input</strong>: Everything that goes into your system</li>
+<li><strong>Expected</strong>: What should happen given your requirements</li>
+<li><strong>Actual</strong>: What your system really does</li>
+</ul>
+<p>This framework helps structure evaluation by making explicit what you&#39;re comparing.</p>
+<h3>Guardrails vs. Improvement Flywheel</h3>
+<p>The two-tier approach to production evaluation:</p>
+<ul>
+<li><strong>Guardrails</strong>: Online metrics for immediate intervention on business-critical issues</li>
+<li><strong>Improvement Flywheel</strong>: Offline analysis for long-term system enhancement</li>
+</ul>
+<h3>Discovery Loop</h3>
+<p>The continuous cycle of emerging issue discovery:</p>
+<ol>
+<li>User signals indicate potential problems</li>
+<li>Log filtering samples concerning interactions</li>
+<li>Existing metrics may not capture the issues</li>
+<li>Manual investigation reveals hidden problems</li>
+<li>New metrics are developed</li>
+<li>Updated framework catches similar issues earlier</li>
+</ol>
+<hr>
+<h2>Process Terms</h2>
+<h3>Pre-Deployment Validation</h3>
+<p>The systematic evaluation work done before real users interact with your system. Includes building reference datasets, implementing metrics, and testing in controlled conditions to build confidence.</p>
+<h3>Calibration</h3>
+<p>The process of ensuring LLM judges align with human judgment through extensive testing, comparison analysis, and iterative refinement. Often takes weeks or months and is essential for reliable automated evaluation.</p>
+<h3>Emerging Issue Discovery</h3>
+<p>Systematic approaches to find problems your existing evaluation framework doesn&#39;t capture. Uses signal-metric divergence analysis and manual investigation to evolve evaluation as new failure modes emerge.</p>
+<hr>
+<h2>Common Anti-Patterns (What NOT to Do)</h2>
+<h3>Evaluation Drift</h3>
+<p>When your evaluation metrics become disconnected from actual user needs or business goals. Happens when you measure things because they&#39;re easy to measure rather than because they matter.</p>
+<h3>Metric Overload</h3>
+<p>Having too many evaluation metrics, making it impossible to focus on what actually drives improvements. More metrics don&#39;t automatically mean better insights.</p>
+<h3>Calibration Neglect</h3>
+<p>Deploying LLM judges without proper validation against human judgment, leading to evaluation that&#39;s worse than having no evaluation at all.</p>
+<h3>Coverage Obsession</h3>
+<p>Trying to evaluate everything comprehensively rather than focusing on high-impact scenarios. Leads to analysis paralysis and diluted effort.</p>
+<hr>
+<h2>Key Principles</h2>
+<p>Throughout this course, we&#39;ve emphasized these core principles:</p>
+<p><strong>Context is King</strong>: Everything must be tailored to your specific use case, users, and business requirements. Generic approaches rarely work.</p>
+<p><strong>Start Simple, Evolve</strong>: Begin with basic approaches and add complexity only when justified by clear value.</p>
+<p><strong>Collaboration is Essential</strong>: Combine technical, domain, and business perspectives rather than trying to solve evaluation in isolation.</p>
+<p><strong>Continuous Learning</strong>: Evaluation systems must adapt as you discover new failure modes and as user behavior evolves.</p>
+<p><strong>Action Over Measurement</strong>: The goal is better AI systems, not perfect measurement. Focus on evaluation that drives real improvements.</p>
+<hr>
+<h2>Using This Glossary</h2>
+<p>This glossary reflects the specific way we use these terms in this course. You might encounter different definitions elsewhere - the AI evaluation field is still developing standard terminology. When working with others, it&#39;s always worth clarifying what specific terms mean in your context.</p>
+<p>Remember: the vocabulary matters less than the underlying concepts. Focus on building systematic, thoughtful evaluation that helps you create better AI systems for your users.</p>
+<p><strong>Ready to get certified?</strong> You&#39;ve completed all 10 chapters of this AI evaluation course! <strong><a href="https://ai-evals-course-website-2025.vercel.app/quiz-google.html">Take the certification assessment now</a></strong> to earn your AI Evals for Everyone certificate and test your knowledge.</p>
+<hr>
+<p><strong>Want to go deeper?</strong> Choose the course that fits your journey:</p>
+<ul>
+<li><strong>New to AI?</strong> Check out our <strong><a href="https://maven.com/aishwarya-kiriti/genai-system-design">#1 rated Enterprise AI Course on Maven</a></strong> for comprehensive guidance on building production-ready AI systems from scratch.</li>
+<li><strong>Already building AI?</strong> Take our newly launched <strong><a href="https://maven.com/aishwarya-kiriti/evals-problem-first">Advanced Evals course</a></strong> for systematically improving your AI products through advanced evaluation techniques.</li>
+</ul>
+<p><em>📝 Note: Use code <strong>GITHUB15</strong> for 15% off on Maven courses (valid until January 15th, 2025)</em></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

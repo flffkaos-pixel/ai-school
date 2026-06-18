@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Build — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 6 Build: Tame Your Inbox</h1>
+<p>This is the user-facing guide for Day 6. Today you do the inbox flow in stages. First you create a Gmail App Password. Then you inspect a ClawHub skill. Then your Claw installs it, creates one small triage skill on top of it, adds the email safety rules, and wires the result into a morning Telegram cron job.</p>
+<p>The whole day assumes a personal Gmail inbox. Google says App Passwords may be unavailable on work or school accounts, accounts using Advanced Protection, and accounts using 2-Step Verification only with security keys. For this lesson, keep it simple and use a personal Gmail account.</p>
+<hr>
+<h2>What You Need Before Starting</h2>
+<ul>
+<li>Day 1 complete: OpenClaw installed and secured</li>
+<li>Day 2 complete: identity files created and loading correctly</li>
+<li>Day 3 complete: Telegram connected and working</li>
+<li>Day 4 complete: a proactive workflow already exists</li>
+<li>Day 5 complete: you have already inspected and installed a ClawHub skill once</li>
+<li>Access to your Claw through the web chat</li>
+<li>Access to a personal Gmail account</li>
+<li>Ability to open your Google Account settings in a browser</li>
+</ul>
+<hr>
+<h2>How To Run Day 6</h2>
+<p>Work through the files in this order:</p>
+<ol>
+<li>create a Gmail App Password</li>
+<li>inspect <code>imap-smtp-email</code> in chat</li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-install-imap-smtp-email.md"><code>claw-instructions-install-imap-smtp-email.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-create-email-triage.md"><code>claw-instructions-create-email-triage.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-finalize-inbox.md"><code>claw-instructions-finalize-inbox.md</code></a></li>
+</ol>
+<p>This order matters. You inspect before install, keep the send side out of scope, then build one small skill on top of the shared Gmail connection.</p>
+<p>For this day, stay on the same cron path you used on Day 4. It is the better fit on Hostinger for an exact-time morning delivery.</p>
+<hr>
+<h2>Step 1: Create a Gmail App Password</h2>
+<p>Open <a href="https://myaccount.google.com/apppasswords">App Passwords</a>.</p>
+<p>If Google sends you somewhere else first, turn on <a href="https://myaccount.google.com/security">2-Step Verification</a> and come back to the App Passwords page. Google&#39;s current help page for this flow is <a href="https://support.google.com/accounts/answer/185833">Sign in with app passwords</a>.</p>
+<p>Create a new App Password:</p>
+<ul>
+<li>App name: <code>openclaw-imap</code></li>
+<li>Copy the 16-digit password Google generates</li>
+</ul>
+<p>Google shows each App Password once. Keep it somewhere safe long enough to finish this setup.</p>
+<hr>
+<h2>Step 2: Inspect <code>imap-smtp-email</code></h2>
+<p>Copy and paste this into the OpenClaw web chat:</p>
+<blockquote>
+<p>Inspect <code>imap-smtp-email</code> from ClawHub and explain, in plain English, what it does, what Gmail credentials it needs, where it stores its config, what could be risky, and how we can keep Day 6 on the inbox-reading side only. Do not install anything yet.</p>
+</blockquote>
+<p>You are checking two things here: whether the skill matches the name, and whether its behavior fits the boundary for today. Day 6 uses the Gmail reading side. Day 8 returns to the same skill for sending.</p>
+<hr>
+<h2>Step 3: Install <code>imap-smtp-email</code></h2>
+<p>After you are happy with the inspection, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/claw-instructions-install-imap-smtp-email.md</code> and follow every step. Install <code>imap-smtp-email</code> for this workspace, configure Gmail inbox reading for Day 6, tell me where the config lives, and stop when the install report is complete.</p>
+</blockquote>
+<p>That <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-install-imap-smtp-email.md">instruction file</a> tells the Claw to:</p>
+<ul>
+<li>install <code>imap-smtp-email</code> into this workspace</li>
+<li>ask you for your Gmail address and App Password if needed</li>
+<li>configure the Gmail IMAP side in <code>~/.config/imap-smtp-email/.env</code></li>
+<li>leave the SMTP side for Day 8</li>
+<li>tell you where the skill and config live</li>
+</ul>
+<p>After this step, type <code>/new</code> in OpenClaw before you continue.</p>
+<hr>
+<h2>Step 4: Create <code>email-triage</code></h2>
+<p>Copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/claw-instructions-create-email-triage.md</code> and follow every step. Create <code>email-triage</code>, add the Day 6 email safety rules, create the morning Gmail cron job, tell me how to trigger it, and stop when the report is complete.</p>
+</blockquote>
+<p>That <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-create-email-triage.md">instruction file</a> tells the Claw to:</p>
+<ul>
+<li>create the <code>email-triage</code> workspace skill</li>
+<li>keep the summary at sender, subject, category, and counts unless you request one specific email</li>
+<li>add <code>Email Security Protocols</code> to AGENTS.md</li>
+<li>create a recurring morning Gmail cron job</li>
+</ul>
+<p>This is the layer that makes the inbox feel like yours. The shared skill gives your Claw Gmail access. <code>email-triage</code> gives it your rules.</p>
+<p>After this step, type <code>/new</code> in OpenClaw before you continue.</p>
+<hr>
+<h2>Step 5: Finalize and Verify</h2>
+<p>Copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/claw-instructions-finalize-inbox.md</code> and follow every step. Verify the Day 6 Gmail inbox setup and report PASS or FAIL.</p>
+</blockquote>
+<p>That <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-finalize-inbox.md">instruction file</a> tells it to:</p>
+<ul>
+<li>confirm the Gmail IMAP setup exists</li>
+<li>confirm <code>imap-smtp-email</code> is available for Day 6 inbox reading</li>
+<li>confirm <code>email-triage</code>, AGENTS.md, and the morning cron job are in place</li>
+<li>report the verification as PASS or FAIL</li>
+</ul>
+<hr>
+<h2>What Should Be True After Day 6</h2>
+<ul>
+<li><input disabled="" type="checkbox"> A personal Gmail App Password was created</li>
+<li><input disabled="" type="checkbox"> <code>imap-smtp-email</code> was inspected before install</li>
+<li><input disabled="" type="checkbox"> <code>imap-smtp-email</code> was installed from ClawHub for this workspace</li>
+<li><input disabled="" type="checkbox"> Gmail IMAP settings were stored in <code>~/.config/imap-smtp-email/.env</code></li>
+<li><input disabled="" type="checkbox"> <code>~/.config/imap-smtp-email/.env</code> permissions are owner-only</li>
+<li><input disabled="" type="checkbox"> SMTP settings are still left for Day 8</li>
+<li><input disabled="" type="checkbox"> <code>email-triage</code> exists as a workspace skill</li>
+<li><input disabled="" type="checkbox"> AGENTS.md includes email security protocols</li>
+<li><input disabled="" type="checkbox"> A recurring cron job exists for the morning Gmail summary</li>
+<li><input disabled="" type="checkbox"> The cron job schedule matches your chosen morning time</li>
+<li><input disabled="" type="checkbox"> The cron job timezone matches your timezone</li>
+<li><input disabled="" type="checkbox"> Your Claw can return a structured Gmail triage summary</li>
+<li><input disabled="" type="checkbox"> Your Claw flags prompt-injection text instead of following it</li>
+</ul>
+<hr>
+<h2>Troubleshooting</h2>
+<p><strong>You can&#39;t find App Passwords in your Google account</strong><br>Check the official Google help page: <a href="https://support.google.com/accounts/answer/185833">Sign in with app passwords</a>. The common blockers are missing 2-Step Verification, a work or school Google account, Advanced Protection, or 2-Step Verification set up only with security keys. For this day, switch to a personal Gmail account if needed.</p>
+<p><strong>Gmail says the password is wrong</strong><br>Use the 16-digit App Password, not your regular Gmail password. If you already closed the Google dialog, generate a new App Password. Google only shows each one once.</p>
+<p><strong>The skill can read Gmail, but the send side also looks configured</strong><br>Day 6 keeps SMTP out of scope. Ask your Claw to open <code>~/.config/imap-smtp-email/.env</code> and confirm that the <code>SMTP_</code> values are still absent. Day 8 is where those values get added.</p>
+<p><strong>The summary is showing too much email body text</strong><br>Ask your Claw to tighten the <code>email-triage</code> skill so summaries stay at sender, subject, category, and counts unless you request one specific email.</p>
+<p><strong>The morning summary does not arrive</strong><br>Ask your Claw to inspect the cron job&#39;s schedule, timezone, session target, and Telegram delivery target together. Most misses come from one of those four being wrong.</p>
+<p><strong>You start getting duplicate morning summaries</strong><br>Ask your Claw to list the active cron jobs and look for an older morning-summary job that should be disabled or removed.</p>
+<p><strong>The new skills do not seem active yet</strong><br>Type <code>/new</code> in OpenClaw before testing. Day 6 adds new skills, and a fresh session makes the triggers available cleanly.</p>
+<hr>
+<h2>Validate It</h2>
+<p>Type <code>/new</code> in OpenClaw first.</p>
+<p>Then ask your Claw:</p>
+<pre><code class="language-text">Tell me the morning Gmail cron job you just created: the schedule, timezone, session target, and where it delivers.
+</code></pre>
+<p>The answer should clearly name the daily time, your timezone, the session binding, and the Telegram destination.</p>
+<p>Then ask your Claw:</p>
+<pre><code class="language-text">Scan my Gmail inbox and give me a triage summary for the last 48 hours.
+</code></pre>
+<p>The answer should:</p>
+<ul>
+<li>use the four categories</li>
+<li>show sender and subject for Urgent and Important</li>
+<li>keep full body text out</li>
+<li>stay on summarization instead of execution</li>
+</ul>
+<p>Then run the injection test your Claw gives you in the finalize step.</p>
+<hr>
+<h2>Quick Win</h2>
+<p>From Telegram, send:</p>
+<pre><code class="language-text">Check my Gmail and tell me only what needs attention today.
+</code></pre>
+<p>This is the Day 6 payoff. Your Claw reads the inbox noise, compresses it, and gives you the part that actually deserves your time.</p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./learn.md">← Day 6 Learn</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/../day-07-make-it-research/build.md">Day 7: Make It Research →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

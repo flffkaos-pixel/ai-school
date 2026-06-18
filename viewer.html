@@ -67,87 +67,22 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
 <script>
-const repo = 'aishwaryanr/awesome-generative-ai-guide';
-const branch = 'main';
-const rawBase = `https://raw.githubusercontent.com/${repo}/${branch}/`;
-const githubBase = `https://github.com/${repo}/blob/${branch}/`;
-
-function getPath() {
+(function() {
   const p = new URLSearchParams(location.search).get('path');
-  return p ? decodeURIComponent(p) : null;
-}
-
-function getTitleFromPath(path) {
-  if (!path) return 'Content';
-  const name = path.split('/').pop().replace(/\.md$/i, '').replace(/[-_]/g, ' ');
-  return name.charAt(0).toUpperCase() + name.slice(1);
-}
-
-async function loadContent() {
-  const path = getPath();
-  const container = document.getElementById('content');
-
-  if (!path) {
-    container.innerHTML = '<div class="error"><h2>No path specified</h2><p>Use ?path= to specify a file.</p></div>';
-    return;
+  if (p) {
+    // Convert GitHub path to content page path
+    const dir = p.substring(0, p.lastIndexOf('/'));
+    const base = p.split('/').pop().replace(/\.md$/i, '').replace(/\.MD$/, '');
+    const slug = base.replace(/[^a-z0-9가-힣\/_\- ]/gi, '').trim().replace(/\s+/g, '-').toLowerCase().replace(/-+/g, '-') + '.html';
+    const contentPath = 'content/' + (dir ? dir + '/' : '') + slug;
+    // Redirect to static content page
+    location.href = contentPath;
+  } else {
+    document.getElementById('content').innerHTML = '<div class="error" style="text-align:center;padding:80px 0;color:#e74c3c"><h2>No path specified</h2><p>Use ?path= to specify a file.</p></div>';
   }
-
-  try {
-    const rawUrl = rawBase + path;
-    const resp = await fetch(rawUrl);
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    let markdown = await resp.text();
-
-    const title = getTitleFromPath(path);
-    const backLink = document.referrer && document.referrer.includes(location.host)
-      ? 'javascript:history.back()'
-      : 'javascript:void(0)';
-
-    // Rewrite relative image URLs to GitHub raw URLs
-    markdown = markdown.replace(/\]\(((?!https?:\/\/)[^)]+)\)/g, (match, url) => {
-      if (url.startsWith('http')) return match;
-      const resolved = url.startsWith('/') ? rawBase + url.slice(1) : rawBase + path.substring(0, path.lastIndexOf('/') + 1) + url;
-      return `](${resolved})`;
-    });
-
-    // Rewrite relative links to GitHub
-    markdown = markdown.replace(/\[([^\]]*)\]\(((?!https?:\/\/)[^)]+)\)/g, (match, text, url) => {
-      if (url.startsWith('http') || url.startsWith('#') || url.startsWith('mailto:')) return match;
-      const resolved = url.startsWith('/') ? githubBase + url.slice(1) : githubBase + path.substring(0, path.lastIndexOf('/') + 1) + url;
-      return `[${text}](${resolved})`;
-    });
-
-    const html = marked.parse(markdown, { breaks: true, gfm: true });
-
-    container.innerHTML = `
-      <div class="viewer-header">
-        <a href="${backLink}" class="back" onclick="if(this.href==='javascript:void(0)'){window.location.href='index.html';return false}">← Back</a>
-        <h1>${title}</h1>
-      </div>
-      ${html}
-    `;
-
-    // Open all external links in new tab
-    container.querySelectorAll('a[href^="http"]').forEach(a => a.setAttribute('target', '_blank'));
-
-  } catch (err) {
-    container.innerHTML = `
-      <div class="viewer-header">
-        <a href="javascript:history.back()" class="back">← Back</a>
-        <h1>Error</h1>
-      </div>
-      <div class="error">
-        <h2>Failed to load content</h2>
-        <p>${err.message}</p>
-        <p style="margin-top:16px"><a href="${githubBase}${path}" target="_blank">View on GitHub →</a></p>
-      </div>
-    `;
-  }
-}
-
-loadContent();
+})();
 </script>
+<script src="js/main.js"></script>
 </body>
 </html>

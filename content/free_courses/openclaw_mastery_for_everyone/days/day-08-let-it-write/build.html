@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Build — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 8 Build: Let It Write</h1>
+<p>This is the user-facing guide for Day 8. Today you return to the Gmail skill from Day 6, turn on the send side, add outbound email rules, and create one small follow-up workflow on top of it.</p>
+<p>The operational steps are split between this file and a few small instruction files. This file is for you. The instruction files are for your Claw.</p>
+<hr>
+<h2>What You Need Before Starting</h2>
+<ul>
+<li>Day 1 complete: OpenClaw installed and secured</li>
+<li>Day 2 complete: identity files created and loading correctly</li>
+<li>Day 3 complete: Telegram connected and working</li>
+<li>Day 4 complete: a proactive workflow already exists</li>
+<li>Day 5 complete: skills are working</li>
+<li>Day 6 complete: Gmail inbox reading is working through <code>imap-smtp-email</code></li>
+<li>Day 7 complete: web search is working</li>
+<li>Access to your Claw through the OpenClaw web chat</li>
+<li>Access to the same personal Gmail account you used on Day 6</li>
+</ul>
+<hr>
+<h2>How To Run Day 8</h2>
+<p>Work through the steps in this order:</p>
+<ol>
+<li>inspect the send side of <code>imap-smtp-email</code> in chat</li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/./claw-instructions-configure-outbound-email.md"><code>claw-instructions-configure-outbound-email.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/./claw-instructions-create-follow-up-email.md"><code>claw-instructions-create-follow-up-email.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/./claw-instructions-finalize-outbound-email.md"><code>claw-instructions-finalize-outbound-email.md</code></a></li>
+</ol>
+<p>This order keeps the setup legible. You inspect the existing shared skill first, then your Claw turns on SMTP, then you add one reusable workflow on top, then you verify both the approval path and the cancel path.</p>
+<hr>
+<h2>Step 1: Inspect the Send Side of <code>imap-smtp-email</code></h2>
+<p>Copy and paste this into the OpenClaw web chat:</p>
+<blockquote>
+<p>Inspect <code>imap-smtp-email</code> from ClawHub again, this time for outbound email. Explain in plain English what SMTP settings it needs, how the approval step should work, what could be risky, and how we can keep Day 8 on compose-only email. Do not change anything yet.</p>
+</blockquote>
+<p>You are checking two things here: whether the skill is ready for the send workflow, and whether the Day 8 boundary is still clear. Today is compose-only with explicit approval before every send. Reply and forward stay for later.</p>
+<hr>
+<h2>Step 2: Configure Outbound Email</h2>
+<p>After you are happy with the inspection, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/claw-instructions-configure-outbound-email.md</code> and follow every step. Reuse my Day 6 Gmail setup, add the SMTP side for Day 8, add the outbound email rules, tell me exactly what changed, and stop when the setup report is complete.</p>
+</blockquote>
+<p>That <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/./claw-instructions-configure-outbound-email.md">instruction file</a> tells the Claw to:</p>
+<ul>
+<li>confirm <code>imap-smtp-email</code> is installed and ready</li>
+<li>reuse your Day 6 Gmail address and App Password if it still needs them</li>
+<li>add the Gmail SMTP settings to <code>~/.config/imap-smtp-email/.env</code></li>
+<li>keep the config file owner-only</li>
+<li>add <code>Outbound Email Protocols</code> to <code>AGENTS.md</code></li>
+<li>keep Day 8 on compose-only email with explicit approval before every send</li>
+</ul>
+<p>The Day 6 App Password is the same credential you use here. Gmail App Passwords work for both IMAP and SMTP.</p>
+<hr>
+<h2>Step 3: Create <code>follow-up-email</code></h2>
+<p>After outbound email is configured, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/claw-instructions-create-follow-up-email.md</code> and follow every step. Create <code>follow-up-email</code> for this workspace, tell me how to trigger it, and stop when you&#39;re done.</p>
+</blockquote>
+<p>That <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/./claw-instructions-create-follow-up-email.md">instruction file</a> tells the Claw to create one custom workspace skill that:</p>
+<ul>
+<li>triggers on requests like <code>send a follow-up to ... about ...</code></li>
+<li>finds or asks for the recipient address</li>
+<li>writes a short follow-up email in your Claw&#39;s voice</li>
+<li>formats the body as clean plain text with real paragraph breaks</li>
+<li>shows the full draft for approval before sending</li>
+<li>stays inside the Day 8 compose-only boundary</li>
+</ul>
+<p>After this step, type <code>/new</code> in OpenClaw before you test the new skill.</p>
+<hr>
+<h2>Step 4: Finalize and Verify</h2>
+<p>Copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/claw-instructions-finalize-outbound-email.md</code> and follow every step. Verify the Day 8 outbound email setup, give me the exact test messages to use, and report PASS or FAIL.</p>
+</blockquote>
+<p>That <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/./claw-instructions-finalize-outbound-email.md">instruction file</a> tells it to:</p>
+<ul>
+<li>confirm the Gmail SMTP setup exists</li>
+<li>confirm <code>imap-smtp-email</code> is installed and ready</li>
+<li>confirm <code>Outbound Email Protocols</code> and <code>follow-up-email</code> are in place</li>
+<li>give you one exact approve test and one exact cancel test</li>
+<li>remind you to test from a fresh session after <code>/new</code></li>
+</ul>
+<hr>
+<h2>Validate It</h2>
+<p>Type <code>/new</code> in OpenClaw first.</p>
+<p>Then ask your Claw:</p>
+<pre><code class="language-text">Send me an email with subject &quot;OpenClaw Day 8 Test&quot; and body &quot;This is a test of outbound email from my Claw. Day 8 is working.&quot;
+</code></pre>
+<p>Your Claw should show you the full draft, including <code>To</code>, <code>Subject</code>, and <code>Body</code>, and wait for approval before sending. Approve it, then check your inbox and Sent folder.</p>
+<p>Then run the cancel test your Claw gives you in the finalize step. The draft should stop at the approval gate and never be sent.</p>
+<hr>
+<h2>Quick Win</h2>
+<p>From Telegram, send:</p>
+<pre><code class="language-text">Send a follow-up to myself about the OpenClaw Day 8 setup. Keep it short and friendly.
+</code></pre>
+<p>This is the Day 8 shift: your Claw is no longer just reading and summarizing. It can draft a real message for someone else, pause for review, and send it only after you approve it.</p>
+<hr>
+<h2>What Should Be True After Day 8</h2>
+<ul>
+<li><input disabled="" type="checkbox"> <code>imap-smtp-email</code> was inspected for the send workflow before any changes</li>
+<li><input disabled="" type="checkbox"> Gmail SMTP settings were added to <code>~/.config/imap-smtp-email/.env</code></li>
+<li><input disabled="" type="checkbox"> the config file permissions are still owner-only</li>
+<li><input disabled="" type="checkbox"> <code>imap-smtp-email</code> skill installed and <code>ready: true</code></li>
+<li><input disabled="" type="checkbox"> Outbound email rules added to AGENTS.md</li>
+<li><input disabled="" type="checkbox"> Test email sent to yourself and received</li>
+<li><input disabled="" type="checkbox"> Approval gate cancellation verified (no email sent on cancel)</li>
+<li><input disabled="" type="checkbox"> <code>follow-up-email</code> workspace skill created</li>
+<li><input disabled="" type="checkbox"> You started a fresh OpenClaw session with <code>/new</code> before testing the new skill</li>
+<li><input disabled="" type="checkbox"> <code>follow-up-email</code> was tested successfully</li>
+</ul>
+<hr>
+<h2>Troubleshooting</h2>
+<p><strong>The Claw starts replying or forwarding instead of composing a new email</strong><br>Tell it that Day 8 is compose-only. Reply and forward are out of scope for this lesson.</p>
+<p><strong>SMTP authentication fails</strong><br>Use the same Gmail App Password from Day 6. If Google rejects it, generate a new App Password and have your Claw update both the IMAP and SMTP values in <code>~/.config/imap-smtp-email/.env</code>.</p>
+<p><strong>The Claw says the Gmail send settings are missing</strong><br>Ask it to inspect <code>~/.config/imap-smtp-email/.env</code> and confirm that <code>SMTP_HOST</code>, <code>SMTP_PORT</code>, <code>SMTP_USER</code>, <code>SMTP_PASS</code>, and <code>SMTP_FROM</code> are present.</p>
+<p><strong>The draft sends without showing you the full email first</strong><br>Ask the Claw to inspect <code>AGENTS.md</code> and confirm that <code>Outbound Email Protocols</code> requires showing the full draft and waiting for approval before every send.</p>
+<p><strong>The email body shows literal <code>\\n</code>, quote marks, or other odd characters</strong><br>Ask the Claw to update <code>follow-up-email</code> so the body is rendered as normal plain text before approval and before sending. The visible draft should read like a normal email, not a serialized string.</p>
+<p><strong>The test email does not arrive</strong><br>Check spam first. If it is not there, ask the Claw to verify that <code>SMTP_FROM</code> matches your Gmail address and that <code>imap-smtp-email</code> still reports <code>ready: true</code>.</p>
+<p><strong>The new skill does not seem active</strong><br>Type <code>/new</code> in OpenClaw, then test <code>follow-up-email</code> again.</p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/./learn.md">← Day 8 Learn</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/../day-09-give-it-a-team/build.md">Day 9: Give It a Team →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

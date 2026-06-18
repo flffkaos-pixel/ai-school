@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Learn — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 8: Let It Write</h1>
+<hr>
+<p><strong>What you&#39;ll learn today:</strong></p>
+<ul>
+<li>How your Claw moves from internal workspace writes to external writes that affect other people</li>
+<li>What an approval gate is and why every external write needs one</li>
+<li>Why sending email is the natural first external write (builds on Day 6&#39;s read-only connection)</li>
+<li>Why composing new messages is safer than replying or forwarding</li>
+</ul>
+<p><strong>What you&#39;ll build today:</strong> By the end of today, your Claw can compose and send emails on your behalf. Every outbound message pauses for your review before it goes out. You will also have a follow-up email workflow that handles a common pattern in one step.</p>
+<hr>
+<h2>Your Claw Starts Doing Things in the World</h2>
+<p>Today your Claw learns to send email on your behalf. You will be able to message it on Telegram and say &quot;send a follow-up to Alex about the project update&quot; and have the email composed, shown to you for review, and sent after you confirm. Instead of switching to your email client, finding the right contact, writing the message yourself, and hitting send, you describe what you want and your Claw handles the rest.</p>
+<p>This is one of the moments where your Claw starts to feel like a true extension of how you work. Once this is working, you will wonder how you ever wrote routine emails manually.</p>
+<p>Your Claw has been building toward this. The identity files from Day 2 shape how it communicates. The heartbeat from Day 4 gives it a schedule. The skills from Day 5 give it structure. The email connection from Day 6 gives it context about your conversations. The research capability from Day 7 lets it pull in facts and details. With all of that in place, your Claw understands enough about you and your work to write messages on your behalf.</p>
+<p>But as with email reading on Day 6, new capability comes with new risk. Since Day 4, your Claw has been writing to its own workspace: journal entries in the evening, updates to MEMORY.md as it learns. Those are internal writes. They live in your workspace directory, only you see them, and undoing one is as simple as editing or deleting a file.</p>
+<p>External writes are different. An email, once sent, stays sent. It lands in someone else&#39;s inbox. It becomes part of a conversation. It represents you. These actions cross the boundary from your private workspace into shared spaces where other people are affected.</p>
+<p>So we will set this up the same way we approached email reading: with guardrails that keep you in control. Every outbound email your Claw composes will pause and show you exactly what it plans to send. You review it, confirm it, and only then does it go out. Internal writes like your evening reflection keep running automatically on the heartbeat schedule. External writes always wait for your go-ahead.</p>
+<hr>
+<h2>The Approval Gate</h2>
+<p>Here is what that confirmation step looks like in practice:</p>
+<pre><code>You: &quot;Send Alex a follow-up about the Q2 roadmap discussion.&quot;
+
+Claw: I will send this email:
+     To: Alex Chen (alex@company.com)
+     Subject: Follow-up: Q2 Roadmap Discussion
+     Body: Hey Alex, wanted to follow up on our Q2 roadmap
+     conversation from yesterday. I&#39;ll have the updated
+     timeline ready by Thursday. Let me know if you need
+     anything before then.
+
+     Send this email? [Yes / Edit / Cancel]
+</code></pre>
+<p>The gate exists because your Claw&#39;s interpretation of your request might differ from what you had in mind. Maybe you meant a different Alex. Maybe you wanted to include more detail. Maybe the tone is too casual for this particular recipient. The confirmation step takes a few seconds. Undoing an email after it has landed in someone else&#39;s inbox is not possible.</p>
+<p>Once you have run a particular workflow ten or twenty times and it consistently does exactly what you expect, you can configure that specific action type to skip confirmation. The principle: gates default on, you remove them for workflows you have proven.</p>
+<hr>
+<h2>How the Connection Works</h2>
+<p>On Day 6, you installed the <code>imap-smtp-email</code> skill and set up IMAP credentials so your Claw could read your inbox. Today you extend that connection in the opposite direction with SMTP, the protocol for sending email.</p>
+<p>IMAP pulls messages in. SMTP pushes messages out. They are two sides of the same email system, and they use the same credentials. If you set up a Gmail App Password on Day 6, that same password works for SMTP. If you use Outlook, the same account credentials work for both directions.</p>
+<p>Here is how the pieces connect:</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/../../diagrams/day-08-outbound-email-flow.png" alt="How outbound email flows through your Claw"></p>
+<p>The approval gate sits between your Claw&#39;s composition and the actual send. Nothing leaves your outbox without your confirmation.</p>
+<hr>
+<h2>Start With Composing</h2>
+<p>When you first give your Claw the ability to send email, the safest starting point is composing new messages.</p>
+<p>Composing a new email is purely additive. You are starting a fresh conversation with a specific person about a specific topic. If the email is wrong, the worst case is an awkward message you can follow up on.</p>
+<p>Replying to existing threads is riskier. You are adding to a conversation that other people are already part of. A misunderstood context or wrong tone can derail an ongoing discussion.</p>
+<p>Forwarding is the riskiest. You are sharing content that may not have been meant for the recipient. A forwarded message carries the original sender&#39;s words into a context they did not choose.</p>
+<p>Today&#39;s build focuses on composing new messages only. Replying and forwarding come later, once the compose workflow is proven and you trust how your Claw handles tone and context.</p>
+<hr>
+<h2>Ready to Build?</h2>
+<p>You now understand the difference between internal writes (workspace files, automatic, easy to undo) and external writes (email, need confirmation, affect other people). You know how SMTP extends the IMAP connection you set up on Day 6, and why approval gates are the safety mechanism that makes outbound email practical. The build adds SMTP credentials alongside your existing IMAP setup, installs the send-capable skill, configures approval gates, and tests a complete compose-and-send workflow end-to-end. <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/build.md"><code>build.md</code></a> walks you through the sequence and points to the short <code>claw-instructions-*.md</code> files that belong in OpenClaw chat.</p>
+<p>Tomorrow you give your Claw a team.</p>
+<hr>
+<h2>Go Deeper</h2>
+<ul>
+<li>Once compose is working reliably, the natural next step is reply capability. The pattern: add a rule in AGENTS.md that allows replies only to threads you explicitly started or where you are already a participant. This keeps your Claw from jumping into conversations it was only CC&#39;d on.</li>
+<li>Google Calendar integration via the <code>gog</code> skill and OAuth is worth adding after email sending is stable. It follows the same creation-first approach: start with creating events, then add attendee management, then modification and deletion. The <a href="https://clawhub.ai/steipete/gog"><code>gog</code> skill readme</a> covers the full setup.</li>
+<li>Auto-send rules for specific message types are the next level of trust. For example, a rule that sends weekly status updates without confirmation after you have manually approved the same format ten times. The principle stays the same: prove the workflow first, then remove the gate.</li>
+</ul>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/../day-07-make-it-research/learn.md">← Day 7: Make It Research</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-08-let-it-write/../day-09-give-it-a-team/learn.md">Day 9: Give It a Team →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

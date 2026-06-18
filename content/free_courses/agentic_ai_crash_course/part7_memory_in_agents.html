@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Part 7: memory in agents — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Part 7: Memory in Agents</h1>
+<hr>
+<p>Over the past few parts, we’ve explored what makes agents act — from <strong>tools</strong> and <strong>RAG</strong>, to <strong>MCP</strong> and <strong>reasoning models</strong>.</p>
+<p>Today, we shift gears to something that determines <strong>how well</strong> they act over time: <strong>memory</strong>.</p>
+<p>Because here’s the baseline:<br>AI models <strong>don’t have memory inherently</strong>. They’re <strong>stateless</strong> by design. Every input is treated independently unless you <strong>architect memory into the system</strong>.</p>
+<hr>
+<h2>Why Memory Matters</h2>
+<img width="438" height="164" alt="image" src="https://github.com/user-attachments/assets/1d3fccea-8f9a-42b8-baa4-b3fe9f57dad1" /><p><em>Image Source: <a href="https://arxiv.org/html/2502.12110v1">https://arxiv.org/html/2502.12110v1</a></em></p>
+<p>If an agent is helping you draft emails, summarize long threads, or manage workflows over days or weeks — it needs to remember:  </p>
+<ul>
+<li>The email format  </li>
+<li>The user&#39;s name  </li>
+<li>The tone to use</li>
+</ul>
+<p>Sure, you could pass that information again and again with every prompt…<br>But wouldn’t it be better if the agent could retrieve the right information <strong>on its own</strong>, at the right time, from an <strong>external database</strong>?</p>
+<p>That’s exactly where <strong>memory</strong> comes in.</p>
+<hr>
+<h2>“Wait… isn’t this just like Agentic RAG (Day 4)?”</h2>
+<p>Fair question — and you’re not wrong. Managing memory often looks a lot like doing Agentic RAG.</p>
+<p>You:  </p>
+<ol>
+<li>Write structured or unstructured memories (facts, logs, past outputs)  </li>
+<li>Store them with metadata, tags, or embeddings  </li>
+<li>Retrieve the relevant slice when needed  </li>
+<li>Ground the model’s next action using that context</li>
+</ol>
+<p><strong>The difference:</strong>  </p>
+<ul>
+<li><strong>RAG</strong> → Helps answer questions with knowledge.  </li>
+<li><strong>Memory</strong> → Helps agents behave coherently over time.</li>
+</ul>
+<hr>
+<h2>Two Types of Memory in Agents</h2>
+<p>When designing real-world agent systems, you typically deal with <strong>two kinds of memory</strong>.</p>
+<img width="571" height="372" alt="image" src="https://github.com/user-attachments/assets/7c2d9e58-a219-4cea-b9f0-6de091298d66" /><p><em>Image Source: <a href="https://langchain-ai.github.io/langgraph/concepts/memory/#what-is-memory">https://langchain-ai.github.io/langgraph/concepts/memory/#what-is-memory</a></em></p>
+<hr>
+<h3>1. Short-Term Memory</h3>
+<p>Scoped to a single session or task.</p>
+<p><strong>Includes:</strong>  </p>
+<ul>
+<li>The conversation so far  </li>
+<li>Tools used  </li>
+<li>Responses generated  </li>
+<li>Documents retrieved</li>
+</ul>
+<p>Think of it as a raw log of user–agent conversations.</p>
+<p>LangGraph, Autogen, and similar frameworks treat this as part of the agent’s <strong>state</strong>.<br>But state grows fast, and most agents perform poorly when buried under irrelevant history.</p>
+<p><strong>Strategies to manage short-term memory:</strong>  </p>
+<ul>
+<li>Trim stale messages  </li>
+<li>Summarize the past into key points  </li>
+<li>Filter based on what’s still relevant</li>
+</ul>
+<p>It’s a balancing act: <strong>context length vs clarity vs cost</strong>.</p>
+<hr>
+<h3>2. Long-Term Memory</h3>
+<p>Lives across sessions, days, weeks — even forever.</p>
+<p><strong>Helps agents remember:</strong>  </p>
+<ul>
+<li>Who the user is  </li>
+<li>How they prefer to interact  </li>
+<li>What’s already been done  </li>
+<li>Important past context</li>
+</ul>
+<p><strong>Examples:</strong>  </p>
+<ul>
+<li>“User prefers neutral tone”  </li>
+<li>“User name is X and stays in city Y”  </li>
+<li>“Invoice #123 has already been escalated”</li>
+</ul>
+<p>More data ≠ better by default — it’s about retrieving the right thing at the right time.</p>
+<hr>
+<h2>Types of Long-Term Memory to Consider</h2>
+<p>Borrowing from cognitive science:</p>
+<ul>
+<li><p><strong>Semantic Memory</strong> → Facts and info (objective)<br><em>“User speaks English and prefers Excel files.”</em>  </p>
+</li>
+<li><p><strong>Episodic Memory</strong> → Past actions<br><em>“Agent already generated a summary yesterday.”</em>  </p>
+</li>
+<li><p><strong>Procedural Memory</strong> → Preferences (subjective)<br><em>“Avoid passive voice. Prioritize action items.”</em></p>
+</li>
+</ul>
+<hr>
+<p><strong>Examples by use case:</strong></p>
+<ul>
+<li><strong>User-facing chatbots</strong> → Semantic memory for personalization  </li>
+<li><strong>Process automation agents</strong> → Episodic memory to avoid retries or loops  </li>
+<li><strong>Adaptive assistants</strong> → Procedural memory to adjust prompts based on feedback</li>
+</ul>
+<hr>
+<h2>Key Design Questions</h2>
+<p>Before saying “we need memory,” ask:  </p>
+<ul>
+<li><strong>What kind?</strong>  </li>
+<li><strong>Why is it needed?</strong>  </li>
+<li><strong>How will it be stored, retrieved, and kept fresh?</strong></li>
+</ul>
+<hr>
+<h2>Managing Memory in Practice</h2>
+<p>Managing memory often feels like managing RAG.<br>The hard part? Deciding <strong>what to store</strong> and <strong>what to retrieve</strong>.</p>
+<p>Stuffing more text into the agent input rarely helps — it often <strong>hurts performance</strong>.</p>
+<p>You need to design memory intentionally, based on:  </p>
+<ul>
+<li>The agent’s job  </li>
+<li>What it needs to recall  </li>
+<li>When it should recall it  </li>
+<li>How to keep it useful over time</li>
+</ul>
+<hr>
+<h2>A Few Enterprise Examples</h2>
+<p><strong>Customer Support Agent</strong>  </p>
+<ul>
+<li>Needs: recent support history, known bugs, user sentiment  </li>
+<li>Memory types: episodic + semantic</li>
+</ul>
+<p><strong>Sales Copilot</strong>  </p>
+<ul>
+<li>Needs: previous pitches, user objections, close status  </li>
+<li>Memory types: semantic + procedural</li>
+</ul>
+<p><strong>Compliance Auditor Agent</strong>  </p>
+<ul>
+<li>Needs: flagged items, prior exceptions, policy changes  </li>
+<li>Memory types: episodic</li>
+</ul>
+<hr>
+<p>In all cases, it’s not about <strong>how much</strong> data you store — it’s about <strong>how relevant and structured</strong> it is.</p>
+<p>And yes, I’ve said this painfully many times, but I’ll say it again:  </p>
+<blockquote>
+<p><strong>Problem-first, always.</strong> The memory strategy, like tools or planning, depends entirely on the problem you’re solving.</p>
+</blockquote>
+<hr>
+<h2>Up Next</h2>
+<p>In the next part, we’ll talk about <strong>multi-agent systems</strong> — what they are, how they coordinate, and whether you actually need more than one agent at all.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

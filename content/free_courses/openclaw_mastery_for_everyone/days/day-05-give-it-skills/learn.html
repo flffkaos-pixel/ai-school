@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Learn — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 5: Give It Skills</h1>
+<hr>
+<p><strong>What you&#39;ll learn today:</strong></p>
+<ul>
+<li>What skills are and how they compare to MCP</li>
+<li>Why enterprises like Stripe publish skills, and how progressive disclosure keeps agents accurate</li>
+<li>How the three tiers of skill discovery work and where your workspace fits in</li>
+<li>Why inspecting a skill before installing it is essential right now</li>
+<li>How to write a custom skill (or have your Claw write one for you)</li>
+</ul>
+<p><strong>What you&#39;ll build today:</strong> By the end of today, your Claw has a new capability you installed from the community and a custom one you taught it yourself. Both are accessible from Telegram by name.</p>
+<hr>
+<h2>Skills: the Concept That Took Off</h2>
+<p>One of the most popular ideas in the AI agent world right now is something called a skill. Anthropic introduced the concept with Claude Code, and it spread quickly across agent frameworks. OpenClaw adopted the same pattern. The reason it resonated is simple: it solves a problem every agent user runs into by Day 5.</p>
+<p>By now your Claw responds on-demand and sends you a daily reflection on a schedule. Both are useful. Both also reveal the same friction: you keep giving your Claw the same multi-step instructions.</p>
+<p>&quot;Check my email, find anything urgent, summarize it, send me the subjects on Telegram.&quot; You typed that on Monday. It worked perfectly. You typed the same thing on Tuesday, and again on Wednesday.</p>
+<p>Your Claw follows the instructions every time, but it has no way to remember the workflow itself. Each conversation starts fresh. A skill solves this: you write the instructions once, give them a name, and your Claw recognizes the pattern from then on.</p>
+<hr>
+<h2>What a Skill Actually Is</h2>
+<p>A skill is a folder containing one file called SKILL.md. The file has two parts: a short header written in YAML (a simple key-value format) that gives the skill a name and describes when it should activate, and a body written in plain English that tells the agent exactly what to do, step by step. When OpenClaw starts, it scans all skill directories, loads the descriptions, and makes them available to the agent. The agent then decides when a skill is relevant and follows its instructions.</p>
+<p>That email triage routine from the example above, packaged as a skill, would live in a folder called <code>email-triage/</code> with a SKILL.md inside. The header says &quot;triggered when the user asks to check email&quot; and the body spells out the steps: scan inbox, filter urgent, summarize, send to Telegram. You write it once. Your Claw follows it every time.</p>
+<p>If you&#39;ve been reading about AI tools, you may have come across MCP (Model Context Protocol). MCP is about connectivity: it gives the AI model a way to plug into external services like Gmail, Slack, or a database. Think of it as wiring.</p>
+<p>Skills are about behavior: once the model is connected to Gmail via MCP, a skill tells it what to do with that connection. MCP opens the door. Skills tell the agent what to do once it&#39;s inside. The email triage skill you&#39;ll see on Day 6 uses the IMAP connection (the wiring) and adds workflow instructions (the behavior) on top.</p>
+<hr>
+<h2>Why Skills Took Off</h2>
+<p>The key insight: skills are shareable. </p>
+<p><a href="https://clawhub.ai/">ClawHub</a> is OpenClaw&#39;s public skill registry: a catalog of installable skills that the community and companies publish for others to reuse. If skills are the reusable behaviors, ClawHub is the place people share and discover them. Under the hood, OpenClaw accesses that registry through the <code>clawhub</code> command-line tool, but for this course your Claw is the actor. You inspect and install through chat, and your Claw handles the registry interaction for you.</p>
+<p>ClawHub crossed 13,000 published skills in early 2026. The pattern mirrors what npm did for JavaScript libraries or what app stores did for phone apps: a marketplace where people share solutions to problems they have already solved. The difference is that these solutions are plain-English instructions, so you can read exactly what a skill does before you install it.</p>
+<p>This ecosystem is a big part of why OpenClaw grew as fast as it did. Your Claw is useful on Day 1 with bundled skills. By Day 5, you can tap into thousands of workflows the community has already built.</p>
+<hr>
+<h2>Why Enterprises Publish Skills</h2>
+<p>The skill pattern works at personal scale, but it also solves a problem that large companies have been struggling with for years.</p>
+<p>Consider Stripe. Their API has hundreds of endpoints, each with its own parameters, edge cases, and best practices. When Stripe connected to AI agents via MCP, those agents could technically call any endpoint. But &quot;technically can&quot; and &quot;reliably does the right thing&quot; are very different.</p>
+<p>Anthropic&#39;s research found that when an AI model has access to more than 50 tools simultaneously, its accuracy drops to around 49%. Half the time, it picks the wrong tool or uses the right tool incorrectly.</p>
+<p>Skills solve this through a concept called progressive disclosure: showing only what&#39;s relevant right now, and revealing more on demand. Instead of exposing all of Stripe&#39;s endpoints at once, a skill loads just its description into the agent&#39;s context. That&#39;s one line. The full instructions only load when the skill activates. A typical skill file is around 40 lines. The equivalent raw API documentation for the same workflow can run to thousands of lines.</p>
+<p>Stripe already does this. They publish an Agent Toolkit that gives AI agents access to Stripe&#39;s API via MCP (the wiring), and on top of that they offer official agent skills like &quot;integration best practices&quot; (guidance on which Stripe products and features to use for a given setup) and &quot;API upgrade&quot; (step-by-step instructions for migrating to a newer API version). These skills encode institutional knowledge that raw API documentation cannot convey: the recommended approach, the common mistakes to avoid, the decisions that turn a generic API call into a reliable workflow.</p>
+<hr>
+<h2>Three Tiers, One Precedence Rule</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/../../diagrams/day-05-skills-flow.png" alt="How skills flow through your Claw"></p>
+<p>OpenClaw discovers skills from three locations, and when two skills share the same name, workspace wins.</p>
+<p><strong>Skill Discovery (workspace always wins)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Location</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bundled</td>
+<td>Ships with OpenClaw</td>
+<td>Always available</td>
+</tr>
+<tr>
+<td>Managed</td>
+<td><code>~/.openclaw/skills/</code></td>
+<td>All workspaces</td>
+</tr>
+<tr>
+<td>Workspace</td>
+<td><code>~/.openclaw/workspace/skills/</code></td>
+<td>This agent only; takes precedence</td>
+</tr>
+</tbody></table>
+<p><strong>Bundled skills</strong> ship with OpenClaw and are always available without installation. These cover common integrations like web search, basic calendar read, and file access. They are a useful baseline that works out of the box.</p>
+<p><strong>Managed skills</strong> live in <code>~/.openclaw/skills/</code> and are installed via ClawHub. They are available across all your workspaces on the same machine. Good for general-purpose skills you want everywhere.</p>
+<p><strong>Workspace skills</strong> live inside your specific workspace at <code>~/.openclaw/workspace/skills/</code>. Your workspace is the directory at <code>~/.openclaw/workspace/</code> that holds everything specific to your agent: the identity files from Day 2, the proactive step from Day 4, and now the skills directory. It&#39;s your agent&#39;s home.</p>
+<p>In the Hostinger setup used in this course, you are not opening a shell and running these commands yourself. The paths and registry terms matter because they explain how OpenClaw works under the hood. Your Claw is the thing performing the inspection, install, and file-writing steps for you.</p>
+<p>You can run multiple workspaces on the same OpenClaw installation, each one a separate agent with its own personality, rules, and skills. Workspace skills are scoped to this agent only, which makes them the right place for anything specific to your context: a skill that knows about your particular project structure, your internal tools, or your workflow.</p>
+<p>When two skills share the same name, the workspace version takes precedence. This means you can modify how a bundled skill behaves by creating a workspace skill with the same name. It shadows the bundled version. The core installation stays untouched.</p>
+<hr>
+<h2>Inspecting Before Installing</h2>
+<p>Because anyone can publish a skill to ClawHub, malicious skills do show up. A coordinated attack campaign called ClawHavoc distributed skills under lookalike names (e.g., &quot;gmail-reader&quot; vs. &quot;gmai1-reader&quot;), close enough to legitimate ones that you could install one by accident. The techniques ranged from prompt injection in skill files to hidden scripts that steal credentials. The impact was real: users on always-on machines had API keys and tokens exfiltrated before they noticed anything was wrong.</p>
+<p>One way to catch this, which works well in practice, is to run <code>clawhub inspect &lt;slug&gt;</code> before every install. This shows you the full SKILL.md without installing it. Read through it. If the instructions reference unknown endpoints, ask for data they should not need, or take actions outside the declared scope, skip it. This takes thirty seconds and catches a lot of issues, though it is not a complete guarantee. The <code>clawvet</code> tool (covered in Go Deeper) adds automated scanning on top of manual inspection.</p>
+<hr>
+<h2>Writing Your Own Skill</h2>
+<p><strong>When to write one:</strong> When you catch yourself giving your Claw the same multi-step instruction for the third time. The first time, you&#39;re figuring out what you want. The second time, you&#39;re confirming the pattern. The third time, you&#39;re ready to write a skill.</p>
+<p><strong>How to think about it:</strong> Write the instructions the way you would explain the task to a capable person who has done it before in general, but has never done this specific version. What inputs do they need? What steps do they follow? What should they do if something goes wrong?</p>
+<p>Here&#39;s a complete working skill that captures quick notes to your memory:</p>
+<pre><code>Example: quick-note/SKILL.md
+---
+name: quick-note
+description: &gt;
+  Captures a quick note from messages starting with &quot;note:&quot;.
+  Classifies it, saves it to today&#39;s memory file, and tracks open loops
+  when the note implies future action.
+
+---
+
+When the user sends a message starting with &quot;note:&quot;, &quot;remember:&quot;, or
+&quot;jot down:&quot;, extract the content after the trigger word.
+
+1. Get today&#39;s date in YYYY-MM-DD format.
+2. Open or create the file: memory/YYYY-MM-DD.md
+3. Append the note with a timestamp:
+   ## HH:MM
+   [note content]
+4. Confirm to the user: &quot;Noted: [first 50 chars]...&quot;
+
+If the memory directory is missing, create it first.
+</code></pre>
+<p>The YAML header (the part between the <code>---</code> markers) has a name and a description. The description is what the agent uses to decide when to invoke the skill. A vague description like &quot;helps with tasks&quot; triggers unpredictably, if at all. A specific description like &quot;captures a quick note to today&#39;s memory file with a timestamp&quot; triggers exactly when you want it.</p>
+<p>The instruction body below the header is plain markdown. Write it the way you would explain the task to someone who needs to do it precisely: what inputs to expect, what to do with them, what output to produce, and what to do if something goes wrong. Plain English is all you need.</p>
+<p>The quick-note skill above is a simple example, but the pattern scales. Skills for interacting with APIs, processing files, or running multi-step workflows follow the same structure: a clear description in the header and step-by-step instructions in the body.</p>
+<p>One thing worth knowing: you rarely have to write skills entirely by hand. If you find yourself repeating a workflow, you can ask your Claw to draft the skill for you. Describe what you want (&quot;every time I say &#39;standup&#39;, summarize my open tasks and send them to Telegram&quot;), and your Claw generates the SKILL.md with the header, description, and step-by-step instructions. You review it, adjust anything that feels off, and save it to your workspace. Skills can also include shell scripts or other executable files alongside the markdown, so more complex workflows that need actual code are covered too.</p>
+<hr>
+<h2>Ready to Build?</h2>
+<p>You now understand what skills are, how they compare to MCP (wiring vs. behavior), why enterprises publish curated skills instead of exposing raw APIs, what a workspace is, how the three tiers of discovery work, why inspecting before installing matters, and how to write a custom skill or have your Claw draft one for you. The build walks you through what skills are already available, installs one from ClawHub, and helps you write your first custom skill.</p>
+<p>Open <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/build.md"><code>build.md</code></a>. It walks you through Day 5 in stages: inspect one fixed community skill from ClawHub, install it, then create a richer <code>quick-note</code> skill inside this workspace.</p>
+<p>Tomorrow is the first real integration: email. The skills you&#39;ve added today will start becoming useful as your Claw gains access to more of your world.</p>
+<hr>
+<h2>Go Deeper</h2>
+<ul>
+<li>The SKILL.md format supports metadata gates: you can require specific CLI tools to be installed, environment variables to be set, or restrict a skill to specific operating systems. The <a href="https://docs.openclaw.ai/skills/skill-md">SKILL.md specification</a> covers the full list of supported gates.</li>
+<li>The <a href="https://docs.openclaw.ai/security/clawvet"><code>clawvet</code> tool</a> automates security scanning for skills. Run <code>clawvet scan &lt;skill-dir&gt;</code> on any skill directory to check for known malicious patterns, suspicious outbound calls, and scope violations before you install.</li>
+<li>If you&#39;ve built an MCP server, you&#39;re 90% of the way to building an OpenClaw skill. The MCP server handles the connectivity; wrapping it in a SKILL.md with workflow instructions turns it into a full skill. The <a href="https://docs.openclaw.ai/skills/mcp-to-skill">ClawHub documentation on MCP conversion</a> covers the pattern.</li>
+</ul>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/../day-04-make-it-proactive/learn.md">← Day 4: Make It Proactive</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/../day-06-tame-your-inbox/learn.md">Day 6: Tame Your Inbox →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

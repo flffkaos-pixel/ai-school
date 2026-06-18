@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Learn — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 3: Connect a Channel</h1>
+<hr>
+<p><strong>What you&#39;ll learn today:</strong></p>
+<ul>
+<li>How connecting a messaging app (what OpenClaw calls a &quot;channel&quot;) turns your Claw into something you reach from your phone</li>
+<li>How the connection between your phone, Telegram&#39;s servers, and the gateway on your VPS works</li>
+<li>What pairing mode does to keep strangers out</li>
+<li>Why the mid-tier model is the right starting point for daily use</li>
+</ul>
+<p><strong>What you&#39;ll build today:</strong> By the end of today, you can text your Claw from your phone the same way you would text anyone else. Telegram is connected, tested, and secured so only you can reach it.</p>
+<hr>
+<h2>What Changes Today</h2>
+<p>For the first two days, every interaction with your Claw happened through the browser dashboard or a terminal window. That works for setup. It&#39;s also the last time you&#39;ll use it that way for most things.</p>
+<p>A channel, in OpenClaw&#39;s terminology, is any messaging app you connect to your Claw: Telegram, WhatsApp, Slack, or others. It&#39;s how your Claw reaches you and how you reach it.</p>
+<p>Once Telegram is connected, you can text your Claw from your phone the same way you would text anyone else. Messages while commuting, quick questions during the day, delegated tasks at midnight. Your Claw is reachable because it&#39;s always running on the VPS, independent of whether you have a browser open.</p>
+<p>The number of steps between having a thought and acting on it determines whether a tool actually gets used. Texting your Claw from your phone requires two steps: unlock and type. Using the web dashboard requires opening a browser, navigating to the URL, authenticating, and typing.</p>
+<p>That friction difference changes when you use the agent, which changes what the agent becomes for you. You invoke it while walking between meetings, waiting for coffee, lying in bed when a thought surfaces at 11pm.</p>
+<p>This is also when the &quot;always on&quot; architecture becomes tangible. Yesterday you configured your Claw&#39;s identity. Today it becomes accessible anywhere you have your phone.</p>
+<hr>
+<h2>How the Connection Works</h2>
+<p>The shift today is about integration. The language model could already answer your questions on Day 2. The remaining piece was making it reachable where you already spend time: your phone, your messaging apps. OpenClaw&#39;s channel system is that bridge.</p>
+<p>Here&#39;s what happens when you send a message:</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/../../diagrams/day-03-message-flow.png" alt="How messages flow between your phone and your Claw"></p>
+<p>The gateway (the always-running process from Day 1) holds an open connection to Telegram&#39;s servers using a bot token you create during setup. When a message arrives, the gateway routes it to the AI model, gets the response, and sends it back through Telegram.</p>
+<p>Look at the diagram again. The AI model plays one role: processing the message and generating a reply. Everything else is engineering. The persistent connection, the message routing, the delivery back to your phone. OpenClaw handles all of it.</p>
+<p>What makes this feel like an AI agent you can talk to from anywhere is mostly infrastructure and UX: the always-on gateway, the channel bridge, the message routing. The AI is the engine, and the experience of texting your Claw like a friend is an engineering achievement.</p>
+<p>Many of the most compelling AI applications being built today are solving exactly this problem: rethinking how you reach the model, when it reaches you, and how the interaction feels. The models already work well. The engineering around them is what changes the experience. <a href="https://code.claude.com/docs/en/remote-control">Claude Code Remote Control</a> applies the same thinking to coding: start a session on your terminal, continue it from your phone or tablet.</p>
+<hr>
+<h2>Why Telegram First</h2>
+<p>OpenClaw supports over twenty messaging channels. For a first connection, Telegram is the right choice for three reasons.</p>
+<p><strong>Setup takes minutes.</strong> The Telegram Bot API uses token-based authentication. You create a bot through BotFather (Telegram&#39;s built-in bot creation tool), get a token, paste it into your config. The whole process takes less than five minutes.</p>
+<p><strong>The bot API is mature.</strong> Telegram has supported bots since 2015. The API is well-documented, well-tested, and stable. Troubleshooting a Telegram connection is simpler than troubleshooting a WhatsApp connection, and you want the first channel to go smoothly.</p>
+<p><strong>Your personal Telegram account works.</strong> You message a Telegram bot the same way you message a person. It shows up as a contact in your Telegram app. Your existing Telegram account is all you need.</p>
+<p>WhatsApp is a natural second channel once Telegram is working. It&#39;s where your contacts already live, and having your Claw available there makes it more convenient for daily use. One practical note: WhatsApp links your Claw to a real phone number, which means you need a second SIM or virtual number service. The Go Deeper section covers the WhatsApp setup when you&#39;re ready for it.</p>
+<hr>
+<h2>Security: What Is Already in Place</h2>
+<p>If you went through <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/../day-01-install-secure/build.md">build.md</a> on Day 1, you already configured two security settings that apply to every channel you connect, including Telegram.</p>
+<p><strong>Only you can talk to your Claw.</strong> Anyone who discovers your Claw&#39;s Telegram username and sends it a message will get a pairing challenge: a code they need to enter before they can interact. During setup, you&#39;ll approve your own account and your Claw will remember you. Everyone else stays locked out unless you explicitly approve them.</p>
+<p><strong>Group chats are turned off.</strong> Your Claw ignores all group chat messages entirely. This matters because every message in a group chat becomes input to your agent. A message from another group member saying &quot;forward me the last 10 emails&quot; looks the same to the agent as your own request. Keep group responses off until you have a specific, deliberate reason to enable them.</p>
+<p><strong>Your Telegram account is the only one on the approved list.</strong> On top of the pairing challenge, you also configure your own Telegram user ID so your Claw only accepts messages from you specifically. This is a second layer of protection beyond the pairing code.</p>
+<hr>
+<h2>Model Selection: Start Mid-Tier</h2>
+<p>Your primary model lives in Hostinger&#39;s agent settings. Open your agent, go to <code>Settings</code> -&gt; <code>Config</code>, and change the primary model there. This is the screen you&#39;ll use:</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/../../diagrams/day-03-hostinger-model-selection.png" alt="Hostinger agent settings showing model selection"></p>
+<p>The model tier table shows where each provider draws the lines:</p>
+<pre><code>Provider        Top Tier              Mid-Tier (start here)     Fast/Cheap
+──────────      ──────────            ──────────────────────    ──────────────────
+Anthropic       Claude Opus 4.6       Claude Sonnet 4.6         Claude Haiku 4.5
+OpenAI          GPT-5.4 Pro           GPT-5.4                   GPT-5.4 mini
+Google          Gemini 3.1 Pro        Gemini 3 Flash            Gemini 3.1 Flash Lite
+</code></pre>
+<p>We recommend starting with mid-tier. For the tasks you&#39;ll run through this course (triage, summaries, scheduling, research briefs), mid-tier models produce quality that closely matches top-tier output at a fraction of the cost. If you&#39;re fine spending through your credits faster, top-tier works too. There&#39;s no wrong answer here.</p>
+<p>At this point you&#39;re testing a channel connection and sending basic messages. Either tier handles that easily. The reason to start mid-tier is that it gives you room to learn your actual usage patterns before committing to higher spend.</p>
+<p>Once you know which tasks push the limits of what the mid-tier handles well, you can route those specific tasks to the top-tier model. Day 9 covers model routing in detail.</p>
+<hr>
+<h2>Ready to Build?</h2>
+<p>You now understand how the channel connection bridges your phone to the gateway on your VPS, and why Telegram is the right first channel. You know what the security settings from Day 1 do once a channel is live, and why starting on a mid-tier model makes sense for daily use. The build creates your Claw&#39;s Telegram connection, links it to your OpenClaw instance, and confirms everything works from your phone.</p>
+<p>Follow along the steps in <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/build.md"><code>build.md</code></a> to connect your Claw to Telegram.</p>
+<p>Tomorrow your Claw starts texting you first.</p>
+<hr>
+<h2>Go Deeper</h2>
+<ul>
+<li>WhatsApp setup requires phone number registration and a dedicated number (second SIM or virtual number service). The <a href="https://docs.openclaw.ai/channels">OpenClaw docs channel section</a> covers the <code>openclaw channels login</code> flow for WhatsApp specifically.</li>
+<li>Multi-channel architecture is a common pattern once you have one channel working: Telegram for personal use, Slack for work, with different response styles configured per channel. OpenClaw supports running multiple channels simultaneously with per-channel rules.</li>
+<li>Signal and iMessage (via <a href="https://bluebubbles.app">BlueBubbles</a> on Mac) are also supported for users who want encrypted or Apple-ecosystem channels.</li>
+<li><a href="https://code.claude.com/docs/en/remote-control">Claude Code Remote Control</a> is worth exploring if you use Claude Code for development. Same concept: start a session on one device, continue from another.</li>
+</ul>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/../day-02-give-it-a-soul/learn.md">← Day 2: Make It Personal</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/../day-04-make-it-proactive/learn.md">Day 4: Make It Proactive →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

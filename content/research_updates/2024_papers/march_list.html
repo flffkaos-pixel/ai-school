@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>March list — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Name</th>
+<th>Summary</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>29 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.20327">Gecko: Versatile Text Embeddings Distilled from Large Language Models</a></td>
+<td>Gecko introduces a novel approach for creating compact and efficient text embeddings by distilling knowledge from large language models into a retriever. Utilizing a two-step distillation process that generates diverse, synthetic paired data, Gecko achieves superior retrieval performance. With a focus on compactness, it outperforms larger models and higher-dimensional embeddings on the Massive Text Embedding Benchmark (MTEB), demonstrating its efficacy and potential in improving information retrieval tasks.</td>
+<td>LLM Embeddings</td>
+</tr>
+<tr>
+<td>28 March 2024</td>
+<td><a href="https://x.ai/blog/grok-1.5">Grok-1.5</a></td>
+<td>Grok 1.5 offers enhanced reasoning capabilities and a context length of 128,000 tokens. It showcases significant advancements in coding, math-related tasks, and long context understanding. With improvements in MATH, GSM8K, and HumanEval benchmarks, Grok-1.5 offers expanded memory capacity and exceptional retrieval capabilities. Built on a custom distributed training framework, it promises efficiency and reliability for large-scale language model research</td>
+<td>Foundational LLM</td>
+</tr>
+<tr>
+<td>28 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.19270">Don&#39;t Use Your Data All at Once: sDPO</a></td>
+<td>sDPO introduces a novel method in the realm of language model training, focusing on the strategic use of preference datasets in a stepwise manner. This technique enhances model alignment with human preferences by employing parts of the dataset progressively, leading to more precise reference models and outperforming other popular LLMs in terms of performance, even those with more parameters.</td>
+<td>Instruction Tuning</td>
+</tr>
+<tr>
+<td>28 March 2024</td>
+<td><a href="https://www.ai21.com/blog/announcing-jamba">Jamba: AI21&#39;s SSM-Transformer Model</a></td>
+<td>AI21 labs announced Jamba novel SSM-Transformer model offering a 256K context window, aiming to balance the SSM model&#39;s efficiency with the Transformer&#39;s capability. It shows significant performance improvements across various benchmarks. Jamba is open-source under Apache 2.0, available on Hugging Face, and soon on NVIDIA&#39;s API catalog, marking a significant advancement in hybrid model architecture​</td>
+<td>Foundational LLM</td>
+</tr>
+<tr>
+<td>28 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.19154">STaR-GATE: Teaching Language Models to Ask Clarifying Questions</a></td>
+<td>This paper presents STaR-GATE, a novel approach for enhancing language models&#39; interaction skills by training them to ask clarifying questions. By employing a strategic teacher-student learning framework, STaR-GATE aims to improve the models&#39; ability to clarify ambiguities in user queries, thereby enhancing communication effectiveness and accuracy in understanding and responding to complex requests</td>
+<td>Prompt Engineering</td>
+</tr>
+<tr>
+<td>27 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.18802v1">Long-form factuality in large language models </a></td>
+<td>This paper tackles the challenge of factuality in LLM-generated content on open-ended topics. It introduces LongFact, a set of prompts for evaluating long-form factuality, and proposes the Search-Augmented Factuality Evaluator (SAFE) method. SAFE assesses the accuracy of facts in LLM responses through a multi-step reasoning process, comparing supported facts against Google Search results. The findings indicate LLMs&#39; potential for superhuman factuality assessment, offering a cost-effective alternative to human annotation.</td>
+<td>LLM Factuality</td>
+</tr>
+<tr>
+<td>27 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.18814v1">Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models</a></td>
+<td>Mini-Gemini presents a framework to enhance multi-modal Vision Language Models (VLMs) by improving visual tokens, constructing high-quality datasets, and guiding VLM-based generation for better performance. It uses an additional visual encoder for high-resolution refinement without increasing visual token count, aiming to enhance image understanding, reasoning, and simultaneous generation capabilities of VLMs. Mini-Gemini has shown leading performance in zero-shot benchmarks, surpassing developed private models.</td>
+<td>Multimodal LLM</td>
+</tr>
+<tr>
+<td>27 March 2024</td>
+<td><a href="https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm">DBRX</a></td>
+<td>A state-of-the-art open large language model surpassing established models like GPT-3.5 and competing with Gemini 1.0 Pro. DBRX excels in programming and general LLM capabilities, featuring a fine-grained mixture-of-experts architecture for enhanced training and inference efficiency. It&#39;s 40% the size of Grok-1, offering faster inference and reduced compute requirements. The model is available on Hugging Face, emphasizing Databricks&#39; commitment to open models and enabling customers to pretrain DBRX-class models with their infrastructure</td>
+<td>Foundational LLM</td>
+</tr>
+<tr>
+<td>25 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.16971">AIOS: LLM Agent Operating System </a></td>
+<td>AIOS is designed as an LLM agent operating system to optimize resource allocation, enable concurrent execution, and provide access control. It embeds LLMs into operating systems, presenting an &quot;OS with soul&quot; toward AGI. The system improves the performance and efficiency of LLM agents, offering a pioneering platform for the AIOS ecosystem development.</td>
+<td>Agents</td>
+</tr>
+<tr>
+<td>22 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.12373">RankPrompt: Step-by-Step Comparisons Make Language Models Better Reasoners</a></td>
+<td>The paper introduces RankPrompt, a novel prompting method aimed at improving the reasoning capabilities of Large Language Models like ChatGPT and GPT-4. Unlike existing solutions requiring human annotations or failing in inconsistent scenarios, RankPrompt enables LLMs to self-rank their responses by comparing diverse outputs. Experiments across 11 reasoning tasks demonstrate significant performance enhancements, with up to a 13% improvement. Moreover, RankPrompt aligns with human judgments 74% of the time in open-ended evaluations and exhibits robustness to response variations. This method proves effective in eliciting high-quality feedback from LLMs, offering promising avenues for advancing reasoning abilities.</td>
+<td>Prompt Engineering</td>
+</tr>
+<tr>
+<td>22 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.13248">Mora: Enabling Generalist Video Generation via A Multi-Agent Framework</a></td>
+<td>Mora proposes a new multi-agent framework to address the gap in generalist video generation capabilities, aiming to match the performance of the pioneering model Sora. It leverages multiple visual AI agents to achieve text-to-video generation, image-to-video conversion, video extension, editing, connection, and digital world simulation, demonstrating close performance to Sora across various tasks but with a noticeable gap when assessed holistically.</td>
+<td>Multimodal LLM</td>
+</tr>
+<tr>
+<td>22 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.15042">LLM2LLM: Boosting LLMs with Novel Iterative Data Enhancement</a></td>
+<td>This study introduces LLM2LLM, a data enhancement strategy utilizing a teacher-student LLM framework for improving performance in tasks with limited data. It involves fine-tuning a student LLM on initial seed data, identifying errors, and generating new data based on these errors using a teacher LLM. This iterative process significantly boosts LLM performance in low-data regimes across various datasets, demonstrating substantial improvements over traditional fine-tuning and other augmentation methods.</td>
+<td>Data Augmentation</td>
+</tr>
+<tr>
+<td>21 March 2024</td>
+<td><a href="https://arxiv.org/pdf/2403.14403.pdf">Adaptive-RAG: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity</a></td>
+<td>The paper introduces a novel adaptive QA framework. It dynamically selects the most appropriate strategy for handling queries of varying complexities, from simple to sophisticated, by integrating retrieval-augmented LLMs with a complexity-level classifier. This approach aims to balance efficiency and accuracy in response generation across different query types, showing improvements over existing models and adaptive retrieval methods</td>
+<td>RAG</td>
+</tr>
+<tr>
+<td>20 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.13793">Evaluating Frontier Models for Dangerous Capabilities</a></td>
+<td>This paper pioneers &quot;dangerous capability&quot; evaluations, focusing on areas like persuasion, cyber-security, self-proliferation, and self-reasoning, using Gemini 1.0 models. While no strong dangerous capabilities were found, early warning signs were identified. The study aims to advance the science of evaluating such capabilities in AI models, preparing for future advancements.</td>
+<td>LLM Attacks</td>
+</tr>
+<tr>
+<td>19 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.13187">Evolutionary Optimization of Model Merging Recipes</a></td>
+<td>This paper presents an new approach for automating the creation of powerful foundation models by merging diverse open-source models. It optimizes beyond individual model weights, facilitating cross-domain merging and achieving state-of-the-art performance, notably in Japanese language tasks. This approach introduces a new paradigm for automated model composition, offering efficient alternatives for foundation model development.</td>
+<td>Model Merging</td>
+</tr>
+<tr>
+<td>19 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.12881v1">Agent-FLAN: Designing Data and Methods of Effective Agent Tuning for Large Language Models</a></td>
+<td>This paper addresses the challenge of integrating agent abilities into Large Language Models  for improved performance in NLP tasks. It identifies key observations regarding the entanglement of agent training data, varying learning speeds of LLMs, and side-effects of existing approaches. Introducing Agent-FLAN, a method for Fine-tuning LANguage models for Agents, the paper proposes a novel approach to address these challenges. By carefully redesigning the training corpus and incorporating negative samples, Agent-FLAN enables significant performance improvements, outperforming prior works by 3.5% across multiple evaluation datasets. Moreover, it mitigates hallucination issues and enhances LLMs&#39; agent capabilities, even with scaled model sizes, while slightly improving their general capability.</td>
+<td>Agents, Hallucination</td>
+</tr>
+<tr>
+<td>18 March 2024</td>
+<td><a href="https://zorazrw.github.io/files/WhatAreToolsAnyway.pdf">What Are Tools Anyway? A Survey from the Language Model Perspective</a></td>
+<td>This paper dives into the role of tools in enhancing the performance of language models for text generation tasks. It addresses the ambiguity surrounding the term &quot;tool&quot; and explores how tools aid LMs. Through a systematic review, the paper defines tools as external programs utilized by LMs and examines different tooling scenarios and approaches. Empirical studies assess the efficiency of various tooling methods by measuring compute requirements and performance gains across benchmarks. The survey also identifies challenges and potential avenues for future research in LM tooling.</td>
+<td>Agents, Tools, Survey</td>
+</tr>
+<tr>
+<td>17 March 2024</td>
+<td><a href="https://x.ai/blog/grok/model-card">Grok-1</a></td>
+<td>Grok-1 is an autoregressive Transformer-based model designed for next-token prediction, fine-tuned with feedback from Grok-0 models and humans. Released in November 2023, it boasts a context length of 8,192 tokens and is geared towards various NLP tasks like question answering and coding assistance. However, while Grok-1 excels in information processing, human review is essential to ensure accuracy as it lacks independent web-search capabilities. Despite access to external sources, the model may still hallucinate. Trained on data up to Q3 2023 from the internet and AI Tutors, its performance was evaluated on reasoning tasks and foreign math questions, with ongoing testing involving early adopters for further refinement.</td>
+<td>Foundational LLM</td>
+</tr>
+<tr>
+<td>15 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.10131">RAFT: Adapting Language Model to Domain Specific RAG</a></td>
+<td>This paper introduces Retrieval Augmented FineTuning (RAFT), a training approach aimed at enhancing the ability of Large Language Models  to answer questions in domain-specific settings. RAFT leverages retrieval augmented fine-tuning to enable the model to effectively incorporate new knowledge into its reasoning process. By training the model to disregard irrelevant documents (distractor documents) and cite relevant sequences from retrieved documents, RAFT improves the model&#39;s ability to provide accurate and coherent responses. Experimental results across various datasets demonstrate the effectiveness of RAFT in domain-specific Retrieval Augmented Generation, offering a valuable post-training recipe for enhancing pre-trained LLMs in domain-specific contexts.</td>
+<td>RAG, Fine-Tuning</td>
+</tr>
+<tr>
+<td>14 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.09539">Logits of API-Protected LLMs Leak Proprietary Information</a></td>
+<td>This paper reveals that even with restricted API access to proprietary Large Language Models, significant proprietary information can be inferred from a small number of API queries. By exploiting a softmax bottleneck present in most modern LLMs, the research demonstrates the ability to unveil hidden aspects of the model architecture and obtain full-vocabulary outputs. This includes efficiently discovering hidden model sizes, identifying different model updates, and estimating output layer parameters. Empirical investigations on OpenAI&#39;s gpt-3.5-turbo reveal its embedding size to be approximately 4,096. The paper concludes by discussing potential measures for LLM providers to mitigate such attacks and suggests viewing these capabilities as opportunities for enhanced transparency and accountability rather than vulnerabilities.</td>
+<td>LLM Attacks, Privacy</td>
+</tr>
+<tr>
+<td>14 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.09629">Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking</a></td>
+<td>This paper introduces Quiet-STaR, a method aimed at enabling language models to learn to generate rationales to explain future text, thereby improving their predictive abilities. Building upon the Self-Taught Reasoner (STaR) framework, Quiet-STaR allows LMs to infer unstated rationales in arbitrary text. Key challenges addressed include computational costs, LM&#39;s initial unfamiliarity with generating internal thoughts, and predicting beyond individual tokens. The proposed method involves tokenwise parallel sampling, learnable tokens for indicating thought boundaries, and extended teacher-forcing techniques. Quiet-STaR leads to significant improvements in LM performance on tasks like GSM8K and CommonsenseQA without requiring fine-tuning, marking a step towards more general and scalable reasoning capabilities in LMs.</td>
+<td>Prompt Engineering</td>
+</tr>
+<tr>
+<td>14 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.09611">MM1: Methods, Analysis &amp; Insights from Multimodal LLM Pre-training</a></td>
+<td>This paper explores the development of high-performing Multimodal Large Language Models (MLLMs) and investigates the significance of various architecture components and data choices. Through meticulous ablations of the image encoder, vision language connector, and pre-training data options, several crucial design insights are uncovered. For instance, the careful integration of image-caption, interleaved image-text, and text-only data is shown to be essential for achieving state-of-the-art few-shot results across multiple benchmarks. Additionally, the impact of image resolution and token count in the image encoder is highlighted, while the vision-language connector design is found to be comparatively less critical. Scaling up the proposed approach results in MM1, a family of multimodal models with up to 30B parameters, including dense models and mixture-of-experts variants. MM1 achieves state-of-the-art pre-training metrics and competitive performance on various multimodal benchmarks, benefiting from enhanced in-context learning and multi-image reasoning capabilities enabled by large-scale pre-training.</td>
+<td>Multimodal LLM</td>
+</tr>
+<tr>
+<td>13 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.08319">Knowledge Conflicts for LLMs: A Survey</a></td>
+<td>This survey dives into the intricacies of knowledge conflicts encountered by large language models, focusing on the blending of contextual and parametric knowledge. It identifies three main categories of conflicts: context-memory, inter-context, and intra-memory conflicts, which can significantly impact LLM trustworthiness and performance, particularly in real-world scenarios with noise and misinformation. Through categorization, exploration of causes, observation of LLM behaviors, and review of existing solutions, the survey aims to provide insights into strategies for enhancing LLM robustness, serving as a valuable resource for advancing research in this domain.</td>
+<td>LLM Robustness</td>
+</tr>
+<tr>
+<td>12 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.07508">MoAI: Mixture of All Intelligence for Large Language and Vision Models</a></td>
+<td>MoAI introduces an innovative approach to combine the strengths of large language and vision models with specialized computer vision models for tasks like segmentation and OCR. By leveraging auxiliary visual information and blending it with language features through a unique modular design, MoAI achieves superior performance in various zero-shot visual language tasks, particularly in real-world scene understanding, without increasing model size or requiring additional visual instruction datasets.</td>
+<td>Multimodal LLMs</td>
+</tr>
+<tr>
+<td>12 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.07816">Branch-Train-MiX: Mixing Expert LLMs into a Mixture-of-Experts LLM</a></td>
+<td>This paper explores methods for efficiently training Large Language Models  to excel in multiple specialized domains such as coding, math reasoning, and world knowledge. Introducing Branch-Train-MiX (BTX), the approach starts with a seed model and branches to train experts in parallel, reducing communication costs. After training, BTX combines the experts&#39; feedforward parameters into Mixture-of-Expert (MoE) layers, followed by an MoE-finetuning stage to learn token-level routing. BTX encompasses two special cases: Branch-Train-Merge, which lacks the MoE finetuning stage, and sparse upcycling, which skips asynchronous training. Results demonstrate that BTX offers the best accuracy-efficiency tradeoff compared to alternative methods.</td>
+<td>MoEs, Foundational LLM</td>
+</tr>
+<tr>
+<td>11 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.06634">Stealing Part of a Production Language Model</a></td>
+<td>This paper presents the first model-stealing attack capable of extracting precise information from black-box production language models like OpenAI&#39;s ChatGPT or Google&#39;s PaLM-2. By leveraging typical API access, the attack can recover the embedding projection layer of a transformer model, including symmetries. Remarkably, the attack achieves this for under $20 USD, revealing hidden dimensions of 1024 and 2048 for OpenAI&#39;s Ada and Babbage models, respectively. Additionally, the exact hidden dimension size of the gpt-3.5-turbo model is recovered, with an estimated cost of under $2,000 in queries to retrieve the entire projection matrix. The paper concludes with discussions on potential defenses and mitigations, as well as implications for future work that could extend the attack.</td>
+<td>LLM Attacks</td>
+</tr>
+<tr>
+<td>8 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.05313">RAT: Retrieval Augmented Thoughts Elicit Context-Aware Reasoning in Long-Horizon Generation</a></td>
+<td>This paper introduces Retrieval Augmented Thoughts (RAT), a method aimed at enhancing large language models&#39; reasoning and generation abilities in long-horizon generation tasks while reducing hallucination. RAT iteratively revises a chain of thoughts by incorporating relevant retrieved information at each step. Applied to GPT-3.5, GPT-4, and CodeLLaMA-7b, RAT significantly improves performance across various tasks, with average rating score increases of 13.63% in code generation, 16.96% in mathematical reasoning, 19.2% in creative writing, and 42.78% in embodied task planning.</td>
+<td>RAG, Prompt Engineering</td>
+</tr>
+<tr>
+<td>7 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.05313">Common 7B Language Models Already Possess Strong Math Capabilities</a></td>
+<td>This research reveals that smaller, 7B-sized language models, specifically LLaMA-2, already exhibit strong mathematical abilities, challenging previous assumptions that such capabilities require very large models or extensive math-focused pre-training. By leveraging synthetic data and scaling strategies, the study significantly improves the model&#39;s math-solving accuracy, surpassing previous benchmarks and demonstrating that with appropriate training, even relatively small models can achieve remarkable math performance.</td>
+<td>Domain Specific LLMs</td>
+</tr>
+<tr>
+<td>7 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.03853">ShortGPT: Layers in Large Language Models are More Redundant Than You Expect</a></td>
+<td>This paper introduces ShortGPT, which demonstrates a high degree of redundancy across the layers of large language models. By evaluating the necessity of each layer through a metric called Block Influence (BI), the authors propose a straightforward pruning method. Their approach, which simplifies the model by removing redundant layers, shows significant improvements in efficiency without compromising on the model&#39;s performance, marking a step forward in optimizing LLM architectures.</td>
+<td>Smaller LLMs</td>
+</tr>
+<tr>
+<td>7 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.04121">Can Large Language Models Reason and Plan?</a></td>
+<td>This paper questions the ability of large language models to perform self-critique and correct their erroneous guesses, a capability humans occasionally demonstrate. This inquiry underscores the distinct nature of human cognitive processes compared to the computational mechanisms of LLMs, challenging the assumption of equivalent reasoning and self-correction abilities between the two.</td>
+<td>Prompt Engineering</td>
+</tr>
+<tr>
+<td>6 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.03507">GaLore: Memory-Efficient LLM Training by Gradient Low-Rank Projection</a></td>
+<td>This paper proposes a novel training strategy called GaLore. This approach aims to reduce the memory requirements of training large language models by implementing gradient low-rank projection, significantly cutting down the memory used by optimizer states without sacrificing performance. It allows for the efficient training of large models on consumer-grade GPUs, marking a significant advancement in the accessibility of AI model training.</td>
+<td>Memory Optimization</td>
+</tr>
+<tr>
+<td>5 March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.03101">KnowAgent: Knowledge-Augmented Planning for LLM-Based Agents</a></td>
+<td>The work introduces KnowAgent, a novel approach designed to enhance large language models&#39; planning capabilities by incorporating explicit action knowledge. This integration aims to address the inadequacies in current models that lack built-in action knowledge, leading to planning hallucination. KnowAgent uses an action knowledge base and a self-learning strategy to guide planning trajectories, resulting in more accurate and efficient problem-solving across various domains.</td>
+<td>Agents</td>
+</tr>
+<tr>
+<td>4 March 2024</td>
+<td><a href="https://paperswithcode.com/paper/the-claude-3-model-family-opus-sonnet-haiku">The Claude 3 Model Family: Opus, Sonnet, Haiku</a></td>
+<td>This technical report from Claude introduces Claude 3, a new family of large multimodal models designed to address various needs within the AI landscape. Claude 3 comprises three distinct offerings: Opus, Sonnet, and Haiku, each tailored to different requirements in terms of capability, speed, and cost-effectiveness. All models feature vision capabilities for image data processing. Across benchmark evaluations, the Claude 3 family demonstrates robust performance, setting new standards in reasoning, math, and coding tasks. Claude 3 Opus achieves state-of-the-art results on several evaluations, while Haiku performs comparably to Claude 2 on text-based tasks, and Sonnet and Opus significantly surpass it. Moreover, these models exhibit enhanced fluency in non-English languages, enhancing their versatility for a global audience. The report also includes an in-depth analysis of evaluations, focusing on core capabilities, safety considerations, societal impacts, and adherence to Responsible Scaling Policy.</td>
+<td>Foundational LLM</td>
+</tr>
+</tbody></table>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

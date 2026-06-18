@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Part 1: what are ai agents anyway — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Part 1: What Are Agents Anyway?</h1>
+<p>Hi there,</p>
+<p>These days, everyone seems to be racing to “build agents”, but pause for a second.<br>What even is an AI agent? And why is the whole world suddenly obsessed?  </p>
+<p>To be honest, there’s no widely accepted definition.<br>But here’s a simple and useful one for our purposes:  </p>
+<blockquote>
+<p>Generative AI is great at understanding and generating content.<br><strong>Agentic AI goes a step further — it understands, generates content, and performs actions.</strong></p>
+</blockquote>
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/3bf03a13-eb32-487f-9ddb-2c97919f1e80" /><hr>
+<h2>A Quick Rewind</h2>
+<p>In 2022, ChatGPT blew up because, for the first time, AI felt conversational.<br>You didn’t need to write code or train models — you could just talk to it.  </p>
+<p>Let’s compare:  </p>
+<ul>
+<li><strong>Traditional programming</strong> → Needed code to operate  </li>
+<li><strong>Traditional ML</strong> → Needed feature engineering  </li>
+<li><strong>Deep learning</strong> → Needed task-specific training  </li>
+<li><strong>ChatGPT</strong> → Could reason across tasks and respond without training</li>
+</ul>
+<p>This is known as <strong>zero-shot learning</strong> (no examples needed) or <strong>in-context learning</strong> (understands tasks just from instructions).</p>
+<hr>
+<h2>By 2024, People Wanted More</h2>
+<p>Talking was cool — but what if the AI could actually do things?</p>
+<p>For example:  </p>
+<ul>
+<li>Instead of just giving you a list of leads, could it email them?  </li>
+<li>Instead of summarizing a doc, could it file it in the right folder and create a task in your workflow?  </li>
+<li>Instead of suggesting a product to a user, could it automatically customize the landing page?</li>
+</ul>
+<p>That’s where <strong>agents</strong> came in.</p>
+<hr>
+<h2>How Do Agents Take Action?</h2>
+<p>The magic lies in the <strong>tools</strong>.  </p>
+<p>Most agents are paired with APIs, function calls, or plugins that let them interact with external systems.<br>The LLM doesn’t just respond with text — it outputs structured commands like:  </p>
+<ul>
+<li><code>Call the send_email() function with the following inputs…</code>  </li>
+<li><code>Fetch records from the CRM using this query…</code>  </li>
+<li><code>Schedule a meeting for Tuesday at 2PM…</code></li>
+</ul>
+<p>This works because of a mechanism called <strong>tool use</strong> (or <strong>function calling</strong>).<br>The agent is told what tools are available, and it figures out when and how to use them — either directly or through some planning mechanism.</p>
+<hr>
+<h2>More Advanced Agents Include:</h2>
+<ul>
+<li><strong>Memory</strong> → To remember past steps or context  </li>
+<li><strong>Planning modules</strong> → To decide what to do next, especially for multi-step tasks  </li>
+<li><strong>State management</strong> → So the agent can track progress and avoid loops or failures</li>
+</ul>
+<p>Think of the LLM as the <strong>brain</strong>, and tools as the <strong>hands</strong>.<br>Without tools, an agent just talks. With tools, it acts.</p>
+<img width="1216" height="413" alt="image" src="https://github.com/user-attachments/assets/9cd7fa10-21a0-42a3-95fb-3bf081e10af1" /><hr>
+<h2>Two Ways to Define Agents</h2>
+<p><strong>Technical view</strong> → Agents = LLM + Tools + Planning + Memory (and the components above)<br><strong>Business view</strong> → Agents = Systems that complete tasks end-to-end  </p>
+<p><strong>Important:</strong> Today&#39;s agents are not AI innovations.<br>They are <strong>engineering wrappers</strong> around AI models. The underlying intelligence still comes from the AI models — the agent just helps act on that intelligence.</p>
+<hr>
+<h2>How to Actually Build Agentic AI Applications</h2>
+<p>Here’s where most people go wrong:<br>They start with “Let’s build an agent!” instead of “What real-world problem are we solving?”</p>
+<p>Flip the narrative.<br>Start with <strong>real-world/enterprise pain points</strong>, like:  </p>
+<ul>
+<li>A support team drowning in repetitive queries  </li>
+<li>An analyst switching between dashboards to find insights  </li>
+<li>A sales team manually logging and tracking customer activity</li>
+</ul>
+<p>This course is focused on building agents that work in the real world — not just demos.<br>Sure, you can spin up quick personal agents or prototypes without much structure, but when you&#39;re building for the enterprise, <strong>design choices matter</strong>.</p>
+<hr>
+<h2>A Useful Mental Model: Autonomy vs. Control</h2>
+<p>Once you&#39;ve identified the problem, the next decision is:<br><strong>How autonomous should your agent be?</strong></p>
+<p>Think of it as a tradeoff:  </p>
+<ul>
+<li>How much autonomy are you giving the agent  </li>
+<li>vs.  </li>
+<li>How much control do you want to retain on the human side</li>
+</ul>
+<p>This isn&#39;t a one-size-fits-all decision — it&#39;s contextual.<br>Different problems demand different levels of agent involvement.</p>
+<hr>
+<p>In the next part, we’ll go deeper into this autonomy-control tradeoff and walk through how to design agents based on the level of autonomy your use case actually needs.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

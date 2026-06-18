@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Week 5: tools for LLM apps — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>[Week 5] Tools for Building LLM Applications</h1>
+<h2>ETMI5: Explain to Me in 5</h2>
+<p>In this section of our course, we explore the essential technologies and tools that facilitate the creation and enhancement of LLM applications. This includes Custom Model Adaptation for bespoke solutions, RAG-based Applications for contextually rich responses, and an extensive range of tools for input processing, development, application management, and output analysis. Through this comprehensive overview, we aim to equip you with the knowledge to leverage both proprietary and open-source models, alongside advanced development, hosting, and monitoring tools. </p>
+<h2>Types of LLM Applications</h2>
+<p>LLM applications are gaining momentum, with an increasing number of startups and companies integrating them into their operations for various purposes. These applications can be categorized into three main types, based on how LLMs are utilized</p>
+<ol>
+<li><strong>Custom Model Adaptation</strong>: This encompasses both the development of custom models from scratch and fine-tuning pre-existing models. While custom model development demands skilled ML scientists and substantial resources, fine-tuning involves updating pre-trained models with additional data. Though fine-tuning is increasingly accessible due to open-source innovations, it still requires a sophisticated team and may result in unintended consequences. Despite its challenges, both approaches are witnessing rapid adoption across industries.</li>
+<li><strong>RAG based Applications</strong>: The Retrieval Augmented Generation (RAG) method, likely the simplest and most widely adopted approach currently, utilizes a foundational model supplemented with contextual information. This involves retrieving embeddings, which represent words or phrases in a multidimensional vector space, from dedicated vector databases. Through the conversion of unstructured data into embeddings and their storage in these databases, RAG enables efficient retrieval of pertinent context during queries. This facilitates natural language comprehension and timely insights extraction without the need for extensive model customization or training. A notable advantage of RAG is its ability to bypass traditional model limitations like context window constraints. Moreover, it offers cost-effectiveness and scalability, catering to diverse developers and organizations. Furthermore, by harnessing embeddings retrieval, RAG effectively addresses concerns regarding data currency and seamlessly integrates into various applications and systems.</li>
+</ol>
+<p>In the previous weeks’ <a href="https://www.notion.so/Week-1-Part-2-Domain-and-Task-Adaptation-Methods-6ad3284a96a241f3bd2318f4f502a1da?pvs=21">content</a>, we covered the distinctions between these methodologies and discussed the criteria for selecting the most appropriate one based on your specific needs. Please review the materials for further details.</p>
+<p>In the upcoming sections, we&#39;ll explore the tool options available for both of these methodologies. There&#39;s certainly some overlap between them, which we&#39;ll address.</p>
+<h2>Types of Tools</h2>
+<p>We can broadly categorize tools into four major groups:</p>
+<ol>
+<li><strong>Input Processing Tools</strong>: These are tools designed to ingest data and various inputs for the application.</li>
+<li><strong>LLM Development Tools</strong>: These tools facilitate interaction with the Large Language Model, including calling, fine-tuning, conducting experiments, and orchestration.</li>
+<li><strong>Output Tools</strong>: These tools are utilized for managing the output from the LLM application, essentially focusing on post-output processes.</li>
+<li><strong>Application Tools</strong>: These tools oversee the comprehensive management of the aforementioned three components, including application hosting, monitoring, and more.</li>
+</ol>
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/tools_1.png" alt="tools_1.png"></p>
+<p>If you&#39;re remember from the previous content  how RAG operates, an application typically follows these steps:</p>
+<ol>
+<li>Receives a query from the user (user&#39;s input to the application).</li>
+<li>Utilizes an embedding search to find pertinent data (this involves an embedding LLM, data sources and a vector database for storing data embeddings).</li>
+<li>Forwards the retrieved documents along with the query to the LLM for processing.</li>
+<li>Delivers the LLM&#39;s output back to the user.</li>
+</ol>
+<p>Hosting and monitoring LLM responses are integrated into the overall application architecture, as depicted in the image below. For fine-tuning applications, much of this workflow is maintained. However, there&#39;s a need for a framework and computing resources dedicated to model fine-tuning. Additionally, the application may or may not utilize external data, in which case the vector database component might not be necessary. In the figure below, each of these components and their category association is depicted. Now that we know how each of the tools are utilized, let’s dig deeper into each of these tool types.</p>
+<p>💡If you’re still unsure why each of these tool categories are required, please review the previous weeks’ content to understand how RAG and Fine-Tuning applications work</p>
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/tools_3.png" alt="tools_3.png"></p>
+<p>Summary of tools available to build LLM Apps</p>
+<h2>Input Processing Tools</h2>
+<h3>1. Data Pipelines/Sources</h3>
+<p>In LLM applications, the effective management and processing of data are key to boosting performance and functionality. The types of data these applications work with are diverse, encompassing text documents, PDFs, and structured formats like CSV files or SQL tables. To navigate this variety, a range of data pipelines and source tools are chosen for loading and transforming data.</p>
+<p><strong>A. Data Loading and ETL (Extract, Transform, Load) Tools</strong></p>
+<ul>
+<li><strong>Traditional ETL Tools</strong>: Established ETL solutions are widely used to manage data workflows. <strong><a href="http://databricks.com">Databricks</a></strong> is chosen for its robust data processing capabilities, emphasizing machine learning and analytics, while <strong><a href="https://airflow.apache.org/">Apache Airflow</a></strong> is preferred for its ability to programmatically author, schedule, and monitor workflows.</li>
+<li><strong>Document Loaders and Orchestration Frameworks</strong>: Applications that predominantly deal with unstructured data often utilize document loaders integrated within orchestration frameworks. Notable examples include:<ul>
+<li><strong><a href="https://www.langchain.com/">LangChain</a></strong>, powered by Unstructured, aids in processing unstructured data for LLM applications.</li>
+<li><strong><a href="https://www.llamaindex.ai/">LlamaIndex</a></strong>, a component of the Llama Hub ecosystem, offers indexing and retrieval functions for efficient data management.</li>
+</ul>
+</li>
+</ul>
+<p>Further details on LlamaIndex and LangChain will be provided in the orchestration section.</p>
+<p><strong>B. Specialized Data-Replication Solutions</strong></p>
+<p>Although the existing stack for data management in LLM applications is operational, there is potential for enhancement, especially in developing data-replication solutions specifically tailored for LLM apps. Such innovations could make the integration and operationalization of data more streamlined, improving both efficiency and the scope of possible applications.</p>
+<p><strong>Data Loaders for Structured and Unstructured Data</strong></p>
+<p>The capability to integrate data from a variety of sources is enabled by data loaders that can handle both structured and unstructured inputs. For instance:</p>
+<ul>
+<li><strong>Unstructured Data</strong>: Solutions provided by <strong>Unstructured.io</strong> allow for the creation of complex ETL pipelines. These are vital for applications aimed at generating personalized content or conducting semantic searches with data stored in formats like PDFs, documents, and presentations.</li>
+<li><strong>Structured Data Sources</strong>: Loaders that directly connect to databases and other structured data repositories are used, facilitating seamless data integration and manipulation.</li>
+</ul>
+<h3>2. Vector Databases</h3>
+<p>Referring back to the content on RAG, we explored how the most relevant documents are identified through embedding similarity. This is the role where vector databases come into play.</p>
+<p>The primary role of a vector database is to store, compare, and retrieve embeddings (i.e., vectors) efficiently, often scaling up to billions. Among the various options available, <strong><a href="https://www.pinecone.io/">Pinecone</a></strong> stands out as a prevalent choice due to its cloud-hosted nature, making it readily accessible and equipped with features that cater to the demands of large enterprises, such as scalability, Single Sign-On, and Service Level Agreements on uptime.</p>
+<p>The spectrum of vector databases is broad, encompassing:</p>
+<ul>
+<li><strong>Open Source Systems</strong> like <a href="https://weaviate.io/">Weaviate</a>, <a href="https://vespa.ai/">Vespa</a>, and <a href="https://qdrant.tech/">Qdrant</a>: These platforms offer exceptional performance on a single-node basis and can be customized for particular applications, making them favored choices among AI teams with the expertise to develop tailored platforms.</li>
+<li><strong>Local Vector Management Libraries</strong> such as <a href="https://www.trychroma.com/">Chroma</a> and <a href="https://github.com/facebookresearch/faiss">Faiss</a>: Known for their excellent developer experience, these libraries are straightforward to implement for small-scale applications and development experiments. However, they may not serve as complete substitutes for a full-fledged database at scale.</li>
+<li><strong>OLTP Extensions like <a href="https://supabase.com/docs/guides/database/extensions/pgvector">pgvector</a></strong>: This option is suited for those who tend to use Postgres for various database requirements or enterprises that procure most of their data infrastructure from a single cloud provider, offering a viable solution for vector support. The long-term viability of closely integrating vector and scalar workloads remains to be seen.</li>
+</ul>
+<p>With the evolution of technology, many open-source vector database providers are venturing into cloud services. Achieving high performance in the cloud, catering to a wide array of use cases, presents a significant challenge. While the immediate future may not witness drastic changes in the offerings available, the long-term landscape is expected to evolve. </p>
+<h2>LLM Development Tools</h2>
+<h3>1. Models</h3>
+<p>Developers have a variety of model options to choose from, each with its own set of advantages depending on the project&#39;s requirements. The starting point for many is the OpenAI API, with GPT-4 or GPT-4-32k models being popular choices due to their wide-ranging compatibility and minimal need for fine-tuning.</p>
+<p>As applications move from development to production, the focus often shifts towards balancing cost and performance. </p>
+<p>Beyond proprietary models, there&#39;s a growing interest in open-source alternatives, most of which are available on <strong><a href="https://huggingface.co/">Huggingface</a>.</strong> Open-source models provide a flexible and cost-effective solution, especially useful in high-volume, consumer-facing applications like search or chat functions. While traditionally seen as lagging behind their proprietary counterparts in terms of accuracy and performance, the gap is closing. Initiatives like Meta&#39;s LLaMa models have showcased the potential for open-source models to reach high levels of accuracy, spurring the development of various alternatives aimed at matching or even surpassing proprietary model performance.</p>
+<p>The choice between proprietary and open-source models doesn&#39;t just hinge on cost. Considerations include the specific needs of the application, such as accuracy, inference speed, customization options, and the potential need for fine-tuning to meet particular requirements. Users may also weigh the benefits of hosting models themselves against using cloud-based solutions, which can simplify deployment but may involve different cost structures and scalability considerations. </p>
+<p>💡Note that many proprietary models cannot be fine-tuned by the application developers. </p>
+<h3>2. Orchestration</h3>
+<p>Orchestration tools in the context of LLM applications are software frameworks designed to streamline and manage complex processes involving multiple components and interactions with LLMs. Here&#39;s a breakdown of what these tools do:</p>
+<ol>
+<li><strong>Automate Prompt Engineering</strong>: Orchestration tools automate the creation and management of prompts, which are queries or instructions sent to LLMs. These tools use advanced strategies to construct prompts that effectively communicate the task at hand to the model, improving the relevance and accuracy of the model&#39;s responses.</li>
+<li><strong>Integrate External Data</strong>: They facilitate the incorporation of external data into prompts, enhancing the model&#39;s responses with context that it wasn&#39;t originally trained on. This could involve pulling information from databases, web services, or other data sources to provide the LLM with the most current or relevant data for generating its responses.</li>
+<li><strong>Manage API Interactions</strong>: Orchestration tools handle the complexities of interfacing with LLM APIs, including making calls to the model, managing API keys, and handling the data returned by the model. This allows developers to focus on higher-level application logic rather than the intricacies of API communication.</li>
+<li><strong>Prompt Chaining and Memory Management</strong>: They enable prompt chaining, where the output of one LLM interaction is used as input for another, allowing for more sophisticated dialogues or data processing sequences. Additionally, they can maintain a &quot;memory&quot; of previous interactions, helping the model build on past responses for more coherent and contextually relevant outputs.</li>
+<li><strong>Simplify Application Development</strong>: By abstracting away the complexity of working directly with LLMs, orchestration tools make it easier for developers to build applications. They provide templates and frameworks for common use cases like chatbots, content generation, and information retrieval, speeding up the development process.</li>
+<li><strong>Avoid Vendor Lock-in</strong>: These tools often design their systems to be model-agnostic, meaning they can work with different LLMs from various providers. This flexibility allows developers to switch between models as needed without rewriting large portions of their application code.</li>
+</ol>
+<p>Frameworks like <strong>LangChain</strong> and <strong>LlamaIndex</strong> work by simplifying complex processes such as prompt chaining, interfacing with external APIs, integrating contextual data from vector databases, and maintaining consistency across multiple LLM interactions. They offer templates for a wide range of applications, making them particularly popular among hobbyists and startups eager to launch their applications quickly, with LangChain leading in usage.</p>
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/tools_2.png" alt="tools_2.png"></p>
+<p>Image Source: <a href="https://stackoverflow.com/questions/76990736/differences-between-langchain-llamaindex">https://stackoverflow.com/questions/76990736/differences-between-langchain-llamaindex</a></p>
+<p>Retrieval-augmented generation techniques, which personalize model outputs by embedding specific data within prompts, demonstrate how personalization can be achieved without altering the model&#39;s weights through fine-tuning. Tools like LangChain and LlamaIndex offer structures for weaving data into the model&#39;s context, facilitating this process.</p>
+<p>The availability of language model APIs democratizes access to powerful models, extending their use beyond specialized machine learning teams to the broader developer community. This expansion is likely to spur the development of more developer-oriented tools. LangChain, for instance, assists developers in overcoming common challenges by abstracting complexities such as model integration, data connection, and avoiding vendor lock-in. Its utility ranges from prototyping to full-scale production use, indicating a significant shift towards more accessible and versatile tooling in the LLM application development ecosystem.</p>
+<h3>3. Compute/Training Frameworks</h3>
+<p>Compute and training frameworks play essential roles in the development and deployment of LLM applications, particularly when it comes to fine-tuning models to suit specific needs or developing entirely new models. These frameworks and services provide the necessary infrastructure and tools required for handling the substantial computational demands of working with LLMs.</p>
+<p><strong>Compute Frameworks</strong></p>
+<p>Compute frameworks and cloud services offer scalable resources needed to run LLM applications efficiently. Examples include:</p>
+<ul>
+<li><strong>Cloud Providers</strong>: Services like <strong><a href="https://aws.amazon.com/">AWS</a> (Amazon Web Services)</strong> provide a wide range of computing resources, including GPU and CPU instances, which are critical for both training and inference phases of LLM applications. These platforms offer flexibility and scalability, allowing developers to adjust resources according to their project&#39;s requirements.</li>
+<li><strong>LLM Infrastructure Companies</strong>: Companies like <strong><a href="https://fireworks.ai/">Fireworks.ai</a></strong> and <strong><a href="https://www.anyscale.com/">Anyscale</a></strong> specialize in providing infrastructure solutions tailored for LLMs. These services are designed to optimize the performance of LLM applications, offering specialized hardware and software configurations that can significantly reduce training and inference times.</li>
+</ul>
+<p><strong>Training Frameworks</strong></p>
+<p>For the development and fine-tuning of LLMs, deep learning frameworks are used. These include:</p>
+<ul>
+<li><strong>PyTorch</strong>: A popular choice among researchers and developers for training LLMs due to its flexibility, ease of use, and dynamic computational graph. PyTorch supports a wide range of LLM architectures and provides tools for efficient model training and fine-tuning.</li>
+<li><strong>TensorFlow</strong>: Another widely used framework that offers robust support for LLM training and deployment. TensorFlow is known for its scalability and is suited for both research prototypes and production deployments.</li>
+</ul>
+<p>💡Note that LLM API applications, such as those leveraging RAG, typically do not require direct access to computational resources for training since they use pre-trained models provided via an API. In these cases, the focus is more on integrating the API into the application and possibly using orchestration tools to manage interactions with the model.</p>
+<h3>4. Experimentation Tools</h3>
+<p>Experimentation tools are pivotal for LLM applications, as they facilitate the exploration and optimization of hyperparameters, fine-tuning techniques, and the models themselves. These tools help track and manage the multitude of experiments that are part of developing and refining LLM applications, enabling more systematic and data-driven approaches to model improvement. </p>
+<p>💡 It&#39;s important to note that the mentioned tools are primarily beneficial for scenarios involving the fine-tuning or training of models, where experimentation is key. If you&#39;re working on applications, these tools might not hold the same level of utility since the LLM operates as a black box. In such cases, the LLM&#39;s inner workings and training processes are managed externally, and the focus shifts towards optimizing the use of the model through APIs rather than directly manipulating its training or fine-tuning parameters.</p>
+<p>The below are some experimentation tools</p>
+<ul>
+<li><strong>Experiment Tracking</strong>: Tools like <strong><a href="https://wandb.ai/site">Weights &amp; Biases</a></strong> provide platforms for tracking experiments, including changes in hyperparameters, model architectures, and performance metrics over time. This facilitates a more organized approach to experimentation, helping developers to identify the most effective configurations.</li>
+<li><strong>Model Development and Hosting</strong>: Platforms like <strong>Hugging Face</strong> and <strong><a href="https://mlflow.org/">MLFlow</a></strong> offer ecosystems for developing, sharing, and deploying ML models, including custom LLMs. These services simplify access to model repositories (model hubs), computing resources, and deployment capabilities, streamlining the development cycle.</li>
+<li><strong>Performance Evaluation</strong>: Tools like <strong><a href="https://www.statsig.com/">Statsig</a></strong> offer capabilities for evaluating model performance in a live production environment, allowing developers to conduct A/B tests and gather real-world feedback on model behavior.</li>
+</ul>
+<h2>Application Tools</h2>
+<h3>1. Hosting</h3>
+<p>Developers leveraging open-source models have a range of hosting services at their disposal. Innovations from companies like <a href="https://octo.ai/">OctoML</a> have expanded hosting capabilities beyond traditional server setups, enabling deployment on edge devices and directly within browsers. This shift not only enhances privacy and security but also serves to reduce latency and costs. Hosting platforms like <a href="https://replicate.com/">Replicate</a> are incorporating tools designed to simplify the integration and utilization of these models for software developers, reflecting a belief in the potential of smaller, finely tuned models to achieve top-tier accuracy within specific domains.</p>
+<p>Beyond the LLM components, the static elements of LLM applications—essentially, everything excluding the model itself—also require hosting solutions. Common choices include platforms like <a href="https://vercel.com/">Vercel</a> and services provided by major cloud providers. Yet, the landscape is evolving with the emergence of startups like <a href="https://www.steamship.com/">Steamship</a> and <a href="https://streamlit.io/">Streamlit</a>, which offer end-to-end hosting solutions tailored for LLM applications, indicating a broadening of hosting options to support the diverse needs of developers. </p>
+<h3>2. Monitoring</h3>
+<p>Monitoring and observability tools are essential for maintaining and improving applications, especially after deployment in production. These tools enable developers to track key metrics such as the model&#39;s performance, cost, latency, and overall behavior. Insights gained from these metrics are invaluable for guiding the iteration of prompts and further experimentation with models, ensuring that the application remains efficient, cost-effective, and aligned with user needs.</p>
+<p>One notable development in this area is the launch of <strong><a href="https://github.com/whylabs/langkit">LangKit</a> by WhyLabs</strong>. LangKit is specifically designed to offer developers enhanced visibility into the quality of model outputs.  </p>
+<p>Some other examples:</p>
+<p><strong><a href="https://www.gantry.io/">Gantry</a></strong> offers a holistic approach to understanding model performance by tracking inputs and outputs alongside relevant metadata and user feedback. It assists in uncovering how models function in real-world scenarios, identifying errors, and spotting underperforming cohorts or use cases.</p>
+<p><strong><a href="https://www.helicone.ai/">Helicone</a></strong> is designed to offer actionable insights into application performance with minimal setup. It enables real-time monitoring of model interactions, helping developers understand how their models are performing across different metrics. By logging inputs, outputs, and enriching them with metadata and user feedback, Helicone provides a comprehensive view of model behavior. </p>
+<h2>Output Tools</h2>
+<h3>1. Evaluation</h3>
+<p>When developing applications with LLMs, developers often navigate a complex balance among model performance, inference cost, and latency. Strategies to enhance one aspect, such as iterating on prompts, fine-tuning the model, or switching model providers, can impact the others. Given the probabilistic nature of LLMs and the variability in tasks they perform, assessing performance becomes a critical challenge. To aid in this process, a range of evaluation tools have been developed. These tools assist in refining prompts, tracking experimentation, and monitoring model performance, both offline and online. Here&#39;s an overview of the types of tools available:</p>
+<p>For those looking to optimize the interaction with LLMs, No Code / Low Code prompt engineering tools are invaluable. They allow developers and prompt engineers to experiment with different prompts and compare outputs across various models without deep coding requirements. Some examples of such tools include <a href="https://humanloop.com/">Humanloop</a>, <a href="https://promptlayer.com/">PromptLayer</a> etc.</p>
+<p>Once deployed, it&#39;s important to continually monitor an LLM application&#39;s performance in the real world. Performance monitoring tools offer insights into how well the model is performing against key metrics, identify potential degradation over time, and highlight areas for improvement. These tools can alert developers to issues that may affect user experience or operational costs, enabling timely adjustments to maintain or enhance the application&#39;s effectiveness. Some performance monitoring tools include <a href="https://www.honeyhive.ai/">Honeyhive</a> and <a href="https://scale.com/">Scale AI</a>.</p>
+<p>The infographic below provides a summary of the tools available for each component of the LLM application process.</p>
+<h2>Read/Watch These Resources (Optional)</h2>
+<ol>
+<li><a href="https://www.secopsolution.com/blog/top-10-llm-tools-in-2024">https://www.secopsolution.com/blog/top-10-llm-tools-in-2024</a></li>
+<li><a href="https://www.sequoiacap.com/article/llm-stack-perspective/">https://www.sequoiacap.com/article/llm-stack-perspective/</a></li>
+<li><a href="https://www.codesmith.io/blog/introducing-the-emerging-llm-tech-stack">https://www.codesmith.io/blog/introducing-the-emerging-llm-tech-stack</a></li>
+<li><a href="https://stackshare.io/index/llm-tools">https://stackshare.io/index/llm-tools</a></li>
+</ol>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

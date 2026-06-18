@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Evaluation process — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Chapter 8: The Complete Evaluation Process</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/evaluation_process_seven_steps.png" alt="Evaluation Process Seven Steps"></p>
+<h2>From Concept to Production: Your Step-by-Step Guide</h2>
+<p>In the previous seven chapters, we&#39;ve covered the complete landscape of AI evaluation - from understanding why it matters to deploying production monitoring systems. Now let&#39;s consolidate everything into a clear, step-by-step process you can follow to build robust evaluation for your AI system.</p>
+<p>This chapter serves as your practical roadmap, connecting all the concepts we&#39;ve discussed into actionable steps you can implement.</p>
+<h2>The Two-Phase Approach</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/two_phase_evaluation_process.png" alt="Two Phase Evaluation Process"></p>
+<p>AI evaluation follows two distinct phases:</p>
+<p><strong>Phase 1: Pre-Deployment Validation</strong> (Chapters 1-5)</p>
+<ul>
+<li>Build confidence that your system works as intended before users interact with it</li>
+<li>Create systematic evaluation frameworks and metrics</li>
+<li>Test thoroughly in controlled conditions</li>
+</ul>
+<p><strong>Phase 2: Production Monitoring</strong> (Chapters 6-7)  </p>
+<ul>
+<li>Monitor system performance with real users at scale</li>
+<li>Discover new issues and evolving user behaviors</li>
+<li>Continuously improve your system and evaluation approach</li>
+</ul>
+<p>Here&#39;s how to work through each phase.</p>
+<hr>
+<h2>Phase 1: Pre-Deployment Validation</h2>
+<h3>Step 1: Understand Your Evaluation Context</h3>
+<p><em>Based on Chapters 1-3</em></p>
+<p><strong>What you&#39;re doing</strong>: Establish the foundation for your evaluation approach by understanding what makes AI evaluation unique and what you need to measure.</p>
+<p><strong>Key decisions</strong>: Recognize that your AI system is non-deterministic, focus on product evaluation (how your system behaves in your specific use case) rather than model evaluation, and identify the three components you&#39;re evaluating - Input, Expected, and Actual.</p>
+<p><strong>What to do</strong>: Start by mapping out your specific use case and domain requirements. Identify stakeholders who need to be involved - domain experts, product teams, and engineers. Remember that generic metrics like &quot;helpfulness&quot; mean different things in different contexts, so prepare for collaborative evaluation design across different team perspectives.</p>
+<p><strong>Output</strong>: Clear understanding that you&#39;re building evaluation for your specific context, not just testing general AI capabilities.</p>
+<h3>Step 2: Build Your Reference Dataset</h3>
+<p><em>Based on Chapter 4</em></p>
+<p><strong>What you&#39;re doing</strong>: Create a systematic collection of examples that represent the scenarios you care about most, with clear expectations for how your system should behave.</p>
+<p><strong>Key decisions</strong>:</p>
+<ul>
+<li>Start small and specific (10-20 high-quality examples) rather than trying to be comprehensive</li>
+<li>Focus on scenarios you absolutely cannot get wrong</li>
+<li>Include realistic inputs that represent actual user behavior</li>
+</ul>
+<p><strong>Action items</strong>:</p>
+<ol>
+<li><strong>Generate initial examples</strong>: Work with domain experts to create realistic scenarios based on historical data or domain knowledge</li>
+<li><strong>Run your system</strong>: Test your AI system on these examples and document both outputs and any intermediate steps</li>
+<li><strong>Evaluate with experts</strong>: Have domain experts review each example and answer &quot;Was this response satisfactory? If not, why not?&quot;</li>
+<li><strong>Identify error patterns</strong>: Analyze failures to cluster them into underlying problems you can actually fix</li>
+<li><strong>Decide on ongoing metrics</strong>: Determine which behaviors need continuous monitoring (recurring risks) versus one-time fixes</li>
+</ol>
+<p><strong>Output</strong>: A reference dataset with examples, system outputs, expert evaluations, and identified metrics for ongoing measurement.</p>
+<h3>Step 3: Implement Your Evaluation Metrics</h3>
+<p><em>Based on Chapter 5</em></p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/bug_vs_recurring_risk.png" alt="Bug vs Recurring Risk"></p>
+<p><strong>What you&#39;re doing</strong>: Build the actual measurement systems that can assess your identified metrics using three possible approaches.</p>
+<p><strong>Key decisions</strong>:</p>
+<ul>
+<li>Choose the right mix of human evaluation, code-based metrics, and LLM judges</li>
+<li>Start simple and add complexity only when needed</li>
+<li>Remember that LLM judges require careful calibration against human judgment</li>
+</ul>
+<p><strong>Action items</strong>:</p>
+<ol>
+<li><strong>For objective, measurable properties</strong>: Implement code-based metrics (structure validation, performance checks, required content)</li>
+<li><strong>For subjective qualities</strong>: Consider LLM judges with detailed rubrics and examples</li>
+<li><strong>For critical quality assessment</strong>: Plan for human evaluation, at least for calibration and spot-checking</li>
+<li><strong>Build rubrics</strong>: Create clear criteria defining acceptable vs. not acceptable performance with specific examples</li>
+<li><strong>Test your metrics</strong>: Validate that your evaluation approaches actually catch the issues you care about</li>
+<li><strong>Calibrate LLM judges</strong>: If using them, extensively test against human judgment and iteratively refine</li>
+</ol>
+<p><strong>Output</strong>: Implemented evaluation metrics that can reliably assess the behaviors you identified in Step 2.</p>
+<hr>
+<h2>Phase 2: Production Monitoring</h2>
+<h3>Step 4: Deploy Smart Log Filtering</h3>
+<p><em>Based on Chapter 7 - Log Filtering</em></p>
+<p><strong>What you&#39;re doing</strong>: Create systematic approaches to identify which production data deserves attention, since you can&#39;t manually review everything at scale.</p>
+<p><strong>Key decisions</strong>:</p>
+<ul>
+<li>Define what matters most for your business context (high/medium/low priority events)</li>
+<li>Choose which implicit and explicit user signals to monitor</li>
+<li>Set up dynamic filtering that adapts to production changes</li>
+</ul>
+<p><strong>Action items</strong>:</p>
+<ol>
+<li><strong>Establish priority categories</strong>: Define which events always need attention vs. which can be sampled</li>
+<li><strong>Identify user signals</strong>: Look for patterns like unusual conversation length, retry behavior, editing patterns, frustration indicators</li>
+<li><strong>Set up signal-based sampling</strong>: Sample more heavily from interactions showing concerning signals</li>
+<li><strong>Monitor production changes</strong>: Increase sampling during new product launches, error rate spikes, or business requirement changes</li>
+<li><strong>Adapt over time</strong>: Adjust your filtering strategy based on what you learn</li>
+</ol>
+<p><strong>Output</strong>: A filtering system that efficiently identifies the most important production data to examine.</p>
+<h3>Step 5: Select and Deploy Your Production Metrics</h3>
+<p><em>Based on Chapter 7 - Metric Selection</em></p>
+<p><strong>What you&#39;re doing</strong>: Choose which evaluation metrics to run in production based on their impact, reliability, and cost.</p>
+<p><strong>Key decisions</strong>:</p>
+<ul>
+<li>Prioritize high-impact metrics that drive actionable improvements</li>
+<li>Balance metric value against computational and financial costs</li>
+<li>Focus resources on metrics that actually help you make better decisions</li>
+</ul>
+<p><strong>Action items</strong>:</p>
+<ol>
+<li><strong>Evaluate each metric</strong>: Assess impact (how much it helps improve your system), reliability (how consistent it is), and cost (computational/financial expense)</li>
+<li><strong>Prioritize systematically</strong>: Focus on high-impact, low-cost metrics first; carefully consider high-impact, high-cost metrics; avoid low-impact approaches regardless of cost</li>
+<li><strong>Start essential</strong>: Implement must-have metrics that provide basic system health and safety monitoring</li>
+<li><strong>Add strategically</strong>: Gradually incorporate more sophisticated metrics based on demonstrated value</li>
+</ol>
+<p><strong>Output</strong>: A cost-effective mix of evaluation metrics running in production.</p>
+<h3>Step 6: Implement Guardrails and Improvement Loops</h3>
+<p><em>Based on Chapter 7 - Online vs Offline Evaluation</em></p>
+<p><strong>What you&#39;re doing</strong>: Distinguish between metrics that need immediate intervention (guardrails) versus those that guide longer-term improvement.</p>
+<p><strong>Key decisions</strong>:</p>
+<ul>
+<li>Identify which behaviors, if they go wrong, would be huge for your business (guardrails)</li>
+<li>Design offline evaluation for trend analysis and system improvement</li>
+<li>Balance real-time intervention needs with batch analysis efficiency</li>
+</ul>
+<p><strong>Action items</strong>:</p>
+<ol>
+<li><strong>Design guardrails</strong>: Implement fast, reliable online metrics for business-critical behaviors that trigger immediate actions (handoffs, escalations, blocks)</li>
+<li><strong>Set up improvement loops</strong>: Create offline evaluation processes that analyze trends, assess quality over time, and guide system improvements</li>
+<li><strong>Define trigger actions</strong>: Establish clear procedures for what happens when guardrails activate</li>
+<li><strong>Plan feedback cycles</strong>: Ensure offline analysis insights feed back into system improvements and evaluation refinements</li>
+</ol>
+<p><strong>Output</strong>: A two-tier system with real-time guardrails for critical issues and batch analysis for continuous improvement.</p>
+<h3>Step 7: Build Emerging Issue Discovery</h3>
+<p><em>Based on Chapter 7 - Emerging Issue Discovery</em></p>
+<p><strong>What you&#39;re doing</strong>: Create processes to discover problems your existing evaluation framework doesn&#39;t capture, using the same manual investigation techniques from reference dataset building.</p>
+<p><strong>Key decisions</strong>:</p>
+<ul>
+<li>Recognize that user signals often reveal problems before metrics do</li>
+<li>Plan for manual investigation when signals and metrics diverge</li>
+<li>Build systematic processes to evolve your evaluation framework over time</li>
+</ul>
+<p><strong>Action items</strong>:</p>
+<ol>
+<li><strong>Monitor signal-metric divergence</strong>: Watch for cases where user behavior signals flag issues but your metrics show no problems</li>
+<li><strong>Conduct manual investigation</strong>: When divergence occurs, manually review the flagged interactions just like you did when building reference datasets</li>
+<li><strong>Identify hidden issues</strong>: Look for quality dimensions or failure modes your current metrics don&#39;t capture</li>
+<li><strong>Develop new metrics</strong>: Create evaluation approaches for newly discovered issues</li>
+<li><strong>Update your framework</strong>: Add new metrics to your evaluation system and refine your filtering approach</li>
+<li><strong>Close the discovery loop</strong>: Ensure insights from investigation feed back into better evaluation and system improvements</li>
+</ol>
+<p><strong>Output</strong>: A continuously evolving evaluation framework that adapts as you discover new issues and user behaviors.</p>
+<hr>
+<h2>The Complete Process Flow</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/evaluation_lifecycle.png" alt="Evaluation Lifecycle"></p>
+<p>Here&#39;s how all these steps connect:</p>
+<ol>
+<li><strong>Foundation</strong> → Understand your specific evaluation needs and context</li>
+<li><strong>Reference Dataset</strong> → Build systematic examples with clear quality expectations  </li>
+<li><strong>Metrics Implementation</strong> → Create reliable measurement systems for your quality criteria</li>
+<li><strong>Production Filtering</strong> → Efficiently identify important production data to examine</li>
+<li><strong>Metric Deployment</strong> → Run cost-effective evaluation at scale</li>
+<li><strong>Guardrails + Improvement</strong> → Handle critical issues immediately while building long-term improvement</li>
+<li><strong>Discovery Loop</strong> → Continuously evolve your evaluation as you learn new failure modes</li>
+</ol>
+<h2>Key Principles Throughout</h2>
+<p><strong>Start Simple</strong>: Begin with basic approaches and add complexity only when justified by clear value.</p>
+<p><strong>Focus on Context</strong>: Generic evaluation approaches don&#39;t work - everything must be tailored to your specific use case, users, and business requirements.</p>
+<p><strong>Collaborate Across Teams</strong>: Effective evaluation requires input from domain experts, product teams, and engineers working together.</p>
+<p><strong>Embrace Evolution</strong>: Your evaluation framework should continuously improve as you discover new ways your system can fail or as user expectations change.</p>
+<p><strong>Connect Evaluation to Improvement</strong>: The goal is better AI systems, not perfect measurement. Focus on evaluation that drives actionable improvements.</p>
+<h2>What You End Up With</h2>
+<p>Following this complete process gives you:</p>
+<ul>
+<li><strong>Confidence before deployment</strong>: Systematic validation that your system works as intended</li>
+<li><strong>Effective production monitoring</strong>: Smart filtering and evaluation that scales with your system</li>
+<li><strong>Proactive issue detection</strong>: Early warning systems that catch problems before they become major issues  </li>
+<li><strong>Continuous improvement</strong>: Feedback loops that help your system get better over time</li>
+<li><strong>Sustainable evaluation</strong>: Cost-effective approaches that provide value without overwhelming your team</li>
+</ul>
+<h2>The Ongoing Journey</h2>
+<p>Remember that evaluation is never complete. You start by building evaluation for patterns you can anticipate, then use production monitoring to discover and evaluate patterns you couldn&#39;t predict. User behavior evolves, business requirements change, and new failure modes emerge.</p>
+<p>The framework we&#39;ve built gives you the tools to adapt your evaluation approach as your understanding deepens and your system grows. The key is maintaining the discipline of systematic evaluation while staying flexible enough to learn and evolve.</p>
+<p>This complete process transforms evaluation from an afterthought into a core capability that helps you build more reliable, useful, and trustworthy AI systems.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

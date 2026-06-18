@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Build — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 2 Build: Give It a Soul</h1>
+<p>This is the user-facing guide for Day 2. Today you turn a generic OpenClaw install into <em>your</em> Claw by creating four identity files:</p>
+<ul>
+<li><code>SOUL.md</code></li>
+<li><code>USER.md</code></li>
+<li><code>AGENTS.md</code></li>
+<li><code>MEMORY.md</code></li>
+</ul>
+<hr>
+<h2>What You Need Before Starting</h2>
+<ul>
+<li>Day 1 complete: OpenClaw installed, reachable, and named</li>
+<li>Access to your Claw through the web chat</li>
+</ul>
+<hr>
+<h2>How To Run Day 2</h2>
+<p>Work through the files in this order:</p>
+<ol>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-create-soul.md"><code>claw-instructions-create-soul.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-create-user.md"><code>claw-instructions-create-user.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-create-agents.md"><code>claw-instructions-create-agents.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-create-memory.md"><code>claw-instructions-create-memory.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-finalize-identity.md"><code>claw-instructions-finalize-identity.md</code></a></li>
+</ol>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-create-soul.md"><code>claw-instructions-create-soul.md</code></a> verifies the workspace and creates <code>SOUL.md</code>. <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-finalize-identity.md"><code>claw-instructions-finalize-identity.md</code></a> locks permissions, restarts the gateway, and verifies that the new identity loaded correctly.</p>
+<hr>
+<h2>Step 1: Create SOUL.md</h2>
+<p>Copy and paste the following message into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/claw-instructions-create-soul.md</code> and follow every step. Ask the questions in order, create <code>SOUL.md</code>, and stop when you&#39;re done.</p>
+</blockquote>
+<p>That <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-create-soul.md">instruction file</a> tells the Claw to:</p>
+<ul>
+<li>verify <code>~/.openclaw/workspace/</code> and <code>~/.openclaw/workspace/memory/</code> exist</li>
+<li>ask you the Day 2 identity questions in order</li>
+<li>turn your answers into a finished <code>SOUL.md</code></li>
+</ul>
+<p>This is the most important file. It defines:</p>
+<ul>
+<li>who the Claw is</li>
+<li>how it behaves when uncertain</li>
+<li>what it must never do</li>
+<li>how it should sound</li>
+</ul>
+<p>Take your time here. Specific prohibitions and concrete language habits are more useful than abstract aspirations.</p>
+<hr>
+<h2>Step 2: Create USER.md</h2>
+<p>After <code>SOUL.md</code> is finished, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/claw-instructions-create-user.md</code> and follow every step. Ask the questions in order, create <code>USER.md</code>, and stop when you&#39;re done.</p>
+</blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-create-user.md"><code>claw-instructions-create-user.md</code></a> creates the briefing document about <em>you</em>: your role, location, working style, and what is currently on your plate. Keep sensitive or private details out of <code>USER.md</code>. That kind of context belongs in <code>MEMORY.md</code>, which is private-session-only.</p>
+<p>The most important part of <code>USER.md</code> is the <strong>Focus</strong> section. Make it current. If it gets stale, the Claw&#39;s help gets stale too.</p>
+<hr>
+<h2>Step 3: Create AGENTS.md</h2>
+<p>After <code>USER.md</code> is finished, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/claw-instructions-create-agents.md</code> and follow every step. Create <code>AGENTS.md</code>, confirm the names are consistent, and stop when you&#39;re done.</p>
+</blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-create-agents.md"><code>claw-instructions-create-agents.md</code></a> creates the operating manual the Claw follows every session:</p>
+<ul>
+<li>startup checklist</li>
+<li>memory rules</li>
+<li>security rules</li>
+<li>confirmation protocol</li>
+<li>response defaults</li>
+</ul>
+<p>Most of it is pre-written. The main thing to verify is that the Claw name and user name match the names already used in <code>SOUL.md</code> and <code>USER.md</code>.</p>
+<hr>
+<h2>Step 4: Create MEMORY.md</h2>
+<p>After <code>AGENTS.md</code> is finished, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/claw-instructions-create-memory.md</code> and follow every step. Ask the questions in order, create <code>MEMORY.md</code>, and stop when you&#39;re done.</p>
+</blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-create-memory.md"><code>claw-instructions-create-memory.md</code></a> is the only identity file designed to grow over time. It stores:</p>
+<ul>
+<li>current private context</li>
+<li>open loops</li>
+<li>sensitive personal details you do not want in group chats</li>
+<li>durable patterns about how you operate</li>
+</ul>
+<p>If you do not want to answer one of the setup questions yet, skip it. The file can start sparse and get better over time.</p>
+<hr>
+<h2>Step 5: Lock It Down and Verify</h2>
+<p>After <code>MEMORY.md</code> is finished, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/claw-instructions-finalize-identity.md</code> and follow every step. Set permissions, restart the gateway, run the verification, and report PASS or FAIL for each item.</p>
+</blockquote>
+<p>That <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./claw-instructions-finalize-identity.md">instruction file</a> tells it to:</p>
+<ul>
+<li>set file permissions</li>
+<li>restart the gateway</li>
+<li>run the two verification questions</li>
+<li>report whether the identity files actually loaded</li>
+</ul>
+<p>That is the formal verification. Once it passes, use the setup right away:</p>
+<h2>Two Quick Wins</h2>
+<p><strong>Quick Win 1</strong></p>
+<pre><code class="language-text">Give me the short version of how you plan to work with me. Use what you know about my role, current focus, and preferred style.
+</code></pre>
+<p>The response should sound like <em>your</em> Claw, not a generic assistant. It should reflect your real focus and the way you asked it to communicate.</p>
+<p><strong>Quick Win 2</strong></p>
+<pre><code class="language-text">Based on what you know about me so far, what are the 2-3 most useful ways you can help me this week? Also tell me what kinds of actions you will always check with me before taking.
+</code></pre>
+<p>This should feel specific to your actual priorities. It should also show that the confirmation rules from <code>SOUL.md</code> and <code>AGENTS.md</code> are in place, without sounding like it is just reciting a config file back to you.</p>
+<hr>
+<h2>What Should Be True After Day 2</h2>
+<ul>
+<li><input disabled="" type="checkbox"> <code>~/.openclaw/workspace/SOUL.md</code> exists</li>
+<li><input disabled="" type="checkbox"> <code>~/.openclaw/workspace/USER.md</code> exists</li>
+<li><input disabled="" type="checkbox"> <code>~/.openclaw/workspace/AGENTS.md</code> exists</li>
+<li><input disabled="" type="checkbox"> <code>~/.openclaw/workspace/MEMORY.md</code> exists</li>
+<li><input disabled="" type="checkbox"> <code>~/.openclaw/workspace/memory/</code> exists</li>
+<li><input disabled="" type="checkbox"> Identity files have permissions <code>600</code></li>
+<li><input disabled="" type="checkbox"> <code>memory/</code> has permissions <code>700</code></li>
+<li><input disabled="" type="checkbox"> The gateway restarted cleanly</li>
+<li><input disabled="" type="checkbox"> The Claw can explain how it plans to work with you using real context from <code>USER.md</code></li>
+<li><input disabled="" type="checkbox"> The Claw can show its boundaries and confirmation rules in a way that reflects <code>SOUL.md</code> and <code>AGENTS.md</code></li>
+</ul>
+<hr>
+<h2>Troubleshooting</h2>
+<p><strong>The Claw asks all the questions at once</strong><br>Ask it to follow the instruction file exactly and ask the questions in order. The goal is a guided setup, not a form dump.</p>
+<p><strong>The Claw writes generic identity files</strong><br>Your answers were probably too abstract. Rewrite with concrete defaults, prohibitions, and current priorities.</p>
+<p><strong>The Claw keeps showing tool output between questions</strong><br>Tell it: &quot;Do not write interim notes or update memory files during this interview. Ask the remaining questions in plain chat and write the file once at the end.&quot; Day 2 works better when the interview feels like a conversation, not a running audit log.</p>
+<p><strong>The verification answers are generic</strong><br>Check that the files were written to <code>~/.openclaw/workspace/</code> and that the gateway was restarted after creation.</p>
+<p><strong>The names do not match across files</strong><br>Have the Claw update the files so the same user name and Claw name appear consistently in <code>SOUL.md</code>, <code>USER.md</code>, and <code>AGENTS.md</code>.</p>
+<p><strong>You want to revise the tone later</strong><br>Start with <code>SOUL.md</code>. Most personality drift comes from vague or conflicting instructions there.</p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/./learn.md">← Day 2 Learn</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-02-give-it-a-soul/../day-03-connect-a-channel/build.md">Day 3: Connect a Channel →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

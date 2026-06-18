@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Build — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 3 Build: Connect a Channel</h1>
+<p>This is the user-facing guide for Day 3. Today you connect Telegram so you can talk to your Claw from your phone.</p>
+<p>The operational steps live in <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/./claw-instructions-connect-telegram.md"><code>claw-instructions-connect-telegram.md</code></a>. This file is for you. The instruction file is for your Claw.</p>
+<hr>
+<h2>What You Need Before Starting</h2>
+<ul>
+<li>Day 1 complete: OpenClaw installed and working</li>
+<li>Day 2 complete: identity files created and loading correctly</li>
+<li>Telegram installed on your phone or desktop</li>
+<li>Access to your Claw through the web chat</li>
+</ul>
+<p>All configuration for this step lives in <code>~/.openclaw/openclaw.json</code>.</p>
+<hr>
+<h2>Step 1: Start the Setup in Web Chat</h2>
+<p>Copy and paste the following message into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/claw-instructions-connect-telegram.md</code> and follow every step. Ask me only for what you need, configure Telegram, verify it works, and stop when you&#39;re done.</p>
+</blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/./claw-instructions-connect-telegram.md"><code>claw-instructions-connect-telegram.md</code></a> tells the Claw to:</p>
+<ul>
+<li>collect your Telegram bot token and user ID one at a time</li>
+<li>update <code>~/.openclaw/openclaw.json</code></li>
+<li>keep Telegram private by default</li>
+<li>restart the gateway</li>
+<li>walk you through pairing and a live test from your phone</li>
+</ul>
+<p>At a high level, here is what you are doing:</p>
+<ul>
+<li>use BotFather in Telegram to create a bot and get its token</li>
+<li>give that token to your Claw when it asks</li>
+<li>follow the instructions in Telegram as the Claw walks you through pairing</li>
+<li>if anything feels unclear, ask your Claw questions in the web chat while you go</li>
+</ul>
+<p>When the setup is complete, you should be able to text the bot from Telegram and get a response back.</p>
+<hr>
+<h2>What the Claw Should Ask You For</h2>
+<p>During setup, expect the Claw to ask for:</p>
+<ul>
+<li>your Telegram bot token from BotFather</li>
+<li>your numeric Telegram user ID</li>
+</ul>
+<p>It should then configure Telegram under <code>channels.telegram</code> in <code>~/.openclaw/openclaw.json</code> and keep the channel restrictive:</p>
+<ul>
+<li><code>dmPolicy: &quot;pairing&quot;</code></li>
+<li><code>groupPolicy: &quot;disabled&quot;</code></li>
+</ul>
+<p>If it places Telegram under <code>plugins.entries.telegram</code>, that is wrong. Telegram is a built-in channel, not a plugin.</p>
+<hr>
+<h2>Pairing</h2>
+<p>Once the Claw has configured Telegram and restarted the gateway, it should have you:</p>
+<ol>
+<li>Find your bot in Telegram</li>
+<li>Send <code>/start</code></li>
+<li>Approve the pairing request</li>
+<li>Send a real message from your phone</li>
+</ol>
+<p>Once that works, the channel is live.</p>
+<hr>
+<h2>Validate It</h2>
+<p>This should be simpler than the quick wins. Use the web chat for one explicit verification, then look for the result in Telegram.</p>
+<p>Ask your Claw in the web chat:</p>
+<pre><code class="language-text">Send me a short cheerful greeting with emojis on Telegram so I can confirm this channel is working end to end.
+</code></pre>
+<p>You should see that greeting arrive in Telegram within a few seconds. If it does, the channel is working.</p>
+<hr>
+<h2>Two Quick Wins</h2>
+<p>Once you know Telegram is working, use it for something you would actually do from your phone.</p>
+<p><strong>Quick Win 1</strong></p>
+<pre><code class="language-text">I&#39;m on my phone. Keep this short: what are the 2-3 best things I can ask you to do over Telegram now that this channel is live?
+</code></pre>
+<p><strong>Quick Win 2</strong></p>
+<pre><code class="language-text">Let&#39;s make this practical. Give me 3 examples of the kinds of short messages I can send you during the day when I&#39;m away from my laptop.
+</code></pre>
+<p>This is the moment it starts feeling real. Your Claw is now something you can text from your phone while moving through your day.</p>
+<hr>
+<h2>What Should Be True After Day 3</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Telegram bot created through BotFather</li>
+<li><input disabled="" type="checkbox"> Bot token stored under <code>channels.telegram.botToken</code></li>
+<li><input disabled="" type="checkbox"> Your Telegram user ID added to <code>allowFrom</code></li>
+<li><input disabled="" type="checkbox"> <code>dmPolicy</code> set to <code>&quot;pairing&quot;</code></li>
+<li><input disabled="" type="checkbox"> <code>groupPolicy</code> set to <code>&quot;disabled&quot;</code></li>
+<li><input disabled="" type="checkbox"> Gateway restarted successfully</li>
+<li><input disabled="" type="checkbox"> Pairing completed from your phone</li>
+<li><input disabled="" type="checkbox"> You can message your Claw on Telegram and get a response</li>
+<li><input disabled="" type="checkbox"> The Claw answers on Telegram in a way that reflects your identity files and channel rules</li>
+</ul>
+<hr>
+<h2>Troubleshooting</h2>
+<p><strong>The Claw says Telegram is a plugin</strong><br>It is not. Tell it to configure Telegram under <code>channels.telegram</code> in <code>~/.openclaw/openclaw.json</code>.</p>
+<p><strong>The bot does not respond after setup</strong><br>Have the Claw check the gateway logs and verify the bot token was copied correctly, with no missing characters or extra spaces.</p>
+<p><strong>Pairing does not work</strong><br>Make sure your numeric Telegram user ID is in <code>allowFrom</code> and that it is stored as a number, not a quoted string.</p>
+<p><strong>The Claw responds on Telegram but sounds generic</strong><br>Check that the workspace path is still correct and that the identity files from Day 2 are loading.</p>
+<p><strong>The token looks valid but Telegram still fails</strong><br>Ask the Claw to verify that the full BotFather token was copied on one line, including the numeric prefix before the colon.</p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/./learn.md">← Day 3 Learn</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/../day-04-make-it-proactive/build.md">Day 4: Make It Proactive →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

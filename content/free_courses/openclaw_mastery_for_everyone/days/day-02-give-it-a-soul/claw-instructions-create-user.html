@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claw instructions create user — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 2: Create USER.md</h1>
+<p>Follow these instructions exactly. Your goal is to ask the user the USER.md setup questions in order, then create <code>~/.openclaw/workspace/USER.md</code>.</p>
+<p>Before asking anything, read <code>~/.openclaw/workspace/SOUL.md</code> if it exists so the Claw name and user name stay consistent across files.<br>If <code>SOUL.md</code> already contains the user&#39;s name, reuse it. Only ask for corrections or missing details rather than collecting the same information from scratch again.</p>
+<hr>
+<h2>1. Ask the Questions in Order</h2>
+<p>Ask one question at a time. Wait for the user&#39;s answer before continuing.</p>
+<p>During this interview:</p>
+<ul>
+<li>ask the questions in plain chat</li>
+<li>do not run tools or write files between questions</li>
+<li>do not append notes to <code>memory/YYYY-MM-DD.md</code> while collecting answers</li>
+<li>hold the answers in the conversation, then write <code>USER.md</code> once after the questions are complete</li>
+</ul>
+<h3>Who</h3>
+<ol>
+<li>Confirm the user&#39;s name from <code>SOUL.md</code> if it is already there, then ask only for preferred pronouns and any correction to the name if needed. If the name is missing, ask for full name and preferred pronouns.</li>
+<li>What city and timezone are you in?</li>
+</ol>
+<h3>Contact</h3>
+<ol start="3">
+<li>What is your primary email address? Do you have any rules about response time?</li>
+</ol>
+<h3>Focus</h3>
+<ol start="4">
+<li>What is your role?</li>
+<li>What are the specific things on your plate right now? List the 2-3 items you are actively working on this week.</li>
+</ol>
+<h3>Style</h3>
+<ol start="6">
+<li>What should the default output format look like? Short sentences, detailed paragraphs, bullet lists, or something else?</li>
+<li>Is there a formatting preference you feel strongly about? For example: no bullets in chat, match my message style, or keep things to one screen.</li>
+</ol>
+<h3>Patterns</h3>
+<ol start="8">
+<li>What are your working hours? Are there times you prefer not to be messaged?</li>
+<li>Is there something important about how you work that a new assistant should know on day one?</li>
+</ol>
+<hr>
+<h2>2. Write USER.md</h2>
+<p>Use the answers to create <code>~/.openclaw/workspace/USER.md</code> with this structure. Replace every placeholder. Do not leave any brackets in the file.</p>
+<pre><code class="language-md"># User Profile
+
+## Who
+Name: [FULL NAME]
+Pronouns: [PRONOUNS]
+Location: [CITY], [TIMEZONE e.g., &quot;UTC+5:30 / IST&quot;]
+
+## Contact
+Email: [PRIMARY EMAIL]
+[RESPONSE TIME RULES IF PROVIDED]
+
+## Focus
+Role: [JOB TITLE / DESCRIPTION]
+Organization: [COMPANY OR &quot;Independent&quot;]
+
+What I am working on right now:
+- [SPECIFIC ITEM 1]
+- [SPECIFIC ITEM 2]
+- [SPECIFIC ITEM 3 if applicable]
+
+## Style
+[SPECIFIC FORMAT PREFERENCES FROM QUESTIONS 6-7. Write as direct instructions, not descriptions.]
+
+## Patterns
+Working hours: [FROM QUESTION 8]
+[INSIGHT FROM QUESTION 9]
+</code></pre>
+<p>Target length: about 250 words.</p>
+<p>Important rule: keep sensitive personal information out of <code>USER.md</code>. If the user volunteers details that belong in a private context, briefly note that those should go into <code>MEMORY.md</code> instead and continue.</p>
+<hr>
+<h2>3. Confirm Completion</h2>
+<p>After writing the file:</p>
+<ul>
+<li>report where it was written</li>
+<li>summarize the current role and active focus items you captured</li>
+<li>flag anything that may need a later update because it will go stale</li>
+</ul>
+<p>Do not proceed to AGENTS.md in the same run unless the user explicitly asks you to.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Getting your api key — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Getting Your API Key</h1>
+<p>OpenClaw works with multiple AI providers. You only need one to get started. Pick whichever provider you prefer, follow the steps below, and you&#39;ll have a key in a few minutes.</p>
+<hr>
+<h2>What&#39;s an API Key?</h2>
+<p>An API key is a unique code that lets OpenClaw communicate with your AI provider (OpenAI, Google, Anthropic) on your behalf. It&#39;s separate from your regular account login. Having a ChatGPT, Gemini, or Claude subscription does not automatically give you an API key. You need to generate one specifically.</p>
+<p>Think of it this way: your subscription lets <em>you</em> use the chatbot. An API key lets <em>your Claw</em> use the AI model. They&#39;re billed separately and managed in different places.</p>
+<hr>
+<h2>A Note on Costs</h2>
+<p>OpenClaw is an always-on agent. Unlike a chatbot you open and close, it runs continuously, processes messages, executes scheduled tasks, and calls your AI provider throughout the day. That means token costs can add up quickly, especially with more capable models.</p>
+<p>For this course, we recommend setting aside <strong>$20 to $30</strong> for API usage if you&#39;re paying per token. That&#39;s a comfortable upper bound assuming you&#39;re experimenting and playing around as you learn.</p>
+<blockquote>
+<p><strong>Note:</strong> Anthropic Claude subscriptions (Pro and Max) <strong>do not cover</strong> OpenClaw usage. You will need a Claude API key to use Claude with OpenClaw. See the <a href="#anthropic-claude">Anthropic (Claude)</a> section below for details.</p>
+</blockquote>
+<p>Many people in the OpenClaw community run local models on Mac minis or other dedicated hardware to avoid API costs entirely. That&#39;s a valid path, but it comes with a larger learning curve. If you&#39;ve never set up OpenClaw before, we recommend starting with an API key or subscription so you can focus on learning how OpenClaw works. You can always add local models and dedicated hardware later once you&#39;re comfortable.</p>
+<hr>
+<h2>OpenAI (GPT)</h2>
+<p>OpenAI is the only provider here that also supports a subscription-backed OAuth path instead of pay-per-token billing. If you already have a ChatGPT Plus or Pro plan, that can reduce direct model costs, but this course still uses the API key flow for Day 1 because it is easier to set up reliably on Hostinger.</p>
+<h3>Get your API key</h3>
+<ol>
+<li>Go to <a href="https://platform.openai.com">platform.openai.com</a></li>
+<li>Click <strong>&quot;Sign up&quot;</strong> and register with email, Google, Microsoft, or Apple</li>
+<li>Verify your email address</li>
+<li><strong>Verify your phone number</strong> via SMS (required)</li>
+<li>In the left sidebar, click <strong>&quot;API keys&quot;</strong></li>
+<li>Click <strong>&quot;Create new secret key&quot;</strong> and give it a name</li>
+<li>Copy the key immediately. It&#39;s only shown once</li>
+<li>Go to <strong>Settings &gt; Billing</strong> to add a payment method and load at least $20 in credits</li>
+</ol>
+<hr>
+<h2>Google (Gemini)</h2>
+<p>Google has the most generous free tier for getting started. No credit card, no phone verification, and you get ongoing free access to capable models. The trade-off: it&#39;s pay-per-token only, with no subscription option for OpenClaw.</p>
+<ol>
+<li>Go to <a href="https://aistudio.google.com">aistudio.google.com</a></li>
+<li>Sign in with your Google account</li>
+<li>Accept the Terms of Service for Generative AI</li>
+<li>Click <strong>&quot;Get API Key&quot;</strong> in the left sidebar</li>
+<li>Select your project (or let Google create a default one for you)</li>
+<li>Click <strong>&quot;Create Key&quot;</strong></li>
+<li>Copy the key and store it somewhere safe</li>
+</ol>
+<hr>
+<h2>Anthropic (Claude)</h2>
+<blockquote>
+<p><strong>Note:</strong> Claude subscriptions (Pro and Max) <strong>do not cover usage on third-party tools</strong> like OpenClaw. To use Claude with OpenClaw, you need an API key with pay-per-token billing (steps below). Your subscription still works normally on Anthropic&#39;s own products (Claude.ai, Claude Code, Claude Desktop, and Claude Cowork).</p>
+<p>For more details, see the <a href="https://docs.openclaw.ai/providers/anthropic">OpenClaw Anthropic provider docs</a>.</p>
+</blockquote>
+<h3>Get your API key</h3>
+<ol>
+<li>Go to <a href="https://console.anthropic.com">console.anthropic.com</a></li>
+<li>Click <strong>&quot;Sign Up&quot;</strong> and register with Google, Microsoft, Apple, or email</li>
+<li>Verify your email if you signed up with email</li>
+<li>In the left sidebar, go to <strong>Settings &gt; API Keys</strong></li>
+<li>Click <strong>&quot;Create Key&quot;</strong> and give it a name</li>
+<li>Copy the key immediately. It starts with <code>sk-ant-</code> and is only shown once</li>
+<li>Go to <strong>Settings &gt; Billing</strong> to add a payment method and load credits</li>
+</ol>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/README.md">← Back to Course Overview</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

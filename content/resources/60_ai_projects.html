@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ai projects — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>60+ Generative AI Projects for Your Resume</h1>
+<p>Boost your resume with these amazing Generative AI project ideas, each designed to provide practical experience and highlight your skills with the latest technologies.</p>
+<p>Here&#39;s a breakdown of each project, relevant tutorials, and code to help you get started and the skills you&#39;ll develop.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Multimodal LLM Applications</strong></th>
+<th><strong>LLM Fine-Tuning Projects</strong></th>
+<th><strong>RAG (Retrieval Augmented Generation) Projects</strong></th>
+<th><strong>Agentic AI Projects</strong></th>
+<th><strong>Music and Audio Generation Projects</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="#1-medical-diagnostics-app-with-gpt-4-vision">Medical Diagnostics App with GPT-4 Vision</a></td>
+<td><a href="#15-fine-tune-phi-2-model-on-your-dataset">Fine Tune Phi-2 Model on Your Dataset</a></td>
+<td><a href="#26-end-to-end-advanced-rag-project-using-open-source-llm-models-and-groq-inferencing-engine">End To End Advanced RAG Project using Open Source LLM Models And Groq Inferencing engine</a></td>
+<td><a href="#38-ai-agents-from-scratch-using-open-source-ai">AI Agents from Scratch using Open Source AI</a></td>
+<td><a href="#57-text-to-song-generation-with-vocals--music-app-using-generative-ai">Text to Song Generation (With Vocals + Music) App using Generative AI</a></td>
+</tr>
+<tr>
+<td><a href="#2-visual-question-answering-with-idefics-9b">Visual Question Answering with IDEFICS 9B</a></td>
+<td><a href="#16-fine-tune-a-multimodal-llm-idefics-9b-for-visual-question-answering">Fine Tune a Multimodal LLM &quot;IDEFICS 9B&quot; for Visual Question Answering</a></td>
+<td><a href="#27-rag-pipeline-from-scratch-using-ollama-python--llama2">RAG Pipeline from Scratch Using OLlama Python &amp; Llama2</a></td>
+<td><a href="#39-agentops-library-build-your-own-ai-agents-monitoring-framework">AgentOps Library: Build Your Own AI Agents Monitoring Framework</a></td>
+<td><a href="#58-text-to-music-generation-app-using-generative-ai">Text to Music Generation App using Generative AI</a></td>
+</tr>
+<tr>
+<td><a href="#3-ai-voice-assistant-app-using-multimodal-llm-llava-and-whisper">AI Voice Assistant App using Multimodal LLM &quot;Llava&quot; and Whisper</a></td>
+<td><a href="#17-fine-tune-multimodal-llm-idefics-2-using-qlora">Fine Tune Multimodal LLM &quot;Idefics 2&quot; using QLoRA</a></td>
+<td><a href="#28-rag-application-using-langchain-openai-and-faiss">RAG Application using Langchain, OpenAI and FAISS</a></td>
+<td><a href="#40-build-a-multi-agent-ai-app-from-scratch--no-frameworks-needed">Build a Multi-Agent AI App from Scratch – no frameworks needed</a></td>
+<td><a href="#59-generate-music-using-text2music-ai-model-musicgen-by-meta-ai">Generate Music using Text2Music AI Model MusicGen by Meta AI</a></td>
+</tr>
+<tr>
+<td><a href="#4-ocr--vqa-with-qwen2-vl">OCR &amp; VQA with Qwen2-VL</a></td>
+<td><a href="#18-fine-tune-qwen2-vl-model-using-llama-factory">Fine Tune Qwen2 VL Model using Llama Factory</a></td>
+<td><a href="#29-rag-application-using-langchain-mistral-ai-and-weviate-db">RAG Application using Langchain Mistral AI and Weviate db</a></td>
+<td><a href="#41-autogen-ai-agents-ai-debates--pizza-vs-sushi">Autogen AI Agents: AI Debates – Pizza vs. Sushi</a></td>
+<td><a href="#60-clone-any-voice-to-generate-music-and-speech">Clone Any Voice to Generate Music and Speech</a></td>
+</tr>
+<tr>
+<td><a href="#5-chat-with-video-file-using-qwen2-vl">Chat with Video File using Qwen2 VL</a></td>
+<td><a href="#19-fine-tuning-with-reft-create-an-emoji-llm-for-medical-diagnosis">Fine-Tuning with ReFT: Create an Emoji LLM for Medical Diagnosis</a></td>
+<td><a href="#30-rag-application-using-opensource-framework-llamaindex-and-mistral-ai">RAG Application Using OpenSource Framework LlamaIndex and Mistral-AI</a></td>
+<td><a href="#42-production-grade-ai-agents-using-langgraph-map-reduce-implementation">Production Grade AI Agents using LangGraph (Map Reduce Implementation)</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#6-multimodal-rag-with-qwen-2-and-colpali">Multimodal RAG with Qwen-2 and ColPali</a></td>
+<td><a href="#20-fine-tune-deepseek-model-on-your-custom-dataset">Fine Tune DeepSeek Model on your Custom Dataset</a></td>
+<td><a href="#31-rag-pipeline-using-haystack-and-openai">RAG Pipeline Using Haystack and OpenAI</a></td>
+<td><a href="#43-build-an-agentic-rag-using-crew-ai">Build an Agentic RAG using Crew AI</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="#61-build-ai-assistant-with-mcp-servers-and-tools-using-langchain-and-groq">Build AI Assistant With MCP Servers And Tools Using LangChain And Groq</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="#62-build-agentic-games-in-minutes-with-mcp-cursor-and-langflow-14">Build Agentic Games in MINUTES with MCP, Cursor, and Langflow 1.4</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="#63-build-an-inbox-zero-agent-using-langflow-14-with-mcp">Build an INBOX ZERO Agent using Langflow 1.4 with MCP</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="#64-web-app-with-a2a">Web App with A2A</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h1>Multimodal LLM Applications</h1>
+<h2>1. Medical Diagnostics App with GPT-4 Vision</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>This project uses a <strong>multimodal LLM</strong> for medical image analysis to aid in diagnostics. </p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal AI</strong>, medical image analysis, diagnostic applications.</p>
+<h3><strong>Resources:</strong></h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=SzUGQMx0dkw">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Medical-Help-App-using-GPT-4V">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>2. Visual Question Answering with IDEFICS 9B</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Develop a system that answers questions based on visual input using the <strong>IDEFICS 9B model</strong>. It involves managing visual data and answering questions based on the content of an image.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Visual Question Answering (VQA)</strong>, multimodal models, image understanding.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=hyP1ekLKtiI">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Fine-Tuning-Multimodal-LLM">Code</a></p>
+</li>
+<li><p><a href="https://huggingface.co/HuggingFaceM4/idefics-9b-instruct">HF Model</a></p>
+</li>
+</ul>
+<hr>
+<h2>3. AI Voice Assistant App using Multimodal LLM &quot;Llava&quot; and Whisper</h2>
+<h3><strong>Difficulty Level</strong>: 4/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Create a voice assistant that understands voice and visual inputs using <strong>Llava and Whisper</strong>. Combines voice recognition, natural language processing, and visual understanding.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal AI</strong>, voice recognition, natural language processing, assistant applications.</p>
+<h3><strong>Resources:</strong></h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=77dJJBFPLpY">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Multimodal-AI-App-using-Llava-7B">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>4. OCR &amp; VQA with Qwen2-VL</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build a model specialized for <strong>optical character recognition and visual question answering</strong> using the <strong>Qwen2-VL model</strong>. Requires understanding of text extraction from images and answering questions about visual content.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>OCR</strong>, VQA, multimodal models, image and text processing.</p>
+<h3><strong>Resources:</strong></h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=lPlJR1xVF8c">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Qwen2-VL-for-OCR-VQA">Code</a></p>
+</li>
+<li><p><a href="https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct">HF Model</a></p>
+</li>
+</ul>
+<hr>
+<h2>5. Chat with Video File using Qwen2 VL</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Create an application that allows users to interact with video content by asking questions, leveraging <strong>Qwen2-VL</strong>. Involves processing video data to understand its content.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Video understanding, <strong>multimodal AI</strong>, question answering.</p>
+<h3><strong>Resources:</strong></h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=AAgx5p6vmTs">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Chat-with-Video-using-Qwen2-VL">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>6. Multimodal RAG with Qwen-2 and ColPali</h2>
+<h3><strong>Difficulty Level</strong>: 4/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Combines <strong>multimodal models with Retrieval Augmented Generation</strong> to answer questions based on images, utilizing <strong>Qwen-2 and ColPali</strong>. It involves not only processing images but also integrating them with a retrieval system.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal RAG</strong>, image and text processing, retrieval systems.</p>
+<h3><strong>Resources:</strong></h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=XfPu044sCRI">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/MultiModal-RAG-using-Qwen-2-VL-and-Colpali">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>7. Janus 1.3B for Image Generation and RAG</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>This project uses <strong>Janus 1.3B</strong> for image generation and retrieval-augmented generation tasks. Requires understanding image generation and RAG systems with a smaller language model.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Image generation, <strong>RAG</strong>, smaller LLM implementation.</p>
+<h3><strong>Resources:</strong></h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=WWrr8l82ZUU">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Janus-1.3B">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>8. Chat, Search &amp; Summarize any Video using Vision AI Model</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Focused on video understanding, allowing users to chat, search, and summarize video content. Involves complex processing tasks for video understanding, summarization, and searching.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Video processing, summarization, search, <strong>multimodal models</strong>.</p>
+<h3><strong>Resources:</strong></h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=mahUBKhFvRQ">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Qwen-2-VL-Video-Analysis">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>9. Multimodal AI Model for Radiology Reporting</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Develop a model to automate radiology reporting, integrating image and text data. Requires in depth knowledge of medical imaging and report generation.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal AI</strong>, medical imaging, report generation.</p>
+<h3><strong>Resources:</strong></h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=Dp4ytX_gE0w">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/AI-based-Radiology-Reporting">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>10. MultiModal RAG Application Using LanceDB and LlamaIndex for Video Processing</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Builds a system that allows for querying of video content using <strong>LanceDB and LlamaIndex</strong>. Involves using these tools for video content processing and retrieval.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Video processing, <strong>RAG</strong>, vector databases, LlamaIndex.</p>
+<h3><strong>Resources:</strong></h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=pvrioGzF-6s">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/main/MultiModal%20RAG/MultiModal_RAG_with_llamaIndex_and_LanceDB.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>11. Multimodal RAG: Chat with PDFs (Images &amp; Tables)</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build a multimodal Retrieval-Augmented Generation (RAG) pipeline using LangChain and the Unstructured library to query complex PDFs containing various data types, leveraging LLMs like GPT-4 with vision.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal AI</strong>, data extraction.</p>
+<h3><strong>Resources:</strong></h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=uLrReyH5cu0">Tutorial</a></p>
+</li>
+<li><p><a href="https://colab.research.google.com/gist/alejandro-ao/47db0b8b9d00b10a96ab42dd59d90b86/langchain-multimodal.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>12. MultiModal Summarizer</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Create a summarization application that processes different types of media. Requires knowledge of summarization techniques and processing different media types.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal AI</strong>, summarization, media processing.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=yPr9BDFzau4">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/main/MultiModal%20RAG/Extract_Image%2CTable%2CText_from_Document_MultiModal_Summrizer_RAG_App.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>13. Realtime Multimodal RAG Usecase with Google Gemini-Pro-Vision and Langchain</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Uses Google&#39;s <strong>Gemini Pro Vision with Langchain</strong> for multimodal RAG applications. Requires a deep understanding of both technologies.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal RAG</strong>, Google Gemini, Langchain.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=1a94Pfn6sIg">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/90dfa5f67e97466079592ca2294d4fdd06e8ae5e/MultiModal%20RAG/Multimodal_RAG_with_Gemini_Langchain_and_Google_AI_Studio_Yt.ipynb#L283">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>14. End To End Resume Application Tracking System(ATS) Using Google Gemini Pro Vision LIM Model</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Creates an <strong>ATS</strong> that leverages multimodal models to process resume content, including images and text. This is a full application for understanding and processing resume content for tracking.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal AI</strong>, resume processing, <strong>ATS development</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=VZOnp2YpY8Q">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/krishnaik06/Google-Gemini-Crash-Course/tree/main/atsllm">Code</a></p>
+</li>
+</ul>
+<hr>
+<h1>LLM Fine-Tuning Projects</h1>
+<hr>
+<h2>15. Fine Tune Phi-2 Model on Your Dataset</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Tailor a smaller language model, <strong>Phi-2</strong>, for specific tasks using fine-tuning. Requires understanding of model architectures and training procedures.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>LLM fine-tuning</strong>, model adaptation, smaller model optimization.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=eLy74j0KCrY">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Phi-2-Fine-Tuning">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>16. Fine Tune a Multimodal LLM &quot;IDEFICS 9B&quot; for Visual Question Answering</h2>
+<h3><strong>Difficulty Level</strong>: 4/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Adapts the <strong>IDEFICS 9B</strong> model for visual question answering through fine-tuning. Requires knowledge of fine tuning and Visual Question Answering.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal fine-tuning</strong>, visual question answering, <strong>LLM customization</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=usoTCfyQxjU">Tutorial</a></li>
+<li><a href="https://github.com/AIAnytime/Fine-Tuning-Multimodal-LLM">Code</a></li>
+</ul>
+<hr>
+<h2>17. Fine Tune Multimodal LLM &quot;Idefics 2&quot; using QLoRA</h2>
+<h3><strong>Difficulty Level</strong>: 4/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Uses <strong>QLoRA</strong> to fine-tune the multimodal <strong>Idefics 2</strong> model. Requires deep understanding of both multimodal models and QLoRA technique.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal fine-tuning</strong>, <strong>QLoRA</strong>, model optimization.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=8GWmu99-sjA">Tutorial</a></li>
+<li><a href="https://github.com/AIAnytime/Fine-Tune-Multimodal-LLM-Idefics-2">Code</a></li>
+</ul>
+<hr>
+<h2>18. Fine Tune Qwen2 VL Model using Llama Factory</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Fine-tunes the <strong>Qwen2 VL model</strong> for specific applications using <strong>Llama Factory</strong>. Requires experience with both the model and the factory tool.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal fine-tuning</strong>, <strong>Llama Factory</strong>, model adaptation.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=5IqkZ_yms4k">Tutorial</a></li>
+<li><a href="https://github.com/AIAnytime/Qwen2-VL-Fine-Tuning">Code</a></li>
+</ul>
+<hr>
+<h2>19. Fine-Tuning with ReFT: Create an Emoji LLM for Medical Diagnosis</h2>
+<h3><strong>Difficulty Level</strong>: 4/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Uses fine-tuning techniques to create a medical diagnosis model that generates emojis. Involves creatively applying fine-tuning to a medical and creative task.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Fine-tuning</strong>, medical diagnosis, creative LLM applications.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=DcFv3APc8E8">Tutorial</a></li>
+<li><a href="https://github.com/AIAnytime/ReFT-Fine-Tuning">Code</a></li>
+</ul>
+<hr>
+<h2>20. Fine Tune DeepSeek Model on your Custom Dataset</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Trains the <strong>DeepSeek model</strong> on a custom dataset to tailor it for specific tasks. Requires dataset management skills as well as experience with fine-tuning.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>LLM fine-tuning</strong>, model customization, dataset management.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=ZqoZDI0p1aI">Tutorial</a></li>
+<li><a href="https://github.com/AIAnytime/Fine-Tune-DeepSeek">Code</a></li>
+</ul>
+<hr>
+<h2>21. GRPO Crash Course: Fine-Tuning DeepSeek for MATH!</h2>
+<h3><strong>Difficulty Level</strong>: 1/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Optimizes the <strong>DeepSeek model</strong> for math-related tasks using <strong>GRPO</strong>. Requires an understanding of math with LLMs and group optimization techniques.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>LLM fine-tuning</strong>, <strong>GRPO</strong>, mathematical reasoning with LLMs.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=8bIeSJ1WnC0">Tutorial</a></li>
+<li><a href="https://github.com/AIAnytime/GRPO-explained-like-ELI5">Code</a></li>
+</ul>
+<hr>
+<h2>22. Fine Tune Llama 3 using ORPO</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Optimizes the <strong>Llama 3 model</strong> using the <strong>ORPO technique</strong>. Requires a strong understanding of fine tuning.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>LLM fine-tuning</strong>, <strong>ORPO</strong>, model optimization.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=nPIGVaYPQAg">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Llama-3-ORPO-Fine-Tuning">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>23. Train a Small Language Model for Disease Symptoms</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Creates a model specifically for identifying disease symptoms. Involves medical knowledge with a fine-tuned language model.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>LLM fine-tuning</strong>, medical applications, symptom identification.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=1ILVm4IeNY8">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Training-Small-Language-Model">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>24. Make LLM Fine Tuning 5x Faster with Unsloth</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Improves <strong>LLM fine-tuning speeds</strong> by using <strong>Unsloth</strong>. Requires an understanding of optimization techniques for fine tuning.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>LLM fine-tuning</strong>, performance optimization, <strong>Unsloth</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=sIFokbuATX4">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Unsloth-Fine-Tuning">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>25. Multi GPU Fine Tuning of LLM using DeepSpeed and Accelerate</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Fine-tunes large language models using multiple GPUs with <strong>DeepSpeed and Accelerate</strong>. Requires advanced knowledge of distributed training techniques.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>LLM fine-tuning</strong>, distributed training, <strong>DeepSpeed</strong>, <strong>Accelerate</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=XWkUC1Y72Yc">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Multi-GPU-Fine-Training-LLMs">Code</a></p>
+</li>
+</ul>
+<hr>
+<h1>RAG (Retrieval Augmented Generation) Projects</h1>
+<hr>
+<h2>26. End To End Advanced RAG Project using Open Source LLM Models And Groq Inferencing engine</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Creates a full RAG pipeline with ingestion, retrieval, and generation stages. Requires experience with the full RAG pipeline.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, end-to-end pipeline development, data ingestion, retrieval, generation.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=QQdiHrIc84o">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/krishnaik06/Updated-Langchain/tree/main/groq">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>27. RAG Pipeline from Scratch Using OLlama Python &amp; Llama2</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Builds a RAG pipeline using <strong>OLlama, Python, and Llama 2</strong>. Uses core libraries to create a RAG system.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, <strong>OLlama</strong>, <strong>Llama 2</strong>, Python.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=7k7tfxO4Zpw">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/main/RAG%20Pipeline%20from%20Scratch/RAG_Implementation_from%20_Scartch.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>28. RAG Application using Langchain, OpenAI and FAISS</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Implements RAG using <strong>Langchain, OpenAI, and the FAISS vector database</strong>. Uses popular libraries to create a RAG system.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, <strong>Langchain</strong>, <strong>OpenAI</strong>, <strong>FAISS</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=y_act32Gjbc">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/90dfa5f67e97466079592ca2294d4fdd06e8ae5e/RAG%20App%20using%20Langchain%20OpenAI%20FAISS/RAG_Application_using_Langchain_OpenAI_API_and_FAISS.ipynb#L4">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>29. RAG Application using Langchain Mistral AI and Weviate db</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Uses <strong>Mistral AI and Weviate</strong> as part of the RAG architecture. Requires a good understanding of both libraries.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, <strong>Langchain</strong>, <strong>Mistral AI</strong>, <strong>Weaviate</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=TzQjqygMdz4">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/90dfa5f67e97466079592ca2294d4fdd06e8ae5e/RAG%20App%20using%20Langchain%20Mistral%20Weaviate/RAG_Application_Using_LangChain_Mistral_and_Weviate.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>30. RAG Application Using OpenSource Framework LlamaIndex and Mistral-AI</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Utilizes <strong>LlamaIndex and Mistral-AI</strong> for a RAG system. Uses LlamaIndex as an open source framework and Mistral-AI for its models.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, <strong>LlamaIndex</strong>, <strong>Mistral AI</strong>, open-source framework.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=k18ab5HoHf8&t=1687s">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/90dfa5f67e97466079592ca2294d4fdd06e8ae5e/RAG%20App%20using%20LLAMAINDEX%20%26%20MistralAI/RAG_Application_Using_LlamaIndex_and_Mistral_AI.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>31. RAG Pipeline Using Haystack and OpenAI</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Builds a RAG pipeline with the <strong>Haystack framework and OpenAI</strong>. Requires understanding the haystack framework as well as OpenAI.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, <strong>Haystack</strong>, <strong>OpenAI</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=th8WpWtxad0">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/main/RAG%20App%20using%20Haystack%20%26%20OpenAI/RAG_Application_Using_Haystack_and_OpenAI.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>32. RAG Application Using Haystack MistralAI Pinecone &amp; FastAPI</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Uses <strong>Haystack, MistralAI, Pinecone, and FastAPI</strong> to create an end-to-end RAG application. Uses multiple technologies to make a more full app.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, <strong>Haystack</strong>, <strong>MistralAI</strong>, <strong>Pinecone</strong>, <strong>FastAPI</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=5topvo0a4uY">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/RAG-With-Haystack-MistralAI-Pinecone">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>33. End To End Document Q&amp;A RAG App With Gemma And Groq API</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Implements a an end to end Document Q&amp;A RAG App with Google Gemma And GRoq API</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, <strong>Google Gemma</strong>, <strong>Groq API</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=LOUaom9HZIg">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/krishnaik06/Google-Gemini-Crash-Course/tree/main/End%20To%20End%20Document%20Q%26A%20With%20Google%20Gemma">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>34. Building Real-Time RAG Pipeline With Mongodb and Pinecone</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>A RAG pipeline for real-time applications using <strong>MongoDB and Pinecone</strong>. Includes building a real time pipeline.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, real-time processing, <strong>MongoDB</strong>, <strong>Pinecone</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=dUWhUdW79Xs">Tutorial-Part1</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=jAMYesZmGmw">Tutorial-Part2</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/main/MongoDB%20with%20Pinecone/Mongodb_with_Pinecone_Realtime_RAG_Pipeline_yt.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>35. Chat With Multiple Documents using AstraDB and Langchain</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Creates a chatbot that can process multiple document types using <strong>AstraDB and Langchain</strong>. Uses these two tools to make an application.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, chatbots, <strong>AstraDB</strong>, <strong>Langchain</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=WWorF-UMCKw">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/main/Chat%20with%20Multiple%20Doc%20using%20Astradb%20and%20Langchain/Chat_With_Multiple_Doc(pdfs%2C_docs%2C_txt%2C_pptx)_using_AstraDB_and_Langchain.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>36. Built Powerful Multimodal RAG using Vertex AI(GCP), AstraDb and Langchain</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Uses <strong>Vertex AI, AstraDB, and Langchain</strong> to build a multimodal RAG. Incorporates multiple cloud services in a RAG system.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>Multimodal RAG</strong>, <strong>Vertex AI</strong>, <strong>AstraDB</strong>, <strong>Langchain</strong>.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=zxxwGYx4bvU">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/main/MultiModal%20RAG/MultiModal%20RAG%20using%20Vertex%20AI%20AstraDB(Cassandra)%C2%A0%26%C2%A0Langchain.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>37. RAG Based Chatbot With Memory(Chat History)</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Creates a RAG-based chatbot with chat history. Includes the extra level of complexity of chat history.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p><strong>RAG</strong>, chatbots, chat history management, memory implementation.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=WMFuxUZiUCE">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/sunnysavita10/Generative-AI-Indepth-Basic-to-Advance/blob/main/RAG_with_Conversation.ipynb">Code</a></p>
+</li>
+</ul>
+<hr>
+<h1>Agentic AI Projects</h1>
+<hr>
+<h2>38. AI Agents from Scratch using Open Source AI</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build AI agents from scratch using open-source AI tools to summarize, write, and sanitize sensitive information without pre-built frameworks.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>AI agent development, open-source AI, summarization, information sanitization.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=9xsi3ksyQR8&list=PLrLEqwuz-mRLLOov7hBru67qyiq9oZyF1&index=3">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/AI-Agents-from-Scratch-using-Ollama">Code</a></p>
+</li>
+</ul>
+<h2>39. AgentOps Library: Build Your Own AI Agents Monitoring Framework</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build an AgentOps library in Python to monitor AI agents effectively, including installation, key metrics monitoring, and data visualization.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>AI agent monitoring, AgentOps library development, Python, data visualization.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=5rez0aU56dk&list=PLrLEqwuz-mRLLOov7hBru67qyiq9oZyF1&index=2">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/agent-watch">Code</a></p>
+</li>
+</ul>
+<h2>40. Build a Multi-Agent AI App from Scratch – no frameworks needed</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build a Multi-Agent AI System from Scratch using Python and OpenAI&#39;s GPT-4o model with a Streamlit web interface for specialized tasks.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Multi-agent systems, Python, OpenAI GPT-4o, Streamlit web interface.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=f3KHI1dpc1Q&list=PLrLEqwuz-mRLLOov7hBru67qyiq9oZyF1&index=4">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Multi-Agents-System-from-Scratch">Code</a></p>
+</li>
+</ul>
+<h2>41. Autogen AI Agents: AI Debates – Pizza vs. Sushi</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Use Autogen to enable LLMs like Claude and GPT-4o to debate &quot;Which is tastier, Pizza or Sushi?&quot;.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Multi-agent systems, Autogen framework, LLM collaboration, agent role management.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=GqBr08uGmOk&list=PLrLEqwuz-mRLLOov7hBru67qyiq9oZyF1&index=7">Tutorial</a></li>
+<li><a href="https://github.com/AIAnytime/Autogen-AI-Agents">Code</a></li>
+</ul>
+<h2>42. Production Grade AI Agents using LangGraph (Map Reduce Implementation)</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Leverage the LangGraph framework to build robust, stateful, multi-actor applications using map-reduce patterns.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>LangGraph framework, stateful applications, multi-actor applications, map-reduce patterns.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=GMPFt-LrOWc&list=PLrLEqwuz-mRLLOov7hBru67qyiq9oZyF1&index=8">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Map-Reduce-implementation-using-LangGraph/tree/main">Code</a></p>
+</li>
+</ul>
+<h2>43. Build an Agentic RAG using Crew AI</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Enhance AI capabilities by combining retrieval mechanisms with generative models to create intelligent, autonomous agents using Crew AI.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Agentic RAG, Crew AI, retrieval mechanisms, generative models, autonomous agents.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=GtyiAd55XN0&list=PLrLEqwuz-mRLLOov7hBru67qyiq9oZyF1&index=12">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Agentic-RAG-using-Crew-AI">Code</a></p>
+</li>
+</ul>
+<h2>44. Build Multi-agent AI system for Investment Risk Analysis</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Create a multi-agent AI system for investment risk analysis. Configure agents to monitor market data, develop trading strategies.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Agentic RAG, Crew AI, generative models.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=gbWT-JP_NSo&list=PLrLEqwuz-mRLLOov7hBru67qyiq9oZyF1&index=13">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Multi-AI-Agents-for-Investment-Risk-Analysis">Code</a></p>
+</li>
+</ul>
+<h2>45. Build a Research Assistant AI Agent using Crew AI</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build a simple AI agent for healthcare research using the Crew.ai framework.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Agentic RAG, Crew AI, retrieval mechanisms, generative models, autonomous agents.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=f2g24bt_P6Q&list=PLrLEqwuz-mRLLOov7hBru67qyiq9oZyF1&index=15">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/AI-Agents-using-Crew-AI">Code</a></p>
+</li>
+</ul>
+<h2>46. ADVANCED Python AI Multi-Agent Project</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build an advanced multi-agent AI app through Python, Langflow, Astra DB, Streamlit, and more.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Agentic RAG, Streamlit, Langflow.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=msLovKSj8Q0">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/techwithtim/Advanced-Multi-Agent-Workout-App">Code</a></p>
+</li>
+</ul>
+<h2>47. Academic Task and Learning Agent System</h2>
+<h3><strong>Difficulty Level</strong>: 4/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build an intelligent multi-agent system that transforms the way students manage their academic life using LangGraph&#39;s workflow framework.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Multi-agent systems, workflow orchestration, personalized academic support.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/Academic_Task_Learning_Agent_LangGraph.ipynb">Code</a></li>
+</ul>
+<h2>48. ClauseAI</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Develop an AI agent to assist with legal clause analysis and management.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Legal AI, text analysis, clause management.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/ClauseAI.ipynb">Code</a></li>
+</ul>
+<h2>49. Content Intelligence</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Create an AI agent for content analysis and intelligence gathering.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Content analysis, intelligence gathering, NLP techniques.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/ContentIntelligence.ipynb">Code</a></li>
+</ul>
+<h2>50. EU Green Compliance FAQ Bot</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build a FAQ bot to assist with EU Green Compliance queries.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Compliance assistance, FAQ bots, question answering systems.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/EU_Green_Compliance_FAQ_Bot.ipynb">Code</a></li>
+</ul>
+<h2>51. ShopGenie</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Develop an AI shopping assistant to help users find and compare products.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Shopping assistance, product comparison, AI recommendations.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/ShopGenie.ipynb">Code</a></li>
+</ul>
+<h2>52. Weather Disaster Management AI Agent</h2>
+<h3><strong>Difficulty Level</strong>: 4/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Create an AI agent for managing and responding to weather disasters.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Disaster management, weather forecasting, emergency response.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/Weather_Disaster_Management_AI_AGENT.ipynb">Code</a></li>
+</ul>
+<h2>53. Career Assistant for Hackathons</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Develop an AI-powered mentor designed to simplify and support your journey in Generative AI learning, Resume preparation, Interview assistant and job hunting.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Hackathon preparation, career assistance, AI guidance.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/agent_hackathon_genAI_career_assistant.ipynb">Code</a></li>
+</ul>
+<h2>54. AInsight LangGraph</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Create an AI agent to provide insights and analysis using LangGraph.<br>AInsight automatically collects, processes, and summarizes AI/ML news for general audiences.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Data analysis, insights generation, LangGraph framework.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/ainsight_langgraph.ipynb">Code</a></li>
+</ul>
+<h2>55. Blog Writer Swarm</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Develop a swarm of AI agents to assist with blog writing and content creation.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Content creation, blog writing, swarm intelligence.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/blog_writer_swarm.ipynb">Code</a></li>
+</ul>
+<h2>56. Business Meme Generator</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build an AI agent to generate business-themed memes for marketing and social media.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Meme generation, marketing assistance, AI creativity.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/business_meme_generator.ipynb">Code</a></li>
+</ul>
+<hr>
+<h1>Music and Audio Generation Projects</h1>
+<hr>
+<h2>57. Text to Song Generation (With Vocals + Music) App using Generative AI</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Creates an application that generates songs, including vocals, from text using generative AI.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Audio generation, music generation, generative AI.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=SbRC81kZBkE">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/musicai">Code</a></p>
+</li>
+</ul>
+<hr>
+<h2>58. Text to Music Generation App using Generative AI</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Builds an application that generates music from text using generative AI.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Music generation, generative AI.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=UqsW9IK8pCI">Tutorial</a></p>
+</li>
+<li><p><a href="https://github.com/AIAnytime/Text-to-Music-Generation-App">Code</a></p>
+</li>
+</ul>
+<h2>59. Generate Music using Text2Music AI Model MusicGen by Meta AI</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Generates music from text using the Text2Music AI Model MusicGen by Meta AI.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Music generation, generative AI.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=vCJOR11txww">Tutorial</a></p>
+</li>
+<li><p><a href="https://colab.research.google.com/drive/1fxGqfg96RBUvGxZ1XXN07s3DthrKUl4-?usp=sharing#scrollTo=yP3FfELNw6_k">Code</a></p>
+</li>
+</ul>
+<h2>60. Clone Any Voice to Generate Music and Speech</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build an application that generates music and speech by cloning voices.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Music generation, generative AI.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=7np8uOfJfls&list=PLrLEqwuz-mRKG8NVx4Z_56mZgAs4vxiQB&index=5">Tutorial</a></p>
+</li>
+<li><p><a href="https://colab.research.google.com/drive/1eJfA2XUa-mXwdMy7DoYKVYHI1iTd9Vkt?usp=sharing#scrollTo=b5rDDPxrRAKa">Code</a></p>
+</li>
+</ul>
+<h2>61. Build AI Assistant With MCP Servers And Tools Using LangChain And Groq</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Build an interactive AI assistant that uses <strong>Model Context Protocol (MCP)</strong> servers and tools for retrieval and execution. This project stitches together LangChain for orchestration and Groq inferencing for high-throughput model execution.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>MCP integration, LangChain pipelines, Groq inferencing, retrieval-augmented workflows, tool execution.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=BG4F3b5QpjM">Tutorial</a></li>
+</ul>
+<hr>
+<h2>62. Build Agentic Games in MINUTES with MCP, Cursor, and Langflow 1.4</h2>
+<h3><strong>Difficulty Level</strong>: 2/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Leverage <strong>MCP</strong>, <strong>Cursor</strong>, and <strong>Langflow 1.4</strong> to spin up interactive, agent-driven games in minutes. You’ll orchestrate multiple LLM agents for game logic, state management, and user interaction.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Agent orchestration, MCP patterns, Langflow flows, Cursor integrations, rapid prototyping.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=YG17s2QR6oU">Tutorial</a></li>
+</ul>
+<hr>
+<h2>63. Build an INBOX ZERO Agent using Langflow 1.4 with MCP</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Create an autonomous <strong>Inbox Zero</strong> email agent that reads, categorizes, and responds to emails using <strong>Langflow 1.4</strong> flows and <strong>MCP</strong> servers. Automate triage, summarization, and follow-up generation.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>Email automation, MCP protocols, Langflow orchestration, LLM-driven summarization, workflow automation.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=0jhdQYMff6o">Tutorial</a></li>
+</ul>
+<hr>
+<h2>64. Web App with A2A</h2>
+<h3><strong>Difficulty Level</strong>: 3/5</h3>
+<h3><strong>Description</strong>:</h3>
+<p>Implement a web application using Google’s <strong>Agent-to-Agent (A2A)</strong> framework. Coordinate multiple specialized AI agents in a browser interface to handle user queries, data retrieval, and multi-step tasks.</p>
+<h3><strong>Skills Gained</strong>:</h3>
+<p>A2A framework, web development, multi-agent coordination, REST API integration, UI design.</p>
+<h3><strong>Resources</strong>:</h3>
+<ul>
+<li><a href="https://github.com/google/A2A/tree/main/demo">Code &amp; Demo (GitHub)</a></li>
+</ul>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

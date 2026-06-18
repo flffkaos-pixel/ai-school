@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>README — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Agentic AI: Build Your First Agentic AI System</h1>
+<p>This is the repository for the LinkedIn Learning course <code>Agentic AI: Build Your First Agentic AI System</code>. The full course is available from <a href="https://www.linkedin.com/learning/agentic-ai-build-your-first-agentic-ai-system">LinkedIn Learning</a>.</p>
+<p><img src="https://media.licdn.com/dms/image/v2/D4E0DAQG0eDHsyOSqTA/learning-public-crop_675_1200/B4EZVdqqdwHUAY-/0/1741033220778?e=2147483647&v=beta&t=FxUDo6FA8W8CiFROwqfZKL_mzQhYx9loYLfjN-LNjgA" alt="Agentic AI: Build Your First Agentic AI System"></p>
+<h2>Course Description</h2>
+<p>Learn to build production-ready agentic AI systems using the Autonomy Ladder framework. This hands-on course guides you through implementing two complete systems - from simple action classification to multi-step planning with retrieval - while teaching systematic evaluation, error analysis, and continuous improvement patterns that work in real production environments.</p>
+<h2>Instructions</h2>
+<p>This repository has branches for each of the videos in the course. You can use the branch pop up menu in GitHub to switch to a specific branch and take a look at the course at that stage, or you can add <code>/tree/BRANCH_NAME</code> to the URL to go to the branch you want to access.</p>
+<h2>Course Notebooks</h2>
+<p>This course uses two main Jupyter notebooks that you&#39;ll run on Google Colab:</p>
+<h3>Chapter 3: V1 Action Autonomy (Router Agent)</h3>
+<p><strong><a href="https://colab.research.google.com/github/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/agentic_ai_course_lil/action_autonomy.ipynb">Open action_autonomy.ipynb in Colab</a></strong> - Use this notebook throughout Chapter 3. The notebook includes clear chapter break markers (🎬 End of Chapter) that show you where to stop for each video.</p>
+<h3>Chapter 4: V2 Planning Autonomy (Planning Agent)</h3>
+<p><strong><a href="https://colab.research.google.com/github/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/agentic_ai_course_lil/planning_autonomy.ipynb">Open planning_autonomy.ipynb in Colab</a></strong> - Use this notebook throughout Chapter 4. The notebook includes clear chapter break markers (🎬 End of Chapter) that show you where to stop for each video.</p>
+<h2>Running the Notebooks</h2>
+<p>All notebooks in this course are designed to run on <strong>Google Colab</strong> with no local setup required.</p>
+<h3>Quick Start with Google Colab</h3>
+<ol>
+<li><p><strong>Open the notebook in Colab</strong>: Click on the notebook link above (e.g., &quot;Open action_autonomy.ipynb in Colab&quot;) to launch it directly in Google Colab</p>
+</li>
+<li><p><strong>Set up your OpenAI API key</strong>:</p>
+<ul>
+<li>In Colab, click the key icon (🔑) in the left sidebar</li>
+<li>Add a new secret named <code>OPENAI_API_KEY</code></li>
+<li>Paste your OpenAI API key as the value</li>
+<li>Toggle the &quot;Notebook access&quot; switch to enable access</li>
+</ul>
+</li>
+<li><p><strong>Run the notebook</strong>: Execute cells in order, stopping at chapter break markers as indicated in the videos</p>
+</li>
+</ol>
+<h2>Prerequisites</h2>
+<ul>
+<li><strong>OpenAI API Key</strong>: You&#39;ll need an OpenAI API key to run the notebooks. <a href="https://platform.openai.com/api-keys">Get one here</a></li>
+<li><strong>Basic Python Knowledge</strong>: Familiarity with Python and Jupyter notebooks is helpful</li>
+<li><strong>Google Account</strong>: Required for using Google Colab</li>
+</ul>
+<h2>What You&#39;ll Build</h2>
+<h3>V1: Action Autonomy (Router Agent)</h3>
+<p>A customer support routing agent that:</p>
+<ul>
+<li>Classifies customer messages into appropriate departments</li>
+<li>Uses systematic evaluation to measure baseline performance</li>
+<li>Applies error analysis to discover improvement opportunities</li>
+<li>Implements targeted improvements and validates results</li>
+</ul>
+<p><strong>Key Concepts:</strong></p>
+<ul>
+<li>Simple prompt engineering</li>
+<li>Systematic evaluation</li>
+<li>Continuous Calibration (CC): Analyzing failures to discover improvements</li>
+<li>Continuous Deployment (CD): Implementing and validating improvements</li>
+</ul>
+<h3>V2: Planning Autonomy (Planning Agent)</h3>
+<p>A multi-step planning agent that:</p>
+<ul>
+<li>Routes messages using V1&#39;s proven routing (builds on V1!)</li>
+<li>Retrieves relevant procedures from a knowledge base using BM25</li>
+<li>Generates detailed, multi-step action plans</li>
+<li>Uses custom metrics to measure and improve retrieval and plan quality</li>
+</ul>
+<p><strong>Key Concepts:</strong></p>
+<ul>
+<li>RAG (Retrieval Augmented Generation) with BM25</li>
+<li>Custom metrics design from observations</li>
+<li>LLM-as-Judge for plan evaluation</li>
+<li>Incremental building (V2 = V1 + new capabilities)</li>
+</ul>
+<h2>Course Structure</h2>
+<p>The course follows a systematic pattern for both autonomy levels:</p>
+<ol>
+<li><strong>Build</strong>: Implement the baseline system</li>
+<li><strong>Test</strong>: Run evaluation to establish baseline metrics</li>
+<li><strong>Calibrate (CC)</strong>: Observe failures, analyze patterns, design metrics</li>
+<li><strong>Deploy (CD)</strong>: Make targeted improvements, re-evaluate, validate gains</li>
+</ol>
+<p>This CC/CD pattern works for production systems and teaches you how to systematically improve any agentic AI system.</p>
+<h2>Repository Structure</h2>
+<pre><code>├── action_autonomy.ipynb          # Chapter 3: V1 Action Autonomy
+├── planning_autonomy.ipynb        # Chapter 4: V2 Planning Autonomy
+├── data/
+│   ├── v1_test_cases.csv          # Test cases for V1 evaluation
+│   ├── v2_test_cases.csv          # Test cases for V2 evaluation
+│   └── sops/                      # Standard Operating Procedures (V2)
+│       ├── sop_001.txt
+│       ├── sop_002.txt
+│       └── ...
+└── assets/
+    └── diagrams/                  # Architecture diagrams
+        ├── autonomy_ladder.png
+        ├── v1_architecture.png
+        ├── v2_architecture.png
+        └── ...
+</code></pre>
+<h2>Troubleshooting</h2>
+<h3>&quot;ModuleNotFoundError&quot; in Colab</h3>
+<ul>
+<li>Run the first cell that installs packages: <code>!pip install -q openai pandas ...</code></li>
+<li>Restart the runtime if needed: Runtime &gt; Restart runtime</li>
+</ul>
+<h3>&quot;Invalid API Key&quot;</h3>
+<ul>
+<li>Verify your OpenAI API key is set correctly in Colab Secrets</li>
+<li>Check that &quot;Notebook access&quot; is enabled for the secret</li>
+</ul>
+<h3>Phoenix UI not loading</h3>
+<ul>
+<li>Use the Colab-compatible Phoenix setup (already configured in notebooks)</li>
+<li>The Phoenix UI may take 30-60 seconds to start</li>
+</ul>
+<h3>Images not displaying</h3>
+<ul>
+<li>Images are loaded from the <code>assets/diagrams</code> folder in the repository</li>
+<li>Ensure you&#39;re viewing the notebook from the correct branch</li>
+</ul>
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://docs.arize.com/phoenix">Arize Phoenix Documentation</a></li>
+<li><a href="https://platform.openai.com/docs">OpenAI API Documentation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Okapi_BM25">BM25 Algorithm Explanation</a></li>
+</ul>
+<h2>Instructor</h2>
+<p><strong>Aishwarya Naresh Reganti</strong></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

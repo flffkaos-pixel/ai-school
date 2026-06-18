@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claw instructions security — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 1: Security Verification</h1>
+<p>This file contains the security checks for a fresh OpenClaw deployment on Hostinger. The Hostinger one-click template runs OpenClaw inside a Docker container. Everything below accounts for that environment.</p>
+<p>Run each section in order. Report the result of each check as PASS, FAIL, or EXPECTED. For anything that fails, fix it and re-run that check to confirm.</p>
+<p>If prompted for a risk posture, choose <strong>VPS Hardened</strong>: deny-by-default, minimal surface, tightest settings.</p>
+<hr>
+<h2>1. OS Info</h2>
+<p>Report the operating system, kernel version, and whether the process is running as a non-root user.</p>
+<p><strong>Expected:</strong> Debian 12 or 13, or Ubuntu 22.04/24.04. The process should be running as a non-root user (typically <code>node</code>). If security patches are pending, apply them.</p>
+<p>A supported, patched OS is the foundation. Running as non-root limits what damage a compromised process can do.</p>
+<hr>
+<h2>2. Open Ports</h2>
+<p>List every port currently listening, along with the address it is bound to.</p>
+<pre><code>ss -tlnp
+</code></pre>
+<p><strong>Expected:</strong></p>
+<ul>
+<li>Port <code>18789</code> on <code>127.0.0.1</code> (the OpenClaw gateway)</li>
+<li>A few additional OpenClaw internal ports on <code>127.0.0.1</code></li>
+<li>One port on <code>0.0.0.0</code>, typically in the 60000+ range</li>
+</ul>
+<p>That <code>0.0.0.0</code> port is the Control UI. Hostinger&#39;s proxy forwards traffic to it, which is how the web chat works. This is expected and safe. Hostinger manages access at the host level.</p>
+<p>The gateway itself should never be on <code>0.0.0.0</code>. If it is, anyone on the internet can reach it directly. Fix it by setting the gateway address to <code>127.0.0.1</code> in <code>~/.openclaw/openclaw.json</code> and restarting.</p>
+<hr>
+<h2>3. Firewall</h2>
+<p>Check whether a firewall is active inside the container.</p>
+<p><strong>Expected:</strong> No firewall tools found (no UFW, iptables, or nft). This is normal for Docker. Hostinger manages the firewall on the host. Mark this as EXPECTED.</p>
+<p>On a bare VPS, you would want a firewall active. Inside a managed Docker container, the host handles that layer.</p>
+<hr>
+<h2>4. OpenClaw Security Audit</h2>
+<p>Run the built-in security audit:</p>
+<pre><code>openclaw security audit --deep
+</code></pre>
+<p><strong>Expected:</strong> Zero critical failures. A few warnings are normal on a fresh deploy:</p>
+<ul>
+<li>Reverse proxy headers not trusted (trusted proxies not set)</li>
+<li>Permissive tool policy on extension plugins</li>
+<li>Unpinned plugin npm versions</li>
+</ul>
+<p>These are low risk for personal use and informational at this stage. What matters is no critical failures.</p>
+<hr>
+<h2>5. Gateway Configuration</h2>
+<p>Read <code>~/.openclaw/openclaw.json</code> and verify these values:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Expected value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gateway mode</td>
+<td><code>local</code></td>
+</tr>
+<tr>
+<td>Gateway address</td>
+<td><code>127.0.0.1</code></td>
+</tr>
+<tr>
+<td>Authentication mode</td>
+<td><code>token</code></td>
+</tr>
+<tr>
+<td>dmPolicy</td>
+<td>Either set to a restrictive value or not set. If not set, the default is owner-only, which is safe.</td>
+</tr>
+<tr>
+<td>groupPolicy</td>
+<td>Either set to <code>disabled</code> or not set. If not set, the default is no group chats, which is safe.</td>
+</tr>
+</tbody></table>
+<p>Token authentication means every request needs a valid token. The DM and group policy defaults keep unknown senders and group chats locked out until explicitly allowed.</p>
+<p>If any value is wrong, fix it in <code>openclaw.json</code>.</p>
+<hr>
+<h2>6. File Permissions</h2>
+<p>Check the permissions on the credentials directory:</p>
+<pre><code>ls -ld ~/.openclaw/credentials
+</code></pre>
+<p><strong>Expected:</strong> <code>drwx------</code> (700), owner only. If it shows <code>644</code> or <code>755</code>, fix it:</p>
+<pre><code>chmod 700 ~/.openclaw/credentials
+</code></pre>
+<p>API keys live in this directory. No other user on the system should be able to read them.</p>
+<hr>
+<h2>7. Channels</h2>
+<p>List which messaging channels are currently enabled and whether any have stored credentials.</p>
+<p><strong>Expected:</strong> Several channels (Telegram, WhatsApp, Discord, Slack, etc.) may show as enabled but not configured. This is fine. No channel should have credentials stored yet. Channels are set up on a later day.</p>
+<p>If any channel already has credentials, report where they came from.</p>
+<hr>
+<h2>8. Web Search</h2>
+<p>Check whether web search is enabled. If it is, disable it.</p>
+<p><strong>Expected:</strong> Disabled after this step. The Hostinger template may enable web search by default. In this course, every capability gets added deliberately. Web search has not been introduced yet.</p>
+<hr>
+<h2>9. Disable the Heartbeat</h2>
+<p>Set the heartbeat interval to <code>0m</code> in <code>openclaw.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;agents&quot;: {
+    &quot;defaults&quot;: {
+      &quot;heartbeat&quot;: {
+        &quot;every&quot;: &quot;0m&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<p>Confirm the change by reading the value back.</p>
+<p>The heartbeat runs scheduled tasks on a loop. With no identity or channel connected, those tasks produce nothing useful. It gets enabled on a later day once the Claw has an identity and a channel.</p>
+<hr>
+<h2>10. Restart and Final Verify</h2>
+<p>Restart the gateway and run both checks one more time:</p>
+<pre><code>openclaw gateway restart
+openclaw doctor
+openclaw security audit
+</code></pre>
+<p><strong>Expected:</strong> <code>openclaw doctor</code> shows all checks passing. <code>openclaw security audit</code> shows no critical failures. If anything fails after the restart, report what failed and fix it.</p>
+<hr>
+<h2>Summary</h2>
+<p>After completing all sections, the following should be true:</p>
+<ul>
+<li><input disabled="" type="checkbox"> OS is supported and patched, process running as non-root</li>
+<li><input disabled="" type="checkbox"> Gateway on <code>127.0.0.1</code> with token auth</li>
+<li><input disabled="" type="checkbox"> DM and group policies are restrictive</li>
+<li><input disabled="" type="checkbox"> Credentials directory is <code>700</code></li>
+<li><input disabled="" type="checkbox"> No channels have stored credentials</li>
+<li><input disabled="" type="checkbox"> Web search is disabled</li>
+<li><input disabled="" type="checkbox"> Heartbeat is set to <code>0m</code></li>
+<li><input disabled="" type="checkbox"> <code>openclaw doctor</code> passes</li>
+<li><input disabled="" type="checkbox"> <code>openclaw security audit</code> shows no critical failures</li>
+</ul>
+<p>Report the final status of each item.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

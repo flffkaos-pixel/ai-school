@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Common misconceptions — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Chapter 9: Common Misconceptions About AI Evaluation</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/misconceptions_evaluation_foundations.png" alt="Evaluation Foundations"></p>
+<h2>Clearing Up the Confusion</h2>
+<p>Now that you&#39;ve worked through this complete evaluation course, you&#39;re equipped to recognize common misconceptions that trip up many teams building AI systems. This chapter addresses the most frequent misunderstandings we encounter, explaining why they&#39;re problematic and pointing you to the right approaches.</p>
+<p>Each misconception below includes a reference to the chapters where we covered the correct approach in detail.</p>
+<hr>
+<h2>Foundation Misconceptions</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/benchmark_vs_product_split.png" alt="Benchmark vs Product Split"></p>
+<h3>1. &quot;Model evaluations (benchmarks) predict my product success&quot;</h3>
+<p><strong>Why this is wrong</strong>: Model evaluations test general capabilities on standardized tasks, but your product operates in a specific domain with unique requirements, constraints, and user behaviors. A model that scores 92% on general benchmarks might perform poorly for your insurance claims processing system if it hasn&#39;t seen domain-specific patterns.</p>
+<p><strong>The reality</strong>: Product evaluation in your specific context is what matters. You need to test how the model behaves with your data, your users, your business rules, and your risk tolerance.</p>
+<p><strong>Where we covered this</strong>: Chapter 2 explains the crucial distinction between model and product evaluations, showing why benchmark performance often fails to predict real-world success in your specific use case.</p>
+<h3>2. &quot;Engineers can design evaluation metrics alone&quot;</h3>
+<p><strong>Why this is wrong</strong>: Engineers understand technical implementation but may miss domain-specific quality requirements, business risks, and subtle user expectations. What looks technically correct might be completely inappropriate for the domain.</p>
+<p><strong>The reality</strong>: Effective evaluation requires collaboration between domain experts (who understand quality), product teams (who understand user needs), and engineers (who understand technical constraints). Each brings essential perspectives.</p>
+<p><strong>Where we covered this</strong>: Chapter 3 emphasizes that evaluation is inherently collaborative and explains how different stakeholders contribute to defining quality standards and building rubrics.</p>
+<h3>3. &quot;Evaluation is a one-time setup before launch&quot;</h3>
+<p><strong>Why this is wrong</strong>: This treats evaluation like traditional software testing, where you can validate everything upfront and expect it to stay valid. AI systems are non-deterministic, user behavior evolves, and business requirements change.</p>
+<p><strong>The reality</strong>: Evaluation is a continuous process that evolves with your system. You start with pre-deployment validation, then monitor in production, discover new issues, and continuously refine your evaluation approach.</p>
+<p><strong>Where we covered this</strong>: Chapter 1 explains why AI systems require ongoing evaluation, and Chapter 6 details how production monitoring differs from pre-deployment testing.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/misconceptions_validation_monitoring_comparison.png" alt="Validation vs Monitoring Comparison"></p>
+<hr>
+<h2>Pre-Deployment Misconceptions</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/misconceptions_lab_controlled_environment.png" alt="Lab Controlled Environment"></p>
+<h3>4. &quot;I need comprehensive evaluation coverage from day one&quot;</h3>
+<p><strong>Why this is wrong</strong>: Trying to build comprehensive evaluation upfront leads to analysis paralysis and often misses the most important issues. You can&#39;t predict every failure mode, and attempting comprehensive coverage dilutes effort from high-impact scenarios.</p>
+<p><strong>The reality</strong>: Start small with 10-20 high-quality examples representing scenarios you absolutely cannot get wrong. Focus on quality over quantity and expand as you learn more about your system&#39;s behavior patterns.</p>
+<p><strong>Where we covered this</strong>: Chapter 4 walks through building reference datasets, emphasizing starting small and specific rather than trying to be comprehensive from the beginning.</p>
+<h3>5. &quot;Code-based metrics aren&#39;t sophisticated enough for AI systems&quot;</h3>
+<p><strong>Why this is wrong</strong>: This assumes you need complex evaluation for complex systems. In practice, simple code-based checks often provide the most reliable signal for many important behaviors like structure validation, compliance requirements, and performance monitoring.</p>
+<p><strong>The reality</strong>: Simple code checks are fast, reliable, and easy to understand. Use them for objective, measurable properties before adding complexity with LLM judges or human evaluation.</p>
+<p><strong>Where we covered this</strong>: Chapter 5 details the three evaluation approaches, showing when code-based metrics are most effective and why they should often be your first choice.</p>
+<h3>6. &quot;LLM judges are the best way to evaluate AI systems&quot;</h3>
+<p><strong>Why this is wrong</strong>: LLM judges seem appealing because they can assess subjective qualities at scale, but they&#39;re expensive, slow, and can be inconsistent or misaligned with human judgment. Uncalibrated LLM judges often create more problems than they solve.</p>
+<p><strong>The reality</strong>: LLM judges are powerful tools when properly calibrated, but they require extensive validation against human judgment. Start with simpler approaches and add LLM judges only when justified by clear value.</p>
+<p><strong>Where we covered this</strong>: Chapter 5 explains the challenges with LLM judges and emphasizes that calibration is essential for reliable results.</p>
+<h3>7. &quot;If I write detailed criteria, LLM judges will work correctly&quot;</h3>
+<p><strong>Why this is wrong</strong>: Detailed criteria help, but don&#39;t guarantee that an LLM will interpret them the same way human experts would. LLMs can be overly strict, overly lenient, or miss subtle contextual cues that humans notice.</p>
+<p><strong>The reality</strong>: LLM judge calibration requires extensive testing against human evaluations across hundreds of examples, statistical analysis of agreement rates, and iterative prompt refinement. This process often takes weeks or months.</p>
+<p><strong>Where we covered this</strong>: Chapter 5 includes detailed guidance on LLM judge calibration and why detailed criteria alone are insufficient for reliable evaluation.</p>
+<hr>
+<h2>Production Misconceptions</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/misconceptions_production_scale_issues.png" alt="Production Scale Issues"></p>
+<h3>8. &quot;I need to evaluate every production interaction&quot;</h3>
+<p><strong>Why this is wrong</strong>: At scale, evaluating every interaction is impossible and unnecessary. It would require enormous computational resources and human effort while providing diminishing returns from analyzing routine, successful interactions.</p>
+<p><strong>The reality</strong>: Smart sampling based on user signals is more effective. Focus evaluation on interactions showing concerning patterns like unusual length, retry behavior, or frustration indicators.</p>
+<p><strong>Where we covered this</strong>: Chapter 7&#39;s log filtering section explains how to identify which production data deserves attention through priority-based filtering and signal-based sampling.</p>
+<h3>9. &quot;I need a sophisticated dashboard with dozens of metrics&quot;</h3>
+<p><strong>Why this is wrong</strong>: More metrics don&#39;t automatically mean better insights. Too many metrics create noise, make it hard to focus on what matters, and often lead to analysis paralysis rather than actionable improvements.</p>
+<p><strong>The reality</strong>: Focus on a minimum set of actionable metrics that drive real improvements. It&#39;s better to have 3-5 metrics that consistently guide decisions than 20 metrics that no one acts on.</p>
+<p><strong>Where we covered this</strong>: Chapter 7&#39;s metric selection section provides frameworks for choosing metrics based on impact, reliability, and cost rather than trying to measure everything.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/misconceptions_production_challenges_framework.png" alt="Production Challenges Framework"></p>
+<h3>10. &quot;Online evaluation is always better than offline&quot;</h3>
+<p><strong>Why this is wrong</strong>: Online evaluation seems superior because it provides immediate feedback, but it must be fast and simple to avoid adding latency. Complex analysis that requires expensive computation or sophisticated reasoning belongs in offline evaluation.</p>
+<p><strong>The reality</strong>: Use online evaluation for business-critical guardrails that need immediate intervention. Use offline evaluation for detailed analysis, trend identification, and system improvement insights.</p>
+<p><strong>Where we covered this</strong>: Chapter 7 distinguishes between online guardrails (preventing immediate problems) and offline improvement loops (driving long-term system enhancement).</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/misconceptions_online_offline_evaluation.png" alt="Online vs Offline Evaluation"></p>
+<h3>11. &quot;Evals vs A/B testing - I need to pick one approach&quot;</h3>
+<p><strong>Why this is wrong</strong>: This creates a false dichotomy between two complementary approaches. Each serves different purposes and they work better together than in isolation.</p>
+<p><strong>The reality</strong>: Use evaluation metrics to monitor known patterns and behaviors you understand. Use A/B testing to discover new patterns through explicit user signals (ratings, conversions) and implicit signals (behavior changes, engagement).</p>
+<p><strong>Where we covered this</strong>: Chapter 7&#39;s emerging issue discovery section explains how user signals can reveal problems your evaluation metrics don&#39;t capture, leading to new evaluation approaches.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/misconceptions_evaluation_vs_ab_testing.png" alt="Evaluation vs A/B Testing"></p>
+<h3>12. &quot;Evaluation metrics are fixed once implemented&quot;</h3>
+<p><strong>Why this is wrong</strong>: This assumes your system, users, and business requirements remain static. In reality, user behavior evolves, business priorities change, and you discover new failure modes that require different evaluation approaches.</p>
+<p><strong>The reality</strong>: Metrics retire and update over time as you learn. A metric that was critical during early deployment might become less useful as your system matures. Meanwhile, new user behaviors might require entirely new metrics.</p>
+<p><strong>Where we covered this</strong>: Chapter 7&#39;s emerging issue discovery explains the continuous loop of discovering new patterns, developing new metrics, and retiring outdated approaches.</p>
+<p><strong>Examples of metric evolution</strong>:</p>
+<ul>
+<li><strong>Retiring</strong>: A &quot;response format validation&quot; metric becomes less important as your system matures and format errors become rare</li>
+<li><strong>Adding</strong>: A &quot;seasonal context awareness&quot; metric becomes important after discovering users ask different questions during holidays</li>
+<li><strong>Updating</strong>: An &quot;escalation accuracy&quot; metric needs refinement after business policy changes affect when human handoffs are appropriate</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/misconceptions_metrics_evolution_timeline.png" alt="Metrics Evolution Timeline"></p>
+<hr>
+<h2>Why These Misconceptions Persist</h2>
+<p>Understanding why these misconceptions are common helps you avoid them:</p>
+<p><strong>AI evaluation is relatively new</strong>: Unlike traditional software testing, systematic AI evaluation is still emerging, leading to borrowed assumptions from other domains.</p>
+<p><strong>Complexity creates uncertainty</strong>: AI systems are complex, making simple approaches seem inadequate even when they&#39;re often the most effective.</p>
+<p><strong>Tool marketing influences thinking</strong>: Vendors promote sophisticated solutions that may be overkill for many practical needs.</p>
+<p><strong>Success stories lack context</strong>: Case studies often don&#39;t include the failures and iterations that led to successful evaluation approaches.</p>
+<h2>The Right Mindset</h2>
+<p>Instead of falling into these misconceptions, approach AI evaluation with these principles:</p>
+<p><strong>Start simple and evolve</strong>: Begin with basic approaches that provide clear value, then add complexity only when justified.</p>
+<p><strong>Focus on your context</strong>: Generic solutions rarely work - everything must be tailored to your specific use case, users, and business requirements.</p>
+<p><strong>Embrace collaboration</strong>: Combine technical, domain, and business perspectives rather than trying to solve evaluation in isolation.</p>
+<p><strong>Expect continuous evolution</strong>: Build evaluation systems that can adapt as you learn more about your system and users.</p>
+<p><strong>Prioritize actionable insights</strong>: Measure things that drive real improvements rather than pursuing measurement for its own sake.</p>
+<h2>Moving Forward</h2>
+<p>Now that you understand these common misconceptions and have worked through the complete evaluation methodology, you&#39;re equipped to build effective evaluation systems that avoid these pitfalls.</p>
+<p>Remember: the goal isn&#39;t perfect measurement - it&#39;s building better AI systems through systematic, thoughtful evaluation that evolves with your understanding and needs.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

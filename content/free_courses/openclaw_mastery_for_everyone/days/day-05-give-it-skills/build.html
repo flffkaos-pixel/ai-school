@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Build — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 5 Build: Give It Skills</h1>
+<p>This is the user-facing guide for Day 5. Today you do the skill flow in stages. First you inspect a public skill. Then you install it. Then you create one small skill of your own.</p>
+<p><a href="https://clawhub.ai/">ClawHub</a> is OpenClaw&#39;s public skill registry. Think of it as the directory where people publish reusable skills so other OpenClaw users can inspect them, install them, and build on them. In this course, you do not interact with ClawHub directly through a shell. You ask your Claw to inspect or install a skill, and it handles the registry steps for you.</p>
+<p>The operational steps are split between this file and a few small instruction files. This file is for you. The instruction files are for your Claw.</p>
+<hr>
+<h2>What You Need Before Starting</h2>
+<ul>
+<li>Day 1 complete: OpenClaw installed and secured</li>
+<li>Day 2 complete: identity files created and loading correctly</li>
+<li>Day 3 complete: Telegram connected and working</li>
+<li>Day 4 complete: a proactive workflow already exists</li>
+<li>Access to your Claw through the web chat</li>
+<li>Telegram on your phone</li>
+</ul>
+<hr>
+<h2>How To Run Day 5</h2>
+<p>Work through the files in this order:</p>
+<ol>
+<li>inspect <code>document-summary</code> in chat</li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/./claw-instructions-install-document-summary.md"><code>claw-instructions-install-document-summary.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/./claw-instructions-create-quick-note-skill.md"><code>claw-instructions-create-quick-note-skill.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/./claw-instructions-finalize-skills.md"><code>claw-instructions-finalize-skills.md</code></a></li>
+</ol>
+<p>This order gives you the full picture: how to inspect a public skill, how to install one safely, and how to teach your Claw one behavior of your own.</p>
+<hr>
+<h2>Step 1: Inspect a ClawHub Skill</h2>
+<p>Copy and paste the following message into the web chat:</p>
+<blockquote>
+<p>Inspect <code>document-summary</code> from ClawHub, explain in plain English what it does, what kinds of requests should trigger it, whether it needs any credentials or extra binaries, and anything that looks risky or out of scope. Do not install anything yet.</p>
+</blockquote>
+<p>Today&#39;s ClawHub skill example is <code>document-summary</code>. It is a good Day 5 starting point because it adds a reusable workflow without asking you to set up another account, secret, or API key first.</p>
+<hr>
+<h2>Step 2: Install <code>document-summary</code></h2>
+<p>After you are happy with the inspection, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/claw-instructions-install-document-summary.md</code> and follow every step. Install <code>document-summary</code> into this workspace, tell me how to trigger it, and stop when you&#39;re done.</p>
+</blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/./claw-instructions-install-document-summary.md"><code>claw-instructions-install-document-summary.md</code></a> tells the Claw to:</p>
+<ul>
+<li>install <code>document-summary</code> into this workspace after confirmation</li>
+<li>verify where it landed and whether it is ready</li>
+<li>tell you the exact request patterns to use from Telegram or web chat</li>
+<li>tell you to type <code>/new</code> in OpenClaw before trying to use the new skill</li>
+</ul>
+<p>This is the first half of Day 5. You borrow one good workflow instead of rebuilding it from scratch.</p>
+<p>If you want a visual check, open <code>Skills</code> in OpenClaw. Installed workspace skills show up there once they have been added:</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/../../diagrams/day-05-hostinger-skills-installed.png" alt="Installed skills in OpenClaw"></p>
+<p>After this step, type <code>/new</code> in OpenClaw to start a fresh session before you continue.</p>
+<hr>
+<h2>Step 3: Create <code>quick-note</code></h2>
+<p>After <code>document-summary</code> is installed, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/claw-instructions-create-quick-note-skill.md</code> and follow every step. Create <code>quick-note</code> in this workspace, tell me how to trigger it, and stop when you&#39;re done.</p>
+</blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/./claw-instructions-create-quick-note-skill.md"><code>claw-instructions-create-quick-note-skill.md</code></a> tells the Claw to create one small custom skill that:</p>
+<ul>
+<li>triggers on <code>note:</code></li>
+<li>classifies the note before saving it</li>
+<li>stores a clean timestamped entry in <code>memory/YYYY-MM-DD.md</code></li>
+<li>adds an open-loop item when the note implies future action</li>
+<li>replies with a short confirmation</li>
+</ul>
+<p>This is the second half of Day 5. You teach your Claw one behavior that is specific to how you work.</p>
+<p>After this step, type <code>/new</code> in OpenClaw to start a fresh session before you continue.</p>
+<blockquote>
+<p>[!WARNING]<br>Do an additional check on the OpenClaw Web interface, go to <code>Agents --&gt; Skills</code> and make sure that the skills are enabled.</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/../../diagrams/day-05-are-skills-enabled.png" alt="Are skills enabled?"></p>
+<hr>
+<h2>Step 4: Finalize and Verify</h2>
+<p>After <code>quick-note</code> is created, copy and paste this into the web chat:</p>
+<blockquote>
+<p>Read <code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/claw-instructions-finalize-skills.md</code> and follow every step. Verify both skills, tell me the exact test message for each one, and report PASS or FAIL.</p>
+</blockquote>
+<p>That <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/./claw-instructions-finalize-skills.md">instruction file</a> tells it to:</p>
+<ul>
+<li>confirm both skills are present</li>
+<li>remind you that Day 5 skills are used from a fresh session after <code>/new</code></li>
+<li>give you the exact message to test each skill</li>
+<li>report PASS or FAIL for the Day 5 setup</li>
+</ul>
+<p>At that point, your Claw has one reusable workflow from the community and one you created together.</p>
+<hr>
+<h2>Validate It</h2>
+<p>Ask your Claw in the web chat:</p>
+<pre><code class="language-text">Tell me the two skills we set up today, where each one lives, the exact message I should send to test each one, and whether I need a fresh session before they are active.
+</code></pre>
+<p>The answer should clearly name <code>document-summary</code>, <code>quick-note</code>, their locations, the trigger phrases, and remind you to use <code>/new</code> before testing newly added skills.</p>
+<hr>
+<h2>Quick Win</h2>
+<p>From Telegram, send one real <code>note:</code> message that implies future action. Then paste a link or a short block of text and ask for a summary. This is the Day 5 shift: your Claw now carries one reusable workflow from the community and one you taught it yourself, and your custom skill is doing more than dumping raw text into a file.</p>
+<hr>
+<h2>What Should Be True After Day 5</h2>
+<ul>
+<li><input disabled="" type="checkbox"> <code>document-summary</code> was inspected before install</li>
+<li><input disabled="" type="checkbox"> <code>document-summary</code> was installed for this workspace</li>
+<li><input disabled="" type="checkbox"> <code>quick-note</code> exists as a custom workspace skill with its own <code>SKILL.md</code></li>
+<li><input disabled="" type="checkbox"> <code>quick-note</code> can classify notes and track open loops when needed</li>
+<li><input disabled="" type="checkbox"> You know the exact trigger or request to use for both skills</li>
+<li><input disabled="" type="checkbox"> You started a fresh OpenClaw session with <code>/new</code> before testing the new skills</li>
+<li><input disabled="" type="checkbox"> Both skills are scoped to this agent unless you chose otherwise</li>
+</ul>
+<hr>
+<h2>Troubleshooting</h2>
+<p><strong>The Claw starts doing everything in one shot</strong><br>Tell it to stop and stay inside the current Day 5 step. The point is to inspect, install, create, and verify in sequence.</p>
+<p><strong>The inspection feels vague</strong><br>Ask it to explain <code>document-summary</code> in plain English: what it does, what should trigger it, and what it depends on.</p>
+<p><strong>The custom skill description feels fuzzy</strong><br>Ask the Claw to rewrite it around the exact <code>note:</code> trigger you plan to send from Telegram.</p>
+<p><strong>The skill does not seem available yet</strong><br>Type <code>/new</code> in OpenClaw to start a fresh session, then test again.</p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/./learn.md">← Day 5 Learn</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/../day-06-tame-your-inbox/build.md">Day 6: Tame Your Inbox →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

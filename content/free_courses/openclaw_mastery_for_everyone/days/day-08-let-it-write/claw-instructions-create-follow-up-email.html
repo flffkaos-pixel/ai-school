@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claw instructions create follow up email — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 8: Create <code>follow-up-email</code></h1>
+<p>Goal: create a <code>follow-up-email</code> skill for this workspace.</p>
+<p>Key constraints:</p>
+<ul>
+<li>Keep the skill in the compose-only path for Day 8.</li>
+<li>Always require approval before sending.</li>
+<li>Do not guess recipient email addresses.</li>
+<li>The email body must be normal human-readable plain text, not a serialized string.</li>
+</ul>
+<p>Do:</p>
+<ol>
+<li>Create <code>follow-up-email</code> as a workspace skill.</li>
+<li>Make it trigger on requests like <code>send a follow-up to ... about ...</code>.</li>
+<li>Write a detailed <code>SKILL.md</code> with:<ul>
+<li>frontmatter with name, description, and version</li>
+<li>a short &quot;What it does&quot; section</li>
+<li>a workflow that:<ul>
+<li>identifies the recipient from context or asks the user if the address is missing</li>
+<li>drafts a short follow-up email under 150 words</li>
+<li>uses a subject line shaped like <code>Follow-up: [topic]</code></li>
+<li>includes one clear next step or ask</li>
+<li>renders the email body as real plain text with actual paragraph breaks</li>
+<li>never outputs escaped newline sequences like <code>\n</code>, quoted JSON-style body strings, Markdown code fences, or stray prefix characters in the email body</li>
+<li>presents the full draft for approval before sending</li>
+</ul>
+</li>
+<li>guardrails for uncertain recipients, attachments, formatting mistakes, and staying inside compose-only email</li>
+</ul>
+</li>
+<li>In the skill instructions, add a final self-check before approval:<ul>
+<li>verify the visible email body reads like a normal email</li>
+<li>if the body contains escape sequences such as <code>\n</code>, leading quote marks, surrounding quotes, code fences, or other serialization artifacts, rewrite it into clean plain text before showing it to the user</li>
+</ul>
+</li>
+<li>Tell the user to type <code>/new</code> in OpenClaw before testing the new skill.</li>
+</ol>
+<p>In your final reply include:</p>
+<ul>
+<li>PASS or FAIL</li>
+<li>where the skill was created</li>
+<li>the exact trigger phrase to test it</li>
+<li>one example prompt to run next</li>
+</ul>
+<p>Stop there.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

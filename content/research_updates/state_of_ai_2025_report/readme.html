@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>README — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>State of Applied AI 2025 Report</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/research_updates/state_of_ai_2025_report/./images/stack_image.png" alt="Applied AI Stack"></p>
+<p>2025 was a transformative year for applied AI. While the headlines focused on model releases and benchmark scores, the real story happened in the trenches—where practitioners figured out how to build reliable AI systems that actually work in production.</p>
+<p>This report distills the key developments across the entire AI application stack, from the inputs that feed these systems to the outputs they produce, and the challenges encountered along the way.</p>
+<h2>Resources</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Video</td>
+<td><a href="https://maven.com/p/ad857c">Watch the presentation</a></td>
+</tr>
+<tr>
+<td>PDF Report</td>
+<td><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/research_updates/state_of_ai_2025_report/./State_of_AI_2025_Report.pdf">Download the full report</a></td>
+</tr>
+<tr>
+<td>Interactive Slides</td>
+<td><a href="https://levelup-labs.ai/resources/state-of-ai-2025/index.html">View the slides</a></td>
+</tr>
+</tbody></table>
+<h2>What&#39;s Covered</h2>
+<h3>Part 1: The Input Layer</h3>
+<ul>
+<li><strong>From Prompt Engineering to Context Engineering</strong>: Models became less brittle, shifting focus from crafting individual prompts to engineering entire context systems</li>
+<li><strong>Meta-Prompting</strong>: Using AI models to generate optimized prompts</li>
+<li><strong>Automatic Prompt Optimization</strong>: Frameworks like DSPy for data-driven prompt improvement</li>
+<li><strong>The Multimodal Default</strong>: Text-only AI systems are now legacy</li>
+</ul>
+<h3>Part 2: The Model Layer</h3>
+<ul>
+<li><strong>Reasoning Models</strong>: Trading speed for reliability with models like o1 and DeepSeek R1</li>
+<li><strong>Long Context Windows</strong>: From 4K to 1M+ tokens, changing how we build applications</li>
+<li><strong>Efficient Inference</strong>: Quantization and optimization techniques for production deployment</li>
+</ul>
+<h3>Part 3: The Application Layer</h3>
+<ul>
+<li><strong>RAG Evolution</strong>: From basic retrieval to GraphRAG, agentic retrieval, and multimodal parsing</li>
+<li><strong>Agents in Production</strong>: T-shaped success—broad automation of simple tasks, deep impact in specific verticals</li>
+<li><strong>Coding Agents</strong>: The most successful agent category with tools like Cursor, Windsurf, and Claude Code</li>
+<li><strong>Human-in-the-Loop</strong>: Balancing automation with appropriate human oversight</li>
+</ul>
+<h3>Part 4: The Output Layer</h3>
+<ul>
+<li><strong>Model vs. Product Evaluation</strong>: Understanding what to measure and why</li>
+<li><strong>Three Evaluation Approaches</strong>: Assertions, LLM-as-judge, and human evaluation</li>
+<li><strong>The Continuous Improvement Flywheel</strong>: Building systems that get better over time</li>
+</ul>
+<h3>Part 5: Challenges</h3>
+<ul>
+<li><strong>Hallucinations</strong>: More subtle and harder to detect than before</li>
+<li><strong>Inconsistent Reasoning</strong>: Models that sometimes fail on problems they&#39;ve solved before</li>
+<li><strong>Over-Autonomy</strong>: Agents that take actions without appropriate confirmation</li>
+<li><strong>Tool Call Issues</strong>: Integration challenges in agentic systems</li>
+</ul>
+<h3>Part 6: The Road Ahead</h3>
+<ul>
+<li><strong>Boring Infrastructure Wins</strong>: The most effective AI work focuses on data and architecture fundamentals</li>
+<li><strong>Integration Quality Beats Model Selection</strong>: How you integrate matters more than which model you choose</li>
+<li><strong>Evaluation is Non-Negotiable</strong>: Teams that can measure value will keep investing</li>
+</ul>
+<h2>Key Takeaways</h2>
+<ol>
+<li><strong>Context engineering &gt; prompt tricks</strong> — Design the entire information environment, not just the initial prompt</li>
+<li><strong>Reasoning models trade speed for reliability</strong> — Use them for complex tasks where correctness matters</li>
+<li><strong>RAG evolved, it didn&#39;t die</strong> — Structure, agency, and multimodal parsing made retrieval more powerful</li>
+<li><strong>Agents achieved T-shaped success</strong> — Broad automation of simple tasks, deep impact in specific verticals</li>
+<li><strong>New capabilities brought new failure modes</strong> — Subtle hallucinations, inconsistent reasoning, over-autonomy</li>
+<li><strong>Evaluation is the bottleneck</strong> — You can&#39;t improve what you can&#39;t measure</li>
+<li><strong>Infrastructure beats heroics</strong> — Boring, reliable systems outperform clever, fragile ones</li>
+</ol>
+<h2>About the Authors</h2>
+<p><strong><a href="https://www.linkedin.com/in/areganti/">Aishwarya Naresh Reganti</a></strong> — Founder of <a href="https://levelup-labs.ai">LevelUp Labs</a>, building practitioner-focused AI education. Previously at AWS.</p>
+<p><strong><a href="https://www.linkedin.com/in/sai-kiriti-badam/">Kiriti Badam</a></strong> — Applied AI at OpenAI. Previously at Google, Databricks, and Samsung.</p>
+<p>This report was generated based on a live presentation to 2000+ practitioners.</p>
+<h2>Other Resources</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Free Courses</td>
+<td>Taken by 20,000+ learners</td>
+<td><a href="https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses">Browse courses</a></td>
+</tr>
+<tr>
+<td>Enterprise AI Course</td>
+<td>#1 rated course taken by engineering and product leaders at Google, Meta, Anthropic, Microsoft, and 90+ companies</td>
+<td><a href="https://maven.com/aishwarya-kiriti/genai-system-design">GenAI System Design</a></td>
+</tr>
+<tr>
+<td>Advanced AI Evals Course</td>
+<td>Deep dive into evaluation with a problem-first approach</td>
+<td><a href="https://maven.com/aishwarya-kiriti/evals-problem-first">AI Evals Course</a></td>
+</tr>
+<tr>
+<td>Free Sessions</td>
+<td>Upcoming and previous free sessions</td>
+<td><a href="https://maven.com/aishwarya-kiriti">View sessions</a></td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Copyright 2026 Aishwarya Naresh Reganti &amp; Kiriti Badam. All rights reserved.</em></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

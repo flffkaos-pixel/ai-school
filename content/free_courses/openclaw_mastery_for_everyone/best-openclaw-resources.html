@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Best openclaw resources — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Best OpenClaw Resources by Category</h1>
+<p>80+ curated guides, tools, videos, security resources, and community content for getting the most out of your Claw.</p>
+<p>Each section is organized so you can jump to what you need. If you only have five minutes, start with the Official Documentation section and bookmark it.</p>
+<hr>
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#official-documentation">Official Documentation</a></li>
+<li><a href="#getting-started-guides">Getting Started Guides</a></li>
+<li><a href="#security">Security</a></li>
+<li><a href="#identity-memory-and-workspace-files">Identity, Memory, and Workspace Files</a></li>
+<li><a href="#video-walkthroughs">Video Walkthroughs</a></li>
+<li><a href="#practitioner-deep-dives">Practitioner Deep Dives</a></li>
+<li><a href="#skills-and-integrations">Skills and Integrations</a></li>
+<li><a href="#cost-optimization">Cost Optimization</a></li>
+<li><a href="#community-tools">Community Tools</a></li>
+<li><a href="#community-and-events">Community and Events</a></li>
+<li><a href="#what-people-are-actually-doing-with-openclaw">What People Are Actually Doing with OpenClaw</a></li>
+</ol>
+<hr>
+<h2>Official Documentation</h2>
+<p>Start here. These are maintained by the OpenClaw team.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://docs.openclaw.ai/start/getting-started">Getting Started</a></td>
+<td>Installation, onboarding wizard, first run</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/gateway/configuration">Configuration Reference</a></td>
+<td>Every setting in <code>openclaw.json</code>, environment variables, provider setup</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/gateway/security">Security Reference</a></td>
+<td>Token auth, DM policies, allowlists, sandbox mode, tool permissions</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/gateway/troubleshooting">Troubleshooting</a></td>
+<td>Common errors, diagnostics, <code>openclaw doctor</code></td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/install/updating">Updating OpenClaw</a></td>
+<td>Version management, breaking changes, rollback</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/channels/telegram">Channel Setup: Telegram</a></td>
+<td>The fastest channel to connect (Day 3 of this course)</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/channels/whatsapp">Channel Setup: WhatsApp</a></td>
+<td>WhatsApp Business API integration</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/channels/discord">Channel Setup: Discord</a></td>
+<td>Discord bot setup and permissions</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw">GitHub Repository</a></td>
+<td>Source code, issues, discussions, 250K+ stars</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md">Changelog</a></td>
+<td>Every release, categorized as features, fixes, breaking, and security</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw/security">Security Advisories</a></td>
+<td>Official CVE disclosures and patches</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Getting Started Guides</h2>
+<p>These are the best &quot;I just installed OpenClaw, now what?&quot; resources, organized from beginner-friendly to more technical.</p>
+<table>
+<thead>
+<tr>
+<th>Guide</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://every.to/guides/claw-school">Every.to: Claw School</a></td>
+<td>The most beginner-friendly guide. Zero technical jargon, walks through what a Claw can do and how to get ideas for your own use cases</td>
+</tr>
+<tr>
+<td><a href="https://www.freecodecamp.org/news/openclaw-full-tutorial-for-beginners/">freeCodeCamp: Full Tutorial for Beginners</a></td>
+<td>Written companion to the freeCodeCamp YouTube video. Covers installation, connecting AI models, memory, skills, and security</td>
+</tr>
+<tr>
+<td><a href="https://habr.com/en/articles/992720/">Habr: Full Install Walkthrough</a></td>
+<td>Step-by-step with screenshots, good for visual learners who want to see every screen</td>
+</tr>
+<tr>
+<td><a href="https://www.hostinger.com/support/how-to-secure-and-harden-openclaw-security/">Hostinger: Secure and Harden OpenClaw</a></td>
+<td>VPS-specific hardening guide from the hosting provider this course recommends</td>
+</tr>
+<tr>
+<td><a href="https://learnopenclaw.com/cheatsheet">Learn OpenClaw: Cheatsheet</a></td>
+<td>Architecture overview, config files, CLI commands, channel setup, security defaults, cron examples, and troubleshooting on one page</td>
+</tr>
+<tr>
+<td><a href="https://amankhan1.substack.com/p/how-to-get-clawdbotmoltbotopenclaw">Aman Khan: How to Get OpenClaw Set Up in an Afternoon</a></td>
+<td>Practical walkthrough from a practitioner, including common pitfalls</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Security</h2>
+<p>Security is a moving target with OpenClaw. The ecosystem has seen real attacks (ClawHavoc, log poisoning, skill supply chain compromise) and the community has responded with serious tooling. This section covers understanding the risks, hardening your setup, and monitoring it over time.</p>
+<h3>Understanding the Risks</h3>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.crowdstrike.com/en-us/blog/what-security-teams-need-to-know-about-openclaw-ai-super-agent/">CrowdStrike: What Security Teams Need to Know About OpenClaw</a></td>
+<td>Enterprise risk assessment. How OpenClaw can function as an AI backdoor if misconfigured, and what to do about it</td>
+</tr>
+<tr>
+<td><a href="https://jfrog.com/blog/giving-openclaw-the-keys-to-your-kingdom-read-this-first/">JFrog: Giving OpenClaw the Keys to Your Kingdom</a></td>
+<td>Skills registry risks, AI-driven analysis of malicious skills, and curation strategies</td>
+</tr>
+<tr>
+<td><a href="https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/">Snyk: ToxicSkills Audit</a></td>
+<td>Scanned 3,984 ClawHub skills. Found 36% with security flaws, 13.4% critical, 76 confirmed malicious</td>
+</tr>
+<tr>
+<td><a href="https://www.lakera.ai/blog/the-agent-skill-ecosystem-when-ai-extensions-become-a-malware-delivery-channel">Lakera: When AI Extensions Become a Malware Delivery Channel</a></td>
+<td>Deep analysis of the ClawHavoc campaign: 44 skills tied to confirmed malware, 12,559+ downloads</td>
+</tr>
+<tr>
+<td><a href="https://repello.ai/blog/malicious-openclaw-skills-exposed-a-full-teardown">Repello AI: Malicious OpenClaw Skills Exposed</a></td>
+<td>Full technical teardown of how malicious skills work, what they target, and how to spot them</td>
+</tr>
+<tr>
+<td><a href="https://www.eye.security/blog/log-poisoning-openclaw-ai-agent-injection-risk">Eye Security: Log Poisoning in OpenClaw</a></td>
+<td>WebSocket header injection that writes attacker-controlled content into agent logs. Patched in 2026.2.13</td>
+</tr>
+<tr>
+<td><a href="https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html">VirusTotal: From Automation to Infection</a></td>
+<td>How OpenClaw skills are being weaponized, from VirusTotal&#39;s perspective</td>
+</tr>
+<tr>
+<td><a href="https://www.trendmicro.com/en_us/research/26/b/openclaw-skills-used-to-distribute-atomic-macos-stealer.html">Trend Micro: Atomic macOS Stealer via OpenClaw Skills</a></td>
+<td>AMOS stealer targeting macOS users through ClawHub. Detailed indicators of compromise</td>
+</tr>
+<tr>
+<td><a href="https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html">The Hacker News: 341 Malicious ClawHub Skills</a></td>
+<td>Koi Security&#39;s full audit of ClawHub. 335 of 341 malicious skills traced to a single coordinated campaign</td>
+</tr>
+</tbody></table>
+<h3>Hardening Guides</h3>
+<table>
+<thead>
+<tr>
+<th>Guide</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://nebius.com/blog/posts/openclaw-security">Nebius: OpenClaw Security Architecture and Hardening</a></td>
+<td>Production-grade hardening. Gateway security, authentication, DM policies, sandbox mode</td>
+</tr>
+<tr>
+<td><a href="https://repello.ai/blog/technical-best-practices-to-securely-deploy-openclaw">Repello AI: Technical Deployment Checklist</a></td>
+<td>Step-by-step security checklist for deploying OpenClaw safely</td>
+</tr>
+<tr>
+<td><a href="https://gist.github.com/jordanlyall/8b9e566c1ee0b74db05e43f119ef4df4">Jordan Lyall: Security Hardening Gist</a></td>
+<td>Machine-level, OpenClaw-level, SOUL.md rules, and ongoing maintenance. The most thorough community hardening guide</td>
+</tr>
+<tr>
+<td><a href="https://github.com/slowmist/openclaw-security-practice-guide">SlowMist: Security Practice Guide</a></td>
+<td>Agent-facing security guide, designed for OpenClaw itself to follow. Includes an agent-assisted deployment workflow</td>
+</tr>
+<tr>
+<td><a href="https://alirezarezvani.medium.com/openclaw-security-my-complete-hardening-guide-for-vps-and-docker-deployments-14d754edfc1e">Reza Rezvani: Complete VPS and Docker Hardening</a></td>
+<td>Practitioner&#39;s hardening guide covering both VPS bare-metal and Docker deployment patterns</td>
+</tr>
+<tr>
+<td><a href="https://www.clawctl.com/blog/openclaw-hardening-guide">Clawctl: The Hardening Guide Nobody Wants to Write</a></td>
+<td>Opinionated, practical hardening guide with specific recommendations</td>
+</tr>
+</tbody></table>
+<h3>Security Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/adversa-ai/secureclaw">SecureClaw (Adversa AI)</a></td>
+<td>OWASP-aligned security plugin and skill for OpenClaw. 55 audit checks, 15 behavioral rules, hardening modules. Maps to OWASP Agentic Security Top 10, MITRE ATLAS</td>
+</tr>
+<tr>
+<td><a href="https://github.com/prompt-security/clawsec">ClawSec (Prompt Security)</a></td>
+<td>Security skill suite: SOUL.md drift detection, live security recommendations, automated audits, skill integrity verification</td>
+</tr>
+<tr>
+<td><a href="https://github.com/adibirzu/openclaw-security-monitor">OpenClaw Security Monitor</a></td>
+<td>Proactive threat detection. 48-point security scan, IOC database, web dashboard. Detects ClawHavoc, AMOS stealer, log poisoning, memory poisoning, and 25+ CVEs</td>
+</tr>
+<tr>
+<td><a href="https://github.com/2pidata/openclaw-security-guard">OpenClaw Security Guard</a></td>
+<td>CLI scanner + live dashboard. Secrets detection, config hardening, prompt injection scanning, MCP server auditing. Zero telemetry</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jgamblin/OpenClawCVEs/">OpenClaw CVE Tracker</a></td>
+<td>Community-maintained tracker of all OpenClaw CVEs with status and patch versions</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Identity, Memory, and Workspace Files</h2>
+<p>These resources go deep on the files that define who your Claw is and how it remembers things. This is the Day 2 material taken further.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://amankhan1.substack.com/p/how-to-make-your-openclaw-agent-useful">Aman Khan: How to Make Your OpenClaw Agent Useful and Secure</a></td>
+<td>Deep dive on SOUL.md, USER.md, and AGENTS.md setup. Practical advice on making the agent genuinely helpful</td>
+</tr>
+<tr>
+<td><a href="https://velvetshark.com/openclaw-memory-masterclass">VelvetShark: Memory Masterclass</a></td>
+<td>Written by a codebase contributor. Covers memory architecture, compaction, flush safety nets, and retrieval rules. The most thorough memory guide available</td>
+</tr>
+<tr>
+<td><a href="https://capodieci.medium.com/ai-agents-003-openclaw-workspace-files-explained-soul-md-agents-md-heartbeat-md-and-more-5bdfbee4827a">Roberto Capodieci: Workspace Files Explained</a></td>
+<td>SOUL.md, AGENTS.md, HEARTBEAT.md, and more. What each file controls, with real examples</td>
+</tr>
+<tr>
+<td><a href="https://alirezarezvani.medium.com/openclaw-moltbot-identity-md-how-i-built-professional-ai-personas-that-actually-work-c964a44001ab">Reza Rezvani: Building Professional AI Personas</a></td>
+<td>How SOUL.md defines who an agent is, while IDENTITY.md defines how the world experiences it</td>
+</tr>
+<tr>
+<td><a href="https://creatoreconomy.so/p/use-openclaw-to-build-a-business-that-runs-itself-nat-eliason">Nat Eliason: 3-Layer Memory System</a></td>
+<td>Knowledge graph (PARA system), daily notes with nightly consolidation, and tacit knowledge. The memory architecture behind the $4,200 car deal story</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ucsandman/OpenClaw-Setup">OpenClaw Setup Repository</a></td>
+<td>A complete example workspace with hierarchical memory, meditation prompts, and tool configurations. Good for seeing how a real power user structures their files</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Video Walkthroughs</h2>
+<p>Organized from beginner-friendly overviews to deep technical dives.</p>
+<h3>Start Here</h3>
+<table>
+<thead>
+<tr>
+<th>Video</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.youtube.com/watch?v=_6D4shWDnEc">Eric Before: ClawdBot Explained in 5 Minutes (No Hype)</a></td>
+<td>The best starting point. What OpenClaw is, what the risks are, and why you should approach it with clear eyes. Under 6 minutes</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=n1sfrc-RjyM">freeCodeCamp: OpenClaw Full Tutorial for Beginners</a></td>
+<td>One-hour structured course. Installation, hooks, TUI, skills, multi-channel setup, Docker sandboxing. The single best video for someone starting from zero</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=ji_Sd4si7jo">Peter Yang: Master OpenClaw in 30 Minutes</a></td>
+<td>Google Workspace integration, memory deep dive, five practical use cases. The &quot;use OpenClaw to set up OpenClaw&quot; approach</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=U8kXfk8enrY">Greg Isenberg: ClawdBot Clearly Explained</a></td>
+<td>The clearest &quot;what is this and how do I actually use it&quot; walkthrough. 136K views</td>
+</tr>
+</tbody></table>
+<h3>Use Cases and Workflows</h3>
+<table>
+<thead>
+<tr>
+<th>Video</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://youtu.be/NZ1mKAWJPr4">VelvetShark: OpenClaw After 50 Days, 20 Real Workflows</a></td>
+<td>The single best power user video. 50+ days of daily use, 20 battle-tested workflows: morning briefs, AI art for e-ink displays, payment failure detection, parallel sub-agent research, email triage, voice transcription, Obsidian semantic search, and home automation. Companion <a href="https://gist.github.com/velvet-shark/b4c6724c391f612c4de4e9a07b0a74b6">GitHub gist</a> with all the actual prompts</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=MUDvwqJWWIw">Matthew Berman: I Played with ClawdBot All Weekend</a></td>
+<td>Weekend deep-dive into setup, customization, integrations, and local models. 293K views. Practical and hands-on</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=Qkqe-uRhQJE">Alex Finn: ClawdBot Is the Most Powerful AI Tool I&#39;ve Ever Used</a></td>
+<td>The video that helped OpenClaw go mainstream. Designing apps autonomously, morning briefs, YouTube scripts, competitor monitoring. 427K views</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=kFwzPJZoZoc">Samin Yasar: 8 Practical ClawdBot Use Cases</a></td>
+<td>The most actionable tutorial. Mac Mini vs VPS, Telegram setup, skills, cron jobs, voice transcription, browser automation, ClickUp integration, and marketing automation</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=YRhGtHfs1Lw">Greg Isenberg: How I Use ClawdBot to Run My Business 24/7</a></td>
+<td>Daily workflow from an entrepreneur. Positioned as a &quot;digital operator who actually ships.&quot; Focused on business applications</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=GLwTSlRn6-k">Matt Wolfe: Why People Are Freaking Out About ClawdBot</a></td>
+<td>Honest assessment: what is real, what is overhyped, security flaws, and what the &quot;autonomous agent&quot; posts actually were. 198K views</td>
+</tr>
+</tbody></table>
+<h3>Interviews and Deep Context</h3>
+<table>
+<thead>
+<tr>
+<th>Video</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.youtube.com/watch?v=YFjfBk8HI5o">Lex Fridman #491: Peter Steinberger (OpenClaw Creator)</a></td>
+<td>Three-hour conversation with the creator. Origin story, the one-hour prototype, trademark disputes, naming journey, crypto hijacking, security philosophy, and the future of AI agents. The definitive backstory</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=8lF7HmQ_RgY">The Pragmatic Engineer: &quot;I Ship Code I Don&#39;t Read&quot;</a></td>
+<td>Gergely Orosz interviews Steinberger. Hot takes on agentic coding, why OpenClaw avoids MCPs, plan mode, and sub-agents. 124K views</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=1iCcUjnAIOM">GitHub: Open Source Friday with ClawdBot</a></td>
+<td>GitHub&#39;s spotlight on the project. Community growth, open-source dynamics, technical architecture</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=ktU0ABfrfM8">Antoine Rousseaux: ClawdBot Review, Is It Actually Worth It?</a></td>
+<td>Balanced review from a daily user. What works, what falls short, API cost surprises. Good counterweight to the hype</td>
+</tr>
+</tbody></table>
+<h3>Local and Free Setup</h3>
+<table>
+<thead>
+<tr>
+<th>Video</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://ollama.com/blog/openclaw-tutorial">Ollama Blog: The Simplest Way to Set Up OpenClaw</a></td>
+<td>OpenClaw + Ollama for fully local operation. Zero API costs, no data leaving your network</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Practitioner Deep Dives</h2>
+<p>Long-form writeups from people who use OpenClaw daily. These go beyond setup and into what it is actually like to live with the tool.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/">MacStories: What the Future of Personal AI Looks Like</a></td>
+<td>In-depth practitioner review with real workflow examples. One of the most balanced takes on what works and what does not</td>
+</tr>
+<tr>
+<td><a href="https://forwardfuture.ai/p/what-people-are-actually-doing-with-openclaw-25-use-cases">Forward Future: 25+ Use Cases</a></td>
+<td>The most comprehensive collection of real-world use cases in one place. Good for generating ideas about what to build next</td>
+</tr>
+<tr>
+<td><a href="https://creatoreconomy.so/p/use-openclaw-to-build-a-business-that-runs-itself-nat-eliason">Nat Eliason: Build a Business That Runs Itself</a></td>
+<td>3-layer memory system, multi-threaded chats, security practices. The story behind Felix, the bot that made $14,718 on its own</td>
+</tr>
+<tr>
+<td><a href="https://www.platformer.news/moltbot-clawdbot-review-ai-agent/">Platformer: Falling In and Out of Love with Moltbot</a></td>
+<td>Honest long-term review. What the honeymoon period looks like and what happens after it fades. Required reading for managing expectations</td>
+</tr>
+<tr>
+<td><a href="https://www.chatprd.ai/how-i-ai/24-hours-with-clawdbot-moltbot-3-workflows-for-ai-agent">ChatPRD: My 24 Hours with ClawdBot</a></td>
+<td>Three complete workflows from a product manager&#39;s perspective. Good for non-technical use cases</td>
+</tr>
+<tr>
+<td><a href="https://capodieci.medium.com/ai-agents-008-beyond-the-demo-making-your-openclaw-agent-work-every-day-7fcf9316e6b6">Roberto Capodieci: Beyond the Demo</a></td>
+<td>Making OpenClaw reliable for daily use. HEARTBEAT.md, daily digests, graceful failure patterns</td>
+</tr>
+<tr>
+<td><a href="https://towardsdatascience.com/use-openclaw-to-make-a-personal-ai-assistant/">Towards Data Science: Use OpenClaw to Make a Personal AI Assistant</a></td>
+<td>Technical walkthrough with data science perspective. Good for readers comfortable with APIs and config files</td>
+</tr>
+<tr>
+<td><a href="https://capodieci.medium.com/ai-agents-006-openclaw-google-workspace-build-an-agent-that-manages-your-gmail-and-drive-2a345a2ce7fe">Roberto Capodieci: OpenClaw + Google Workspace</a></td>
+<td>Gmail and Drive integration. A detailed guide for the Google ecosystem</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Skills and Integrations</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/VoltAgent/awesome-openclaw-skills">Awesome OpenClaw Skills</a></td>
+<td>5,400+ community skills filtered and categorized from the official registry. The best way to browse what is available</td>
+</tr>
+<tr>
+<td><a href="https://www.digitalocean.com/resources/articles/what-are-openclaw-skills">DigitalOcean: What Are OpenClaw Skills?</a></td>
+<td>Developer&#39;s guide to the skill ecosystem. How skills work, how to evaluate them, how to write your own</td>
+</tr>
+<tr>
+<td><a href="https://capodieci.medium.com/ai-agents-012-mcp-is-eating-your-agents-brain-why-openclaw-uses-clis-instead-of-schemas-a1eadc318c6e">Roberto Capodieci: MCP vs CLIs</a></td>
+<td>Why OpenClaw uses CLI-based tools instead of MCP schemas. Useful context for understanding the architecture</td>
+</tr>
+<tr>
+<td><a href="https://openrouter.ai/docs/guides/openclaw-integration">OpenRouter: Integration with OpenClaw</a></td>
+<td>Using OpenRouter to access multiple AI providers through a single endpoint</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Cost Optimization</h2>
+<p>Running OpenClaw 24/7 adds up. These resources cover how to track spending and keep it reasonable.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://lumadock.com/tutorials/openclaw-cost-optimization-budgeting">LumaDock: Reduce Your OpenClaw API Costs by 90%</a></td>
+<td>Comprehensive guide: model selection, prompt caching, context window management, budget monitoring via cron skills</td>
+</tr>
+<tr>
+<td><a href="https://tomaszs2.medium.com/i-traced-every-token-in-openclaw-and-cut-my-bill-by-90-6c33e4b255f6">Tom Smykowski: I Traced Every Token and Cut My Bill by 90%</a></td>
+<td>Hands-on token tracing. Identifies context accumulation (40-50% of consumption) as the largest cost driver</td>
+</tr>
+<tr>
+<td><a href="https://blog.laozhang.ai/en/posts/openclaw-save-money-practical-guide">LaoZhang AI: From $600/month to $20/month</a></td>
+<td>Three-tier optimization framework achieving up to 97% cost reduction. The most dramatic before/after documented</td>
+</tr>
+<tr>
+<td><a href="https://perelweb.be/blog/openclaw-token-management-smart-model-manager/">PerelWeb: Run OpenClaw 24/7 Without Breaking the Bank</a></td>
+<td>Smart Model Manager for automatic model routing: expensive models for complex tasks, cheap models for routine checks</td>
+</tr>
+<tr>
+<td><a href="https://nerdy.dev/openclaw-token-dashboard">Nerdy.dev: Token Dashboard</a></td>
+<td>Lightweight dashboard for tracking token usage and API spend in real time</td>
+</tr>
+</tbody></table>
+<p>The short version: use Claude Sonnet (or equivalent) for 90% of tasks, reserve expensive models for complex reasoning, and set up a cron job to alert you if daily spend exceeds a threshold. Most people who complain about OpenClaw costs are running Opus for casual conversations.</p>
+<hr>
+<h2>Community Tools</h2>
+<p>These are community-built, open source, and maintained independently from the OpenClaw project.</p>
+<h3>Dashboards and Monitoring</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/tugcantopaloglu/openclaw-dashboard">OpenClaw Dashboard</a></td>
+<td>Real-time monitoring with TOTP MFA, cost tracking, live agent feed, and memory browser. Zero npm dependencies</td>
+</tr>
+<tr>
+<td><a href="https://www.producthunt.com/products/clawmetry">ClawMetry</a></td>
+<td>Open-source observability. Token costs, sub-agent activity, cron jobs, memory changes, session history. One-command install</td>
+</tr>
+<tr>
+<td><a href="https://openclaw.watch/">OpenClaw Watch</a></td>
+<td>Changelog tracking and cost alerts. Monitors OpenClaw releases and notifies you of updates</td>
+</tr>
+<tr>
+<td><a href="https://nerdy.dev/openclaw-token-dashboard">Token Dashboard by Nerdy.dev</a></td>
+<td>Lightweight token usage and cost dashboard for tracking API spend</td>
+</tr>
+</tbody></table>
+<h3>Backup and Migration</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/LeoYeAI/openclaw-backup">OpenClaw Backup</a></td>
+<td>One-click backup and restore. Workspace, credentials, skills, agent history, all in one archive. Restore to any new instance with zero re-pairing</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw/discussions/5809">GitClaw</a></td>
+<td>Auto-commits and pushes your workspace to GitHub on a schedule. A crash or disk loss does not wipe the agent</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lancelot3777-svg/openclaw-backup-guide">OpenClaw Backup Guide</a></td>
+<td>4-tier backup strategy tested across Linux, macOS, and Windows</td>
+</tr>
+<tr>
+<td><a href="https://github.com/seanford/openclaw-helper-scripts">OpenClaw Helper Scripts</a></td>
+<td>Migration tools: rename users, update paths, standardize layouts</td>
+</tr>
+</tbody></table>
+<h3>Hosting</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/bfzli/clawhost">ClawHost</a></td>
+<td>Self-hostable cloud platform for deploying OpenClaw. Handles server provisioning, DNS, SSL, firewall, and installation automatically</td>
+</tr>
+<tr>
+<td><a href="https://www.hostinger.com/vps/docker/openclaw">Hostinger One-Click Template</a></td>
+<td>The VPS template this course uses. Deploy OpenClaw with a single click</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Community and Events</h2>
+<h3>Where to Get Help</h3>
+<table>
+<thead>
+<tr>
+<th>Community</th>
+<th>What to expect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://discord.com/invite/clawd">Discord: Friends of the Crustacean</a></td>
+<td>The main community server. 150K+ members. Channels for help, users-helping-users, models, and voice chat. The fastest place to get answers</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw/discussions">GitHub Discussions</a></td>
+<td>Feature requests, deep technical questions, and community project showcases</td>
+</tr>
+<tr>
+<td><a href="https://www.reddit.com/r/clawdbot/">Reddit: r/clawdbot</a></td>
+<td>Broad discussions, use case ideas, and troubleshooting. Good for browsing, less reliable for following a curriculum</td>
+</tr>
+</tbody></table>
+<h3>Events</h3>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.claw-con.com/">ClawCon</a></td>
+<td>Community meetups in SF, NYC, Austin, and more. Demos, Q&amp;A, and unstructured networking. Free to attend, no gatekeeping</td>
+</tr>
+<tr>
+<td><a href="https://luma.com/claw">OpenClaw Meetups</a></td>
+<td>Luma-based event calendar for all OpenClaw community events</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>What People Are Actually Doing with OpenClaw</h2>
+<p>These are the workflows people report getting value from, organized by how long they take to set up.</p>
+<h3>Quick Wins (first week after the course)</h3>
+<ul>
+<li><strong>Morning briefings.</strong> Calendar, email, news, and open tasks delivered to Telegram before you start work. Practitioners report saving 30+ minutes per day.</li>
+<li><strong>Email triage and summarization.</strong> Categorize incoming email by urgency, summarize long threads, flag what needs a reply.</li>
+<li><strong>Calendar summaries.</strong> A digest of the day ahead with context pulled from email and notes, so you walk into meetings prepared.</li>
+<li><strong>Quick research.</strong> Ask a question, get a synthesized answer with sources and reasoning.</li>
+</ul>
+<h3>Mid-Tier (weeks 2-4)</h3>
+<ul>
+<li><strong>Multi-account email management.</strong> Separate personal and work inboxes, both triaged by the same Claw with different rules.</li>
+<li><strong>Inbox clearing via messaging.</strong> Send a message to your Claw on Telegram or WhatsApp and it processes your inbox on command.</li>
+<li><strong>Knowledge base integration.</strong> Connect your Obsidian vault or notes folder so your Claw can reference your own writing and research.</li>
+<li><strong>Follow-up drafting.</strong> Tell your Claw to follow up with someone about a topic, and it composes the email for your approval.</li>
+<li><strong>Content summarization.</strong> Forward emails, drop URLs, or share YouTube links, and your Claw summarizes them for you.</li>
+</ul>
+<h3>Advanced (month 2+)</h3>
+<ul>
+<li><strong>CRM pipeline.</strong> Gmail + Google Calendar + meeting transcripts feeding into a local database. Natural language queries against your contact history.</li>
+<li><strong>Meeting pipeline.</strong> Transcript ingestion, CRM update, action item extraction, user approval, task creation. A full loop.</li>
+<li><strong>Multi-agent teams.</strong> Specialist agents (financial analyst, technical reviewer, writer) that run in parallel and synthesize recommendations.</li>
+<li><strong>Security council.</strong> Nightly code review from multiple security perspectives. Numbered findings with one-command fixes.</li>
+<li><strong>Knowledge base builder.</strong> Drop any URL, article, or PDF in Telegram, and your Claw vectorizes it locally for semantic search later.</li>
+<li><strong>Cost tracking.</strong> All LLM API calls logged with token counts so you know exactly what you are spending.</li>
+<li><strong>Self-updating agent.</strong> A nightly heartbeat task that checks for new OpenClaw versions, shows the changelog, and updates on your approval.</li>
+<li><strong>Automated backups.</strong> Encrypted database snapshots to cloud storage with version history. Hourly Git commits to a private repository. Alerts on failure.</li>
+</ul>
+<hr>
+<h2>One Piece of Advice</h2>
+<p>The most common mistake after finishing a course like this is trying to add everything at once. Pick one thing from this list that would genuinely help your daily workflow. Set it up. Use it for a week. Tune it. Then pick the next one.</p>
+<p>The people who get the most out of OpenClaw are the ones who interact with it every day and iterate slowly. Depth beats breadth.</p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/README.md">← Back to Course Overview</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

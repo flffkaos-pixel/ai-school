@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Week 7: build llm app — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>[Week 7] Building Your Own LLM Application</h1>
+<h2>ETMI5: Explain to Me in 5</h2>
+<p>In the previous parts of the course we covered techniques such as prompting, RAG, and fine-tuning, this section will adopt a practical, hands-on approach to showcase how LLMs can be employed in application development. We&#39;ll start with basic examples and progressively incorporate more advanced functionalities like chaining, memory management, and tool integration. Additionally, we&#39;ll explore implementations of RAG and fine-tuning. Finally, by integrating these concepts, we&#39;ll learn how to construct LLM agents effectively.</p>
+<h2>Introduction</h2>
+<p>As LLMs have become increasingly prevalent, there are now multiple ways to utilize them. We&#39;ll start with basic examples and gradually introduce more advanced features, allowing you to build upon your understanding step by step.</p>
+<p>This guide is designed to cover the basics, aiming to familiarize you with the foundational elements through simple applications. These examples serve as starting points and are not intended for production environments. For insights into deploying applications at scale, including discussions on LLM tools, evaluation, and more, refer to our content from previous weeks. As we progress through each section, we&#39;ll gradually move from basic to more advanced components. </p>
+<p>In every section, we&#39;ll not only describe the component but also provide resources where you can find code samples to help you develop your own implementations. There are several frameworks available for developing your application, with some of the most well-known being LangChain, LlamaIndex, Hugging Face, and Amazon Bedrock, among others. Our goal is to supply resources from a broad array of these frameworks, enabling you to select the one that best fits the needs of your specific application.</p>
+<p>As you explore each section, select a few resources to help build the app with the component and proceed further.</p>
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/llm_app_steps.png" alt="llm_app_steps.png"></p>
+<h2>1. Simple LLM App (Prompt + LLM)</h2>
+<p><strong>Prompt:</strong> A prompt, in this context,  is essentially a carefully constructed request or instruction that guides the model in generating a response. It&#39;s the initial input given to the LLM that outlines the task you want it to perform or the question you need answered. In the second week&#39;s content, we delved extensively into prompt engineering, please head back to older content to learn more.</p>
+<p>The foundational aspect of LLM application development is the interaction between a user-defined prompt and the LLM itself. This process involves crafting a prompt that clearly communicates the user&#39;s request or question, which is then processed by the LLM to generate a response.  For example:</p>
+<pre><code class="language-python"># Define the prompt template with placeholders
+prompt_template = &quot;Provide expert advice on the following topic: {topic}.&quot;
+# Fill in the template with the actual topic
+prompt = prompt_template.replace(&quot;{topic}&quot;, topic)
+# API call to an LLM
+llm_response = call_llm_api(topic)
+	
+</code></pre>
+<p>Observe that the prompt functions as a template rather than a fixed string, improving its reusability and flexibility for modifications at run-time. The complexity of the prompt can vary; it can be crafted with simplicity or detailed intricacy depending on the requirement.</p>
+<h3>Resources/Code</h3>
+<ol>
+<li>[<strong>Documentation/Code</strong>] LangChain cookbook for simple LLM Application (<a href="https://python.langchain.com/docs/expression_language/cookbook/prompt_llm_parser">link</a>)</li>
+<li>[<strong>Video</strong>] Hugging Face + LangChain in 5 mins by AI Jason (<a href="https://www.youtube.com/watch?v=_j7JEDWuqLE">link</a>)</li>
+<li>[<strong>Documentation/Code</strong>] Using LLMs with LlamaIndex (<a href="https://docs.llamaindex.ai/en/stable/understanding/using_llms/using_llms.html">link</a>)</li>
+<li>[<strong>Blog</strong>] Getting Started with LangChain  by Leonie Monigatti (<a href="https://towardsdatascience.com/getting-started-with-langchain-a-beginners-guide-to-building-llm-powered-applications-95fc8898732c">link</a>)</li>
+<li>[<strong>Notebook</strong>] Running an LLM on your own laptop by LearnDataWithMark (<a href="https://github.com/mneedham/LearnDataWithMark/blob/main/llm-own-laptop/notebooks/LLMOwnLaptop.ipynb">link</a>)</li>
+</ol>
+<hr>
+<h2>2. Chaining Prompts (Prompt Chains + LLM)</h2>
+<p>Although utilizing prompt templates and invoking LLMs is effective, sometimes, you might need to ask the LLM  several questions, one after the other, using the answers you got before to ask the next question. Imagine this: first, you ask the LLM to figure out what topic your question is about. Then, using that information, you ask it to give you an expert answer on that topic. This step-by-step process, where one answer leads to the next question, is called &quot;chaining.&quot; Prompt Chains are essentially this sequence of chains used for executing a series of LLM actions.</p>
+<p>LangChain has emerged as a widely-used library for creating LLM applications, enabling the chaining of multiple questions and answers with the LLM to produce a singular final response. This approach is particularly beneficial for larger projects requiring multiple steps to achieve the desired outcome. The example discussed illustrates a basic method of chaining. LangChain&#39;s <a href="https://js.langchain.com/docs/modules/chains/">documentation</a> offers guidance on more complex chaining techniques.</p>
+<pre><code class="language-python">prompt1 =&quot;what topic is the following question about-{question}?&quot;
+prompt2 = &quot;Provide expert advice on the following topic: {topic}.&quot;
+</code></pre>
+<h3>Resources/Code</h3>
+<ol>
+<li>**[Article] ****Prompt Chaining Article on Prompt Engineering Guide(<a href="https://www.promptingguide.ai/techniques/prompt_chaining">link</a>)</li>
+<li>[<strong>Video</strong>] LLM Chains using GPT 3.5 and other LLMs — LangChain #3 James Briggs (<a href="https://www.youtube.com/watch?v=S8j9Tk0lZHU">link</a>)</li>
+<li>[<strong>Video</strong>] LangChain Basics Tutorial #2 Tools and Chains by Sam Witteveen (<a href="https://www.youtube.com/watch?v=hI2BY7yl_Ac">link</a>)</li>
+<li>[<strong>Code</strong>] LangChain tools and Chains Colab notebook by Sam Witteveen (<a href="https://colab.research.google.com/drive/1zTTPYk51WvPV8GqFRO18kDe60clKW8VV?usp=sharing">link</a>)</li>
+</ol>
+<hr>
+<h2><strong>3. Adding External Knowledge Base: Retrieval-Augmented Generation (RAG)</strong></h2>
+<p>Next, we&#39;ll explore a different type of application. If you&#39;ve followed our previous discussions, you&#39;re aware that although LLMs excel at providing information, their knowledge is limited to what was available up until their last training session. To generate meaningful outputs beyond this point, they require access to an external knowledge base. This is the role that Retrieval-Augmented Generation (RAG) plays.</p>
+<p>Retrieval-Augmented Generation, or RAG, is like giving your LLM a personal library to check before answering. Before the LLM comes up with something new, it looks through a bunch of information (like articles, books, or the web) to find stuff related to your question. Then, it combines what it finds with its own knowledge to give you a better answer. This is super handy when you need your app to pull in the latest information or deep dive into specific topics.</p>
+<p>To implement RAG (Retrieval-Augmented Generation) beyond the LLM and prompts, you&#39;ll need the following technical elements:</p>
+<p><strong>A knowledge base, specifically a vector database</strong></p>
+<p>A comprehensive collection of documents, articles, or data entries that the system can draw upon to find information. This database isn&#39;t just a simple collection of texts; it&#39;s often transformed into a vector database. Here, each item in the knowledge base is converted into a high-dimensional vector representing the semantic meaning of the text. This transformation is done using models similar to the LLM but focused on encoding texts into vectors.</p>
+<p>The purpose of having a vectorized knowledge base is to enable efficient similarity searches. When the system is trying to find information relevant to a user&#39;s query, it converts the query into a vector using the same encoding process. Then, it searches the vector database for vectors (i.e., pieces of information) that are closest to the query vector, often using measures like cosine similarity. This process quickly identifies the most relevant pieces of information within a vast database, something that would be impractical with traditional text search methods.</p>
+<p><strong>Retrieval Component</strong></p>
+<p>The retrieval component is the engine that performs the actual search of the knowledge base to find information relevant to the user&#39;s query. It&#39;s responsible for several key tasks:</p>
+<ol>
+<li><strong>Query Encoding:</strong> It converts the user&#39;s query into a vector using the same model or method used to vectorize the knowledge base. This ensures that the query and the database entries are in the same vector space, making similarity comparison possible.</li>
+<li><strong>Similarity Search:</strong> Once the query is vectorized, the retrieval component searches the vector database for the closest vectors. This search can be based on various algorithms designed to efficiently handle high-dimensional data, ensuring that the process is both fast and accurate.</li>
+<li><strong>Information Retrieval:</strong> After identifying the closest vectors, the retrieval component fetches the corresponding entries from the knowledge base. These entries are the pieces of information deemed most relevant to the user&#39;s query.</li>
+<li><strong>Aggregation (Optional):</strong> In some implementations, the retrieval component may also aggregate or summarize the information from multiple sources to provide a consolidated response. This step is more common in advanced RAG systems that aim to synthesize information rather than citing sources directly.</li>
+</ol>
+<p>In the RAG framework, the retrieval component&#39;s output (i.e., the retrieved information) is then fed into the LLM along with the original query. This enables the LLM to generate responses that are not only contextually relevant but also enriched with the specificity and accuracy of the retrieved information. The result is a hybrid model that leverages the best of both worlds: the generative flexibility of LLMs and the factual precision of dedicated knowledge bases.</p>
+<p>By combining a vectorized knowledge base with an efficient retrieval mechanism, RAG systems can provide answers that are both highly relevant and deeply informed by a wide array of sources. This approach is particularly useful in applications requiring up-to-date information, domain-specific knowledge, or detailed explanations that go beyond the pre-existing knowledge of an LLM.</p>
+<p>Frameworks like LangChain already have good abstractions in place to build RAG frameworks</p>
+<p>A simple example from LangChain is shown <a href="https://python.langchain.com/docs/expression_language/cookbook/retrieval">here</a></p>
+<h3>Resources/Code</h3>
+<ol>
+<li>[<strong>Article</strong>] All You Need to Know to Build Your First LLM App by Dominik Polzer (<a href="https://towardsdatascience.com/all-you-need-to-know-to-build-your-first-llm-app-eb982c78ffac">link</a>)</li>
+<li>[<strong>Video</strong>] RAG from Scratch series by LangChain (<a href="https://www.youtube.com/watch?v=wd7TZ4w1mSw&list=PLfaIDFEXuae2LXbO1_PKyVJiQ23ZztA0x">link</a>)</li>
+<li>[<strong>Video</strong>] A deep dive into Retrieval-Augmented Generation with LlamaIndex (<a href="https://www.youtube.com/watch?v=Y0FL7BcSigI&t=3s">link</a>)</li>
+<li>[<strong>Notebook</strong>] RAG using LangChain with Amazon Bedrock Titan text, and embedding, using OpenSearch vector engine notebook (<a href="https://github.com/aws-samples/rag-using-langchain-amazon-bedrock-and-opensearch">link</a>)</li>
+<li>[<strong>Video</strong>] LangChain - Advanced RAG Techniques for better Retrieval Performance by Coding Crashcourses (<a href="https://www.youtube.com/watch?v=KQjZ68mToWo">link</a>)</li>
+<li>[<strong>Video</strong>] Chatbots with RAG: LangChain Full Walkthrough by James Briggs (<a href="https://www.youtube.com/watch?v=LhnCsygAvzY&t=11s">link</a>)</li>
+</ol>
+<hr>
+<h2><strong>4. Adding</strong> Memory to LLMs</h2>
+<p>We&#39;ve explored chaining and incorporating knowledge. Now, consider the scenario where we need to remember past interactions in lengthy conversations with the LLM, where previous dialogues play a role. </p>
+<p>This is where the concept of Memory comes into play as a vital component. Memory mechanisms, such as those available on platforms like LangChain, enable the storage of conversation history. For example, LangChain&#39;s ConversationBufferMemory feature allows for the preservation of messages, which can then be retrieved and used as context in subsequent interactions. You can discover more about these memory abstractions and their applications on LangChain&#39;s <a href="https://python.langchain.com/docs/modules/memory/types/">documentation</a>.</p>
+<h3>Resources/Code</h3>
+<ol>
+<li>[<strong>Article</strong>] Conversational Memory for LLMs with LangChain  by Pinecone(<a href="https://www.pinecone.io/learn/series/langchain/langchain-conversational-memory/">link</a>)</li>
+<li>[<strong>Blog</strong>] How to add memory to a chat LLM model by Nikolay Penkov (<a href="https://medium.com/@penkow/how-to-add-memory-to-a-chat-llm-model-34e024b63e0c">link</a>)</li>
+<li>[<strong>Documentation</strong>] Memory in LlamaIndex documentation (<a href="https://docs.llamaindex.ai/en/latest/api_reference/memory.html">link</a>)</li>
+<li>[<strong>Video</strong>] LangChain: Giving Memory to LLMs by Prompt Engineering (<a href="https://www.youtube.com/watch?v=dxO6pzlgJiY">link</a>)</li>
+<li>[<strong>Video</strong>] Building a LangChain Custom Medical Agent with Memory by   (<a href="https://www.youtube.com/watch?v=6UFtRwWnHws">link</a>)</li>
+</ol>
+<hr>
+<h2><strong>5. Using External Tools with LLMs</strong></h2>
+<p>Consider a scenario within an LLM application, such as a travel planner, where the availability of destinations or attractions depends on seasonal openings. Imagine we have access to an API that provides this specific information. In this case, the application must query the API to determine if a location is open. If the location is closed, the LLM should adjust its recommendations accordingly, suggesting alternative options. This illustrates a crucial instance where integrating external tools can significantly enhance the functionality of LLMs, enabling them to provide more accurate and contextually relevant responses. Such integrations are not limited to travel planning; there are numerous other situations where external data sources, APIs, and tools can enrich LLM applications. Examples include weather forecasts for event planning, stock market data for financial advice, or real-time news for content generation, each adding a layer of dynamism and specificity to the LLM&#39;s capabilities.</p>
+<p>In frameworks like LangChain, integrating these external tools is streamlined through its chaining framework, which allows for the seamless incorporation of new elements such as APIs, data sources, and other tools. </p>
+<h3>Resources/Code</h3>
+<ol>
+<li>[<strong>Documentation/Code</strong>] List of LLM tools by LangChain (<a href="https://python.langchain.com/docs/integrations/tools">link</a>)</li>
+<li>[<strong>Documentation/Code</strong>]Tools in LlamaIndex (<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/root.html">link</a>)</li>
+<li>[<strong>Video</strong>] Building Custom Tools and Agents with LangChain by Sam Witteveen (<a href="https://www.youtube.com/watch?v=biS8G8x8DdA">link</a>)</li>
+</ol>
+<hr>
+<h2><strong>6. LLMs Making Decisions: Agents</strong></h2>
+<p>In the preceding sections, we explored complex LLM components like tools and memory. Now, let&#39;s say we want our LLM to effectively utilize these elements to make decisions on our behalf.</p>
+<p>LLM agents do exactly this, they are systems designed to perform complex tasks by combining LLMs with other modules such as planning, memory, and tool usage. These agents leverage the capabilities of LLMs to understand and generate human-like language, enabling them to interact with users and process information effectively.</p>
+<p>For instance, consider a scenario where we want our LLM agent to assist in financial planning. The  task is to analyze an individual&#39;s spending habits over the past year and provide recommendations for budget optimization.</p>
+<p>To accomplish this task, the agent  first utilizes its memory module to access stored data regarding the individual&#39;s expenditures, income sources, and financial goals. It then employs a planning mechanism to break down the task into several steps:</p>
+<ol>
+<li><strong>Data Analysis</strong>: The agent uses external tools to process the financial data, categorizing expenses, identifying trends, and calculating key metrics such as total spending, savings rate, and expenditure distribution.</li>
+<li><strong>Budget Evaluation</strong>: Based on the analyzed data, the LLM agent evaluates the current budget&#39;s effectiveness in meeting the individual&#39;s financial objectives. It considers factors such as discretionary spending, essential expenses, and potential areas for cost reduction.</li>
+<li><strong>Recommendation Generation</strong>: Leveraging its understanding of financial principles and optimization strategies, the agent formulates personalized recommendations to improve the individual&#39;s financial health. These recommendations may include reallocating funds towards savings, reducing non-essential expenses, or exploring investment opportunities.</li>
+<li><strong>Communication</strong>: Finally, the LLM agent communicates the recommendations to the user in a clear and understandable manner, using natural language generation capabilities to explain the rationale behind each suggestion and potential benefits.</li>
+</ol>
+<p>Throughout this process, the LLM agent seamlessly integrates its decision-making abilities with external tools, memory storage, and planning mechanisms to deliver actionable insights tailored to the user&#39;s financial situation.</p>
+<p>Here&#39;s how LLM agents combine various components to make decisions:</p>
+<ol>
+<li><strong>Language Model (LLM)</strong>: The LLM serves as the central controller or &quot;brain&quot; of the agent. It interprets user queries, generates responses, and orchestrates the overall flow of operations required to complete tasks.</li>
+<li><strong>Key Modules</strong>:<ul>
+<li><strong>Planning</strong>: This module helps the agent break down complex tasks into manageable subparts. It formulates a plan of action to achieve the desired goal efficiently.</li>
+<li><strong>Memory</strong>: The memory module allows the agent to store and retrieve information relevant to the task at hand. It helps maintain the state of operations, track progress, and make informed decisions based on past observations.</li>
+<li><strong>Tool Usage</strong>: The agent may utilize external tools or APIs to gather data, perform computations, or generate outputs. Integration with these tools enhances the agent&#39;s capabilities to address a wide range of tasks.</li>
+</ul>
+</li>
+</ol>
+<p>Existing frameworks offer built-in modules and abstractions for constructing agents. Please refer to the resources provided below for implementing your own agent.</p>
+<h3>Resources/Code</h3>
+<ol>
+<li>[<strong>Documentation/Code</strong>] Agents in LangChain (<a href="https://python.langchain.com/docs/modules/agents/">link</a>)</li>
+<li>[<strong>Documentation/Code</strong>] Agents in LlamaIndex (<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/root.html">link</a>)</li>
+<li>[<strong>Video</strong>] LangChain Agents - Joining Tools and Chains with Decisions by Sam Witteveen (<a href="https://www.youtube.com/watch?v=ziu87EXZVUE&t=59s">link</a>)</li>
+<li>[<strong>Article</strong>] Building Your First LLM Agent Application by Nvidia (<a href="https://developer.nvidia.com/blog/building-your-first-llm-agent-application">link</a>)</li>
+<li>[<strong>Video</strong>] OpenAI Functions + LangChain : Building a Multi Tool Agent by Sam Witteveen (<a href="https://www.youtube.com/watch?v=4KXK6c6TVXQ">link</a>)</li>
+</ol>
+<hr>
+<h2><strong>7. Fine-Tuning</strong></h2>
+<p>In earlier sections, we explored using pre-trained LLMs with additional components. However, there are scenarios where the LLM must be updated with relevant information before usage, particularly when LLMs lack specific knowledge on a subject. In such instances, it&#39;s necessary to first fine-tune the LLM before applying the strategies outlined in sections 1-5 to build an application around it. </p>
+<p>Various platforms offer fine-tuning capabilities, but it&#39;s important to note that fine-tuning demands more resources than simply eliciting responses from an LLM, as it involves training the model to understand and generate information on the desired topics.</p>
+<h3>Resources/Code</h3>
+<ol>
+<li>[<strong>Article</strong>] How to Fine-Tune LLMs in 2024 with Hugging Face by philschmid (<a href="https://www.philschmid.de/fine-tune-llms-in-2024-with-trl">link</a>)</li>
+<li>[<strong>Video</strong>] Fine-tuning Large Language Models (LLMs) | w/ Example Code by Shaw Talebi (<a href="https://www.youtube.com/watch?v=eC6Hd1hFvos">link</a>)</li>
+<li>[<strong>Video</strong>] Fine-tuning LLMs with PEFT and LoRA by  Sam Witteveen (<a href="https://www.youtube.com/watch?v=Us5ZFp16PaU&t=261s">link</a>)</li>
+<li>[<strong>Video</strong>] LLM Fine Tuning Crash Course: 1 Hour End-to-End Guide by AI Anytime (<a href="https://www.youtube.com/watch?v=mrKuDK9dGlg">link</a>)</li>
+<li>[<strong>Article</strong>] How to Fine-Tune an LLM series by Weights and Biases (<a href="https://wandb.ai/capecape/alpaca_ft/reports/How-to-Fine-Tune-an-LLM-Part-1-Preparing-a-Dataset-for-Instruction-Tuning--Vmlldzo1NTcxNzE2">link</a>)</li>
+</ol>
+<hr>
+<h2>Read/Watch These Resources (Optional)</h2>
+<ol>
+<li>List of LLM notebooks by aishwaryanr (<a href="https://github.com/aishwaryanr/awesome-generative-ai-guide?tab=readme-ov-file#notebook-code-notebooks">link</a>)</li>
+<li>LangChain How to and Guides by Sam Witteveen (<a href="https://www.youtube.com/watch?v=J_0qvRt4LNk&list=PL8motc6AQftk1Bs42EW45kwYbyJ4jOdiZ">link</a>)</li>
+<li>LangChain Crash Course For Beginners | LangChain Tutorial by codebasics (<a href="https://www.youtube.com/watch?v=nAmC7SoVLd8">link</a>)</li>
+<li>Build with LangChain Series (<a href="https://www.youtube.com/watch?v=mmBo8nlu2j0&list=PLfaIDFEXuae06tclDATrMYY0idsTdLg9v">link</a>)</li>
+<li>LLM hands on course by Maxime Labonne (<a href="https://github.com/mlabonne/llm-course">link</a>)</li>
+</ol>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

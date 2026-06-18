@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Week 1: part1 foundations — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>[Week 1, Part 1] Applied LLM Foundations and Real World Use Cases</h1>
+<p>[Jan 15 2024] You can register <a href="https://forms.gle/353sQMRvS951jDYu7">here</a> to receive course content and other resources </p>
+<h2>ETMI5: Explain to Me in 5</h2>
+<p>In this part of the course, we delve into the intricacies of Large Language Models (LLMs). We start off by exploring the historical context and fundamental concepts of artificial intelligence (AI), machine learning (ML), neural networks (NNs), and generative AI (GenAI). We then examine the core attributes of LLMs, focusing on their scale, extensive training on diverse datasets, and the role of model parameters. Then we go over the types of challenges associated with using LLMs.</p>
+<p>In the next section, we explore practical applications of LLMs across various domains, emphasizing their versatility in areas like content generation, language translation, text summarization, question answering etc. The section concludes with an analysis of the challenges encountered in deploying LLMs, covering essential aspects such as scalability, latency, monitoring etc.</p>
+<p>In summary, this part of the course provides a practical and informative exploration of Large Language Models, offering insights into their evolution, functionality, applications, challenges, and real-world impact.</p>
+<h2>History and Background</h2>
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/history.png" alt="history"></p>
+<pre><code>               Image Source: [https://medium.com/womenintechnology/ai-c3412c5aa0ac](https://medium.com/womenintechnology/ai-c3412c5aa0ac)
+</code></pre>
+<p>The terms mentioned in the image above have likely come up in conversations about ChatGPT. The visual representation offers a broad overview of how they fit into a hierarchy. AI is a comprehensive domain, where LLMs constitute a specific subdomain, and ChatGPT exemplifies an LLM in this context.</p>
+<p>In summary, <strong>Artificial Intelligence (AI)</strong> is a branch of computer science that involves creating machines with human-like thinking and behavior. <strong>Machine Learning(ML)</strong>, a subfield of AI, allows computers to learn patterns from data and make predictions without explicit programming. <strong>Neural Networks (NNs)</strong>, a subset of ML, mimic the human brain&#39;s structure and are crucial in deep learning algorithms. Deep Learning (DL), a subset of NN, is effective for complex problem-solving, as seen in image recognition and language translation technologies. <strong>Generative AI (GenAI)</strong>, a subset of DL, can create diverse content based on learned patterns. <strong>Large Language Models (LLMs)</strong>, a form of GenAI, specialize in generating human-like text by learning from extensive textual data. </p>
+<p>Generative AI and Large Language Models (LLMs) have revolutionized the field of artificial intelligence, allowing machines to create diverse content such as text, images, music, audio, and videos. Unlike discriminative models that classify, generative AI models generate new content by learning patterns and relationships from human-created datasets.</p>
+<p>At the core of generative AI are foundation models which essentially refer to large AI models capable of multi-tasking, performing tasks like summarization, Q&amp;A, and classification out-of-the-box. These models, like the popular one that everyone’s heard of-ChatGPT, can adapt to specific use cases with minimal training and generate content with minimal example data.</p>
+<p>The training of generative AI often involves supervised learning, where the model is provided with human-created content and corresponding labels. By learning from this data, the model becomes proficient in generating content similar to the training set.</p>
+<p>Generative AI is not a new concept. One notable example of early generative AI is the Markov chain, a statistical model introduced by Russian mathematician Andrey Markov in 1906. Markov models were initially used for tasks like next-word prediction, but their simplicity limited their ability to generate plausible text.</p>
+<p>The landscape has significantly changed over the years with the advent of more powerful architectures and larger datasets. In 2014, generative adversarial networks (GANs) emerged, using two models working together—one generating output and the other discriminating real data from the generated output. This approach, exemplified by models like StyleGAN, significantly improved the realism of generated content.</p>
+<p>A year later, diffusion models were introduced, refining their output iteratively to generate new data samples resembling the training dataset. This innovation, as seen in Stable Diffusion, contributed to the creation of realistic-looking images.</p>
+<p>In 2017, Google introduced the transformer architecture, a breakthrough in natural language processing. Transformers encode each word as a token, generating an attention map that captures relationships between tokens. This attention to context enhances the model&#39;s ability to generate coherent text, exemplified by large language models like ChatGPT.</p>
+<p>The generative AI boom owes its momentum not only to larger datasets but also to diverse research advances. These approaches, including GANs, diffusion models, and transformers, showcase the breadth of methods contributing to the exciting field of generative AI.</p>
+<h2>Enter LLMs</h2>
+<p>The term &quot;Large&quot; in Large Language Models (LLMs) refers to the sheer scale of these models—both in terms of the size of their architecture and the vast amount of data they are trained on. The size matters because it allows them to capture more complex patterns and relationships within language. Popular LLMs like GPT-3, Gemini, Claude etc. have thousands of billion model parameters. In the context of machine learning, model parameters are like the knobs and switches that the algorithm tunes during training to make accurate predictions or generate meaningful outputs.</p>
+<p>Now, let&#39;s break down what &quot;Language Models&quot; mean in this context. Language models are essentially algorithms or systems that are trained to understand and generate human-like text. They serve as a representation of how language works, learning from diverse datasets to predict what words or sequences of words are likely to come next in a given context.</p>
+<p>The &quot;Large&quot; aspect amplifies their capabilities. Traditional language models, especially those from the past, were smaller in scale and couldn&#39;t capture the intricacies of language as effectively. With advancements in technology and the availability of massive computing power, we&#39;ve been able to build much larger models. These Large Language Models, like ChatGPT, have billions of parameters, which are essentially the variables the model uses to make sense of language.</p>
+<p>Take a look at the infographic from “Information is beautiful” below to see how many parameters recent LLMs have. You can view the live visualization <a href="https://informationisbeautiful.net/visualizations/the-rise-of-generative-ai-large-language-models-llms-like-chatgpt/">here</a></p>
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/llm_sizes.png" alt="llm_sizes.png"></p>
+<p>Image source: <a href="https://informationisbeautiful.net/visualizations/the-rise-of-generative-ai-large-language-models-llms-like-chatgpt/">https://informationisbeautiful.net/visualizations/the-rise-of-generative-ai-large-language-models-llms-like-chatgpt/</a> </p>
+<h2>Training LLMs</h2>
+<p>Training LLMs is a complex process that involves instructing the model to comprehend and produce human-like text. Here&#39;s a simplified breakdown of how LLM training works:</p>
+<ol>
+<li><strong>Providing Input Text:</strong><ul>
+<li>LLMs are initially exposed to extensive text data, encompassing various sources such as books, articles, and websites.</li>
+<li>The model&#39;s task during training is to predict the next word or token in a sequence based on the context provided. It learns patterns and relationships within the text data.</li>
+</ul>
+</li>
+<li><strong>Optimizing Model Weights:</strong><ul>
+<li>The model comprises different weights associated with its parameters, reflecting the significance of various features.</li>
+<li>Throughout training, these weights are fine-tuned to minimize the error rate. The objective is to enhance the model&#39;s accuracy in predicting the next word.</li>
+</ul>
+</li>
+<li><strong>Fine-tuning Parameter Values:</strong><ul>
+<li>LLMs continuously adjust parameter values based on error feedback received during predictions.</li>
+<li>The model refines its grasp of language by iteratively adjusting parameters, improving accuracy in predicting subsequent tokens.</li>
+</ul>
+</li>
+</ol>
+<p>The training process may vary depending on the specific type of LLM being developed, such as those optimized for continuous text or dialogue.</p>
+<p>LLM performance is heavily influenced by two key factors:</p>
+<ul>
+<li><strong>Model Architecture:</strong> The design and intricacy of the LLM architecture impact its ability to capture language nuances.</li>
+<li><strong>Dataset:</strong> The quality and diversity of the dataset utilized for training are crucial in shaping the model&#39;s language understanding.</li>
+</ul>
+<p>Training a private LLM demands substantial computational resources and expertise. The duration of the process can range from several days to weeks, contingent on the model&#39;s complexity and dataset size. Commonly, cloud-based solutions and high-performance GPUs are employed to expedite the training process, making it more efficient. Overall, LLM training is a meticulous and resource-intensive undertaking that lays the groundwork for the model&#39;s language comprehension and generation capabilities.</p>
+<p>After the initial training, LLMs can be easily customized for various tasks using relatively small sets of supervised data, a procedure referred to as fine-tuning.</p>
+<p>There are three prevalent learning models:</p>
+<ol>
+<li><strong>Zero-shot learning:</strong> The base LLMs can handle a wide range of requests without explicit training, often by using prompts, though the accuracy of responses may vary.</li>
+<li><strong>Few-shot learning:</strong> By providing a small number of pertinent training examples, the performance of the base model significantly improves in a specific domain.</li>
+<li><strong>Domain Adaptation:</strong> This extends from few-shot learning, where practitioners train a base model to adjust its parameters using additional data relevant to the particular application or domain.</li>
+</ol>
+<p>We will be diving deep into each of these methods during the course.</p>
+<h2>LLM Real World Use Cases</h2>
+<p>LLMs are already being leveraged in various applications showcasing their versatility and power of these models in transforming several domains. Here&#39;s how LLMs can be applied to specific cases:</p>
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/Blue_and_Grey_Illustrative_Creative_Mind_Map.png" alt="Blue and Grey Illustrative Creative Mind Map.png"></p>
+<ol>
+<li><strong>Content Generation:</strong><ul>
+<li>LLMs excel in content generation by understanding context and generating coherent and contextually relevant text. They can be employed to automatically generate creative content for marketing, social media posts, and other communication materials, ensuring a high level of quality and relevance.</li>
+<li><strong>Real World Applications:</strong> Marketing platforms, social media management tools, content creation platforms, advertising agencies</li>
+</ul>
+</li>
+<li><strong>Language Translation:</strong><ul>
+<li>LLMs can significantly improve language translation tasks by understanding the nuances of different languages. They can provide accurate and context-aware translations, making them valuable tools for businesses operating in multilingual environments. This can enhance global communication and outreach.</li>
+<li><strong>Real World Applications</strong>: Translation services, global communication platforms, international business applications</li>
+</ul>
+</li>
+<li><strong>Text Summarization:</strong><ul>
+<li>LLMs are adept at summarizing lengthy documents by identifying key information and maintaining the core message. This capability is valuable for content creators, researchers, and businesses looking to quickly extract essential insights from large volumes of text, improving efficiency in information consumption.</li>
+<li><strong>Real World Applications</strong>: Research tools, news aggregators, content curation platforms</li>
+</ul>
+</li>
+<li><strong>Question Answering and Chatbots:</strong><ul>
+<li>LLMs can be employed for question answering tasks, where they comprehend the context of a question and generate relevant and accurate responses. They enable these systems to engage in more natural and context-aware conversations, understanding user queries and providing relevant responses.</li>
+<li><strong>Real World Applications</strong><em>:</em> Customer support systems, chatbots, virtual assistants, educational platforms</li>
+</ul>
+</li>
+<li><strong>Content Moderation:</strong><ul>
+<li>LLMs can be utilized for content moderation by analyzing text and identifying potentially inappropriate or harmful content. This helps in maintaining a safe and respectful online environment by automatically flagging or filtering out content that violates guidelines, ensuring user safety.</li>
+<li><strong>Real World Applications</strong>: Social media platforms, online forums, community management tools.</li>
+</ul>
+</li>
+<li><strong>Information Retrieval:</strong><ul>
+<li>LLMs can enhance information retrieval systems by understanding user queries and retrieving relevant information from large datasets. This is particularly useful in search engines, databases, and knowledge management systems, where LLMs can improve the accuracy of search results.</li>
+<li><strong>Real World Applications</strong>: Search engines, database systems, knowledge management platforms</li>
+</ul>
+</li>
+<li><strong>Educational Tools:</strong><ul>
+<li>LLMs contribute to educational tools by providing natural language interfaces for learning platforms. They can assist students in generating summaries, answering questions, and engaging in interactive learning conversations. This facilitates personalized and efficient learning experiences.</li>
+<li><strong>Real World Applications</strong>: E-learning platforms, educational chatbots, interactive learning applications</li>
+</ul>
+</li>
+</ol>
+<p>Summary of popular LLM use-cases</p>
+<table>
+<thead>
+<tr>
+<th>No.</th>
+<th>Use case</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Content Generation</td>
+<td>Craft human-like text, videos, code and images when provided with instructions</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Language Translation</td>
+<td>Translate languages from one to another</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Text Summarization</td>
+<td>Summarize lengthy texts, simplifying comprehension by highlighting key points.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Question Answering and Chatbots</td>
+<td>LLMs can provide relevant answers to queries, leveraging their vast knowledge</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Content Moderation</td>
+<td>Assist in content moderation by identifying and filtering inappropriate or harmful language</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Information Retrieval</td>
+<td>Retrieve relevant information from large datasets or documents.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Educational Tools</td>
+<td>Tutor, provide explanations, and generate learning materials.</td>
+</tr>
+</tbody></table>
+<p>Understanding the utilization of generative AI models, especially LLMs, can also be gleaned from the extensive array of startups operating in this domain. An <a href="https://www.sequoiacap.com/article/generative-ai-act-two/">infographic</a> presented by Sequoia Capital highlighted these companies across diverse sectors, illustrating the versatile applications and the significant presence of numerous players in the generative AI space.</p>
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/business_cases.png" alt="business_cases.png"></p>
+<pre><code>                            Image Source: [https://markovate.com/blog/applications-and-use-cases-of-llm/](https://markovate.com/blog/applications-and-use-cases-of-llm/)
+</code></pre>
+<h2>LLM Challenges</h2>
+<p><img src="https://github.com/aishwaryanr/awesome-generative-ai-resources/blob/main/free_courses/Applied_LLMs_Mastery_2024/img/llm_challenges.png" alt="llm_challenges.png"></p>
+<p>Although LLMs have undoubtedly revolutionized various applications, numerous challenges persist. These challenges are categorized into different themes:</p>
+<ul>
+<li><strong>Data Challenges:</strong> This pertains to the data used for training and how the model addresses gaps or missing data.</li>
+<li><strong>Ethical Challenges:</strong> This  involves addressing issues such as mitigating biases, ensuring privacy, and preventing the generation of harmful content in the deployment of LLMs.</li>
+<li><strong>Technical Challenges:</strong> These challenges focus on the practical implementation of LLMs.</li>
+<li><strong>Deployment Challenges:</strong> Concerned with the specific processes involved in transitioning fully-functional LLMs into real-world use-cases (productionization)</li>
+</ul>
+<p><strong>Data Challenges:</strong></p>
+<ol>
+<li><strong>Data Bias:</strong> The presence of prejudices and imbalances in the training data leading to biased model outputs.</li>
+<li><strong>Limited World Knowledge and Hallucination:</strong> LLMs may lack comprehensive understanding of real-world events and information and tend to hallucinate information. Note that training them on new data is a long and expensive process.</li>
+<li><strong>Dependency on Training Data Quality:</strong> LLM performance is heavily influenced by the quality and representativeness of the training data.</li>
+</ol>
+<p><strong>Ethical and Social Challenges:</strong></p>
+<ol>
+<li><strong>Ethical Concerns:</strong> Concerns regarding the responsible and ethical use of language models, especially in sensitive contexts.</li>
+<li><strong>Bias Amplification:</strong> Biases present in the training data may be exacerbated, resulting in unfair or discriminatory outputs.</li>
+<li><strong>Legal and Copyright Issues:</strong> Potential legal complications arising from generated content that infringes copyrights or violates laws.</li>
+<li><strong>User Privacy Concerns:</strong> Risks associated with generating text based on user inputs, especially when dealing with private or sensitive information.</li>
+</ol>
+<p><strong>Technical Challenges:</strong></p>
+<ol>
+<li><strong>Computational Resources:</strong> Significant computing power required for training and deploying large language models.</li>
+<li><strong>Interpretability:</strong> Challenges in understanding and explaining the decision-making process of complex models.</li>
+<li><strong>Evaluation</strong>: Evaluation presents a notable challenge as assessing models across diverse tasks and domains is inadequately designed, particularly due to the challenges posed by freely generated content.</li>
+<li><strong>Fine-tuning Challenges:</strong> Difficulties in adapting pre-trained models to specific tasks or domains.</li>
+<li><strong>Contextual Understanding:</strong> LLMs may face challenges in maintaining coherent context over longer passages or conversations.</li>
+<li><strong>Robustness to Adversarial Attacks:</strong> Vulnerability to intentional manipulations of input data leading to incorrect outputs.</li>
+<li><strong>Long-Term Context:</strong> Struggles in maintaining context and coherence over extended pieces of text or discussions.</li>
+</ol>
+<p><strong>Deployment Challenges:</strong></p>
+<ol>
+<li><strong>Scalability:</strong> Ensuring that the model can scale efficiently to handle increased workloads and demand in production environments.</li>
+<li><strong>Latency:</strong> Minimizing the response time or latency of the model to provide quick and efficient interactions, especially in real-time applications.</li>
+<li><strong>Monitoring and Maintenance:</strong> Implementing robust monitoring systems to track model performance, detect issues, and perform regular maintenance to avoid downtime.</li>
+<li><strong>Integration with Existing Systems:</strong> Ensuring smooth integration of LLMs with existing software, databases, and infrastructure within an organization.</li>
+<li><strong>Cost Management:</strong> Optimizing the cost of deploying and maintaining large language models, as they can be resource-intensive in terms of both computation and storage.</li>
+<li><strong>Security Concerns:</strong> Addressing potential security vulnerabilities and risks associated with deploying language models in production, including safeguarding against malicious attacks.</li>
+<li><strong>Interoperability:</strong> Ensuring compatibility with other tools, frameworks, or systems that may be part of the overall production pipeline.</li>
+<li><strong>User Feedback Incorporation:</strong> Developing mechanisms to incorporate user feedback to continuously improve and update the model in a production environment.</li>
+<li><strong>Regulatory Compliance:</strong> Adhering to regulatory requirements and compliance standards, especially in industries with strict data protection and privacy regulations.</li>
+<li><strong>Dynamic Content Handling:</strong> Managing the generation of text in dynamic environments where content and user interactions change frequently.</li>
+</ol>
+<h2>Read/Watch These Resources (Optional)</h2>
+<ol>
+<li><a href="https://www.nvidia.com/en-us/glossary/generative-ai/">https://www.nvidia.com/en-us/glossary/generative-ai/</a></li>
+<li><a href="https://markovate.com/blog/applications-and-use-cases-of-llm/">https://markovate.com/blog/applications-and-use-cases-of-llm/</a></li>
+<li><a href="https://www.sequoiacap.com/article/generative-ai-act-two/">https://www.sequoiacap.com/article/generative-ai-act-two/</a></li>
+<li><a href="https://datasciencedojo.com/blog/challenges-of-large-language-models/">https://datasciencedojo.com/blog/challenges-of-large-language-models/</a></li>
+<li><a href="https://snorkel.ai/enterprise-llm-challenges-and-how-to-overcome-them/">https://snorkel.ai/enterprise-llm-challenges-and-how-to-overcome-them/</a></li>
+<li><a href="https://www.youtube.com/watch?v=MyFrMFab6bo">https://www.youtube.com/watch?v=MyFrMFab6bo</a></li>
+<li><a href="https://www.youtube.com/watch?v=cEyHsMzbZBs">https://www.youtube.com/watch?v=cEyHsMzbZBs</a></li>
+</ol>
+<h2>Read These Papers (Optional)</h2>
+<ol>
+<li><a href="https://dl.acm.org/doi/abs/10.1145/3605943">https://dl.acm.org/doi/abs/10.1145/3605943</a></li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S2950162823000176">https://www.sciencedirect.com/science/article/pii/S2950162823000176</a></li>
+<li><a href="https://arxiv.org/pdf/2303.13379.pdf">https://arxiv.org/pdf/2303.13379.pdf</a></li>
+<li><a href="https://proceedings.mlr.press/v202/kandpal23a/kandpal23a.pdf">https://proceedings.mlr.press/v202/kandpal23a/kandpal23a.pdf</a></li>
+<li><a href="https://link.springer.com/article/10.1007/s12599-023-00795-x">https://link.springer.com/article/10.1007/s12599-023-00795-x</a></li>
+</ol>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

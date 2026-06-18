@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Learn — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../interview.html">Interview</a>
+<a href="../research.html">Research</a>
+<a href="../resources.html">Resources</a>
+<a href="../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Day 4: Make It Proactive</h1>
+<hr>
+<p><strong>What you&#39;ll learn today:</strong></p>
+<ul>
+<li>How your server runs tasks while you sleep, and what daemons and schedulers are</li>
+<li>What <code>HEARTBEAT.md</code> is and how it turns plain English instructions into scheduled behavior</li>
+<li>What an isolated session is and why it matters for cost and reliability</li>
+</ul>
+<p><strong>What you&#39;ll build today:</strong> By the end of today, your Claw reaches out to you for the first time. An evening reflection arrives on your Telegram, unprompted, on a schedule you set. This is your Claw&#39;s first proactive behavior.</p>
+<hr>
+<h2>What Changes Today</h2>
+<p>If you&#39;ve used Claude Code, Cursor, Codex, or ChatGPT, you may have noticed that the pattern is always the same. You open the tool, you type something, it responds. You close the window, it stops. Every interaction starts because you decided to start it. These are what the AI community calls <strong>reactive agents</strong>: they only act when prompted.</p>
+<p>OpenClaw introduced a <strong>proactive agent</strong>: one that can also message you first. Your Claw can check in at a time you set, ask you questions, save your answers, and surface things it thinks you should know. You could be making dinner or lying on the couch. Your phone buzzes. It&#39;s your Claw, starting a conversation you did not initiate.</p>
+<p>That ability to be proactive, to reach out instead of only responding, is a big part of what made OpenClaw take off. Today you&#39;re enabling it.</p>
+<hr>
+<h2>How Your Server Runs Things While You Sleep</h2>
+<p>Your VPS is a computer that never stops. Even when you&#39;re asleep, even when you forget it exists for a week, it&#39;s still running. To understand how your Claw will message you at 7pm without you being anywhere near a keyboard, it helps to know how that works.</p>
+<p>Your computer (and your server) runs dozens of programs in the background right now that you never see. One checks for software updates. Another manages your Wi-Fi connection. Another indexes your files for search. These are called <strong>daemons</strong>: programs designed to run continuously without any human interaction. The name comes from Greek mythology, where daemons were helpful spirits that worked behind the scenes. In computing, same idea.</p>
+<p>The concept is older than you might expect. <strong>Cron</strong>, the original Unix scheduler, has been running background tasks since the 1970s. Every time a server backs up its database at 3am, or cleans up old log files on a Sunday, or checks whether a website is still responding, cron is doing the work. It wakes up once per minute, checks a schedule file, and runs whatever is due. Over fifty years later, it&#39;s still the backbone of automated computing.</p>
+<p>The OpenClaw gateway you set up on Day 1 is one of these daemons. It starts when your VPS starts, restarts automatically if it crashes, and runs 24/7 regardless of whether you&#39;re connected. On Day 3, it held a persistent connection to Telegram&#39;s servers, waiting for your messages. That connection is still open right now, as you read this.</p>
+<p>The gateway also has its own built-in scheduler. Think of it like cron, but living inside the gateway itself. Every 30 minutes (or whatever interval you configure), this internal scheduler wakes up and checks whether any tasks are due. The tasks live in a file called HEARTBEAT.md.</p>
+<p>OpenClaw also supports <a href="https://docs.openclaw.ai/automation/cron-jobs"><code>cron</code></a> for jobs that need exact timing. Heartbeat is the repeating background loop. Cron is the exact scheduler. You&#39;ll use cron in the build, but it helps to understand heartbeat first because the same proactive model starts here.</p>
+<hr>
+<h2>What HEARTBEAT.md Is</h2>
+<p><a href="https://docs.openclaw.ai/gateway/heartbeat"><code>HEARTBEAT.md</code></a> is a plain markdown file that lives in your workspace. It contains a list of tasks written in natural language, each with a schedule. The gateway&#39;s internal scheduler reads this file on every tick and processes whatever is due.</p>
+<p>The name fits. A heartbeat is rhythmic, automatic, and constant. It runs whether you&#39;re paying attention or not. That&#39;s exactly what this file does: it gives your Claw a pulse.</p>
+<p>Here&#39;s the full loop:</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-04-make-it-proactive/../../diagrams/day-04-heartbeat-cycle.png" alt="How a heartbeat cycle works"></p>
+<p>The gateway&#39;s scheduler ticks, reads HEARTBEAT.md, runs any due tasks, delivers the output, and goes back to waiting. If nothing is due, it skips the cycle entirely. You also configure active hours, so the scheduler only ticks during your waking hours. Outside that window, silence.</p>
+<p>The tasks themselves are written in plain English. &quot;Send reflection prompts to Telegram. Wait for replies. Save answers to today&#39;s journal file.&quot; The AI model reads those instructions and follows them, using whatever tools are available. It&#39;s a flexible instruction to an agent that can reason, adapt, and make judgment calls about how to carry it out.</p>
+<p>Heartbeat is best when you want periodic awareness. &quot;Check this every so often and decide whether anything matters&quot; is a heartbeat job. If you need something to happen at an exact time, OpenClaw recommends <a href="https://docs.openclaw.ai/automation/cron-vs-heartbeat"><code>cron</code></a> instead.</p>
+<hr>
+<h2>The Clean Room</h2>
+<p>There&#39;s a design decision in the diagram above that&#39;s easy to miss: the words &quot;isolated session.&quot;</p>
+<p>When you&#39;re having a conversation with your Claw through Telegram, that conversation accumulates context. Everything you&#39;ve discussed, the files you&#39;ve referenced, the decisions you&#39;ve made. That context is what makes the conversation feel coherent. Your Claw remembers what you said ten messages ago because it&#39;s all still loaded in the same session.</p>
+<p>Now imagine a heartbeat task runs inside that same session. It would inherit your entire conversation history. Every message, every file, every tangent. The heartbeat would need to process all of that context just to check whether it&#39;s time to send you a reflection prompt. That&#39;s expensive: a single heartbeat run that loads weeks of conversation could cost $0.50 in tokens. At 48 runs per day, that adds up fast.</p>
+<p>It also creates a quality problem. The heartbeat&#39;s output gets mixed into your conversation. Your chat history fills up with automated check-in logs. Context from your personal conversation leaks into a scheduled task that has nothing to do with it.</p>
+<p>Isolated sessions solve both problems. Each heartbeat task gets its own clean room: a fresh session with no prior history. It loads only what it needs (HEARTBEAT.md and your identity files) and has no awareness of what you were discussing in your main conversation. When it finishes, the session closes. Your conversation stays untouched.</p>
+<p>The cost difference is dramatic. An isolated heartbeat that finds nothing to report costs fractions of a cent. The same task running inside your main session costs orders of magnitude more. OpenClaw&#39;s documentation estimates that isolated sessions reduce heartbeat token usage by roughly 90%.</p>
+<p>This also connects to something you set up on Day 2. The four identity files (SOUL.md, USER.md, AGENTS.md, MEMORY.md) reload from disk on every message turn. That same mechanism keeps isolated heartbeat sessions grounded. Even though the session starts fresh with no conversation history, it still loads your identity files. Your Claw&#39;s personality, your preferences, and its operating rules are all present. It&#39;s a clean room that still knows who it is and who you are.</p>
+<hr>
+<h2>The Daily Reflection</h2>
+<p>Here&#39;s one example of what a heartbeat task can do. Every evening, your Claw sends you a few reflection prompts:</p>
+<pre><code>Time to reflect on your day.
+
+1. What went well today?
+2. What felt harder than it should have?
+3. What&#39;s one thing you want to carry into tomorrow?
+
+Reply whenever you&#39;re ready. I&#39;ll save your answers to today&#39;s journal.
+</code></pre>
+<p>You reply via Telegram. Your Claw saves the entry to a daily journal file. Over time, those entries accumulate into something useful: a record of what you were thinking, what was hard, and what you wanted to change, all without ever opening a journaling app.</p>
+<p>For today&#39;s build, you&#39;ll use <a href="https://docs.openclaw.ai/automation/cron-jobs"><code>cron</code></a> instead of heartbeat because the reflection should arrive at the exact time you choose.</p>
+<hr>
+<h2>Ready to Build?</h2>
+<p>You now understand how your server keeps the gateway running while you sleep, what HEARTBEAT.md is and how the gateway&#39;s internal scheduler drives it, and why isolated sessions keep scheduled tasks cheap and reliable. The build creates a daily reflection cron job, connects it to Telegram, and runs it once so you can see the full loop.</p>
+<p>Follow along the steps in <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-04-make-it-proactive/build.md"><code>build.md</code></a> to make your Claw proactive.</p>
+<p>Tomorrow you give it skills: extending what it can do beyond the capabilities it shipped with.</p>
+<hr>
+<h2>Go Deeper</h2>
+<ul>
+<li>The heartbeat interval is configurable. Community guidance: 30 minutes is a good default for personal use. Five-minute intervals make sense for monitoring critical systems but cost more in API calls. Keep HEARTBEAT.md under 5-8 tasks; beyond 20, processing slows down and costs inflate.</li>
+<li>The daemon architecture means your Claw survives reboots and weeks of inattention. If the gateway process crashes, the operating system restarts it automatically within seconds. Your laptop sleeps when you close it; your server does not.</li>
+<li>OpenClaw also supports precise cron-style scheduling for advanced use cases (exact times like &quot;9am sharp every Monday&quot; with per-task model selection). The official docs cover this at <a href="https://docs.openclaw.ai/automation">docs.openclaw.ai/automation</a>. For most users, HEARTBEAT.md handles everything you need.</li>
+</ul>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-04-make-it-proactive/../day-03-connect-a-channel/learn.md">← Day 3: Connect a Channel</a> | <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-04-make-it-proactive/../day-05-give-it-skills/learn.md">Day 5: Give It Skills →</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
