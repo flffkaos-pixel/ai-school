@@ -107,13 +107,13 @@ nav .nav-links a:hover, nav .nav-links a.active { color: var(--primary); }
 .course-category { margin-bottom: 40px; }
 .course-category h3 { font-size: 1.2rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--primary); }
 .course-list { list-style: none; }
-.course-list li {
-  padding: 10px 0; border-bottom: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center;
-}
+.course-list li { border-bottom: 1px solid var(--border); }
 .course-list li:last-child { border-bottom: none; }
 .course-list .course-name { font-size: 0.95rem; }
 .course-list .course-source { font-size: 0.8rem; color: var(--text-secondary); }
+.course-link { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 10px 0; color: var(--text); text-decoration: none; }
+.course-link:hover { color: var(--primary); }
+.course-link:hover .course-name { color: var(--primary); }
 
 /* Research table */
 .research-table { width: 100%; border-collapse: collapse; }
