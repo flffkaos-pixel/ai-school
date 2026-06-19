@@ -77,8 +77,8 @@
     const base = p.split('/').pop().replace(/\.md$/i, '').replace(/\.MD$/, '');
     const slug = base.replace(/[^a-z0-9가-힣\/_\- ]/gi, '').trim().replace(/\s+/g, '-').toLowerCase().replace(/-+/g, '-') + '.html';
     const contentPath = 'content/' + (dir ? dir + '/' : '') + slug;
-    // Redirect to static content page
-    location.href = contentPath;
+    // Redirect to static content page with path for language toggle
+    location.href = contentPath + '?path=' + encodeURIComponent(p);
   } else {
     document.getElementById('content').innerHTML = '<div class="error" style="text-align:center;padding:80px 0;color:#e74c3c"><h2>No path specified</h2><p>Use ?path= to specify a file.</p></div>';
   }

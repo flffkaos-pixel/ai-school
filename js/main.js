@@ -32,9 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Active nav link
-  const path = location.pathname.split('/').pop() || 'index.html';
+  const pageName = location.pathname.split('/').pop() || 'index.html';
   navLinks?.querySelectorAll('a').forEach(a => {
-    if (a.getAttribute('href') === path) a.classList.add('active');
+    if (a.getAttribute('href') === pageName) a.classList.add('active');
   });
+
+  // Language toggle: point EN to GitHub source when viewing content
+  const contentPath = new URLSearchParams(location.search).get('path');
+  if (contentPath) {
+    navLinks?.querySelectorAll('a').forEach(a => {
+      if (a.textContent === 'EN') {
+        a.href = 'https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/' + contentPath;
+        a.target = '_blank';
+      }
+    });
+  }
 
 });

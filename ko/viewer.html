@@ -76,7 +76,7 @@
     const base = p.split('/').pop().replace(/\.md$/i, '').replace(/\.MD$/, '');
     const slug = base.replace(/[^a-z0-9가-힣\/_\- ]/gi, '').trim().replace(/\s+/g, '-').toLowerCase().replace(/-+/g, '-') + '.html';
     const contentPath = '../content/' + (dir ? dir + '/' : '') + slug;
-    location.href = contentPath;
+    location.href = contentPath + '?path=' + encodeURIComponent(p);
   } else {
     document.getElementById('content').innerHTML = '<div class="error" style="text-align:center;padding:80px 0;color:#e74c3c"><h2>경로가 지정되지 않음</h2><p>?path= 로 파일을 지정하세요.</p></div>';
   }
