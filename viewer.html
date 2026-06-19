@@ -77,7 +77,12 @@
     fetch(rawUrl)
       .then(r => r.ok ? r.text() : Promise.reject(r.status))
       .then(md => {
-        const html = marked.parse(md);
+        let html = marked.parse(md);
+        // Convert GitHub blob image URLs to raw.githubusercontent.com
+        html = html.replace(
+          /src="https:\/\/github\.com\/aishwaryanr\/awesome-generative-ai-guide\/blob\/main\/([^"]+)"/g,
+          'src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/$1"'
+        );
         document.getElementById('content').innerHTML = html;
       })
       .catch(err => {
