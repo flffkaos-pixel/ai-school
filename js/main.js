@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contentPath) {
     navLinks?.querySelectorAll('a').forEach(a => {
       if (a.textContent === 'EN') {
-        a.href = 'https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/' + contentPath;
-        a.target = '_blank';
+        a.href = '/viewer.html?path=' + contentPath;
+        a.removeAttribute('target');
       }
       if (a.textContent === 'KO') {
         a.href = location.href;
