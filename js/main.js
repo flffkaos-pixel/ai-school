@@ -37,13 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (a.getAttribute('href') === pageName) a.classList.add('active');
   });
 
-  // Language toggle: point EN to GitHub source when viewing content
+  // Language toggle: point EN/KO correctly when viewing content
   const contentPath = new URLSearchParams(location.search).get('path');
   if (contentPath) {
     navLinks?.querySelectorAll('a').forEach(a => {
       if (a.textContent === 'EN') {
         a.href = 'https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/' + contentPath;
         a.target = '_blank';
+      }
+      if (a.textContent === 'KO') {
+        a.href = location.href;
+        a.removeAttribute('target');
       }
     });
   }
