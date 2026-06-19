@@ -72,13 +72,18 @@
 (function() {
   const p = new URLSearchParams(location.search).get('path');
   if (p) {
-    // Convert GitHub path to content page path
-    const dir = p.substring(0, p.lastIndexOf('/'));
-    const base = p.split('/').pop().replace(/\.md$/i, '').replace(/\.MD$/, '');
-    const slug = base.replace(/[^a-z0-9가-힣\/_\- ]/gi, '').trim().replace(/\s+/g, '-').toLowerCase().replace(/-+/g, '-') + '.html';
-    const contentPath = 'content/' + (dir ? dir + '/' : '') + slug;
-    // Redirect to static content page with path for language toggle
-    location.href = contentPath + '?path=' + encodeURIComponent(p);
+    // Fetch and render markdown from GitHub
+    const rawUrl = 'https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/' + p;
+    fetch(rawUrl)
+      .then(r => r.ok ? r.text() : Promise.reject(r.status))
+      .then(md => {
+        const html = marked.parse(md);
+        document.getElementById('content').innerHTML = html;
+      })
+      .catch(err => {
+        document.getElementById('content').innerHTML = 
+          '<div class="error"><h2>Failed to load</h2><p>' + err + '</p><p><a href="' + rawUrl + '" target="_blank">Open on GitHub</a></p></div>';
+      });
   } else {
     document.getElementById('content').innerHTML = '<div class="error" style="text-align:center;padding:80px 0;color:#e74c3c"><h2>No path specified</h2><p>Use ?path= to specify a file.</p></div>';
   }
