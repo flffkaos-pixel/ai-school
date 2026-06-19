@@ -45,171 +45,163 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>[Week 9] Challenges with LLMs</h1>
-<h2>ETMI5: Explain to Me in 5</h2>
-<p>In this section of the course on LLM Challenges, we&#39;ve identified two main areas of concern with LLMs: behavioral challenges and deployment challenges. Behavioral challenges include issues like hallucination, where LLMs generate fictitious information, and adversarial attacks, where inputs are crafted to manipulate model behavior. Deployment challenges encompass memory and scalability issues, as well as security and privacy concerns. LLMs demand significant computational resources for deployment and face risks of privacy breaches due to their ability to process vast datasets and generate text. To mitigate these challenges, we discuss various strategies such as robust defenses against adversarial attacks, efficient memory management, and privacy-preserving training algorithms.  Additionally we will go over techniques like differential privacy, model stacking, and preprocessing methods that are being employed to safeguard user privacy and ensure the reliable and ethical use of LLMs across different applications.</p>
-<h2>Types of Challenges</h2>
-<p>We categorize the challenges into two main areas: managing the behavior of LLMs and the technical difficulties encountered during their deployment. Given the evolving nature of this technology, it&#39;s likely that current challenges will be mitigated, and new ones may emerge over time. However, as of February 15, 2024, these are the prominently discussed challenges associated with LLMs:</p>
-<h2><strong>A. Behavioral Challenges</strong></h2>
-<h3>1. Hallucination</h3>
-<p>LLMs sometimes generate plausible but entirely fictitious information or responses, known as &quot;hallucinations.&quot; This challenge is particularly harmful in applications requiring high factual accuracy, such as news generation, educational content, or medical advice as hallucinations can erode trust in LLM outputs, leading to misinformation or potentially harmful advice being followed.</p>
-<h3>2. Adversarial Attacks</h3>
-<p>LLMs can be vulnerable to adversarial attacks, where inputs are specially crafted to trick the model into making errors or revealing sensitive information. These attacks can compromise the integrity and reliability of LLM applications, posing significant security risks.</p>
-<h3>3. Alignment</h3>
-<p>Ensuring LLMs align with human values and intentions is a complex task. Misalignment can result from the model pursuing objectives that don&#39;t fully encapsulate the user&#39;s goals or ethical standards. Misalignment can lead to undesirable outcomes, such as generating content that is offensive, biased, or ethically questionable.</p>
-<h3>4. Prompt Brittleness</h3>
-<p>LLMs can be overly sensitive to the exact wording of prompts, leading to inconsistent or unpredictable outputs. Small changes in prompt structure can yield vastly different responses. This brittleness complicates the development of reliable applications and requires users to have a deep understanding of how to effectively interact with LLMs.</p>
-<h2><strong>B. Deployment Challenges</strong></h2>
-<h3>1. Memory and Scalability Challenges</h3>
-<p> Deploying LLMs at scale involves significant memory and computational resource demands. Managing these resources efficiently while maintaining high performance and low latency is a technical hurdle. Scalability challenges can limit the ability of LLMs to be integrated into real-time or resource-constrained applications, affecting their accessibility and utility.</p>
-<h3>2. Security &amp; Privacy</h3>
-<p>Protecting the data used by and generated from LLMs is critical, especially when dealing with personal or sensitive information. LLMs need robust security measures to prevent unauthorized access and ensure privacy. Without adequate security and privacy protections, there is a risk of data breaches, unauthorized data usage, and loss of user trust.</p>
-<p>Let?셲 dig a little deeper into each of issues and existing solutions for them</p>
-<h2>A1. Hallucinations</h2>
-<p>Hallucination refers to the model generating information that seems plausible but is actually false or made up. This happens because LLMs are designed to create text that mimics the patterns they&#39;ve seen in their training data, regardless of whether those patterns reflect real, accurate information. Hallucination is particularly harmful in RAG based applications where the model can generate content that is not supported by data but it is very hard to decipher.</p>
-<p>Hallucination can arise from several factors:</p>
+<h1>[9주차] LLM과의 도전</h1>
+<h2>ETMI5: 5에서 설명해주세요</h2>
+<p>LLM 과제 과정의 이 섹션에서는 LLM과 관련된 두 가지 주요 관심 영역, 즉 행동 문제와 배포 문제를 확인했습니다. </p>
+<h2>챌린지 유형</h2>
+<p>우리는 문제를 두 가지 주요 영역, 즉 LLM의 동작 관리와 배포 중에 직면하는 기술적 어려움으로 분류합니다. </p>
+<h2><strong>아. </h2>
+<h3>1. 환각</h3>
+<p>LLM은 때때로 "환각"이라고 알려진 그럴듯하지만 완전히 허구적인 정보나 반응을 생성합니다. </p>
+<h3>2. 적대적 공격</h3>
+<p>LLM은 모델을 속여 오류를 발생시키거나 민감한 정보를 공개하도록 입력이 특별히 제작되는 적대적 공격에 취약할 수 있습니다. </p>
+<h3>3. 정렬</h3>
+<p>LLM이 인간의 가치와 의도에 부합하는지 확인하는 것은 복잡한 작업입니다. </p>
+<h3>4. 신속한 취성</h3>
+<p>LLM은 프롬프트의 정확한 표현에 지나치게 민감하여 일관성이 없거나 예측할 수 없는 결과를 초래할 수 있습니다. </p>
+<h2><strong>베. </h2>
+<h3>1. 메모리 및 확장성 문제</h3>
+<p>대규모로 LLM을 배포하려면 상당한 메모리와 계산 리소스가 필요합니다. </p>
+<h3>2. 보안 및 개인정보 보호</h3>
+<p>LLM에서 사용하고 생성된 데이터를 보호하는 것은 특히 개인 정보 또는 민감한 정보를 다룰 때 중요합니다. </p>
+<p>각 문제와 이에 대한 기존 솔루션을 좀 더 자세히 살펴보겠습니다.</p>
+<h2>A1. </h2>
+<p>환각은 그럴듯해 보이지만 실제로는 거짓이거나 꾸며낸 정보를 생성하는 모델을 말합니다. </p>
+<p>환각은 다음과 같은 여러 요인으로 인해 발생할 수 있습니다.</p>
 <ul>
-<li><strong>Biases in Training Data:</strong> If the data used to train the model contains inaccuracies or biases, the model might reproduce these errors or skewed perspectives in its outputs.</li>
-<li><strong>Lack of Real-Time Information:</strong> Since LLMs are trained on data that becomes outdated, they can&#39;t access or incorporate the latest information, leading to responses based on no longer accurate data. This is the most common cause for hallucinations.</li>
-<li><strong>Model&#39;s Limitations:</strong> LLMs don&#39;t actually understand the content they generate; they just follow data patterns. This can result in outputs that are grammatically correct and sound logical but are disconnected from actual facts.</li>
-<li><strong>Overgeneralization:</strong> Sometimes, LLMs might apply broad patterns to specific situations where those patterns don&#39;t fit, creating convincing but incorrect information.</li>
+<li><strong>학습 데이터의 편향:</strong> 모델을 학습하는 데 사용된 데이터에 부정확성이나 편향이 포함된 경우 모델은 출력에서 ​​이러한 오류나 왜곡된 관점을 재현할 수 있습니다.</li>
+<li><strong>실시간 정보 부족:</strong> LLM은 오래된 데이터에 대해 교육을 받았기 때문에 최신 정보에 액세스하거나 통합할 수 없어 더 이상 정확하지 않은 데이터를 기반으로 응답하게 됩니다. </li>
+<li><strong>모델의 한계:</strong> LLM은 자신이 생성하는 콘텐츠를 실제로 이해하지 못합니다. </li>
+<li><strong>과도한 일반화:</strong> 때때로 LLM은 패턴이 맞지 않는 특정 상황에 광범위한 패턴을 적용하여 설득력 있지만 잘못된 정보를 생성할 수 있습니다.</li>
 </ul>
-<p><strong>How to detect and mitigate hallucinations?</strong> </p>
-<p>There&#39;s a need for automated methods to identify hallucinations in order to understand the model&#39;s performance without constant manual checks. Below, we explore various popular research efforts focused on detecting such hallucinations and some of them also propose methods to mitigate hallucinations. </p>
-<p>These are only two of the popular methods, the list is not comprehensive by any means:</p>
+<p><strong>환각을 감지하고 완화하는 방법</strong></p>
+<p>지속적인 수동 확인 없이 모델의 성능을 이해하려면 환각을 식별하는 자동화된 방법이 필요합니다. </p>
+<p>이는 널리 사용되는 두 가지 방법일 뿐이며 목록이 포괄적이지는 않습니다.</p>
 <ol>
-<li><p><strong>SELFCHECKGPT: Zero-Resource Black-Box Hallucination Detection<br>for Generative Large Language Models (<a href="https://arxiv.org/pdf/2303.08896.pdf">link</a>)</strong></p>
-<p> ?꿊allucination Detection</p>
-<p> ?똇allucination Mitigation</p>
+<li><p><strong>SELFCHECKGPT: 생성적 대형 음악 모델을 추출하여 블랙박스 환각 감지<br>(<a href="https://arxiv.org/pdf/2303.08896.pdf">링크</a>)</strong></p>
 </li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-16_at_3.21.36_PM.png" alt="Screenshot 2024-02-16 at 3.21.36 PM.png"></p>
-<p>Image Source: <a href="https://arxiv.org/pdf/2303.08896.pdf">https://arxiv.org/pdf/2303.08896.pdf</a></p>
-<p>SelfCheckGPT uses the following steps to detect hallucinations</p>
+<p>이미지 출처: <a href="https://arxiv.org/pdf/2303.08896.pdf">https://arxiv.org/pdf/2303.08896.pdf</a></p>
+<p>SelfCheckGPT는 다음 단계를 사용하여 환각을 감지합니다.</p>
 <ol>
-<li><strong>Generate Multiple Responses:</strong> SelfCheckGPT begins by prompting the LLM to generate multiple responses to the same question or statement. This step leverages the model&#39;s ability to produce varied outputs based on the same input, exploiting the stochastic nature of its response generation mechanism.</li>
-<li><strong>Analyze Consistency Among Responses:</strong> The key hypothesis is that factual information will lead to consistent responses across different samples, as the model relies on its training on real-world data. In contrast, hallucinated (fabricated) content will result in inconsistent responses, as the model doesn&#39;t have a factual basis to generate them and thus &quot;guesses&quot; differently each time.</li>
-<li><strong>Apply Metrics for Consistency Measurement:</strong> SelfCheckGPT employs five different metrics to assess the consistency among the generated responses. Some of them are popular semantic similarity metrics like BERTScore, N-Gram Overlap etc.</li>
-<li><strong>Determine Factual vs. Hallucinated Content:</strong> By evaluating the consistency of information across the sampled responses using the above metrics, SelfCheckGPT can infer whether the content is likely factual or hallucinated. High consistency across metrics suggests factual content, while significant variance indicates hallucination.</li>
+<li><strong>다중 응답 생성:</strong> SelfCheckGPT는 LLM에게 동일한 질문이나 설명에 대해 여러 응답을 생성하도록 요청하는 것으로 시작됩니다. </li>
+<li><strong>응답 간 일관성 분석:</strong> 핵심 가설은 모델이 실제 데이터에 대한 학습에 의존하기 때문에 사실 정보가 다양한 샘플에서 일관된 응답으로 이어진다는 것입니다. </li>
+<li><strong>일관성 측정을 위한 측정항목 적용:</strong> SelfCheckGPT는 생성된 응답 간의 일관성을 평가하기 위해 5가지 측정항목을 사용합니다. </li>
+<li><strong>사실적 콘텐츠와 환각적 콘텐츠 확인:</strong> SelfCheckGPT는 위 측정항목을 사용하여 샘플링된 응답 전체에서 정보의 일관성을 평가함으로써 콘텐츠가 사실적이거나 환각적일 가능성이 있는지 여부를 추론할 수 있습니다. </li>
 </ol>
-<p>A significant advantage of this method is that it operates without the need for external knowledge bases or databases, making it especially useful for black-box models where the internal data or processing mechanisms are inaccessible.</p>
+<p>이 방법의 중요한 장점은 외부 지식 기반이나 데이터베이스가 필요 없이 작동하므로 내부 데이터나 처리 메커니즘에 액세스할 수 없는 블랙박스 모델에 특히 유용하다는 것입니다.</p>
 <ol>
-<li><strong>Self-Contradictory Hallucinations of LLMs: Evaluation, Detection, and Mitigation</strong> (<a href="https://arxiv.org/pdf/2305.15852.pdf">link</a>)</li>
+<li><strong>LLM의 자기모순적 환각: 평가, 감지 및 완화</strong>(<a href="https://arxiv.org/pdf/2305.15852.pdf">링크</a>)</li>
 </ol>
-<p>?꿊allucination Detection</p>
-<p>?꿊allucination Mitigation</p>
+<p>?꿊환각 감지</p>
+<p>?꿊환각 완화</p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-16_at_4.11.44_PM.png" alt="Screenshot 2024-02-16 at 4.11.44 PM.png"></p>
-<p>Image Source: <a href="https://arxiv.org/pdf/2305.15852.pdf">https://arxiv.org/pdf/2305.15852.pdf</a></p>
-<p>This research presents a three-step pipeline to detect and mitigate hallucinations, specifically self-contradictions, in LLMs. </p>
-<p>?뮕혻Self-contradiction refers to a scenario where a statement or series of statements within the same context logically conflict with each other, making them mutually incompatible. In the context of LLMs, self-contradiction occurs when the model generates two or more sentences that present opposing facts, ideas, or claims, such that if one sentence is true, the other must be false, given the same context.</p>
-<p>Here&#39;s a breakdown of the process:</p>
+<p>이미지 출처: <a href="https://arxiv.org/pdf/2305.15852.pdf">https://arxiv.org/pdf/2305.15852.pdf</a></p>
+<p>이 연구는 LLM에서 환각, 특히 자기모순을 감지하고 완화하기 위한 3단계 파이프라인을 제시합니다.</p>
+<p>?뮕혻자기모순이란 동일한 맥락 내에서 하나의 진술 또는 일련의 진술이 논리적으로 서로 충돌하여 상호 호환되지 않는 시나리오를 말합니다. </p>
+<p>프로세스를 자세히 살펴보면 다음과 같습니다.</p>
 <ol>
-<li><strong>Triggering Self-Contradictions:</strong> The process begins by generating sentence pairs that are likely to contain self-contradictions. This is done by applying constraints designed to elicit responses from the LLM that may logically conflict with each other within the same context.</li>
-<li><strong>Detecting Self-Contradictions:</strong> Various existing prompting strategies are explored to detect these self-contradictions. The authors examine different methods that have been previously developed, applying them to identify when an LLM has produced two sentences that cannot both be true.</li>
-<li><strong>Mitigating Self-Contradictions:</strong> Once self-contradictions are detected, an iterative mitigation procedure is employed. This involves making local text edits to remove the contradictory information while ensuring that the text remains fluent and informative. This step is crucial for improving the trustworthiness of the LLM&#39;s output.</li>
+<li><strong>자기 모순 유발:</strong> 이 과정은 자기 모순을 포함할 가능성이 있는 문장 쌍을 생성하는 것부터 시작됩니다. </li>
+<li><strong>자기 모순 감지:</strong> 이러한 자기 모순을 감지하기 위해 기존의 다양한 유도 전략을 탐색합니다. </li>
+<li><strong>자기 모순 완화:</strong> 자기 모순이 감지되면 반복적인 완화 절차가 사용됩니다. </li>
 </ol>
-<p>The framework is extensively evaluated across four modern LLMs, revealing a significant prevalence of self-contradictions in their outputs. For instance, 17.7% of all sentences generated by ChatGPT contained self-contradictions, many of which could not be verified using external knowledge bases like Wikipedia.</p>
-<h2>A2. Adversarial Attacks</h2>
-<p>Adversarial attacks involve manipulating the LLM?셲 behavior by providing crafted inputs or prompts, with the goal of causing unintended or malicious outcomes. There are many types of adversarial attacks, we discuss a few here:</p>
+<p>이 프레임워크는 4개의 최신 LLM에 걸쳐 광범위하게 평가되었으며, 결과에서 자기 모순이 상당히 많이 나타나는 것으로 나타났습니다. </p>
+<h2>A2. </h2>
+<p>적대적 공격에는 의도하지 않거나 악의적인 결과를 초래할 목적으로 조작된 입력 또는 프롬프트를 제공하여 LLM의 동작을 조작하는 것이 포함됩니다. </p>
 <ol>
-<li>Prompt Injection (PI): Injecting prompts to manipulate the behavior of the model, overriding original instructions and controls.</li>
-<li>Jailbreaking: Circumventing filtering or restrictions by simulating scenarios where the model has no constraints or accessing a developer mode that can bypass restrictions.</li>
-<li>Data Poisoning: Injecting malicious data into the training set to manipulate the model&#39;s behavior during training or inference.</li>
-<li>Model Inversion: Exploiting the model&#39;s output to infer sensitive information about the training data or the model&#39;s parameters.</li>
-<li>Backdoor Attacks: Embedding hidden patterns or triggers into the model, which can be exploited to achieve certain outcomes when specific conditions are met.</li>
-<li>Membership Inference: Determining whether a particular sample was used in the training data of the model, potentially revealing sensitive information about individuals.</li>
+<li>프롬프트 주입(PI): 프롬프트를 주입하여 모델의 동작을 조작하고 원래 지침과 컨트롤을 재정의합니다.</li>
+<li>탈옥: 모델에 제약이 없는 시나리오를 시뮬레이션하거나 제한을 우회할 수 있는 개발자 모드에 액세스하여 필터링 또는 제한을 우회합니다.</li>
+<li>데이터 중독: 훈련 또는 추론 중에 모델의 동작을 조작하기 위해 훈련 세트에 악성 데이터를 주입합니다.</li>
+<li>모델 반전(Model Inversion): 모델의 출력을 활용하여 훈련 데이터 또는 모델의 매개변수에 대한 민감한 정보를 추론합니다.</li>
+<li>백도어 공격: 특정 조건이 충족될 때 특정 결과를 달성하기 위해 악용될 수 있는 숨겨진 패턴 또는 트리거를 모델에 내장합니다.</li>
+<li>멤버십 추론: 모델의 훈련 데이터에 특정 샘플이 사용되었는지 확인하여 잠재적으로 개인에 대한 민감한 정보를 공개합니다.</li>
 </ol>
-<p>Adversarial attacks pose a significant challenge to LLMs by compromising model integrity and security. These attacks enable adversaries to remotely control the model, steal data, and propagate disinformation. Furthermore, LLMs&#39; adaptability and autonomy make them potent tools for user manipulation, increasing the risk of societal harm. </p>
-<p>Effectively addressing these challenges requires robust defenses and proactive measures to safeguard against adversarial manipulation of AI systems.</p>
-<p>Several efforts have been made to develop robust LLMs and evaluate them against adversarial attacks. One approach to mitigating such attacks involves training the LLM to become accustomed to adversarial inputs, instructing it not to respond to them. An example of this is presented in the paper <a href="https://arxiv.org/pdf/2310.03684.pdf">SmoothLLM</a>, which functions by perturbing multiple copies of a given input prompt at the character level and then consolidating the resulting predictions to identify adversarial inputs. Leveraging the fragility of prompts generated adversarially to changes at the character level, SmoothLLM notably decreases the success rate of jailbreaking attacks on various widely-used LLMs to less than one percent. Critically, this defensive strategy avoids unnecessary caution and provides demonstrable assurances regarding the mitigation of attacks.</p>
-<p>Another mechanism to defend LLMs against adversarial attacks involves the use of a perplexity filter as presented in <a href="https://arxiv.org/pdf/2309.00614v2.pdf">this</a> paper. This filter operates on the principle that unconstrained attacks on LLMs often result in gibberish strings with high perplexity, indicating a lack of fluency, grammar mistakes, or illogical sequences. In this approach, two variations of the perplexity filter are considered. The first is a simple threshold-based filter, where a prompt passes the filter if its log perplexity is below a predefined threshold. The second variation involves checking perplexity in windows, treating the text as a sequence of contiguous chunks and flagging the text as suspicious if any window has high perplexity.</p>
-<p>A good starting point to read about Adversarial techniques is <a href="https://arxiv.org/abs/2302.12173">Greshake et al. 2023</a>. The paper proposes a classification of attacks and potential causes, as depicted in the image below.</p>
+<p>적대적 공격은 모델 무결성과 보안을 손상시켜 LLM에 심각한 문제를 야기합니다. </p>
+<p>이러한 문제를 효과적으로 해결하려면 AI 시스템을 적대적으로 조작하는 것을 방지하기 위한 강력한 방어와 사전 조치가 필요합니다.</p>
+<p>강력한 LLM을 개발하고 이를 적대적 공격에 대해 평가하기 위해 여러 가지 노력이 이루어졌습니다. </p>
+<p>적대적 공격으로부터 LLM을 방어하는 또 다른 메커니즘은 <a href="https://arxiv.org/pdf/2309.00614v2.pdf">이 문서</a>에 제시된 당황 필터를 사용하는 것입니다. </p>
+<p>적대적 기술에 대해 읽어보기 좋은 출발점은 <a href="https://arxiv.org/abs/2302.12173">Greshake et al. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/challenges.png" alt="challenges.png"></p>
-<h2>A3. Alignment</h2>
-<p>Alignment refers to the ability of LLMs to understand instructions and generate outputs that align with human expectations. Foundational LLMs, like GPT-3, are trained on massive textual datasets to predict subsequent tokens, giving them extensive world knowledge. However, they may still struggle with accurately interpreting instructions and producing outputs that match human expectations. This can lead to biased or incorrect content generation, limiting their practical usefulness.</p>
-<p>Alignment is a broad concept that can be explained in various dimensions, one such categorization is done in <a href="https://arxiv.org/pdf/2308.05374.pdf">this</a> paper. The paper proposes multiple dimensions and sub-classes for ensuring LLM alignment. For instance, harmful content generated by LLMs can be categorized into harms incurred to individual users (e.g., emotional harm, offensiveness, discrimination), society (e.g., instructions for creating violent or dangerous behaviors), or stakeholders (e.g., providing misinformation leading to wrong business decisions).</p>
+<h2>A3. </h2>
+<p>정렬이란 지침을 이해하고 인간의 기대에 부합하는 결과를 생성하는 LLM의 능력을 의미합니다. </p>
+<p>정렬은 다양한 차원으로 설명할 수 있는 광범위한 개념입니다. 이러한 분류 중 하나는 <a href="https://arxiv.org/pdf/2308.05374.pdf">이 문서</a>에서 수행됩니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_3.39.35_PM.png" alt="Screenshot 2024-02-17 at 3.39.35 PM.png"></p>
-<p>In broad terms, LLM Alignment can be improved through the following process:</p>
+<p>넓은 의미에서 LLM 정렬은 다음 프로세스를 통해 개선될 수 있습니다.</p>
 <ul>
-<li>Determine the most crucial dimensions for alignment depending on the specific use-case.</li>
-<li>Identify suitable benchmarks for evaluation purposes.</li>
-<li>Employ Supervised Fine-Tuning (SFT) methods to enhance the benchmarks.</li>
+<li>특정 사용 사례에 따라 정렬에 가장 중요한 치수를 결정합니다.</li>
+<li>평가 목적에 적합한 벤치마크를 식별합니다.</li>
+<li>SFT(Supervised Fine-Tuning) 방법을 사용하여 벤치마크를 향상시킵니다.</li>
 </ul>
-<p>Some popular aligned LLMs and benchmarks are listed in the image below</p>
+<p>일부 인기 있는 LLM 및 벤치마크가 아래 이미지에 나열되어 있습니다.</p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_3.52.00_PM.png" alt="Screenshot 2024-02-17 at 3.52.00 PM.png"></p>
-<p>Image Source: <a href="https://arxiv.org/pdf/2307.12966.pdf">https://arxiv.org/pdf/2307.12966.pdf</a> </p>
-<h2>A4. Prompt Brittleness</h2>
-<p>During the prompt engineering segment of our course, we explored various techniques for prompting LLMs. These sophisticated methods are essential because providing instructions similar to humans isn&#39;t suitable for LLMs. An overview of commonly used prompting methods is shown in the image below.</p>
-<p>LLMs require precise prompting, and even slight alterations can impact LLMs, altering their responses. This poses a challenge during deployment, as individuals unfamiliar with prompting methods may struggle to obtain accurate answers from LLMs. </p>
+<p>이미지 출처: <a href="https://arxiv.org/pdf/2307.12966.pdf">https://arxiv.org/pdf/2307.12966.pdf</a></p>
+<h2>A4. </h2>
+<p>우리 과정의 프롬프트 엔지니어링 부분에서 우리는 LLM을 유도하기 위한 다양한 기술을 탐구했습니다. </p>
+<p>LLM에는 정확한 프롬프트가 필요하며 약간의 변경이라도 LLM에 영향을 미쳐 응답이 변경될 수 있습니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_4.00.44_PM.png" alt="Screenshot 2024-02-17 at 4.00.44 PM.png"></p>
-<p>Image Source: <a href="https://arxiv.org/pdf/2307.10169.pdf">https://arxiv.org/pdf/2307.10169.pdf</a></p>
-<p>In general, prompt brittleness in LLMs can be reduced by adopting the following high level strategies:</p>
+<p>이미지 출처: <a href="https://arxiv.org/pdf/2307.10169.pdf">https://arxiv.org/pdf/2307.10169.pdf</a></p>
+<p>일반적으로 LLM의 신속한 취성은 다음과 같은 높은 수준의 전략을 채택하여 줄일 수 있습니다.</p>
 <ol>
-<li><strong>Standardized Prompts:</strong> Establishing standardized prompt formats and syntax guidelines can help ensure consistency and reduce the risk of unexpected variations.</li>
-<li><strong>Robust Prompt Engineering:</strong> Invest in thorough prompt engineering, considering various prompt formulations and their potential impacts on model outputs. This may involve testing different prompt styles and formats to identify the most effective ones.</li>
-<li><strong>Human-in-the-Loop Validation:</strong> Incorporate human validation or feedback loops to assess the effectiveness of prompts and identify potential brittleness issues before deployment.</li>
-<li><strong>Diverse Prompt Testing:</strong> Test prompts across diverse datasets and scenarios to evaluate their robustness and generalizability. This can help uncover any brittleness issues that may arise in different contexts.</li>
-<li><strong>Adaptive Prompting:</strong> Develop adaptive prompting techniques that allow the model to dynamically adjust its behavior based on user input or contextual cues, reducing reliance on fixed prompt structures.</li>
-<li><strong>Regular Monitoring and Maintenance:</strong> Continuously monitor model performance and prompt effectiveness in real-world applications, updating prompts as needed to address any brittleness issues that may arise over time.</li>
+<li><strong>표준화된 프롬프트:</strong> 표준화된 프롬프트 형식과 구문 지침을 설정하면 일관성을 보장하고 예상치 못한 변형이 발생할 위험을 줄이는 데 도움이 됩니다.</li>
+<li><strong>강력한 프롬프트 엔지니어링:</strong> 다양한 프롬프트 공식과 모델 결과에 대한 잠재적 영향을 고려하여 철저한 프롬프트 엔지니어링에 투자합니다. </li>
+<li><strong>인간 참여형 검증:</strong> 인간 검증 또는 피드백 루프를 통합하여 프롬프트의 효과를 평가하고 배포 전에 잠재적인 취성 문제를 식별합니다.</li>
+<li><strong>다양한 프롬프트 테스트:</strong> 다양한 데이터 세트와 시나리오에 대한 프롬프트를 테스트하여 견고성과 일반화 가능성을 평가합니다. </li>
+<li><strong>적응형 프롬프트:</strong> 모델이 사용자 입력이나 상황별 단서에 따라 동작을 동적으로 조정하여 고정 프롬프트 구조에 대한 의존도를 줄일 수 있는 적응형 프롬프트 기술을 개발합니다.</li>
+<li><strong>정기적인 모니터링 및 유지 관리:</strong> 실제 응용 프로그램에서 모델 성능과 즉각적인 효율성을 지속적으로 모니터링하고 시간이 지남에 따라 발생할 수 있는 취성 문제를 해결하기 위해 필요에 따라 프롬프트를 업데이트합니다.</li>
 </ol>
-<h2>B1. Memory and Scalability Challenges</h2>
-<p>In this section, we delve into the specific challenges related to memory and scalability when deploying LLMs, rather than focusing on their development. </p>
-<p>Let&#39;s explore these challenges and potential solutions in detail:</p>
+<h2>B1. </h2>
+<p>이 섹션에서는 개발에 집중하기보다는 LLM을 배포할 때 메모리 및 확장성과 관련된 구체적인 문제를 살펴봅니다.</p>
+<p>이러한 과제와 잠재적인 솔루션을 자세히 살펴보겠습니다.</p>
 <ol>
-<li><p><strong>Fine-tuning LLMs:</strong> Continuous fine-tuning of LLMs is crucial to ensure they stay updated with the latest knowledge or adapt to specific domains. Fine-tuning involves adjusting pre-trained model parameters on smaller, task-specific datasets to enhance performance. However, fine-tuning entire LLMs requires substantial memory, making it impractical for many users and leading to computational inefficiencies during deployment.</p>
-<p> <strong>Solutions:</strong> One approach is to leverage systems like RAG, where information can be utilized as context, enabling the model to learn from any knowledge base. Another solution is Parameter-efficient Fine-tuning (PEFT), such as adapters, which update only a subset of model parameters, reducing memory requirements while maintaining task performance. Methods like prefix-tuning and prompt-tuning prepend learnable token embeddings to inputs, facilitating efficient adaptation to specific datasets without the need to store and load individual fine-tuned models for each task. All these methods have been discussed in our previous weeks??content. Please read through for deeper insights.</p>
-</li>
-<li><p><strong>Inference Latency:</strong> LLMs often suffer from high inference latencies due to low parallelizability and large memory footprints. This results from processing tokens sequentially during inference and the extensive memory needed for decoding.</p>
-<p> <strong>Solution:</strong> Various techniques address these challenges, including efficient attention mechanisms. These mechanisms aim to accelerate attention computations by reducing memory bandwidth bottlenecks and introducing sparsity patterns to the attention matrix. <a href="https://blog.fireworks.ai/multi-query-attention-is-all-you-need-db072e758055">Multi-query attention</a> and <a href="https://arxiv.org/abs/2205.14135">FlashAttention</a> optimize memory bandwidth usage, while <a href="https://www.tensorops.ai/post/what-are-quantized-llms">quantization</a> and <a href="https://medium.com/@bnjmn_marie/freeze-and-prune-to-fine-tune-your-llm-with-apt-dc750b7bfbae">pruning</a> techniques reduce memory footprint and computational complexity without sacrificing performance.</p>
-</li>
-<li><p><strong>Limited Context Length:</strong> Limited context length refers to the constraint on the amount of contextual information an LLM can effectively process during computations. This limitation stems from practical considerations such as computational resources and memory constraints, posing challenges for tasks requiring understanding longer contexts, such as novel writing or summarization.</p>
-<p> <strong>Solution:</strong> Researchers propose several solutions to address limited context length. Efficient attention mechanisms, like <a href="https://arxiv.org/abs/2106.01540">Luna</a> and <a href="https://arxiv.org/abs/2209.15001">dilated attention</a>, handle longer sequences efficiently by reducing computational requirements. Length generalization methods aim to enable LLMs trained on short sequences to perform well on longer sequences during inference. This involves exploring different positional embedding schemes, such as Absolute Positional Embeddings and <a href="https://arxiv.org/abs/2108.12409">ALiBi,</a> to inject positional information effectively.</p>
-</li>
+<li><p><strong>LLM 후속 조정:</strong> LLM을 감소시켜 조정하는 것은 LLM이 최신 정보로 최신 상태를 유지하거나 특정 지역에 분산할 수 있도록 하는 데 중요합니다. </li>
+<li><p><strong>추론 지연 시간:</strong> LLM은 축소된 결과 큰 메모리 공간으로 인해 때문에 지연 시간이 엮이는 경우가 많습니다. </li>
+<li><p><strong>제약된 컨텍스트 길이:</strong> 제한된 컨텍스트 길이는 LLM이 통합되어 처리할 수 있는 컨텍스트 정보의 양에 대한 비교를 의미합니다. </li>
 </ol>
-<h2>B2. Privacy</h2>
-<p>Privacy risks stem from their ability to process and generate text based on vast and varied training datasets. Models like GPT-3 have the potential to inadvertently capture and replicate sensitive information present in their training data, leading to potential privacy concerns during text generation. Issues such as unintentional data memorization, data leakage, and the possibility of disclosing confidential or personally identifiable information (PII) are significant challenges.</p>
-<p>Moreover, when LLMs are fine-tuned for specific tasks, additional privacy considerations arise. Striking a balance between harnessing the utility of these powerful language models and safeguarding user privacy is crucial for ensuring their reliable and ethical use across various applications.</p>
-<p>We review key privacy risks and attacks, along with possible mitigation strategies. The classification provided below is adapted from <a href="https://arxiv.org/pdf/2402.00888.pdf">this</a> paper, which categorizes privacy attacks as:</p>
+<h2>B2. </h2>
+<p>개인 정보 보호 위험은 방대하고 다양한 교육 데이터 세트를 기반으로 텍스트를 처리하고 생성하는 능력에서 비롯됩니다. </p>
+<p>또한 LLM이 특정 작업에 맞게 미세 조정되면 추가적인 개인 정보 보호 고려 사항이 발생합니다. </p>
+<p>우리는 가능한 완화 전략과 함께 주요 개인 정보 보호 위험 및 공격을 검토합니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-17_at_4.23.14_PM.png" alt="Screenshot 2024-02-17 at 4.23.14 PM.png"></p>
-<p>Image Source: <a href="https://arxiv.org/pdf/2402.00888.pdf">https://arxiv.org/pdf/2402.00888.pdf</a></p>
+<p>이미지 출처: <a href="https://arxiv.org/pdf/2402.00888.pdf">https://arxiv.org/pdf/2402.00888.pdf</a></p>
 <ol>
-<li><strong>Gradient Leakage Attack:</strong></li>
+<li><strong>경사 누출 공격:</strong></li>
 </ol>
-<p>In this attack, adversaries exploit access to gradients or gradient information to compromise the privacy and safety of deep learning models. Gradients, which indicate the direction of the steepest increase in a function, are crucial for optimizing model parameters during training to minimize the loss function. </p>
-<p>To mitigate gradient-based attacks, several strategies can be employed:</p>
+<p>이 공격에서 공격자는 기울기 또는 기울기 정보에 대한 액세스를 악용하여 딥 러닝 모델의 개인 정보 보호 및 안전을 침해합니다. </p>
+<p>경사 기반 공격을 완화하기 위해 다음과 같은 몇 가지 전략을 사용할 수 있습니다.</p>
 <ol>
-<li><strong>Random Noise Insertion</strong>: Injecting random noise into gradients can disrupt the adversary&#39;s ability to infer sensitive information accurately.</li>
-<li><strong>Differential Privacy</strong>: Applying differential privacy techniques helps to add noise to the gradients, thereby obscuring any sensitive information contained within them.</li>
-<li><strong>Homomorphic Encryption</strong>: Using homomorphic encryption allows for computations on encrypted data, preventing adversaries from accessing gradients directly.</li>
-<li><strong>Defense Mechanisms</strong>: Techniques like adding Gaussian or Laplacian noise to gradients, coupled with differential privacy and additional clipping, can effectively defend against gradient leakage attacks. However, these methods may slightly reduce the model&#39;s utility.</li>
+<li><strong>무작위 노이즈 삽입</strong>: 경사도에 무작위 노이즈를 삽입하면 민감한 정보를 정확하게 추론하는 공격자의 능력이 방해를 받을 수 있습니다.</li>
+<li><strong>차등 개인 정보 보호</strong>: 차등 개인 정보 보호 기술을 적용하면 그라데이션에 노이즈를 추가하여 그 안에 포함된 민감한 정보를 모호하게 만드는 데 도움이 됩니다.</li>
+<li><strong>동형 암호화</strong>: 동형 암호화를 사용하면 암호화된 데이터에 대한 계산이 가능하므로 공격자가 그라디언트에 직접 액세스하는 것을 방지할 수 있습니다.</li>
+<li><strong>방어 메커니즘</strong>: 차등 개인 정보 보호 및 추가 클리핑과 결합하여 경사에 가우스 또는 라플라시안 노이즈를 추가하는 것과 같은 기술은 경사 누출 공격을 효과적으로 방어할 수 있습니다. </li>
 </ol>
-<p><strong>2. Membership Inference Attack</strong></p>
-<p>A Membership Inference Attack (MIA) aims to determine if a particular data sample was part of a machine learning model&#39;s training data, even without direct access to the model&#39;s parameters. Attackers exploit the model&#39;s tendency to overfit its training data, leading to lower loss values for training samples.  These attacks raise serious privacy concerns, especially when models are trained on sensitive data like medical records or financial information. </p>
-<p>Mitigating MIA in language models involves various mechanisms:</p>
+<p><strong>2. </p>
+<p>MIA(멤버십 추론 공격)는 모델의 매개변수에 직접 액세스하지 않고도 특정 데이터 샘플이 기계 학습 모델의 교육 데이터의 일부인지 확인하는 것을 목표로 합니다. </p>
+<p>언어 모델에서 MIA를 완화하려면 다음과 같은 다양한 메커니즘이 필요합니다.</p>
 <ol>
-<li><strong>Dropout and Model Stacking</strong>: Dropout randomly deletes neuron connections during training to mitigate overfitting. Model stacking involves training different parts of the model with different subsets of data to reduce overall overfitting tendencies.</li>
-<li><strong>Differential Privacy (DP)</strong>: DP-based techniques involve data perturbation and output perturbation to prevent privacy leakage. Models equipped with DP and trained using stochastic gradient descent can reduce privacy leakages while maintaining model utility.</li>
-<li><strong>Regularization</strong>: Regularization techniques prevent overfitting and improve model generalization. Label smoothing is one such method that prevents overfitting, thus contributing to MIA prevention.</li>
+<li><strong>드롭아웃 및 모델 스태킹</strong>: 드롭아웃은 과적합을 완화하기 위해 훈련 중에 뉴런 연결을 무작위로 삭제합니다. </li>
+<li><strong>차등 개인 정보 보호(DP)</strong>: DP 기반 기술에는 개인 정보 유출을 방지하기 위해 데이터 교란 및 출력 교란이 포함됩니다. </li>
+<li><strong>정규화</strong>: 정규화 기술은 과적합을 방지하고 모델 일반화를 개선합니다. </li>
 </ol>
-<p><strong>3. Personally Identifiable Information (PII) attack</strong></p>
-<p>This attack involves the exposure of data that can uniquely identify individuals, either alone or in combination with other information. This includes direct identifiers like passport details and indirect identifiers such as race and date of birth. Sensitive PII encompasses information like name, phone number, address, social security number (SSN), financial, and medical records, while non-sensitive PII includes data like zip code, race, and gender. Attackers may acquire PII through various means such as phishing, social engineering, or exploiting vulnerabilities in systems.</p>
-<p>To mitigate PII leakage in LLMs, several strategies can be employed:</p>
+<p><strong>3. </p>
+<p>이 공격에는 단독으로 또는 다른 정보와 결합하여 개인을 고유하게 식별할 수 있는 데이터가 노출됩니다. </p>
+<p>LLM의 PII 유출을 완화하기 위해 다음과 같은 몇 가지 전략을 사용할 수 있습니다.</p>
 <ol>
-<li><strong>Preprocessing Techniques</strong>: Deduplication during the preprocessing phase can significantly reduce the amount of memorized text in LLMs, thus decreasing the stored personal information. Additionally, personal information or content identifying and filtering with restrictive terms of use can limit the presence of sensitive content in training data.</li>
-<li><strong>Privacy-Preserving Training Algorithms</strong>: Techniques like differentially private stochastic gradient descent [(DP-SGD)](<a href="https://assets.amazon.science/01/6e/4f6c2b1046d4b9b8651166bbcd93/differentially-private-decoding-in-large-language-models.pdf#:~:text=While%20the%20intersection%20of%20DP%20and%20LLMs%20is%20fairly%20novel%2C%20the%20prominent%20approach&text=vate%20Stochastic%20Gradient%20Descent%20(DP%2DSGD)%20(Song%20et%20al.%2C%202013;)">https://assets.amazon.science/01/6e/4f6c2b1046d4b9b8651166bbcd93/differentially-private-decoding-in-large-language-models.pdf#:~:text=While%20the%20intersection%20of%20DP%20and%20LLMs%20is%20fairly%20novel%2C%20the%20prominent%20approach&amp;text=vate%20Stochastic%20Gradient%20Descent%20(DP%2DSGD)%20(Song%20et%20al.%2C%202013;)</a> can be used during training to ensure the privacy of training data. However, DP-SGD may incur a significant computational cost and decrease model utility.</li>
-<li><strong>PII Scrubbing</strong>: This involves filtering datasets to eliminate PII from text, often leveraging Named Entity Recognition (NER) to tag PII. However, PII scrubbing methods may face challenges in preserving dataset utility and accurately removing all PII.</li>
-<li><strong>Fine-Tuning Considerations</strong>: During fine-tuning on task-specific data, it&#39;s crucial to ensure that the data doesn&#39;t contain sensitive information to prevent privacy leaks. While fine-tuning may help the LM &quot;forget&quot; some memorized data from pretraining, it can still introduce privacy risks if the task-specific data contains PII.</li>
+<li><strong>전처리 기술</strong>: 전처리 단계 중 중복을 제거하면 LLM에 기억되는 텍스트의 양이 크게 줄어들어 저장된 개인 정보가 줄어들 수 있습니다. </li>
+<li><strong>개인 정보 보호 훈련 알고리즘</strong>: 차등 비공개 확률적 경사하강법[(DP-SGD)](<a </li>
+<li><strong>PII 스크러빙</strong>: 여기에는 데이터세트를 필터링하여 텍스트에서 PII를 제거하는 작업이 포함되며, 종종 명명된 엔터티 인식(NER)을 활용하여 PII에 태그를 지정합니다. </li>
+<li><strong>미세 조정 고려 사항</strong>: 작업별 데이터를 세부 조정하는 동안 개인정보 유출을 방지하기 위해 데이터에 민감한 정보가 포함되지 않았는지 확인하는 것이 중요합니다. </li>
 </ol>
-<h2>Read/Watch These Resources (Optional)</h2>
+<h2>다음 리소스 읽기/보기(선택 사항)</h2>
 <ol>
-<li>The Unspoken Challenges of Large Language Models - <a href="https://deeperinsights.com/ai-blog/the-unspoken-challenges-of-large-language-models">https://deeperinsights.com/ai-blog/the-unspoken-challenges-of-large-language-models</a></li>
-<li>15 Challenges With Large Language Models (LLMs)- <a href="https://www.predinfer.com/blog/15-challenges-with-large-language-models-llms/">https://www.predinfer.com/blog/15-challenges-with-large-language-models-llms/</a></li>
+<li>대규모 언어 모델의 무언의 과제 - <a href="https://deeperinsights.com/ai-blog/the-unspoken-challenges-of-large-언어-models">https://deeperinsights.com/ai-blog/the-unspoken-challenges-of-large-언어-모델</a></li>
+<li>대규모 언어 모델(LLM)의 15가지 과제 - <a href="https://www.predinfer.com/blog/15-challenges-with-large-언어-models-llms/">https://www.predinfer.com/blog/15-challenges-with-large-언어-models-llms/</a></li>
 </ol>
-<h2>Read These Papers (Optional)</h2>
+<h2>이 논문 읽기(선택 사항)</h2>
 <ol>
 <li><a href="https://arxiv.org/abs/2307.10169">https://arxiv.org/abs/2307.10169</a></li>
 <li><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.23589741.v1">https://www.techrxiv.org/doi/full/10.36227/techrxiv.23589741.v1</a></li>

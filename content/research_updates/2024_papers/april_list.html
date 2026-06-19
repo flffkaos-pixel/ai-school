@@ -45,306 +45,305 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
 <table>
-<thead>
-<tr>
-<th align="left">Date</th>
-<th align="left">Title</th>
-<th align="left">Summary</th>
-<th align="left">Topics</th>
+<thead><tr>
+</th>
+<th align="left">제목</th>
+<th align="left">요약</th>
+<th align="left">주제</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">April 30, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.19296">Octopus v4: Graph of language models</a></td>
-<td align="left">This paper introduces Octopus v4, a novel approach leveraging functional tokens to integrate multiple open-source language models optimized for specific tasks. Octopus v4 excels in directing user queries to the most appropriate model and reformulating queries for optimal performance, building upon previous iterations (v1, v2, and v3) with enhanced selection and parameter understanding. Additionally, it explores the use of graphs as a versatile data structure to coordinate multiple models effectively. The Octopus v4 model and its functionalities are available on GitHub for experimentation.</td>
-<td align="left">Foundational LLM</td>
+<td align="left">2024년 4월 30일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.19296">Octopus v4: 언어 모델 그래프</a></td>
+<td align="left">이 문서에서는 기능 토큰을 활용하여 특정 작업에 최적화된 여러 오픈 소스 언어 모델을 통합하는 새로운 접근 방식인 Octopus v4를 소개합니다. </td>
+<td align="left">기초 LLM</td>
 </tr>
 <tr>
-<td align="left">April 30, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.19737">Better &amp; Faster Large Language Models via Multi-token Prediction</a></td>
-<td align="left">This paper proposes training language models to predict multiple future tokens simultaneously, enhancing sample efficiency without increasing training time. By employing multiple output heads for predicting n tokens ahead, the method improves downstream capabilities for both code and natural language models. Particularly beneficial for larger models, it consistently outperforms single-token prediction on generative benchmarks like coding, showing notable gains in problem-solving tasks. Moreover, models trained with multi-token prediction demonstrate up to threefold faster inference speeds, even with large batch sizes, offering additional efficiency benefits.</td>
-<td align="left">New Architecture</td>
+<td align="left">2024년 4월 30일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.19737">다중 해석을 예측하여 더 빠른 설명을 할 것입니다</a></td>
+<td align="left">본 논문에서는 여러 미래 토큰을 동시에 예측하여 훈련 시간을 늘리지 않고도 샘플 효율성을 향상시키는 훈련 언어 모델을 제안합니다. </td>
+<td align="left">새로운 아키텍처</td>
 </tr>
 <tr>
-<td align="left">April 30, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.19553">Extending Llama-3&#39;s Context Ten-Fold Overnight</a></td>
-<td align="left">The Llama-3-8B-Instruct model&#39;s context length is extended from 8K to 80K through efficient QLoRA fine-tuning, requiring only 8 hours on a single 8xA800 GPU machine. This extension significantly enhances model performance across various evaluation tasks like NIHS and topic retrieval, while maintaining proficiency in short-context tasks. Surprisingly, the extension is achieved with just 3.5K synthetic training samples from GPT-4, showcasing the untapped potential of LLMs to extend context lengths. The team plans to release all associated resources publicly, including data, model, data generation pipeline, and training code.</td>
-<td align="left">Context Length</td>
+<td align="left">2024년 4월 30일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.19553">Llama-3의 교외를 사이에 10배 확장</a></td>
+<td align="left">Llama-3-8B-Instruct 모델의 컨텍스트 길이는 효율적인 QLoRA 미세 조정을 통해 8K에서 80K로 확장되어 단일 8xA800 GPU 시스템에서 단 8시간만 필요합니다. </td>
+<td align="left">컨텍스트 길이</td>
 </tr>
 <tr>
-<td align="left">April 29, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.18796">Replacing Judges with Juries: Evaluating LLM Generations with a Panel of Diverse Models</a></td>
-<td align="left">This paper addresses the challenge of accurately evaluating the quality of LLMs by proposing the use of a Panel of LLM Evaluators (PoLL) instead of relying on a single large model like GPT-4. The PoLL approach, composed of a larger number of smaller models, outperforms single large judges across three distinct settings and six datasets. It exhibits less intra-model bias and is over seven times less expensive, offering a cost-effective and more reliable evaluation method for LLMs.</td>
-<td align="left">Evaluation</td>
+<td align="left">2024년 4월 29일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.18796">다음을 배심원으로 대체: 다양한 모델 패널을 통해 LLM 독자 평가</a></td>
+<td align="left">이 문서에서는 GPT-4와 같은 단일 대형 모델에 의존하는 대신 PoLL(LLM 평가자 패널) 사용을 제안하여 LLM 품질을 정확하게 평가하는 과제를 다룹니다. </td>
+<td align="left">평가</td>
 </tr>
 <tr>
-<td align="left">April 28, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.16873">AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs</a></td>
-<td align="left">This paper presents a novel method for generating human-readable adversarial prompts, called AdvPrompter, to address jailbreaking attacks on LLMs. Unlike existing optimization-based approaches, AdvPrompter achieves adversarial prompt generation in seconds, 800 times faster, without requiring access to gradients from the TargetLLM. The method alternates between generating high-quality target adversarial suffixes and low-rank fine-tuning of AdvPrompter. Experimental results demonstrate state-of-the-art performance on the AdvBench dataset and transferability to closed-source black-box LLM APIs.</td>
-<td align="left">Adversarial Attacks, Evaluation</td>
+<td align="left">2024년 4월 28일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.16873">AdvPrompter: LLM을 빠른 범용 형태의 구성원</a></td>
+<td align="left">이 문서에서는 LLM에 대한 탈옥 공격을 해결하기 위해 AdvPrompter라는 사람이 읽을 수 있는 적대적 프롬프트를 생성하는 새로운 방법을 제시합니다. </td>
+<td align="left">적대적 공격, 평가</td>
 </tr>
 <tr>
-<td align="left">April 28, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.18416">Capabilities of Gemini Models in Medicine</a></td>
-<td align="left">Med-Gemini, a specialized multimodal model for medical tasks, surpasses GPT-4 on various benchmarks, achieving state-of-the-art results in medical text summarization and question answering. With its advanced long-context reasoning, it outperforms existing methods in tasks such as needle-in-a-haystack retrieval from medical records. While promising, further evaluation is needed before deployment in real-world medical applications.</td>
-<td align="left">Domain-Specific LLMs</td>
+<td align="left">2024년 4월 28일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.18416">코프 범위에서 Gemini의 유능한 능력</a></td>
+<td align="left">의료 작업을 위한 전문 다중 모드 모델인 Med-Gemini는 다양한 벤치마크에서 GPT-4를 능가하여 의료 텍스트 요약 및 질문 답변 분야에서 최첨단 결과를 달성했습니다. </td>
+<td align="left">도메인별 LLM</td>
 </tr>
 <tr>
-<td align="left">April 25, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.16821">How Far Are We to GPT-4V? Closing the Gap to Commercial Multimodal Models with Open-Source Suites</a></td>
-<td align="left">InternVL 1.5, an open-source multimodal large language model (MLLM), bridges the gap between open-source and proprietary commercial models in multimodal understanding. It introduces three improvements: a Strong Vision Encoder, Dynamic High-Resolution image processing supporting up to 4K resolution, and a High-Quality Bilingual Dataset. Evaluation across benchmarks demonstrates its effectiveness compared to both open-source and proprietary models.</td>
-<td align="left">Multimodal LLMs</td>
+<td align="left">2024년 4월 25일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.16821">GPT-4V는 얼마나 멀리 있습니까? </td>
+<td align="left">오픈 소스 다중 모드 대형 언어 모델(MLLM)인 InternVL 1.5는 다중 모드 이해에 있어 오픈 소스와 독점 상용 모델 간의 격차를 해소합니다. </td>
+<td align="left">다중 모드 LLM</td>
 </tr>
 <tr>
-<td align="left">April 25, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.16811">Make Your LLM Fully Utilize the Context</a></td>
-<td align="left">This paper introduces information-intensive (IN2) training to address the lost-in-the-middle challenge faced by contemporary LLMs. Leveraging a synthesized long-context question-answer dataset, IN2 training emphasizes fine-grained information awareness within long contexts. Applying this approach to Mistral-7B yields FILM-7B (FILl-in-the-Middle), which robustly retrieves information from various positions in a 32K context window. FILM-7B improves performance on real-world long-context tasks while maintaining comparable performance on short-context tasks</td>
-<td align="left">Context Length</td>
+<td align="left">2024년 4월 25일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.16811">LLM이 상황을 최대한 활용하도록 하세요</a></td>
+<td align="left">이 문서에서는 현대 LLM이 직면한 중간 문제를 해결하기 위한 정보 집약적(IN2) 교육을 소개합니다. </td>
+<td align="left">컨텍스트 길이</td>
 </tr>
 <tr>
-<td align="left">April 25, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.16790">SEED-Bench-2-Plus: Benchmarking Multimodal Large Language Models with Text-Rich Visual Comprehension</a></td>
-<td align="left">This work introduces SEED-Bench-2-Plus, a benchmark specifically tailored for evaluating text-rich visual comprehension of Multimodal Large Language Models (MLLMs). With 2.3K multiple-choice questions covering Charts, Maps, and Webs, it aims to simulate real-world text-rich scenarios comprehensively. Evaluation involving 34 prominent MLLMs highlights current limitations in text-rich visual comprehension, emphasizing the need for further research and improvement in this area. SEED-Bench-2-Plus serves as a valuable addition to existing MLLM benchmarks, offering insightful observations and inspiring future developments in text-rich visual comprehension.</td>
-<td align="left">Multimodal LLMs</td>
+<td align="left">2024년 4월 25일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.16790">SEED-Bench-2-Plus: 텍스트가 풍부한 설명 이해력을 최대한 활용하는 대형 모드 모델 벤치마킹</a></td>
+<td align="left">이 작업에서는 MLLM(Multimodal Large Language Model)의 텍스트가 풍부한 시각적 이해를 평가하기 위해 특별히 맞춤화된 벤치마크인 SEED-Bench-2-Plus를 소개합니다. </td>
+<td align="left">다중 모드 LLM</td>
 </tr>
 <tr>
-<td align="left">April 23, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.00399">AURORA -M: The First Open Source Multilingual Language Model Red-teamed according to the U.S. Executive Order</a></td>
-<td align="left">This paper presents AURORA -M, a multilingual open-source language model trained on English, Finnish, Hindi, Japanese, Vietnamese, and code. It surpasses 2 trillion tokens in total training token count and is fine-tuned on human-reviewed safety instructions, aligning its development with the Biden-Harris Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence. AURORA -M is rigorously evaluated across various tasks and languages, demonstrating robustness against catastrophic forgetting and outperforming alternatives in multilingual settings, particularly in safety evaluations.</td>
-<td align="left">Domain-Specific LLMs</td>
+<td align="left">2024년 4월 23일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.00399">AURORA -M: 미국 동네 몬스터에 따라 레드팀으로 초기의 오픈 소스 다국어 언어 모델</a></td>
+<td align="left">본 논문에서는 영어, 핀란드어, 힌디어, 일본어, 베트남어 및 코드를 학습한 다국어 오픈 소스 언어 모델인 AURORA -M을 제시합니다. </td>
+<td align="left">도메인별 LLM</td>
 </tr>
 <tr>
-<td align="left">April 23, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.15045">Multi-Head Mixture-of-Experts</a></td>
-<td align="left">This paper introduces Multi-Head Mixture-of-Experts (MH-MoE) to address issues in Sparse Mixtures of Experts (SMoE), specifically low expert activation and lack of fine-grained analytical capabilities. MH-MoE employs a multi-head mechanism to split tokens into sub-tokens, assigning them to diverse experts for parallel processing before reintegrating them. This approach enhances expert activation, deepening context understanding and alleviating overfitting. MH-MoE is easy to implement and integrates seamlessly with other SMoE models, as demonstrated across English-focused language modeling, Multi-lingual language modeling, and Masked multi-modality modeling tasks.</td>
-<td align="left">New Architecture</td>
+<td align="left">2024년 4월 23일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.15045">특수 전문가 구성</a></td>
+<td align="left">이 문서에서는 SMoE(Sparse Mixtures of Experts)의 문제, 특히 낮은 전문가 활성화 및 세분화된 분석 기능 부족 문제를 해결하기 위해 MH-MoE(Multi-Head Mixture-of-Experts)를 소개합니다. </td>
+<td align="left">새로운 아키텍처</td>
 </tr>
 <tr>
-<td align="left">April 22, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.14219">Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone</a></td>
-<td align="left">This paper introduces phi-3-mini, a compact 3.8 billion parameter language model trained on 3.3 trillion tokens, delivering competitive performance similar to larger models like Mixtral 8x7B and GPT-3.5. Achieving notable scores on benchmarks such as MMLU (69%) and MT-bench (8.38), phi-3-mini is designed for deployment on mobile devices. The innovation lies in its dataset, a scaled-up version of phi-2&#39;s, comprising heavily filtered web data and synthetic data. Additionally, initial parameter-scaling results with phi-3-small and phi-3-medium models trained on 4.8T tokens demonstrate further enhanced performance.</td>
-<td align="left">Foundational LLM</td>
+<td align="left">2024년 4월 22일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.14219">Phi-3 기술 검토: 휴대전화에서 반대 방향으로 실행하는 호환 버전 모델</a></td>
+<td align="left">이 문서에서는 Mixtral 8x7B 및 GPT-3.5와 같은 대형 모델과 유사한 경쟁력 있는 성능을 제공하는 3조 3천억 개의 토큰으로 훈련된 소형 38억 개의 매개변수 언어 모델인 phi-3-mini를 소개합니다. </td>
+<td align="left">기초 LLM</td>
 </tr>
 <tr>
-<td align="left">April 22, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.14047">How Good Are Low-bit Quantized LLaMA3 Models? An Empirical Study</a></td>
-<td align="left">This paper explores the performance of Meta&#39;s LLaMA3 LLMs under low-bit quantization, essential for resource-limited scenarios. Despite their impressive pre-training on over 15T tokens, LLaMA3 models exhibit notable degradation when quantized to low bit-width. Evaluating 10 quantization methods on 1-8 bits across diverse datasets, the study reveals significant performance gaps, especially in ultra-low bit-width scenarios, highlighting the need for future developments to bridge this gap for practical applications.</td>
-<td align="left">Quantization</td>
+<td align="left">2024년 4월 22일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.14047">낮은 비트 양자화 LLaMA3 모델은 얼마나 좋은가요? </td>
+<td align="left">이 문서에서는 리소스가 제한된 시나리오에 필수적인 낮은 비트 양자화에서 Meta의 LLaMA3 LLM 성능을 살펴봅니다. </td>
+<td align="left">양자화</td>
 </tr>
 <tr>
-<td align="left">April 22, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.13050">FlowMind: Automatic Workflow Generation with LLMs</a></td>
-<td align="left">This paper introduces FlowMind, leveraging LLMs like Generative Pretrained Transformers (GPT) to automate workflow generation in Robotic Process Automation (RPA), overcoming limitations in handling spontaneous tasks. FlowMind&#39;s generic prompt recipe grounds LLM reasoning with reliable APIs, mitigating hallucination issues and ensuring data confidentiality. It simplifies user interaction by presenting high-level workflow descriptions, allowing effective inspection and feedback. Evaluation on NCEN-QA dataset demonstrates FlowMind&#39;s success and the significance of its components in enhancing user interaction and workflow generation.</td>
-<td align="left">LLM Agents</td>
+<td align="left">2024년 4월 22일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.13050">FlowMind: LLM을 통한 자동 작업 흐름 생성</a></td>
+<td align="left">이 문서에서는 GPT(Generative Pretrained Transformers)와 같은 LLM을 활용하여 RPA(로보틱 프로세스 자동화)에서 워크플로 생성을 자동화하고 자발적인 작업 처리의 한계를 극복하는 FlowMind를 소개합니다. </td>
+<td align="left">LLM 에이전트</td>
 </tr>
 <tr>
-<td align="left">April 22, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.14469">SnapKV: LLM Knows What You are Looking for Before Generation</a></td>
-<td align="left">This paper introduces SnapKV, a fine-tuning-free approach to efficiently minimize Key-Value (KV) cache size in LLMs while maintaining comparable performance. SnapKV utilizes attention head-specific prompt features identified from an &#39;observation&#39; window, automatically compressing KV caches by selecting clustered important positions. This significantly reduces computational overhead and memory footprint, achieving a 3.6x increase in generation speed and an 8.2x enhancement in memory efficiency compared to baseline models when processing long input sequences</td>
-<td align="left">Fine-Tuning</td>
+<td align="left">2024년 4월 22일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.14469">SnapKV: LLM은 독서 이전에 귀하가 무엇을 찾고 있는지 알고 있습니다.</a></td>
+<td align="left">이 문서에서는 비슷한 성능을 유지하면서 LLM의 키-값(KV) 캐시 크기를 효율적으로 최소화하기 위한 미세 조정이 필요 없는 접근 방식인 SnapKV를 소개합니다. </td>
+<td align="left">미세 조정</td>
 </tr>
 <tr>
-<td align="left">April 21, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.12753">AutoCrawler: A Progressive Understanding Web Agent for Web Crawler Generation</a></td>
-<td align="left">This paper introduces AutoCrawler, a two-stage framework merging LLMs with crawlers to enhance adaptability in web automation. Addressing limitations of traditional methods and standalone LLM-based agents, AutoCrawler employs a hierarchical HTML structure for progressive understanding through top-down and step-back operations. Comprehensive experiments validate the effectiveness of this approach in handling diverse and changing web environments efficiently</td>
-<td align="left">LLM Agents</td>
+<td align="left">2024년 4월 21일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.12753">AutoCrawler: 웹 크롤러 생성을 처리하는 이해 웹 에이전트</a></td>
+<td align="left">이 문서에서는 LLM을 크롤러와 병합하여 웹 자동화의 적응성을 향상시키는 2단계 프레임워크인 AutoCrawler를 소개합니다. </td>
+<td align="left">LLM 에이전트</td>
 </tr>
 <tr>
-<td align="left">April 21, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.13013">Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models</a></td>
-<td align="left">This paper presents Groma, a Multimodal Large Language Model (MLLM) equipped with fine-grained visual perception capabilities, enabling region-level tasks like captioning and visual grounding. Groma employs a localized visual tokenization mechanism to decompose images into regions of interest, seamlessly integrating region tokens into user instructions and model responses. By curating a visually grounded instruction dataset, Groma outperforms MLLMs relying solely on language models or external modules for localization, demonstrating superior performance in standard referring and grounding benchmarks.</td>
-<td align="left">Multimodal LLMs</td>
+<td align="left">2024년 4월 21일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.13013">Groma: 다중 대형 언어 기반을 기반으로 하는 원시적인 표현입니다.</a></td>
+<td align="left">이 문서에서는 캡션 및 시각적 접지와 같은 지역 수준 작업을 가능하게 하는 세분화된 시각적 인식 기능을 갖춘 MLLM(Multimodal Large Language Model)인 Groma를 제시합니다. </td>
+<td align="left">다중 모드 LLM</td>
 </tr>
 <tr>
-<td align="left">April 18, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.12253">Toward Self-Improvement of LLMs via Imagination, Searching, and Criticizing</a></td>
-<td align="left">This paper addresses the challenge of enhancing LLMs reasoning and planning capabilities without relying on extensive data or fine-tuning. Introducing AlphaLLM, it integrates Monte Carlo Tree Search (MCTS) with LLMs to establish a self-improving loop. AlphaLLM includes components for prompt synthesis, an efficient MCTS approach for language tasks, and critic models for precise feedback. Experimental results on mathematical reasoning tasks demonstrate that AlphaLLM significantly enhances LLM performance without additional annotations, showcasing its potential for self-improvement in complex reasoning and planning tasks.</td>
-<td align="left">Instruction Tuning</td>
+<td align="left">2024년 4월 18일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.12253">노력하고 있으며, LLM의 자기 개선을 위해</a></td>
+<td align="left">이 문서는 광범위한 데이터나 미세 조정에 의존하지 않고 LLM의 추론 및 계획 능력을 향상시키는 과제를 다룹니다. </td>
+<td align="left">명령어 튜닝</td>
 </tr>
 <tr>
-<td align="left">April 18, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.12318">Reuse Your Rewards: Reward Model Transfer for Zero-Shot Cross-Lingual Alignment</a></td>
-<td align="left">This paper explores a simple approach for zero-shot cross-lingual alignment of language models using reward models trained on preference data from one source language and applied to other target languages. Evaluations on summarization and open-ended dialog generation tasks consistently show the success of this method, with cross-lingually aligned models preferred by humans in over 70% of evaluation instances. Surprisingly, different-language reward models sometimes outperform same-language ones. The study also identifies best practices for alignment when language-specific data for supervised fine-tuning is unavailable.</td>
-<td align="left">Instruction Tuning</td>
+<td align="left">2024년 4월 18일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.12318">배터리 교체: 교체 번호 관련 언어 선택을 위한 서비스 모델 이전</a></td>
+<td align="left">이 논문에서는 한 소스 언어의 선호도 데이터에 대해 훈련되고 다른 대상 언어에 적용되는 보상 모델을 사용하여 언어 모델의 제로샷 교차 언어 정렬을 위한 간단한 접근 방식을 탐구합니다. </td>
+<td align="left">명령어 튜닝</td>
 </tr>
 <tr>
-<td align="left">April 18, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.12241">Introducing v0.5 of the AI Safety Benchmark from MLCommons</a></td>
-<td align="left">This paper presents v0.5 of the AI Safety Benchmark, developed by the MLCommons AI Safety Working Group, to assess safety risks of chat-tuned language models. It introduces a principled approach, covering a single use case and personas, along with a taxonomy of 13 hazard categories and tests for 7 categories. Version 1.0 is planned for release by 2024, aiming to provide deeper insights into AI system safety. While v0.5 should not be used for safety assessment, it offers detailed documentation and tools for evaluation, including a grading system and an openly available platform called ModelBench.</td>
-<td align="left">Benchmark, Evaluation</td>
+<td align="left">2024년 4월 18일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.12241">MLCommons의 AI 벤치마크 v0.5 소개</a></td>
+<td align="left">이 문서에서는 채팅 조정 언어 모델의 안전 위험을 평가하기 위해 MLCommons AI Safety Working Group에서 개발한 AI 안전 벤치마크 v0.5를 제시합니다. </td>
+<td align="left">벤치마크, 평가</td>
 </tr>
 <tr>
-<td align="left">April 16, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.01744">Octopus v2: On-device language model for super agent</a></td>
-<td align="left">This research presents a new method that empowers an on-device language model with 2 billion parameters to surpass the performance of GPT-4 in both accuracy and latency, while reducing the context length by 95%. The method addresses concerns over privacy and cost associated with large-scale language models in cloud environments by enabling deployment on edge devices such as smartphones, cars, VR headsets, and personal computers. By enhancing latency and reducing inference costs, the method aligns with the performance requisites for real-world applications, making it suitable for deployment across a variety of edge devices in production environments.</td>
-<td align="left">Small LLMs</td>
+<td align="left">2024년 4월 16일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.01744">Octopus v2: 강력한 에이전트를 지원하는 내 언어 모델</a></td>
+<td align="left">이 연구는 정확도와 대기 시간 모두에서 GPT-4의 성능을 능가하는 20억 개의 매개변수를 갖춘 온디바이스 언어 모델을 강화하는 동시에 컨텍스트 길이를 95%까지 줄이는 새로운 방법을 제시합니다. </td>
+<td align="left">소규모 LLM</td>
 </tr>
 <tr>
-<td align="left">April 15, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.09656">Learn Your Reference Model for Real Good Alignment</a></td>
-<td align="left">Existing methods for the alignment problem are unstable, prompting researchers to develop various techniques. In Language Model alignment, Reinforcement Learning From Human Feedback (RLHF) minimizes the Kullback-Leibler divergence between policies to prevent overfitting. Direct Preference Optimization (DPO) aims to eliminate the Reward Model but faces limitations. We propose Trust Region DPO (TR-DPO), updating the reference policy during training, which outperforms DPO by up to 19% on Anthropic HH and TLDR datasets, enhancing model quality across multiple parameters.</td>
-<td align="left">Prompt Engineering</td>
+<td align="left">2024년 4월 15일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.09656">대신해야 합니다.</a></td>
+<td align="left">정렬 문제에 대한 기존 방법은 불안정하여 연구자들이 다양한 기술을 개발하게 되었습니다. </td>
+<td align="left">신속한 엔지니어링</td>
 </tr>
 <tr>
-<td align="left">April 15, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.09937">Compression Represents Intelligence Linearly</a></td>
-<td align="left">This paper investigates the relationship between compression and intelligence in LLMs, finding that LLMs&#39; ability to compress external text corpora correlates almost linearly with their intelligence, as measured by benchmark scores. The results provide empirical evidence supporting the belief that superior compression reflects greater intelligence. Additionally, compression efficiency serves as a reliable evaluation measure associated with model capabilities, with open-sourced datasets and pipelines provided for future research in compression assessment.</td>
-<td align="left">Model Compression</td>
+<td align="left">2024년 4월 15일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.09937">압축을 해제합니다.</a></td>
+<td align="left">이 문서에서는 LLM의 압축과 지능 사이의 관계를 조사하여 벤치마크 점수로 측정했을 때 LLM의 외부 텍스트 말뭉치를 압축하는 능력이 지능과 거의 선형적으로 상관관계가 있음을 확인했습니다. </td>
+<td align="left">모델 압축</td>
 </tr>
 <tr>
-<td align="left">April 14, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.08634">Pre-training Small Base LMs with Fewer Tokens</a></td>
-<td align="left">The paper presents Inheritune, a straightforward method for constructing a smaller language model from a larger one by inheriting transformer blocks and training it on a fraction of the original pretraining data. They showcase its effectiveness by building a 1.5B parameter LM using only 1B tokens from a larger model, achieving comparable performance to publicly available models trained on significantly more data. Furthermore, they demonstrate that smaller LMs utilizing layers from larger ones can match the performance of their bigger counterparts when trained on equivalent data volumes. Extensive experiments validate the efficacy of Inheritune across diverse settings, and the code is openly accessible on GitHub.</td>
-<td align="left">Small LLMs</td>
+<td align="left">2024년 4월 14일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.08634">더 작은 교육 단위로 기반 LM 사전</a></td>
+<td align="left">이 논문에서는 변환기 블록을 상속하고 원래 사전 학습 데이터의 일부를 학습하여 더 큰 언어 모델에서 더 작은 언어 모델을 구성하는 간단한 방법인 Inheritune을 제시합니다. </td>
+<td align="left">소규모 LLM</td>
 </tr>
 <tr>
-<td align="left">April 14, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.08197">Scaling (Down) CLIP: A Comprehensive Analysis of Data, Architecture, and Training Strategies</a></td>
-<td align="left">The paper explores scaling down Contrastive Language-Image Pre-training (CLIP) under limited computation budgets across data, architecture, and training strategies. It emphasizes the importance of high-quality data and suggests smaller ViT models for smaller datasets and larger ones for larger datasets with fixed compute. Additionally, it compares four training strategies, finding that CLIP+Data Augmentation achieves comparable results to CLIP using half the data, offering practical insights for CLIP training and deployment.</td>
-<td align="left">Vision Models</td>
+<td align="left">2024년 4월 14일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.08197">축소(축소) CLIP: 데이터 분석, 분석 및 교육 전략에 대한 종합 분석</a></td>
+<td align="left">이 문서에서는 데이터, 아키텍처 및 교육 전략 전반에 걸쳐 제한된 계산 예산 하에서 CLIP(Contrastive Language-Image Pre-training)를 축소하는 방법을 살펴봅니다. </td>
+<td align="left">비전 모델</td>
 </tr>
 <tr>
-<td align="left">April 12, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.08801">Megalodon: Efficient LLM Pretraining and Inference with Unlimited Context Length</a></td>
-<td align="left">Megalodon addresses the quadratic complexity and weak length extrapolation issues of Transformers by introducing a neural architecture for efficient sequence modeling with unlimited context length. It inherits Mega&#39;s architecture and incorporates enhancements such as complex exponential moving average (CEMA), timestep normalization layer, normalized attention mechanism, and pre-norm with two-hop residual configuration. In a head-to-head comparison with Llama2, Megalodon demonstrates better efficiency than Transformers with 7 billion parameters and 2 trillion training tokens, achieving a training loss of 1.70, positioning between Llama2-7B (1.75) and 13B (1.67)</td>
-<td align="left">Context Length</td>
+<td align="left">2024년 4월 12일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.08801">Megalodon: 짧은 길이를 사용하여 효율적인 LLM 사전 훈련 및 가능</a></td>
+<td align="left">Megalodon은 무제한 컨텍스트 길이로 효율적인 시퀀스 모델링을 위한 신경 아키텍처를 도입하여 Transformers의 2차 복잡성과 약한 길이 외삽 문제를 해결합니다. </td>
+<td align="left">컨텍스트 길이</td>
 </tr>
 <tr>
-<td align="left">April 11, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.06654">RULER: What?셲 the Real Context Size of Your Long-Context Language Models?</a></td>
-<td align="left">The needle-in-a-haystack (NIAH) test, widely used to evaluate long-context language models, assesses the ability to retrieve information from long distractor texts. However, it only measures a superficial form of long-context understanding. To provide a more comprehensive evaluation, a new synthetic benchmark called RULER is introduced. RULER expands upon the NIAH test by incorporating variations with diverse types and quantities of needles and introduces new task categories like multi-hop tracing and aggregation to test behaviors beyond context searching. The evaluation of ten long-context LMs with 13 representative tasks in RULER reveals large performance drops as the context length increases, despite nearly perfect accuracy in the NIAH test. Only four models can maintain satisfactory performance at the length of 32K tokens. RULER is open-sourced to encourage comprehensive evaluation of long-context LMs.</td>
-<td align="left">Context Length</td>
+<td align="left">2024년 4월 11일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.06654">RULER: 긴 컨텍스트 언어 모델의 실제 컨텍스트 크기는 무엇입니까?</a></td>
+<td align="left">긴 맥락의 언어 모델을 평가하는 데 널리 사용되는 NIAH(Needs-in-a-Haystack) 테스트는 긴 혼란스러운 텍스트에서 정보를 검색하는 능력을 평가합니다. </td>
+<td align="left">컨텍스트 길이</td>
 </tr>
 <tr>
-<td align="left">April 11, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.04204">Social Skill Training with Large Language Models</a></td>
-<td align="left">This perspective paper identifies social skill barriers to enter specialized fields and presents a solution leveraging large language models for social skill training via a generic framework. The proposed AI Partner, AI Mentor framework merges experiential learning with realistic practice and tailored feedback. The work calls for cross-disciplinary innovation to address the broader implications for workforce development and social equality.;Social Skill Training; LLMs</td>
-<td align="left">Alignment</td>
+<td align="left">2024년 4월 11일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.04204">고대 언어 모델을 사용하는 사회성 훈련</a></td>
+<td align="left">이 관점 보고서는 전문 분야에 진입하기 위한 사회적 기술 장벽을 식별하고 일반적인 프레임워크를 통해 사회적 기술 훈련을 위한 대규모 언어 모델을 활용하는 솔루션을 제시합니다. </td>
+<td align="left">조정</td>
 </tr>
 <tr>
-<td align="left">April 11, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.07965">Rho-1: Not All Tokens Are What You Need</a></td>
-<td align="left">Traditional language model pre-training methods treat all tokens equally, but our research challenges this by showing that not all tokens are equally important. We introduce Rho-1, a new model that selectively trains on tokens aligned with the desired distribution, improving few-shot accuracy in math tasks by up to 30%. After fine-tuning, Rho-1 achieves state-of-the-art results on the MATH dataset with significantly fewer pretraining tokens compared to existing models. Moreover, pretraining Rho-1 on general tokens enhances performance across diverse tasks, boosting both efficiency and effectiveness in language model pre-training.</td>
-<td align="left">New Architecture</td>
+<td align="left">2024년 4월 11일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.07965">Rho-1: 모든 것이 의미하는 것은 아닙니다</a></td>
+<td align="left">전통적인 언어 모델 사전 훈련 방법은 모든 토큰을 동일하게 취급하지만, 우리 연구에서는 모든 토큰이 동일하게 중요하지 않음을 보여줌으로써 이에 도전합니다. </td>
+<td align="left">새로운 아키텍처</td>
 </tr>
 <tr>
-<td align="left">April 11, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.07839">RecurrentGemma: Moving Past Transformers for Efficient Open Language Models</a></td>
-<td align="left">The paper introduces RecurrentGemma, an open language model which uses Google&#39;s novel Griffin architecture. Griffin combines linear recurrences with local attention to achieve excellent performance on language. It has a fixed-sized state, which reduces memory use and enables efficient inference on long sequences. We provide a pre-trained model with 2B non-embedding parameters, and an instruction tuned variant. Both models achieve comparable performance to Gemma-2B despite being trained on fewer tokens.</td>
-<td align="left">New Architecture</td>
+<td align="left">2024년 4월 11일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.07839">RecurrentGemma: 효율적인 개방형 언어 모델을 사용하여 과거의 변환기 이동</a></td>
+<td align="left">이 논문에서는 Google의 새로운 Griffin 아키텍처를 사용하는 개방형 언어 모델인 RecurrentGemma를 소개합니다. </td>
+<td align="left">새로운 아키텍처</td>
 </tr>
 <tr>
-<td align="left">April 11, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.07973">Ferret-v2: An Improved Baseline for Referring and Grounding with Large Language Models</a></td>
-<td align="left">This work presents Ferret-v2, an upgraded version of Ferret that overcomes limitations in regional understanding within LLMs. Ferret-v2 introduces three key enhancements: (1) Any resolution grounding and referring for improved image processing at higher resolutions. (2) Multi-granularity visual encoding using the DINOv2 encoder to better capture diverse visual contexts. (3) A three-stage training paradigm, including high-resolution dense alignment, leading to substantial improvements over Ferret and other state-of-the-art methods in referring and grounding tasks.</td>
-<td align="left">Benchmark, Evaluation</td>
+<td align="left">2024년 4월 11일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.07973">Ferret-v2: 해당 언어의 참조 및 기반을 기반으로 했습니다.</a></td>
+<td align="left">이 연구에서는 LLM 내 지역적 이해의 한계를 극복한 Ferret의 업그레이드 버전인 Ferret-v2를 제시합니다. </td>
+<td align="left">벤치마크, 평가</td>
 </tr>
 <tr>
-<td align="left">April 10, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.07413">JetMoE: Reaching Llama2 Performance with 0.1M Dollars</a></td>
-<td align="left">The paper introduces JetMoE-8B, a cost-effective and high-performing Large Language Model trained with minimal resources. Its efficient architecture reduces computation significantly compared to previous models, while its transparency encourages collaboration and advancements in accessible LLM development.</td>
-<td align="left">Foundational LLM</td>
+<td align="left">2024년 4월 10일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.07413">JetMoE: 100만 달러로 Llama2 성능</a></td>
+<td align="left">이 논문에서는 최소한의 리소스로 훈련된 비용 효율적이고 성능이 뛰어난 대규모 언어 모델인 JetMoE-8B를 소개합니다. </td>
+<td align="left">기초 LLM</td>
 </tr>
 <tr>
-<td align="left">April 9, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.06209">Elephants Never Forget: Memorization and Learning of Tabular Data in Large Language Models</a></td>
-<td align="left">This paper examines how LLMs handle tabular data, focusing on issues of memorization and overfitting. It finds that LLMs memorize popular tabular datasets and perform better on these, suggesting overfitting. The study also highlights the limited in-context statistical learning abilities of LLMs without fine-tuning, emphasizing the importance of evaluating whether an LLM has seen an evaluation dataset during pre-training. The paper introduces the tabmemcheck Python package for testing exposure to datasets.</td>
-<td align="left">Domain-Specific LLMs</td>
+<td align="left">2024년 4월 9일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.06209">포인터는 절대 잊지 않습니다: 고대 언어의 표 형식 데이터 암기 및 학습은 없습니다.</a></td>
+<td align="left">이 문서에서는 암기 및 과적합 문제에 초점을 맞춰 LLM이 표 형식 데이터를 처리하는 방법을 조사합니다. </td>
+<td align="left">도메인별 LLM</td>
 </tr>
 <tr>
-<td align="left">April 9, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.07143">Leave No Context Behind: Efficient Infinite Context Transformers with Infini-attention</a></td>
-<td align="left">This work introduces an efficient method to scale Transformer-based LLMs to infinitely long inputs with bounded memory and computation. A key component in the proposed approach is a new attention technique dubbed Infini-attention. The Infini-attention incorporates a compressive memory into the vanilla attention mechanism and builds both masked local attention and long-term linear attention mechanisms in a single Transformer block. The effectiveness of this approach is demonstrated on long-context language modeling benchmarks, 1M sequence length passkey context block retrieval, and 500K length book summarization tasks with 1B and 8B LLMs. The approach introduces minimal bounded memory parameters and enables fast streaming inference for LLMs.</td>
-<td align="left">Context Length</td>
+<td align="left">2024년 4월 9일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.07143">이벤트를 처리하는 경우: Infini-Attention을 효율적으로 사용할 수 없는 확장 변환기</a></td>
+<td align="left">이 연구에서는 제한된 메모리와 계산을 사용하여 Transformer 기반 LLM을 무한히 긴 입력으로 확장하는 효율적인 방법을 소개합니다. </td>
+<td align="left">컨텍스트 길이</td>
 </tr>
 <tr>
-<td align="left">April 8, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.05961">LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders</a></td>
-<td align="left">Large decoder-only language models (LLMs) excel in NLP tasks but are underutilized for text embedding. This study introduces LLM2Vec, a method converting decoder-only LLMs into robust text encoders via bidirectional attention, masked token prediction, and contrastive learning. Applied to LLMs with 1.3B to 7B parameters, LLM2Vec surpasses encoder-only models on word-level tasks and achieves a new unsupervised state-of-the-art on the Massive Text Embeddings Benchmark (MTEB). Integration with supervised contrastive learning further boosts performance, demonstrating the potential to create universal text encoders from LLMs without costly adaptation or synthetic data.</td>
-<td align="left">New Architecture</td>
+<td align="left">2024년 4월 8일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.05961">LLM2Vec: 파일 이름이 비밀리에 작동하도록 합니다.</a></td>
+<td align="left">대규모 LLM(디코더 전용 언어 모델)은 NLP 작업에 탁월하지만 텍스트 임베딩에는 활용도가 낮습니다. </td>
+<td align="left">새로운 아키텍처</td>
 </tr>
 <tr>
-<td align="left">April 7, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.03683">Stream of Search (SoS): Learning to Search in Language</a></td>
-<td align="left">This paper introduces the concept of Stream of Search (SoS), teaching language models to search by representing the process in language. SoS is demonstrated using the game of Countdown, where models are trained to combine input numbers and arithmetic operations to reach a target number. Pretraining on SoS increases search accuracy by 25%, and further fine-tuning allows models to solve 36% of previously unsolved problems. This approach enables language models to learn problem-solving strategies and potentially discover new ones.</td>
-<td align="left">Domain-Specific LLMs</td>
+<td align="left">2024년 4월 7일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.03683">검색 스트림(SoS): 언어 검색 학습</a></td>
+<td align="left">본 논문에서는 프로세스를 언어로 표현하여 검색을 언어 모델에 가르치는 SoS(Stream of Search)의 개념을 소개합니다. </td>
+<td align="left">도메인별 LLM</td>
 </tr>
 <tr>
-<td align="left">April 4, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.02060">Long-context LLMs Struggle with Long In-context Learning</a></td>
-<td align="left">This study introduces a specialized benchmark, LongICLBench, focusing on long in-context learning within the realm of extreme-label classification. The benchmark evaluates 13 long-context LLMs on datasets with input lengths ranging from 2K to 50K tokens and label ranges spanning 28 to 174 classes. While long-context LLMs perform relatively well on less challenging tasks with shorter demonstration lengths, they struggle on more difficult tasks, reaching close to zero accuracy on the most challenging task, Discovery with 174 labels. Further analysis reveals a gap in current LLM capabilities for processing and understanding long, context-rich sequences, indicating the need for improved long context understanding and reasoning abilities in future LLMs.</td>
-<td align="left">Context Length</td>
+<td align="left">2024년 4월 4일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.02060">장기 상황 내에서 학습으로 어려움을 겪는 장기 상황 LLM</a></td>
+<td align="left">이 연구에서는 극단적인 레이블 분류 영역 내에서 긴 상황 내 학습에 초점을 맞춘 전문 벤치마크인 LongICLBench를 소개합니다. </td>
+<td align="left">컨텍스트 길이</td>
 </tr>
 <tr>
-<td align="left">April 4, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.03592">ReFT: Representation Finetuning for Language Models</a></td>
-<td align="left">This paper introduces Representation Finetuning (ReFT) methods as an alternative to parameter-efficient fine-tuning (PEFT) methods for adapting large language models. ReFT methods operate on a frozen base model and learn task-specific interventions on hidden representations, aiming to edit representations rather than modifying weights. A strong instance of ReFT, called Low-rank Linear Subspace ReFT (LoReFT), is presented, which achieves 10-50 times more parameter efficiency than prior PEFTs. LoReFT is showcased on various evaluation tasks, delivering the best balance of efficiency and performance compared to existing methods. The paper also releases a generic ReFT training library publicly at <a href="https://github.com/stanfordnlp/pyreft">https://github.com/stanfordnlp/pyreft</a>.</td>
-<td align="left">Fine-Tuning, PEFT</td>
+<td align="left">2024년 4월 4일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.03592">ReFT: 언어 모델을 표현한 표현</a></td>
+<td align="left">이 문서에서는 대규모 언어 모델을 적응시키기 위한 PEFT(매개변수 효율적인 미세 조정) 방법의 대안으로 ReFT(Representation Finetuning) 방법을 소개합니다. </td>
+<td align="left">미세 조정, PEFT</td>
 </tr>
 <tr>
-<td align="left">April 4, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.03626">Training LLMs over Neurally Compressed Text</a></td>
-<td align="left">This paper explores training LLMs over highly compressed text using neural text compressors. While standard subword tokenizers compress text by a small factor, neural text compressors can achieve much higher rates of compression. The main obstacle to training LLMs directly over neurally compressed text is that strong compression tends to produce opaque outputs not well-suited for learning. To address this, the paper proposes Equal-Info Windows, a compression technique segmenting text into blocks that compress to the same bit length. This method enables effective learning over neurally compressed text, improving with scale and outperforming byte-level baselines on perplexity and inference speed benchmarks. The paper also provides suggestions for further improving high-compression tokenizers.</td>
-<td align="left">Model Compression</td>
+<td align="left">2024년 4월 4일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.03626">신경압축을 위한 LLM 교육</a></td>
+<td align="left">이 문서에서는 신경 텍스트 압축기를 사용하여 고도로 압축된 텍스트에 대한 LLM 교육을 살펴봅니다. </td>
+<td align="left">모델 압축</td>
 </tr>
 <tr>
-<td align="left">April 4, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.03543">CODE EDITOR BENCH: EVALUATING CODE EDITING CAPABILITY OF LARGE LANGUAGE MODELS</a></td>
-<td align="left">This paper introduces CodeEditorBench, an evaluation framework designed to rigorously assess the performance of LLMs in code editing tasks, including debugging, translating, polishing, and requirement switching. CodeEditorBench emphasizes real-world scenarios and practical aspects of software development by curating diverse coding challenges and scenarios from various sources. Evaluation of 19 LLMs reveals that closed-source models, particularly Gemini-Ultra and GPT-4, outperform open-source models in CodeEditorBench, highlighting differences in model performance based on problem types and prompt sensitivities. CodeEditorBench aims to catalyze advancements in LLMs by providing a robust platform for assessing code editing capabilities and will release all prompts and datasets to enable the community to expand the dataset and benchmark emerging LLMs.</td>
-<td align="left">Evaluation</td>
+<td align="left">2024년 4월 4일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.03543">코드 편집자: 편집 기능의 편집 기능 평가</a></td>
+<td align="left">이 문서에서는 디버깅, 번역, 폴리싱, 요구 사항 전환을 포함한 코드 편집 작업에서 LLM의 성능을 엄격하게 평가하도록 설계된 평가 프레임워크인 CodeEditorBench를 소개합니다. </td>
+<td align="left">평가</td>
 </tr>
 <tr>
-<td align="left">April 4, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.03411">GPT-4V Red-teamed under 11 Different Safety Policies</a></td>
-<td align="left">This paper presents a comprehensive jailbreak evaluation dataset comprising 1445 harmful questions across 11 safety policies. Extensive red-teaming experiments are conducted on 11 different LLMs and Multimodal Large Language Models (MLLMs), including both state-of-the-art proprietary and open-source models. Results reveal GPT4 and GPT-4V&#39;s superior robustness against jailbreak attacks compared to open-source models. Notably, Llama2 and Qwen-VL-Chat demonstrate higher robustness among open-source models. The transferability of visual jailbreak methods is found to be relatively limited compared to textual jailbreak methods.</td>
-<td align="left">Red Teaming</td>
+<td align="left">2024년 4월 4일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.03411">11가지 안전에 따라 GPT-4V 레드팀</a></td>
+<td align="left">이 문서는 11개 안전 정책에 걸쳐 1445개의 유해 질문으로 구성된 포괄적인 탈옥 평가 데이터 세트를 제공합니다. </td>
+<td align="left">레드팀</td>
 </tr>
 <tr>
-<td align="left">April 4, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.03204">RALL-E: Robust Codec Language Modeling with Chain-of-Thought Prompting for Text-to-Speech Synthesis</a></td>
-<td align="left">RALL-E presents a robust language modeling approach for text-to-speech (TTS) synthesis, addressing issues of poor robustness in LLMs such as unstable prosody and high word error rate (WER). The method employs chain-of-thought (CoT) prompting to decompose the task into simpler steps, predicting prosody features of the input text and using them as intermediate conditions to predict speech tokens. Additionally, RALL-E utilizes predicted duration prompts to guide self-attention weights, improving focus on corresponding phonemes and prosody features. Objective and subjective evaluations demonstrate significant improvements in WER compared to baseline methods, showcasing RALL-E&#39;s effectiveness in synthesizing challenging sentences with reduced error rates.</td>
-<td align="left">Prompt Engineering</td>
+<td align="left">2024년 4월 4일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.03204">RALL-E: 경찰의 변형을 일러스트레이션하는 모습을 보여줍니다.</a></td>
+<td align="left">RALL-E는 텍스트 음성 변환(TTS) 합성을 위한 강력한 언어 모델링 접근 방식을 제시하여 불안정한 운율 및 높은 단어 오류율(WER)과 같은 LLM의 견고성이 떨어지는 문제를 해결합니다. </td>
+<td align="left">신속한 엔지니어링</td>
 </tr>
 <tr>
-<td align="left">April 4, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.03820">CantTalkAboutThis: Aligning Language Models to Stay on Topic in Dialogues</a></td>
-<td align="left">The paper introduces the CANT TALKABOUT THIS dataset, aimed at aligning language models to maintain topic relevance in conversations. It consists of synthetic dialogues with distractor turns to divert chatbots from the predefined topic. Training on this dataset improves language models&#39; ability to stay on topic and enhances performance on instruction-following tasks, including safety alignment</td>
-<td align="left">Alignment</td>
+<td align="left">2024년 4월 4일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.03820">CantTalkAboutThis: 대화에서 주제를 유지하도록 언어 모델 조정</a></td>
+<td align="left">이 논문에서는 대화에서 주제 관련성을 유지하기 위해 언어 모델을 정렬하는 것을 목표로 하는 CANT TALKABOUT THIS 데이터 세트를 소개합니다. </td>
+<td align="left">조정</td>
 </tr>
 <tr>
-<td align="left">April 3, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.02883">On the Scalability of Diffusion-based Text-to-Image Generation</a></td>
-<td align="left">This paper empirically studies the scaling properties of diffusion-based text-to-image (T2I) models by conducting extensive ablations on scaling denoising backbones and training sets. The study explores various training settings and training costs to understand how to efficiently scale the model for better performance at reduced cost. The findings suggest that increasing the transformer blocks is more parameter-efficient for improving text-image alignment than increasing channel numbers. Additionally, the quality and diversity of the training set have a significant impact on text-image alignment performance and learning efficiency. Scaling functions are provided to predict text-image alignment performance based on model size, compute, and dataset size.</td>
-<td align="left">Multimodal LLMs</td>
+<td align="left">2024년 4월 3일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.02883">확장 기반 텍스트-이미지 생성의 확장에 대해 설명합니다.</a></td>
+<td align="left">이 논문은 잡음 제거 백본 및 트레이닝 세트의 스케일링에 대한 광범위한 제거를 수행하여 확산 기반 텍스트-이미지(T2I) 모델의 스케일링 특성을 경험적으로 연구합니다. </td>
+<td align="left">다중 모드 LLM</td>
 </tr>
 <tr>
-<td align="left">April 2, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.01258">Direct Preference Optimization of Video Large Multimodal Models from Language Model Reward</a></td>
-<td align="left">This paper introduces a novel framework for aligning large multimodal models (LMMs) with video content using detailed video captions as a proxy. The framework enhances the performance of video LMMs on video Question Answering (QA) tasks by incorporating informative feedback and improving the accuracy of generated responses compared to corresponding videos. The approach utilizes direct preference optimization (DPO) to guide LMMs towards generating more accurate, helpful, and harmless content in multimodal contexts.</td>
-<td align="left">Multimodal LLMs</td>
+<td align="left">2024년 4월 2일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.01258">컨설턴트를 선호하는 Video 대형 다목적 모델을 직접 선호하는 최적화</a></td>
+<td align="left">본 논문에서는 상세한 비디오 캡션을 프록시로 사용하여 대규모 다중 모드 모델(LMM)을 비디오 콘텐츠와 정렬하기 위한 새로운 프레임워크를 소개합니다. </td>
+<td align="left">다중 모드 LLM</td>
 </tr>
 <tr>
-<td align="left">April 2, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.02078">Advancing LLM Reasoning Generalists with Preference Trees</a></td>
-<td align="left">This paper introduces EURUS, a suite of LLMs optimized for reasoning. Finetuned from Mistral-7B and CodeLlama-70B, EURUS models achieve state-of-the-art results among open-source models on a diverse set of benchmarks covering mathematics, code generation, and logical reasoning problems. EURUS outperforms existing open-source models by margins more than 13.3% on challenging benchmarks like LeetCode and TheoremQA. The strong performance of EURUS is attributed to ULTRA INTERACT, a large-scale alignment dataset designed for complex reasoning tasks, and a novel reward modeling objective derived from preference learning techniques.</td>
-<td align="left">Domain-Specific LLMs</td>
+<td align="left">2024년 4월 2일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.02078">선호하는 트리를 활용한 LLM 대형론자 개발</a></td>
+<td align="left">본 논문에서는 추론에 최적화된 LLM 제품군인 EURUS를 소개합니다. </td>
+<td align="left">도메인별 LLM</td>
 </tr>
 <tr>
-<td align="left">April 2, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.02258">Mixture-of-Depths: Dynamically allocating compute in transformer-based language models</a></td>
-<td align="left">This paper introduces a method for transformers to dynamically allocate compute, optimizing allocation across layers in the model depth. By capping the number of tokens participating in computations at each layer, the method uses a static computation graph with fluid token identities, resulting in efficient compute allocation. Models trained with this method match baseline performance but require fewer FLOPs per forward pass, speeding up training and sampling.</td>
-<td align="left">New Architecture</td>
+<td align="left">2024년 4월 2일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.02258">분석: 변환기 기반 언어 모델에서 동적으로 컴퓨팅을 구성합니다.</a></td>
+<td align="left">이 문서에서는 변환기가 컴퓨팅을 동적으로 할당하고 모델 깊이의 레이어 전체에 걸쳐 할당을 최적화하는 방법을 소개합니다. </td>
+<td align="left">새로운 아키텍처</td>
 </tr>
 <tr>
-<td align="left">April 1, 2024</td>
-<td align="left"><a href="https://arxiv.org/pdf/2404.01331">LLaVA-Gemma: Accelerating Multimodal Foundation Models with a Compact Language Model</a></td>
-<td align="left">This paper presents LLaVA-Gemma, a suite of multimodal foundation models trained using the LLaVA framework with the Gemma family of LLMs, particularly the 2B parameter Gemma model. The study evaluates the effect of ablating three design features: pretraining the connector, utilizing a more powerful image backbone, and increasing the size of the language backbone. While LLaVA-Gemma exhibits moderate performance on various evaluations, it fails to surpass current state-of-the-art models of comparable size. The paper releases training recipes, code, and weights for the LLaVA-Gemma models, facilitating further research in this area.</td>
-<td align="left">Multimodal LLMs</td>
+<td align="left">2024년 4월 1일</td>
+<td align="left"><a href="https://arxiv.org/pdf/2404.01331">LLaVA-Gemma: 강력한 성분 모델 다중으로 프리미엄 기반 보존</a></td>
+<td align="left">이 문서에서는 LLM의 Gemma 제품군, 특히 2B 매개변수 Gemma 모델과 함께 LLaVA 프레임워크를 사용하여 훈련된 다중 모드 기반 모델 제품군인 LLaVA-Gemma를 제시합니다. </td>
+<td align="left">다중 모드 LLM</td>
 </tr>
 </tbody></table>
 

@@ -45,281 +45,260 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>[Week 2] Prompting and Prompt Engineering</h1>
-<h2>ETMI5: Explain to Me in 5</h2>
-<p>In the section on prompting, you will learn the basics of formulating effective prompts to guide language models in generating desired outputs. You will explore prompt engineering techniques to refine these prompts for improved performance in various applications. We&#39;ll  cover the importance of contextual understanding, leveraging training data patterns, and utilizing transfer learning. Advanced prompting methods like Chain-of-Thought and Tree-of-Thought will be introduced, highlighting their roles in enhancing reasoning capabilities. Additionally, the section will address the risks associated with prompting, such as bias and prompt hacking, and provide strategies to mitigate these risks.</p>
-<h2>Introduction</h2>
-<h3>Prompting</h3>
-<p>In the realm of language models, &quot;<strong>prompting</strong>&quot; refers to the art and science of formulating precise instructions or queries provided to the model to generate desired outputs. It&#39;s the input?봳ypically in the form of text?봳hat users present to the language model to elicit specific responses. The effectiveness of a prompt lies in its ability to guide the model&#39;s understanding and generate outputs aligned with user expectations.</p>
-<h3>Prompt Engineering</h3>
+<h1>[2주차] 프롬프트 및 프롬프트 엔지니어링</h1>
+<h2>ETMI5: 5에서 설명해주세요</h2>
+<p>프롬프트 섹션에서는 원하는 출력을 생성하는 데 언어 모델을 안내하는 효과적인 프롬프트를 공식화하는 기본 사항을 배웁니다. </p>
+<h2>소개</h2>
+<h3>격려</h3>
+<p>언어 모델 영역에서 "<strong>프롬프트</strong>"는 원하는 출력을 생성하기 위해 모델에 제공되는 정확한 지침이나 쿼리를 공식화하는 기술과 과학을 의미합니다. </p>
+<h3>신속한 엔지니어링</h3>
 <ul>
-<li>Prompt engineering, a rapidly growing field, revolves around refining prompts to unleash the full potential of Language Models in various applications.</li>
-<li>In research, prompt engineering is a powerful tool, enhancing LLMs&#39; performance across tasks like question answering and arithmetic reasoning. Users need to leverage these skills to create effective prompting techniques that seamlessly interact with LLMs and other tools.</li>
-<li>Beyond crafting prompts, prompt engineering is a rich set of skills essential for interacting and developing with LLMs. It&#39;s not just about design; it&#39;s a crucial skill for understanding and exploiting LLM capabilities, ensuring safety, and introducing novel features like domain knowledge integration.</li>
-<li>This proficiency is vital in aligning AI behavior with human intent. While professional prompt engineers delve into the complexities of AI, the skill isn&#39;t exclusive to specialists. Anyone refining prompts for models like ChatGPT is engaging in prompt engineering, making it accessible to users exploring language model potentials.</li>
+<li>빠르게 성장하는 분야인 프롬프트 엔지니어링은 다양한 응용 프로그램에서 언어 모델의 잠재력을 최대한 활용하기 위해 프롬프트를 개선하는 데 중점을 두고 있습니다.</li>
+<li>연구에서 프롬프트 엔지니어링은 질문 답변 및 산술 추론과 같은 작업 전반에 걸쳐 LLM의 성능을 향상시키는 강력한 도구입니다. </li>
+<li>프롬프트 작성 외에도 프롬프트 엔지니어링은 LLM과 상호 작용하고 개발하는 데 필수적인 풍부한 기술 세트입니다. </li>
+<li>이러한 숙련도는 AI 행동을 인간의 의도와 일치시키는 데 매우 중요합니다. </li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting.png" alt="prompting.png"></p>
 <pre><code>                Image Source: [https://zapier.com/blog/prompt-engineering/](https://zapier.com/blog/prompt-engineering/)
 </code></pre>
-<h2>Why Prompting?</h2>
-<p>Large language models are trained through a process called unsupervised learning on vast amounts of diverse text data. During training, the model learns to predict the next word in a sentence based on the context provided by the preceding words. This process allows the model to capture grammar, facts, reasoning abilities, and even some aspects of common sense.</p>
-<p>Prompting is a crucial aspect of using these models effectively. Here&#39;s why prompting LLMs the right way is essential:</p>
+</p>
+<p>프롬프트는 이러한 모델을 효과적으로 사용하는 데 중요한 측면입니다. </p>
 <ol>
-<li><strong>Contextual Understanding:</strong> LLMs are trained to understand context and generate responses based on the patterns learned from diverse text data. When you provide a prompt, it&#39;s crucial to structure it in a way that aligns with the context the model is familiar with. This helps the model make relevant associations and produce coherent responses.</li>
-<li><strong>Training Data Patterns:</strong> During training, the model learns from a wide range of text, capturing the linguistic nuances and patterns present in the data. Effective prompts leverage this training by incorporating similar language and structures that the model has encountered in its training data. This enables the model to generate responses that are consistent with its learned patterns.</li>
-<li><strong>Transfer Learning:</strong> LLMs utilize transfer learning. The knowledge gained during training on diverse datasets is transferred to the task at hand when prompted. A well-crafted prompt acts as a bridge, connecting the general knowledge acquired during training to the specific information or action desired by the user.</li>
-<li><strong>Contextual Prompts for Contextual Responses:</strong> By using prompts that resemble the language and context the model was trained on, users tap into the model&#39;s ability to understand and generate content within similar contexts. This leads to more accurate and contextually appropriate responses.</li>
-<li><strong>Mitigating Bias:</strong> The model may inherit biases present in its training data. Thoughtful prompts can help mitigate bias by providing additional context or framing questions in a way that encourages unbiased responses. This is crucial for aligning model outputs with ethical standards.</li>
+<li><strong>문맥 이해:</strong> LLM은 문맥을 이해하고 다양한 텍스트 데이터에서 학습된 패턴을 기반으로 응답을 생성하도록 교육을 받았습니다. </li>
+<li><strong>학습 데이터 패턴:</strong> 학습 중에 모델은 광범위한 텍스트로부터 학습하여 데이터에 존재하는 언어적 뉘앙스와 패턴을 포착합니다. </li>
+<li><strong>전이 학습:</strong> LLM은 전이 학습을 활용합니다. </li>
+<li><strong>문맥 응답을 위한 문맥 프롬프트:</strong> 모델이 훈련된 언어 및 맥락과 유사한 프롬프트를 사용함으로써 사용자는 유사한 맥락 내에서 콘텐츠를 이해하고 생성하는 모델의 능력을 활용할 수 있습니다. </li>
+<li><strong>편향 완화:</strong> 모델은 학습 데이터에 존재하는 편향을 상속받을 수 있습니다. </li>
 </ol>
-<p>To summarize, the training of LLMs involves learning from massive datasets, and prompting is the means by which users guide these models to produce useful, relevant, and policy-compliant responses. It&#39;s a collaborative process where users and models work together to achieve the desired outcome. There?셲 also a growing field called adversarial prompting which involves intentionally crafting prompts to exploit weaknesses or biases in a language model, with the goal of generating responses that may be misleading, inappropriate, or showcase the model&#39;s limitations. Safeguarding models from providing harmful responses is a challenge that needs to be solved and is an active research area.</p>
-<h2>Prompting Basics</h2>
-<p>The basic principles of prompting involve the inclusion of specific elements tailored to the task at hand. These elements include:</p>
+<p>요약하자면, LLM 교육에는 대규모 데이터 세트로부터의 학습이 포함되며, 프롬프트는 사용자가 이러한 모델을 안내하여 유용하고 관련성이 높으며 정책을 준수하는 응답을 생성하는 수단입니다. </p>
+<h2>프롬프트 기본 사항</h2>
+<p>프롬프트의 기본 원칙에는 당면한 작업에 맞는 특정 요소를 포함하는 것이 포함됩니다. </p>
 <ol>
-<li><strong>Instruction:</strong> Clearly specify the task or action you want the model to perform. This sets the context for the model&#39;s response and guides its behavior.</li>
-<li><strong>Context:</strong> Provide external information or additional context that helps the model better understand the task and generate more accurate responses. Context can be crucial in steering the model towards the desired outcome.</li>
-<li><strong>Input Data:</strong> Include the input or question for which you seek a response. This is the information on which you want the model to act or provide insights.</li>
-<li><strong>Output Indicator:</strong> Define the type or format of the desired output. This guides the model in presenting the information in a way that aligns with your expectations.</li>
+<li><strong>지침:</strong> 모델이 수행하기를 원하는 작업이나 작업을 명확하게 지정하세요. </li>
+<li><strong>컨텍스트:</strong> 모델이 작업을 더 잘 이해하고 더 정확한 응답을 생성하는 데 도움이 되는 외부 정보 또는 추가 컨텍스트를 제공합니다. </li>
+<li><strong>입력 데이터:</strong> 답변을 원하는 입력 또는 질문을 포함합니다. </li>
+<li><strong>출력 표시기:</strong> 원하는 출력의 유형이나 형식을 정의합니다. </li>
 </ol>
-<p>Here&#39;s an example prompt for a text classification task:</p>
-<p><strong>Prompt:</strong></p>
-<pre><code class="language-python">Classify the text into neutral, negative, or positive
-Text: I think the food was okay.
-Sentiment:
-</code></pre>
-<p>In this example:</p>
+<p>다음은 텍스트 분류 작업에 대한 예시 프롬프트입니다.</p>
+<p><strong>프롬프트:</strong></p>
+<pre><code class="언어-python">텍스트를 중립, 부정, 긍정으로 분류합니다.
+</p>
 <ul>
-<li><strong>Instruction:</strong> &quot;Classify the text into neutral, negative, or positive.&quot;</li>
-<li><strong>Input Data:</strong> &quot;I think the food was okay.&quot;</li>
-<li><strong>Output Indicator:</strong> &quot;Sentiment.&quot;</li>
+<li><strong>지침:</strong> "텍스트를 중립, 부정, 긍정적으로 분류하세요."</li>
+<li><strong>입력 데이터:</strong> "음식이 괜찮은 것 같아요."</li>
+<li><strong>출력 표시기:</strong> "감정."</li>
 </ul>
-<p>Note that this example doesn&#39;t explicitly use context, but context can also be incorporated into the prompt to provide additional information that aids the model in understanding the task better.</p>
-<p>It&#39;s important to highlight that <strong>not</strong> all four elements are always necessary for a prompt, and the format can vary based on the specific task. The key is to structure prompts in a way that effectively communicates the user&#39;s intent and guides the model to produce relevant and accurate responses.</p>
-<p>OpenAI has recently provided guidelines on best practices for prompt engineering using the OpenAI API. For a detailed understanding, you can explore the guidelines <a href="https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api">here</a>, the below points gives a brief summary:</p>
+<p>이 예에서는 컨텍스트를 명시적으로 사용하지 않지만 모델이 작업을 더 잘 이해하는 데 도움이 되는 추가 정보를 제공하기 위해 컨텍스트를 프롬프트에 통합할 수도 있습니다.</p>
+<p>네 가지 요소 모두가 프롬프트에 항상 필요한 것은 <strong>아닌</strong> 점과 형식은 특정 작업에 따라 달라질 수 있다는 점을 강조하는 것이 중요합니다. </p>
+<p>OpenAI는 최근 OpenAI API를 사용하여 신속한 엔지니어링을 위한 모범 사례에 대한 지침을 제공했습니다. </p>
 <ol>
-<li><strong>Use the Latest Model:</strong> For optimal results, it is recommended to use the latest and most capable models.</li>
-<li><strong>Structure Instructions:</strong> Place instructions at the beginning of the prompt and use ### or &quot;&quot;&quot; to separate the instruction and context for clarity and effectiveness.</li>
-<li><strong>Be Specific and Descriptive:</strong> Clearly articulate the desired context, outcome, length, format, style, etc., in a specific and detailed manner.</li>
-<li><strong>Specify Output Format with Examples:</strong> Clearly express the desired output format through examples, making it easier for the model to understand and respond accurately.</li>
-<li><strong>Use Zero-shot, Few-shot, and Fine-tune Approach:</strong> Begin with a zero-shot approach, followed by a few-shot approach (providing examples). If neither works, consider fine-tuning the model.</li>
-<li><strong>Avoid Fluffy Descriptions:</strong> Reduce vague and imprecise descriptions. Instead, use clear instructions and avoid unnecessary verbosity.</li>
-<li><strong>Provide Positive Guidance:</strong> Instead of stating what not to do, clearly state what actions should be taken in a given situation, offering positive guidance.</li>
-<li><strong>Code Generation Specific - Use &quot;Leading Words&quot;:</strong> When generating code, utilize &quot;leading words&quot; to guide the model toward a specific pattern or language, improving the accuracy of code generation.</li>
+<li><strong>최신 모델 사용:</strong> 최적의 결과를 얻으려면 가장 성능이 뛰어난 최신 모델을 사용하는 것이 좋습니다.</li>
+<li><strong>구조적 지침:</strong> 지침을 프롬프트 시작 부분에 배치하고 명확성과 효율성을 위해 ### 또는 """를 사용하여 지침과 문맥을 구분합니다.</li>
+<li><strong>구체적이고 설명적이어야 합니다.</strong> 원하는 맥락, 결과, 길이, 형식, 스타일 등을 구체적이고 상세한 방식으로 명확하게 표현합니다.</li>
+<li><strong>예시를 사용하여 출력 형식 지정:</strong> 예제를 통해 원하는 출력 형식을 명확하게 표현하면 모델이 더 쉽게 이해하고 정확하게 응답할 수 있습니다.</li>
+<li><strong>제로샷, 퓨샷 및 미세 조정 접근 방식 사용:</strong> 제로샷 접근 방식으로 시작한 다음 퓨샷 접근 방식을 사용합니다(예제 제공). </li>
+<li><strong>장황한 설명 피하기:</strong> 모호하고 부정확한 설명을 줄이세요. </li>
+<li><strong>긍정적인 지침 제공:</strong> 하지 말아야 할 일을 언급하는 대신 주어진 상황에서 어떤 조치를 취해야 하는지 명확하게 설명하고 긍정적인 지침을 제공합니다.</li>
+<li><strong>특정 코드 생성 - "주요 단어" 사용:</strong> 코드를 생성할 때 "주요 단어"를 활용하여 모델을 특정 패턴이나 언어로 안내하여 코드 생성의 정확성을 높입니다.</li>
 </ol>
-<p>?뮕It?셲 also important to note that crafting effective prompts is an iterative process, and you may need to experiment to find the most suitable approach for your specific use case. Prompt patterns may be specific to models and how they were trained (architecture, datasets used etc.)</p>
-<p>Explore these <a href="https://www.promptingguide.ai/introduction/examples">examples</a> of prompts to gain a better understanding of how to craft effective prompts in different use-cases.</p>
-<h2>Advanced Prompting Techniques</h2>
-<p>Prompting techniques constitute a rapidly evolving area of research, with researchers continually exploring novel methods to effectively prompt models for optimal performance. The simplest forms of prompting include zero-shot, where only instructions are provided, and few-shot, where examples are given, and the language model (LLM) is tasked with replication. More intricate techniques are elucidated in various research papers. While the provided list is not exhaustive, existing prompting methods can be tentatively classified into high-level categories. It&#39;s crucial to note that these classes are derived from current techniques and are not exhaustive or definitive; they are subject to evolution and modification, reflecting the dynamic nature of advancements in this field. It&#39;s important to highlight that numerous methods may fall into one or more of these classes, exhibiting overlapping characteristics to get the benefits offered by multiple categories.</p>
+<p>?뮕It?셲 또한 효과적인 프롬프트를 만드는 것은 반복적인 프로세스이며 특정 사용 사례에 가장 적합한 접근 방식을 찾기 위해 실험이 필요할 수 있다는 점에 유의하는 것도 중요합니다. </p>
+<p>다양한 사용 사례에서 효과적인 프롬프트를 작성하는 방법을 더 잘 이해하려면 프롬프트의 <a href="https://www.promptingguide.ai/introduction/examples">예제</a>를 살펴보세요.</p>
+<h2>고급 프롬프트 기술</h2>
+<p>프롬프트 기법은 빠르게 발전하는 연구 영역을 구성하며, 연구자들은 최적의 성능을 위한 모델을 효과적으로 프롬프트하기 위한 새로운 방법을 지속적으로 탐구합니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_11.png" alt="prompting_11.png"></p>
-<h3>A. Step**-by-Step Modular Decomposition**</h3>
-<p>These methods involve breaking down complex problems into smaller, manageable steps, facilitating a structured approach to problem-solving. These methods guide the LLM through a sequence of intermediate steps, allowing it to focus on solving one step at a time rather than tackling the entire problem in a single step. This approach enhances the reasoning abilities of LLMs and is particularly useful for tasks requiring multi-step thinking.</p>
-<p>Examples of methods falling under this category include:</p>
+<h3>A. 단계별**단계적 모듈식 분해**</h3>
+<p>이러한 방법에는 복잡한 문제를 더 작고 관리 가능한 단계로 나누어 문제 해결을 위한 구조화된 접근 방식을 촉진하는 것이 포함됩니다. </p>
+<p>이 범주에 속하는 방법의 예는 다음과 같습니다.</p>
 <ol>
-<li><strong>Chain-of-Thought (CoT) Prompting:</strong></li>
+<li><strong>사고 사슬(CoT) 프롬프트:</strong></li>
 </ol>
-<p>Chain-of-Thought (CoT) Prompting is a technique to enhance complex reasoning capabilities through intermediate reasoning steps. This method involves providing a sequence of reasoning steps that guide a large language model (LLM) through a problem, allowing it to focus on solving one step at a time.</p>
-<p>In the provided example below, the prompt involves evaluating whether the sum of odd numbers in a given group is an even number. The LLM is guided to reason through each example step by step, providing intermediate reasoning before arriving at the final answer. The output shows that the model successfully solves the problem by considering the odd numbers and their sums.</p>
+<p>CoT(Chain-of-Thought) 프롬프트는 중간 추론 단계를 통해 복잡한 추론 능력을 향상시키는 기술입니다. </p>
+<p>아래 제공된 예에서 프롬프트는 주어진 그룹의 홀수의 합이 짝수인지 여부를 평가하는 것과 관련됩니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_1.png" alt="prompting_1.png"></p>
 <pre><code>                                      Image Source: [Wei et al. (2022)](https://arxiv.org/abs/2201.11903)
 </code></pre>
-<p>1a. <strong>Zero-shot/Few-Shot CoT Prompting:</strong></p>
-<p>Zero-shot involves adding the prompt &quot;Let&#39;s think step by step&quot; to the original question to guide the LLM through a systematic reasoning process. Few-shot prompting provides the model with a few examples of similar problems to enhance reasoning abilities. These CoT methods prompt significantly improves the model&#39;s performance by explicitly instructing it to think through the problem step by step. In contrast, without the special prompt, the model fails to provide the correct answer.</p>
+</p>
+<p>제로샷(Zero Shot)은 LLM이 체계적인 추론 과정을 거치도록 안내하기 위해 원래 질문에 "단계적으로 생각해보자"라는 메시지를 추가하는 것입니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_2.png" alt="prompting_2.png"></p>
 <pre><code>                                    Image Source:혻[Kojima et al. (2022)](https://arxiv.org/abs/2205.11916)
 </code></pre>
-<p>1b. <strong>Automatic Chain-of-Thought (Auto-CoT):</strong></p>
-<p>Automatic Chain-of-Thought (Auto-CoT) was designed to automate the generation of reasoning chains for demonstrations. Instead of manually crafting examples, Auto-CoT leverages LLMs with a &quot;Let&#39;s think step by step&quot; prompt to automatically generate reasoning chains one by one.</p>
+</p>
+<p>Auto-CoT(Automatic Chain-of-Thought)는 시연을 위한 추론 체인 생성을 자동화하도록 설계되었습니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_3.png" alt="prompting_3.png"></p>
-<p>Image Source:혻<a href="https://arxiv.org/abs/2210.03493">Zhang et al. (2022)</a></p>
-<p>The Auto-CoT process involves two main stages:</p>
+<p>이미지 출처:혻<a href="https://arxiv.org/abs/2210.03493">Zhang et al. </p>
+<p>Auto-CoT 프로세스에는 두 가지 주요 단계가 포함됩니다.</p>
 <ol>
-<li><strong>Question Clustering:</strong> Partition questions into clusters based on similarity.</li>
-<li><strong>Demonstration Sampling:</strong> Select a representative question from each cluster and generate its reasoning chain using Zero-Shot-CoT with simple heuristics.</li>
+<li><strong>질문 클러스터링:</strong> 유사성을 기준으로 질문을 클러스터로 분할합니다.</li>
+<li><strong>데모 샘플링:</strong> 각 클러스터에서 대표적인 질문을 선택하고 간단한 경험적 방법으로 Zero-Shot-CoT를 사용하여 추론 체인을 생성합니다.</li>
 </ol>
-<p>The goal is to eliminate manual efforts in creating diverse and effective examples. Auto-CoT ensures diversity in demonstrations, and the heuristic-based approach encourages the model to generate simple yet accurate reasoning chains.</p>
-<p>Overall, these CoT prompting techniques showcase the effectiveness of guiding LLMs through step-by-step reasoning for improved problem-solving and demonstration generation.</p>
+<p>목표는 다양하고 효과적인 예제를 만드는 데 있어 수동 작업을 없애는 것입니다. </p>
+<p>전반적으로 이러한 CoT 프롬프트 기술은 향상된 문제 해결 및 데모 생성을 위한 단계별 추론을 통해 LLM을 안내하는 효과를 보여줍니다.</p>
 <ol>
-<li><strong>Tree-of-Thoughts (ToT) Prompting</strong></li>
+<li><strong>생각의 나무(ToT) 프롬프트</strong></li>
 </ol>
-<p>Tree-of-Thoughts (ToT) Prompting is a technique that extends the Chain-of-Thought approach. It allows language models to explore coherent units of text (&quot;thoughts&quot;) as intermediate steps towards problem-solving. ToT enables models to make deliberate decisions, consider multiple reasoning paths, and self-evaluate choices. It introduces a structured framework where models can look ahead or backtrack as needed during the reasoning process. ToT Prompting provides a more structured and dynamic approach to reasoning, allowing language models to navigate complex problems with greater flexibility and strategic decision-making. It is particularly beneficial for tasks that require comprehensive and adaptive reasoning capabilities.</p>
-<p><strong>Key Characteristics:</strong></p>
+<p>생각의 나무(ToT) 프롬프트는 생각의 사슬 접근 방식을 확장하는 기술입니다. </p>
+<p><strong>주요 특징:</strong></p>
 <ul>
-<li><strong>Coherent Units (&quot;Thoughts&quot;):</strong> ToT prompts LLMs to consider coherent units of text as intermediate reasoning steps.</li>
-<li><strong>Deliberate Decision-Making:</strong> Enables models to make decisions intentionally and evaluate different reasoning paths.</li>
-<li><strong>Backtracking and Looking Ahead:</strong> Allows models to backtrack or look ahead during the reasoning process, providing flexibility in problem-solving.</li>
+<li><strong>일관된 단위('생각'):</strong> ToT는 LLM이 일관된 텍스트 단위를 중간 추론 단계로 고려하도록 유도합니다.</li>
+<li><strong>의도적인 의사결정:</strong> 모델이 의도적으로 결정을 내리고 다양한 추론 경로를 평가할 수 있도록 합니다.</li>
+<li><strong>역추적 및 전망:</strong> 추론 과정 중에 모델이 역추적하거나 전망할 수 있도록 하여 문제 해결에 유연성을 제공합니다.</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_4.png" alt="prompting_4.png"></p>
-<p>Image Source:혻<a href="https://arxiv.org/abs/2305.10601">Yao et el. (2023)</a></p>
+<p>이미지 출처:혻<a href="https://arxiv.org/abs/2305.10601">Yao 외. </p>
 <ol>
-<li><strong>Graph of Thought Prompting</strong></li>
+<li><strong>사고 유도 그래프</strong></li>
 </ol>
-<p>This work arises from the fact that human thought processes often follow non-linear patterns, deviating from simple sequential chains. In response, the authors propose Graph-of-Thought (GoT) reasoning, a novel approach that models thoughts not just as chains but as graphs, capturing the intricacies of non-sequential thinking.</p>
-<p>This extension introduces a paradigm shift in representing thought units. Nodes in the graph symbolize these thought units, and edges depict connections, presenting a more realistic portrayal of the complexities inherent in human cognition. Unlike traditional trees, GoT employs Directed Acyclic Graphs (DAGs), allowing the modeling of paths that fork and converge. This divergence provides GoT with a significant advantage over conventional linear approaches.</p>
-<p>The GoT reasoning model operates in a two-stage framework. Initially, it generates rationales, and subsequently, it produces the final answer. To facilitate this, the model leverages a Graph-of-Thoughts encoder for representation learning. The integration of GoT representations with the original input occurs through a gated fusion mechanism, enabling the model to combine both linear and non-linear aspects of thought processes.</p>
+<p>이 연구는 인간의 사고 과정이 종종 단순한 순차적 사슬에서 벗어나 비선형 패턴을 따른다는 사실에서 비롯됩니다. </p>
+<p>이 확장은 사고 단위를 표현하는 데 패러다임의 변화를 가져옵니다. </p>
+<p>GoT 추론 모델은 2단계 프레임워크로 작동합니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_5.png" alt="prompting_5.png"></p>
 <pre><code>                               Image Source: [Yao et el. (2023)](https://arxiv.org/abs/2305.16582)
 </code></pre>
-<h3>B. Comprehensive <strong>Reasoning and Verification</strong></h3>
-<p>Comprehensive Reasoning and Verification methods in prompting entail a more sophisticated approach where reasoning is not just confined to providing a final answer but involves generating detailed intermediate steps. The distinctive aspect of these techniques is the integration of a self-verification mechanism within the framework. As the LLM generates intermediate answers or reasoning traces, it autonomously verifies their consistency and correctness. If the internal verification yields a false result, the model iteratively refines its responses, ensuring that the generated reasoning aligns with the expected logical coherence. These checks contributes to a more robust and reliable reasoning process, allowing the model to adapt and refine its outputs based on internal validation</p>
+</p>
 <ol>
-<li><strong>Automatic Prompt Engineer</strong></li>
+<li><strong>자동 프롬프트 엔지니어</strong></li>
 </ol>
-<p>Automatic Prompt Engineer (APE) is a technique that treats instructions as programmable elements and seeks to optimize them by conducting a search across a pool of instruction candidates proposed by an LLM. Drawing inspiration from classical program synthesis and human prompt engineering, APE employs a scoring function to evaluate the effectiveness of candidate instructions. The selected instruction, determined by the highest score, is then utilized as the prompt for the LLM. This automated approach aims to enhance the efficiency of prompt generation, aligning with classical program synthesis principles and leveraging the knowledge embedded in large language models to improve overall performance in producing desired outputs.</p>
+<p>APE(Automatic Prompt Engineer)는 명령어를 프로그래밍 가능한 요소로 취급하고 LLM에서 제안한 명령어 후보 풀을 검색하여 최적화를 추구하는 기술입니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_6.png" alt="prompting_6.png"></p>
 <pre><code>                                           Image Source: [Zhou et al., (2022)](https://arxiv.org/abs/2211.01910)
 </code></pre>
-<ol>
-<li><strong>Chain of Verification (CoVe)</strong></li>
-</ol>
-<p>The Chain-of-Verification (CoVe) method  addresses the challenge of hallucination in large language models by introducing a systematic verification process. It begins with the model drafting an initial response to a user query, potentially containing inaccuracies. CoVe then plans and poses independent verification questions, aiming to fact-check the initial response without bias. The model answers these questions, and based on the verification outcomes, generates a final response, incorporating corrections and improvements identified through the verification process. CoVe ensures unbiased verification, leading to enhanced factual accuracy in the final response, and contributes to improved overall model performance by mitigating the generation of inaccurate information.</p>
+</p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_7.png" alt="prompting_7.png"></p>
 <pre><code>                                  Image Source: [Dhuliawala et al.2023](https://arxiv.org/abs/2309.11495)
 </code></pre>
-<ol>
-<li><strong>Self Consistency</strong></li>
-</ol>
-<p>Self Consistency represents a refinement in prompt engineering, specifically targeting the limitations of naive greedy decoding in chain-of-thought prompting. The core concept involves sampling multiple diverse reasoning paths using few-shot CoT and leveraging the generated responses to identify the most consistent answer. This method aims to enhance the performance of CoT prompting, particularly in tasks that demand arithmetic and commonsense reasoning. By introducing diversity in reasoning paths and prioritizing consistency, Self Consistency contributes to more robust and accurate language model responses within the CoT framework.</p>
+</p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-01-14_at_3.50.46_PM.png" alt="Screenshot 2024-01-14 at 3.50.46 PM.png"></p>
 <pre><code>                                        Image Source: [Wang et al. (2022)](https://arxiv.org/pdf/2203.11171.pdf)
 </code></pre>
-<ol>
-<li><strong>ReACT</strong></li>
-</ol>
-<p>The ReAct framework combines reasoning and action in LLMs to enhance their capabilities in dynamic tasks. The framework involves generating both verbal reasoning traces and task-specific actions in an interleaved manner. ReAct aims to address the limitations of models, like chain-of-thought , that lack access to the external world and can encounter issues such as fact hallucination and error propagation. Inspired by the synergy between &quot;acting&quot; and &quot;reasoning&quot; in human learning and decision-making, ReAct prompts LLMs to create, maintain, and adjust plans for acting dynamically. The model can interact with external environments, such as knowledge bases, to retrieve additional information, leading to more reliable and factual responses.</p>
+</p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-01-14_at_3.53.32_PM.png" alt="Screenshot 2024-01-14 at 3.53.32 PM.png"></p>
 <pre><code>                                          Image Source: [Yao et al., 2022](https://arxiv.org/abs/2210.03629)
 </code></pre>
-<p><strong>How ReAct Works:</strong></p>
+</p>
 <ol>
-<li><strong>Dynamic Reasoning and Acting:</strong> ReAct generates both verbal reasoning traces and actions, allowing for dynamic reasoning in response to complex tasks.</li>
-<li><strong>Interaction with External Environments: T</strong>he action step enables interaction with external sources, like search engines or knowledge bases, to gather information and refine reasoning.</li>
-<li><strong>Improved Task Performance:</strong> The framework&#39;s integration of reasoning and action contributes to outperforming state-of-the-art baselines on language and decision-making tasks.</li>
-<li><strong>Enhanced Human Interpretability:</strong> ReAct leads to improved human interpretability and trustworthiness of LLMs, making their responses more understandable and reliable.</li>
+<li><strong>동적 추론 및 행동:</strong> ReAct는 언어 추론 추적과 행동을 모두 생성하여 복잡한 작업에 대한 응답으로 동적 추론을 허용합니다.</li>
+<li><strong>외부 환경과의 상호 작용:</strong> 이 작업 단계에서는 검색 엔진이나 지식 기반과 같은 외부 소스와의 상호 작용을 통해 정보를 수집하고 추론을 개선할 수 있습니다.</li>
+<li><strong>향상된 작업 성능:</strong> 프레임워크의 추론과 행동 통합은 언어 및 의사 결정 작업에 대한 최첨단 기준을 능가하는 데 기여합니다.</li>
+<li><strong>인간의 해석 가능성 향상:</strong> ReAct는 인간의 해석 가능성과 LLM의 신뢰성을 향상시켜 응답을 더욱 이해하기 쉽고 신뢰할 수 있게 만듭니다.</li>
 </ol>
-<h3>C. Usage of External Tools/Knowledge or Aggregation</h3>
-<p>This category of prompting methods encompasses techniques that leverage external sources, tools, or aggregated information to enhance the performance of LLMs. These methods recognize the importance of accessing external knowledge or tools for more informed and contextually rich responses. Aggregation techniques involve harnessing the power of multiple responses to enhance the robustness. This approach recognizes that diverse perspectives and reasoning paths can contribute to more reliable and comprehensive answers. Here&#39;s an overview:</p>
+<h3>C. 외부 도구/지식 또는 집계의 사용</h3>
+<p>이러한 프롬프트 방법 범주에는 외부 소스, 도구 또는 집계된 정보를 활용하여 LLM의 성과를 향상시키는 기술이 포함됩니다. </p>
 <ol>
-<li><strong>Active Prompting (Aggregation)</strong></li>
+<li><strong>활성 프롬프트(집계)</strong></li>
 </ol>
-<p>Active Prompting was designed to enhance the adaptability LLMs to various tasks by dynamically selecting task-specific example prompts. Chain-of-Thought methods typically rely on a fixed set of human-annotated exemplars, which may not always be the most effective for diverse tasks. Here&#39;s how Active Prompting addresses this challenge:</p>
+<p>Active Prompting은 작업별 예제 프롬프트를 동적으로 선택하여 다양한 작업에 대한 LLM의 적응성을 향상시키도록 설계되었습니다. </p>
 <ol>
-<li><strong>Dynamic Querying:</strong><ul>
-<li>The process begins by querying the LLM with or without a few CoT examples for a set of training questions.</li>
-<li>The model generates k possible answers, introducing an element of uncertainty in its responses.</li>
+<li><strong>동적 쿼리:</strong><ul>
+</li>
+<li>모델은 k개의 가능한 답변을 생성하며 응답에 불확실성 요소를 도입합니다.</li>
 </ul>
 </li>
-<li><strong>Uncertainty Metric:</strong><ul>
-<li>An uncertainty metric is calculated based on the disagreement among the k generated answers. This metric reflects the model&#39;s uncertainty about the most appropriate response.</li>
+<li><strong>불확도 측정항목:</strong><ul>
+</li>
 </ul>
 </li>
-<li><strong>Selective Annotation:</strong><ul>
-<li>The questions with the highest uncertainty, indicating a lack of consensus in the model&#39;s responses, are selected for annotation by humans.</li>
-<li>Humans provide new annotated exemplars specifically tailored to address the uncertainties identified by the LLM.</li>
+<li><strong>선택적 주석:</strong><ul>
+</li>
+<li>인간은 LLM에서 식별한 불확실성을 해결하기 위해 특별히 맞춤화된 새로운 주석이 달린 예시를 제공합니다.</li>
 </ul>
 </li>
-<li><strong>Adaptive Learning:</strong><ul>
-<li>The newly annotated exemplars are incorporated into the training data, enriching the model&#39;s understanding and adaptability for those specific questions.</li>
-<li>The model learns from the newly annotated examples, adjusting its responses based on the task-specific guidance provided.</li>
+<li><strong>적응형 학습:</strong><ul>
+</li>
+<li>모델은 새로 주석이 달린 예시를 통해 학습하고 제공된 작업별 지침에 따라 응답을 조정합니다.</li>
 </ul>
 </li>
 </ol>
-<p>Active Prompting&#39;s dynamic adaptation mechanism enables LLMs to actively seek and incorporate task-specific examples that align with the challenges posed by different tasks. By leveraging human-annotated exemplars for uncertain cases, this approach contributes to a more contextually aware and effective performance across diverse tasks.</p>
+<p>Active Prompting의 동적 적응 메커니즘을 통해 LLM은 다양한 작업으로 인한 과제에 맞는 작업별 예를 적극적으로 찾고 통합할 수 있습니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_8.png" alt="prompting_8.png"></p>
 <pre><code>                                    Image Source: [Diao et al., (2023)](https://arxiv.org/pdf/2302.12246.pdf)
 </code></pre>
-<ol>
-<li><strong>Automatic Multi-step Reasoning and Tool-use (ART) (External Tools)</strong></li>
-</ol>
-<p>ART emphasizes on task handling with LLMs. This framework integrates Chain-of-Thought prompting and tool usage by employing a frozen LLM. Instead of manually crafting demonstrations, ART selects task-specific examples from a library and enables the model to automatically generate intermediate reasoning steps. During test time, it  integrates external tools into the reasoning process, fostering zero-shot generalization for new tasks. ART is not only extensible, allowing for human updates to task and tool libraries, but also promotes adaptability and versatility in addressing a variety of tasks with LLMs.</p>
+</p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_9.png" alt="prompting_9.png"></p>
 <pre><code>                                 Image Source: [Paranjape et al., (2023)](https://arxiv.org/abs/2303.09014)
 </code></pre>
-<ol>
-<li><strong>Chain-of-Knowledge (CoK)</strong></li>
-</ol>
-<p>This  framework aims to bolster LLMs by dynamically integrating grounding information from diverse sources, fostering more factual rationales and mitigating the risk of hallucination during generation. CoK operates through three key stages: reasoning preparation, dynamic knowledge adapting, and answer consolidation. It starts by formulating initial rationales and answers while identifying relevant knowledge domains. Subsequently, it refines these rationales incrementally by adapting knowledge from the identified domains, ultimately providing a robust foundation for the final answer. The figure below illustrates a comparison with other methods, highlighting CoK&#39;s incorporation of heterogeneous sources for knowledge retrieval and dynamic knowledge adapting.</p>
+</p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/prompting_10.png" alt="prompting_10.png"></p>
 <pre><code>                                        Image Source: [Li et al. 2024](https://arxiv.org/abs/2401.04398)
 </code></pre>
-<h2>Risks</h2>
-<p>Prompting comes with various risks, and prompt hacking is a notable concern that exploits vulnerabilities in LLMs. The risks associated with prompting include:</p>
+</p>
 <ol>
-<li><strong>Prompt Injection:</strong><ul>
-<li><em>Risk:</em> Malicious actors can inject harmful or misleading content into prompts, leading LLMs to generate inappropriate, biased, or false outputs.</li>
-<li><em>Context:</em> Untrusted text used in prompts can be manipulated to make the model say anything the attacker desires, compromising the integrity of generated content.</li>
+<li><strong>즉시 삽입:</strong><ul>
+</li>
+<li><em>컨텍스트:</em> 프롬프트에 사용된 신뢰할 수 없는 텍스트를 조작하여 모델이 공격자가 원하는 것을 말하게 하여 생성된 콘텐츠의 무결성을 손상시킬 수 있습니다.</li>
 </ul>
 </li>
-<li><strong>Prompt Leaking:</strong><ul>
-<li><em>Risk:</em> Attackers may extract sensitive information from LLM responses, posing privacy and security concerns.</li>
-<li><em>Context:</em> Changing the user_input to attempt to leak the prompt itself is a form of prompt leaking, potentially revealing internal information.</li>
+<li><strong>즉각적인 유출:</strong><ul>
+</li>
+<li><em>컨텍스트:</em> 프롬프트 자체를 유출하려고 시도하도록 user_input을 변경하는 것은 프롬프트 유출의 한 형태이며 내부 정보가 노출될 가능성이 있습니다.</li>
 </ul>
 </li>
-<li><strong>Jailbreaking:</strong><ul>
-<li><em>Risk:</em> Jailbreaking allows users to bypass safety and moderation features, leading to the generation of controversial, harmful, or inappropriate responses.</li>
-<li><em>Context:</em> Prompt hacking methodologies, such as pretending, can exploit the model&#39;s difficulty in rejecting harmful prompts, enabling users to ask any question they desire.</li>
+<li><strong>탈옥:</strong><ul>
+</li>
+<li><em>맥락:</em> 가장과 같은 신속한 해킹 방법론은 유해한 프롬프트를 거부하는 모델의 어려움을 활용하여 사용자가 원하는 질문을 할 수 있도록 할 수 있습니다.</li>
 </ul>
 </li>
-<li><strong>Bias and Misinformation:</strong><ul>
-<li><em>Risk:</em> Prompts that introduce biased or misleading information can result in outputs that perpetuate or amplify existing biases and spread misinformation.</li>
-<li><em>Context:</em> Crafted prompts can manipulate LLMs into producing biased or inaccurate responses, contributing to the reinforcement of societal biases.</li>
+<li><strong>편향과 잘못된 정보:</strong><ul>
+</li>
+<li><em>맥락:</em> 제작된 프롬프트는 LLM을 조작하여 편향되거나 부정확한 응답을 생성하여 사회적 편견을 강화할 수 있습니다.</li>
 </ul>
 </li>
-<li><strong>Security Concerns:</strong><ul>
-<li><em>Risk:</em> Prompt hacking poses a broader security threat, allowing attackers to compromise the integrity of LLM-generated content and potentially exploit models for malicious purposes.</li>
-<li><em>Context:</em> Defensive measures, including prompt-based defenses and continuous monitoring, are essential to mitigate security risks associated with prompt hacking.</li>
+<li><strong>보안 문제:</strong><ul>
+</li>
+<li><em>맥락:</em> 즉각적인 해킹과 관련된 보안 위험을 완화하려면 즉각적인 방어와 지속적인 모니터링을 포함한 방어 조치가 필수적입니다.</li>
 </ul>
 </li>
 </ol>
-<p>To address these risks, it is crucial to implement robust defensive strategies, conduct regular audits of model behavior, and stay vigilant against potential vulnerabilities introduced through prompts. Additionally, ongoing research and development are necessary to enhance the resilience of LLMs against prompt-based attacks and mitigate biases in generated content.</p>
-<h2>Popular Tools</h2>
-<p>Here is a collection of well-known tools for prompt engineering. While some function as end-to-end app development frameworks, others are tailored for prompt generation and maintenance or evaluation purposes. The listed tools are predominantly open source or free to use and have demonstrated good adaptability. It&#39;s important to note that there are additional tools available, although they might be less widely recognized or require payment.</p>
+<p>이러한 위험을 해결하려면 강력한 방어 전략을 구현하고, 모델 동작에 대한 정기적인 감사를 수행하고, 프롬프트를 통해 소개되는 잠재적인 취약점에 대해 경계하는 것이 중요합니다. </p>
+<h2>인기 도구</h2>
+<p>다음은 신속한 엔지니어링을 위한 잘 알려진 도구 모음입니다. </p>
 <ol>
 <li><strong><a href="https://github.com/mleoking/PromptAppGPT">PromptAppGPT</a>:</strong><ul>
-<li><em>Description:</em> A low-code prompt-based rapid app development framework.</li>
-<li><em>Features:</em> Low-code prompt-based development, GPT text and DALLE image generation, online prompt editor/compiler/runner, automatic UI generation, support for plug-in extensions.</li>
-<li><em>Objective:</em> Enables natural language app development based on GPT, lowering the barrier to GPT application development.</li>
+</li>
+<li><em>기능:</em> 로우 코드 프롬프트 기반 개발, GPT 텍스트 및 DALE 이미지 생성, 온라인 프롬프트 편집기/컴파일러/실행기, 자동 UI 생성, 플러그인 확장 지원.</li>
+<li><em>목표:</em> GPT 기반의 자연어 앱 개발을 지원하여 GPT 애플리케이션 개발에 대한 장벽을 낮춥니다.</li>
 </ul>
 </li>
-<li><strong><a href="https://github.com/microsoft/promptbench">PromptBench</a>:</strong><ul>
-<li><em>Description:</em> A PyTorch-based Python package for the evaluation of LLMs.</li>
-<li><em>Features:</em> User-friendly APIs for quick model performance assessment, prompt engineering methods (Few-shot Chain-of-Thought, Emotion Prompt, Expert Prompting), evaluation of adversarial prompts, dynamic evaluation to mitigate potential test data contamination.</li>
-<li><em>Objective:</em> Facilitates the evaluation and assessment of LLMs with various capabilities, including prompt engineering and adversarial prompt evaluation.</li>
+<li><strong><a href="https://github.com/microsoft/promptbench">프롬프트벤치</a>:</strong><ul>
+</li>
+<li><em>기능:</em> 빠른 모델 성능 평가, 신속한 엔지니어링 방법(Few-shot Chain-of-Thought, 감정 프롬프트, 전문가 프롬프트), 적대적 프롬프트 평가, 잠재적인 테스트 데이터 오염을 완화하기 위한 동적 평가를 위한 사용자 친화적인 API입니다.</li>
+<li><em>목적:</em> 프롬프트 엔지니어링 및 적대적 프롬프트 평가를 포함한 다양한 기능을 통해 LLM 평가를 촉진합니다.</li>
 </ul>
 </li>
-<li><strong><a href="https://github.com/microsoft/prompt-engine">Prompt Engine</a>:</strong><ul>
-<li><em>Description:</em> An NPM utility library for creating and maintaining prompts for LLMs.</li>
-<li><em>Background:</em> Aims to simplify prompt engineering for LLMs like GPT-3 and Codex, providing utilities for crafting inputs that coax specific outputs from the models.</li>
-<li><em>Objective:</em> Facilitates the creation and maintenance of prompts, codifying patterns and practices around prompt engineering.</li>
+<li><strong><a href="https://github.com/microsoft/prompt-engine">엔진</a>:</strong><ul>
+</li>
+<li><em>배경:</em> GPT-3 및 Codex와 같은 LLM에 대한 신속한 엔지니어링을 단순화하는 것을 목표로 하며 모델의 특정 출력을 동축으로 만드는 입력 제작용 유틸리티를 제공합니다.</li>
+<li><em>목적:</em> 프롬프트 생성 및 유지 관리를 촉진하고 프롬프트 엔지니어링과 관련된 패턴 및 관행을 체계화합니다.</li>
 </ul>
 </li>
-<li><strong><a href="https://github.com/sevazhidkov/prompts-ai">Prompts AI</a>:</strong><ul>
-<li><em>Description:</em> An advanced GPT-3 playground with a focus on helping users discover GPT-3 capabilities and assisting developers in prompt engineering for specific use cases.</li>
-<li><em>Goals:</em> Aid first-time GPT-3 users, experiment with prompt engineering, optimize the product for use cases like creative writing, classification, and chat bots.</li>
+<li><strong><a href="https://github.com/sevazhidkov/prompts-ai">AI의 적용</a>:</strong><ul>
+</li>
+<li><em>목표:</em> 처음 GPT-3 사용자를 지원하고, 신속한 엔지니어링을 실험하고, 창의적인 글쓰기, 분류, 채팅 봇과 같은 사용 사례에 맞게 제품을 최적화합니다.</li>
 </ul>
 </li>
-<li><strong><a href="https://github.com/thunlp/OpenPrompt">OpenPrompt</a>:</strong><ul>
-<li><em>Description:</em> A library built upon PyTorch for prompt-learning, adapting LLMs to downstream NLP tasks.</li>
-<li><em>Features:</em> Standard, flexible, and extensible framework for deploying prompt-learning pipelines, supporting loading PLMs from huggingface transformers.</li>
-<li><em>Objective:</em> Provides a standardized approach to prompt-learning, making it easier to adapt PLMs for specific NLP tasks.</li>
+<li><strong><a href="https://github.com/thunlp/OpenPrompt">오픈프롬프트</a>:</strong><ul>
+</li>
+<li><em>기능:</em> 신속한 학습 파이프라인을 배포하고 허깅페이스 변환기에서 PLM 로드를 지원하기 위한 유연하고 확장 가능한 표준 프레임워크입니다.</li>
+<li><em>목표:</em> 즉각적인 학습에 대한 표준화된 접근 방식을 제공하여 특정 NLP 작업에 대해 PLM을 더 쉽게 적용할 수 있도록 합니다.</li>
 </ul>
 </li>
-<li><strong><a href="https://github.com/promptslab/Promptify">Promptify</a>:</strong><ul>
-<li><em>Features:</em> Test suite for LLM prompts, perform NLP tasks in a few lines of code, handle out-of-bounds predictions, output provided as Python objects for easy parsing, support for custom examples and samples, run inference on models from the Huggingface Hub.</li>
-<li><em>Objective:</em> Aims to facilitate prompt testing for LLMs, simplify NLP tasks, and optimize prompts to reduce OpenAI token costs.</li>
+<li><strong><a href="https://github.com/promptslab/Promptify">와</a>:</strong><ul>
+</li>
+<li><em>목표:</em> LLM에 대한 신속한 테스트를 촉진하고, NLP 작업을 단순화하며, 프롬프트를 최적화하여 OpenAI 토큰 비용을 줄이는 것을 목표로 합니다.</li>
 </ul>
 </li>
 </ol>
-<h2>Read/Watch These Resources (Optional)</h2>
+<h2>다음 리소스 읽기/보기(선택 사항)</h2>
 <ol>
 <li><a href="https://www.promptingguide.ai/">https://www.promptingguide.ai/</a></li>
 <li><a href="https://aman.ai/primers/ai/prompt-engineering/">https://aman.ai/primers/ai/prompt-engineering/</a></li>
 <li><a href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/">https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/</a></li>
 <li><a href="https://learnprompting.org/courses">https://learnprompting.org/courses</a></li>
 </ol>
-<h2>Read These Papers (Optional)</h2>
+<h2>이 논문 읽기(선택 사항)</h2>
 <ol>
 <li><a href="https://arxiv.org/abs/2304.05970">https://arxiv.org/abs/2304.05970</a></li>
 <li><a href="https://arxiv.org/abs/2309.11495">https://arxiv.org/abs/2309.11495</a></li>

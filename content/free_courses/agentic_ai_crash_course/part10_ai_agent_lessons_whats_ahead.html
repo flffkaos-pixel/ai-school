@@ -45,98 +45,94 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Part 10: AI Agent Lessons and What&#39;s Ahead</h1>
-<h2>A Quick Recap</h2>
+<h1>10부: AI 에이전트 강의 및 향후 계획</h1>
+<h2>빠른 요약</h2>
 <p>Here?셲 what we covered over the last 9 parts:</p>
 <ul>
-<li><strong>Part 1 ??What agents are:</strong> Not just chatbots that generate text, but systems that can decide and act.  </li>
-<li><strong>Part 2 ??Types of agents:</strong> From tightly controlled workflow agents to fully autonomous ones, depending on how much decision-making you hand over.  </li>
-<li><strong>Part 3?? ??Tools and RAG:</strong> The bread and butter of agent action and knowledge grounding.  </li>
-<li><strong>Part 5 ??MCP:</strong> A clean way to structure everything an agent needs (tools, memory, prior messages) into one payload.  </li>
-<li><strong>Part 6 ??Planning and reasoning models:</strong> Why plain LLMs aren?셳 enough for complex decisions, and how newer models are built for multi-step tasks.  </li>
-<li><strong>Part 7 ??Memory:</strong> Short-term vs. long-term memory, what to store, how to retrieve, and why it matters for continuity.  </li>
-<li><strong>Part 8 ??Multi-agent systems:</strong> Orchestration, peer-to-peer collaboration, and the messiness of coordination.  </li>
-<li><strong>Part 9 ??Real-world systems:</strong> How Perplexity, NotebookLM, and DeepResearch likely use these patterns in different ways.</li>
+<li><strong>1부 ??에이전트란 ​​무엇인가요?</strong> 텍스트를 생성하는 챗봇뿐만 아니라 결정하고 행동할 수 있는 시스템입니다.</li>
+<li><strong>파트 2 "에이전트 유형:</strong> 얼마나 많은 의사결정권을 위임하느냐에 따라 엄격하게 제어되는 워크플로 에이전트부터 완전히 자율적인 에이전트까지.</li>
+<li><strong>3부?? </li>
+<li><strong>파트 5 ??MCP:</strong> 에이전트에 필요한 모든 것(도구, 메모리, 이전 메시지)을 하나의 페이로드로 구성하는 깔끔한 방법입니다.</li>
+<li><strong>파트 6 "계획 및 추론 모델:</strong> 일반 LLM이 복잡한 결정을 내리는 데 충분한 이유와 다단계 작업을 위한 최신 모델을 구축하는 방법입니다.</li>
+<li><strong>파트 7 ??기억:</strong> 단기 기억과 장기 기억, 무엇을 저장할지, 어떻게 검색할지, 이것이 연속성에 중요한 이유입니다.</li>
+<li><strong>파트 8 ??다중 에이전트 시스템:</strong> 조정, P2P 공동작업, 조정의 난잡함.</li>
+<li><strong>9부 ??실제 시스템:</strong> Perplexity, NotebookLM 및 DeepResearch가 이러한 패턴을 다양한 방식으로 사용하는 방법.</li>
 </ul>
-<p>We?셶e covered the <strong>moving parts</strong> that show up in real-world systems.<br>But all of it falls apart if you?셱e not thinking about two things: <strong>observability</strong> and <strong>evaluation</strong>.</p>
+<p>우리는 실제 시스템에 나타나는 <strong>움직이는 부분</strong>을 다루었습니다.<br>그러나 <strong>관찰 가능성</strong>과 <strong>평가</strong>라는 두 가지 사항을 고려하지 않으면 모든 것이 무너집니다.</p>
 <hr>
-<h2>What?셲 Still Hard</h2>
-<h3>Observability</h3>
-<p>Observability means tracking what your agent is doing ??at every step. You?셪l want:</p>
+<h2>뭐?셲 아직도 힘들어</h2>
+<h3>관찰 가능성</h3>
+<p>관찰 가능성은 모든 단계에서 에이전트가 수행하는 작업을 추적하는 것을 의미합니다. </p>
 <ul>
-<li>Logs of tool calls, decisions, retries  </li>
-<li>Metrics to spot bottlenecks in latency and cost  </li>
-<li>Visibility into when things go off-rail  </li>
-<li>Step-wise traceability for debugging</li>
+<li>도구 호출, 결정, 재시도 로그</li>
+<li>대기 시간 및 비용의 병목 현상을 찾아내는 지표</li>
+<li>일이 궤도를 벗어나는 시점에 대한 가시성</li>
+<li>디버깅을 위한 단계별 추적성</li>
 </ul>
-<p>Tools like <strong>Comet Opik</strong> help with this.<br>Design observability <strong>from day one</strong>, especially for high-autonomy agents.</p>
+<p><strong>Comet Opik</strong>과 같은 도구가 이에 도움이 됩니다.<br>특히 자율성이 높은 에이전트의 경우 <strong>처음부터</strong> 관찰 가능성을 설계합니다.</p>
 <hr>
-<h3>Evaluation</h3>
-<p>Agents are <strong>non-deterministic</strong>.<br>You need <strong>continuous evaluation</strong>, not just manual testing.</p>
-<p>At a minimum, track:</p>
+<h3>평가</h3>
+<p>에이전트는 <strong>비결정적</strong>입니다.<br>단순한 수동 테스트가 아닌 <strong>지속적인 평가</strong>가 필요합니다.</p>
+<p>최소한 다음을 추적하세요.</p>
 <ul>
-<li>Goal or task completion rates  </li>
-<li>Tool call success/failure  </li>
-<li>RAG quality and hallucination metrics  </li>
-<li>Model overthinking or inefficiency  </li>
-<li>Latency and token usage at each step</li>
+<li>목표 또는 작업 완료율</li>
+<li>공구 호출 성공/실패</li>
+<li>RAG 품질 및 환각 측정항목</li>
+<li>모델의 지나친 생각 또는 비효율성</li>
+<li>각 단계의 지연 시간 및 토큰 사용량</li>
 </ul>
-<p>Evaluation is how you <strong>understand</strong> and <strong>improve</strong> your system.<br>Too many teams do <em>vibe checks</em> instead of real evals ??and get stuck in <strong>PoC purgatory</strong>.</p>
-<p>Think of evals + observability as your <strong>testing pipeline</strong> ??the agentic equivalent of software QA.<br>Metrics will vary by use case, but the discipline is the same.</p>
+<p>평가는 시스템을 <strong>이해</strong>하고 <strong>개선</strong>하는 방법입니다.<br>너무 많은 팀이 실제 평가 대신 <em>바이브 확인</em>을 수행하여 <strong>PoC 연옥</strong>에 갇히게 됩니다.</p>
+<p>평가 + 관찰 가능성을 <strong>테스트 파이프라인</strong>, 즉 소프트웨어 QA에 해당하는 에이전트로 생각하세요.<br>측정항목은 사용 사례에 따라 다르지만 원칙은 동일합니다.</p>
 <hr>
-<h2>Where Things Are Headed in Agentic AI</h2>
-<p>This space is early, but here are clear trends:</p>
+<h2>Agentic AI의 방향</h2>
+<p>아직 초기 단계이지만 분명한 추세는 다음과 같습니다.</p>
 <hr>
-<h3>1. Protocols &gt; Prompts</h3>
-<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/13b78c2e-fc2b-41fd-a0e5-aa88c60187ea" /><p><em>Image Source: Reuven?셲 LinkedIn post</em></p>
-<p>As systems grow, we?셪l move away from handcrafted prompts toward shared <strong>standards</strong>.</p>
+<h3>1. 프로토콜 > 프롬프트</h3>
+<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/13b78c2e-fc2b-41fd-a0e5-aa88c60187ea" /><p><em>이미지 출처: Reuven?셲 LinkedIn 게시물</em></p>
+<p>시스템이 성장함에 따라 우리는 수동으로 작성하는 프롬프트에서 벗어나 공유 <strong>표준</strong>을 향해 나아갈 것입니다.</p>
 <ul>
-<li><strong>MCP</strong> (Model Context Protocol) standardizes how we package structured context ??tools, memory, RAG, prior instructions.  </li>
-<li><strong>A2A</strong> (Agent-to-Agent), released by Google, focuses on cross-platform agent communication with a shared schema.</li>
+<li><strong>MCP</strong>(모델 컨텍스트 프로토콜)는 구조화된 컨텍스트(도구, 메모리, RAG, 사전 지침)를 패키지하는 방법을 표준화합니다.</li>
+<li>Google에서 출시한 <strong>A2A</strong>(에이전트 간)는 공유 스키마를 사용한 크로스 플랫폼 에이전트 통신에 중점을 둡니다.</li>
 </ul>
-<p>Expect cleaner abstractions over time ??though it?셪l take a while before anything becomes as standard as HTTP.</p>
+<p>시간이 지남에 따라 더 깔끔한 추상화를 기대합니다. 하지만 HTTP처럼 표준이 되기까지는 시간이 좀 걸립니다.</p>
 <hr>
-<h3>2. Hybrid Reasoning Models</h3>
-<p>Reasoning models will evolve toward <strong>selective planning</strong> ??knowing when to plan vs. act fast.</p>
-<p>We?셱e already seeing this with <strong>Claude 3.7</strong> and others.<br>The aim: balance intelligence with efficiency ??without overthinking every task.</p>
+<h3>2. 하이브리드 추론 모델</h3>
+<p>추론 모델은 <strong>선택적 계획</strong>, 즉 언제 계획을 세울지, 빠르게 행동할지를 아는 방향으로 발전할 것입니다.</p>
+<p>우리는 이미 <strong>Claude 3.7</strong> 및 기타 제품에서 이러한 현상을 확인했습니다.<br>목표는 모든 작업을 지나치게 생각하지 않고 지능과 효율성의 균형을 맞추는 것입니다.</p>
 <hr>
-<h3>3. Better Memory Systems</h3>
-<p>Today?셲 memory is mostly <strong>duct-taped in</strong>.<br>The future: memory that knows <strong>what to recall, when, and why</strong>.<br>Expect:</p>
+<h3>3. 더 나은 메모리 시스템</h3>
+<p>오늘날?셲 기억은 대부분 <strong>테이핑되어 있습니다</strong>.<br>미래: <strong>무엇을, 언제, 왜 기억할지</strong> 아는 기억.<br>기대 사항:</p>
 <ul>
-<li>Task-scoped memory  </li>
-<li>Session-based memory  </li>
-<li>Persona-specific memory</li>
+<li>작업 범위 메모리</li>
+<li>세션 기반 메모리</li>
+<li>페르소나별 기억</li>
 </ul>
-<p>And <strong>easier management</strong>.</p>
+<p><strong>관리가 더욱 쉬워졌습니다</strong>.</p>
 <hr>
-<h3>4. Tool Ecosystem Maturity</h3>
-<p>Right now, everyone?셲 building custom tools/wrappers. Over time:</p>
+<h3>4. 도구 생태계 성숙도</h3>
+<p>지금은 다들?셲 맞춤형 도구/래퍼를 만들고 있습니다. </p>
 <ul>
-<li>Trusted, plug-and-play APIs  </li>
-<li>Better abstraction layers  </li>
-<li>Shared security practices</li>
+<li>신뢰할 수 있는 플러그 앤 플레이 API</li>
+<li>더 나은 추상화 레이어</li>
+<li>보안 관행 공유</li>
 </ul>
-<p>Just like microservices matured in traditional software, tools will mature in the <strong>agentic stack</strong>.</p>
+<p>기존 소프트웨어에서 마이크로서비스가 성숙해진 것처럼 도구도 <strong>에이전트 스택</strong>에서 성숙해집니다.</p>
 <hr>
-<h2>A Final Word</h2>
-<p>If you?셶e followed along, you?셶e seen the theme:</p>
-<p>We didn?셳 start with <strong>architecture</strong>.<br>We started with <strong>problems</strong>.</p>
-<p>That?셲 the real mindset shift:  </p>
-<blockquote>
-<p>Don?셳 chase agents for the hype.<br>Build them when they make solving a problem easier, faster, or smarter.</p>
-</blockquote>
-<p><strong>Start simple. Measure everything. Scale when needed.</strong><br>Agent-first thinking breaks. Problem-first thinking scales.</p>
+<h2>마지막 한마디</h2>
+<p>당신이 따라했다면, 당신은 테마를 보았습니다:</p>
+<p>우리는?셳 <strong>아키텍처</strong>부터 시작했습니다.<br>우리는 <strong>문제</strong>부터 시작했습니다.</p>
+<p>그게?셲 진정한 사고방식의 변화:</p>
+<blockquote><p>과대 광고를 위해 에이전트를 쫓지 마세요.<br>문제를 더 쉽고, 더 빠르고, 더 스마트하게 영역에서 에이전트를 구축할 수 있습니다.</p></blockquote>
+<p><strong>간단하게 시작하세요. </p>
 <hr>
-<p>Thanks for reading, sharing, and thinking along during these 10 parts.<br>If you take away one thing from this series ??let it be this:</p>
-<blockquote>
-<p><strong>Problem first, always.</strong></p>
-</blockquote>
-<p>Check out the readme for more lectures and advanced topics. If this was helpful, feel free to forward it to someone looking to learn in this space. And if you?셝 like to go deeper, our full 6-week course covers system design, applied agentic concepts, and real evaluation workflows, the kind that support production-grade applications. The course is built for everyone, whether you?셱e a Product Manager, Architect, Director, C-suite leader, or someone seriously exploring agentic AI.</p>
-<p>Our next cohort starts soon. Our next cohort starts soon. Early bird pricing is live: use the code &quot;GITHUB&quot; to get $300 off (Valid only for August 2025) to <a href="https://maven.com/aishwarya-kiriti/genai-system-design">register here</a>!!</p>
+<p>10부 동안 함께 읽고, 공유하고, 생각해 주셔서 감사합니다.<br>이 시리즈에서 한 가지만 빼면 ??이렇습니다.</p>
+<blockquote><p><strong>항상 문제가 먼저입니다.</strong></p></blockquote>
+<p>더 많은 강의와 고급 주제를 보려면 Readme를 확인하세요. </p>
+<p>다음 코호트가 곧 시작됩니다. </p>
 
 </div>
 <footer>

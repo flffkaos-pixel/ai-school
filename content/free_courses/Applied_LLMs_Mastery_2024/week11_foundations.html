@@ -45,120 +45,120 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>[Week 11] LLM Foundations</h1>
-<h2>ETMI5: Explain to Me in 5</h2>
-<p>In the first week of our course, we looked at the difference between two types of machine learning models: generative models, which LLMs are a part of, and discriminative models. Generative models are good at learning from data and creating new things. This week, we&#39;ll learn about how LLMs were developed by looking at the history of neural networks used in language processing. We start with the basics of Recurrent Neural Networks (RNNs) and move to more advanced architectures like sequence-to-sequence models, attention mechanisms, and transformers We&#39;ll also review some of the earlier language models that used transformers, like BERT and GPT. Finally, we&#39;ll talk about how the LLMs we use today were built on these earlier developments.</p>
-<h2>Generative vs Discriminative models</h2>
-<p>In the first week, we briefly covered the idea of Generative AI. It&#39;s essential to note that all machine learning models fall into one of two categories: generative or discriminative. LLMs belong to the generative category, meaning they learn text features and produce them for various applications. While we won&#39;t delve deeply into the mathematical intricacies, it&#39;s important to grasp the distinctions between generative and discriminative models to gain a general understanding of how LLMs operate:</p>
-<h3><strong>Generative Models</strong></h3>
-<p>Generative models try to understand how data is generated. They learn the patterns and structures in the data so they can create new similar data points. </p>
-<p>For example, if you have a generative model for images of dogs, it learns what features and characteristics make up a dog (like fur, ears, and tails), and then it can generate new images of dogs that look realistic, even though they&#39;ve never been seen before.</p>
-<h3><strong>Discriminative Models</strong></h3>
-<p>Discriminative models, on the other hand, are focused on making decisions or predictions based on the input they receive.</p>
-<p>Using the same example of images of dogs, a discriminative model would look at an image and decide whether it contains a dog or not. It doesn&#39;t worry about how the data was generated; it&#39;s just concerned with making the right decision based on the input it&#39;s given.</p>
-<p>Therefore, Generative models learn the underlying patterns in the data to create new samples, while discriminative models focus on making decisions or predictions based on the input data without worrying about how the data was generated. </p>
-<p><strong>Essentially, generative models create, while discriminative models classify or predict.</strong></p>
-<h2>Neural Networks for Language</h2>
-<p>For several years, neural networks have been integral to machine learning. Among these, a prominent class of models heavily reliant on neural networks is referred to as deep learning models. The initial neural network type introduced for text generation was termed as a Recurrent Neural Network (RNN). Subsequent iterations with improvements emerged later, such as Long Short-Term Memory networks (LSTMs), Bidirectional LSTMs, and Gated Recurrent Units (GRUs). Now, let&#39;s explore how RNNs generate text.</p>
-<h3>Recurrent Neural Network (RNN)</h3>
-<p>Recurrent Neural Networks (RNNs) are a type of artificial neural network designed to handle sequential data by allowing information to persist through loops within the network architecture. Traditional neural networks lack the ability to retain information over time, which can be a major limitation when dealing with sequential data like text, audio, or time-series data.</p>
-<p>The basic principle behind RNNs is that they have connections that form a directed cycle, allowing information to be passed from one step of the network to the next. This means that the output of the network at a particular time step depends not only on the current input but also on the previous inputs and the internal state of the network, which captures information from earlier time steps.</p>
+<h1>[11주차] LLM 기초</h1>
+<h2>ETMI5: 5에서 설명해주세요</h2>
+<p>과정의 첫 주에 우리는 두 가지 유형의 기계 학습 모델, 즉 LLM이 포함된 생성 모델과 차별 모델 간의 차이점을 살펴보았습니다. </p>
+<h2>생성 모델과 차별 모델</h2>
+<p>첫 주에는 Generative AI의 개념을 간략하게 다루었습니다. </p>
+<h3><strong>생성 모델</strong></h3>
+<p>생성 모델은 데이터가 생성되는 방식을 이해하려고 노력합니다. </p>
+<p>예를 들어, 개 이미지에 대한 생성 모델이 있는 경우 개를 구성하는 특징(예: 털, 귀, 꼬리)을 학습한 다음 이전에 한 번도 본 적이 없더라도 사실적으로 보이는 새로운 개 이미지를 생성할 수 있습니다.</p>
+<h3><strong>차별 모델</strong></h3>
+<p>반면, 판별 모델은 받은 입력을 기반으로 결정이나 예측을 내리는 데 중점을 둡니다.</p>
+<p>개 이미지의 동일한 예를 사용하여 판별 모델은 이미지를 보고 개가 포함되어 있는지 여부를 결정합니다. </p>
+<p>따라서 생성 모델은 데이터의 기본 패턴을 학습하여 새로운 샘플을 생성하는 반면, 판별 모델은 데이터가 생성된 방식에 대해 걱정하지 않고 입력 데이터를 기반으로 결정이나 예측을 내리는 데 중점을 둡니다.</p>
+<p><strong>기본적으로 생성 모델은 생성하는 반면 차별 모델은 분류하거나 예측합니다.</strong></p>
+<h2>언어를 위한 신경망</h2>
+<p>수년 동안 신경망은 기계 학습의 핵심이었습니다. </p>
+<h3>순환 신경망(RNN)</h3>
+<p>순환 신경망(RNN)은 네트워크 아키텍처 내의 루프를 통해 정보가 지속되도록 하여 순차 데이터를 처리하도록 설계된 인공 신경망의 한 유형입니다. </p>
+<p>RNN의 기본 원칙은 네트워크의 한 단계에서 다음 단계로 정보가 전달될 수 있도록 하는 방향성 주기를 형성하는 연결이 있다는 것입니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-23_at_10.24.38_AM.png" alt="Screenshot 2024-02-23 at 10.24.38 AM.png"></p>
-<p>Image Source: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">https://colah.github.io/posts/2015-08-Understanding-LSTMs/</a></p>
-<p>Here&#39;s a simplified explanation of how RNNs work:</p>
+<p>이미지 출처: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">https://colah.github.io/posts/2015-08-Understanding-LSTMs/</a></p>
+<p>다음은 RNN 작동 방식에 대한 간단한 설명입니다.</p>
 <ol>
-<li><strong>Input Processing</strong>: At each time step $t$, the RNN receives an input $x_t$. This input could be a single element of a sequence (e.g., a word in a sentence) or a feature vector representing some aspect of the input data.</li>
-<li><strong>State Update</strong>: The input $x_t$ is combined with the internal state $h_{t-1}$ of the network from the previous time step to produce a new state $h_t$ using a set of weighted connections (parameters) within the network. This update process allows the network to retain information from previous time steps.</li>
-<li><strong>Output Generation</strong>: The current state $h_t$ is used to generate an output $y_t$ at the current time step. This output can be used for various tasks, such as classification, prediction, or sequence generation.</li>
-<li><strong>Recurrent Connections</strong>: The key feature of RNNs is the presence of recurrent connections, which allow information to flow through the network over time. These connections create a form of memory within the network, enabling it to capture dependencies and patterns in sequential data.</li>
+<li><strong>입력 처리</strong>: 각 시간 단계 $t$에서 RNN은 $x_t$ 입력을 받습니다. </li>
+<li><strong>상태 업데이트</strong>: 입력 $x_t$는 이전 시간 단계의 네트워크 내부 상태 $h_{t-1}$와 결합되어 네트워크 내 가중치 연결(매개변수) 세트를 사용하여 새로운 상태 $h_t$를 생성합니다. </li>
+<li><strong>출력 생성</strong>: 현재 상태 $h_t$는 현재 시간 단계에서 출력 $y_t$을 생성하는 데 사용됩니다. </li>
+<li><strong>반복 연결</strong>: RNN의 주요 기능은 시간이 지남에 따라 네트워크를 통해 정보가 흐를 수 있도록 하는 반복 연결이 있다는 것입니다. </li>
 </ol>
-<p>While RNNs are powerful models for handling sequential data, they can suffer from certain limitations, such as difficulties in learning long-range dependencies and vanishing/exploding gradient problems during training. To address these issues, more advanced variants of RNNs, such as Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs), have been developed. These architectures incorporate mechanisms for better handling long-term dependencies and mitigating gradient-related problems, leading to improved performance on a wide range of sequential data tasks.</p>
-<h3>Long Short-Term Memory (LSTM)</h3>
-<p>LSTM networks are thus an enhanced version of RNNs designed to better handle sequences of data like text just like RNNs, but with the below improvements:</p>
+<p>RNN은 순차 데이터를 처리하기 위한 강력한 모델이지만 장거리 종속성을 학습하는 데 어려움이 있고 훈련 중 그라데이션 소멸/폭발 문제와 같은 특정 제한 사항이 있을 수 있습니다. </p>
+<h3>장단기 기억(LSTM)</h3>
+<p>따라서 LSTM 네트워크는 RNN과 마찬가지로 텍스트와 같은 데이터 시퀀스를 더 잘 처리하도록 설계된 RNN의 향상된 버전이지만 다음과 같은 개선 사항이 있습니다.</p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-23_at_10.32.53_AM.png" alt="Screenshot 2024-02-23 at 10.32.53 AM.png"></p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-23_at_10.33.00_AM.png" alt="Screenshot 2024-02-23 at 10.33.00 AM.png"></p>
-<p>Image Source: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">https://colah.github.io/posts/2015-08-Understanding-LSTMs/</a></p>
+<p>이미지 출처: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">https://colah.github.io/posts/2015-08-Understanding-LSTMs/</a></p>
 <ol>
-<li><strong>Memory Cell</strong>: LSTMs have a special memory cell that can store information over time.</li>
-<li><strong>Gating Mechanism</strong>: LSTMs use gates to control the flow of information into and out of the memory cell:<ul>
-<li>Input Gate: Decides how much new information to keep.</li>
-<li>Forget Gate: Decides how much old information to forget.</li>
-<li>Output Gate: Decides how much of the current cell state to output.</li>
+<li><strong>메모리 셀</strong>: LSTM에는 시간이 지남에 따라 정보를 저장할 수 있는 특수 메모리 셀이 있습니다.</li>
+<li><strong>게이팅 메커니즘</strong>: LSTM은 게이트를 사용하여 메모리 셀 안팎으로의 정보 흐름을 제어합니다.<ul>
+</li>
+<li>Forget Gate: 오래된 정보를 얼마나 잊어버릴지 결정합니다.</li>
+<li>출력 게이트: 현재 셀 상태를 얼마나 출력할지 결정합니다.</li>
 </ul>
 </li>
-<li><strong>Gradient Flow</strong>: LSTMs help gradients flow better during training, which helps in learning from long sequences of data.</li>
-<li><strong>Learning Long-Term Dependencies</strong>: LSTMs are good at remembering important information from earlier in the sequence, making them useful for tasks where understanding context over long distances is crucial.</li>
+<li><strong>경사 흐름</strong>: LSTM은 훈련 중에 경사 흐름을 더 좋게 하여 긴 데이터 시퀀스에서 학습하는 데 도움이 됩니다.</li>
+<li><strong>장기 종속성 학습</strong>: LSTM은 시퀀스 초기의 중요한 정보를 기억하는 데 능숙하므로 장거리 상황에 대한 이해가 중요한 작업에 유용합니다.</li>
 </ol>
-<p>Therefore LSTMs are better at handling sequences by remembering important information and forgetting what&#39;s not needed, which makes them more effective than traditional RNNs for tasks like language processing.</p>
-<p>Both RNNs and LSTMs (and their variants) are widely used for language modeling tasks, where the goal is to predict the next word in a sequence of words. They can learn the underlying structure of language and generate coherent text. However, they struggle to handle input sequences of variable lengths and generate output sequences of variable lengths because their fixed-size hidden states limit their ability to capture long-range dependencies and maintain context over time. </p>
-<h3>Sequence-to-Sequence (Seq2Seq) models</h3>
-<p>That&#39;s where Sequence-to-Sequence (Seq2Seq) models come in; they work by employing an encoder-decoder architecture, where the input sequence is encoded into a fixed-size representation (context vector) by the encoder, and then decoded into an output sequence by the decoder. This architecture allows Seq2Seq models to handle sequences of variable lengths and effectively capture the semantic meaning and structure of the input sequence while generating the corresponding output sequence. A simple Seq2Seq model is depicted below. Each unit in the Seq2Seq is still an RNN type of architecture.</p>
-<p>We won?셳 dive too deep into the workings here for brevity, <a href="https://www.analyticsvidhya.com/blog/2020/08/a-simple-introduction-to-sequence-to-sequence-models/#:~:text=Sequence%20to%20Sequence%20(often%20abbreviated,Chatbots%2C%20Text%20Summarization%2C%20etc.">this</a> article is a great read for those interested: </p>
+<p>따라서 LSTM은 중요한 정보를 기억하고 필요하지 않은 것을 잊어버려 시퀀스를 더 잘 처리하므로 언어 ​​처리와 같은 작업에서 기존 RNN보다 더 효과적입니다.</p>
+<p>RNN과 LSTM(및 그 변형)은 모두 단어 시퀀스에서 다음 단어를 예측하는 것이 목표인 언어 모델링 작업에 널리 사용됩니다. </p>
+<h3>시퀀스 간(Seq2Seq) 모델</h3>
+<p>이것이 바로 Sequence-to-Sequence(Seq2Seq) 모델이 등장하는 곳입니다. </p>
+<p>우리가 이겼나요? 간략하게 설명하기 위해 여기서 작업에 너무 깊이 빠져들었습니다. <a </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/s2s_11.png" alt="s2s_11.png"></p>
-<p>Image Source: <a href="https://towardsdatascience.com/sequence-to-sequence-model-introduction-and-concepts-44d9b41cd42d">https://towardsdatascience.com/sequence-to-sequence-model-introduction-and-concepts-44d9b41cd42d</a></p>
-<h3>Seq2Seq models  + Attention</h3>
+<p>이미지 출처: <a href="https://towardsdatascience.com/sequence-to-sequence-model-introduction-and-concepts-44d9b41cd42d">https://towardsdatascience.com/sequence-to-sequence-model-introduction-and-concepts-44d9b41cd42d</a></p>
+<h3>Seq2Seq 모델 + 주의</h3>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-24_at_2.19.47_PM.png" alt="Screenshot 2024-02-24 at 2.19.47 PM.png"></p>
-<p>Image Source: <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html</a></p>
-<p>The problem with traditional Seq2Seq models lies in their inability to effectively handle long input sequences, especially when generating output sequences of variable lengths. In standard Seq2Seq models, a fixed-length context vector is used to summarize the entire input sequence, which can lead to information loss, particularly for long sequences. Additionally, when generating output sequences, the decoder may struggle to focus on relevant parts of the input sequence, resulting in suboptimal translations or predictions.</p>
-<p>To address these issues, attention mechanisms were introduced. Attention mechanisms allow Seq2Seq models to dynamically focus on different parts of the input sequence during the decoding process. </p>
-<p><strong>Here&#39;s how attention works:</strong></p>
+<p>이미지 출처: <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html</a></p>
+<p>기존 Seq2Seq 모델의 문제점은 특히 가변 길이의 출력 시퀀스를 생성할 때 긴 입력 시퀀스를 효과적으로 처리할 수 없다는 것입니다. </p>
+<p>이러한 문제를 해결하기 위해 주의 메커니즘이 도입되었습니다. </p>
+<p><strong>주의가 작동하는 방식은 다음과 같습니다.</strong></p>
 <ol>
-<li><strong>Encoder Representation</strong>: First, the input sequence is processed by an encoder. The encoder converts each word or element of the input sequence into a hidden state. These hidden states represent different parts of the input sequence and contain information about the sequence&#39;s content and structure.</li>
-<li><strong>Calculating Attention Weights</strong>: During decoding, the decoder needs to decide which parts of the input sequence to focus on. To do this, it calculates attention weights. These weights indicate the relevance or importance of each encoder hidden state to the current decoding step. Essentially, the model is trying to determine which parts of the input sequence are most relevant for generating the next output token.</li>
-<li><strong>Softmax Normalization</strong>: After calculating the attention weights, the model normalizes them using a softmax function. This ensures that the attention weights sum up to one, effectively turning them into a probability distribution. By doing this, the model can ensure that it allocates its attention appropriately across different parts of the input sequence.</li>
-<li><strong>Weighted Sum</strong>: With the attention weights calculated and normalized, the model then takes a weighted sum of the encoder hidden states. Essentially, it combines information from different parts of the input sequence based on their importance or relevance as determined by the attention weights. This weighted sum represents the &quot;attended&quot; information from the input sequence, focusing on the parts that are most relevant for the current decoding step.</li>
-<li><strong>Combining Context with Decoder State</strong>: Finally, the context vector obtained from the weighted sum is combined with the current state of the decoder. This combined representation contains information from both the input sequence (through the context vector) and the decoder&#39;s previous state. It serves as the basis for generating the output of the decoder for the current decoding step.</li>
-<li><strong>Repeating for Each Decoding Step</strong>: Steps 2 to 5 are repeated for each decoding step until the end-of-sequence token is generated or a maximum length is reached. At each step, the attention mechanism helps the model decide where to focus its attention in the input sequence, enabling it to generate accurate and contextually relevant output sequences.</li>
+<li><strong>인코더 표현</strong>: 먼저 입력 시퀀스가 ​​인코더에 의해 처리됩니다. </li>
+<li><strong>주의 가중치 계산</strong>: 디코딩 중에 디코더는 입력 시퀀스의 어느 부분에 집중할지 결정해야 합니다. </li>
+<li><strong>소프트맥스 정규화</strong>: 주의 가중치를 계산한 후 모델은 소프트맥스 함수를 사용하여 이를 정규화합니다. </li>
+<li><strong>가중 합계</strong>: 주의 가중치를 계산하고 정규화한 다음 모델은 인코더 숨겨진 상태의 가중 합계를 취합니다. </li>
+<li><strong>컨텍스트와 디코더 상태 결합</strong>: 마지막으로 가중치 합계에서 얻은 컨텍스트 벡터가 디코더의 현재 상태와 결합됩니다. </li>
+<li><strong>각 디코딩 단계마다 반복</strong>: 시퀀스 끝 토큰이 생성되거나 최대 길이에 도달할 때까지 각 디코딩 단계마다 2~5단계가 반복됩니다. </li>
 </ol>
-<h3>Transformer Models</h3>
-<p>The problem with Seq2Seq models with attention lies in their computational inefficiency and inability to capture dependencies effectively across long sequences. While attention mechanisms significantly improve the model&#39;s ability to focus on relevant parts of the input sequence during decoding, they also introduce computational overhead due to the need to compute attention weights for each decoder step. Additionally, like we mentioned before, traditional Seq2Seq models with attention still rely on RNN or LSTM networks, which have limitations in capturing long-range dependencies.</p>
-<p>The Transformer model was introduced to address these limitations and improve the efficiency and effectiveness of sequence-to-sequence tasks. Here&#39;s how the Transformer model solves the problems of Seq2Seq models with attention:</p>
+<h3>변압기 모델</h3>
+<p>주의가 필요한 Seq2Seq 모델의 문제점은 계산 비효율성과 긴 시퀀스에서 종속성을 효과적으로 캡처할 수 없다는 점에 있습니다. </p>
+<p>Transformer 모델은 이러한 제한 사항을 해결하고 시퀀스 간 작업의 효율성과 효과를 개선하기 위해 도입되었습니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/transformer_11.png" alt="transformer_11"></p>
-<p>Image Source: <a href="https://arxiv.org/pdf/1706.03762.pdf">https://arxiv.org/pdf/1706.03762.pdf</a></p>
+<p>이미지 출처: <a href="https://arxiv.org/pdf/1706.03762.pdf">https://arxiv.org/pdf/1706.03762.pdf</a></p>
 <ol>
-<li><strong>Self-Attention Mechanism</strong>: Instead of relying solely on attention mechanisms between the encoder and decoder, the Transformer model introduces a self-attention mechanism. This mechanism allows each position in the input sequence to attend to all other positions, capturing dependencies across the entire input sequence simultaneously. Self-attention enables the model to capture long-range dependencies more effectively compared to traditional Seq2Seq models with attention.</li>
-<li><strong>Parallelization</strong>: The Transformer model relies on self-attention layers that can be computed in parallel for each position in the input sequence. This parallelization greatly improves the model&#39;s computational efficiency compared to traditional Seq2Seq models with recurrent layers, which process sequences sequentially. As a result, the Transformer model can process sequences much faster, making it more suitable for handling long sequences and large-scale datasets.</li>
-<li><strong>Positional Encoding</strong>: Since the Transformer model does not use recurrent layers, it lacks inherent information about the order of elements in the input sequence. To address this, positional encoding is added to the input embeddings to provide information about the position of each element in the sequence. Positional encoding allows the model to distinguish between elements based on their position, ensuring that the model can effectively process sequences with ordered elements.</li>
-<li><strong>Transformer Architecture</strong>: The Transformer model consists of an encoder-decoder architecture, similar to traditional Seq2Seq models. However, it replaces recurrent layers with self-attention layers, which enables the model to capture dependencies across long sequences more efficiently. Additionally, the Transformer architecture allows for greater flexibility and scalability, making it easier to train and deploy on various tasks and datasets.</li>
+<li><strong>Self-Attention 메커니즘</strong>: 인코더와 디코더 사이의 Attention 메커니즘에만 의존하는 대신 Transformer 모델은 self-attention 메커니즘을 도입합니다. </li>
+<li><strong>병렬화</strong>: Transformer 모델은 입력 시퀀스의 각 위치에 대해 병렬로 계산할 수 있는 self-attention 레이어를 사용합니다. </li>
+<li><strong>위치 인코딩</strong>: Transformer 모델은 순환 레이어를 사용하지 않으므로 입력 시퀀스의 요소 순서에 대한 고유 정보가 부족합니다. </li>
+<li><strong>Transformer 아키텍처</strong>: Transformer 모델은 기존 Seq2Seq 모델과 유사한 인코더-디코더 아키텍처로 구성됩니다. </li>
 </ol>
-<p>In summary, the Transformer model addresses the limitations of Seq2Seq models with attention by introducing self-attention mechanisms, parallelization, positional encoding, and a flexible architecture. These advancements improve the model&#39;s ability to capture long-range dependencies, process sequences efficiently, and achieve state-of-the-art performance on various sequence-to-sequence tasks.</p>
-<h3>Older Language Models</h3>
-<p>Although LLMs have gained significant attention recently, especially with models like GPT from OpenAI, it&#39;s important to recognize that the groundwork for this architecture was laid by earlier models such as BERT, GPT (older versions) and T5 explained below.</p>
-<p>LLMs like BERT (Bidirectional Encoder Representations from Transformers), GPT (Generative Pre-trained Transformer), and T5 (Text-To-Text Transfer Transformer) build on top of the concepts introduced by the Transformer model (described in the previous sections) using the following steps:</p>
+<p>요약하면 Transformer 모델은 self-attention 메커니즘, 병렬화, 위치 인코딩 및 유연한 아키텍처를 도입하여 Seq2Seq 모델의 한계를 주의 깊게 해결합니다. </p>
+<h3>이전 언어 모델</h3>
+<p>LLM은 최근 특히 OpenAI의 GPT와 같은 모델에서 큰 주목을 받았지만 이 아키텍처의 토대가 아래 설명된 BERT, GPT(이전 버전) 및 T5와 같은 이전 모델에 의해 마련되었다는 점을 인식하는 것이 중요합니다.</p>
+<p>BERT(변환기의 양방향 인코더 표현), GPT(생성 사전 훈련된 변환기) 및 T5(텍스트-텍스트 전송 변환기)와 같은 LLM은 다음 단계를 사용하여 변환기 모델(이전 섹션에서 설명)에 의해 도입된 개념을 기반으로 구축됩니다.</p>
 <ol>
-<li><strong>Pre-training and Fine-Tuning</strong>: These models utilize a pre-training and fine-tuning approach. During pre-training, the model is trained on large-scale corpora using unsupervised learning objectives, such as masked language modeling (BERT), autoregressive language modeling (GPT), or text-to-text pre-training (T5). This pre-training phase allows the model to learn rich representations of language and general knowledge from large amounts of text data. After pre-training, the model can be fine-tuned on specific downstream tasks with labeled data, enabling it to adapt its learned representations to perform various NLP tasks such as text classification, question answering, and machine translation.</li>
-<li><strong>Bidirectional Context</strong>: BERT introduced bidirectional context modeling by utilizing a masked language modeling objective. Instead of processing text in a left-to-right or right-to-left manner, BERT is able to consider context from both directions by masking some of the input tokens and predicting them based on the surrounding context. This bidirectional context modeling enables BERT to capture deeper semantic relationships and dependencies within text, leading to improved performance on a wide range of NLP tasks.</li>
-<li><strong>Autoregressive Generation</strong>: GPT models leverage autoregressive generation, where the model predicts the next token in a sequence based on the previously generated tokens. This approach allows GPT models to generate coherent and contextually relevant text by considering the entire history of the generated sequence. GPT models are particularly effective for tasks that involve generating natural language, such as text generation, dialogue generation, and summarization.</li>
-<li><strong>Text-to-Text Approach</strong>: T5 introduces a unified text-to-text framework, where all NLP tasks are framed as text-to-text mapping problems. This approach unifies various NLP tasks, such as translation, classification, summarization, and question answering, under a single framework, simplifying the training and deployment process. T5 achieves this by representing both the input and output of each task as textual strings, enabling the model to learn a single mapping function that can be applied across different tasks.</li>
-<li><strong>Large-Scale Training</strong>: These models are trained on large-scale datasets containing billions of tokens, leveraging massive computational resources and distributed training techniques. By training on extensive data and with powerful hardware, these models can capture rich linguistic patterns and semantic relationships, leading to significant improvements in performance across a wide range of NLP tasks.</li>
+<li><strong>사전 학습 및 미세 조정</strong>: 이 모델은 사전 학습 및 미세 조정 접근 방식을 활용합니다. </li>
+<li><strong>양방향 컨텍스트</strong>: BERT는 마스크된 언어 모델링 목표를 활용하여 양방향 컨텍스트 모델링을 도입했습니다. </li>
+<li><strong>자동 회귀 생성</strong>: GPT 모델은 자동 회귀 생성을 활용합니다. 여기서 모델은 이전에 생성된 토큰을 기반으로 순서대로 다음 토큰을 예측합니다. </li>
+<li><strong>텍스트-텍스트 접근 방식</strong>: T5는 모든 NLP 작업이 텍스트-텍스트 매핑 문제로 구성되는 통합된 텍스트-텍스트 프레임워크를 도입합니다. </li>
+<li><strong>대규모 훈련</strong>: 이 모델은 수십억 개의 토큰이 포함된 대규모 데이터 세트에서 대규모 계산 리소스와 분산 훈련 기술을 활용하여 훈련됩니다. </li>
 </ol>
-<h3>Large Language Models</h3>
-<p>The latest Llama such as Llama and ChatGPT represent significant advancements over earlier models like BERT and GPT in several key ways:</p>
+<h3>대규모 언어 모델</h3>
+<p>Llama 및 ChatGPT와 같은 최신 Llama는 몇 가지 주요 방식으로 BERT 및 GPT와 같은 이전 모델에 비해 상당한 발전을 나타냅니다.</p>
 <ol>
-<li><strong>Task Specialization</strong>: While earlier LLMs like BERT and GPT were designed to perform a wide range of NLP tasks, including text classification, language generation, and question answering, newer models like Llama and ChatGPT are more specialized. For example, Llama is specifically tailored for multimodal tasks, such as image captioning and visual question answering, while ChatGPT is optimized for conversational applications, such as dialogue generation and chatbots.</li>
-<li><strong>Multimodal Capabilities</strong>: Llama and other recent LLMs integrate multimodal capabilities, allowing them to process and generate text in conjunction with other modalities such as images, audio, and video. This enables LLMs to perform tasks that require understanding and generating content across multiple modalities, opening up new possibilities for applications like image captioning, video summarization, and multimodal dialogue systems.</li>
-<li><strong>Improved Efficiency</strong>: Recent advancements in LLM architecture and training methodologies have led to improvements in efficiency, allowing models like Llama and ChatGPT to achieve comparable performance to their predecessors with fewer parameters and computational resources. This increased efficiency makes it more practical to deploy these models in real-world applications and reduces the environmental impact associated with training large models.</li>
-<li><strong>Fine-Tuning and Transfer Learning</strong>: LLMs like ChatGPT are often fine-tuned on specific datasets or tasks to further improve performance in targeted domains. By fine-tuning on domain-specific data, these models can adapt their pre-trained knowledge to better suit the requirements of particular applications, leading to enhanced performance and generalization.</li>
-<li><strong>Interactive and Dynamic Responses</strong>: ChatGPT and similar conversational models are designed to generate interactive and dynamic responses in natural language conversations. These models leverage context from previous turns in the conversation to generate more coherent and contextually relevant responses, making them more suitable for human-like interaction in chatbot applications and dialogue systems.</li>
+<li><strong>작업 전문화</strong>: BERT 및 GPT와 같은 이전 LLM은 텍스트 분류, 언어 생성, 질문 응답을 포함한 광범위한 NLP 작업을 수행하도록 설계되었지만 Llama 및 ChatGPT와 같은 최신 모델은 더욱 전문화되었습니다. </li>
+<li><strong>다중 모드 기능</strong>: Llama 및 기타 최신 LLM은 다중 모드 기능을 통합하여 이미지, 오디오, 비디오 등 다른 형식과 함께 텍스트를 처리하고 생성할 수 있습니다. </li>
+<li><strong>효율성 향상</strong>: 최근 LLM 아키텍처 및 교육 방법론의 발전으로 효율성이 향상되어 Llama 및 ChatGPT와 같은 모델이 더 적은 매개변수와 계산 리소스를 사용하여 이전 모델과 비슷한 성능을 달성할 수 있게 되었습니다. </li>
+<li><strong>미세 조정 및 전이 학습</strong>: ChatGPT와 같은 LLM은 특정 데이터세트나 작업을 미세 조정하여 대상 도메인의 성능을 더욱 향상시키는 경우가 많습니다. </li>
+<li><strong>대화형 및 동적 응답</strong>: ChatGPT 및 유사한 대화 모델은 자연어 대화에서 대화형 및 동적 응답을 생성하도록 설계되었습니다. </li>
 </ol>
-<h2>Read/Watch These Resources (Optional)</h2>
+<h2>다음 리소스 읽기/보기(선택 사항)</h2>
 <ol>
-<li>Understanding LSTM Networks: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">https://colah.github.io/posts/2015-08-Understanding-LSTMs/</a></li>
-<li>Sequence to Sequence (seq2seq) and Attention: <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html</a></li>
-<li>Sequence to Sequence models: <a href="https://www.youtube.com/watch?v=kklo05So99U">https://www.youtube.com/watch?v=kklo05So99U</a></li>
-<li>How Attention works in Deep Learning: understanding the attention mechanism in sequence models**:** <a href="https://theaisummer.com/attention/">https://theaisummer.com/attention/</a></li>
-<li>Intro to LLMs:<ol>
-<li><a href="https://www.youtube.com/watch?v=zjkBMFhNj_g&t=1845s">https://www.youtube.com/watch?v=zjkBMFhNj_g&amp;t=1845s</a></li>
+<li>LSTM 네트워크 이해: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">https://colah.github.io/posts/2015-08-Understanding-LSTMs/</a></li>
+<li>시퀀스(seq2seq) 및 주의: <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html</a></li>
+<li>시퀀스 대 시퀀스 모델: <a href="https://www.youtube.com/watch?v=kklo05So99U">https://www.youtube.com/watch?v=kklo05So99U</a></li>
+<li>딥 러닝에서 Attention이 작동하는 방식: 시퀀스 모델의 Attention 메커니즘 이해**:** <a href="https://theaisummer.com/attention/">https://theaisummer.com/attention/</a></li>
+<li>LLM 소개:<ol>
+</li>
 <li><a href="https://www.youtube.com/watch?v=zizonToFXDs">https://www.youtube.com/watch?v=zizonToFXDs</a></li>
 </ol>
 </li>
-<li>Transformers: <a href="https://www.youtube.com/watch?v=wl3mbqOtlmM">https://www.youtube.com/watch?v=wl3mbqOtlmM</a></li>
+<li>트랜스포머: <a href="https://www.youtube.com/watch?v=wl3mbqOtlmM">https://www.youtube.com/watch?v=wl3mbqOtlmM</a></li>
 </ol>
-<h2>Read These Papers (Optional)</h2>
+<h2>이 논문 읽기(선택 사항)</h2>
 <ol>
 <li><a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a></li>
 <li><a href="https://arxiv.org/abs/2005.14165">https://arxiv.org/abs/2005.14165</a></li>

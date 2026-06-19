@@ -45,167 +45,161 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>[Week 1, Part 2] Domain and Task Adaptation Methods</h1>
-<h2>ETMI5: Explain to Me in 5</h2>
-<p>In this section, we delve into the limitations of general AI models in specialized domains, underscoring the significance of domain-adapted LLMs. We explore the advantages of these models, including depth, precision, improved user experiences, and addressing privacy concerns.</p>
-<p>We introduce three types of domain adaptation methods: Domain-Specific Pre-Training, Domain-Specific Fine-Tuning, and Retrieval Augmented Generation (RAG). Each method is outlined, providing details on types, training durations, and quick summaries. We then explain each of these methods in further detail with real-world examples. In the end, we provide an overview of when RAG should be used as opposed to model updating methods.</p>
-<h2>Using LLMs Effectively</h2>
-<p>While general AI models such as ChatGPT demonstrate impressive text generation abilities across various subjects, they may lack the depth and nuanced understanding required for specific domains. Additionally, these models are more prone to generating inaccurate or contextually inappropriate content, referred to as hallucinations. For instance, in healthcare, specific terms like &quot;electronic health record interoperability&quot; or &quot;patient-centered medical home&quot; hold significant importance, but a generic language model may struggle to fully comprehend their relevance due to a lack of specific training on healthcare data. This is where task-specific and domain-specific LLMs play a crucial role. These models need to possess specialized knowledge of industry-specific terminology and practices to ensure accurate interpretation of domain-specific concepts. Throughout the remainder of this course, we will refer to these specialized LLMs as <strong>domain-specific LLM</strong>s, a commonly used term for such models.</p>
-<p>Here are some benefits of using domain-specific LLMs:</p>
+<h1>[1주차 2부] 도메인 및 작업 적응 방법</h1>
+<h2>ETMI5: 5에서 설명해주세요</h2>
+<p>이 섹션에서는 전문 도메인에서 일반 AI 모델의 한계를 조사하고 도메인 적응 LLM의 중요성을 강조합니다. </p>
+<p>도메인별 사전 훈련, 도메인별 미세 조정 및 RAG(검색 증강 생성)의 세 가지 유형의 도메인 적응 방법을 소개합니다. </p>
+<h2>LLM을 효과적으로 사용하기</h2>
+<p>ChatGPT와 같은 일반 AI 모델은 다양한 주제에 걸쳐 인상적인 텍스트 생성 능력을 보여주지만 특정 도메인에 필요한 깊이와 미묘한 이해가 부족할 수 있습니다. </p>
+<p>도메인별 LLM을 사용하면 다음과 같은 이점이 있습니다.</p>
 <ol>
-<li><strong>Depth and Precision</strong>: General LLMs, while proficient in generating text across diverse topics, may lack the depth and nuance required for specialized domains. Domain-specific LLMs are tailored to understand and interpret industry-specific terminology, ensuring precision in comprehension.</li>
-<li><strong>Overcoming Limitations</strong>: General LLMs have limitations, including potential inaccuracies, lack of context, and susceptibility to hallucinations. In domains like finance or medicine, where specific terminology is crucial, domain-specific LLMs excel in providing accurate and contextually relevant information.</li>
-<li><strong>Enhanced User Experiences</strong>: Domain-specific LLMs contribute to enhanced user experiences by offering tailored and personalized responses. In applications such as customer service chatbots or dynamic AI agents, these models leverage specialized knowledge to provide more accurate and insightful information.</li>
-<li><strong>Improved Efficiency and Productivity</strong>: Businesses can benefit from the improved efficiency of domain-specific LLMs. By automating tasks, generating content aligned with industry-specific terminology, and streamlining operations, these models free up human resources for higher-level tasks, ultimately boosting productivity.</li>
-<li><strong>Addressing Privacy Concerns</strong>: In industries dealing with sensitive data, such as healthcare, using general LLMs may pose privacy challenges. Domain-specific LLMs can provide a closed framework, ensuring the protection of confidential data and adherence to privacy agreements.</li>
+<li><strong>심도와 정확성</strong>: 일반 LLM은 다양한 주제에 대한 텍스트 생성에 능숙하지만 전문 분야에 필요한 깊이와 뉘앙스가 부족할 수 있습니다. </li>
+<li><strong>한계 극복</strong>: 일반 LLM에는 잠재적인 부정확성, 맥락 부족, 환각에 대한 민감성 등의 한계가 있습니다. </li>
+<li><strong>향상된 사용자 경험</strong>: 분야별 LLM은 맞춤형 응답을 제공하여 향상된 사용자 경험에 기여합니다. </li>
+<li><strong>향상된 효율성 및 생산성</strong>: 기업은 분야별 LLM의 향상된 효율성을 통해 이익을 얻을 수 있습니다. </li>
+<li><strong>개인정보 보호 문제 해결</strong>: 의료 등 민감한 데이터를 다루는 업계에서 일반 LLM을 사용하면 개인정보 보호 문제가 발생할 수 있습니다. </li>
 </ol>
-<p>If you recall from the <a href="https://www.notion.so/Week-1-Applied-LLM-Foundations-369ae7cf630d467cbfeedd3b9b3bfc46?pvs=21">previous section</a>, we had multiple ways to use LLMs in specific use cases, namely</p>
+<p><a href="https://www.notion.so/Week-1-Applied-LLM-Foundations-369ae7cf630d467cbfeedd3b9b3bfc46?pvs=21">이전 섹션</a>을 떠올려 보면 특정 사용 사례에서 LLM을 사용하는 여러 가지 방법이 있었습니다.</p>
 <ol>
-<li><strong>Zero-shot learning</strong></li>
-<li><strong>Few-shot learning</strong></li>
-<li><strong>Domain Adaptation</strong></li>
+<li><strong>제로샷 학습</strong></li>
+<li><strong>퓨샷 학습</strong></li>
+<li><strong>도메인 적응</strong></li>
 </ol>
-<p>Zero-shot learning and few-shot learning involve instructing the general model either through examples or by prompting it with specific questions of interest. Another concept introduced is domain adaptation, which will be the primary focus in this section. More details about the first two methods will be explored when we delve into the topic of prompting.</p>
-<h2>Types of Domain Adaptation Methods</h2>
-<p>There are several methods to incorporate domain-specific knowledge into LLMs, each with its own advantages and limitations. Here are three classes of approaches:</p>
+<p>제로샷 학습과 퓨샷 학습에는 예제를 통해 또는 관심 있는 특정 질문을 제시하여 일반 모델에 지시하는 작업이 포함됩니다. </p>
+<h2>도메인 적응 방법의 유형</h2>
+<p>분야별 지식을 LLM에 통합하는 방법에는 여러 가지가 있으며 각각 고유한 장점과 한계가 있습니다. </p>
 <ol>
-<li><p><strong>Domain-Specific Pre-Training:</strong></p>
-<ul>
-<li><em><strong>Training Duration</strong>:</em> Days to weeks to months</li>
-<li><em><strong>Summary</strong>:</em> Requires a large amount of domain training data; can customize model architecture, size, tokenizer, etc.</li>
-</ul>
-<p> In this method, LLMs are pre-trained on extensive datasets representing various natural language use cases. For instance, models like PaLM 540B, GPT-3, and LLaMA 2 have been pre-trained on datasets with sizes ranging from 499 billion to 2 trillion tokens. Examples of domain-specific pre-training include models like ESMFold, ProGen2 for protein sequences, Galactica for science, BloombergGPT for finance, and StarCoder for code. These models outperform generalist models within their domains but still face limitations in terms of accuracy and potential hallucinations.
- </p>
+<li><p><strong>도메인별 사전 교육:</strong></p>
 </li>
-<li><p><strong>Domain-Specific Fine-Tuning:</strong></p>
-<ul>
-<li><em><strong>Training Duration</strong>:</em> Minutes to hours</li>
-<li><em><strong>Summary</strong>:</em> Adds domain-specific data; tunes for specific tasks; updates LLM model</li>
+<li><em><strong>요약</strong>:</em> 많은 양의 도메인 교육 데이터가 필요합니다. </li>
 </ul>
-<p> Fine-tuning involves training a pre-trained LLM on a specific task or domain, adapting its knowledge to a narrower context. Examples include Alpaca (fine-tuned LLaMA-7B model for general tasks), xFinance (fine-tuned LLaMA-13B model for financial-specific tasks), and ChatDoctor (fine-tuned LLaMA-7B model for medical chat). The costs for fine-tuning are significantly smaller compared to pre-training.
- </p>
+<p>이 방법에서 LLM은 다양한 자연어 사용 사례를 나타내는 광범위한 데이터 세트에 대해 사전 훈련됩니다. </p>
 </li>
-<li><p><strong>Retrieval Augmented Generation (RAG):</strong></p>
-<ul>
-<li><em><strong>Training Duration</strong>:</em> Not required</li>
-<li><em><strong>Summary</strong>:</em> No model weights; external information retrieval system can be tuned</li>
+<li><p><strong>도메인별 세부정보:</strong></p>
+</li>
+<li><em><strong>요약</strong>:</em> 도메인별 데이터를 추가합니다. </li>
 </ul>
-<p> RAG involves grounding the LLM&#39;s parametric knowledge with external or non-parametric knowledge from an information retrieval system. This external knowledge is provided as additional context in the prompt to the LLM. The advantages of RAG include no training costs, low expertise requirement, and the ability to cite sources for human verification. This approach addresses limitations such as hallucinations and allows for precise manipulation of knowledge. The knowledge base is easily updatable without changing the LLM. Strategies to combine non-parametric knowledge with an LLM&#39;s parametric knowledge are actively researched.</p>
+<p>미세 조정에는 특정 작업이나 영역에 대해 사전 훈련된 LLM을 교육하고 해당 지식을 더 좁은 맥락에 적용하는 것이 포함됩니다. </p>
+</li>
+<li><p><strong>RAG(검색 삽입 생성):</strong></p>
+</li>
+<li><em><strong>요약</strong>:</em> 모델 가중치가 없습니다. </li>
+</ul>
+<p>RAG에는 정보 검색 시스템의 외부 또는 비모수적 지식을 사용하여 LLM의 매개변수적 지식을 기반으로 하는 작업이 포함됩니다. </p>
 </li>
 </ol>
-<h2><strong>Domain-Specific Pre-Training</strong></h2>
+<h2><strong>도메인별 사전 교육</strong></h2>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/domain_specific.png" alt="domain_specific"></p>
 <pre><code>  Image Source [https://www.analyticsvidhya.com/blog/2023/08/domain-specific-llms/](https://www.analyticsvidhya.com/blog/2023/08/domain-specific-llms/)
 </code></pre>
-<p>Domain-specific pre-training involves training large language models on extensive datasets that specifically represent the language and characteristics of a particular domain or field. This process aims to enhance the model&#39;s understanding and performance within a defined subject area.  Let?셲 understand domain specific pretraining through the example of <a href="https://arxiv.org/pdf/2303.17564.pdf">BloombergGPT,</a> a large language model for finance. </p>
-<p>BloombergGPT is a 50 billion parameter language model designed to excel in various tasks within the financial industry. While general models are versatile and perform well across diverse tasks, they may not outperform domain-specific models in specialized areas. At Bloomberg, where a significant majority of applications are within the financial domain, there is a need for a model that excels in financial tasks while maintaining competitive performance on general benchmarks. BloombergGPT can perform the following tasks:</p>
+</p>
+<p>BloombergGPT는 금융 산업 내 다양한 ​​작업에서 탁월한 성능을 발휘하도록 설계된 500억 개의 매개변수 언어 모델입니다. </p>
 <ol>
-<li><strong>Financial Sentiment Analysis:</strong> Analyzing and determining sentiment in financial texts, such as news articles, social media posts, or financial reports. This helps in understanding market sentiment and making informed investment decisions.</li>
-<li><strong>Named Entity Recognition:</strong> Identifying and classifying entities (such as companies, individuals, and financial instruments) mentioned in financial documents. This is crucial for extracting relevant information from large datasets.</li>
-<li><strong>News Classification:</strong> Categorizing financial news articles into different topics or classes. This can aid in organizing and prioritizing news updates based on their relevance to specific financial areas.</li>
-<li><strong>Question Answering in Finance:</strong> Answering questions related to financial topics. Users can pose queries about market trends, financial instruments, or economic indicators, and BloombergGPT can provide relevant answers.</li>
-<li><strong>Conversational Systems for Finance:</strong> Engaging in natural language conversations related to finance. Users can interact with BloombergGPT to seek information, clarify doubts, or discuss financial concepts.</li>
+<li><strong>금융 감정 분석:</strong> 뉴스 기사, 소셜 미디어 게시물, 재무 보고서 등 금융 텍스트의 감정을 분석하고 결정합니다. </li>
+<li><strong>지정 법인 인식:</strong> 금융 문서에 언급된 법인(예: 회사, 개인, 금융 상품)을 식별하고 분류합니다. </li>
+<li><strong>뉴스 분류:</strong> 금융 뉴스 기사를 다양한 주제나 클래스로 분류합니다. </li>
+<li><strong>금융 관련 질문 답변:</strong> 금융 주제와 관련된 질문에 답변합니다. </li>
+<li><strong>재무를 위한 대화 시스템:</strong> 금융과 관련된 자연어 대화에 참여합니다. </li>
 </ol>
-<p>To achieve this, BloombergGPT undergoes domain-specific pre-training using a large dataset that combines domain-specific financial language documents from Bloomberg&#39;s extensive archives with public datasets. This dataset, named FinPile, consists of diverse English financial documents, including news, filings, press releases, web-scraped financial documents, and social media content. The training corpus is roughly divided into half domain-specific text and half general-purpose text. The aim is to leverage the advantages of both domain-specific and general data sources.</p>
-<p>The model architecture is based on guidelines from previous research efforts, containing 70 layers of transformer decoder blocks (read more in the <a href="https://arxiv.org/pdf/2303.17564.pdf">paper</a>)</p>
-<h2><strong>Domain-Specific Fine-Tuning</strong></h2>
-<p>Domain-specific fine-tuning is the process of refining a pre-existing language model for a particular task or within a specific domain to enhance its performance and tailor it to the unique context of that domain. This method involves taking an LLM that has undergone pre-training on a diverse dataset encompassing various language use cases and subsequently fine-tuning it on a narrower dataset specifically related to a particular domain or task. </p>
-<p>?뮕Note that the previous method, i.e., domain-specific pre-training involves training a language model exclusively on data from a specific domain, creating a specialized model for that domain. On the other hand, domain-specific fine-tuning takes a pre-trained general model and further trains it on domain-specific data, adapting it for tasks within that domain without starting from scratch. Pre-training is domain-exclusive from the beginning, while fine-tuning adapts a more versatile model to a specific domain.</p>
-<p>The key steps in domain-specific fine-tuning include:</p>
+<p>이를 달성하기 위해 BloombergGPT는 Bloomberg의 광범위한 아카이브에 있는 도메인별 금융 언어 문서를 공개 데이터세트와 결합한 대규모 데이터세트를 사용하여 도메인별 사전 학습을 거칩니다. </p>
+<p>모델 아키텍처는 70개 레이어의 변환기 디코더 블록을 포함하는 이전 연구 노력의 지침을 기반으로 합니다(자세한 내용은 <a href="https://arxiv.org/pdf/2303.17564.pdf">논문</a> 참조).</p>
+<h2><strong>도메인별 미세 조정</strong></h2>
+<p>도메인별 미세 조정은 특정 작업이나 특정 도메인 내에서 기존 언어 모델을 개선하여 성능을 향상하고 해당 도메인의 고유한 상황에 맞게 조정하는 프로세스입니다. </p>
+<p>?뮕 이전 방법, 즉 도메인별 사전 학습에는 특정 도메인의 데이터에만 언어 모델을 교육하여 해당 도메인에 대한 특수 모델을 만드는 것이 포함됩니다. </p>
+<p>도메인별 미세 조정의 주요 단계는 다음과 같습니다.</p>
 <ol>
-<li><strong>Pre-training:</strong> Initially, a large language model is pre-trained on an extensive dataset, allowing it to grasp general language patterns, grammar, and contextual understanding (A general LLM).</li>
-<li><strong>Fine-tuning Dataset:</strong> A more focused dataset, tailored to the desired domain or task, is collected or prepared. This dataset contains relevant examples and instances related to the target domain, potentially including labeled examples for supervised learning.</li>
-<li><strong>Fine-tuning Process:</strong> The pre-trained language model undergoes further training on this domain-specific dataset. During fine-tuning, the model&#39;s parameters are adjusted based on the new dataset, while retaining the general language understanding acquired during pre-training.</li>
-<li><strong>Task Optimization:</strong> The fine-tuned model is optimized for specific tasks within the chosen domain. This optimization may involve adjusting parameters related to the task, such as the model architecture, size, or tokenizer, to achieve optimal performance.</li>
+<li><strong>사전 학습:</strong> 처음에는 대규모 언어 모델이 광범위한 데이터 세트에 대해 사전 학습되어 일반적인 언어 패턴, 문법 및 문맥 이해를 파악할 수 있습니다(일반 LLM).</li>
+<li><strong>세부 조정 데이터 세트:</strong> 원하는 도메인이나 작업에 맞춰 더욱 집중된 데이터 세트를 수집하거나 준비합니다. </li>
+<li><strong>미세 조정 프로세스:</strong> 사전 학습된 언어 모델은 이 도메인별 데이터 세트에 대한 추가 학습을 거칩니다. </li>
+<li><strong>작업 최적화:</strong> 미세 조정된 모델은 선택한 도메인 내의 특정 작업에 맞게 최적화됩니다. </li>
 </ol>
-<p>Domain-specific fine-tuning offers several advantages:</p>
+<p>도메인별 미세 조정은 다음과 같은 몇 가지 이점을 제공합니다.</p>
 <ul>
-<li>It enables the model to specialize in a particular domain, enhancing its effectiveness for tasks within that domain.</li>
-<li>It saves time and computational resources compared to training a model from scratch, leveraging the knowledge gained during pre-training.</li>
-<li>The model can adapt to the specific requirements and nuances of the target domain, leading to improved performance on domain-specific tasks.</li>
+<li>이를 통해 모델은 특정 도메인을 전문화하여 해당 도메인 내 작업의 효율성을 향상할 수 있습니다.</li>
+<li>사전 훈련 중에 얻은 지식을 활용하여 처음부터 모델을 훈련하는 것에 비해 시간과 계산 리소스를 절약합니다.</li>
+<li>모델은 대상 도메인의 특정 요구 사항과 미묘한 차이에 적응할 수 있어 도메인별 작업의 성능이 향상됩니다.</li>
 </ul>
-<p>A popular example for domain-specific fine-tuning is the ChatDoctor LLM which is a specialized language model fine-tuned on Meta-AI&#39;s large language model meta-AI (LLaMA) using a dataset of 100,000 patient-doctor dialogues from an online medical consultation platform. The model undergoes fine-tuning on real-world patient interactions, significantly improving its understanding of patient needs and providing more accurate medical advice. ChatDoctor uses real-time information from online sources like Wikipedia and curated offline medical databases, enhancing the accuracy of its responses to medical queries. The model&#39;s contributions include a methodology for fine-tuning LLMs in the medical field, a publicly shared dataset, and an autonomous ChatDoctor model capable of retrieving updated medical knowledge. Read more about ChatDoctor in the paper <a href="https://arxiv.org/pdf/2303.14070.pdf">here</a>.</p>
-<h2>Retrieval Augmented Generation (RAG)</h2>
-<p>Retrieval Augmented Generation (RAG) is an AI framework that enhances the quality of responses generated by LLMs by incorporating up-to-date and contextually relevant information from external sources during the generation process. It addresses the inconsistency and lack of domain-specific knowledge in LLMs, reducing the chances of hallucinations or incorrect responses. RAG involves two phases: retrieval, where relevant information is searched and retrieved, and content generation, where the LLM synthesizes an answer based on the retrieved information and its internal training data. This approach improves accuracy, allows source verification, and reduces the need for continuous model retraining. </p>
+<p>도메인별 미세 조정의 인기 있는 예는 온라인 의료 상담 플랫폼의 100,000개의 환자-의사 대화 데이터 세트를 사용하여 Meta-AI의 LLaMA(대형 언어 모델 메타 AI)에서 미세 조정된 전문 언어 모델인 ChatDoctor LLM입니다. </p>
+<h2>검색 증강 생성(RAG)</h2>
+<p>RAG(Retrieval Augmented Generation)는 생성 프로세스 중에 외부 소스로부터 상황에 맞는 최신 정보를 통합하여 LLM에서 생성된 응답의 품질을 향상시키는 AI 프레임워크입니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/RAG_w1.png" alt="RAG_w1.png"></p>
-<p>Image Source: <a href="https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/">https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/</a></p>
-<p>The diagram above outlines the fundamental RAG pipeline, consisting of three key components:</p>
+<p>이미지 출처: <a href="https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/">https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/</a></p>
+<p>위의 다이어그램은 세 가지 주요 구성 요소로 구성된 기본 RAG 파이프라인을 간략하게 설명합니다.</p>
 <ol>
-<li><strong>Ingestion:</strong><ul>
-<li>Documents undergo segmentation into chunks, and embeddings are generated from these chunks, subsequently stored in an index.</li>
-<li>Chunks are essential for pinpointing the relevant information in response to a given query, resembling a standard retrieval approach.</li>
+<li><strong>수집:</strong><ul>
+</li>
+<li>청크는 표준 검색 접근 방식과 유사하게 주어진 쿼리에 대한 응답으로 관련 정보를 정확히 찾아내는 데 필수적입니다.</li>
 </ul>
 </li>
-<li><strong>Retrieval:</strong><ul>
-<li>Leveraging the index of embeddings, the system retrieves the top-k documents when a query is received, based on the similarity of embeddings.</li>
+<li><strong>검색:</strong><ul>
+</li>
 </ul>
 </li>
-<li><strong>Synthesis:</strong><ul>
-<li>Examining the chunks as contextual information, the LLM utilizes this knowledge to formulate accurate responses.</li>
+<li><strong>합성:</strong><ul>
+</li>
 </ul>
 </li>
 </ol>
-<p>?뮕Unlike previous methods for domain adaptation, it&#39;s important to highlight that RAG doesn&#39;t necessitate any model training whatsoever. It can be readily applied without the need for training when specific domain data is provided.</p>
-<p>In contrast to earlier approaches for model updates (pre-training and fine-tuning), RAG comes with specific advantages and disadvantages. The decision to employ or refrain from using RAG depends on an evaluation of these factors.</p>
+<p>?뮕도메인 적응을 위한 이전 방법과 달리 RAG는 모델 교육이 전혀 필요하지 않다는 점을 강조하는 것이 중요합니다. </p>
+<p>모델 업데이트(사전 훈련 및 미세 조정)를 위한 이전 접근 방식과 달리 RAG에는 특정한 장점과 단점이 있습니다. </p>
 <table>
-<thead>
-<tr>
-<th>Advantages of RAG</th>
-<th>Disadvantages of RAG</th>
+<thead><tr>
+</th>
+<th>RAG의 단점</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Information Freshness: RAG addresses the static nature of LLMs by providing up-to-date or context-specific data from an external database.</td>
-<td>Complex Implementation (Multiple moving parts): Implementing RAG may involve creating a vector database, embedding models, search index etc. The performance of RAG depends on the individual performance of all these components</td>
+<td>정보 신선도: RAG는 외부 데이터베이스에서 최신 또는 상황별 데이터를 제공하여 LLM의 정적 특성을 해결합니다.</td>
+<td>복잡한 구현(다중 이동 부분): RAG 구현에는 벡터 데이터베이스 생성, 모델 삽입, 검색 색인 등이 포함될 수 있습니다. RAG의 성능은 이러한 모든 구성 요소의 개별 성능에 따라 달라집니다.</td>
 </tr>
 <tr>
-<td>Domain-Specific Knowledge: RAG supplements LLMs with domain-specific knowledge by fetching relevant results from a vector database</td>
-<td>Increased Latency: The retrieval step in RAG involves searching through databases, which may introduce latency in generating responses compared to models that don&#39;t rely on external sources.</td>
+<td>도메인별 지식: RAG는 벡터 데이터베이스에서 관련 결과를 가져와 도메인별 지식으로 LLM을 보완합니다.</td>
+<td>지연 시간 증가: RAG의 검색 단계에는 데이터베이스 검색이 포함되며, 이로 인해 외부 소스에 의존하지 않는 모델에 비해 응답 생성 시 지연 시간이 발생할 수 있습니다.</td>
 </tr>
 <tr>
-<td>Reduced Hallucination and Citations: RAG reduces the likelihood of hallucinations by grounding LLMs with external, verifiable facts and can also cite sources</td>
+<td>환각 및 인용 감소: RAG는 LLM을 검증 가능한 외부 사실로 근거화하여 환각 가능성을 줄이고 출처도 인용할 수 있습니다.</td>
 <td></td>
 </tr>
 <tr>
-<td>Cost-Efficiency: RAG is a cost-effective solution, avoiding the need for extensive model training or fine-tuning</td>
+<td>비용 효율성: RAG는 광범위한 모델 교육이나 미세 조정이 필요 없는 비용 효율적인 솔루션입니다.</td>
 <td></td>
 </tr>
 </tbody></table>
-<h2><strong>Choosing Between RAG, Domain-Specific Fine-Tuning, and Domain-Specific Pre-Training</strong></h2>
+<h2><strong>RAG, 도메인별 미세 조정 및 도메인별 사전 학습 중에서 선택</strong></h2>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/types_domain_task.png" alt="types_domain_task.png"></p>
-<h3><strong>Use Domain-Specific Pre-Training When:</strong></h3>
+<h3><strong>다음 경우에 도메인별 사전 학습을 사용하세요:</strong></h3>
 <ul>
-<li><strong>Exclusive Domain Focus:</strong> Pre-training is suitable when you require a model exclusively trained on data from a specific domain, creating a specialized language model for that domain.</li>
-<li><strong>Customizing Model Architecture:</strong> It allows you to customize various aspects of the model architecture, size, tokenizer, etc., based on the specific requirements of the domain.</li>
-<li><strong>Extensive Training Data Available:</strong> Effective pre-training often requires a large amount of domain-specific training data to ensure the model captures the intricacies of the chosen domain.</li>
+<li><strong>독점 도메인 초점:</strong> 사전 학습은 특정 도메인의 데이터에 대해서만 학습된 모델이 필요한 경우 해당 도메인에 대한 특수 언어 모델을 생성하는 데 적합합니다.</li>
+<li><strong>모델 아키텍처 맞춤설정:</strong> 도메인의 특정 요구 사항에 따라 모델 아키텍처, 크기, 토크나이저 등의 다양한 측면을 맞춤설정할 수 있습니다.</li>
+<li><strong>사용 가능한 광범위한 학습 데이터:</strong> 효과적인 사전 학습을 위해서는 모델이 선택한 영역의 복잡성을 포착하도록 하기 위해 많은 양의 영역별 학습 데이터가 필요한 경우가 많습니다.</li>
 </ul>
-<h3><strong>Use Domain-Specific Fine-Tuning When:</strong></h3>
+<h3><strong>도메인별 미세 조정을 사용하는 경우:</strong></h3>
 <ul>
-<li><strong>Specialization Needed:</strong> Fine-tuning is suitable when you already have a pre-trained LLM, and you want to adapt it for specific tasks or within a particular domain.</li>
-<li><strong>Task Optimization:</strong> It allows you to adjust the model&#39;s parameters related to the task, such as architecture, size, or tokenizer, for optimal performance in the chosen domain.</li>
-<li><strong>Time and Resource Efficiency:</strong> Fine-tuning saves time and computational resources compared to training a model from scratch since it leverages the knowledge gained during the pre-training phase.</li>
+<li><strong>전문화 필요:</strong> 사전 교육을 받은 LLM이 있고 이를 특정 작업이나 특정 도메인 내에서 조정하려는 경우 미세 조정이 적합합니다.</li>
+<li><strong>작업 최적화:</strong> 선택한 도메인에서 최적의 성능을 위해 아키텍처, 크기, 토크나이저 등 작업과 관련된 모델의 매개변수를 조정할 수 있습니다.</li>
+<li><strong>시간 및 리소스 효율성:</strong> 미세 조정은 사전 학습 단계에서 얻은 지식을 활용하므로 모델을 처음부터 학습하는 것에 비해 시간과 컴퓨팅 리소스를 절약합니다.</li>
 </ul>
-<h3><strong>Use RAG When:</strong></h3>
+<h3><strong>다음 경우에 RAG를 사용하세요:</strong></h3>
 <ul>
-<li><strong>Information Freshness Matters:</strong> RAG provides up-to-date, context-specific data from external sources.</li>
-<li><strong>Reducing Hallucination is Crucial:</strong> Ground LLMs with verifiable facts and citations from an external knowledge base.</li>
-<li><strong>Cost-Efficiency is a Priority:</strong> Avoid extensive model training or fine-tuning; implement without the need for training.</li>
+<li><strong>정보 최신성이 중요함:</strong> RAG는 외부 소스로부터 상황별 최신 데이터를 제공합니다.</li>
+<li><strong>환각을 줄이는 것이 중요합니다.</strong> 검증 가능한 사실과 외부 지식 기반의 인용을 바탕으로 LLM을 구축하세요.</li>
+<li><strong>비용 효율성이 최우선:</strong> 광범위한 모델 학습이나 미세 조정을 피하세요. </li>
 </ul>
-<h2>Read/Watch These Resources (Optional)</h2>
+<h2>다음 리소스 읽기/보기(선택 사항)</h2>
 <ol>
 <li><a href="https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/">https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/</a></li>
 <li><a href="https://www.superannotate.com/blog/llm-fine-tuning#what-is-llm-fine-tuning">https://www.superannotate.com/blog/llm-fine-tuning#what-is-llm-fine-tuning</a></li>
-<li><a href="https://aws.amazon.com/what-is/retrieval-augmented-generation/#:~:text=Retrieval%2DAugmented%20Generation%20(RAG),sources%20before%20generating%20a%20response">https://aws.amazon.com/what-is/retrieval-augmented-generation/#:~:text=Retrieval-Augmented Generation (RAG),sources before generating a response</a>.</li>
+<li><a </li>
 <li><a href="https://www.youtube.com/watch?v=cXPYtkosXG4">https://www.youtube.com/watch?v=cXPYtkosXG4</a></li>
 <li><a href="https://gradientflow.substack.com/p/best-practices-in-retrieval-augmented">https://gradientflow.substack.com/p/best-practices-in-retrieval-augmented</a></li>
 </ol>
-<h2>Read These Papers (Optional)</h2>
+<h2>이 논문 읽기(선택 사항)</h2>
 <ol>
-<li><a href="https://proceedings.neurips.cc/paper_files/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf</a></li>
+<li><a </li>
 <li><a href="https://arxiv.org/abs/2202.01110">https://arxiv.org/abs/2202.01110</a></li>
 <li><a href="https://arxiv.org/abs/1801.06146">https://arxiv.org/abs/1801.06146</a></li>
 </ol>

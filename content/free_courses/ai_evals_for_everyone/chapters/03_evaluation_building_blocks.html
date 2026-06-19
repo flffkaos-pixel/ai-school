@@ -45,130 +45,130 @@
 <a href="../../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Chapter 3: The Evaluation Framework</h1>
-<h2>Setting Up Evaluation for Your AI Product</h2>
-<p>In the previous chapters, we covered why evaluation matters and the difference between model and product evaluation. Now you understand you need to evaluate your AI products. </p>
-<p>If you want to evaluate a new product you&#39;re building, where do you start?</p>
-<p>We&#39;ll cover the basic concepts that help you approach evaluation strategically. This will set you up to build datasets and evaluation systems that actually help you improve your product.</p>
-<h2>What You&#39;re Actually Evaluating</h2>
+<h1>3장: 평가 프레임워크</h1>
+<h2>AI 제품에 대한 평가 설정</h2>
+<p>이전 장에서는 평가가 중요한 이유와 모델 평가와 제품 평가의 차이점을 다루었습니다. </p>
+<p>만들고 있는 신제품을 평가하고 싶다면 어디서부터 시작해야 할까요?</p>
+<p>전략적으로 평가에 접근하는 데 도움이 되는 기본 개념을 다룰 것입니다. </p>
+<h2>실제로 평가하는 내용</h2>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/input_expected_actual_framework.png" alt="Input Expected Actual Framework"></p>
-<p>When you evaluate any AI system, you&#39;re looking at three things - <strong>Input</strong> (what goes into the system), <strong>Expected</strong> (what should happen), and <strong>Actual</strong> (what actually happens).</p>
-<p>Sounds simple, but each piece is more complex than it appears.</p>
-<h3>Input: Everything That Affects Your System</h3>
-<p>&quot;Input&quot; isn&#39;t just the user&#39;s question. It includes everything that influences how your system behaves - the user&#39;s actual question or request, previous conversation history and context, data your system retrieves (documents, database entries, API calls), and system configuration (prompts, parameters, business rules).</p>
-<p>This matters because many evaluation problems happen when teams only test the obvious user inputs but ignore how context and configuration changes affect behavior.</p>
-<h3>Expected: What Good Looks Like</h3>
-<p>Defining what should happen is often the hardest part. What should your system actually do?</p>
-<p>Expected behavior depends on your specific requirements:</p>
+<p>AI 시스템을 평가할 때 <strong>입력</strong>(시스템에 들어가는 것), <strong>예상</strong>(발생해야 하는 것), <strong>실제</strong>(실제로 발생하는 것)의 세 가지를 살펴보게 됩니다.</p>
+<p>간단해 보이지만 각 부분은 보이는 것보다 더 복잡합니다.</p>
+<h3>입력: 시스템에 영향을 미치는 모든 것</h3>
+<p>"입력"은 단지 사용자의 질문이 아닙니다. </p>
+<p>팀이 명백한 사용자 입력만 테스트하고 컨텍스트 및 구성 변경이 동작에 미치는 영향을 무시할 때 많은 평가 문제가 발생하기 때문에 이는 중요합니다.</p>
+<h3>예상: 좋은 모습</h3>
+<p>무슨 일이 일어나야 하는지 정의하는 것이 가장 어려운 부분인 경우가 많습니다. </p>
+<p>예상되는 동작은 특정 요구 사항에 따라 다릅니다.</p>
 <ul>
-<li>Accuracy of information</li>
-<li>Completeness of the response</li>
-<li>Appropriate tone and style</li>
-<li>Safety and compliance</li>
-<li>Following your business rules</li>
+<li>정보의 정확성</li>
+<li>응답의 완전성</li>
+<li>적절한 톤과 스타일</li>
+<li>안전 및 규정 준수</li>
+<li>비즈니스 규칙 준수</li>
 </ul>
-<p>Take a healthcare AI. When someone asks &quot;Is this medication safe for children?&quot;, good behavior isn&#39;t just giving accurate information. It includes:</p>
+<p>의료 AI를 살펴보세요. </p>
 <ul>
-<li>Noting that medical advice should come from doctors</li>
-<li>Suggesting they talk to their pediatrician</li>
-<li>Providing general information without specific medical recommendations</li>
-<li>Escalating if the situation seems urgent</li>
+<li>의학적 조언은 의사로부터 이루어져야 함을 기억함</li>
+<li>소아과 의사와 상담할 것을 제안</li>
+<li>특별한 의학적 권고 없이 일반적인 정보 제공</li>
+<li>상황이 긴급하다고 판단되는 경우 에스컬레이션</li>
 </ul>
-<p>Defining expected behavior requires input from both technical teams and people who understand the domain and business context.</p>
-<h3>Actual: What Your System Really Does</h3>
-<p>This is what your system produces: the response, the actions, the decisions.</p>
-<p>But &quot;actual&quot; includes more than just the final output:</p>
+<p>예상되는 동작을 정의하려면 기술 팀과 도메인 및 비즈니스 컨텍스트를 이해하는 사람의 의견이 필요합니다.</p>
+<h3>실제: 시스템이 실제로 수행하는 작업</h3>
+<p>이것이 바로 시스템이 생성하는 것입니다: 반응, 행동, 결정.</p>
+<p>그러나 "실제"에는 최종 출력 이상의 내용이 포함됩니다.</p>
 <ul>
-<li>The content and quality of responses</li>
-<li>Which tools or data sources were used</li>
-<li>Reasoning and decision-making process</li>
-<li>Performance metrics like response time</li>
+<li>응답의 내용과 품질</li>
+<li>어떤 도구나 데이터 소스가 사용되었는지</li>
+<li>추론과 의사결정 과정</li>
+<li>응답 시간과 같은 성능 지표</li>
 </ul>
-<p>Understanding what actually happens often requires logging different parts of your system.</p>
-<h2>Why Generic Metrics Don&#39;t Work</h2>
-<p>Once you understand these three pieces, you can see why simple metrics like &quot;helpfulness&quot; or &quot;correctness&quot; don&#39;t work for real AI products.</p>
-<p>The same metric means completely different things depending on your context and requirements.</p>
-<h3>Context Changes Everything</h3>
+<p>실제로 어떤 일이 발생하는지 이해하려면 시스템의 다양한 부분을 기록해야 하는 경우가 많습니다.</p>
+<h2>일반 측정항목이 작동하지 않는 이유</h2>
+<p>이 세 가지 부분을 이해하면 "유용성" 또는 "정확성"과 같은 간단한 측정항목이 실제 AI 제품에 작동하지 않는 이유를 알 수 있습니다.</p>
+<p>동일한 측정항목은 상황과 요구 사항에 따라 완전히 다른 것을 의미합니다.</p>
+<h3>상황이 모든 것을 변화시킨다</h3>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/rubric_definition_quality.png" alt="Rubric Definition Quality"></p>
-<p>Take &quot;helpfulness.&quot; What&#39;s helpful depends entirely on the situation:</p>
-<p><strong>Customer service</strong>: Helpful means solving problems quickly and escalating when needed. Explaining too much when someone just wants a refund isn&#39;t helpful.</p>
-<p><strong>Education</strong>: Helpful means guiding students to understanding, not just giving answers. A direct solution without explanation isn&#39;t helpful even if it&#39;s correct.</p>
-<p><strong>Medical information</strong>: Helpful means providing accurate general information while being clear about limitations. Being too specific about medical advice would be harmful.</p>
-<p>This is why you can&#39;t just copy evaluation metrics from other applications. You need to define what quality means for your specific situation.</p>
-<h3>Multiple Dimensions Matter</h3>
-<p>Real systems need evaluation across several specific areas. Here&#39;s why:</p>
-<p>Say a customer asks &quot;Can I return my shoes after 45 days?&quot; and your system responds:</p>
-<p><em>&quot;Unfortunately, our return policy only allows returns within 30 days of purchase. However, since you&#39;re clearly frustrated about this situation and have been a loyal customer, I understand your disappointment. While I cannot process the return myself, I recommend contacting our customer care team who may be able to offer alternative solutions or exceptions based on your purchase history and the specific circumstances of your case.&quot;</em></p>
-<p>You need to evaluate this across several areas:</p>
+<p>"도움"을 선택하세요. </p>
+<p><strong>고객 서비스</strong>: 도움이 된다는 것은 문제를 신속하게 해결하고 필요할 때 에스컬레이션하는 것을 의미합니다. </p>
+<p><strong>교육</strong>: 도움이 된다는 것은 단순히 답변을 제공하는 것이 아니라 학생들이 이해할 수 있도록 안내하는 것을 의미합니다. </p>
+<p><strong>의료 정보</strong>: 유용하다는 것은 제한사항을 명확히 하면서 정확한 일반 정보를 제공한다는 의미입니다. </p>
+<p>이것이 바로 다른 애플리케이션의 평가 지표를 복사할 수 없는 이유입니다. </p>
+<h3>다양한 차원이 중요합니다</h3>
+<p>실제 시스템은 여러 특정 영역에 걸쳐 평가가 필요합니다. </p>
+<p>고객이 "45일 후에 신발을 반품할 수 있나요?"라고 묻는 경우를 가정해 보겠습니다. </p>
+<p><em>"안타깝게도 당사의 반품 정책은 구매 후 30일 이내에만 반품을 허용합니다. 하지만 귀하께서 이 상황에 대해 분명히 불만을 갖고 계시고 기존의 충성 고객이셨기 때문에 귀하의 실망을 이해합니다. 제가 직접 반품을 처리할 수는 없지만 귀하의 구매 내역 및 귀하의 사례의 특정 상황에 따라 대체 솔루션이나 예외를 제공할 수 있는 당사 고객 관리 팀에 문의하시는 것이 좋습니다."</em></p>
+<p>이를 여러 영역에서 평가해야 합니다.</p>
 <ul>
-<li><strong>Policy accuracy</strong>: Does it correctly state the 30-day policy?</li>
-<li><strong>Escalation</strong>: Does it properly refer to the right team?</li>
-<li><strong>Tone</strong>: Is it professional and empathetic without over-apologizing?</li>
-<li><strong>Business risk</strong>: Does it avoid making unauthorized promises?</li>
+<li><strong>정책 정확성</strong>: 30일 정책이 올바르게 명시되어 있나요?</li>
+<li><strong>에스컬레이션</strong>: 올바른 팀을 올바르게 참조하고 있나요?</li>
+<li><strong>어조</strong>: 지나치게 사과하지 않으면서 전문적이고 공감적인가?</li>
+<li><strong>비즈니스 위험</strong>: 승인되지 않은 약속을 방지하는가?</li>
 </ul>
-<p>A single &quot;correctness&quot; score would miss important problems. The response could be accurate about the policy but fail to escalate properly, or escalate correctly but use the wrong tone.</p>
-<p>The key is finding the minimum set of areas that give you the most signal about what matters for your specific product.</p>
-<p>These areas are what we call <strong>evaluation metrics</strong>. Some people call these &quot;evals,&quot; but we prefer to be more precise. We use &quot;evaluation&quot; for the overall process and &quot;evaluation metrics&quot; for the specific measures you use to judge quality.</p>
-<h2>Making Subjective Assessment Consistent</h2>
-<p>Many important quality areas require subjective judgment. Different people might evaluate the same response differently when looking at tone, appropriateness, or escalation decisions.</p>
-<p>Rubrics solve this by providing explicit criteria for judgment.</p>
-<h3>Building Simple Rubrics</h3>
-<p>A good rubric defines:</p>
+<p>단일 "정확성" 점수로는 중요한 문제를 놓칠 수 있습니다. </p>
+<p>핵심은 특정 제품에 중요한 것이 무엇인지에 대해 가장 많은 신호를 제공하는 최소 영역 세트를 찾는 것입니다.</p>
+<p>이러한 영역을 <strong>평가 측정항목</strong>이라고 부릅니다. </p>
+<h2>주관적인 평가를 일관되게 만들기</h2>
+<p>많은 중요한 품질 영역에는 주관적인 판단이 필요합니다. </p>
+<p>루브릭은 명확한 판단 기준을 제공하여 이 문제를 해결합니다.</p>
+<h3>간단한 기준표 작성</h3>
+<p>좋은 기준표는 다음을 정의합니다.</p>
 <ul>
-<li>What counts as acceptable versus not acceptable performance</li>
-<li>Specific things to look for</li>
-<li>Examples of responses in each category</li>
-<li>How to handle edge cases</li>
+<li>허용 가능한 성능과 허용되지 않는 성능으로 간주되는 것</li>
+<li>구체적으로 찾아야 할 사항</li>
+<li>카테고리별 응답 예시</li>
+<li>극단적인 경우를 처리하는 방법</li>
 </ul>
-<p>For example, a rubric for &quot;appropriate escalation&quot; might specify:</p>
-<p><strong>Acceptable</strong>: Correctly identifies situations that need human intervention (policy exceptions, billing disputes, complex technical issues) and provides appropriate context when escalating</p>
-<p><strong>Not Acceptable</strong>: Fails to escalate when human intervention is needed, escalates unnecessarily for routine questions, or escalates without sufficient context</p>
-<p>Rubrics make subjective evaluation more consistent and help different team members align on quality standards.</p>
-<h2>Why Evaluation Requires Team Collaboration</h2>
-<p>Effective AI evaluation isn&#39;t just a technical problem. It requires collaboration between different roles:</p>
-<p><strong>Subject matter experts</strong> understand what good behavior looks like in the domain. They know the edge cases, risks, and nuances that technical metrics might miss.</p>
-<p><strong>Product teams</strong> understand user needs and business priorities. They know what trade-offs matter and how evaluation connects to user experience.</p>
-<p><strong>Engineers</strong> understand system capabilities and constraints. They know what&#39;s measurable, what&#39;s technically feasible, and how to implement evaluation systems.</p>
-<p>This collaboration matters because evaluation decisions affect every aspect of your AI product. The metrics you choose influence what behaviors you optimize for and how you measure success.</p>
-<h2>Building Team Alignment</h2>
-<p>One of the most valuable outcomes of systematic evaluation is getting everyone aligned on quality. When engineering, product, and domain expert teams can look at the same examples and agree on good versus poor performance, you can move much faster.</p>
-<p>This process often reveals hidden assumptions and disagreements. The product team might prioritize user satisfaction while the legal team prioritizes risk management. Working through evaluation examples helps surface and resolve these tensions before they affect the product.</p>
-<h2>How Do You Identify the Right Dimensions?</h2>
-<p>So far we&#39;ve talked about why you need specific evaluation metrics and why collaboration matters. But how do you actually figure out which dimensions to focus on?</p>
-<p>The process usually starts with understanding your specific failure modes. What could go wrong with your AI system that would be unacceptable for your users or business? What behaviors would make you pull the system offline immediately?</p>
-<p>Different stakeholders will have different answers:</p>
+<p>예를 들어 "적절한 에스컬레이션"에 대한 루브릭은 다음을 지정할 수 있습니다.</p>
+<p><strong>허용</strong>: 사람의 개입이 필요한 상황(정책 예외, 청구 분쟁, 복잡한 기술 문제)을 올바르게 식별하고 에스컬레이션할 때 적절한 맥락을 제공합니다.</p>
+<p><strong>허용되지 않음</strong>: 사람의 개입이 필요할 때 에스컬레이션하지 못하거나, 일상적인 질문에 대해 불필요하게 에스컬레이션하거나, 충분한 맥락 없이 에스컬레이션합니다.</p>
+<p>루브릭은 주관적인 평가를 더욱 일관되게 만들고 다양한 팀 구성원이 품질 표준에 맞춰 조정하는 데 도움이 됩니다.</p>
+<h2>평가에 팀 협업이 필요한 이유</h2>
+<p>효과적인 AI 평가는 단순한 기술적인 문제가 아닙니다. </p>
+<p><strong>주제 전문가</strong>는 해당 분야에서 올바른 행동이 어떤 것인지 이해합니다. </p>
+<p><strong>제품팀</strong>은 사용자 요구사항과 비즈니스 우선순위를 이해합니다. </p>
+<p><strong>엔지니어</strong>는 시스템 기능과 제약 조건을 이해합니다. </p>
+<p>평가 결정은 AI 제품의 모든 측면에 영향을 미치기 때문에 이러한 협업이 중요합니다. </p>
+<h2>팀 정렬 구축</h2>
+<p>체계적인 평가의 가장 가치 있는 결과 중 하나는 모든 사람이 품질에 맞춰 조정되도록 하는 것입니다. </p>
+<p>이 과정에서는 숨겨진 가정과 불일치가 드러나는 경우가 많습니다. </p>
+<h2>올바른 치수를 어떻게 식별합니까?</h2>
+<p>지금까지 특정 평가 지표가 필요한 이유와 협업이 중요한 이유에 대해 이야기했습니다. </p>
+<p>프로세스는 일반적으로 특정 실패 모드를 이해하는 것부터 시작됩니다. </p>
+<p>이해관계자마다 답변이 다릅니다.</p>
 <ul>
-<li><strong>Domain experts</strong> worry about accuracy, compliance, and safety risks specific to their field</li>
-<li><strong>Product teams</strong> focus on user experience, completion rates, and satisfaction</li>
-<li><strong>Business stakeholders</strong> care about liability, brand risk, and operational costs</li>
+<li><strong>도메인 전문가</strong>는 자신의 분야와 관련된 정확성, 규정 준수 및 안전 위험에 대해 걱정합니다.</li>
+<li><strong>제품 팀</strong>은 사용자 경험, 완료율 및 만족도에 중점을 둡니다.</li>
+<li><strong>비즈니스 이해관계자</strong>는 책임, 브랜드 위험, 운영 비용에 관심을 갖습니다.</li>
 </ul>
-<p>The key is starting with these concerns and translating them into observable, measurable behaviors. Instead of &quot;the system should be safe,&quot; you might define &quot;the system should escalate medical questions to qualified professionals&quot; or &quot;the system should not provide financial advice without appropriate disclaimers.&quot;</p>
-<p>You also need to consider your specific user context. A chatbot for customer service has different quality requirements than one for technical support or educational tutoring. The same AI technology needs completely different evaluation approaches depending on who&#39;s using it and for what purpose.</p>
-<h2>The Pre-Deployment Validation Process</h2>
-<p>The approach we&#39;re describing helps you validate your AI system before you put it in front of real users. This pre-deployment validation is essential because it&#39;s much easier to catch and fix issues in controlled testing than after users start depending on your system.</p>
-<p>Think of this as building confidence in your system&#39;s behavior before the stakes get high. When you&#39;re working with reference datasets and controlled examples, you can iterate quickly, test edge cases thoroughly, and refine your approach without worrying about user impact. You can have domain experts review outputs carefully, engineers can debug issues systematically, and product teams can ensure the behavior aligns with user needs.</p>
-<p>This validation process involves several key activities:</p>
-<p><strong>Building comprehensive test scenarios</strong>: You&#39;ll create examples that represent the full range of situations your system needs to handle, from common user requests to edge cases that could cause problems.</p>
-<p><strong>Establishing clear quality criteria</strong>: You&#39;ll work with stakeholders to define exactly what good behavior looks like in your specific context, creating rubrics that everyone can agree on.</p>
-<p><strong>Testing system behavior systematically</strong>: You&#39;ll run your AI system against your test scenarios and evaluate whether it meets your quality standards across different dimensions.</p>
-<p><strong>Iterating based on findings</strong>: When you discover issues, you&#39;ll fix them and re-test to ensure the problems are resolved without creating new ones.</p>
-<p>Once you deploy and real users start interacting with your AI, you&#39;ll need to adapt these same concepts for ongoing monitoring. Real-world conditions introduce new challenges like unpredictable user behavior, scale issues, and evolving requirements that require different approaches while building on the same evaluation foundation.</p>
-<h2>Where This Leads</h2>
-<p>Understanding what goes into your system, what should happen, and what actually happens helps you see why AI evaluation is more complex than traditional software testing. The challenge isn&#39;t just technical - it&#39;s about getting alignment across different perspectives on quality.</p>
-<p>Generic metrics like &quot;helpfulness&quot; mean different things in different contexts. Effective evaluation requires specific metrics that reflect your domain, users, and business requirements.</p>
-<p>AI evaluation is inherently collaborative. Subject matter experts, product teams, and engineers each bring essential perspectives to defining what good performance looks like.</p>
-<p>But this raises an important question: how do you actually come up with all these metrics? How do you know which ones matter most for your specific situation? How do you balance different team perspectives to create evaluation criteria everyone can agree on?</p>
-<p><strong>Want to go deeper?</strong> Choose the course that fits your journey:</p>
+<p>핵심은 이러한 우려에서 시작하여 이를 관찰 가능하고 측정 가능한 행동으로 변환하는 것입니다. </p>
+<p>또한 특정 사용자 컨텍스트를 고려해야 합니다. </p>
+<h2>배포 전 검증 프로세스</h2>
+<p>우리가 설명하는 접근 방식은 AI 시스템을 실제 사용자 앞에 놓기 전에 검증하는 데 도움이 됩니다. </p>
+<p>위험이 커지기 전에 시스템 동작에 대한 자신감을 구축하는 것으로 생각하십시오. </p>
+<p>이 검증 프로세스에는 다음과 같은 몇 가지 주요 활동이 포함됩니다.</p>
+<p><strong>포괄적인 테스트 시나리오 구축</strong>: 일반적인 사용자 요청부터 문제를 일으킬 수 있는 극단적인 경우까지 시스템이 처리해야 하는 모든 상황을 나타내는 예를 만듭니다.</p>
+<p><strong>명확한 품질 기준 설정</strong>: 이해관계자와 협력하여 특정 상황에서 올바른 행동이 어떤 것인지 정확하게 정의하고 모두가 동의할 수 있는 기준표를 만듭니다.</p>
+<p><strong>시스템 동작을 체계적으로 테스트</strong>: 테스트 시나리오에 따라 AI 시스템을 실행하고 다양한 차원에서 품질 표준을 충족하는지 평가합니다.</p>
+<p><strong>발견에 따른 반복</strong>: 문제를 발견하면 문제를 수정하고 다시 테스트하여 새로운 문제를 만들지 않고도 문제가 해결되었는지 확인합니다.</p>
+<p>배포하고 실제 사용자가 AI와 상호 작용하기 시작하면 지속적인 모니터링을 위해 동일한 개념을 적용해야 합니다. </p>
+<h2>이것이 어디로 이어지는가</h2>
+<p>시스템에 무엇이 들어가는지, 어떤 일이 일어나야 하는지, 실제로 일어나는 일을 이해하면 AI 평가가 기존 소프트웨어 테스트보다 더 복잡한 이유를 이해하는 데 도움이 됩니다. </p>
+<p>'유용성'과 같은 일반적인 측정항목은 상황에 따라 다른 의미를 갖습니다. </p>
+<p>AI 평가는 본질적으로 협업적입니다. </p>
+<p>그러나 이는 중요한 질문을 제기합니다. 실제로 이러한 모든 측정항목을 어떻게 도출합니까? </p>
+<p><strong>더 깊은 내용을 원하시나요?</strong> 귀하의 여정에 맞는 과정을 선택하세요.</p>
 <ul>
-<li><strong>New to AI?</strong> Check out our <strong><a href="https://maven.com/aishwarya-kiriti/genai-system-design">#1 rated Enterprise AI Course on Maven</a></strong> for comprehensive guidance on building production-ready AI systems from scratch.</li>
-<li><strong>Already building AI?</strong> Take our newly launched <strong><a href="https://maven.com/aishwarya-kiriti/evals-problem-first">Advanced Evals course</a></strong> for systematically improving your AI products through advanced evaluation techniques.</li>
+<li><strong>AI를 처음 접하시나요?</strong> <strong><a href="https://maven.com/aishwarya-kiriti/genai-system-design">1위 Maven AI 과정</a></strong>을 확인하여 프로덕션에 바로 사용할 수 있는 AI 시스템을 처음부터 구축하는 방법에 대한 포괄적인 지침을 확인하세요.</li>
+<li><strong>이미 AI를 구축하고 계신가요?</strong> 고급 평가 기술을 통해 AI 제품을 체계적으로 개선하기 위해 새로 출시된 <strong><a href="https://maven.com/aishwarya-kiriti/evals-problem-first">차별화된 평가</a></strong>을 수강하세요.</li>
 </ul>
-<p><em>?뱷 Note: Use code <strong>GITHUB15</strong> for 15% off on Maven courses (valid until January 15th, 2025)</em></p>
-<p>In the next chapter, we&#39;ll talk about building a reference dataset so you can understand how to apply this framework and improve your system once you&#39;ve built a version of your product. We&#39;ll cover how you could set this up in a more systematic way.</p>
+<p><em>?뱷 참고: <strong>GITHUB15</strong> 코드를 사용하여 Maven 강좌 15% 할인을 받으세요(2025년 1월 15일까지 유효)</em></p>
+<p>다음 장에서는 제품 버전을 구축한 후 이 프레임워크를 적용하고 시스템을 개선하는 방법을 이해할 수 있도록 참조 데이터 세트 구축에 대해 설명하겠습니다. </p>
 
 </div>
 <footer>

@@ -45,216 +45,215 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
 <table>
-<thead>
-<tr>
-<th>Date</th>
-<th>Name</th>
-<th>Abstract</th>
-<th>Topics</th>
+<thead><tr>
+</th>
+<th>이름</th>
+<th>추상적인</th>
+<th>주제</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>31 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.18870">LLMs achieve adult human performance on higher-order theory of mind tasks</a></td>
-<td>This paper examines the extent to which large language models (LLMs) have developed higher-order theory of mind (ToM); the human ability to reason about multiple mental and emotional states in a recursive manner (e.g. I think that you believe that she knows). This paper builds on prior work by introducing a handwritten test suite ??Multi-Order Theory of Mind Q&amp;A ??and using it to compare the performance of five LLMs to a newly gathered adult human benchmark. We find that GPT-4 and Flan-PaLM reach adult-level and near adult-level performance on ToM tasks overall, and that GPT-4 exceeds adult performance on 6th order inferences. Our results suggest that there is an interplay between model size and finetuning for the realisation of ToM abilities, and that the best-performing LLMs have developed a generalised capacity for ToM. Given the role that higher-order ToM plays in a wide range of cooperative and competitive human behaviours, these findings have significant implications for user-facing LLM applications.</td>
-<td>Theory of Mind</td>
+<td>2024년 5월 31일</td>
+<td><a href="https://arxiv.org/pdf/2405.18870">LLM은 고차원 정신 이론 게임에서 성인 인간의 성과를 달성합니다</a></td>
+<td>이 논문에서는 LLM(대형 언어 모델)이 ToM(고차원 정신 이론)을 개발한 정도를 조사합니다. </td>
+<td>마음이론</td>
 </tr>
 <tr>
-<td>30 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.20204">JINA CLIP: Your CLIP Model Is Also Your Text Retriever</a></td>
-<td>Contrastive Language-Image Pretraining (CLIP) is widely used to train models to align images and texts in a common embedding space by mapping them to fixed-sized vectors. These models are key to multimodal information retrieval and related tasks. However, CLIP models generally underperform in text-only tasks compared to specialized text models. This creates inefficiencies for information retrieval systems that keep separate embeddings and models for text-only and multimodal tasks. We propose a novel, multi-task contrastive training method to address this issue, which we use to train the jina-clip-v1 model to achieve the state-of-the-art performance on both text-image and text-text retrieval tasks.</td>
-<td>Multimodal Models</td>
+<td>2024년 5월 30일</td>
+<td><a href="https://arxiv.org/pdf/2405.20204">JINA CLIP: 귀하의 CLIP 모델은 또한 귀하의 검색기입니다</a></td>
+<td>CLIP(Contrastive Language-Image Pretraining)는 이미지와 텍스트를 고정 크기 벡터에 매핑하여 공통 임베딩 공간에 정렬하도록 모델을 훈련하는 데 널리 사용됩니다. </td>
+<td>다중 모드 모델</td>
 </tr>
 <tr>
-<td>30 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.19888">Parrot: Efficient Serving of LLM-based Applications with Semantic Variable</a></td>
-<td>The rise of large language models (LLMs) has enabled LLM-based applications (a.k.a. AI agents or co-pilots), a new software paradigm that combines the strength of LLM and conventional software. Diverse LLM applications from different tenants could design complex workflows using multiple LLM requests to accomplish one task. However, they have to use the over-simplified request-level API provided by today?셲 public LLM services, losing essential application-level information. Public LLM services have to blindly optimize individual LLM requests, leading to sub-optimal end-to-end performance of LLM applications. This paper introduces Parrot, an LLM service system that focuses on the end-to-end experience of LLM-based applications. Parrot proposes Semantic Variable, a unified abstraction to expose application-level knowledge to public LLM services. A Semantic Variable annotates an input/output variable in the prompt of a request, and creates the data pipeline when connecting multiple LLM requests, providing a natural way to program LLM applications. Exposing Semantic Variables to the public LLM service allows it to perform conventional data flow analysis to uncover the correlation across multiple LLM requests. This correlation opens a brand-new optimization space for the end-to-end performance of LLMbased applications. Extensive evaluations demonstrate that Parrot can achieve up to an order-of-magnitude improvement for popular and practical use cases of LLM applications</td>
-<td>LLM Agents</td>
+<td>2024년 5월 30일</td>
+<td><a href="https://arxiv.org/pdf/2405.19888">Parrot: 의미를 활용하여 LLM 기반의 효율적인 제공</a></td>
+<td>대규모 언어 모델(LLM)의 등장으로 LLM과 기존 소프트웨어의 장점을 결합한 새로운 소프트웨어 패러다임인 LLM 기반 애플리케이션(일명 AI 에이전트 또는 부조종사)이 가능해졌습니다. </td>
+<td>LLM 에이전트</td>
 </tr>
 <tr>
-<td>30 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.20541">Perplexed by Perplexity: Perplexity-Based Data Pruning With Small Reference Models</a></td>
-<td>In this work, we investigate whether small language models can determine highquality subsets of large-scale text datasets that improve the performance of larger language models. While existing work has shown that pruning based on the perplexity of a larger model can yield high-quality data, we investigate whether smaller models can be used for perplexity-based pruning and how pruning is affected by the domain composition of the data being pruned. We demonstrate that for multiple dataset compositions, perplexity-based pruning of pretraining data can significantly improve downstream task performance: pruning based on perplexities computed with a 125 million parameter model improves the average performance on downstream tasks of a 3 billion parameter model by up to 2.04 and achieves up to a 1.45횞 reduction in pretraining steps to reach commensurate baseline performance. Furthermore, we demonstrate that such perplexity-based data pruning also yields downstream performance gains in the over-trained and data-constrained regimes.</td>
-<td>Small Language Models</td>
+<td>2024년 5월 30일</td>
+<td><a href="https://arxiv.org/pdf/2405.20541">이에 따라: 작은 참조 모델을 사용하여 데이터 정리</a></td>
+<td>이 연구에서는 소규모 언어 모델이 대규모 언어 모델의 성능을 향상시키는 대규모 텍스트 데이터 세트의 고품질 하위 집합을 결정할 수 있는지 여부를 조사합니다. </td>
+<td>소규모 언어 모델</td>
 </tr>
 <tr>
-<td>30 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.20139">GNN-RAG: Graph Neural Retrieval for Large Language Model Reasoning</a></td>
-<td>Knowledge Graphs (KGs) represent human-crafted factual knowledge in the form of triplets (head, relation, tail), which collectively form a graph. Question Answering over KGs (KGQA) is the task of answering natural questions grounding the reasoning to the information provided by the KG. Large Language Models (LLMs) are the state-of-the-art models for QA tasks due to their remarkable ability to understand natural language. On the other hand, Graph Neural Networks (GNNs) have been widely used for KGQA as they can handle the complex graph information stored in the KG. In this work, we introduce GNN-RAG, a novel method for combining language understanding abilities of LLMs with the reasoning abilities of GNNs in a retrieval-augmented generation (RAG) style. First, a GNN reasons over a dense KG subgraph to retrieve answer candidates for a given question. Second, the shortest paths in the KG that connect question entities and answer candidates are extracted to represent KG reasoning paths. The extracted paths are verbalized and given as input for LLM reasoning with RAG. In our GNN-RAG framework, the GNN acts as a dense subgraph reasoner to extract useful graph information, while the LLM leverages its natural language processing ability for ultimate KGQA. Furthermore, we develop a retrieval augmentation (RA) technique to further boost KGQA performance with GNN-RAG. Experimental results show that GNN-RAG achieves state-of-the-art performance in two widely used KGQA benchmarks (WebQSP and CWQ), outperforming or matching GPT-4 performance with a 7B tuned LLM. In addition, GNN-RAG excels on multi-hop and multi-entity questions outperforming competing approaches by 8.9??5.5% points at answer F1. We provide the code and KGQA results at <a href="https://github.com/cmavro/GNN-RAG">https://github.com/cmavro/GNN-RAG</a>.</td>
-<td>RAG on Knowledge Graphs</td>
+<td>2024년 5월 30일</td>
+<td><a href="https://arxiv.org/pdf/2405.20139">GNN-RAG: 권위있는 사용자 기능을 사용하기 위해 그래프를 검색합니다.</a></td>
+<td>지식 그래프(KG)는 인간이 만든 사실적 지식을 세 쌍(머리, 관계, 꼬리)의 형태로 나타내며, 이를 집합적으로 그래프로 구성합니다. </td>
+<td>지식 그래프의 RAG</td>
 </tr>
 <tr>
-<td>29 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.19332">Self-Exploring Language Models: Active Preference Elicitation for Online Alignment</a></td>
-<td>Preference optimization, particularly through Reinforcement Learning from Human Feedback (RLHF), has achieved significant success in aligning Large Language Models (LLMs) to adhere to human intentions. Unlike offline alignment with a fixed dataset, online feedback collection from humans or AI on model generations typically leads to more capable reward models and better-aligned LLMs through an iterative process. However, achieving a globally accurate reward model requires systematic exploration to generate diverse responses that span the vast space of natural language. Random sampling from standard reward-maximizing LLMs alone is insufficient to fulfill this requirement. To address this issue, we propose a bilevel objective optimistically biased towards potentially high-reward responses to actively explore out-of-distribution regions. By solving the inner-level problem with the reparameterized reward function, the resulting algorithm, named Self-Exploring Language Models (SELM), eliminates the need for a separate RM and iteratively updates the LLM with a straightforward objective. Compared to Direct Preference Optimization (DPO), the SELM objective reduces indiscriminate favor of unseen extrapolations and enhances exploration efficiency. Our experimental results demonstrate that when finetuned on Zephyr-7B-SFT and Llama-3- 8B-Instruct models, SELM significantly boosts the performance on instructionfollowing benchmarks such as MT-Bench and AlpacaEval 2.0, as well as various standard academic benchmarks in different settings. Our code and models are available at <a href="https://github.com/shenao-zhang/SELM">https://github.com/shenao-zhang/SELM</a>.</td>
-<td>Alignment, Preference Optimization</td>
+<td>2024년 5월 29일</td>
+<td><a href="https://arxiv.org/pdf/2405.19332">자체 추구 언어 모델: 온라인 선택을 선호하는 유도</a></td>
+<td>특히 RLHF(인간 피드백 강화 학습)를 통한 선호도 최적화는 인간 의도를 준수하도록 LLM(대형 언어 모델)을 정렬하는 데 상당한 성공을 거두었습니다. </td>
+<td>정렬, 선호도 최적화</td>
 </tr>
 <tr>
-<td>28 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.11143">OpenRLHF: An Easy-to-use, Scalable and High-performance RLHF Framework</a></td>
-<td>As large language models (LLMs) continue to grow by scaling laws, reinforcement learning from human feedback (RLHF) has gained significant attention due to its outstanding performance. However, unlike pretraining or fine-tuning a single model, scaling reinforcement learning from human feedback (RLHF) for training large language models poses coordination challenges across four models. We present OpenRLHF, an open-source framework enabling efficient RLHF scaling. Unlike existing RLHF frameworks that co-locate four models on the same GPUs, OpenRLHF re-designs scheduling for the models beyond 70B parameters using Ray, vLLM, and DeepSpeed, leveraging improved resource utilization and diverse training approaches. Integrating seamlessly with Hugging Face, OpenRLHF provides an out-of-the-box solution with optimized algorithms and launch scripts, which ensures user-friendliness. OpenRLHF implements RLHF, DPO, rejection sampling, and other alignment techniques. Empowering state-of-the-art LLM development, OpenRLHF?셲 code is available at <a href="https://github.com/OpenLLMAI/OpenRLHF">https://github.com/OpenLLMAI/OpenRLHF</a>.</td>
-<td>RLHF, Toolkit</td>
+<td>2024년 5월 28일</td>
+<td><a href="https://arxiv.org/pdf/2405.11143">OpenRLHF: 사용하기 쉬운 확장형 복합 RLHF 프레임워크</a></td>
+<td>대규모 언어 모델(LLM)이 확장 법칙에 따라 지속적으로 성장함에 따라 인간 피드백을 통한 강화 학습(RLHF)은 뛰어난 성능으로 인해 큰 주목을 받았습니다. </td>
+<td>RLHF, 툴킷</td>
 </tr>
 <tr>
-<td>28 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.18377">LLAMA-NAS: EFFICIENT NEURAL ARCHITECTURE SEARCH FOR LARGE LANGUAGE MODELS</a></td>
-<td>The abilities of modern large language models (LLMs) in solving natural language processing, complex reasoning, sentiment analysis and other tasks have been extraordinary which has prompted their extensive adoption. Unfortunately, these abilities come with very high memory and computational costs which precludes the use of LLMs on most hardware platforms. To mitigate this, we propose an effective method of finding Pareto-optimal network architectures based on LLaMA2-7B using one-shot NAS. In particular, we fine-tune LLaMA2-7B only once and then apply genetic algorithmbased search to find smaller, less computationally complex network architectures. We show that, for certain standard benchmark tasks, the pre-trained LLaMA2-7B network is unnecessarily large and complex. More specifically, we demonstrate a 1.5x reduction in model size and 1.3x speedup in throughput for certain tasks with negligible drop in accuracy. In addition to finding smaller, higherperforming network architectures, our method does so more effectively and efficiently than certain pruning or sparsification techniques. Finally, we demonstrate how quantization is complementary to our method and that the size and complexity of the networks we find can be further decreased using quantization. We believe that our work provides a way to automatically create LLMs which can be used on less expensive and more readily available hardware platforms.</td>
-<td>Neural Architecture Search, Model Size Reduction</td>
+<td>2024년 5월 28일</td>
+<td><a href="https://arxiv.org/pdf/2405.18377">LLAMA-NAS: 권위있는 언어 모델을 절약하기 위해 편집하기</a></td>
+<td>자연어 처리, 복잡한 추론, 정서 분석 및 기타 작업을 해결하는 현대 대형 언어 모델(LLM)의 능력은 탁월하여 광범위한 채택을 촉발했습니다. </td>
+<td>신경 아키텍처 검색, 모델 크기 감소</td>
 </tr>
 <tr>
-<td>28 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.18414">Don?셳 Forget to Connect! Improving RAG with Graph-based Reranking</a></td>
-<td>Retrieval Augmented Generation (RAG) has greatly improved the performance of Large Language Model (LLM) responses by grounding generation with context from existing documents. These systems work well when documents are clearly relevant to a question context. But what about when a document has partial information, or less obvious connections to the context? And how should we reason about connections between documents? In this work, we seek to answer these two core questions about RAG generation. We introduce G-RAG, a reranker based on graph neural networks (GNNs) between the retriever and reader in RAG. Our method combines both connections between documents and semantic information (via Abstract Meaning Representation graphs) to provide a context-informed ranker for RAG. G-RAG outperforms state-of-the-art approaches while having smaller computational footprint. Additionally, we assess the performance of PaLM 2 as a reranker and find it to significantly underperform G-RAG. This result emphasizes the importance of reranking for RAG even when using Large Language Models.</td>
-<td>RAG for Reasoning</td>
+<td>2024년 5월 28일</td>
+<td><a href="https://arxiv.org/pdf/2405.18414">Don?셳 연결하는 것을 잊지 마세요! </td>
+<td>RAG(검색 증강 생성)는 기존 문서의 컨텍스트를 기반으로 생성을 기반으로 LLM(대형 언어 모델) 응답 성능을 크게 향상시켰습니다. </td>
+<td>추론을 위한 RAG</td>
 </tr>
 <tr>
-<td>27 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.15574">Meteor: Mamba-based Traversal of Rationale for Large Language and Vision Models</a></td>
-<td>The rapid development of large language and vision models (LLVMs) has been driven by advances in visual instruction tuning. Recently, open-source LLVMs have curated high-quality visual instruction tuning datasets and utilized additional vision encoders or multiple computer vision models in order to narrow the performance gap with powerful closed-source LLVMs. These advancements are attributed to multifaceted information required for diverse capabilities, including fundamental image understanding, real-world knowledge about common-sense and non-object concepts (e.g., charts, diagrams, symbols, signs, and math problems), and step-by-step procedures for solving complex questions. Drawing from the multifaceted information, we present a new efficient LLVM, Mamba-based traversal of rationales ( Meteor), which leverages multifaceted rationale to enhance understanding and answering capabilities. To embed lengthy rationales containing abundant information, we employ the Mamba architecture, capable of processing sequential data with linear time complexity. We introduce a new concept of traversal of rationale that facilitates efficient embedding of rationale. Subsequently, the backbone multimodal language model (MLM) is trained to generate answers with the aid of rationale. Through these steps, Meteor achieves significant improvements in vision language performances across multiple evaluation benchmarks requiring diverse capabilities, without scaling up the model size or employing additional vision encoders and computer vision models. Code is available in <a href="https://github.com/ByungKwanLee/Meteor">https://github.com/ByungKwanLee/Meteor</a>.</td>
-<td>State Space Models, Multimodal Models</td>
+<td>2024년 5월 27일</td>
+<td><a href="https://arxiv.org/pdf/2405.15574">Meteor: 대규모 언어 및 비전 모델에 대한 Mamba 기반 이론적 근거 탐색</a></td>
+<td>LLVM(대규모 언어 및 비전 모델)의 급속한 개발은 시각적 명령 조정의 발전에 의해 주도되었습니다. </td>
+<td>상태공간 모델, 다중 모드 모델</td>
 </tr>
 <tr>
-<td>27 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.17247">An Introduction to Vision-Language Modeling</a></td>
-<td>Following the recent popularity of Large Language Models (LLMs), several attempts have been made to extend them to the visual domain. From having a visual assistant that could guide us through unfamiliar environments to generative models that produce images using only a high-level text description, the vision-language model (VLM) applications will significantly impact our relationship with technology. However, there are many challenges that need to be addressed to improve the reliability of those models. While language is discrete, vision evolves in a much higher dimensional space in which concepts cannot always be easily discretized. To better understand the mechanics behind mapping vision to language, we present this introduction to VLMs which we hope will help anyone who would like to enter the field. First, we introduce what VLMs are, how they work, and how to train them. Then, we present and discuss approaches to evaluate VLMs. Although this work primarily focuses on mapping images to language, we also discuss extending VLMs to videos.</td>
-<td>Multimodal Models, Survey</td>
+<td>2024년 5월 27일</td>
+<td><a href="https://arxiv.org/pdf/2405.17247">비전 언어 소개</a></td>
+<td>최근 LLM(대형 언어 모델)의 인기에 따라 이를 시각적 영역으로 확장하려는 여러 시도가 이루어졌습니다. </td>
+<td>다중모달 모델, 설문조사</td>
 </tr>
 <tr>
-<td>27 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.17430">Matryoshka Multimodal Models</a></td>
-<td>Large Multimodal Models (LMMs) such as LLaVA have shown strong performance in visual-linguistic reasoning. These models first embed images into a fixed large number of visual tokens and then feed them into a Large Language Model (LLM). However, this design causes an excessive number of tokens for dense visual scenarios such as high-resolution images and videos, leading to great inefficiency. While token pruning and merging methods exist, they produce a single-length output for each image and cannot afford flexibility in trading off information density v.s. efficiency. Inspired by the concept of Matryoshka Dolls, we propose M3 : Matryoshka Multimodal Models, which learns to represent visual content as nested sets of visual tokens that capture information across multiple coarse-to-fine granularities. Our approach offers several unique benefits for LMMs: (1) One can explicitly control the visual granularity per test instance during inference, e.g., adjusting the number of tokens used to represent an image based on the anticipated complexity or simplicity of the content; (2) M3 provides a framework for analyzing the granularity needed for existing datasets, where we find that COCO-style benchmarks only need around 9 visual tokens to obtain an accuracy similar to that of using all 576 tokens; (3) Our approach provides a foundation to explore the best trade-off between performance and visual token length at the sample level, where our investigation reveals that a large gap exists between the oracle upper bound and current fixed-scale representations.</td>
-<td>Multimodal Models</td>
+<td>2024년 5월 27일</td>
+<td><a href="https://arxiv.org/pdf/2405.17430">마트료시카 다수 편집 사진</a></td>
+<td>LLaVA와 같은 LMM(Large Multimodal Model)은 시각적 언어 추론에서 강력한 성능을 보여주었습니다. </td>
+<td>다중 모드 모델</td>
 </tr>
 <tr>
-<td>27 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.17258">Trans-LoRA: towards data-free Transferable Parameter Efficient Finetuning</a></td>
-<td>Low-rank adapters (LoRA) and their variants are popular parameter-efficient finetuning (PEFT) techniques that closely match full model fine-tune performance while requiring only a small number of additional parameters. These additional LoRA parameters are specific to the base model being adapted. When the base model needs to be deprecated and replaced with a new one, all the associated LoRA modules need to be re-trained. Such re-training requires access to the data used to train the LoRA for the original base model. This is especially problematic for commercial cloud applications where the LoRA modules and the base models are hosted by service providers who may not be allowed to host proprietary client task data. To address this challenge, we propose Trans-LoRA??a novel method for lossless, nearly data-free transfer of LoRAs across base models. Our approach relies on synthetic data to transfer LoRA modules. Using large language models, we design a synthetic data generator to approximate the data-generating process of the observed task data subset. Training on the resulting synthetic dataset transfers LoRA modules to new models. We show the effectiveness of our approach using both LLama and Gemma model families. Our approach achieves lossless (mostly improved) LoRA transfer between models within and across different base model families, and even between different PEFT methods, on a wide variety of tasks.</td>
-<td>PEFT Methods, Fine-Tuning</td>
+<td>2024년 5월 27일</td>
+<td><a href="https://arxiv.org/pdf/2405.17258">Trans-LoRA: 데이터 없는 전송을 목적으로 하는 효율적인 선별을 지향합니다.</a></td>
+<td>LoRA(낮은 순위 어댑터) 및 그 변형은 소수의 추가 매개변수만 필요로 하면서 전체 모델 미세 조정 성능과 거의 일치하는 널리 사용되는 PEFT(매개변수 효율적 미세 조정) 기술입니다. </td>
+<td>PEFT 방법, 미세 조정</td>
 </tr>
 <tr>
-<td>26 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.00675">Self-Play Preference Optimization for Language Model Alignment</a></td>
-<td>Traditional reinforcement learning from human feedback (RLHF) approaches relying on parametric models like the Bradley-Terry model fall short in capturing the intransitivity and irrationality in human preferences. Recent advancements suggest that directly working with preference probabilities can yield a more accurate reflection of human preferences, enabling more flexible and accurate language model alignment. In this paper, we propose a self-playbased method for language model alignment, which treats the problem as a constant-sum two-player game aimed at identifying the Nash equilibrium policy. Our approach, dubbed Self-Play Preference Optimization (SPPO), approximates the Nash equilibrium through iterative policy updates and enjoys a theoretical convergence guarantee. Our method can effectively increase the log-likelihood of the chosen response and decrease that of the rejected response, which cannot be trivially achieved by symmetric pairwise loss such as Direct Preference Optimization (DPO) and Identity Preference Optimization (IPO). In our experiments, using only 60k prompts (without responses) from the UltraFeedback dataset and without any prompt augmentation, by leveraging a pre-trained preference model PairRM with only 0.4B parameters, SPPO can obtain a model from fine-tuning Mistral-7B-Instruct-v0.2 that achieves the state-of-the-art lengthcontrolled win-rate of 28.53% against GPT-4-Turbo on AlpacaEval 2.0. It also outperforms the (iterative) DPO and IPO on MT-Bench and the Open LLM Leaderboard. Notably, the strong performance of SPPO is achieved without additional external supervision (e.g., responses, preferences, etc.) from GPT-4 or other stronger language models.</td>
-<td>Alignment, Optimization</td>
+<td>2024년 5월 26일</td>
+<td><a href="https://arxiv.org/pdf/2405.00675">언어 모델 변경을 위한 자체 활동 기본 설정 최적화</a></td>
+<td>Bradley-Terry 모델과 같은 파라메트릭 모델에 의존하는 인간 피드백을 통한 전통적인 강화 학습(RLHF) 접근 방식은 인간 선호도의 비전환성과 비합리성을 포착하는 데 부족합니다. </td>
+<td>정렬, 최적화</td>
 </tr>
 <tr>
-<td>23 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.14860">Not All Language Model Features Are Linear</a></td>
-<td>Recent work has proposed the linear representation hypothesis: that language models perform computation by manipulating one-dimensional representations of concepts (?쐄eatures?? in activation space. In contrast, we explore whether some language model representations may be inherently multi-dimensional. We begin by developing a rigorous definition of irreducible multi-dimensional features based on whether they can be decomposed into either independent or non-co-occurring lower-dimensional features. Motivated by these definitions, we design a scalable method that uses sparse autoencoders to automatically find multi-dimensional features in GPT-2 and Mistral 7B. These auto-discovered features include strikingly interpretable examples, e.g. circular features representing days of the week and months of the year. We identify tasks where these exact circles are used to solve computational problems involving modular arithmetic in days of the week and months of the year. Finally, we provide evidence that these circular features are indeed the fundamental unit of computation in these tasks with intervention experiments on Mistral 7B and Llama 3 8B, and we find further circular representations by breaking down the hidden states for these tasks into interpretable components.</td>
-<td>Linear Representation Analysis</td>
+<td>2024년 5월 23일</td>
+<td><a href="https://arxiv.org/pdf/2405.14860">모든 언어 기능이 있는 것은 아닙니다.</a></td>
+<td>최근 작업에서는 선형 표현 가설을 제안했습니다. 즉, 언어 모델은 활성화 공간에서 개념(?쐄특성??)의 1차원 표현을 조작하여 계산을 수행합니다. 이와 대조적으로 우리는 일부 언어 모델 표현이 본질적으로 다차원일 수 있는지 탐구합니다. 우리는 독립적이거나 동시 발생하지 않는 저차원 기능으로 분해될 수 있는지 여부에 따라 환원 불가능한 다차원 기능에 대한 엄격한 정의를 개발하는 것부터 시작합니다. 이러한 정의에 동기를 부여하여 다음을 사용하는 확장 가능한 방법을 설계합니다. </td>
+<td>선형 표현 분석</td>
 </tr>
 <tr>
-<td>23 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.14129">AlignGPT: Multi-modal Large Language Models with Adaptive Alignment Capability</a></td>
-<td>Multimodal Large Language Models (MLLMs) are widely regarded as crucial in the exploration of Artificial General Intelligence (AGI). The core of MLLMs lies in their capability to achieve cross-modal alignment. To attain this goal, current MLLMs typically follow a two-phase training paradigm: the pre-training phase and the instruction-tuning phase. Despite their success, there are shortcomings in the modeling of alignment capabilities within these models. Firstly, during the pre-training phase, the model usually assumes that all image-text pairs are uniformly aligned, but in fact the degree of alignment between different imagetext pairs is inconsistent. Secondly, the instructions currently used for finetuning incorporate a variety of tasks, different tasks?셲 instructions usually require different levels of alignment capabilities, but previous MLLMs overlook these differentiated alignment needs. To tackle these issues, we propose a new multimodal large language model AlignGPT. In the pre-training stage, instead of treating all imagetext pairs equally, we assign different levels of alignment capabilities to different image-text pairs. Then, in the instruction-tuning phase, we adaptively combine these different levels of alignment capabilities to meet the dynamic alignment needs of different instructions. Extensive experimental results show that our model achieves competitive performance on 12 benchmarks.</td>
-<td>Alignment, Multimodal Model</td>
+<td>2024년 5월 23일</td>
+<td><a href="https://arxiv.org/pdf/2405.14129">AlignGPT: 다목적 기능을 사용하여 다양한 크기의 언어 모델</a></td>
+<td>MLLM(Multimodal Large Language Model)은 AGI(Artificial General Intelligence) 탐색에 중요한 것으로 널리 알려져 있습니다. </td>
+<td>정렬, 다중 모드 모델</td>
 </tr>
 <tr>
-<td>23 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.14831">HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models</a></td>
-<td>In order to thrive in hostile and ever-changing natural environments, mammalian brains evolved to store large amounts of knowledge about the world and continually integrate new information while avoiding catastrophic forgetting. Despite the impressive accomplishments, large language models (LLMs), even with retrievalaugmented generation (RAG), still struggle to efficiently and effectively integrate a large amount of new experiences after pre-training. In this work, we introduce HippoRAG, a novel retrieval framework inspired by the hippocampal indexing theory of human long-term memory to enable deeper and more efficient knowledge integration over new experiences. HippoRAG synergistically orchestrates LLMs, knowledge graphs, and the Personalized PageRank algorithm to mimic the different roles of neocortex and hippocampus in human memory. We compare HippoRAG with existing RAG methods on multi-hop question answering and show that our method outperforms the state-of-the-art methods remarkably, by up to 20%. Singlestep retrieval with HippoRAG achieves comparable or better performance than iterative retrieval like IRCoT while being 10-30 times cheaper and 6-13 times faster, and integrating HippoRAG into IRCoT brings further substantial gains. Finally, we show that our method can tackle new types of scenarios that are out of reach of existing methods.</td>
-<td>RAG Optimization</td>
+<td>2024년 5월 23일</td>
+<td><a href="https://arxiv.org/pdf/2405.14831">HippoRAG: 신경생물학적으로 권위를 갖는 언어 모델을 장기 기억</a></td>
+<td>적대적이고 끊임없이 변화하는 자연 환경에서 번성하기 위해 포유류의 두뇌는 세상에 대한 많은 양의 지식을 저장하고 치명적인 망각을 피하면서 지속적으로 새로운 정보를 통합하도록 진화했습니다. </td>
+<td>RAG 최적화</td>
 </tr>
 <tr>
-<td>21 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.12979">OmniGlue: Generalizable Feature Matching with Foundation Model Guidance</a></td>
-<td>The image matching field has been witnessing a continuous emergence of novel learnable feature matching techniques, with ever-improving performance on conventional benchmarks. However, our investigation shows that despite these gains, their potential for real-world applications is restricted by their limited generalization capabilities to novel image domains. In this paper, we introduce OmniGlue, the first learnable image matcher that is designed with generalization as a core principle. OmniGlue leverages broad knowledge from a vision foundation model to guide the feature matching process, boosting generalization to domains not seen at training time. Additionally, we propose a novel keypoint position-guided attention mechanism which disentangles spatial and appearance information, leading to enhanced matching descriptors. We perform comprehensive experiments on a suite of 7 datasets with varied image domains, including scenelevel, object-centric and aerial images. OmniGlue?셲 novel components lead to relative gains on unseen domains of 20.9% with respect to a directly comparable reference model, while also outperforming the recent LightGlue method by 9.5% relatively. Code and model can be found at https: //hwjiang1510.github.io/OmniGlue.</td>
-<td>Multimodal Models</td>
+<td>2024년 5월 21일</td>
+<td><a href="https://arxiv.org/pdf/2405.12979">OmniGlue: 기본 모델 지침과 일반화 지원 기능 일치</a></td>
+<td>이미지 매칭 분야에서는 기존 벤치마크에서 성능이 계속 향상되면서 새로운 학습 가능한 특징 매칭 기술이 지속적으로 출현하고 있습니다. </td>
+<td>다중 모드 모델</td>
 </tr>
 <tr>
-<td>20 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.12130">MoRA: High-Rank Updating for Parameter-Efficient Fine-Tuning</a></td>
-<td>Low-rank adaptation (LoRA) is a popular parameter-efficient fine-tuning (PEFT) method for large language models (LLMs). In this paper, we analyze the impact of low-rank updating, as implemented in LoRA. Our findings suggest that the low-rank updating mechanism may limit the ability of LLMs to effectively learn and memorize new knowledge. Inspired by this observation, we propose a new method called MoRA, which employs a square matrix to achieve high-rank updating while maintaining the same number of trainable parameters. To achieve it, we introduce the corresponding non-parameter operators to reduce the input dimension and increase the output dimension for the square matrix. Furthermore, these operators ensure that the weight can be merged back into LLMs, which makes our method can be deployed like LoRA. We perform a comprehensive evaluation of our method across five tasks: instruction tuning, mathematical reasoning, continual pretraining, memory and pretraining. Our method outperforms LoRA on memoryintensive tasks and achieves comparable performance on other tasks. Our code will be available at <a href="https://github.com/kongds/MoRA">https://github.com/kongds/MoRA</a>.</td>
-<td>PEFT Approaches, Fine-Tuning</td>
+<td>2024년 5월 20일</td>
+<td><a href="https://arxiv.org/pdf/2405.12130">MoRA: 선별적으로 소수만을 선별하여 상위 업데이트를 진행합니다.</a></td>
+<td>LoRA(낮은 순위 적응)는 LLM(대형 언어 모델)에 널리 사용되는 PEFT(매개변수 효율적 미세 조정) 방법입니다. </td>
+<td>PEFT 접근법, 미세 조정</td>
 </tr>
 <tr>
-<td>19 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.12250">Your Transformer is Secretly Linear</a></td>
-<td>This paper reveals a novel linear characteristic exclusive to transformer decoders, including models such as GPT, LLaMA, OPT, BLOOM and others. We analyze embedding transformations between sequential layers, uncovering a near-perfect linear relationship (Procrustes similarity score of 0.99). However, linearity decreases when the residual component is removed due to a consistently low output norm of the transformer layer. Our experiments show that removing or linearly approximating some of the most linear blocks of transformers does not affect significantly the loss or model performance. Moreover, in our pretraining experiments on smaller models we introduce a cosine-similarity-based regularization, aimed at reducing layer linearity. This regularization improves performance metrics on benchmarks like Tiny Stories and SuperGLUE and as well successfully decreases the linearity of the models. This study challenges the existing understanding of transformer architectures, suggesting that their operation may be more linear than previously assumed.1</td>
-<td>Transformer Analysis</td>
+<td>2024년 5월 19일</td>
+<td><a href="https://arxiv.org/pdf/2405.12250">변환기는 비밀리에입니다</a></td>
+<td>본 논문에서는 GPT, LLaMA, OPT, BLOOM 등의 모델을 포함하여 트랜스포머 디코더에만 있는 새로운 선형 특성을 밝힙니다. </td>
+<td>변압기 분석</td>
 </tr>
 <tr>
-<td>18 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.11157">Towards Modular LLMs by Building and Reusing a Library of LoRAs</a></td>
-<td>The growing number of parameter-efficient adaptations of a base large language model (LLM) calls for studying whether we can reuse such trained adapters to improve performance for new tasks. We study how to best build a library of adapters given multi-task data and devise techniques for both zero-shot and supervised task generalization through routing in such library. We benchmark existing approaches to build this library and introduce model-based clustering, MBC, a method that groups tasks based on the similarity of their adapter parameters, indirectly optimizing for transfer across the multi-task dataset. To re-use the library, we present a novel zero-shot routing mechanism, Arrow, which enables dynamic selection of the most relevant adapters for new inputs without the need for retraining. We experiment with several LLMs, such as Phi-2 and Mistral, on a wide array of held-out tasks, verifying that MBC-based adapters and Arrow routing lead to superior generalization to new tasks. We make steps towards creating modular, adaptable LLMs that can match or outperform traditional joint training.</td>
-<td>PEFT Approaches, Fine-Tuning, Toolkit</td>
+<td>2024년 5월 18일</td>
+<td><a href="https://arxiv.org/pdf/2405.11157">LoRA 연구소 구축 및 융합을 위한 모듈식 LLM을 향하여</a></td>
+<td>기본 LLM(대형 언어 모델)의 매개변수 효율적인 적응이 증가함에 따라 훈련된 어댑터를 재사용하여 새로운 작업의 성능을 향상시킬 수 있는지 여부를 연구해야 합니다. </td>
+<td>PEFT 접근법, 미세 조정, 툴킷</td>
 </tr>
 <tr>
-<td>16 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.09818">Chameleon: Mixed-Modal Early-Fusion Foundation Models</a></td>
-<td>We present Chameleon, a family of early-fusion token-based mixed-modal models capable of understanding and generating images and text in any arbitrary sequence. We outline a stable training approach from inception, an alignment recipe, and an architectural parameterization tailored for the early-fusion, token-based, mixed-modal setting. The models are evaluated on a comprehensive range of tasks, including visual question answering, image captioning, text generation, image generation, and long-form mixed modal generation. Chameleon demonstrates broad and general capabilities, including state-of-the-art performance in image captioning tasks, outperforms Llama-2 in text-only tasks while being competitive with models such as Mixtral 8x7B and Gemini-Pro, and performs non-trivial image generation, all in a single model. It also matches or exceeds the performance of much larger models, including Gemini Pro and GPT-4V, according to human judgments on a new long-form mixed-modal generation evaluation, where either the prompt or outputs contain mixed sequences of both images and text. Chameleon marks a significant step forward in a unified modeling of full multimodal documents.</td>
-<td>Multimodal Models, Foundation Model</td>
+<td>2024년 5월 16일</td>
+<td><a href="https://arxiv.org/pdf/2405.09818">카멜레온: + + 수평 밑 베이스 모델</a></td>
+<td>임의의 순서로 이미지와 텍스트를 이해하고 생성할 수 있는 초기 융합 토큰 기반 혼합 모드 모델 제품군인 Chameleon을 소개합니다. </td>
+<td>다중 모드 모델, 기초 모델</td>
 </tr>
 <tr>
-<td>16 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.09798">Many-Shot In-Context Learning in Multimodal Foundation Models</a></td>
-<td>Large language models are well-known to be effective at few-shot in-context learning (ICL). Recent advancements in multimodal foundation models have enabled unprecedentedly long context windows, presenting an opportunity to explore their capability to perform ICL with many more demonstrating examples. In this work, we evaluate the performance of multimodal foundation models scaling from few-shot to many-shot ICL. We benchmark GPT-4o and Gemini 1.5 Pro across 10 datasets spanning multiple domains (natural imagery, medical imagery, remote sensing, and molecular imagery) and tasks (multi-class, multi-label, and fine-grained classification). We observe that many-shot ICL, including up to almost 2,000 multimodal demonstrating examples, leads to substantial improvements compared to few-shot (&lt;100 examples) ICL across all of the datasets. Further, Gemini 1.5 Pro performance continues to improve log-linearly up to the maximum number of tested examples on many datasets. Given the high inference costs associated with the long prompts required for many-shot ICL, we also explore the impact of batching multiple queries in a single API call. We show that batching up to 50 queries can lead to performance improvements under zero-shot and many?뱒hot ICL, with substantial gains in the zero-shot setting on multiple datasets, while drastically reducing per-query cost and latency. Finally, we measure ICL data efficiency of the models, or the rate at which the models learn from more demonstrating examples. We find that while GPT-4o and Gemini 1.5 Pro achieve similar zero-shot performance across the datasets, Gemini 1.5 Pro exhibits higher ICL data efficiency than GPT-4o on most datasets. Our results suggest that many-shot ICL could enable users to efficiently adapt multimodal foundation models to new applications and domains. Our codebase is publicly available at <a href="https://github.com/stanfordmlgroup/ManyICL">https://github.com/stanfordmlgroup/ManyICL</a>.</td>
-<td>ICL, Multimodal Models</td>
+<td>2024년 5월 16일</td>
+<td><a href="https://arxiv.org/pdf/2405.09798">다중 기반 모델의 다중 장면별 학습</a></td>
+<td>대규모 언어 모델은 ICL(Few-Shot In-Context Learning)에 효과적인 것으로 잘 알려져 있습니다. </td>
+<td>ICL, 다중 모드 모델</td>
 </tr>
 <tr>
-<td>15 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.09673">LoRA Learns Less and Forgets Less</a></td>
-<td>Low-Rank Adaptation (LoRA) is a widely-used parameter-efficient finetuning method for large language models. LoRA saves memory by training only low rank perturbations to selected weight matrices. In this work, we compare the performance of LoRA and full finetuning on two target domains, programming and mathematics. We consider both the instruction finetuning (??00K prompt-response pairs) and continued pretraining (??0B unstructured tokens) data regimes. Our results show that, in most settings, LoRA substantially underperforms full finetuning. Nevertheless, LoRA exhibits a desirable form of regularization: it better maintains the base model?셲 performance on tasks outside the target domain. We show that LoRA provides stronger regularization compared to common techniques such as weight decay and dropout; it also helps maintain more diverse generations. We show that full finetuning learns perturbations with a rank that is 10-100X greater than typical LoRA configurations, possibly explaining some of the reported gaps. We conclude by proposing best practices for finetuning with LoRA.</td>
-<td>PEFT Approaches, Fine-Tuning</td>
+<td>2024년 5월 15일</td>
+<td><a href="https://arxiv.org/pdf/2405.09673">LoRA는 제거됩니다.</a></td>
+<td>LoRA(Low-Rank Adaptation)는 대규모 언어 모델에 널리 사용되는 매개변수 효율적인 미세 조정 방법입니다. </td>
+<td>PEFT 접근법, 미세 조정</td>
 </tr>
 <tr>
-<td>14 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.08448">Understanding the performance gap between online and offline alignment algorithms</a></td>
-<td>Reinforcement learning from human feedback (RLHF) is the canonical framework for large language model alignment. However, rising popularity in offline alignment algorithms challenge the need for on-policy sampling in RLHF. Within the context of reward over-optimization, we start with an opening set of experiments that demonstrate the clear advantage of online methods over offline methods. This prompts us to investigate the causes to the performance discrepancy through a series of carefully designed experimental ablations. We show empirically that hypotheses such as offline data coverage and data quality by itself cannot convincingly explain the performance difference. We also find that while offline algorithms train policy to become good at pairwise classification, it is worse at generations; in the meantime the policies trained by online algorithms are good at generations while worse at pairwise classification. This hints at a unique interplay between discriminative and generative capabilities, which is greatly impacted by the sampling process. Lastly, we observe that the performance discrepancy persists for both contrastive and non-contrastive loss functions, and appears not to be addressed by simply scaling up policy networks. Taken together, our study sheds light on the pivotal role of on-policy sampling in AI alignment, and hints at certain fundamental challenges of offline alignment algorithms.</td>
-<td>Alignment</td>
+<td>2024년 5월 14일</td>
+<td><a href="https://arxiv.org/pdf/2405.08448">온라인 교체와 다르게 대응하는 기능은 이해됩니다.</a></td>
+<td>인간 피드백을 통한 강화 학습(RLHF)은 대규모 언어 모델 정렬을 위한 표준 프레임워크입니다. </td>
+<td>조정</td>
 </tr>
 <tr>
-<td>13 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.07863">RLHF Workflow: From Reward Modeling to Online RLHF</a></td>
-<td>We present the workflow of Online Iterative Reinforcement Learning from Human Feedback (RLHF) in this technical report, which is widely reported to outperform its offline counterpart by a large margin in the recent large language model (LLM) literature. However, existing open-source RLHF projects are still largely confined to the offline learning setting. In this technical report, we aim to fill in this gap and provide a detailed recipe that is easy to reproduce for online iterative RLHF. In particular, since online human feedback is usually infeasible for open-source communities with limited resources, we start by constructing preference models using a diverse set of open-source datasets and use the constructed proxy preference model to approximate human feedback. Then, we discuss the theoretical insights and algorithmic principles behind online iterative RLHF, followed by a detailed practical implementation. Our trained LLM, SFR-Iterative-DPO-LLaMA-3-8B-R, achieves impressive performance on LLM chatbot benchmarks, including AlpacaEval-2, Arena-Hard, and MT-Bench, as well as other academic benchmarks such as HumanEval and TruthfulQA. We have shown that supervised fine-tuning (SFT) and iterative RLHF can obtain state-of-the-art performance with fully open-source datasets. Further, we have made our models, curated datasets, and comprehensive step-by-step code guidebooks publicly available. Please refer to <a href="https://github.com/RLHFlow/RLHF-Reward-Modeling">https://github.com/RLHFlow/RLHF-Reward-Modeling</a> and <a href="https://github.com/RLHFlow/Online-RLHF">https://github.com/RLHFlow/Online-RLHF</a> for more detailed information.</td>
-<td>Preference Optimization, RLHF</td>
+<td>2024년 5월 13일</td>
+<td><a href="https://arxiv.org/pdf/2405.07863">RLHF 작업: 보상 모형에서 온라인 RLHF까지</a></td>
+<td>이 기술 보고서에서는 인간 피드백을 통한 온라인 반복 강화 학습(RLHF)의 워크플로우를 제시합니다. 이는 최근 LLM(대형 언어 모델) 문헌에서 오프라인 대응보다 훨씬 뛰어난 성능을 보인다고 널리 보고되었습니다. </td>
+<td>선호도 최적화, RLHF</td>
 </tr>
 <tr>
-<td>2 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.01535">PROMETHEUS 2: An Open Source Language Model Specialized in Evaluating Other Language Models</a></td>
-<td>Proprietary LMs such as GPT-4 are often employed to assess the quality of responses from various LMs. However, concerns including transparency, controllability, and affordability strongly motivate the development of opensource LMs specialized in evaluations. On the other hand, existing open evaluator LMs exhibit critical shortcomings: 1) they issue scores that significantly diverge from those assigned by humans, and 2) they lack the flexibility to perform both direct assessment and pairwise ranking, the two most prevalent forms of assessment. Additionally, they do not possess the ability to evaluate based on custom evaluation criteria, focusing instead on general attributes like helpfulness and harmlessness. To address these issues, we introduce Prometheus 2, a more powerful evaluator LM than it?셲 predecessor that closely mirrors human and GPT-4 judgements. Moreover, it is capable of processing both direct assessment and pair-wise ranking formats grouped with a user-defined evaluation criteria. On four direct assessment benchmarks and four pairwise ranking benchmarks, PROMETHEUS 2 scores the highest correlation and agreement with humans and proprietary LM judges among all tested open evaluator LMs. Our models, code, and data are all publicly available 1 .</td>
-<td>Evaluation, Agents</td>
+<td>2024년 5월 2일</td>
+<td><a href="https://arxiv.org/pdf/2405.01535">PROMETHEUS 2: 다른 언어 모델 평가에 특화된 오픈소스 언어 모델</a></td>
+<td>GPT-4와 같은 독점 LM은 다양한 LM의 응답 품질을 평가하는 데 종종 사용됩니다. </td>
+<td>평가, 에이전트</td>
 </tr>
 <tr>
-<td>2 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.01470">WILDCHAT: 1M CHATGPT INTERACTION LOGS IN THE WILD</a></td>
-<td>Chatbots such as GPT-4 and ChatGPT are now serving millions of users. Despite their widespread use, there remains a lack of public datasets showcasing how these tools are used by a population of users in practice. To bridge this gap, we offered free access to ChatGPT for online users in exchange for their affirmative, consensual opt-in to anonymously collect their chat transcripts and request headers. From this, we compiled WILDCHAT, a corpus of 1 million user-ChatGPT conversations, which consists of over 2.5 million interaction turns. We compare WILDCHAT with other popular user-chatbot interaction datasets, and find that our dataset offers the most diverse user prompts, contains the largest number of languages, and presents the richest variety of potentially toxic use-cases for researchers to study. In addition to timestamped chat transcripts, we enrich the dataset with demographic data, including state, country, and hashed IP addresses, alongside request headers. This augmentation allows for more detailed analysis of user behaviors across different geographical regions and temporal dimensions. Finally, because it captures a broad range of use cases, we demonstrate the dataset?셲 potential utility in fine-tuning instruction-following models. WILDCHAT is released at <a href="https://wildchat.allen.ai">https://wildchat.allen.ai</a> under AI2 ImpACT Licenses1 .</td>
-<td>Benchmark, Evaluation</td>
+<td>2024년 5월 2일</td>
+<td><a href="https://arxiv.org/pdf/2405.01470">WILDCHAT: 계속해서 대화를 나누세요 100만 개</a></td>
+<td>GPT-4 및 ChatGPT와 같은 챗봇은 현재 수백만 명의 사용자에게 서비스를 제공하고 있습니다. </td>
+<td>벤치마크, 평가</td>
 </tr>
 <tr>
-<td>2 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.01434">STORYDIFFUSION: CONSISTENT SELF-ATTENTION FOR LONG-RANGE IMAGE AND VIDEO GENERATION</a></td>
-<td>For recent diffusion-based generative models, maintaining consistent content across a series of generated images, especially those containing subjects and complex details, presents a significant challenge. In this paper, we propose a new way of self-attention calculation, termed Consistent Self-Attention, that significantly boosts the consistency between the generated images and augments prevalent pretrained diffusion-based text-to-image models in a zero-shot manner. To extend our method to long-range video generation, we further introduce a novel semantic space temporal motion prediction module, named Semantic Motion Predictor. It is trained to estimate the motion conditions between two provided images in the semantic spaces. This module converts the generated sequence of images into videos with smooth transitions and consistent subjects that are significantly more stable than the modules based on latent spaces only, especially in the context of long video generation. By merging these two novel components, our framework, referred to as StoryDiffusion, can describe a text-based story with consistent images or videos encompassing a rich variety of contents. The proposed StoryDiffusion encompasses pioneering explorations in visual story generation with the presentation of images and videos, which we hope could inspire more research from the aspect of architectural modifications.</td>
-<td>Multimodal Models, Diffusion</td>
+<td>2024년 5월 2일</td>
+<td><a href="https://arxiv.org/pdf/2405.01434">군대 확산: 연주 이미지 및 비디오 제작을 환영합니다.</a></td>
+<td>최근 확산 기반 생성 모델의 경우 생성된 일련의 이미지, 특히 피사체와 복잡한 세부 정보가 포함된 이미지에서 일관된 콘텐츠를 유지하는 것은 중요한 과제입니다. </td>
+<td>다중 모드 모델, 확산</td>
 </tr>
 <tr>
-<td>2 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.01525">FLAME : Factuality-Aware Alignment for Large Language Models</a></td>
-<td>Alignment is a standard procedure to fine-tune pre-trained large language models (LLMs) to follow natural language instructions and serve as helpful AI assistants. We have observed, however, that the conventional alignment process fails to enhance the factual accuracy of LLMs, and often leads to the generation of more false facts (i.e. hallucination). In this paper, we study how to make the LLM alignment process more factual, by first identifying factors that lead to hallucination in both alignment steps: supervised fine-tuning (SFT) and reinforcement learning (RL). In particular, we find that training the LLM on new knowledge or unfamiliar texts can encourage hallucination. This makes SFT less factual as it trains on human labeled data that may be novel to the LLM. Furthermore, reward functions used in standard RL can also encourage hallucination, because it guides the LLM to provide more helpful responses on a diverse set of instructions, often preferring longer and more detailed responses. Based on these observations, we propose factuality-aware alignment (FLAME ), comprised of factuality-aware SFT and factuality-aware RL through direct preference optimization. Experiments show that our proposed factuality-aware alignment guides LLMs to output more factual responses while maintaining instruction-following capability</td>
-<td>Alignment, Factuality</td>
+<td>2024년 5월 2일</td>
+<td><a href="https://arxiv.org/pdf/2405.01525">FLAME: 보존 언어 모델을 인정해야 합니다.</a></td>
+<td>정렬은 사전 훈련된 대형 언어 모델(LLM)을 미세 조정하여 자연어 지침을 따르고 유용한 AI 보조자 역할을 하는 표준 절차입니다. </td>
+<td>정렬, 사실성</td>
 </tr>
 <tr>
-<td>2 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.01481">NeMo-Aligner: Scalable Toolkit for Efficient Model Alignment</a></td>
-<td>Aligning Large Language Models (LLMs) with human values and preferences is essential for making them helpful and safe. However, building efficient tools to perform alignment can be challenging, especially for the largest and most competent LLMs which often contain tens or hundreds of billions of parameters. We create NeMo-Aligner, a toolkit for model alignment that can efficiently scale to using hundreds of GPUs for training. NeMo-Aligner comes with highly optimized and scalable implementations for major paradigms of model alignment such as: Reinforcement Learning from Human Feedback (RLHF), Direct Preference Optimization (DPO), SteerLM, and Self-Play Fine-Tuning (SPIN). Additionally, our toolkit supports running most of the alignment techniques in a Parameter Efficient Fine-Tuning (PEFT) setting. NeMo-Aligner is designed for extensibility, allowing support for other alignment techniques with minimal effort. It is open-sourced with Apache 2.0 License and we invite community contributions at <a href="https://github.com/NVIDIA/NeMo-Aligner">https://github.com/NVIDIA/NeMo-Aligner</a>.</td>
-<td>Alignment, Toolkit</td>
+<td>2024년 5월 2일</td>
+<td><a href="https://arxiv.org/pdf/2405.01481">NeMo-Aligner: 효율적인 방향 전환을 위한 확장형 툴킷</a></td>
+<td>LLM(대형 언어 모델)을 인간의 가치 및 선호 사항에 맞추는 것은 LLM을 유용하고 안전하게 만드는 데 필수적입니다. </td>
+<td>정렬, 툴킷</td>
 </tr>
 <tr>
-<td>1 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.00664">Is Bigger Edit Batch Size Always Better? - An Empirical Study on Model Editing with Llama-3</a></td>
-<td>This study presents a targeted model editing analysis focused on the latest large language model, Llama-3. We explore the efficacy of popular model editing techniques - ROME, MEMIT, and EMMET, which are designed for precise layer interventions. We identify the most effective layers for targeted edits through an evaluation that encompasses up to 4096 edits across three distinct strategies: sequential editing, batch editing, and a hybrid approach we call as sequential-batch editing. Our findings indicate that increasing edit batch-sizes may degrade model performance more significantly than using smaller edit batches sequentially for equal number of edits. With this, we argue that sequential model editing is an important component for scaling model editing methods and future research should focus on methods that combine both batched and sequential editing. This observation suggests a potential limitation in current model editing methods which push towards bigger edit batch sizes, and we hope it paves way for future investigations into optimizing batch sizes and model editing performance.</td>
-<td>Model Editing</td>
+<td>2024년 5월 1일</td>
+<td><a href="https://arxiv.org/pdf/2405.00664">편집 배치 크기가 클수록 항상 더 좋습니까? </td>
+<td>본 연구에서는 최신 대형 언어 모델인 Llama-3를 중심으로 타겟 모델 편집 분석을 제시합니다. </td>
+<td>모델 편집</td>
 </tr>
 <tr>
-<td>1 May 2024</td>
-<td><a href="https://arxiv.org/pdf/2405.00732">LoRA Land: 310 Fine-tuned LLMs that Rival GPT-4, A Technical Report</a></td>
-<td>Low Rank Adaptation (LoRA) has emerged as one of the most widely adopted methods for Parameter Efficient Fine-Tuning (PEFT) of Large Language Models (LLMs). LoRA reduces the number of trainable parameters and memory usage while achieving comparable performance to full fine-tuning. We aim to assess the viability of training and serving LLMs fine-tuned with LoRA in real-world applications. First, we measure the quality of LLMs fine-tuned with quantized low rank adapters across 10 base models and 31 tasks for a total of 310 models. We find that 4-bit LoRA fine-tuned models outperform base models by 34 points and GPT-4 by 10 points on average. Second, we investigate the most effective base models for fine-tuning and assess the correlative and predictive capacities of task complexity heuristics in forecasting the outcomes of fine-tuning. Finally, we evaluate the latency and concurrency capabilities of LoRAX, an open-source Multi-LoRA inference server that facilitates the deployment of multiple LoRA fine-tuned models on a single GPU using shared base model weights and dynamic adapter loading. LoRAX powers LoRA Land, a web application that hosts 25 LoRA fine-tuned Mistral-7B LLMs on a single NVIDIA A100 GPU with 80GB memory. LoRA Land highlights the quality and cost-effectiveness of employing multiple specialized LLMs over a single, general-purpose LLM.</td>
-<td>PEFT Approaches, Fine-Tuning</td>
+<td>2024년 5월 1일</td>
+<td><a href="https://arxiv.org/pdf/2405.00732">LoRA Land: GPT-4와 경쟁하는 310개의 미세 조정된 LLM, 기술 보고서</a></td>
+<td>LoRA(Low Rank Adaptation)는 LLM(Large Language Models)의 PEFT(Parameter Efficient Fine-Tuning)에 가장 널리 채택되는 방법 중 하나로 부상했습니다. </td>
+<td>PEFT 접근법, 미세 조정</td>
 </tr>
 </tbody></table>
 

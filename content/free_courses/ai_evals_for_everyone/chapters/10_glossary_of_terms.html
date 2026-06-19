@@ -45,136 +45,136 @@
 <a href="../../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Chapter 10: Glossary of Terms</h1>
+<h1>10장: 용어집</h1>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_evaluation_conflicting_advice_maze.png" alt="Evaluation Conflicting Advice Maze"></p>
-<h2>Making Sense of the Evaluation Vocabulary</h2>
-<p>Throughout this course, we&#39;ve used specific terms to describe different aspects of AI evaluation. This glossary clarifies what we mean by each term, helping you navigate the sometimes confusing world of evaluation terminology.</p>
+<h2>평가 어휘 이해하기</h2>
+<p>이 과정 전체에서 우리는 AI 평가의 다양한 측면을 설명하기 위해 특정 용어를 사용했습니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_evaluation_three_phases.png" alt="Evaluation Three Phases"></p>
 <hr>
-<h3>Evals</h3>
-<p>The catch-all term that everyone uses for everything evaluation-related, which is exactly why it causes so much confusion. Someone might say &quot;we need better evals&quot; and mean anything from benchmark scores to production monitoring dashboards. We intentionally avoid this term in favor of more precise language.</p>
-<h3>Evaluation</h3>
-<p>The overall process of assessing how an AI system behaves. This includes everything from designing metrics to running tests to analyzing results. Evaluation answers the question: &quot;Is this system behaving the way we want it to?&quot;</p>
-<h3>Evaluation Metrics</h3>
-<p>The specific dimensions along which system behavior is judged. These answer &quot;what does good mean in this context?&quot; Examples include escalation accuracy, response time, or compliance adherence. Always context-dependent and require clear rubrics.</p>
-<h3>Expected Behavior</h3>
-<p>What your system should do in a given situation. Part of the Input-Expected-Actual framework. Often requires collaboration between domain experts and product teams to define clearly.</p>
-<h3>Explicit Signals</h3>
-<p>Direct indicators users give about their experience, such as ratings, explicit escalation requests (&quot;let me talk to a human&quot;), or direct complaints. Easier to interpret than implicit signals but less common.</p>
-<h3>Actual Behavior</h3>
-<p>What your system actually does when given specific inputs. This includes not just the final output, but intermediate steps and any actions taken.</p>
-<h3>Benchmark</h3>
-<p>A standardized test used to measure model capabilities across different systems. Examples include MMLU, HumanEval, or GSM8K. Useful for comparing models but don&#39;t predict performance in your specific use case.</p>
-<h3>Code-Based Metrics</h3>
-<p>Deterministic checks written in programming code that look for specific patterns or properties. Fast, reliable, and perfect for objective measurements like structure validation, required content presence, or performance monitoring.</p>
+<h3>평가</h3>
+<p>모든 사람이 평가와 관련된 모든 것에 사용하는 포괄적인 용어로 인해 많은 혼란이 야기됩니다. </p>
+<h3>평가</h3>
+<p>AI 시스템의 작동 방식을 평가하는 전반적인 프로세스입니다. </p>
+<h3>평가 지표</h3>
+<p>시스템 동작을 판단하는 특정 차원입니다. </p>
+<h3>예상되는 동작</h3>
+<p>주어진 상황에서 시스템이 수행해야 하는 작업. </p>
+<h3>명시적 신호</h3>
+<p>평점, 명시적인 에스컬레이션 요청("사람과 대화하겠습니다") 또는 직접적인 불만 사항과 같이 사용자가 자신의 경험에 대해 제공하는 직접적인 지표입니다. </p>
+<h3>실제 행동</h3>
+<p>특정 입력이 주어졌을 때 시스템이 실제로 수행하는 작업입니다. </p>
+<h3>기준</h3>
+<p>다양한 시스템에서 모델 기능을 측정하는 데 사용되는 표준화된 테스트입니다. </p>
+<h3>코드 기반 측정항목</h3>
+<p>특정 패턴이나 속성을 찾는 프로그래밍 코드로 작성된 결정론적 검사입니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_evaluation_methods_spectrum.png" alt="Evaluation Methods Spectrum"></p>
-<h3>Guardrails</h3>
-<p>Real-time evaluation metrics that monitor business-critical behaviors and trigger immediate interventions when problems occur. These are online metrics for situations where failure would have immediate, significant business impact. Examples include safety filters or compliance checks.</p>
-<h3>Implicit Signals</h3>
-<p>Indirect indicators of user satisfaction or system problems, revealed through user behavior rather than explicit feedback. Examples include conversation length anomalies, retry behavior, extensive editing of generated content, or abandonment patterns.</p>
-<h3>Improvement Flywheel</h3>
-<p>The offline evaluation process that powers long-term system enhancement through trend analysis, quality assessment, and systematic investigation of issues discovered in production.</p>
-<h3>Input</h3>
-<p>Everything that influences how your AI system behaves, including the user&#39;s request, conversation history, retrieved data, and system configuration. Part of the Input-Expected-Actual evaluation framework.</p>
-<h3>LLM Judge</h3>
-<p>Using one language model to evaluate another model&#39;s behavior. Powerful for assessing subjective qualities like tone or appropriateness, but requires extensive calibration against human judgment to be reliable.</p>
-<h3>Log Filtering</h3>
-<p>Systematic approaches to identify which production data deserves evaluation attention. Uses priority-based filtering and signal-based sampling since you can&#39;t review everything at scale.</p>
-<h3>Model Evaluation</h3>
-<p>Assessment of general AI model capabilities, typically using standardized benchmarks. Helps with model selection but doesn&#39;t predict performance in your specific product context.</p>
-<h3>Metric Selection</h3>
-<p>The process of choosing which evaluation approaches to implement based on their impact, reliability, and cost. Requires balancing value against computational and financial expenses.</p>
-<h3>Non-Deterministic</h3>
-<p>A key characteristic of AI systems where the same input can produce different outputs across runs. This breaks traditional software testing assumptions and makes evaluation more complex but essential.</p>
-<h3>Offline Evaluation</h3>
-<p>Evaluation that happens after interactions occur, often in batch processes. Used for trend analysis, detailed quality assessment, and system improvement insights. Allows for sophisticated, expensive analysis that would be impractical in real-time.</p>
-<h3>Online Evaluation</h3>
-<p>Real-time evaluation that runs as interactions happen and can trigger immediate responses. Must be fast and lightweight. Used for guardrails and situations requiring immediate intervention.</p>
+<h3>난간</h3>
+<p>비즈니스에 중요한 동작을 모니터링하고 문제가 발생할 경우 즉각적인 개입을 트리거하는 실시간 평가 지표입니다. </p>
+<h3>암시적 신호</h3>
+<p>명시적인 피드백보다는 사용자 행동을 통해 드러나는 사용자 만족도 또는 시스템 문제에 대한 간접적인 지표입니다. </p>
+<h3>개선 플라이휠</h3>
+<p>추세 분석, 품질 평가, 생산 과정에서 발견된 문제에 대한 체계적인 조사를 통해 장기적인 시스템 개선을 지원하는 오프라인 평가 프로세스입니다.</p>
+<h3>입력</h3>
+<p>사용자의 요청, 대화 기록, 검색된 데이터 및 시스템 구성을 포함하여 AI 시스템의 작동 방식에 영향을 미치는 모든 것입니다. </p>
+<h3>LLM 판사</h3>
+<p>하나의 언어 모델을 사용하여 다른 모델의 동작을 평가합니다. </p>
+<h3>로그 필터링</h3>
+<p>어떤 생산 데이터가 평가에 주의를 기울일 가치가 있는지 식별하기 위한 체계적인 접근 방식입니다. </p>
+<h3>모델 평가</h3>
+<p>일반적으로 표준화된 벤치마크를 사용하여 일반 AI 모델 기능을 평가합니다. </p>
+<h3>측정항목 선택</h3>
+<p>영향, 신뢰성 및 비용을 기반으로 구현할 평가 접근 방식을 선택하는 프로세스입니다. </p>
+<h3>비결정적</h3>
+<p>동일한 입력이 실행 전반에 걸쳐 서로 다른 출력을 생성할 수 있는 AI 시스템의 주요 특징입니다. </p>
+<h3>오프라인 평가</h3>
+<p>상호 작용이 발생한 후에 발생하는 평가로, 주로 일괄 처리로 수행됩니다. </p>
+<h3>온라인 평가</h3>
+<p>상호 작용이 발생할 때 실행되고 즉각적인 응답을 트리거할 수 있는 실시간 평가입니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_online_vs_offline_evaluation.png" alt="Online vs Offline Evaluation"></p>
-<h3>Product Evaluation</h3>
-<p>Assessment of how an AI system behaves in your specific use case, with your users, data, and business context. This is what actually matters for building successful AI products, as opposed to general model capabilities.</p>
+<h3>제품 평가</h3>
+<p>사용자, 데이터, 비즈니스 컨텍스트를 통해 특정 사용 사례에서 AI 시스템이 어떻게 작동하는지 평가합니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_model_vs_product_evaluation.png" alt="Model vs Product Evaluation"></p>
-<h3>Production Monitoring</h3>
-<p>Continuous evaluation of AI system performance with real users at scale. Includes log filtering, metric deployment, guardrails, and emerging issue discovery.</p>
-<h3>Reference Dataset</h3>
-<p>A carefully chosen collection of realistic examples that represent scenarios you care most about. Includes inputs, expected behaviors, and serves as the foundation for systematic evaluation. Start small (10-20 examples) and expand based on learning.</p>
+<h3>생산 모니터링</h3>
+<p>대규모 실제 사용자를 대상으로 AI 시스템 성능을 지속적으로 평가합니다. </p>
+<h3>참조 데이터세트</h3>
+<p>가장 관심 있는 시나리오를 나타내는 현실적인 예를 신중하게 선택한 모음입니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/glossary_reference_dataset_components.png" alt="Reference Dataset Components"></p>
-<h3>Rubric</h3>
-<p>Explicit criteria that define what constitutes acceptable versus unacceptable performance. Essential for making subjective evaluation consistent. Should include specific examples and edge case guidance.</p>
-<h3>Signal-Based Sampling</h3>
-<p>Sampling production data based on implicit and explicit user signals rather than random selection. More effective for catching problems than uniform sampling across all interactions.</p>
-<h3>Signal-Metric Divergence</h3>
-<p>When user behavior signals indicate problems but your current evaluation metrics show no issues. This pattern suggests hidden quality dimensions that your existing evaluation framework doesn&#39;t capture.</p>
-<h3>User Evolution</h3>
-<p>The natural progression of how users interact with AI systems over time. As users become comfortable, they develop new interaction patterns, push boundaries, and use systems in increasingly sophisticated ways. This changes the distribution of inputs your system receives.</p>
+<h3>표제</h3>
+<p>허용 가능한 성과와 허용 불가능한 성과를 구성하는 요소를 정의하는 명시적인 기준입니다. </p>
+<h3>신호 기반 샘플링</h3>
+<p>무작위 선택이 아닌 암시적 및 명시적 사용자 신호를 기반으로 생산 데이터를 샘플링합니다. </p>
+<h3>신호-메트릭 발산</h3>
+<p>사용자 행동 신호가 문제를 나타내지만 현재 평가 지표에는 문제가 없는 경우입니다. </p>
+<h3>사용자 진화</h3>
+<p>시간이 지남에 따라 사용자가 AI 시스템과 상호 작용하는 방식의 자연스러운 진행. </p>
 <hr>
-<h2>Framework Concepts</h2>
-<h3>Input-Expected-Actual Framework</h3>
-<p>The conceptual foundation for thinking about AI system behavior:</p>
+<h2>프레임워크 개념</h2>
+<h3>입력 예상 실제 프레임워크</h3>
+<p>AI 시스템 동작에 대해 생각하기 위한 개념적 기초:</p>
 <ul>
-<li><strong>Input</strong>: Everything that goes into your system</li>
-<li><strong>Expected</strong>: What should happen given your requirements</li>
-<li><strong>Actual</strong>: What your system really does</li>
+<li><strong>입력</strong>: 시스템에 들어가는 모든 것</li>
+<li><strong>예상</strong>: 요구사항에 따라 어떤 일이 발생해야 하는지</li>
+<li><strong>실제</strong>: 시스템이 실제로 수행하는 작업</li>
 </ul>
-<p>This framework helps structure evaluation by making explicit what you&#39;re comparing.</p>
-<h3>Guardrails vs. Improvement Flywheel</h3>
-<p>The two-tier approach to production evaluation:</p>
+<p>이 프레임워크는 비교 대상을 명시적으로 지정하여 구조 평가를 돕습니다.</p>
+<h3>가드레일과 개선 플라이휠</h3>
+<p>생산 평가에 대한 2단계 접근 방식:</p>
 <ul>
-<li><strong>Guardrails</strong>: Online metrics for immediate intervention on business-critical issues</li>
-<li><strong>Improvement Flywheel</strong>: Offline analysis for long-term system enhancement</li>
+<li><strong>가드레일</strong>: 비즈니스에 중요한 문제에 대한 즉각적인 개입을 위한 온라인 측정항목</li>
+<li><strong>개선 플라이휠</strong>: 장기적인 시스템 개선을 위한 오프라인 분석</li>
 </ul>
-<h3>Discovery Loop</h3>
-<p>The continuous cycle of emerging issue discovery:</p>
+<h3>디스커버리 루프</h3>
+<p>새로운 문제 발견의 지속적인 주기:</p>
 <ol>
-<li>User signals indicate potential problems</li>
-<li>Log filtering samples concerning interactions</li>
-<li>Existing metrics may not capture the issues</li>
-<li>Manual investigation reveals hidden problems</li>
-<li>New metrics are developed</li>
-<li>Updated framework catches similar issues earlier</li>
+<li>사용자 신호는 잠재적인 문제를 나타냅니다.</li>
+<li>상호작용에 관한 로그 필터링 샘플</li>
+<li>기존 측정항목으로는 문제를 포착하지 못할 수 있습니다.</li>
+<li>수동 조사를 통해 숨겨진 문제 발견</li>
+<li>새로운 측정항목이 개발되었습니다.</li>
+<li>업데이트된 프레임워크는 유사한 문제를 더 일찍 포착합니다.</li>
 </ol>
 <hr>
-<h2>Process Terms</h2>
-<h3>Pre-Deployment Validation</h3>
-<p>The systematic evaluation work done before real users interact with your system. Includes building reference datasets, implementing metrics, and testing in controlled conditions to build confidence.</p>
-<h3>Calibration</h3>
-<p>The process of ensuring LLM judges align with human judgment through extensive testing, comparison analysis, and iterative refinement. Often takes weeks or months and is essential for reliable automated evaluation.</p>
-<h3>Emerging Issue Discovery</h3>
-<p>Systematic approaches to find problems your existing evaluation framework doesn&#39;t capture. Uses signal-metric divergence analysis and manual investigation to evolve evaluation as new failure modes emerge.</p>
+<h2>처리 조건</h2>
+<h3>배포 전 검증</h3>
+<p>실제 사용자가 시스템과 상호 작용하기 전에 수행되는 체계적인 평가 작업입니다. </p>
+<h3>구경 측정</h3>
+<p>광범위한 테스트, 비교 분석 및 반복적 개선을 통해 LLM 심사위원이 사람의 판단에 부합하도록 하는 프로세스입니다. </p>
+<h3>새로운 이슈 발견</h3>
+<p>기존 평가 프레임워크가 포착하지 못하는 문제를 찾기 위한 체계적인 접근 방식입니다. </p>
 <hr>
-<h2>Common Anti-Patterns (What NOT to Do)</h2>
-<h3>Evaluation Drift</h3>
-<p>When your evaluation metrics become disconnected from actual user needs or business goals. Happens when you measure things because they&#39;re easy to measure rather than because they matter.</p>
-<h3>Metric Overload</h3>
-<p>Having too many evaluation metrics, making it impossible to focus on what actually drives improvements. More metrics don&#39;t automatically mean better insights.</p>
-<h3>Calibration Neglect</h3>
-<p>Deploying LLM judges without proper validation against human judgment, leading to evaluation that&#39;s worse than having no evaluation at all.</p>
-<h3>Coverage Obsession</h3>
-<p>Trying to evaluate everything comprehensively rather than focusing on high-impact scenarios. Leads to analysis paralysis and diluted effort.</p>
+<h2>일반적인 안티 패턴(하지 말아야 할 것)</h2>
+<h3>평가 드리프트</h3>
+<p>평가 지표가 실제 사용자 요구 사항이나 비즈니스 목표와 연결되지 않는 경우. </p>
+<h3>측정항목 과부하</h3>
+<p>평가 지표가 너무 많아 실제로 개선을 이끄는 요소에 집중하는 것이 불가능합니다. </p>
+<h3>교정 무시</h3>
+<p>인간의 판단에 대한 적절한 검증 없이 LLM 심사위원을 배치하여 전혀 평가를 하지 않는 것보다 더 나쁜 평가를 초래합니다.</p>
+<h3>보장 집착</h3>
+<p>영향력이 큰 시나리오에 집중하기보다는 모든 것을 종합적으로 평가하려고 노력합니다. </p>
 <hr>
-<h2>Key Principles</h2>
-<p>Throughout this course, we&#39;ve emphasized these core principles:</p>
-<p><strong>Context is King</strong>: Everything must be tailored to your specific use case, users, and business requirements. Generic approaches rarely work.</p>
-<p><strong>Start Simple, Evolve</strong>: Begin with basic approaches and add complexity only when justified by clear value.</p>
-<p><strong>Collaboration is Essential</strong>: Combine technical, domain, and business perspectives rather than trying to solve evaluation in isolation.</p>
-<p><strong>Continuous Learning</strong>: Evaluation systems must adapt as you discover new failure modes and as user behavior evolves.</p>
-<p><strong>Action Over Measurement</strong>: The goal is better AI systems, not perfect measurement. Focus on evaluation that drives real improvements.</p>
+<h2>주요 원칙</h2>
+<p>이 과정 전체에서 다음과 같은 핵심 원칙을 강조했습니다.</p>
+<p><strong>컨텍스트가 가장 중요합니다</strong>: 모든 것이 특정 사용 사례, 사용자 및 비즈니스 요구 사항에 맞게 조정되어야 합니다. </p>
+<p><strong>단순하게 시작하고 발전하세요</strong>: 기본적인 접근 방식으로 시작하고 명확한 가치가 입증된 경우에만 복잡성을 추가하세요.</p>
+<p><strong>공동작업이 필수적입니다</strong>: 평가를 개별적으로 해결하려고 하기보다는 기술, 도메인, 비즈니스 관점을 결합합니다.</p>
+<p><strong>지속적인 학습</strong>: 평가 시스템은 새로운 실패 모드를 발견하고 사용자 행동이 발전함에 따라 적응해야 합니다.</p>
+<p><strong>측정보다 행동</strong>: 목표는 완벽한 측정이 아니라 더 나은 AI 시스템입니다. </p>
 <hr>
-<h2>Using This Glossary</h2>
-<p>This glossary reflects the specific way we use these terms in this course. You might encounter different definitions elsewhere - the AI evaluation field is still developing standard terminology. When working with others, it&#39;s always worth clarifying what specific terms mean in your context.</p>
-<p>Remember: the vocabulary matters less than the underlying concepts. Focus on building systematic, thoughtful evaluation that helps you create better AI systems for your users.</p>
-<p><strong>Ready to get certified?</strong> You&#39;ve completed all 10 chapters of this AI evaluation course! <strong><a href="https://ai-evals-course-website-2025.vercel.app/quiz-google.html">Take the certification assessment now</a></strong> to earn your AI Evals for Everyone certificate and test your knowledge.</p>
+<h2>이 용어집 사용</h2>
+<p>이 용어집은 이 과정에서 이러한 용어를 사용하는 구체적인 방식을 반영합니다. </p>
+<p>기억하세요: 어휘는 기본 개념보다 중요하지 않습니다. </p>
+<p><strong>인증을 받을 준비가 되셨나요?</strong> 이 AI 평가 과정의 10개 장을 모두 완료했습니다! </p>
 <hr>
-<p><strong>Want to go deeper?</strong> Choose the course that fits your journey:</p>
+<p><strong>더 깊은 내용을 원하시나요?</strong> 귀하의 여정에 맞는 과정을 선택하세요.</p>
 <ul>
-<li><strong>New to AI?</strong> Check out our <strong><a href="https://maven.com/aishwarya-kiriti/genai-system-design">#1 rated Enterprise AI Course on Maven</a></strong> for comprehensive guidance on building production-ready AI systems from scratch.</li>
-<li><strong>Already building AI?</strong> Take our newly launched <strong><a href="https://maven.com/aishwarya-kiriti/evals-problem-first">Advanced Evals course</a></strong> for systematically improving your AI products through advanced evaluation techniques.</li>
+<li><strong>AI를 처음 접하시나요?</strong> <strong><a href="https://maven.com/aishwarya-kiriti/genai-system-design">1위 Maven AI 과정</a></strong>을 확인하여 프로덕션에 바로 사용할 수 있는 AI 시스템을 처음부터 구축하는 방법에 대한 포괄적인 지침을 확인하세요.</li>
+<li><strong>이미 AI를 구축하고 계신가요?</strong> 고급 평가 기술을 통해 AI 제품을 체계적으로 개선하기 위해 새로 출시된 <strong><a href="https://maven.com/aishwarya-kiriti/evals-problem-first">차별화된 평가</a></strong>을 수강하세요.</li>
 </ul>
-<p><em>?뱷 Note: Use code <strong>GITHUB15</strong> for 15% off on Maven courses (valid until January 15th, 2025)</em></p>
+<p><em>?뱷 참고: <strong>GITHUB15</strong> 코드를 사용하여 Maven 강좌 15% 할인을 받으세요(2025년 1월 15일까지 유효)</em></p>
 
 </div>
 <footer>

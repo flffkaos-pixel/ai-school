@@ -45,109 +45,105 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Part 2: The 4 Types of Agentic Systems (and When to Use What)</h1>
-<p>Hi there,</p>
-<p>In the previous part, we looked at what makes AI agentic ??it?셲 not just about understanding or generating content, it?셲 about performing actions and handling tasks end-to-end.</p>
-<p>But as teams rush to ?쏿dd agents??to their stack, here?셲 the catch:<br>Not all agents are built the same, and not all problems need highly autonomous systems.</p>
-<p>In this lesson, we?셪l walk through four types of agentic systems (as discussed yesterday), using a simple but powerful lens:</p>
+<h1>2부: 에이전트 시스템의 4가지 유형(및 언제 무엇을 사용해야 하는지)</h1>
+<p>안녕하세요,</p>
+<p>이전 부분에서는 AI 에이전트를 콘텐츠를 이해하거나 생성하는 것뿐만 아니라 작업을 수행하고 작업을 엔드 투 엔드로 처리하는 것에 대해서도 살펴보았습니다.</p>
+<p>그러나 팀이 자신의 스택에 "에이전트를 추가"하려고 서두르면서 문제는 다음과 같습니다.<br>모든 에이전트가 동일하게 구축되는 것은 아니며 모든 문제에 고도로 자율적인 시스템이 필요한 것도 아닙니다.</p>
+<p>이번 강의에서는 간단하지만 강력한 렌즈를 사용하여 네 가지 유형의 에이전트 시스템(어제 논의한 대로)을 살펴보겠습니다.</p>
 <ul>
-<li>How much autonomy does the agent have?  </li>
-<li>How much control does the human or system retain?</li>
+<li>에이전트는 얼마나 많은 자율성을 갖고 있나요?</li>
+<li>인간이나 시스템은 얼마나 많은 통제력을 유지합니까?</li>
 </ul>
-<p>This balance impacts how the system behaves, how you evaluate it, and what infrastructure you need to build.</p>
+<p>이러한 균형은 시스템 작동 방식, 평가 방식, 구축해야 하는 인프라에 영향을 미칩니다.</p>
 <hr>
-<img width="1216" height="413" alt="image" src="https://github.com/user-attachments/assets/58097651-e6d0-4835-9c13-042f647cf437" /><h2>The Tool-Augmented LLM</h2>
-<p>At the core of most modern agents is an <strong>LLM (Large Language Model)</strong> acting as the brain of the system.<br>Throughout this course, we use the term LLM to refer broadly to generative AI models ??not just text-only models.</p>
-<p>On its own, it can generate content, but to turn it into an agent, you augment it with:  </p>
+<img width="1216" height="413" alt="image" src="https://github.com/user-attachments/assets/58097651-e6d0-4835-9c13-042f647cf437" /><h2>도구를 활용한 LLM</h2>
+<p>대부분의 최신 에이전트의 핵심에는 시스템의 두뇌 역할을 하는 <strong>LLM(대형 언어 모델)</strong>이 있습니다.<br>이 과정 전체에서 LLM이라는 용어를 사용하여 텍스트 전용 모델뿐만 아니라 생성 AI 모델을 광범위하게 지칭합니다.</p>
+<p>자체적으로 콘텐츠를 생성할 수 있지만 이를 에이전트로 전환하려면 다음을 사용하여 콘텐츠를 보강해야 합니다.</p>
 <ul>
-<li><strong>Tools</strong> ??APIs, functions, databases it can call  </li>
-<li><strong>Planning</strong> ??The ability to break a goal into multiple steps  </li>
-<li><strong>Memory</strong> ??So it can track past actions and outcomes  </li>
-<li><strong>State and Control Logic</strong> ??To know what?셲 done, what failed, and what to do next</li>
+<li><strong>도구</strong> ??호출할 수 있는 API, 함수, 데이터베이스</li>
+<li><strong>계획</strong> ??목표를 여러 단계로 나누는 능력</li>
+<li><strong>메모리</strong> ??과거의 행동과 결과를 추적할 수 있도록 합니다.</li>
+<li><strong>상태 및 제어 논리</strong> ??무엇을 알기 위해?셲 완료, 실패, 다음에 수행할 작업</li>
 </ul>
-<p>When connected to these components, the LLM becomes more than a chatbot.<br>It becomes a goal-driven system that can reason, take action, and adapt.</p>
-<p>But depending on how much you trust it to act without supervision, you end up with different types of agents.<br>Let?셲 walk through them, starting from the least autonomous.</p>
+<p>이러한 구성 요소에 연결되면 LLM은 단순한 챗봇 이상의 역할을 하게 됩니다.<br>추론하고, 조치를 취하고, 적응할 수 있는 목표 중심 시스템이 됩니다.</p>
+<p>하지만 감독 없이 행동하는 것을 얼마나 신뢰하느냐에 따라 결국 다양한 유형의 에이전트가 탄생하게 됩니다.<br>가장 자율적인 것부터 시작하여 살펴보겠습니다.</p>
 <hr>
-<h2>1. Rule-Based Systems/Agents</h2>
-<p><strong>Low Autonomy, Low Control</strong></p>
-<p>These systems don?셳 use LLMs at all. They?셱e built with traditional <em>if-this-then-that</em> logic. Every decision path is manually scripted. There?셲 no reasoning or learning. Rule-based agents have existed long before the LLM era.</p>
-<blockquote>
-<p>Wait, aren?셳 we talking about AI agents?<br>Yes ??but not every problem needs an AI model. Start with the problem, not the AI. If you can solve it without AI, don?셳 overcomplicate it.</p>
-</blockquote>
-<p><strong>What problems do they solve?</strong><br>Well-structured, repetitive tasks with fixed inputs and outputs.</p>
-<p><strong>Examples:</strong>  </p>
+<h2>1. 규칙 기반 시스템/에이전트</h2>
+<p><strong>낮은 자율성, 낮은 통제</strong></p>
+<p>이들 시스템은 LLM을 전혀 사용하지 않습니다. </p>
+<blockquote><p>잠깐만요?셳 AI 에이전트에 대해 이야기하고 있는 건가요?<br>그렇습니다. </blockquote>
+<p><strong>어떤 문제를 해결하나요?</strong><br>입력과 출력이 고정되어 있는 잘 구조화되고 반복적인 작업입니다.</p>
+<p><strong>예:</strong></p>
 <ul>
-<li>Automatically approve reimbursements under a fixed amount  </li>
-<li>Rename files in a folder based on filename patterns  </li>
-<li>Copy data from Excel sheets into form fields</li>
+<li>고정 금액 이하의 환급을 자동으로 승인</li>
+<li>파일 이름 패턴을 기반으로 폴더의 파일 이름 바꾸기</li>
+<li>Excel 시트의 데이터를 양식 필드에 복사</li>
 </ul>
-<p><strong>Pros:</strong> Fast, auditable, predictable<br><strong>Cons:</strong> Brittle to change, can?셳 handle ambiguity<br><strong>Best used when:</strong> You know all the conditions ahead of time and there?셲 no need for flexibility.</p>
+<p><strong>장점:</strong> 빠르고 감사 가능하며 예측 가능<br><strong>단점:</strong> 변경하기 쉬우며 모호함을 처리할 수 있습니까?셳 모호함을 처리할 수 있습니까?<br><strong>가장 적합한 경우:</strong> 모든 조건을 미리 알고 있고 유연성이 필요하지 않습니다.</p>
 <hr>
-<h2>2. Workflow Agents</h2>
-<p><strong>Low Autonomy, High Control</strong></p>
-<p>This is often the first step for enterprises introducing LLMs into their workflows.<br>Here, the LLM enhances an existing workflow but doesn?셳 execute actions independently. A human stays in control.</p>
-<p><strong>What problems do they solve?</strong><br>Repetitive tasks that benefit from natural language understanding, summarization, or generation, but still need human decision-making.</p>
-<p><strong>Examples:</strong>  </p>
+<h2>2. 워크플로 에이전트</h2>
+<p><strong>낮은 자율성, 높은 통제</strong></p>
+<p>이는 기업이 LLM을 워크플로에 도입하는 첫 번째 단계인 경우가 많습니다.<br>여기서 LLM은 기존 워크플로를 향상시키지만 작업을 독립적으로 실행하지는 않습니다. </p>
+<p><strong>어떤 문제를 해결하나요?</strong><br>자연어 이해, 요약 또는 생성의 이점을 누리지만 여전히 인간의 의사결정이 필요한 반복적인 작업입니다.</p>
+<p><strong>예:</strong></p>
 <ul>
-<li>Suggesting first-draft responses in a support tool like Zendesk  </li>
-<li>Generating summaries of meeting transcripts  </li>
-<li>Translating natural language queries into structured search inputs for BI dashboards</li>
+<li>Zendesk와 같은 지원 도구에서 초안 응답 제안</li>
+<li>회의 기록 요약 생성</li>
+<li>자연어 쿼리를 BI 대시보드용 구조화된 검색 입력으로 변환</li>
 </ul>
-<p><strong>How the LLM is used:</strong><br>It reads input (text, tickets, documents), understands context, and generates useful content, but doesn?셳 act on it.<br>A human still decides what to do.</p>
-<p><strong>Pros:</strong> Easy to deploy, low risk, quick value<br><strong>Cons:</strong> Can?셳 execute or plan, limited end-to-end value<br><strong>Best used when:</strong> You want to augment your team?셲 productivity without giving up oversight.</p>
+<p><strong>LLM 사용 방법:</strong><br>입력(텍스트, 티켓, 문서)을 읽고, 맥락을 이해하고, 유용한 콘텐츠를 생성하지만 그에 따라 조치를 취하지는 않습니다.<br>무엇을 할지 결정하는 것은 여전히 ​​인간입니다.</p>
+<p><strong>장점:</strong> 손쉬운 배포, 낮은 위험, 빠른 가치<br><strong>단점:</strong> 실행 또는 계획 가능, 제한된 엔드 투 엔드 가치<br><strong>가장 적합한 경우:</strong> 팀을 강화하고 싶습니까?셲 감독을 포기하지 않고 생산성을 향상시키세요.</p>
 <hr>
-<h2>3. Semi-Autonomous Agents</h2>
-<p><strong>Moderate to High Autonomy, Moderate Control</strong></p>
-<p>These are true agentic systems. They not only understand tasks but can plan multi-step actions, invoke tools, and complete goals with minimal supervision. However, they often operate with some constraints or monitoring built in.</p>
-<p><strong>What problems do they solve?</strong><br>Multi-step workflows that are well-understood but too tedious or time-consuming for humans.</p>
-<p><strong>Examples:</strong>  </p>
+<h2>3. 반자동 에이전트</h2>
+<p><strong>보통에서 높은 자율성, 보통의 통제</strong></p>
+<p>이것이 진정한 에이전트 시스템입니다. </p>
+<p><strong>어떤 문제를 해결하나요?</strong><br>잘 이해되지만 인간에게는 너무 지루하거나 시간이 많이 걸리는 다단계 작업 흐름입니다.</p>
+<p><strong>예:</strong></p>
 <ul>
-<li>A lead follow-up agent that drafts, personalizes, and sends emails based on CRM data, while logging results  </li>
-<li>A document automation agent that extracts details from contracts and updates internal systems  </li>
-<li>A research agent that pulls data from multiple sources, compares findings, and sends a structured report</li>
+<li>결과를 기록하는 동시에 CRM 데이터를 기반으로 이메일 초안을 작성하고 개인화하고 전송하는 리드 후속 에이전트</li>
+<li>계약서 내용을 추출하고 내부 시스템을 업데이트하는 문서 자동화 에이전트</li>
+<li>여러 소스에서 데이터를 가져와 결과를 비교하고 구조화된 보고서를 보내는 연구 에이전트</li>
 </ul>
-<p><strong>How the LLM is used:</strong><br>The LLM plans the steps, calls APIs to fetch or push data, keeps track of progress, and adapts if something goes wrong.<br>It often includes fallback paths or checkpoints for human review.</p>
-<p><strong>Pros:</strong> Automates complex workflows, saves time, higher ROI<br><strong>Cons:</strong> Needs infrastructure (planning, memory, tool calling), harder to test<br><strong>Best used when:</strong> You want to automate well-bounded business workflows while retaining some control.</p>
+<p><strong>LLM 사용 방법:</strong><br>LLM은 단계를 계획하고, API를 호출하여 데이터를 가져오거나 푸시하고, 진행 상황을 추적하고, 문제가 발생하면 조정합니다.<br>여기에는 사람이 검토할 수 있는 대체 경로나 체크포인트가 포함되는 경우가 많습니다.</p>
+<p><strong>장점:</strong> 복잡한 워크플로 자동화, 시간 절약, 더 높은 ROI<br><strong>단점:</strong> 인프라(계획, 메모리, 도구 호출)가 필요하고 테스트가 더 어렵습니다.<br><strong>가장 적합한 경우:</strong> 일부 제어권을 유지하면서 잘 제한된 비즈니스 워크플로를 자동화하려는 경우.</p>
 <hr>
-<h2>4. Autonomous Agents</h2>
-<p><strong>High Autonomy, Low Control</strong></p>
-<p>These agents are fully goal-driven. You give them a broad objective, and they figure out what to do, how to do it, when to retry, and when to escalate. They act independently, often across systems and over time.</p>
-<p><strong>What problems do they solve?</strong><br>High-effort, async, or long-running tasks that span multiple systems or steps and don?셳 need constant human input.</p>
-<p><strong>Examples:</strong>  </p>
+<h2>4. 자율 에이전트</h2>
+<p><strong>높은 자율성, 낮은 통제</strong></p>
+<p>이러한 에이전트는 완전히 목표 중심적입니다. </p>
+<p><strong>어떤 문제를 해결하나요?</strong><br>여러 시스템이나 단계에 걸쳐 있으며 노력이 많이 들고, 비동기적이거나, 장기 실행되는 작업에는 지속적인 사람의 입력이 필요합니다.</p>
+<p><strong>예:</strong></p>
 <ul>
-<li>A competitive research agent that pulls data over days, summarizes updates, and generates weekly insight briefs  </li>
-<li>An ops automation agent that detects issues in pipelines, diagnoses root causes, and files tickets with suggested fixes  </li>
-<li>A testing agent that autonomously runs product flows, logs results, and suggests new edge-case scenarios</li>
+<li>며칠에 걸쳐 데이터를 수집하고, 업데이트를 요약하고, 주간 통찰력 브리핑을 생성하는 경쟁력 있는 조사 에이전트</li>
+<li>파이프라인의 문제를 감지하고, 근본 원인을 진단하고, 제안된 수정 사항이 포함된 티켓을 제출하는 운영 자동화 에이전트</li>
+<li>제품 흐름을 자율적으로 실행하고 결과를 기록하며 새로운 엣지 케이스 시나리오를 제안하는 테스트 에이전트</li>
 </ul>
-<p><strong>How the LLM is used:</strong><br>The LLM is the planner, decision-maker, tool-user, memory tracker, and communicator. It manages retries, evaluates whether goals are met, and decides when to stop or adapt.</p>
-<p><strong>Pros:</strong> Extremely scalable, can handle complex tasks<br><strong>Cons:</strong> High risk if not monitored, hard to evaluate or trace, infra-heavy<br><strong>Best used when:</strong> The task is high-leverage, async, and doesn?셳 require human feedback at every step.</p>
+<p><strong>LLM 사용 방법:</strong><br>LLM은 기획자, 의사 결정자, 도구 사용자, 메모리 추적자 및 의사소통자입니다. </p>
+<p><strong>장점:</strong> 확장성이 뛰어나고 복잡한 작업을 처리할 수 있음<br><strong>단점:</strong> 모니터링하지 않으면 위험이 높으며 평가 또는 추적이 어렵고 인프라가 많음<br><strong>가장 적합한 경우:</strong> 작업이 활용도가 높고 비동기적이며 모든 단계에서 사람의 피드백이 필요하지 않습니까?</p>
 <hr>
-<img width="683" height="316" alt="image" src="https://github.com/user-attachments/assets/cbea3f8f-b2c5-4dbc-8d0f-5b102430d675" /><h2>How to Decide What to Build</h2>
-<p>Not by picking your favorite architecture.<br>You start with the <strong>problem</strong>.</p>
-<p>Ask yourself:  </p>
+<img width="683" height="316" alt="image" src="https://github.com/user-attachments/assets/cbea3f8f-b2c5-4dbc-8d0f-5b102430d675" /><h2>무엇을 구축할지 결정하는 방법</h2>
+<p>좋아하는 아키텍처를 선택하는 것이 아닙니다.<br><strong>문제</strong>부터 시작합니다.</p>
+<p>스스로에게 물어보세요:</p>
 <ul>
-<li>Is it repetitive and structured?  </li>
-<li>Does it involve language understanding or generation?  </li>
-<li>Is it a multi-step task that needs decision-making?  </li>
-<li>Do you trust an AI system to execute the entire task, or do you want a human in the loop?</li>
+<li>반복적이고 구조적인가?</li>
+<li>언어 이해 또는 생성이 포함됩니까?</li>
+<li>의사결정이 필요한 다단계 작업인가요?</li>
+<li>전체 작업을 실행하기 위해 AI 시스템을 신뢰하십니까, 아니면 루프에 인간이 참여하기를 원하십니까?</li>
 </ul>
-<p>Here?셲 the key:  </p>
+<p>여기?셲 핵심:</p>
 <ul>
-<li>These approaches aren?셳 mutually exclusive.  </li>
-<li>A single system can mix them ??some parts might require high control, others can benefit from high autonomy.  </li>
-<li>Each problem type can be tackled by either a single agent or a group of collaborating agents.</li>
+<li>이들 접근법은 상호 배타적이다.</li>
+<li>단일 시스템으로 이들을 혼합할 수 있습니다. 일부 부품은 높은 제어가 필요할 수 있고 다른 부품은 높은 자율성의 이점을 누릴 수 있습니다.</li>
+<li>각 문제 유형은 단일 에이전트 또는 협력 에이전트 그룹에 의해 처리될 수 있습니다.</li>
 </ul>
-<p>We?셪l dive deeper into <strong>single-agent vs. multi-agent design</strong> later in the course.<br>For now, remember:  </p>
-<blockquote>
-<p>Don?셳 start with ?쏦ow do I build a multi-agent system???br>Start with ?쏻hat?셲 the problem I?셫 solving, and what kind of autonomy does it require??? </p>
-</blockquote>
-<p>Let the problem shape the agentic design, not the other way around.</p>
+<p>과정 뒷부분에서 <strong>단일 에이전트와 다중 에이전트 설계</strong>에 대해 더 자세히 알아볼 것입니다.<br>지금은 다음 사항을 기억하세요.</p>
+<blockquote><p>돈?셳부터 시작하세요. </blockquote>
+<p>문제가 행위적 ​​디자인을 형성하도록 하세요. 반대 방향이 아닙니다.</p>
 <hr>
-<p>In the next part, we?셪l dive deeper into the <strong>role of tools</strong> in agentic systems. They?셱e the reason AI has become far more usable ??and we?셪l break down exactly how and why in our deep dive.</p>
+<p>다음 부분에서는 에이전트 시스템에서 <strong>도구의 역할</strong>에 대해 더 자세히 살펴보겠습니다. </p>
 
 </div>
 <footer>

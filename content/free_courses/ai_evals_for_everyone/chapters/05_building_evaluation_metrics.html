@@ -45,119 +45,111 @@
 <a href="../../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Chapter 5: Implementing Evaluation Metrics</h1>
+<h1>5장: 평가 지표 구현</h1>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/metrics_to_automated_system.png" alt="Metrics to Automated System"></p>
-<h2>From What to How</h2>
-<p>In the previous chapter, we walked through building reference datasets and identifying which metrics matter for your system. You now have a clear list of behaviors you want to track, such as escalation accuracy, response time, or tone appropriateness.</p>
-<p>Now comes the practical question: how do you actually measure these behaviors?</p>
-<p>This chapter covers the different approaches you can use to implement your metrics. We&#39;ll explore when each approach works well, their trade-offs, and how to choose the right mix for your specific situation.</p>
-<h2>Three Ways to Measure AI Behavior</h2>
+<h2>무엇부터 어떻게까지</h2>
+<p>이전 장에서는 참조 데이터세트를 구축하고 시스템에 중요한 측정항목을 식별하는 과정을 살펴보았습니다. </p>
+<p>이제 실용적인 질문이 나옵니다. 이러한 행동을 실제로 어떻게 측정합니까?</p>
+<p>이 장에서는 측정항목을 구현하는 데 사용할 수 있는 다양한 접근 방식을 다룹니다. </p>
+<h2>AI 행동을 측정하는 세 가지 방법</h2>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/three_evaluation_approaches.png" alt="Three Evaluation Approaches"></p>
-<p>There are three main approaches to implementing evaluation metrics:</p>
-<p><strong>Human evaluation</strong>: Having people assess AI system behavior based on their expertise and judgment<br><strong>Code-based metrics</strong>: Deterministic checks written in code that look for specific patterns or properties<br><strong>LLM judges</strong>: Using one model to evaluate another model&#39;s behavior</p>
-<p>Each approach has strengths and weaknesses. Most effective evaluation systems use a combination of multiple approaches.</p>
-<h2>Human Evaluation: The Gold Standard</h2>
-<p>Human evaluation is exactly what we did when building the reference dataset in the previous chapter. You show examples to domain experts, product managers, or other stakeholders and ask them to judge whether the AI system&#39;s behavior was acceptable.</p>
-<p>This approach has major advantages:</p>
+<p>평가 지표를 구현하는 데는 세 가지 주요 접근 방식이 있습니다.</p>
+<p><strong>사람 평가</strong>: 사람들이 자신의 전문 지식과 판단을 바탕으로 AI 시스템 동작을 평가하게 합니다.<br><strong>코드 기반 측정항목</strong>: 특정 패턴이나 속성을 찾는 코드로 작성된 결정론적 검사<br><strong>LLM 심사위원</strong>: 한 모델을 사용하여 다른 모델의 동작을 평가합니다.</p>
+<p>각 접근 방식에는 강점과 약점이 있습니다. </p>
+<h2>인간 평가: 최적의 기준</h2>
+<p>인간 평가는 이전 장에서 참조 데이터 세트를 구축할 때 수행한 것과 정확히 같습니다. </p>
+<p>이 접근 방식에는 다음과 같은 주요 이점이 있습니다.</p>
 <ul>
-<li><strong>Nuanced judgment</strong>: Humans can assess complex, subjective qualities like appropriateness, empathy, and contextual correctness</li>
-<li><strong>Domain expertise</strong>: Subject matter experts understand subtleties that automated systems miss</li>
-<li><strong>Flexibility</strong>: Humans can adapt their evaluation criteria on the fly when they encounter edge cases</li>
-<li><strong>Ground truth</strong>: Human judgment often serves as the standard that other metrics try to approximate</li>
+<li><strong>미묘한 판단</strong>: 인간은 적절성, 공감, 상황적 정확성과 같은 복잡하고 주관적인 특성을 평가할 수 있습니다.</li>
+<li><strong>도메인 전문 지식</strong>: 주제 전문가는 자동화 시스템이 놓친 미묘함을 이해합니다.</li>
+<li><strong>유연성</strong>: 인간은 극단적인 경우가 발생할 때 평가 기준을 즉석에서 조정할 수 있습니다.</li>
+<li><strong>정답</strong>: 인간의 판단은 다른 측정항목의 근사치를 구하는 표준으로 사용되는 경우가 많습니다.</li>
 </ul>
-<h3>Why Human Evaluation Doesn&#39;t Scale</h3>
-<p>The problem with human evaluation is obvious: it&#39;s slow and expensive. If you had to have a human evaluate every single conversation your AI system has in production, you&#39;d need an army of evaluators working around the clock.</p>
-<p>Imagine a customer support AI that handles 10,000 interactions per day. Having domain experts review each one would be impractical and cost-prohibitive. Even sampling 1% would require evaluating 100 interactions daily.</p>
-<p>This is why we need the other automated approaches. They&#39;re attempts to capture human-like judgment at scale. The goal is finding automated methods that correlate well with human evaluation while being fast and cost-effective enough to run in production.</p>
-<h3>When to Use Human Evaluation</h3>
-<p>Human evaluation still has important roles:</p>
+<h3>인간 평가가 확장되지 않는 이유</h3>
+<p>인간 평가의 문제는 명백합니다. 속도가 느리고 비용이 많이 듭니다. </p>
+<p>하루에 10,000건의 상호작용을 처리하는 고객 지원 AI를 상상해 보세요. </p>
+<p>이것이 우리에게 다른 자동화된 접근 방식이 필요한 이유입니다. </p>
+<h3>인간 평가를 사용해야 하는 경우</h3>
+<p>인간의 평가에는 여전히 중요한 역할이 있습니다.</p>
 <ul>
-<li><strong>Calibrating automated metrics</strong>: Use human judgment to test whether your LLM judges or other metrics align with expert assessment</li>
-<li><strong>Edge case analysis</strong>: When automated metrics flag something as problematic, humans can investigate whether it&#39;s a real issue</li>
-<li><strong>Periodic sampling</strong>: Regularly evaluate a small sample of interactions to ensure your automated systems are working correctly</li>
-<li><strong>High-stakes decisions</strong>: For critical interactions or when the cost of errors is very high</li>
+<li><strong>자동 측정항목 보정</strong>: 인간의 판단을 사용하여 LLM 심사위원이나 기타 측정항목이 전문가 평가와 일치하는지 테스트합니다.</li>
+<li><strong>극단적인 사례 분석</strong>: 자동화된 측정항목이 문제가 있는 것으로 표시하면 사람이 그것이 실제 문제인지 조사할 수 있습니다.</li>
+<li><strong>정기적 샘플링</strong>: 소규모 상호작용 샘플을 정기적으로 평가하여 자동화 시스템이 올바르게 작동하는지 확인하세요.</li>
+<li><strong>고부담 결정</strong>: 중요한 상호작용의 경우 또는 오류로 인한 비용이 매우 높은 경우</li>
 </ul>
-<h2>Code-Based Metrics: When Rules Work</h2>
-<p>Code-based metrics are deterministic checks you can implement with regular programming. They&#39;re fast, reliable, and easy to understand.</p>
-<p>These work well when you can define success clearly and objectively:</p>
-<p><strong>Structure validation</strong>: Check if the response contains required fields, follows JSON format, or includes mandatory disclaimers</p>
-<p><strong>Performance metrics</strong>: Measure response time, token count, or API call frequency</p>
-<p><strong>Content detection</strong>: Verify specific phrases appear (like &quot;please consult your doctor&quot; in medical responses) or don&#39;t appear (like specific banned words)</p>
-<p><strong>Classification flags</strong>: Check if the system correctly tagged a query as &quot;billing,&quot; &quot;technical support,&quot; or &quot;escalation needed&quot;</p>
-<h3>Example: Structured Output Validation</h3>
-<p>Say you&#39;re building an AI system that helps sales teams qualify leads. The system needs to extract key information from customer conversations and output it in a structured format for the CRM system.</p>
-<p>Your AI system should output JSON like this:</p>
-<pre><code class="language-json">{
-  &quot;customer_name&quot;: &quot;John Smith&quot;,
-  &quot;company&quot;: &quot;TechCorp&quot;,
-  &quot;budget_range&quot;: &quot;50000-100000&quot;,
-  &quot;timeline&quot;: &quot;Q2 2024&quot;,
-  &quot;decision_maker&quot;: true,
-  &quot;contact_email&quot;: &quot;john@techcorp.com&quot;
-}
-</code></pre>
-<p>A code-based metric can easily verify:</p>
+<h2>코드 기반 지표: 규칙이 작동하는 경우</h2>
+<p>코드 기반 측정항목은 일반 프로그래밍으로 구현할 수 있는 결정론적 검사입니다. </p>
+<p>이는 성공을 명확하고 객관적으로 정의할 수 있을 때 잘 작동합니다.</p>
+<p><strong>구조 유효성 검사</strong>: 응답에 필수 필드가 포함되어 있는지, JSON 형식을 따르는지, 필수 면책조항이 포함되어 있는지 확인하세요.</p>
+<p><strong>성능 측정항목</strong>: 응답 시간, 토큰 수 또는 API 호출 빈도를 측정합니다.</p>
+<p><strong>콘텐츠 감지</strong>: 특정 문구(예: 의료 응답에 '의사와 상담하세요')가 표시되는지 또는 표시되지 않는지(예: 특정 금지 단어) 확인</p>
+<p><strong>분류 플래그</strong>: 시스템이 검색어에 '결제', '기술 지원' 또는 '에스컬레이션 필요' 태그를 올바르게 지정했는지 확인하세요.</p>
+<h3>예: 구조화된 출력 검증</h3>
+<p>영업팀이 리드를 선별하는 데 도움이 되는 AI 시스템을 구축하고 있다고 가정해 보겠습니다. </p>
+<p>AI 시스템은 다음과 같이 JSON을 출력해야 합니다.</p>
+<pre><code class="언어-json">{
+  </p>
 <ul>
-<li>Is the output valid JSON?</li>
-<li>Are all required fields present (customer_name, company, budget_range)?</li>
-<li>Is the budget_range in the expected format?</li>
-<li>Is the decision_maker field a boolean?</li>
-<li>Is the contact_email field a valid email format?</li>
+<li>출력이 유효한 JSON입니까?</li>
+<li>모든 필수 필드(고객_이름, 회사, 예산_범위)가 있습니까?</li>
+<li>예산_범위가 예상된 형식인가요?</li>
+<li>Decision_maker 필드가 부울입니까?</li>
+<li>contact_email 필드가 유효한 이메일 형식입니까?</li>
 </ul>
-<p>This kind of check is perfect for code-based metrics because the requirements are objective and well-defined.</p>
-<h3>When Code-Based Metrics Fall Short</h3>
-<p>Code-based metrics struggle with subjective qualities like tone, appropriateness, or nuanced decision-making. You can&#39;t easily write code to detect whether a customer service response shows appropriate empathy or whether an escalation decision was justified.</p>
-<p>They also miss nuanced meaning and context. A response might pass all the structural checks but still be unhelpful, inappropriate, or incorrect in ways that matter to users.</p>
-<h2>LLM Judges: Automating Human-Like Evaluation</h2>
-<p>LLM judges use one model to evaluate another model&#39;s behavior. The idea is to replace the manual human evaluation process we used when building reference datasets with an automated system that can make similar judgments at scale.</p>
-<p>Instead of having domain experts review every response, you give an LLM the same criteria and ask it to assess whether the behavior was appropriate. This lets you evaluate thousands of interactions with the same standards a human expert would apply.</p>
-<p>This approach works for subjective or complex evaluations:</p>
-<p><strong>Tone assessment</strong>: Is the response professional and empathetic?<br><strong>Escalation decisions</strong>: Should this query have been escalated to a human?<br><strong>Reasoning quality</strong>: Does the explanation make logical sense?<br><strong>Safety evaluation</strong>: Does the response avoid harmful content?</p>
-<h3>Example: Customer Service Tone</h3>
-<p>For evaluating whether a customer service response shows appropriate empathy, an LLM judge can assess nuanced qualities like tone, professionalism, and contextual appropriateness that would be difficult to capture with code-based metrics.</p>
-<p>Whether you&#39;re using LLM judges or human evaluators, you need clear criteria for what constitutes good and poor performance. This is where rubrics become essential.</p>
-<p>A good rubric defines:</p>
+<p>이러한 종류의 검사는 요구 사항이 객관적이고 잘 정의되어 있으므로 코드 기반 측정 항목에 적합합니다.</p>
+<h3>코드 기반 지표가 부족한 경우</h3>
+<p>코드 기반 측정항목은 어조, 적절성 또는 미묘한 의사 결정과 같은 주관적인 특성 때문에 어려움을 겪습니다. </p>
+<p>또한 미묘한 의미와 맥락을 놓치기도 합니다. </p>
+<h2>LLM 심사위원: 인간과 유사한 평가 자동화</h2>
+<p>LLM 심사위원은 한 모델을 사용하여 다른 모델의 행동을 평가합니다. </p>
+<p>도메인 전문가가 모든 응답을 검토하도록 하는 대신 LLM에 동일한 기준을 제공하고 행동이 적절한지 평가하도록 요청합니다. </p>
+<p>이 접근 방식은 주관적이거나 복잡한 평가에 효과적입니다.</p>
+<p><strong>어조 평가</strong>: 응답이 전문적이고 공감적입니까?<br><strong>에스컬레이션 결정</strong>: 이 쿼리를 사람에게 에스컬레이션해야 합니까?<br><strong>추론 품질</strong>: 설명이 논리적으로 타당합니까?<br><strong>안전성 평가</strong>: 응답이 유해한 콘텐츠를 피합니까?</p>
+<h3>예: 고객 서비스 톤</h3>
+<p>고객 서비스 응답이 적절한 공감을 나타내는지 평가하기 위해 LLM 심사위원은 코드 기반 지표로 포착하기 어려운 어조, 전문성, 상황적 적절성과 같은 미묘한 품질을 평가할 수 있습니다.</p>
+<p>LLM 심사위원을 사용하든 인간 평가자를 사용하든 상관없이 좋은 성과와 나쁜 성과를 구성하는 요소에 대한 명확한 기준이 필요합니다. </p>
+<p>좋은 기준표는 다음을 정의합니다.</p>
 <ul>
-<li><strong>Acceptable performance</strong>: Specific characteristics of good behavior</li>
-<li><strong>Not acceptable performance</strong>: Clear failure criteria</li>
-<li><strong>Examples</strong>: Concrete instances of each category</li>
-<li><strong>Edge case guidance</strong>: How to handle ambiguous situations</li>
+<li><strong>허용되는 성과</strong>: 좋은 행동의 구체적인 특징</li>
+<li><strong>허용되지 않는 성능</strong>: 명확한 실패 기준</li>
+<li><strong>예</strong>: 각 카테고리의 구체적인 사례</li>
+<li><strong>극단적인 사례 지침</strong>: 모호한 상황을 처리하는 방법</li>
 </ul>
-<h3>Example: From Error Pattern to LLM Judge Rubric</h3>
-<p>Here&#39;s how you&#39;d build an LLM judge based on the customer support example from Chapter 4. </p>
-<p><strong>The Problem</strong>: In your reference dataset evaluation, you found that when customers expressed frustration and mentioned switching providers (like &quot;Service is terrible, switching&quot;), your system gave generic help offers instead of escalating to the retention team.</p>
-<p><strong>The Pattern</strong>: Analysis revealed this was part of a broader &quot;escalation accuracy&quot; issue. The system wasn&#39;t recognizing when situations required specialized human intervention.</p>
-<p><strong>The Metric</strong>: You decided to track &quot;escalation accuracy&quot; as an ongoing metric since this behavior could reappear in many different forms.</p>
-<p><strong>The LLM Judge Rubric</strong>:</p>
-<p><strong>Acceptable</strong>: </p>
+<h3>예: 오류 패턴에서 LLM 판사 루브릭까지</h3>
+<p>4장의 고객 지원 예시를 기반으로 LLM 심사위원을 구성하는 방법은 다음과 같습니다.</p>
+<p><strong>문제</strong>: 참조 데이터 세트 평가에서 고객이 불만을 표시하고 공급자 전환에 대해 언급할 때(예: "서비스가 형편없어 전환 중") 시스템이 유지 팀에 에스컬레이션하는 대신 일반적인 도움 제안을 제공한다는 사실을 발견했습니다.</p>
+<p><strong>패턴</strong>: 분석 결과 이는 보다 광범위한 '에스컬레이션 정확성' 문제의 일부인 것으로 나타났습니다. </p>
+<p><strong>측정항목</strong>: 이 동작은 다양한 형태로 다시 나타날 수 있으므로 '에스컬레이션 정확성'을 지속적인 측정항목으로 추적하기로 결정했습니다.</p>
+<p><strong>LLM 판사 루브릭</strong>:</p>
+<p><strong>허용</strong>:</p>
 <ul>
-<li>Correctly identifies customer retention situations (mentions switching, canceling, competitor comparisons, dissatisfaction with service)</li>
-<li>Escalates billing disputes over significant amounts ($100+)</li>
-<li>Recognizes technical issues beyond basic troubleshooting scope</li>
-<li>Provides relevant context when escalating (customer sentiment, issue details, urgency level)</li>
+<li>고객 유지 상황을 정확하게 식별합니다(전환, 취소, 경쟁사 비교, 서비스 불만족 언급).</li>
+<li>상당한 금액($100 이상)에 대한 청구 분쟁을 확대합니다.</li>
+<li>기본적인 문제 해결 범위를 넘어서는 기술적 문제를 인식합니다.</li>
+<li>에스컬레이션 시 관련 컨텍스트 제공(고객 정서, 문제 세부정보, 긴급성 수준)</li>
 </ul>
-<p><strong>Not Acceptable</strong>:</p>
+<p><strong>허용되지 않음</strong>:</p>
 <ul>
-<li>Misses clear retention signals and attempts generic problem-solving</li>
-<li>Fails to escalate high-value billing disputes </li>
-<li>Tries to handle complex technical issues that require specialized expertise</li>
-<li>Escalates routine questions that could be resolved automatically</li>
-<li>Escalates without sufficient context for the human agent</li>
+<li>명확한 보유 신호를 놓치고 일반적인 문제 해결을 시도합니다.</li>
+<li>고액 청구 분쟁을 에스컬레이션하지 못함</li>
+<li>전문적인 전문 지식이 필요한 복잡한 기술 문제를 처리하려고 합니다.</li>
+<li>자동으로 해결될 수 있는 일상적인 질문을 에스컬레이션합니다.</li>
+<li>상담원에게 충분한 맥락 없이 에스컬레이션합니다.</li>
 </ul>
-<p><strong>Examples</strong>:</p>
+<p><strong>예</strong>:</p>
 <ul>
-<li><strong>Acceptable</strong>: &quot;Your service is terrible and I&#39;m switching to CompetitorX&quot; ??Escalates to retention team noting customer dissatisfaction and competitor mention</li>
-<li><strong>Not Acceptable</strong>: &quot;I want to cancel my subscription to save money&quot; ??Provides generic retention offer instead of escalating to retention specialists</li>
-<li><strong>Acceptable</strong>: &quot;I was charged $500 for services I never ordered&quot; ??Escalates to billing team with charge amount and dispute details</li>
-<li><strong>Not Acceptable</strong>: &quot;How do I reset my password?&quot; ??Escalates to technical support instead of providing standard reset instructions</li>
+<li><strong>허용</strong>: "귀하의 서비스가 형편없어서 CompetitorX로 전환하겠습니다." ??고객 불만 및 경쟁사 언급을 지적하면서 유지팀으로 에스컬레이션합니다.</li>
+<li><strong>허용되지 않음</strong>: "비용을 절약하기 위해 구독을 취소하고 싶습니다." ??보존 전문가에게 에스컬레이션하는 대신 일반 보존 제안을 제공합니다.</li>
+<li><strong>허용됨</strong>: "주문하지 않은 서비스에 대해 500달러가 청구되었습니다." ??청구 금액 및 분쟁 세부정보를 청구팀에 전달합니다.</li>
+<li><strong>허용되지 않음</strong>: "비밀번호를 어떻게 재설정하나요?" </li>
 </ul>
-<p>This rubric now gives you a measurable way to track the escalation behavior that was failing in your reference dataset, turning the discovered error pattern into an ongoing monitoring capability.</p>
-<p><strong>LLM Judge Prompt Example</strong>:</p>
-<p>Here&#39;s how you might structure a prompt for an LLM judge using this rubric:</p>
+<p>이제 이 루브릭은 참조 데이터 세트에서 실패한 에스컬레이션 동작을 추적하고 발견된 오류 패턴을 지속적인 모니터링 기능으로 전환하는 측정 가능한 방법을 제공합니다.</p>
+<p><strong>LLM 판사 프롬프트 예</strong>:</p>
+<p>이 루브릭을 사용하여 LLM 심사위원을 위한 프롬프트를 구성하는 방법은 다음과 같습니다.</p>
 <pre><code>You are evaluating customer service responses for escalation accuracy. Your job is to determine if the AI system correctly identified when human intervention was needed.
 
 EVALUATION CRITERIA:
@@ -196,38 +188,38 @@ AI Response: [RESPONSE]
 
 Your Evaluation:
 </code></pre>
-<p>This prompt gives the LLM judge the same detailed criteria that human evaluators would use, allowing it to make consistent assessments at scale.</p>
-<h2>A Note on LLM Judge Calibration</h2>
-<p>While we&#39;ve shown you how to build an LLM judge with clear criteria and rubrics, remember that in practice, calibrating an LLM judge is a much longer and more data-driven process than what we&#39;ve demonstrated here. LLM judges are powerful but challenging to implement well. They can be inconsistent, biased, or misaligned with human judgment. They&#39;re also more expensive and slower than other approaches.</p>
-<p>Effective LLM judge calibration requires extensive testing against human judgment across hundreds of examples, not just a few. You need to systematically identify where the LLM judge disagrees with human evaluators, understand why those disagreements happen, and iteratively refine your prompts and criteria until alignment is acceptable for your specific use case.</p>
-<p><strong>Calibration is Essential</strong></p>
-<p>The biggest challenge with LLM judges is ensuring they actually align with human judgment. Just because you write detailed criteria doesn&#39;t mean the LLM will interpret them the same way a human expert would. In fact, if not calibrated properly they can add more problems to your system because they add another layer of non-determinism.</p>
-<p>You need to test your LLM judge against human evaluations:</p>
+</p>
+<h2>LLM 판사 교정에 대한 참고 사항</h2>
+<p>명확한 기준과 루브릭을 사용하여 LLM 심사위원을 구성하는 방법을 보여드렸지만 실제로 LLM 심사위원을 교정하는 과정은 여기서 설명한 것보다 훨씬 길고 데이터 기반 프로세스라는 점을 기억하세요. </p>
+<p>효과적인 LLM 판사 교정에는 몇 가지가 아닌 수백 가지 사례에 걸쳐 인간의 판단에 대한 광범위한 테스트가 필요합니다. </p>
+<p><strong>보정은 필수입니다</strong></p>
+<p>LLM 심사위원의 가장 큰 과제는 실제로 인간의 판단과 일치하는지 확인하는 것입니다. </p>
+<p>LLM 심사위원을 사람의 평가와 비교하여 테스트해야 합니다.</p>
 <ul>
-<li>Have humans evaluate a sample of examples using your rubric</li>
-<li>Run your LLM judge on the same examples</li>
-<li>Compare the results to see where they agree and disagree</li>
-<li>Refine your prompt and criteria based on the differences</li>
-<li>Repeat until alignment is acceptable</li>
+<li>사람이 기준표를 사용하여 예시 샘플을 평가하게 하세요.</li>
+<li>동일한 사례에 대해 LLM 심사위원을 운영하세요.</li>
+<li>결과를 비교하여 어느 부분이 동의하고 동의하지 않는지 확인하세요.</li>
+<li>차이점에 따라 프롬프트와 기준을 구체화하세요.</li>
+<li>정렬이 허용될 때까지 반복합니다.</li>
 </ul>
-<p>We leave you here since this is a 101 course, but building reliable LLM judges can be a course on its own. Remember to dig deeper to learn these concepts well.</p>
-<p><strong>Want to go deeper?</strong> Choose the course that fits your journey:</p>
+<p>이것은 101 과정이므로 여기에 남겨 두지만 신뢰할 수 있는 LLM 심사위원을 양성하는 것은 그 자체로 과정이 될 수 있습니다. </p>
+<p><strong>더 깊은 내용을 원하시나요?</strong> 귀하의 여정에 맞는 과정을 선택하세요.</p>
 <ul>
-<li><strong>New to AI?</strong> Check out our <strong><a href="https://maven.com/aishwarya-kiriti/genai-system-design">#1 rated Enterprise AI Course on Maven</a></strong> for comprehensive guidance on building production-ready AI systems from scratch.</li>
-<li><strong>Already building AI?</strong> Take our newly launched <strong><a href="https://maven.com/aishwarya-kiriti/evals-problem-first">Advanced Evals course</a></strong> for systematically improving your AI products through advanced evaluation techniques.</li>
+<li><strong>AI를 처음 접하시나요?</strong> <strong><a href="https://maven.com/aishwarya-kiriti/genai-system-design">1위 Maven AI 과정</a></strong>을 확인하여 프로덕션에 바로 사용할 수 있는 AI 시스템을 처음부터 구축하는 방법에 대한 포괄적인 지침을 확인하세요.</li>
+<li><strong>이미 AI를 구축하고 계신가요?</strong> 고급 평가 기술을 통해 AI 제품을 체계적으로 개선하기 위해 새로 출시된 <strong><a href="https://maven.com/aishwarya-kiriti/evals-problem-first">차별화된 평가</a></strong>을 수강하세요.</li>
 </ul>
-<p><em>?뱷 Note: Use code <strong>GITHUB15</strong> for 15% off on Maven courses (valid until January 15th, 2025)</em></p>
-<h2>What You End Up With</h2>
-<p>After implementing your metrics, you&#39;ll have a measurement system that can:</p>
+<p><em>?뱷 참고: <strong>GITHUB15</strong> 코드를 사용하여 Maven 강좌 15% 할인을 받으세요(2025년 1월 15일까지 유효)</em></p>
+<h2>당신이 끝내는 것</h2>
+<p>측정항목을 구현한 후에는 다음을 수행할 수 있는 측정 시스템을 갖게 됩니다.</p>
 <ul>
-<li>Automatically track the behaviors you care about most</li>
-<li>Run consistently across different examples</li>
-<li>Provide actionable feedback for system improvement</li>
-<li>Scale with your evaluation needs</li>
+<li>가장 관심 있는 행동을 자동으로 추적합니다.</li>
+<li>다양한 예제에서 일관되게 실행</li>
+<li>시스템 개선을 위한 실행 가능한 피드백 제공</li>
+<li>평가 요구 사항에 맞게 확장</li>
 </ul>
-<p>This system becomes the foundation for continuous improvement. You can run it on new examples, track performance over time, and identify areas where your AI system needs work. However, you probably have questions on how to deploy these metrics in a production setup. Should you be running them on all your production inputs and outputs or just samples? Are these metrics enough or should you keep reinventing? We&#39;ll talk about all this in the next chapter.</p>
+<p>이 시스템은 지속적인 개선의 기반이 됩니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/evaluation_methods_comparison.png" alt="Evaluation Methods Comparison"></p>
-<p>In the next chapter, we&#39;ll explore how to use these metrics in an improvement loop that helps your system get better over time.</p>
+<p>다음 장에서는 시간이 지남에 따라 시스템이 더 좋아지는 데 도움이 되는 개선 루프에서 이러한 측정항목을 사용하는 방법을 살펴보겠습니다.</p>
 
 </div>
 <footer>

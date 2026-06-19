@@ -45,230 +45,230 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>[Week 10] Emerging Research Trends</h1>
-<h2>ETMI5: Explain to Me in 5</h2>
-<p>Within this segment of our course, we will delve into the latest research developments surrounding LLMs. Kicking off with an examination of MultiModal Large Language Models (MM-LLMs), we&#39;ll explore how this particular area is advancing swiftly. Following that, our discussion will extend to popular open-source models, focusing on their construction and contributions. Subsequently, we&#39;ll tackle the concept of agents that possess the capability to carry out tasks autonomously from inception to completion. Additionally, we&#39;ll understand the role of domain-specific models in enriching specialized knowledge across various sectors and take a closer look at groundbreaking architectures such as the Mixture of Experts and RWKV, which are set to improve the scalability and efficiency of LLMs. </p>
-<h2>Multimodal LLMs (MM-LLMs)</h2>
-<p>In the past year, there have been notable advancements in MultiModal Large Language Models (MM-LLMs). Specifically, MM-LLMs represent a significant evolution in the space of language models, as they incorporate multimodal components alongside their text processing capabilities. While progress has also been made in multimodal models in general, MM-LLMs have experienced particularly substantial improvements, largely due to the remarkable enhancements in LLMs over the year, upon which they heavily rely.</p>
-<p>Moreover, the development of MM-LLMs has been greatly aided by the adoption of cost-effective training strategies. These strategies have enabled these models to efficiently manage inputs and outputs across multiple modalities. Unlike conventional models, MM-LLMs not only retain the impressive reasoning and decision-making capabilities inherent in Large Language Models but also expand their utility to address a diverse array of tasks spanning various modalities.</p>
-<p>To understand how MM-LLMs function, we can go over some common architectural components. Most MM-LLMs can be divided in 5 main components as shown in the image below. The components explained below are adapted from the paper ??a href="https://arxiv.org/pdf/2401.13601.pdf">MM-LLMs: Recent Advances in MultiModal Large Language Models</a>?? Let?셲 understand each of the components in detail.</p>
+<h1>[10주차] 최신 연구 동향</h1>
+<h2>ETMI5: 5에서 설명해주세요</h2>
+<p>본 과정의 이 부분에서는 LLM을 둘러싼 최신 연구 개발을 탐구합니다. </p>
+<h2>다중 모드 LLM(MM-LLM)</h2>
+<p>지난해에는 MM-LLM(MultiModal Large Language Models)이 눈에 띄게 발전했습니다. </p>
+<p>더욱이 MM-LLM의 개발은 비용 효율적인 교육 전략의 채택으로 인해 큰 도움을 받았습니다. </p>
+<p>MM-LLM의 작동 방식을 이해하기 위해 몇 가지 일반적인 아키텍처 구성 요소를 살펴보겠습니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-18_at_3.09.34_PM.png" alt="Screenshot 2024-02-18 at 3.09.34 PM.png"></p>
-<p>Image Source: <a href="https://arxiv.org/pdf/2401.13601.pdf">https://arxiv.org/pdf/2401.13601.pdf</a></p>
-<p><strong>1. Modality Encoder:</strong> The Modality Encoder (ME) plays a pivotal role in encoding inputs from diverse modalities $I_X$ to extract corresponding features  $F_X$  Various pre-trained encoder options exist for different modalities, including visual, audio, and 3D inputs. For visual inputs, options like NFNet-F6, ViT, CLIP ViT, and Eva-CLIP ViT are commonly employed. Similarly, for audio inputs, frameworks such as CFormer, HuBERT, BEATs, and Whisper are utilized. Point cloud inputs are encoded using ULIP-2 with a PointBERT backbone. Some MM-LLMs leverage ImageBind, a unified encoder covering multiple modalities, including image, video, text, audio, and heat maps.</p>
-<p><strong>2. Input Projector:</strong> The Input Projector $?_(X?뭈)$ aligns the encoded features of other modalities $F_X$ with the text feature space $T$. This alignment is crucial for effectively integrating multimodal information into the LLM Backbone. The Input Projector can be implemented through various methods such as Linear Projectors, Multi-Layer Perceptrons (MLPs), Cross-attention, Q-Former, or P-Former, each with its unique approach to aligning features across modalities.</p>
-<p><strong>3. LLM Backbone:</strong> The LLM Backbone serves as the core agent in MM-LLMs, inheriting notable properties from LLMs such as zero-shot generalization, few-shot In-Context Learning (ICL), Chain-of-Thought (CoT), and instruction following. The backbone processes representations from various modalities, engaging in semantic understanding, reasoning, and decision-making regarding the inputs. Additionally, some MM-LLMs incorporate Parameter-Efficient Fine-Tuning (PEFT) methods like Prefix-tuning, Adapter, or LoRA to minimize the number of additional trainable parameters.</p>
-<p><strong>4. Output Projector:</strong> The Output Projector $?_(T?뭎)$ maps signal token representations $S_X$from the LLM Backbone into features $H_X$ understandable to the Modality Generator $MG_X$. This projection facilitates the generation of multimodal content. The Output Projector is typically implemented using a Tiny Transformer or MLP, and its optimization focuses on minimizing the distance between the mapped features $H_X$ and the conditional text representations of $MG_X$ .</p>
-<p><strong>5. Modality Generator:</strong> The Modality Generator $MG_X$ is responsible for producing outputs in distinct modalities such as images, videos, or audio. Commonly, existing works leverage off-the-shelf Latent Diffusion Models (LDMs) for image, video, and audio synthesis. During training, ground truth content is transformed into latent features, which are then de-noised to generate multimodal content using LDMs conditioned on the mapped features $H_X$ from the Output Projector.</p>
-<h3>Training</h3>
-<p>MM-LLMs are trained in two main stages: MultiModal Pre-Training (MM PT) and MultiModal Instruction-Tuning (MM IT).</p>
-<p><strong>MM PT:</strong><br>During MM PT, MM-LLMs are trained to understand and generate content from different types of data like images, videos, and text. They learn to align these different kinds of information to work together. For example, they learn to associate a picture of a cat with the word &quot;cat&quot; and vice versa. This stage focuses on teaching the model to handle different types of input and output.</p>
-<p><strong>MM IT:</strong><br>In MM IT, the model is fine-tuned based on specific instructions. This helps the model adapt to new tasks and perform better on them. There are two main methods used in MM IT:</p>
+<p>이미지 출처: <a href="https://arxiv.org/pdf/2401.13601.pdf">https://arxiv.org/pdf/2401.13601.pdf</a></p>
+<p><strong>1. </p>
+<p><strong>2. </p>
+<p><strong>3. </p>
+<p><strong>4. </p>
+<p><strong>5. </p>
+<h3>훈련</h3>
+<p>MM-LLM은 MM PT(MultiModal Pre-Training)와 MM IT(MultiModal Instruction-Tuning)의 두 가지 주요 단계로 교육됩니다.</p>
+<p><strong>MM PT:</strong><br>MM PT 동안 MM-LLM은 이미지, 동영상, 텍스트 등 다양한 유형의 데이터를 이해하고 콘텐츠를 생성하도록 교육받습니다. </p>
+<p><strong>MM IT:</strong><br>MM IT에서는 특정 지침에 따라 모델이 미세 조정됩니다. </p>
 <ul>
-<li><strong>Supervised Fine-Tuning (SFT):</strong> The model is trained on examples that are structured in a way that includes instructions. For instance, in a question-answer task, each question is paired with the correct answer. This helps the model learn to follow instructions and generate appropriate responses.</li>
-<li><strong>Reinforcement Learning from Human Feedback (RLHF):</strong> The model receives feedback on its responses, usually in the form of human-generated feedback. This feedback helps the model improve its performance over time by learning from its mistakes.</li>
+<li><strong>SFT(감독 미세 조정):</strong> 모델은 지침이 포함된 방식으로 구조화된 예시를 통해 학습됩니다. </li>
+<li><strong>사람 피드백을 통한 강화 학습(RLHF):</strong> 모델은 일반적으로 사람이 생성한 피드백 형태로 응답에 대한 피드백을 받습니다. </li>
 </ul>
-<p>Therefore MM-LLMs are trained to understand and generate content from multiple sources of information, and they can be fine-tuned to perform specific tasks better based on instructions and feedback.</p>
-<p>The below diagram summarizes popular MM-LLMs and models used for each of their components.</p>
+<p>따라서 MM-LLM은 다양한 정보 소스에서 콘텐츠를 이해하고 생성하도록 교육을 받았으며 지침과 피드백을 기반으로 특정 작업을 더 잘 수행하도록 미세 조정할 수 있습니다.</p>
+<p>아래 다이어그램에는 각 구성 요소에 사용되는 널리 사용되는 MM-LLM 및 모델이 요약되어 있습니다.</p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-18_at_3.18.49_PM.png" alt="Screenshot 2024-02-18 at 3.18.49 PM.png"></p>
-<p>Image Source: <a href="https://arxiv.org/pdf/2401.13601.pdf">https://arxiv.org/pdf/2401.13601.pdf</a></p>
-<h3>Emerging Research Directions</h3>
-<p>Some potential future directions for MM-LLMs involve extending their capabilities through various avenues:</p>
+<p>이미지 출처: <a href="https://arxiv.org/pdf/2401.13601.pdf">https://arxiv.org/pdf/2401.13601.pdf</a></p>
+<h3>새로운 연구 방향</h3>
+<p>MM-LLM의 잠재적 미래 방향에는 다양한 방법을 통해 기능을 확장하는 것이 포함됩니다.</p>
 <ol>
-<li><strong>More Powerful Models</strong>:<ul>
-<li>Extend MM-LLMs to accommodate additional modalities beyond the current ones like image, video, audio, 3D, and text, such as web pages, heat maps, and figures/tables.</li>
-<li>Incorporate various types and sizes of LLMs to provide practitioners with flexibility in selecting the most suitable one for their specific requirements.</li>
-<li>Enhance MM IT datasets by diversifying the range of instructions to improve MM-LLMs&#39; understanding and execution of user commands.</li>
-<li>Explore integrating retrieval-based approaches to complement generative processes in MM-LLMs, potentially enhancing overall performance.</li>
+<li><strong>더 강력해진 모델</strong>:<ul>
+</li>
+<li>다양한 유형과 규모의 LLM을 통합하여 실무자가 특정 요구 사항에 가장 적합한 LLM을 선택할 수 있는 유연성을 제공합니다.</li>
+<li>MM-LLM의 사용자 명령 이해 및 실행을 향상시키기 위해 명령 범위를 다양화하여 MM IT 데이터세트를 강화합니다.</li>
+<li>MM-LLM의 생성 프로세스를 보완하여 잠재적으로 전반적인 성능을 향상시키기 위한 통합 검색 기반 접근 방식을 살펴보세요.</li>
 </ul>
 </li>
-<li><strong>More Challenging Benchmarks</strong>:<ul>
-<li>Develop larger-scale benchmarks that include a wider range of modalities and use unified evaluation standards to adequately challenge the capabilities of MM-LLMs.</li>
-<li>Tailor benchmarks to assess MM-LLMs&#39; proficiency in practical applications, such as evaluating their ability to discern and respond to nuanced aspects of social abuse presented in memes.</li>
+<li><strong>더 까다로운 벤치마크</strong>:<ul>
+</li>
+<li>밈에 나타난 사회적 학대의 미묘한 측면을 식별하고 대응하는 능력을 평가하는 등 실제 응용 분야에서 MM-LLM의 숙련도를 평가하기 위한 맞춤형 벤치마크입니다.</li>
 </ul>
 </li>
-<li><strong>Mobile/Lightweight Deployment</strong>:<ul>
-<li>Develop lightweight implementations to deploy MM-LLMs on resource-constrained platforms like low-power mobile and IoT devices, ensuring optimal performance.</li>
+<li><strong>모바일/경량 배포</strong>:<ul>
+</li>
 </ul>
 </li>
-<li><strong>Embodied Intelligence</strong>:<ul>
-<li>Explore embodied intelligence to replicate human-like perception and interaction with the surroundings, enabling robots to autonomously implement extended plans based on real-time observations.</li>
-<li>Further enhance MM-LLM-based embodied intelligence to improve the autonomy of robots, building on existing advancements like PaLM-E and EmbodiedGPT.</li>
+<li><strong>체화된 지능</strong>:<ul>
+</li>
+<li>PaLM-E 및 EmbodiedGPT와 같은 기존 기술을 기반으로 MM-LLM 기반 구현 지능을 더욱 강화하여 로봇의 자율성을 향상합니다.</li>
 </ul>
 </li>
-<li><strong>Continual IT</strong>:<ul>
-<li>Develop approaches for MM-LLMs to continually adapt to new MM tasks while maintaining superior performance on previously learned tasks, addressing challenges such as catastrophic forgetting and negative forward transfer.</li>
-<li>Establish benchmarks and develop methods to overcome challenges in continual IT for MM-LLMs, ensuring efficient adaptation to emerging requirements without substantial retraining costs.</li>
+<li><strong>지속적인 IT</strong>:<ul>
+</li>
+<li>MM-LLM의 지속적인 IT 문제를 극복하기 위한 벤치마크를 설정하고 방법을 개발하여 상당한 재교육 비용 없이 새로운 요구 사항에 효율적으로 적응할 수 있도록 합니다.</li>
 </ul>
 </li>
 </ol>
-<h2>Open-Source Models</h2>
-<p>Recent developments in open-source LLMs have been pivotal in democratizing access to advanced AI technologies. Open-source LLMs offer several advantages over closed-source models, enhancing transparency, customizability, and collaboration. They allow for a deeper understanding of model workings, enable modifications to suit specific needs, and encourage improvements through community contributions. They also serve as educational tools and support a diverse AI ecosystem, preventing monopolies. However, challenges such as computational demands and potential misuse exist, but the benefits of open-source models often outweigh these issues, especially for those valuing openness and adaptability in AI development.</p>
-<p>A few popular Open-Source LLMs are listed below:</p>
-<h3><strong>LLaMA by Meta</strong></h3>
+<h2>오픈 소스 모델</h2>
+<p>오픈 소스 LLM의 최근 개발은 고급 AI 기술에 대한 액세스를 민주화하는 데 중추적인 역할을 했습니다. </p>
+<p>몇 가지 인기 있는 오픈 소스 LLM이 아래에 나열되어 있습니다.</p>
+<h3><strong>메타별 LLaMA</strong></h3>
 <ul>
-<li><strong>LLaMA</strong> (13B parameters) was released by Meta in February 2023, outperforming GPT-3 on many NLP benchmarks despite having fewer parameters. <strong>LLaMA-2</strong>, an enhanced version with 40% more data and doubled context length, was released in July 2023 along with specialized versions for conversations (<strong>LLaMA 2-Chat</strong>) and code generation (<strong>LLaMA Code</strong>).</li>
+<li><strong>LLaMA</strong>(13B 매개변수)는 2023년 2월 Meta에서 출시되었으며, 더 적은 매개변수에도 불구하고 많은 NLP 벤치마크에서 GPT-3보다 성능이 뛰어났습니다. </li>
 </ul>
-<h3><strong>Mistral</strong></h3>
+<h3><strong>미스트랄</strong></h3>
 <ul>
-<li>Developed by a Paris-based startup, <strong>Mistral 7B</strong> set new benchmarks by outperforming all existing open-source LLMs up to 13B parameters in English and code benchmarks. Mistral AI later also released <strong>Mixtral 8x7B</strong>, a Sparse Mixture of Experts (SMoE) model. This model marks a departure from traditional AI architectures and training methods, aiming to provide the developer community with innovative tools that can inspire new applications and technologies. We?셪l learn more about the Mixture of Experts paradigm in the next serction</li>
+<li>파리에 본사를 둔 스타트업에서 개발한 <strong>Mistral 7B</strong>는 영어 및 코드 벤치마크에서 최대 13B 매개변수까지 기존의 모든 오픈 소스 LLM보다 뛰어난 성능을 발휘하여 새로운 벤치마크를 설정했습니다. </li>
 </ul>
-<h3><strong>Open Language Model (OLMo)</strong></h3>
+<h3><strong>개방형 언어 모델(OLMo)</strong></h3>
 <ul>
-<li><strong>OLMo</strong> is part of the AI2 LLM framework aimed at encouraging open research by providing access to training data, code, models, and evaluation tools. It includes the <strong>Dolma dataset</strong>, comprehensive training and inference code, model weights for four 7B scale variants, and an extensive evaluation suite under the Catwalk project.</li>
+<li><strong>OLMo</strong>는 학습 데이터, 코드, 모델 및 평가 도구에 대한 액세스를 제공하여 공개 연구를 장려하는 것을 목표로 하는 AI2 LLM 프레임워크의 일부입니다. </li>
 </ul>
-<h3><strong>LLM360 Initiative</strong></h3>
+<h3><strong>LLM360 이니셔티브</strong></h3>
 <ul>
-<li><strong>LLM360</strong> proposes a fully open-source approach to LLM development, advocating for the release of training code, data, model checkpoints, and intermediate results. It released two 7B parameter LLMs, <strong>AMBER</strong> and <strong>CRYSTALCODER</strong>, complete with resources for transparency and reproducibility in LLM training.</li>
+<li><strong>LLM360</strong>은 LLM 개발에 대한 완전한 오픈 소스 접근 방식을 제안하고 학습 코드, 데이터, 모델 체크포인트 및 중간 결과의 출시를 옹호합니다. </li>
 </ul>
-<p>While Llama and Mistral only release their models, OLMo and LLM360 go further by providing checkpoints, datasets, and more, ensuring their offerings are fully open and capable of being reproduced.</p>
-<h2>Agents</h2>
-<p>LLM Agents have been gaining significant momentum in recent months and represent the future and expansion of LLM capabilities. An LLM agent is an AI system that employs a large language model at its core to perform a wide range of tasks, not limited to text generation. These tasks include conducting conversations, reasoning, completing various tasks, and exhibiting autonomous behaviors based on the context and instructions provided. LLM agents operate through sophisticated prompt engineering, where instructions, context, and permissions are encoded to guide the agent&#39;s actions and responses.</p>
-<h3><strong>Capabilities of LLM Agents</strong></h3>
+<p>Llama와 Mistral은 모델만 출시하지만 OLMo와 LLM360은 체크포인트, 데이터 세트 등을 제공하여 제품이 완전히 개방되고 재현 가능하도록 보장합니다.</p>
+<h2>자치령 대표</h2>
+<p>LLM 에이전트는 최근 몇 달 동안 상당한 추진력을 얻고 있으며 LLM 기능의 미래와 확장을 대표합니다. </p>
+<h3><strong>LLM 에이전트의 기능</strong></h3>
 <ul>
-<li><strong>Autonomy</strong>: LLM agents can operate with varying degrees of autonomy, from reactive to proactive behaviors, based on their design and the prompts they receive.</li>
-<li><strong>Task Completion</strong>: With access to external knowledge bases, tools, and reasoning capabilities, LLM agents can assist in or independently handle a variety of applications, from chatbots to complex workflow automation.</li>
-<li><strong>Adaptability</strong>: Their language modeling strength allows them to understand and follow natural language prompts, making them versatile and capable of customizing their responses and actions.</li>
-<li><strong>Advanced Skills</strong>: Through prompt engineering, LLM agents can be equipped with advanced analytical, planning, and execution skills. They can manage tasks with minimal human intervention, relying on their ability to access and process information.</li>
-<li><strong>Collaboration</strong>: They enable seamless collaboration between humans and AI by responding to interactive prompts and integrating feedback into their operations.</li>
+<li><strong>자율성</strong>: LLM 상담원은 자신의 설계와 수신되는 메시지에 따라 사후 행동에서 사전 행동에 이르기까지 다양한 수준의 자율성을 가지고 작업할 수 있습니다.</li>
+<li><strong>작업 완료</strong>: LLM 상담원은 외부 지식 베이스, 도구 및 추론 기능에 액세스하여 챗봇부터 복잡한 워크플로 자동화에 이르기까지 다양한 애플리케이션을 지원하거나 독립적으로 처리할 수 있습니다.</li>
+<li><strong>적응성</strong>: 언어 모델링 능력을 통해 자연어 프롬프트를 이해하고 따를 수 있어 다재다능하고 반응과 행동을 맞춤화할 수 있습니다.</li>
+<li><strong>고급 기술</strong>: 신속한 엔지니어링을 통해 LLM 상담원은 고급 분석, 계획 및 실행 기술을 갖출 수 있습니다. </li>
+<li><strong>협업</strong>: 대화형 프롬프트에 응답하고 피드백을 작업에 통합하여 인간과 AI 간의 원활한 협업을 가능하게 합니다.</li>
 </ul>
-<p>LLM agents combine the core language processing capabilities of LLMs with additional modules like planning, memory, and tool usage, effectively becoming the &quot;brain&quot; that directs a series of operations to fulfill tasks or respond to queries. This architecture allows them to break down complex questions into manageable parts, retrieve and analyze relevant information, and generate comprehensive responses or visual representations as needed.</p>
-<p>Example:</p>
-<p>Suppose we&#39;re interested in organizing an international conference on sustainable energy solutions, aiming to cover topics such as renewable energy technologies, sustainability practices in energy production, and innovative policies for promoting green energy. The task involves complex planning and information gathering, including identifying key speakers, understanding current trends in sustainable energy, and engaging with stakeholders.</p>
-<p>To tackle this multifaceted project, an LLM agent could be employed to:</p>
+<p>LLM 에이전트는 LLM의 핵심 언어 처리 기능을 계획, 메모리 및 도구 사용과 같은 추가 모듈과 결합하여 작업을 수행하거나 쿼리에 응답하도록 일련의 작업을 지시하는 효과적으로 "두뇌"가 됩니다. </p>
+<p>예:</p>
+<p>우리가 재생 가능 에너지 기술, 에너지 생산의 지속 가능성 관행, 녹색 에너지 홍보를 위한 혁신적인 정책과 같은 주제를 다루는 것을 목표로 지속 가능한 에너지 솔루션에 관한 국제 회의를 조직하는 데 관심이 있다고 가정해 보겠습니다. </p>
+<p>이 다각적인 프로젝트를 해결하기 위해 LLM 에이전트를 고용하여 다음을 수행할 수 있습니다.</p>
 <ol>
-<li><strong>Research and Summarization</strong>: Break down the task into sub-tasks such as identifying emerging trends in sustainable energy, locating leading experts in the field, and summarizing recent research findings. The agent would use its access to a vast range of digital resources to compile comprehensive reports.</li>
-<li><strong>Speaker Engagement</strong>: Draft personalized invitations to potential speakers, incorporating details about the conference&#39;s aims and how their expertise aligns with its goals. The agent can generate these communications based on profiles and previous works of the experts.</li>
-<li><strong>Logistics Planning</strong>: Create a detailed plan for the conference, including a timeline of activities leading up to the event, a checklist for logistical arrangements (venue, virtual platform setup for hybrid participation, etc.), and a strategy for participant engagement. The agent can outline these plans by accessing databases of event planning resources and best practices.</li>
-<li><strong>Stakeholder Communication</strong>: Draft updates and newsletters for stakeholders, providing insights into the conference&#39;s progress, highlights of the agenda, and key speakers confirmed. The agent tailors each communication piece to its audience, whether it&#39;s sponsors, participants, or the general public.</li>
-<li><strong>Interactive Q&amp;A Session Planning</strong>: Develop a framework for an interactive Q&amp;A session, including pre-gathering questions from potential attendees, categorizing them, and preparing briefing documents for speakers. The agent can facilitate this by analyzing registration data and submitted queries.</li>
+<li><strong>연구 및 요약</strong>: 지속 가능한 에너지의 새로운 동향 파악, 해당 분야의 선도적인 전문가 찾기, 최근 연구 결과 요약 등의 하위 작업으로 작업을 분류합니다. </li>
+<li><strong>연사 참여</strong>: 컨퍼런스 목표에 대한 세부정보와 그들의 전문 지식이 목표에 어떻게 부합하는지를 포함하여 잠재적 연사에 대한 맞춤형 초대장 초안을 작성합니다. </li>
+<li><strong>물류 계획</strong>: 이벤트까지의 활동 일정, 물류 준비 체크리스트(장소, 하이브리드 참여를 위한 가상 플랫폼 설정 등), 참가자 참여 전략을 포함하여 컨퍼런스에 대한 세부 계획을 수립합니다. </li>
+<li><strong>이해관계자 커뮤니케이션</strong>: 이해관계자를 위한 업데이트 초안 및 뉴스레터로 컨퍼런스 진행 상황, 의제 주요 내용, 확정된 핵심 연사에 대한 통찰력을 제공합니다. </li>
+<li><strong>대화형 Q&A 세션 계획</strong>: 잠재 참석자의 질문을 사전에 수집하고 분류하고 발표자를 위한 브리핑 문서를 준비하는 등 대화형 Q&A 세션을 위한 프레임워크를 개발합니다. </li>
 </ol>
-<p>In this scenario, the LLM agent not only aids in the execution of complex and time-consuming tasks but also ensures that the planning process is thorough, informed by the latest developments in sustainable energy, and tailored to the specific goals of the conference. By leveraging external databases, tools for data analysis and visualization, and its innate language processing capabilities, the LLM agent acts as a comprehensive assistant, streamlining the organization of a large-scale event with numerous moving parts.</p>
-<p>The framework for LLM agents can be conceptualized through various lenses, and one such perspective is offered by the paper ??a href="https://arxiv.org/pdf/2308.11432.pdf">A Survey on Large Language Model based Autonomous Agents</a>?? through its distinctive components.  This architecture is composed of four key modules: the Profiling Module, Memory Module, Planning Module, and Action Module. Each of these modules plays a crucial role in enabling the LLM agent to act autonomously and effectively in various scenarios.</p>
+<p>이 시나리오에서 LLM 에이전트는 복잡하고 시간이 많이 걸리는 작업의 실행을 지원할 뿐만 아니라 계획 프로세스가 철저하고 지속 가능한 에너지의 최신 개발 정보를 반영하며 회의의 특정 목표에 맞게 조정되도록 보장합니다. </p>
+<p>LLM 에이전트의 프레임워크는 다양한 렌즈를 통해 개념화될 수 있으며 그러한 관점 중 하나가 ??a href="https://arxiv.org/pdf/2308.11432.pdf">대규모 언어 모델 기반 자율 에이전트에 대한 설문조사</a>?? 논문에서 제공됩니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/Screenshot_2024-02-18_at_3.46.23_PM.png" alt="Screenshot 2024-02-18 at 3.46.23 PM.png"></p>
-<p>Image Source : <a href="https://arxiv.org/pdf/2308.11432.pdf">https://arxiv.org/pdf/2308.11432.pdf</a></p>
-<h3><strong>Components of LLM Agents</strong></h3>
+<p>이미지 출처: <a href="https://arxiv.org/pdf/2308.11432.pdf">https://arxiv.org/pdf/2308.11432.pdf</a></p>
+<h3><strong>LLM 에이전트의 구성 요소</strong></h3>
 <ol>
-<li><strong>Profiling Module</strong></li>
+<li><strong>프로파일링 모듈</strong></li>
 </ol>
-<p>The Profiling Module is responsible for defining the agent&#39;s identity and role. It incorporates information such as age, gender, career, personality traits, and social relationships to shape the agent&#39;s behavior. This module uses various methods to create profiles, including handcrafting for precise control, LLM-generation for scalability, and dataset alignment for real-world accuracy. The agent&#39;s profile significantly influences its interactions, decision-making processes, and the way it executes tasks, making this module foundational to the agent&#39;s design.</p>
-<p><strong>2. Memory Module</strong></p>
-<p>The Memory Module stores information the agent perceives from its environment and uses this stored knowledge to inform future actions. It mimics human memory processes, with structures inspired by sensory, short-term, and long-term memory. This module enables the agent to accumulate experiences, evolve based on past interactions, and behave in a consistent and effective manner. It ensures that the agent can recall past behaviors, learn from them, and adapt its strategies over time.</p>
-<p><strong>3. Planning Module</strong></p>
-<p>The Planning Module empowers the agent with the ability to decompose complex tasks into simpler subtasks and address them individually, mirroring human problem-solving strategies. It includes planning both with and without feedback, allowing for flexible adaptation to changing environments and requirements. Strategies such as single-path reasoning and Chain of Thought (CoT) are used to guide the agent in a step-by-step manner towards achieving its goals, making the planning process critical for the agent&#39;s effectiveness and reliability.</p>
-<p><strong>4. Action Module</strong></p>
-<p>The Action Module translates the agent&#39;s decisions into specific outcomes, directly interacting with the environment. It considers the goals of the actions, how actions are generated, the range of possible actions (action space), and the consequences of these actions. This module integrates inputs from the profiling, memory, and planning modules to execute decisions that align with the agent&#39;s objectives and capabilities. It is essential for the practical application of the agent&#39;s strategies, enabling it to produce tangible results in the real world.</p>
-<p>Together, these modules form a comprehensive framework for LLM agent architecture, allowing for the creation of agents that can assume specific roles, perceive and learn from their environment, and autonomously execute tasks with a degree of sophistication and flexibility that mimics human behavior.</p>
-<h3>Future Research Directions</h3>
+<p>프로파일링 모듈은 에이전트의 신원과 역할을 정의하는 역할을 합니다. </p>
+<p><strong>2. </p>
+<p>메모리 모듈은 에이전트가 환경에서 인식하는 정보를 저장하고 이 저장된 지식을 사용하여 향후 작업을 알립니다. </p>
+<p><strong>3. </p>
+<p>계획 모듈은 인간의 문제 해결 전략을 반영하여 복잡한 작업을 더 간단한 하위 작업으로 분해하고 개별적으로 처리할 수 있는 능력을 에이전트에 부여합니다. </p>
+<p><strong>4. </p>
+<p>작업 모듈은 에이전트의 결정을 특정 결과로 변환하여 환경과 직접 상호 작용합니다. </p>
+<p>이러한 모듈은 함께 LLM 에이전트 아키텍처를 위한 포괄적인 프레임워크를 형성하여 특정 역할을 맡을 수 있고 환경을 인식하고 학습하며 인간 행동을 모방하는 정교함과 유연성으로 작업을 자율적으로 실행할 수 있는 에이전트를 생성할 수 있습니다.</p>
+<h3>향후 연구방향</h3>
 <ol>
-<li>Most LLM Agent research has been confined to text-based interactions. Expanding into multi-modal environments, where agents can process and generate outputs across various formats like images, audio, and video, introduces complexities in data processing and requires agents to interpret and respond to a broader range of sensory inputs.</li>
-<li>Hallucination, where models generate factually incorrect text, becomes more problematic in LLM agent systems due to the potential for cascading misinformation. Developing strategies to detect and mitigate hallucinations involves managing information flow to prevent inaccuracies from spreading across the network.</li>
-<li>While LLM agents learn from instant feedback, creating reliable interactive environments for scalable learning poses challenges. Furthermore, current methods focus on adjusting agents individually, not fully leveraging the collective intelligence that could emerge from coordinated interactions among multiple agents.</li>
-<li>Scaling the number of agents (multi-agent systems) for a use-case raises significant computational demands and complexities in coordination and communication among agents. Developing efficient orchestration methodologies is essential for optimizing workflows and ensuring effective multi-agent cooperation.</li>
-<li>Current benchmarks may not adequately capture the emergent behaviors critical to agents or span across diverse research domains. Developing comprehensive benchmarks is crucial for assessing agents??capabilities in various fields, including science, economics, and healthcare.</li>
+<li>대부분의 LLM 에이전트 연구는 텍스트 기반 상호 작용으로 제한되었습니다. </li>
+<li>모델이 실제로 잘못된 텍스트를 생성하는 환각은 계단식 잘못된 정보의 가능성으로 인해 LLM 에이전트 시스템에서 더욱 문제가 됩니다. </li>
+<li>LLM 에이전트는 즉각적인 피드백을 통해 학습하지만 확장 가능한 학습을 ​​위한 안정적인 대화형 환경을 만드는 것은 어려운 일입니다. </li>
+<li>사용 사례에 대한 에이전트(다중 에이전트 시스템) 수를 확장하면 상당한 컴퓨팅 요구 사항이 발생하고 에이전트 간의 조정 및 통신이 복잡해집니다. </li>
+<li>현재 벤치마크는 상담원에게 중요한 긴급 행동을 적절하게 포착하지 못하거나 다양한 연구 영역에 걸쳐 포괄되지 않을 수 있습니다. </li>
 </ol>
-<h2>Domain Specific LLMs</h2>
-<p>While general LLMs are versatile and perform well on a broad range of tasks, they often fall short when it comes to handling specialized or niche tasks due to a lack of training on domain-specific data. Additionally, running these generic models can be costly. In these scenarios, domain-specific LLMs emerge as a superior alternative. Their training is focused on data from specific fields, which enhances their accuracy and provides them with a deeper understanding of the relevant terminology and concepts. This tailored approach not only improves their performance on tasks specific to a certain domain but also minimizes the chances of generating irrelevant or incorrect information. </p>
-<p>Designed to adhere to the regulatory and ethical standards of their respective domains, these models ensure the appropriate handling of sensitive data. They also communicate more effectively with domain experts, thanks to their command of professional language. From an economic standpoint, domain-specific LLMs offer more efficient solutions by eliminating the need for significant manual adjustments. Furthermore, their specialized knowledge base enables the identification of unique insights and patterns, driving innovation in their respective fields.</p>
-<p>Some popular domain specific LLMs are listed below</p>
-<h3>Popular Domain Specific LLMs</h3>
-<p><strong>Clinical and Biomedical LLMs</strong></p>
+<h2>도메인별 LLM</h2>
+<p>일반 LLM은 다재다능하고 광범위한 작업을 잘 수행하지만, 도메인별 데이터에 대한 교육이 부족하여 전문적이거나 틈새 작업을 처리하는 데 있어서는 종종 부족합니다. </p>
+<p>해당 도메인의 규제 및 윤리 표준을 준수하도록 설계된 이러한 모델은 민감한 데이터의 적절한 처리를 보장합니다. </p>
+<p>일부 인기 있는 도메인별 LLM은 다음과 같습니다.</p>
+<h3>인기 있는 도메인별 LLM</h3>
+<p><strong>임상 및 생의학 LLM</strong></p>
 <ul>
-<li><strong>BioBERT</strong>: A domain-specific model pre-trained on large-scale biomedical corpora, designed to mine biomedical text effectively.</li>
-<li><strong>Hi-BEHRT</strong>: Offers a hierarchical Transformer-based structure for analyzing extended sequences in electronic health records, showcasing the model&#39;s ability to handle complex medical data.</li>
+<li><strong>BioBERT</strong>: 생물 의학 텍스트를 효과적으로 마이닝하도록 설계된 대규모 생물 의학 말뭉치에 대해 사전 훈련된 도메인별 모델입니다.</li>
+<li><strong>Hi-BEHRT</strong>: 전자 건강 기록의 확장된 시퀀스를 분석하기 위한 계층적 Transformer 기반 구조를 제공하여 복잡한 의료 데이터를 처리하는 모델의 능력을 보여줍니다.</li>
 </ul>
-<p><strong>LLMs for Finance</strong></p>
+<p><strong>금융 LLM</strong></p>
 <ul>
-<li><strong>BloombergGPT</strong>: A finance-specific model with 50 billion parameters, trained on a vast array of financial data, showing excellence in financial tasks.</li>
-<li><strong>FinGPT</strong>: A financial model fine-tuned with specific applications in mind, leveraging pre-existing LLMs for enhanced financial data understanding.</li>
+<li><strong>BloombergGPT</strong>: 500억 개의 매개변수를 갖춘 금융 전용 모델로, 광범위한 금융 데이터에 대해 훈련되어 금융 업무의 우수성을 보여줍니다.</li>
+<li><strong>FinGPT</strong>: 향상된 금융 데이터 이해를 위해 기존 LLM을 활용하여 특정 애플리케이션을 염두에 두고 미세 조정된 금융 모델입니다.</li>
 </ul>
-<p><strong>Code-Specific LLMs</strong></p>
+<p><strong>코드별 LLM</strong></p>
 <ul>
-<li><strong>WizardCoder</strong>: Empowers Code LLMs with complex instruction fine-tuning, showcasing adaptability to coding domain challenges.</li>
-<li><strong>CodeT5</strong>: A unified pre-trained model focusing on the semantics conveyed in code, highlighting the importance of developer-assigned identifiers in understanding programming tasks.</li>
+<li><strong>WizardCoder</strong>: 복잡한 명령 미세 조정을 통해 코드 LLM을 강화하여 코딩 도메인 문제에 대한 적응성을 보여줍니다.</li>
+<li><strong>CodeT5</strong>: 코드에 전달되는 의미에 초점을 맞춘 사전 학습된 통합 모델로, 프로그래밍 작업을 이해하는 데 있어 개발자가 할당한 식별자의 중요성을 강조합니다.</li>
 </ul>
-<p>These domain-specific LLMs illustrate the vast potential and adaptability of AI across different fields, from understanding multilingual content and processing clinical data to financial analysis and code generation. By honing in on the unique challenges and data types of each domain, these models open up new avenues for innovation, efficiency, and accuracy in AI applications.</p>
-<h3>Future Trends for domain specific LLMs</h3>
+<p>이러한 도메인별 LLM은 다국어 콘텐츠 이해 및 임상 데이터 처리부터 재무 분석 및 코드 생성에 이르기까지 다양한 분야에 걸쳐 AI의 방대한 잠재력과 적응성을 보여줍니다. </p>
+<h3>도메인별 LLM의 미래 동향</h3>
 <ol>
-<li>Domain-specific LLMs will likely evolve to handle not just text but also images, audio, and other data types, enabling more comprehensive understanding and interaction capabilities across various formats.</li>
-<li>Future models may incorporate advanced interactive learning techniques, enabling them to update their knowledge base in real-time based on user feedback and new data, ensuring their outputs remain relevant and accurate.</li>
-<li>We might see an increase in systems where domain-specific LLMs work in concert with other AI technologies, such as decision-making algorithms and predictive models, to provide holistic solutions (Agents, like we discussed in the previous section)</li>
-<li>With growing awareness of AI&#39;s societal impact, the development of domain-specific LLMs will likely emphasize ethical considerations, fairness, and transparency, particularly in sensitive areas like healthcare and finance.</li>
+<li>도메인별 LLM은 텍스트뿐만 아니라 이미지, 오디오 및 기타 데이터 유형도 처리하도록 발전하여 다양한 형식에 걸쳐 보다 포괄적인 이해와 상호 작용 기능을 가능하게 할 것입니다.</li>
+<li>미래 모델에는 고급 대화형 학습 기술이 통합되어 사용자 피드백과 새로운 데이터를 기반으로 지식 기반을 실시간으로 업데이트하여 결과가 관련성과 정확성을 유지하도록 보장할 수 있습니다.</li>
+<li>도메인별 LLM이 의사 결정 알고리즘 및 예측 모델과 같은 다른 AI 기술과 함께 작동하여 전체적인 솔루션을 제공하는 시스템이 증가할 수 있습니다(이전 섹션에서 논의한 에이전트).</li>
+<li>AI의 사회적 영향에 대한 인식이 높아지면서 도메인별 LLM 개발은 특히 의료 및 금융과 같은 민감한 분야에서 윤리적 고려, 공정성 및 투명성을 강조할 가능성이 높습니다.</li>
 </ol>
-<h2>New LLM Architectures</h2>
-<h3>Mixture of Experts</h3>
-<p>Mixture of Experts (MoEs) represents a sophisticated architecture within the realm of transformer models, focusing on enhancing model scalability and computational efficiency. Here&#39;s a breakdown of what MoEs are and their significance:</p>
-<p><strong>Definition and Components</strong></p>
+<h2>새로운 LLM 아키텍처</h2>
+<h3>전문가의 혼합</h3>
+<p>MoE(Mixture of Experts)는 모델 확장성과 계산 효율성 향상에 초점을 맞춘 변환기 모델 영역 내의 정교한 아키텍처를 나타냅니다. </p>
+<p><strong>정의 및 구성요소</strong></p>
 <ul>
-<li><strong>MoEs in Transformers</strong>: In transformer models, MoEs replace traditional dense feed-forward network (FFN) layers with sparse MoE layers. These layers comprise a number of &quot;experts,&quot; each being a neural network?봳ypically FFNs, but potentially more complex structures or even hierarchical MoEs.</li>
-<li><strong>Experts</strong>: These are specialized neural networks (often FFNs) that handle specific portions of the data. An MoE layer may contain several experts, such as 8, allowing for a diverse range of data processing capabilities within the same model layer.</li>
-<li><strong>Gate Network/Router</strong>: This is a critical component that directs input tokens to the appropriate experts based on learned parameters. The router decides, for instance, which expert is best suited to process a given input token, thus enabling a dynamic allocation of computational resources.</li>
+<li><strong>변압기의 MoE</strong>: 변압기 모델에서 MoE는 기존의 조밀한 FFN(피드포워드 네트워크) 계층을 희소 MoE 계층으로 대체합니다. </li>
+<li><strong>전문가</strong>: 이는 데이터의 특정 부분을 처리하는 특수 신경망(종종 FFN)입니다. </li>
+<li><strong>게이트 네트워크/라우터</strong>: 학습된 매개변수를 기반으로 적절한 전문가에게 입력 토큰을 전달하는 중요한 구성요소입니다. </li>
 </ul>
-<p><strong>Advantages</strong></p>
+<p><strong>장점</strong></p>
 <ul>
-<li><strong>Efficient Pretraining</strong>: By utilizing MoEs, models can be pretrained with significantly less computational resources, allowing for larger model or dataset scales within the same compute budget as a dense model.</li>
-<li><strong>Faster Inference</strong>: Despite having a large number of parameters, MoEs only use a subset for inference, leading to quicker processing times compared to dense models with a similar parameter count. However, this efficiency comes with the caveat of high memory requirements due to the need to load all parameters into RAM.</li>
+<li><strong>효율적인 사전 학습</strong>: MoE를 활용하면 훨씬 적은 컴퓨팅 리소스로 모델을 사전 학습할 수 있으므로 밀도가 높은 모델과 동일한 컴퓨팅 예산 내에서 더 큰 모델 또는 데이터세트 규모를 허용할 수 있습니다.</li>
+<li><strong>빠른 추론</strong>: 많은 수의 매개변수가 있음에도 불구하고 MoE는 추론을 위해 하위 집합만 사용하므로 매개변수 수가 유사한 밀도 모델에 비해 처리 시간이 더 빠릅니다. </li>
 </ul>
-<p><strong>Challenges</strong></p>
+<p><strong>도전과제</strong></p>
 <ul>
-<li><strong>Training Generalization</strong>: While MoEs are more compute-efficient during pretraining, they have historically faced challenges in generalizing well during fine-tuning, often leading to overfitting.</li>
-<li><strong>Memory Requirements</strong>: The efficient inference process of MoEs requires substantial memory to load the entire model&#39;s parameters, even though only a fraction are actively used during any given inference task.</li>
+<li><strong>교육 일반화</strong>: MoE는 사전 교육 중에 컴퓨팅 효율성이 더 높지만 역사적으로 미세 조정 중에 일반화하는 데 어려움을 겪었으며 종종 과적합으로 이어졌습니다.</li>
+<li><strong>메모리 요구 사항</strong>: MoE의 효율적인 추론 프로세스에는 특정 추론 작업 중에 일부만 적극적으로 사용되더라도 전체 모델의 매개변수를 로드하는 데 상당한 메모리가 필요합니다.</li>
 </ul>
-<p><strong>Implementation Details</strong></p>
+<p><strong>구현 세부정보</strong></p>
 <ul>
-<li><strong>Parameter Sharing</strong>: Not all parameters in a MoE model are exclusive to individual experts. Many are shared across the model, contributing to its efficiency. For instance, in a MoE model like Mixtral 8x7B, the dense equivalent parameter count might be less than the sum total of all experts due to shared components.</li>
-<li><strong>Inference Speed</strong>: The inference speed benefits stem from the model only engaging a subset of experts for each token, effectively reducing the computational load to that of a much smaller model, while maintaining the benefits of a large parameter space.</li>
+<li><strong>매개변수 공유</strong>: MoE 모델의 모든 매개변수가 개별 전문가에게만 국한되는 것은 아닙니다. </li>
+<li><strong>추론 속도</strong>: 추론 속도의 이점은 모델이 각 토큰에 전문가 하위 집합만을 참여시켜 큰 매개변수 공간의 이점을 유지하면서 계산 부하를 훨씬 작은 모델의 부하로 효과적으로 줄이는 데서 비롯됩니다.</li>
 </ul>
-<h3>Mamba Models</h3>
-<p>Mamba is an innovative recurrent neural network architecture that stands out for its efficiency in handling long sequences, potentially up to 1 million elements. This model has garnered attention for being a strong competitor to the well-known Transformer models due to its impressive scalability and faster processing capabilities. Here&#39;s a simplified overview of what Mamba is and why it&#39;s significant:</p>
-<p><strong>Core Features of Mamba:</strong></p>
+<h3>맘바 모델</h3>
+<p>Mamba는 잠재적으로 최대 100만 개의 요소를 포함하는 긴 시퀀스를 처리하는 효율성이 뛰어난 혁신적인 순환 신경망 아키텍처입니다. </p>
+<p><strong>Mamba의 핵심 기능:</strong></p>
 <ul>
-<li><strong>Linear Time Processing</strong>: Unlike Transformers, which suffer from computational and memory costs that scale quadratically with sequence length, Mamba operates in linear time. This makes it much more efficient, especially for very long sequences.</li>
-<li><strong>Selective State Spaces</strong>: Mamba employs selective state spaces, allowing it to manage and process lengthy sequences effectively by focusing on relevant parts of the data at any given time.</li>
+<li><strong>선형 시간 처리</strong>: 시퀀스 길이에 따라 2차적으로 확장되는 계산 및 메모리 비용으로 인해 어려움을 겪는 Transformers와 달리 Mamba는 선형 시간으로 작동합니다. </li>
+<li><strong>선택적 상태 공간</strong>: Mamba는 선택적인 상태 공간을 사용하므로 언제든지 데이터의 관련 부분에 집중하여 긴 시퀀스를 효과적으로 관리하고 처리할 수 있습니다.</li>
 </ul>
-<p>Selective State Spaces (SSS) in the context of models like Mamba refer to a sophisticated approach in neural network architecture that enables the model to efficiently handle and process very long sequences of data. This approach is particularly designed to improve upon the limitations of traditional models like Transformers and Recurrent Neural Networks (RNNs) when dealing with sequences of significant length. Here?셲 a breakdown of the key concepts behind Selective State Spaces:</p>
-<p><strong>Basis of Selective State Spaces:</strong></p>
+<p>Mamba와 같은 모델의 맥락에서 SSS(선택적 상태 공간)는 모델이 매우 긴 데이터 시퀀스를 효율적으로 처리할 수 있도록 하는 신경망 아키텍처의 정교한 접근 방식을 나타냅니다. </p>
+<p><strong>선택적 상태 공간의 기초:</strong></p>
 <ul>
-<li><strong>State Space Models (SSMs)</strong>: At the core, SSS builds upon the concept of State Space Models. SSMs are a class of models used for describing systems that evolve over time, capturing dynamics through state variables that change in response to external inputs. SSMs have been used in various fields, such as signal processing, control systems, and now, in sequence modeling for AI.</li>
-<li><strong>Selectivity Mechanism</strong>: The &quot;selective&quot; aspect introduces a mechanism that allows the model to determine which parts of the input sequence are relevant at any given time. This is achieved through a gating or routing function that dynamically selects which state space (or subset of the model&#39;s parameters) should be activated based on the input. This selective activation helps the model to focus its computational resources on the most pertinent parts of the data, enhancing efficiency.</li>
+<li><strong>상태 공간 모델(SSM)</strong>: SSS의 핵심은 상태 공간 모델 개념을 기반으로 합니다. </li>
+<li><strong>선택성 메커니즘</strong>: '선택적' 측면은 입력 시퀀스의 어느 부분이 주어진 시간에 관련되는지 모델이 결정할 수 있도록 하는 메커니즘을 도입합니다. </li>
 </ul>
-<p><strong>Advantages Over Traditional Models:</strong></p>
+<p><strong>기존 모델에 비해 장점:</strong></p>
 <ul>
-<li><strong>Efficiency with Long Sequences</strong>: Mamba&#39;s architecture is optimized for speed, offering up to five times faster throughput than Transformers while handling long sequences more effectively.</li>
-<li><strong>Versatility</strong>: While its prowess is evident in text-based applications like chatbots and summarization, Mamba also shows potential in other areas requiring the analysis of long sequences, such as audio generation, genomics, and time series data.</li>
-<li><strong>Innovative Design</strong>: The model builds on state space models (S4) but introduces a novel approach by incorporating selective structured state space sequence models, which enhance its processing capabilities.</li>
+<li><strong>긴 시퀀스의 효율성</strong>: Mamba의 아키텍처는 속도에 최적화되어 긴 시퀀스를 더 효과적으로 처리하는 동시에 Transformer보다 최대 5배 빠른 처리량을 제공합니다.</li>
+<li><strong>다용성</strong>: Mamba는 챗봇 및 요약과 같은 텍스트 기반 애플리케이션에서 탁월한 성능을 발휘하지만 오디오 생성, 유전체학, 시계열 데이터 등 긴 시퀀스 분석이 필요한 다른 영역에서도 잠재력을 보여줍니다.</li>
+<li><strong>혁신적인 디자인</strong>: 이 모델은 상태 공간 모델(S4)을 기반으로 하지만 처리 능력을 향상시키는 선택적 구조화 상태 공간 시퀀스 모델을 통합하여 새로운 접근 방식을 도입합니다.</li>
 </ul>
-<p>Mamba represents a significant advancement in sequence modeling, offering a more efficient alternative to Transformers for tasks involving long sequences. Its ability to scale linearly with sequence length without a corresponding increase in computational and memory requirements makes it a promising tool for a wide range of applications beyond just natural language processing.</p>
-<p>In essence, Mamba is redefining what&#39;s possible in AI sequence modeling, combining the best of RNNs and state space models with innovative techniques to achieve high efficiency and performance across various domains.</p>
-<h3><strong>RWKV: Reinventing RNNs for the Transformer Era</strong></h3>
-<p>The RWKV architecture represents a novel approach in the realm of neural network models, integrating the strengths of Recurrent Neural Networks (RNNs) with the transformative capabilities of transformers. This hybrid architecture, spearheaded by Bo Peng and supported by a vibrant community, aims to address specific challenges in processing long sequences of data, making it particularly intriguing for various applications in Natural Language Processing (NLP) and beyond.</p>
-<p><strong>Key Features of RWKV:</strong></p>
+<p>Mamba는 시퀀스 모델링의 중요한 발전을 나타내며, 긴 시퀀스와 관련된 작업에 대해 Transformer에 대한 보다 효율적인 대안을 제공합니다. </p>
+<p>본질적으로 Mamba는 다양한 영역에서 높은 효율성과 성능을 달성하기 위해 최고의 RNN과 상태 공간 모델을 혁신적인 기술과 결합하여 AI 시퀀스 모델링에서 가능한 것을 재정의하고 있습니다.</p>
+<h3><strong>RWKV: 트랜스포머 시대를 위한 RNN 재창조</strong></h3>
+<p>RWKV 아키텍처는 RNN(Recurrent Neural Networks)의 장점과 변환기의 혁신적인 기능을 통합하여 신경망 모델 영역의 새로운 접근 방식을 나타냅니다. </p>
+<p><strong>RWKV의 주요 기능:</strong></p>
 <ul>
-<li><strong>Efficiency in Handling Long Sequences</strong>: Unlike traditional transformers that struggle with quadratic computational and memory costs as sequence lengths increase, RWKV is designed to scale linearly. This makes it adept at efficiently processing sequences that are significantly longer than those manageable by conventional models.</li>
-<li><strong>RNN and Transformer Hybrid</strong>: RWKV combines RNNs&#39; ability to handle sequential data with the transformer&#39;s powerful self-attention mechanism. This fusion aims to leverage the best of both worlds: the sequential data processing capability of RNNs and the context-aware, parallel processing strengths of transformers.</li>
-<li><strong>Innovative Architecture</strong>: RWKV introduces a simplified and optimized design that allows it to operate effectively as an RNN. It incorporates additional features such as TokenShift and SmallInitEmb to enhance performance, enabling it to achieve results comparable to those of GPT models.</li>
-<li><strong>Scalability and Performance</strong>: With the infrastructure to support training models up to 14B parameters and optimizations to overcome issues like numerical instability, RWKV presents a scalable and robust framework for developing advanced AI models.</li>
+<li><strong>긴 시퀀스 처리의 효율성</strong>: 시퀀스 길이가 증가함에 따라 2차 계산 및 메모리 비용으로 어려움을 겪는 기존 변환기와 달리 RWKV는 선형적으로 확장되도록 설계되었습니다. </li>
+<li><strong>RNN 및 Transformer Hybrid</strong>: RWKV는 순차 데이터를 처리하는 RNN의 기능과 Transformer의 강력한 self-attention 메커니즘을 결합합니다. </li>
+<li><strong>혁신적인 아키텍처</strong>: RWKV는 RNN으로 효과적으로 작동할 수 있도록 단순화되고 최적화된 디자인을 도입합니다. </li>
+<li><strong>확장성 및 성능</strong>: RWKV는 수치 불안정성과 같은 문제를 극복하기 위해 최대 14B 매개변수의 학습 모델과 최적화를 지원하는 인프라를 통해 고급 AI 모델 개발을 위한 확장 가능하고 강력한 프레임워크를 제공합니다.</li>
 </ul>
-<p><strong>Advantages over Traditional Models:</strong></p>
+<p><strong>기존 모델에 비해 장점:</strong></p>
 <ul>
-<li><strong>Handling Very Long Contexts</strong>: RWKV can utilize contexts of thousands of tokens and beyond, surpassing traditional RNN limitations and enabling more comprehensive understanding and generation of text.</li>
-<li><strong>Parallelized Training</strong>: Unlike conventional RNNs that are challenging to parallelize, RWKV&#39;s architecture allows for faster training, akin to &quot;linearized GPT,&quot; providing both speed and efficiency.</li>
-<li><strong>Memory and Speed Efficiency</strong>: RWKV models can be trained and run with long contexts without the significant RAM requirements of large transformers, offering a balance between computational resource use and model performance.</li>
+<li><strong>매우 긴 컨텍스트 처리</strong>: RWKV는 수천 개 이상의 토큰 컨텍스트를 활용하여 기존 RNN 제한을 뛰어넘고 텍스트를 보다 포괄적으로 이해하고 생성할 수 있습니다.</li>
+<li><strong>병렬화된 훈련</strong>: 병렬화가 어려운 기존 RNN과 달리 RWKV의 아키텍처는 "선형화된 GPT"와 유사하게 더 빠른 훈련을 허용하여 속도와 효율성을 모두 제공합니다.</li>
+<li><strong>메모리 및 속도 효율성</strong>: RWKV 모델은 대형 변환기의 상당한 RAM 요구 사항 없이 긴 컨텍스트로 학습 및 실행될 수 있으므로 계산 리소스 사용과 모델 성능 간의 균형을 제공합니다.</li>
 </ul>
-<p><strong>Applications and Integration:</strong></p>
-<p>RWKV&#39;s architecture makes it suitable for a wide range of applications, from pure language models to multi-modal tasks. Its integration into the Hugging Face Transformers library facilitates easy access and utilization by the AI community, supporting a variety of tasks including text generation, chatbots, and more.</p>
-<p>In summary, RWKV represents an exciting development in AI research, combining RNNs&#39; sequential processing advantages with the contextual awareness and efficiency of transformers. Its design addresses key challenges in long sequence modeling, offering a promising tool for advancing NLP and related fields.</p>
-<h2>Read/Watch These Resources (Optional)</h2>
+<p><strong>애플리케이션 및 통합:</strong></p>
+<p>RWKV의 아키텍처는 순수 언어 모델부터 다중 모드 작업까지 광범위한 애플리케이션에 적합합니다. </p>
+<p>요약하면, RWKV는 RNN의 순차 처리 장점과 변환기의 상황 인식 및 효율성을 결합하여 AI 연구의 흥미로운 발전을 나타냅니다. </p>
+<h2>다음 리소스 읽기/보기(선택 사항)</h2>
 <ol>
-<li>LLM Agents: <a href="https://www.promptingguide.ai/research/llm-agents">https://www.promptingguide.ai/research/llm-agents</a></li>
-<li>LLM Powered Autonomous Agents: <a href="https://lilianweng.github.io/posts/2023-06-23-agent/">https://lilianweng.github.io/posts/2023-06-23-agent/</a></li>
-<li>Emerging Trends in LLM Architecture- <a href="https://medium.com/@bijit211987/emerging-trends-in-llm-architecture-a8897d9d987b">https://medium.com/@bijit211987/emerging-trends-in-llm-architecture-a8897d9d987b</a></li>
-<li>Four LLM trends since ChatGPT and their implications for AI builders: <a href="https://towardsdatascience.com/four-llm-trends-since-chatgpt-and-their-implications-for-ai-builders-a140329fc0d2">https://towardsdatascience.com/four-llm-trends-since-chatgpt-and-their-implications-for-ai-builders-a140329fc0d2</a></li>
+<li>LLM 에이전트: <a href="https://www.promptingguide.ai/research/llm-agents">https://www.promptingguide.ai/research/llm-agents</a></li>
+<li>LLM 기반 자율 에이전트: <a href="https://lilianweng.github.io/posts/2023-06-23-agent/">https://lilianweng.github.io/posts/2023-06-23-agent/</a></li>
+<li>LLM 아키텍처의 새로운 동향 - <a href="https://medium.com/@bijit211987/emerging-trends-in-llm-architecture-a8897d9d987b">https://medium.com/@bijit211987/emerging-trends-in-llm-architecture-a8897d9d987b</a></li>
+<li>ChatGPT 이후의 4가지 LLM 동향과 AI 빌더에 대한 영향: <a </li>
 </ol>
-<h2>Read These Papers (Optional)</h2>
+<h2>이 논문 읽기(선택 사항)</h2>
 <ol>
 <li><a href="https://arxiv.org/abs/2401.13601">https://arxiv.org/abs/2401.13601</a></li>
 <li><a href="https://arxiv.org/abs/2312.00752">https://arxiv.org/abs/2312.00752</a></li>

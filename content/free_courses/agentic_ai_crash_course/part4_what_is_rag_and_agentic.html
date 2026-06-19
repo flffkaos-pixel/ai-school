@@ -45,140 +45,125 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Part 4: Retrieval-Augmented Generation (RAG) and the Rise of Agentic RAG</h1>
-<p>In the previous part, we looked at how tools help AI agents interact with real-world systems ??send emails, file tickets, trigger APIs.</p>
-<p>But what if the model doesn?셳 need to act?<br>What if it just needs access to the right information?</p>
-<p>That?셲 the case in many enterprise settings:  </p>
+<h1>4부: 검색 증강 생성(RAG) 및 에이전트 RAG의 등장</h1>
+<p>이전 부분에서는 AI 에이전트가 이메일 전송, 티켓 파일 전송, API 트리거 등 실제 시스템과 상호 작용하는 데 도구가 어떻게 도움이 되는지 살펴보았습니다.</p>
+<p>하지만 모델이 조치를 취해야 합니까?<br>올바른 정보에 액세스해야 한다면 어떻게 될까요?</p>
+<p>그게?셲 많은 기업 환경의 경우입니다.</p>
 <ul>
-<li>Internal docs spread across teams  </li>
-<li>Policy PDFs no one remembers writing  </li>
-<li>Customer insights buried in CRM notes  </li>
-<li>Dashboards and emails with useful context</li>
+<li>내부 문서가 팀 전체에 분산됨</li>
+<li>아무도 쓴 것을 기억하지 못하는 정책 PDF</li>
+<li>CRM 노트에 묻혀 있는 고객 통찰력</li>
+<li>유용한 컨텍스트가 포함된 대시보드 및 이메일</li>
 </ul>
-<p>Tools won?셳 help here. The model needs to think with your data.<br>That?셲 where <strong>RAG</strong> comes in.</p>
+<p>도구가 이겼나요?셳 여기서 도와주세요. </p>
 <hr>
-<h2>What Is RAG?</h2>
-<p>RAG stands for <strong>Retrieval-Augmented Generation</strong>.<br>It?셲 a system design where the model retrieves relevant information from your own data ??just before generating a response.</p>
-<p>Instead of relying only on what the model was trained on, RAG gives it access to <strong>live, contextual information</strong> from your enterprise systems. This makes answers more accurate, grounded, and auditable.</p>
-<p>You might be wondering:  </p>
+<h2>RAG 란 무엇입니까?</h2>
+<p>RAG는 ​​<strong>Retrieval-Augmented Generation</strong>을 의미합니다.<br>그것은 응답을 생성하기 직전에 모델이 자신의 데이터에서 관련 정보를 검색하는 시스템 설계입니다.</p>
+<p>RAG는 ​​모델이 훈련된 내용에만 의존하는 대신 기업 시스템의 <strong>실시간 상황 정보</strong>에 대한 액세스를 제공합니다. </p>
+<p>당신은 궁금할 것입니다:</p>
 <blockquote>
-<p>?쏻hy not just give all the data to the model directly???/p>
-</blockquote>
-<p>The problem is:  </p>
+<p>?쏻모든 데이터를 모델에 직접 제공하는 것은 아닌가요???/p>
+</p>
 <ul>
-<li>Models can only process a limited amount of text at a time.  </li>
-<li>Even within that limit, they struggle when too much irrelevant or noisy information is included.  </li>
-<li>This makes responses less focused and more error-prone.</li>
+<li>모델은 한 번에 제한된 양의 텍스트만 처리할 수 있습니다.</li>
+<li>그 한도 내에서도 관련성이 없거나 시끄러운 정보가 너무 많이 포함되면 어려움을 겪습니다.</li>
+<li>이로 인해 응답의 집중도가 떨어지고 오류가 발생하기 쉽습니다.</li>
 </ul>
 <hr>
-<h2>The RAG Process (at a Glance)</h2>
-<img width="1024" height="356" alt="image" src="https://github.com/user-attachments/assets/2e7c2384-a564-45c1-9a08-57cfb02ee435" /><p>Here?셲 what it looks like in practice:</p>
+<h2>RAG 프로세스(한눈에 보기)</h2>
+<img width="1024" height="356" alt="image" src="https://github.com/user-attachments/assets/2e7c2384-a564-45c1-9a08-57cfb02ee435" /><p>여기요?셲 실제 모습은 다음과 같습니다.</p>
 <ol>
-<li><strong>Data</strong> ??Your internal content (PDFs, emails, notes, wikis)  </li>
-<li><strong>Chunking</strong> ??Broken into smaller parts for better indexing  </li>
-<li><strong>Prompt + Context</strong> ??At query time, the system retrieves relevant pieces (retrieval phase)  </li>
-<li><strong>LLM</strong> ??The model uses that context to generate a response  </li>
-<li><strong>Output</strong> ??The result is based on your data, not just what the model ?쐊nows??/li>
-</ol>
-<p><em>Image Source: <a href="https://hyperight.com/7-practical-applications-of-rag-models-and-their-impact-on-society/">https://hyperight.com/7-practical-applications-of-rag-models-and-their-impact-on-society/</a></em></p>
-<hr>
-<h2>Why RAG Is Everywhere in Enterprise AI</h2>
-<p>You?셪l often hear this number:  </p>
+<li><strong>데이터</strong> ??내부 콘텐츠(PDF, 이메일, 메모, 위키)</li>
+<li><strong>청킹</strong> ??더 나은 색인 생성을 위해 더 작은 부분으로 나뉩니다.</li>
+<li><strong>프롬프트 + 컨텍스트</strong> ??쿼리 시 시스템이 관련 부분을 검색합니다(검색 단계).</li>
+<li><strong>LLM</strong> ??모델은 해당 컨텍스트를 사용하여 응답을 생성합니다.</li>
+<li><strong>출력</strong> ??결과는 모델 ?쐊현재??/li>가 아닌 데이터를 기반으로 합니다.
+</li>
+<li>모델 미세 조정은 비용이 많이 들고 느립니다.</li>
+<li>검색이 더 빠르고 안전하며 제어하기 쉽습니다.</li>
+<li>LLM 시스템에 구조와 추적성을 제공합니다.</li>
+<li>비정형(문서) 데이터와 반정형(대시보드, 메모) 데이터 모두에서 작동합니다.</li>
+</ul>
+<p>따라서 질문하는 대신:</p>
 <blockquote>
-<p>From what I?셶e seen across clients and systems, <strong>70% of enterprise GenAI use-cases use RAG</strong>.</p>
-</blockquote>
-<p>Why RAG is invaluable to enterprises:  </p>
+<p>?쏦우리가 아는 모든 것을 모델에게 가르쳐야 할까요???br>대부분의 팀에서는 다음과 같이 묻습니다.<br>?쏦이제 우리가 이미 가지고 있는 것을 모델이 가져오도록 해야 합니까???/p>
+</p>
+<p>RAG의 핵심은 간단합니다.</p>
 <ul>
-<li>Enterprise knowledge changes frequently  </li>
-<li>Fine-tuning models is expensive and slow  </li>
-<li>Retrieval is faster, safer, and easier to control  </li>
-<li>It brings structure and traceability into LLM systems  </li>
-<li>It works on both unstructured (docs) and semi-structured (dashboards, notes) data</li>
+<li>LLM을 수강하세요</li>
+<li>생성 직전에 검색된 추가 정보를 제공합니다.</li>
 </ul>
-<p>So instead of asking:  </p>
+<p>이를 통해 모델이 더 정확하고 상황을 더 잘 인식하며 기억된 사실에 덜 의존하게 됩니다.<br>이 기능은 특히 <strong>Q&A, 요약, 정책 조회</strong>와 같은 작업에 유용하며 특히 <strong>법률, 재무, 지원</strong>과 같은 데이터가 풍부한 환경에서 더욱 유용합니다.</p>
+<p>2024년이 <strong>?쐔RAG의 해라고 불리는 것도 당연합니다.??/strong></p>
+<hr>
+<h2>하지만 이제 우리는 에이전트 시대로 접어들고 있습니다.</h2>
+<p>RAG는 ​​사라지고 있지만 진화하고 있습니다.</p>
+<p>오늘날의 시스템은 그렇지 않습니다.<br>한 번만 검색하면 답변이 생성됩니다.<br><strong>에이전트 워크플로</strong>에서 검색은 더 광범위하고 동적 추론 루프의 일부가 됩니다.</p>
+<p>에이전트는 한 번이 아니라 작업 전반에 걸쳐 필요한 만큼 여러 번 계획하고 검색하고 반영하고 다시 검색합니다.</p>
+<p>그게?셲 <strong>Agentic RAG</strong>가 들어오는 곳이죠.</p>
+<hr>
+<h2>Agentic RAG란 무엇입니까?</h2>
+<img width="1456" height="971" alt="image" src="https://github.com/user-attachments/assets/8a7347b0-2ead-4d56-9f33-ef57667d0f00" /><p>전통적인 RAG:</p>
+<ul>
+<li>하나의 쿼리</li>
+<li>한 번의 검색</li>
+<li>하나의 응답</li>
+</ul>
+<p>다음과 같은 독립형 질문에 적합합니다.</p>
 <blockquote>
-<p>?쏦ow do I teach the model everything we know???br>Most teams ask:<br>?쏦ow do I let the model fetch what we already have???/p>
-</blockquote>
+<p>?쏻모?셲 PTO 롤오버에 대한 당사 정책???/p>
+</p>
 <hr>
-<h2>RAG = LLM + Additional Retrieved Data</h2>
-<p>RAG became the dominant pattern in 2024 for a reason:<br>It bridged the gap between general-purpose LLMs and private, task-specific enterprise knowledge.</p>
-<p>At its core, RAG is simple:  </p>
+<p><strong>예:</strong><br>예를 들어 영업팀을 위한 거래 도우미를 구축한다고 가정해 보겠습니다.<br>단일 작업에서 상담원은 다음을 수행해야 할 수 있습니다.</p>
 <ul>
-<li>You take an LLM  </li>
-<li>You feed it additional, retrieved information right before generation</li>
-</ul>
-<p>This makes the model more accurate, more context-aware, and less reliant on memorized facts.<br>It?셲 especially useful for tasks like <strong>Q&amp;A, summarization, and policy lookups</strong> ??particularly in data-rich environments like <strong>legal, finance, and support</strong>.</p>
-<p>No wonder 2024 was dubbed <strong>?쐔he year of RAG.??/strong></p>
-<hr>
-<h2>But Now We?셱e Moving Into the Agentic Era</h2>
-<p>RAG isn?셳 going away, but it?셲 evolving.</p>
-<p>Today?셲 systems don?셳 just retrieve once and generate an answer.<br>In <strong>agentic workflows</strong>, retrieval becomes part of a broader, dynamic reasoning loop.</p>
-<p>Agents plan, retrieve, reflect, and retrieve again ??not just once, but as many times as needed throughout a task.</p>
-<p>That?셲 where <strong>Agentic RAG</strong> comes in.</p>
-<hr>
-<h2>What Is Agentic RAG?</h2>
-<img width="1456" height="971" alt="image" src="https://github.com/user-attachments/assets/8a7347b0-2ead-4d56-9f33-ef57667d0f00" /><p>Traditional RAG:  </p>
-<ul>
-<li>One query  </li>
-<li>One retrieval  </li>
-<li>One response</li>
-</ul>
-<p>It works well for standalone questions like:  </p>
-<blockquote>
-<p>?쏻hat?셲 our policy on PTO rollover???/p>
-</blockquote>
-<p>But most real-world enterprise workflows aren?셳 one-shot.</p>
-<hr>
-<p><strong>Example:</strong><br>Let?셲 say you?셱e building a deal assistant for your sales team.<br>In a single task, the agent may need to:  </p>
-<ul>
-<li>Pull the customer?셲 CRM history  </li>
-<li>Retrieve current pricing for their segment  </li>
-<li>Look up regional legal terms  </li>
-<li>Reference past contract clauses  </li>
-<li>Generate a custom proposal  </li>
-<li>Double-check facts  </li>
-<li>Log the interaction</li>
+<li>고객을 끌어당긴다?셲 CRM 이력</li>
+<li>해당 세그먼트의 현재 가격 검색</li>
+<li>지역별 법률 용어를 찾아보세요</li>
+<li>과거 계약 조항 참조</li>
+<li>맞춤형 제안 생성</li>
+<li>사실을 다시 확인하세요</li>
+<li>상호작용 기록</li>
 </ul>
 <hr>
-<p>In <strong>agentic systems</strong>, retrieval isn?셳 just a setup step.<br>It?셲 how the agent:  </p>
+<p><strong>에이전트 시스템</strong>에서 검색은 ?셳 단지 설정 단계일 뿐입니다.<br>?셲 에이전트가 수행하는 방법은 다음과 같습니다.</p>
 <ul>
-<li>Gathers missing context  </li>
-<li>Checks its assumptions  </li>
-<li>Adapts mid-task</li>
+<li>누락된 컨텍스트 수집</li>
+<li>가정을 확인합니다.</li>
+<li>작업 중간에 적응</li>
 </ul>
-<p>That means RAG becomes:  </p>
+<p>이는 RAG가 다음과 같이 됨을 의미합니다.</p>
 <ul>
-<li>A tool for in-task learning  </li>
-<li>A method for reducing hallucinations  </li>
-<li>A mechanism for handling dynamic workflows  </li>
-<li>A bridge between reasoning and grounded enterprise knowledge</li>
+<li>과제 내 학습을 위한 도구</li>
+<li>환각을 줄이는 방법</li>
+<li>동적 작업흐름을 처리하기 위한 메커니즘</li>
+<li>추론과 기초적인 기업 지식 사이의 연결</li>
 </ul>
-<p>Agentic RAG turns retrieval into a <strong>first-class decision-making loop</strong> by using retrieval as part of the model?셲 thinking process.</p>
+<p>Agentic RAG는 검색을 모델 사고 과정의 일부로 사용하여 검색을 <strong>최고 수준의 의사 결정 루프</strong>로 전환합니다.</p>
 <hr>
-<h2>RAG as a Tool</h2>
-<p>If you think about it, RAG is also a kind of <strong>tool</strong>.<br>But instead of triggering an action, it helps the agent pull the right information from a large volume of data.</p>
-<p>In practice, agents often combine:  </p>
+<h2>도구로서의 RAG</h2>
+<p>생각해 보면 RAG도 일종의 <strong>도구</strong>입니다.<br>그러나 작업을 실행하는 대신 에이전트가 대용량 데이터에서 올바른 정보를 가져오는 데 도움이 됩니다.</p>
+<p>실제로 상담원은 다음을 결합하는 경우가 많습니다.</p>
 <ul>
-<li><strong>RAG</strong>  </li>
-<li><strong>Tools</strong>  </li>
-<li><strong>Planning</strong></li>
+<li><strong>래그</strong></li>
+<li><strong>도구</strong></li>
+<li><strong>계획</strong></li>
 </ul>
-<p>?쫡o complete complex tasks <strong>reliably and contextually</strong>.</p>
+<p>?쫡복잡한 작업을 <strong>안정적이고 상황에 맞게</strong> 완료합니다.</p>
 <hr>
-<h2>A Note on Scope</h2>
-<p>RAG is a deep and rapidly evolving space ??honestly, it could be its own course.<br>If you&#39;re curious to explore further:  </p>
+<h2>범위에 대한 참고 사항</h2>
+<p>RAG는 ​​깊고 빠르게 발전하는 공간입니다. 솔직히 말해서 그 자체가 하나의 과정일 수도 있습니다.<br>더 자세히 알아보고 싶다면 다음을 참조하세요.</p>
 <ul>
-<li>I?셶e curated a <strong>GitHub repo</strong> of key RAG papers that covers the landscape well  </li>
-<li>I have a <strong>101 guide on Agentic RAG</strong> too</li>
+<li>나는 풍경을 잘 다루는 주요 RAG 논문의 <strong>GitHub 저장소</strong>를 선별했습니다.</li>
+<li><strong>Agentic RAG에 대한 101 가이드</strong>도 있습니다</li>
 </ul>
-<p>That said, not every RAG optimization is necessary for every use-case.<br>In our 6-week course, we focus on helping you understand <strong>when and where</strong> each technique makes sense, rather than applying them blindly.</p>
+<p>하지만 모든 사용 사례에 모든 RAG 최적화가 필요한 것은 아닙니다.<br>6주 과정에서는 각 기술을 맹목적으로 적용하기보다는 각 기술이 <strong>언제 어디서</strong> 적합한지 이해하는 데 중점을 둡니다.</p>
 <hr>
-<p>In the next part, we?셪l dive into one of the most talked-about concepts lately: <strong>Model Context Protocol (MCP)</strong>.  </p>
-<p>To get the most out of it, we?셝 recommend revisiting <strong>Part 3 on tools</strong>, since MCP builds directly on that concept!</p>
+<p>다음 부분에서는 최근 가장 많이 회자되는 개념 중 하나인 <strong>모델 컨텍스트 프로토콜(MCP)</strong>에 대해 살펴보겠습니다.</p>
+<p>최대한 활용하려면 <strong>도구에 관한 3부</strong>를 다시 방문하는 것이 좋습니다. MCP는 해당 개념을 직접 기반으로 구축되기 때문입니다!</p>
 
 </div>
 <footer>

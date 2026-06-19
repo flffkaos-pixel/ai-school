@@ -45,783 +45,781 @@
 <a href="../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>:star2: Most Impactful RAG Papers</h1>
-<h3>(March 2023 to May 2026)</h3>
-<p>The concept of Retrieval-Augmented Generation (RAG) was introduced in 2021 through a <a href="https://arxiv.org/abs/2005.11401">seminal paper</a>. Since then, there has been significant growth in RAG research, particularly in the past year, driven by the emergence of numerous LLMs. RAG has become one of the most widely used applications of LLMs. The below table provides summaries of top papers published between March 2023 and May 2026, covering various topics related to RAG research. These topics are:</p>
+<h1>:star2: 가장 영향력 있는 RAG 논문</h1>
+<h3>(2023년 3월 ~ 2026년 5월)</h3>
+<p>검색 증강 생성(RAG) 개념은 2021년 <a href="https://arxiv.org/abs/2005.11401">세미널 논문</a>을 통해 소개되었습니다. </p>
 <ol>
-<li><strong>RAG Survey</strong>: Comprehensive overview of existing methods in RAG.</li>
-<li><strong>RAG Enhancement (Advanced Techniques)</strong>: Proposals for improving the efficiency and effectiveness of the RAG pipeline.</li>
-<li><strong>Retrieval Improvement</strong>: Techniques focused on enhancing the retrieval component of RAG.</li>
-<li><strong>Comparison Papers</strong>: Studies comparing RAG with other methods or approaches.</li>
-<li><strong>Domain-Specific RAG</strong>: Adaptation of RAG techniques for specific domains or applications.</li>
-<li><strong>RAG Evaluation</strong>: Assessment of the performance and effectiveness of RAG models.</li>
-<li><strong>RAG Embeddings</strong>: Methods for developing better embedding techniques optimized for RAG or retrieval in RAG.</li>
-<li><strong>Input Processing for RAG</strong>:Techniques for preprocessing input data to optimize the performance and effectiveness of RAG models.</li>
-<li><strong>RAG Framework</strong>: An open-sourced tool/framework that can be used to implement RAG pipelines</li>
+<li><strong>RAG 설문조사</strong>: RAG의 기존 방법에 대한 포괄적인 개요입니다.</li>
+<li><strong>RAG 강화(고급 기술)</strong>: RAG 파이프라인의 효율성과 효과성을 향상하기 위한 제안입니다.</li>
+<li><strong>검색 개선</strong>: RAG의 검색 구성 요소를 향상시키는 데 중점을 둔 기술입니다.</li>
+<li><strong>비교 논문</strong>: RAG를 다른 방법이나 접근 방식과 비교하는 연구입니다.</li>
+<li><strong>도메인별 RAG</strong>: 특정 도메인이나 애플리케이션에 RAG 기술을 적용합니다.</li>
+<li><strong>RAG 평가</strong>: RAG 모델의 성능 및 효과를 평가합니다.</li>
+<li><strong>RAG 임베딩</strong>: RAG 또는 RAG 검색에 최적화된 더 나은 임베딩 기술을 개발하기 위한 방법입니다.</li>
+<li><strong>RAG용 입력 처리</strong>: RAG 모델의 성능과 효율성을 최적화하기 위해 입력 데이터를 사전 처리하는 기술입니다.</li>
+<li><strong>RAG 프레임워크</strong>: RAG 파이프라인을 구현하는 데 사용할 수 있는 오픈 소스 도구/프레임워크</li>
 </ol>
-<p>This table will continue to be updated regularly, so stay tuned for more updates!</p>
+<p>이 표는 계속해서 정기적으로 업데이트될 예정이므로 계속해서 업데이트를 기다려 주세요!</p>
 <table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Description</th>
-<th>Tags</th>
-<th>Month</th>
+<thead><tr>
+</th>
+<th>설명</th>
+<th>태그</th>
+<th>월</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><a href="https://arxiv.org/abs/2605.06285">LatentRAG: Latent Reasoning and Retrieval for Efficient Agentic RAG</a></td>
-<td>This paper proposes LatentRAG, which shifts both reasoning and retrieval in agentic RAG from discrete language space to continuous latent space, producing latent tokens for thoughts and subqueries directly from hidden states in a single forward pass. The approach addresses the substantial latency overhead of multi-step agentic RAG, where autoregressive generation of intermediate thoughts and subqueries dominates inference cost. LatentRAG achieves performance comparable to explicit agentic RAG methods on multi-hop question answering benchmarks while reducing inference latency by approximately 90%, demonstrating that latent-space coordination can match the quality of language-mediated agent loops at a fraction of the cost.</td>
-<td>RAG Enhancement</td>
-<td>May 2026</td>
+<td><a href="https://arxiv.org/abs/2605.06285">LatentRAG: 효율적인 에이전트 RAG를 추출 및 검색</a></td>
+<td>이 논문에서는 Agentic RAG의 추론과 검색을 이산 언어 공간에서 연속 잠재 공간으로 전환하고 단일 전달 패스에서 숨겨진 상태에서 직접 생각과 하위 쿼리에 대한 잠재 토큰을 생성하는 LatentRAG를 제안합니다. </td>
+<td>RAG 향상</td>
+<td>2026년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2605.05242">Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction</a></td>
-<td>This paper proposes Direct Corpus Interaction (DCI), where agents search raw text directly using general-purpose terminal tools such as grep, file reads, and shell commands, instead of relying on traditional embedding-based retrieval systems. The approach removes the embedding model, vector index, top-k retrieval, and retrieval APIs from the agentic search pipeline entirely, demonstrating that the best retriever for agentic search may be no retriever at all. DCI substantially outperforms semantic and sparse retrieval baselines across BRIGHT, BEIR, and multi-hop question answering benchmarks, suggesting a fundamental rethinking of retrieval architectures for agent-driven search systems.</td>
-<td>Retrieval Improvement</td>
-<td>May 2026</td>
+<td><a href="https://arxiv.org/abs/2605.05242">의미론적 결합을 넘어: 직접 코퍼스 결합을 강화하는 에이전트 검색 재고</a></td>
+<td>본 논문에서는 에이전트가 전통적인 임베딩 기반 검색 시스템에 의존하는 대신 grep, 파일 읽기, 셸 명령과 같은 범용 터미널 도구를 사용하여 원시 텍스트를 직접 검색하는 DCI(Direct Corpus Interaction)를 제안합니다. </td>
+<td>검색 개선</td>
+<td>2026년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2604.17866">Latent Abstraction for Retrieval-Augmented Generation</a></td>
-<td>This paper introduces a latent abstraction framework for RAG that compresses multi-hop retrieval into compact latent representations rather than passing full retrieved chunks through the reasoning pipeline. The method is evaluated against agentic and iterative RAG baselines on multi-hop question answering tasks, achieving comparable accuracy at reduced context length and inference cost. The approach is particularly relevant for long-horizon retrieval scenarios where context budget is a binding constraint.</td>
-<td>RAG Enhancement</td>
-<td>April 2026</td>
+<td><a href="https://arxiv.org/abs/2604.17866">서비스를 생성하여 추가할 수 있습니다.</a></td>
+<td>이 문서에서는 추론 파이프라인을 통해 전체 검색된 청크를 전달하는 대신 다중 홉 검색을 압축된 잠재 표현으로 압축하는 RAG용 잠재 추상화 프레임워크를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2026년 4월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2604.17948">RAVEN: Retrieval-Augmented Vulnerability Exploration Network for Memory Corruption Analysis in User Code and Binary Programs</a></td>
-<td>This paper introduces RAVEN, an agentic retrieval-augmented system for memory corruption vulnerability research that operates in four phases: Exploration, Analysis, Report Generation, and Report Evaluation. The system combines flat 2000-character chunking with LLM-generated contextual summaries to handle large code corpora across both source and binary programs. RAVEN demonstrates the applicability of agentic RAG architectures to security workflows that require iterative exploration, structured reasoning over heterogeneous artifacts, and audit-ready reporting.</td>
-<td>Domain-Specific RAG</td>
-<td>April 2026</td>
+<td><a href="https://arxiv.org/abs/2604.17948">RAVEN: 사용자 코드 및 바이너리 프로그램의 메모리 손상 분석을 검색 연결 탐색 서비스</a></td>
+<td>본 논문에서는 탐색, 분석, 보고서 생성, 보고서 평가의 4단계로 작동하는 메모리 손상 취약성 연구를 위한 에이전트 검색 증강 시스템인 RAVEN을 소개합니다. </td>
+<td>도메인별 RAG</td>
+<td>2026년 4월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2604.11419">Beyond RAG for Cyber Threat Intelligence: A Systematic Evaluation of Graph-Based and Agentic Retrieval</a></td>
-<td>This paper presents a systematic evaluation of four RAG architectures (vector RAG, graph RAG, hybrid graph-text RAG, and agentic graph variants that repair failed queries) on cyber threat intelligence corpora. The hybrid graph-text approach improves answer quality by up to 35% on multi-hop questions compared to vector RAG, with agentic graph repair providing additional gains on complex queries. While framed in the cybersecurity domain, the comparative findings on graph versus vector retrieval and the value of agentic repair generalize to other multi-hop, entity-rich enterprise corpora.</td>
-<td>Domain-Specific RAG</td>
-<td>April 2026</td>
+<td><a href="https://arxiv.org/abs/2604.11419">사이버 공간 인텔리전스를 기반으로 하는 RAG를 넘어: 그래프 기반 및 에이전트 검색에 대한 평가</a></td>
+<td>이 문서에서는 사이버 위협 인텔리전스 코퍼스에서 4가지 RAG 아키텍처(벡터 RAG, 그래프 RAG, 하이브리드 그래프-텍스트 RAG 및 실패한 쿼리를 복구하는 에이전트 그래프 변형)에 대한 체계적인 평가를 제시합니다. </td>
+<td>도메인별 RAG</td>
+<td>2026년 4월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2604.00865">Doctor-RAG: Failure-Aware Repair for Agentic Retrieval-Augmented Generation</a></td>
-<td>This paper introduces Doctor-RAG, a failure-aware repair mechanism for agentic RAG systems performing multi-hop question answering. Rather than restarting the agent loop on retrieval failure, Doctor-RAG detects broken retrieval-reasoning trajectories and applies targeted repairs to recover coherent reasoning chains, reducing redundant retrieval calls while improving answer quality. The approach complements corrective and adaptive RAG methods by treating failures as repairable states within the agent loop rather than terminal conditions.</td>
-<td>RAG Enhancement</td>
-<td>April 2026</td>
+<td><a href="https://arxiv.org/abs/2604.00865">Doctor-RAG: 에이전트 검색 생성을 오류 복구</a></td>
+<td>본 논문에서는 다중 홉 질문 응답을 수행하는 에이전트 RAG 시스템을 위한 오류 인식 복구 메커니즘인 Doctor-RAG를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2026년 4월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2603.07379">SoK: Agentic Retrieval-Augmented Generation (RAG): Taxonomy, Architectures, Evaluation, and Research Directions</a></td>
-<td>This Systematization of Knowledge paper provides the first unified framework for understanding agentic RAG systems by formalizing retrieval-generation loops as finite-horizon partially observable Markov decision processes (POMDPs), with explicit modeling of control policies and state transitions. The paper develops a comprehensive taxonomy categorizing systems by planning mechanisms, retrieval orchestration, memory paradigms, and tool-invocation behaviors, while identifying critical systemic risks including hallucination propagation, memory poisoning, and retrieval misalignment. SoK provides a foundation for systematic evaluation and reliability-focused research in agentic RAG, complementing the earlier 2025 Agentic RAG survey with a more formal control-theoretic framing.</td>
-<td>RAG Survey</td>
-<td>March 2026</td>
+<td><a href="https://arxiv.org/abs/2603.07379">SoK: 에이전트 검색 생성(RAG): 조용히, 평가 및 연구 방향</a></td>
+<td>이 지식 체계화 문서는 제어 정책 및 상태 전환의 명시적 모델링을 통해 검색 생성 루프를 유한 수평 부분 관찰 가능 마르코프 결정 프로세스(POMDP)로 공식화하여 에이전트 RAG 시스템을 이해하기 위한 최초의 통합 프레임워크를 제공합니다. </td>
+<td>RAG 설문조사</td>
+<td>2026년 3월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2602.03442">A-RAG: Scaling Agentic Retrieval-Augmented Generation via Hierarchical Retrieval Interfaces</a></td>
-<td>This paper introduces an agentic RAG framework that exposes hierarchical retrieval interfaces (keyword search, semantic search, and chunk read) directly to the model, allowing it to dynamically adapt retrieval decisions across multiple granularities. The approach achieves 94.5% on HotpotQA and 89.7% on 2WikiMultiHop with GPT-4o-mini while using comparable or fewer retrieved tokens than existing methods, demonstrating efficient scaling with model improvements.</td>
-<td>RAG Enhancement</td>
-<td>February 2026</td>
+<td><a href="https://arxiv.org/abs/2602.03442">A-RAG: 스테이션적 서비스를 베어링 에이전트 생성 확장</a></td>
+<td>이 문서에서는 계층적 검색 인터페이스(키워드 검색, 의미 체계 검색 및 청크 읽기)를 모델에 직접 노출하여 여러 세분화에 걸쳐 검색 결정을 동적으로 조정할 수 있는 에이전트 RAG 프레임워크를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2026년 2월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2602.02053">WildGraphBench: Benchmarking GraphRAG with Wild-Source Corpora</a></td>
-<td>This paper introduces a benchmark for evaluating GraphRAG performance in realistic scenarios using Wikipedia&#39;s structured content with 1,100 questions spanning 12 topics and three complexity levels (single-fact QA, multi-fact QA, and section-level summarization). The benchmark reveals that current GraphRAG pipelines improve multi-fact aggregation from moderate numbers of sources but may overemphasize high-level statements at the expense of fine-grained details, with weaker performance on summarization tasks.</td>
-<td>RAG Evaluation</td>
-<td>February 2026</td>
+<td><a href="https://arxiv.org/abs/2602.02053">WildGraphBench: Wild-Source Corpora를 사용하여 GraphRAG 벤치마킹</a></td>
+<td>이 문서에서는 12개 주제와 3가지 복잡성 수준(단일 팩트 QA, 다중 팩트 QA 및 섹션 수준 요약)에 걸쳐 1,100개의 질문이 포함된 Wikipedia의 구조화된 콘텐츠를 사용하여 현실적인 시나리오에서 GraphRAG 성능을 평가하기 위한 벤치마크를 소개합니다. </td>
+<td>RAG 평가</td>
+<td>2026년 2월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2602.01965">Breaking the Static Graph: Context-Aware Traversal for Robust Retrieval-Augmented Generation</a></td>
-<td>This paper identifies the &quot;static graph fallacy&quot; in current graph-based RAG systems where fixed transition probabilities ignore query-dependent edge relevance, causing semantic drift toward high-degree hub nodes. CatRAG addresses this through symbolic anchoring, query-aware dynamic edge weighting, and key-fact passage enhancement, introducing a &quot;reasoning completeness&quot; metric that reveals substantial improvements in recovering entire evidence chains without gaps across four multi-hop benchmarks.</td>
-<td>RAG Enhancement</td>
-<td>February 2026</td>
+<td><a href="https://arxiv.org/abs/2602.01965">정적 그래프 수집기: 보관용 수확 생성을 잘라내기 외부 감지 순회</a></td>
+<td>이 문서에서는 고정 전이 확률이 쿼리 종속 에지 관련성을 무시하여 높은 수준의 허브 노드로 의미론적 드리프트를 일으키는 현재 그래프 기반 RAG 시스템의 "정적 그래프 오류"를 식별합니다. </td>
+<td>RAG 향상</td>
+<td>2026년 2월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2602.05975">SAGE: Benchmarking and Improving Retrieval for Deep Research Agents</a></td>
-<td>This paper introduces a benchmark for scientific literature retrieval with 1,200 queries across four domains and a 200,000 paper corpus, revealing that traditional BM25 significantly outperforms LLM-based retrievers by approximately 30% because existing agents generate keyword-oriented sub-queries. The paper proposes a corpus-level test-time scaling framework using LLMs to augment documents with metadata and keywords, achieving 8% improvement on short-form questions and 2% improvement on open-ended questions.</td>
-<td>RAG Evaluation</td>
-<td>February 2026</td>
+<td><a href="https://arxiv.org/abs/2602.05975">SAGE: 기지국 연구 에이전트를 벤치마킹 및 검색 개선</a></td>
+<td>이 문서에서는 4개 도메인에 걸쳐 1,200개의 쿼리와 200,000개의 종이 자료를 사용하여 과학 문헌 검색을 위한 벤치마크를 소개하며, 기존 에이전트가 키워드 중심 하위 쿼리를 생성하기 때문에 기존 BM25가 LLM 기반 검색기보다 약 30% 정도 성능이 크게 향상되었음을 보여줍니다. </td>
+<td>RAG 평가</td>
+<td>2026년 2월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2601.21937">Retrieval-Infused Reasoning Sandbox: A Benchmark for Decoupling Retrieval and Reasoning Capabilities</a></td>
-<td>This paper introduces DeR2, a controlled evaluation framework for assessing document-grounded reasoning by isolating reasoning from retrieval and toolchain decisions. Using a frozen document library of 2023-2025 theoretical papers with expert-annotated concepts, the benchmark employs four evaluation regimes (instruction-only, concepts, related-only, full-set) to operationalize retrieval loss versus reasoning loss. Empirical findings reveal that diverse foundation models exhibit mode-switch fragility and structural concept misuse, performing worse with full retrieval sets than without any documents.</td>
-<td>RAG Evaluation</td>
-<td>January 2026</td>
+<td><a href="https://arxiv.org/abs/2601.21937">검색 기반 패드 박스: 검색 기능과 지원 서비스 분리 마크</a></td>
+<td>이 문서에서는 검색 및 툴체인 결정에서 추론을 분리하여 문서 기반 추론을 평가하기 위한 제어된 평가 프레임워크인 DeR2를 소개합니다. </td>
+<td>RAG 평가</td>
+<td>2026년 1월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2512.23959">Improving Multi-step RAG with Hypergraph-based Memory for Long-Context Complex Relational Modeling</a></td>
-<td>This paper introduces HGMem, a hypergraph-based memory mechanism for multi-step RAG that extends memory beyond passive storage into a dynamic structure for complex reasoning. Memory is represented as a hypergraph where hyperedges correspond to distinct memory units, enabling progressive formation of higher-order interactions among primitive facts. The approach demonstrates consistent improvements on multi-step RAG across several challenging datasets designed for global sense-making, substantially outperforming strong baseline systems.</td>
-<td>RAG Enhancement</td>
-<td>December 2025</td>
+<td><a href="https://arxiv.org/abs/2512.23959">확장형 확장형 관계 모양을 주요 허브 기반 메모리로 다단계 RAG 개선</a></td>
+<td>본 논문에서는 메모리를 수동 스토리지를 넘어 복잡한 추론을 위한 동적 구조로 확장하는 다단계 RAG용 하이퍼그래프 기반 메모리 메커니즘인 HGMem을 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 12월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2512.17220">Mindscape-Aware Retrieval Augmented Generation for Improved Long Context Understanding</a></td>
-<td>This paper introduces MiA-RAG, the first RAG approach that equips LLM-based systems with explicit global context awareness through hierarchical summarization to create a &quot;mindscape&quot; construct. The framework conditions both retrieval (forming enriched query embeddings informed by global context) and generation (reasoning over retrieved evidence within coherent global context) on these global semantic representations. Tested across diverse long-context and bilingual benchmarks, MiA-RAG demonstrates consistent improvements over baselines by mimicking how humans understand long documents through holistic semantic representation rather than isolated local information retrieval.</td>
-<td>RAG Enhancement</td>
-<td>December 2025</td>
+<td><a href="https://arxiv.org/abs/2512.17220">더욱 장기적인 이해를 위한 Mindscape 인식 검색 생성</a></td>
+<td>이 문서에서는 "마인드스케이프" 구성을 생성하기 위해 계층적 요약을 통해 LLM 기반 시스템에 명시적인 전역 상황 인식 기능을 갖춘 최초의 RAG 접근 방식인 MiA-RAG를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 12월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2511.03475">RAGBoost: Efficient Retrieval-Augmented Generation with Accuracy-Preserving Context Reuse</a></td>
-<td>This paper addresses the trade-off in existing RAG caching techniques between preserving accuracy with low cache reuse or improving reuse at the cost of degraded reasoning quality. RAGBoost detects overlapping retrieved items across concurrent sessions and multi-turn interactions through efficient context indexing, intelligent ordering, de-duplication, and lightweight contextual hints to maintain reasoning fidelity. The approach achieves 1.5-3X improvement in prefill performance over state-of-the-art methods while preserving or enhancing reasoning accuracy across diverse RAG and agentic AI workloads.</td>
-<td>RAG Enhancement</td>
-<td>November 2025</td>
+<td><a href="https://arxiv.org/abs/2511.03475">RAGBoost: 정확성을 거부하는 외부 환경을 위해 효율적인 호출 생성 생성</a></td>
+<td>이 문서에서는 낮은 캐시 재사용으로 정확성을 유지하거나 추론 품질을 저하시키면서 재사용을 향상시키는 것 사이의 기존 RAG 캐싱 기술의 균형을 다룹니다. </td>
+<td>RAG 향상</td>
+<td>2025년 11월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2510.27261">RegionRAG: Region-level Retrieval-Augmented Generation for Visual Document Understanding</a></td>
-<td>This paper shifts multi-modal RAG from document-level to region-level retrieval units, eliminating substantial irrelevant visual content that dilutes focus on salient information. RegionRAG employs hybrid supervision using both labeled and unlabeled data to pinpoint relevant patches with improved precision, then dynamically groups salient patches into complete semantic regions. Tested on six benchmarks, the approach achieves 10.02% improvement in R@1 retrieval accuracy and 3.56% accuracy boost in question answering while using only 71.42% of visual tokens compared to prior methods.</td>
-<td>RAG Enhancement</td>
-<td>October 2025</td>
+<td><a href="https://arxiv.org/abs/2510.27261">RegionRAG: 문서를 참조하여 지역 검색 생성</a></td>
+<td>이 문서에서는 다중 모드 RAG를 문서 수준에서 지역 수준 검색 단위로 전환하여 중요한 정보에 대한 초점을 희석시키는 관련 없는 시각적 콘텐츠를 실질적으로 제거합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2510.12323">RAG-Anything: All-in-One RAG Framework</a></td>
-<td>This paper addresses multimodal knowledge retrieval limitations in existing RAG frameworks by introducing a unified framework with dual-graph construction that captures cross-modal relationships. The approach enables comprehensive knowledge retrieval across text, visuals, tables, and mathematical expressions, demonstrating superior performance on multimodal benchmarks and establishing a new paradigm for multimodal knowledge access.</td>
-<td>RAG Enhancement</td>
-<td>October 2025</td>
+<td><a href="https://arxiv.org/abs/2510.12323">RAG-Anything: 올인원 RAG 프레임워크</a></td>
+<td>이 문서는 교차 모드 관계를 캡처하는 이중 그래프 구성을 갖춘 통합 프레임워크를 도입하여 기존 RAG 프레임워크의 다중 모드 지식 검색 제한 사항을 해결합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2508.01959">SitEmb-v1.5: Improved Context-Aware Dense Retrieval for Semantic Association and Long Story Comprehension</a></td>
-<td>This paper proposes &quot;situated embeddings&quot; that represent short text chunks conditioned on broader context to enhance retrieval performance in RAG systems. The approach addresses challenges in long document comprehension by situating a chunk&#39;s meaning within its context, with the 8B SitEmb-v1.5 model achieving over 10% performance improvement and strong results across multiple languages while maintaining efficiency of retrieving localized evidence.</td>
-<td>Retrieval Improvement</td>
-<td>August 2025</td>
+<td><a href="https://arxiv.org/abs/2508.01959">SitEmb-v1.5: 의미 추출 및 긴 이야기 이해를 위해 추출된 단어를 검색해 보세요.</a></td>
+<td>본 논문에서는 RAG 시스템의 검색 성능을 향상시키기 위해 더 넓은 컨텍스트에 따라 짧은 텍스트 청크를 나타내는 "위치 임베딩"을 제안합니다. </td>
+<td>검색 개선</td>
+<td>2025년 8월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2508.10419">ComoRAG: A Cognitive-Inspired Memory-Organized RAG for Stateful Long Narrative Reasoning</a></td>
-<td>This paper introduces ComoRAG, a cognitive-inspired RAG system that mimics human reasoning through iterative cycles while interacting with a dynamic memory workspace. The system generates probing queries, retrieves evidence, and consolidates insights into a global memory pool to support coherent context for complex narrative comprehension. Evaluated on four long-context benchmarks (200K+ tokens), ComoRAG outperforms strong RAG baselines with up to 11% relative gains, particularly excelling on queries requiring global comprehension.</td>
-<td>RAG Enhancement</td>
-<td>August 2025</td>
+<td><a href="https://arxiv.org/abs/2508.10419">ComoRAG: 상태 기반의 긴 서명을 축하하며 메모리 구성 RAG</a></td>
+<td>본 논문에서는 동적 메모리 작업 공간과 상호 작용하면서 반복 주기를 통해 인간의 추론을 모방하는 인지 기반 RAG 시스템인 ComoRAG를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 8월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2507.09477">Towards Agentic RAG with Deep Reasoning: A Survey of RAG-Reasoning Systems in LLMs</a></td>
-<td>This comprehensive survey synthesizes RAG and reasoning approaches under a unified perspective, mapping how advanced reasoning optimizes each stage of RAG (Reasoning-Enhanced RAG) and how retrieved knowledge supplies missing premises for complex inference (RAG-Enhanced Reasoning). The survey spotlights emerging Synergized RAG-Reasoning frameworks where agentic LLMs iteratively interleave search and reasoning to achieve state-of-the-art performance across knowledge-intensive benchmarks, while categorizing methods, datasets, and challenges.</td>
-<td>RAG Survey</td>
-<td>July 2025</td>
+<td><a href="https://arxiv.org/abs/2507.09477">팔꿈치를 움직이기 Agentic RAG를 관련하여: LLM의 RAG 동작 시스템에 대한 조사</a></td>
+<td>이 포괄적인 조사는 통합된 관점에서 RAG와 추론 접근 방식을 종합하여 고급 추론이 RAG(Reasoning-Enhanced RAG)의 각 단계를 최적화하는 방법과 검색된 지식이 복잡한 추론을 위해 누락된 전제를 제공하는 방법(RAG-Enhanced Reasoning)을 매핑합니다. </td>
+<td>RAG 설문조사</td>
+<td>2025년 7월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2506.16035">Vision-Guided Chunking Is All You Need: Enhancing RAG with Multimodal Document Understanding</a></td>
-<td>This paper addresses limitations in traditional text-based chunking methods for RAG systems by introducing a multimodal document chunking approach using Large Multimodal Models (LMMs). The method processes PDF documents in configurable page batches while maintaining semantic coherence and structural integrity, effectively handling complex document structures like multi-page tables, embedded figures, and contextual dependencies across page boundaries. Experimental results demonstrate improvements in chunk quality and downstream RAG performance.</td>
-<td>Input Processing for RAG</td>
-<td>June 2025</td>
+<td><a href="https://arxiv.org/abs/2506.16035">소수 기반 청킹만 가능: 다중 다중 문서 이해로 RAG 강화</a></td>
+<td>이 문서에서는 LMM(Large Multimodal Model)을 사용하는 다중 모드 문서 청킹 접근 방식을 도입하여 RAG 시스템에 대한 기존 텍스트 기반 청킹 방법의 제한 사항을 해결합니다. </td>
+<td>RAG에 대한 입력 처리</td>
+<td>2025년 6월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2504.11544">NodeRAG: Structuring Graph-based RAG with Heterogeneous Nodes</a></td>
-<td>This paper proposes NodeRAG, a graph-centric RAG framework that introduces heterogeneous graph structures for seamless integration of graph-based methodologies into RAG workflows. The approach constructs a heterogeneous fully nodalized graph where entities, relationships, text chunks, events, and summaries are all represented as nodes. Through extensive experiments, NodeRAG demonstrates performance advantages over GraphRAG and LightRAG in indexing time, query efficiency, and question-answering performance on multi-hop benchmarks with minimal retrieval tokens.</td>
-<td>RAG Enhancement</td>
-<td>April 2025</td>
+<td><a href="https://arxiv.org/abs/2504.11544">NodeRAG: 이기종 컨트롤러를 사용하여 그래프 기반 RAG 구조화</a></td>
+<td>본 논문에서는 그래프 기반 방법론을 RAG 워크플로우에 원활하게 통합하기 위해 이기종 그래프 구조를 도입하는 그래프 중심 RAG 프레임워크인 NodeRAG를 제안합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 4월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2504.20734">UniversalRAG: Retrieval-Augmented Generation over Multiple Corpora with Diverse Modalities and Granularities</a></td>
-<td>This paper introduces UniversalRAG, a framework designed to retrieve knowledge from heterogeneous sources with diverse modalities and granularities. The approach addresses limitations of single-modality RAG systems by introducing a modality-aware routing mechanism that dynamically identifies appropriate modality-specific corpora and enables fine-tuned retrieval across multiple granularity levels. Validated on 8 benchmarks spanning multiple modalities, UniversalRAG demonstrates superiority over various modality-specific and unified baselines.</td>
-<td>RAG Enhancement</td>
-<td>April 2025</td>
+<td><a href="https://arxiv.org/abs/2504.20734">UniversalRAG: 다양한 형식과 세분성을 높이 평가하는 서비스 생성</a></td>
+<td>이 문서에서는 다양한 양식과 세분성을 지닌 이기종 소스로부터 지식을 검색하도록 설계된 프레임워크인 UniversalRAG를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 4월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2407.19813">Improving Retrieval Augmented Language Model with Self-Reasoning</a></td>
-<td>This paper proposes a novel self-reasoning framework aimed at improving the reliability and traceability of RALMs, whose core idea is to leverage reasoning trajectories generated by the LLM itself. The framework involves constructing self-reason trajectories with three processes: a relevance-aware process, an evidence-aware selective process, and a trajectory analysis process, which leads to huge improvements in RAG reasoning performance across a wide range of tasks within limited training resources.</td>
-<td>RAG Enhanced LLMs</td>
-<td>March 2025</td>
+<td><a href="https://arxiv.org/abs/2407.19813">자기를 소중히 여겨서 언어 개선</a></td>
+<td>본 논문에서는 LLM 자체에서 생성된 추론 궤적을 활용하는 것이 핵심 아이디어인 RALM의 신뢰성과 추적성을 향상시키는 것을 목표로 하는 새로운 자기 추론 프레임워크를 제안합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2025년 3월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2501.09136">Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG</a></td>
-<td>This survey explores Agentic Retrieval-Augmented Generation (Agentic RAG), which integrates autonomous AI agents into the RAG pipeline. By leveraging design patterns such as reflection, planning, tool use, and multi-agent collaboration, Agentic RAG systems dynamically manage retrieval strategies and adapt workflows to meet complex task requirements, offering enhanced flexibility and context awareness across various applications.</td>
-<td>RAG Survey</td>
-<td>February 2025</td>
+<td><a href="https://arxiv.org/abs/2501.09136">Agentic Retrieval-Augmented Generation: Agentic RAG에 대한 조사</a></td>
+<td>이 설문조사에서는 자율 AI 에이전트를 RAG 파이프라인에 통합하는 Agentic RAG(Agentic Retrieval-Augmented Generation)에 대해 살펴봅니다. </td>
+<td>RAG 설문조사</td>
+<td>2025년 2월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2501.15228">Improving Retrieval-Augmented Generation through Multi-Agent Reinforcement Learning</a></td>
-<td>This paper introduces MMOA-RAG, a framework that treats each component of a Retrieval-Augmented Generation (RAG) system as a reinforcement learning agent. By harmonizing all agents&#39; goals towards a unified reward, such as the F1 score of the final answer, MMOA-RAG addresses misalignments between individual modules and the overall objective, leading to improved performance across various QA datasets.</td>
-<td>RAG Enhancement</td>
-<td>January 2025</td>
+<td><a href="https://arxiv.org/abs/2501.15228">다수의 병력 전투를 위한 생성 개선</a></td>
+<td>본 논문에서는 RAG(Retrieval-Augmented Generation) 시스템의 각 구성 요소를 강화 학습 에이전트로 처리하는 프레임워크인 MMOA-RAG를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 1월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2501.09751">OmniThink: Expanding Knowledge Boundaries in Machine Writing through Thinking</a></td>
-<td>OmniThink proposes a slow-thinking machine writing framework that emulates human-like iterative expansion and reflection. By simulating the cognitive behavior of learners deepening their knowledge over time, OmniThink improves the knowledge density of generated articles without compromising coherence and depth, addressing issues of shallow and repetitive outputs in machine writing.</td>
-<td>RAG Enhancement</td>
-<td>January 2025</td>
+<td><a href="https://arxiv.org/abs/2501.09751">OmniThink: 사고를 통해 기계 글쓰기의 지식 경계 확장</a></td>
+<td>OmniThink는 인간과 같은 반복적 확장 및 반영을 에뮬레이트하는 느린 사고 방식의 기계 작성 프레임워크를 제안합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 1월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2501.07391">Enhancing Retrieval-Augmented Generation: A Study of Best Practices</a></td>
-<td>This study investigates key factors influencing the performance of Retrieval-Augmented Generation (RAG) systems, including language model size, prompt design, document chunk size, and retrieval strategies. By developing advanced RAG designs that incorporate query expansion and novel retrieval strategies, the study provides actionable insights for developing adaptable and high-performing RAG frameworks in diverse real-world scenarios.</td>
-<td>RAG Enhancement</td>
-<td>January 2025</td>
+<td><a href="https://arxiv.org/abs/2501.07391">검색 생성: 기념 기념 전시</a></td>
+<td>본 연구에서는 언어 모델 크기, 프롬프트 디자인, 문서 청크 크기 및 검색 전략을 포함하여 검색 증강 생성(RAG) 시스템의 성능에 영향을 미치는 주요 요소를 조사합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 1월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2501.05874">VideoRAG: Retrieval-Augmented Generation over Video Corpus</a></td>
-<td>VideoRAG introduces a framework that dynamically retrieves relevant videos based on their relevance to queries and utilizes both visual and textual information of videos in the output generation. Leveraging Large Video Language Models (LVLMs), VideoRAG processes video content for retrieval and integrates retrieved videos jointly with queries, enhancing the generation process with rich multimodal knowledge.</td>
-<td>RAG Enhancement</td>
-<td>January 2025</td>
+<td><a href="https://arxiv.org/abs/2501.05874">VideoRAG: Video 코퍼스를 불러오기 생성</a></td>
+<td>VideoRAG는 쿼리와의 관련성을 기반으로 관련 비디오를 동적으로 검색하고 출력 생성에서 비디오의 시각적 정보와 텍스트 정보를 모두 활용하는 프레임워크를 도입합니다. </td>
+<td>RAG 향상</td>
+<td>2025년 1월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2501.01880">Long Context vs. RAG for LLMs: An Evaluation and Revisits</a></td>
-<td>This study compares extending context windows (Long Context) and using retrievers (RAG) to incorporate extensive external knowledge in large language models. The findings suggest that Long Context generally outperforms RAG in question-answering benchmarks, especially for Wikipedia-based questions, while RAG has advantages in dialogue-based and general queries.</td>
-<td>Comparison Papers</td>
-<td>January 2025</td>
+<td><a href="https://arxiv.org/abs/2501.01880">LLM을 절단한 긴 부분과 RAG: 평가 및 재검토</a></td>
+<td>이 연구에서는 대규모 언어 모델에 광범위한 외부 지식을 통합하기 위해 컨텍스트 창 확장(Long Context)과 검색기(RAG) 사용을 비교합니다. </td>
+<td>비교 논문</td>
+<td>2025년 1월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2412.15605">Don&#39;t Do RAG: When Cache-Augmented Generation is All You Need for Knowledge Tasks</a></td>
-<td>The paper proposes Cache-Augmented Generation (CAG) as an alternative to Retrieval-Augmented Generation (RAG). By preloading relevant resources into a language model&#39;s extended context and caching runtime parameters, CAG eliminates retrieval latency and minimizes errors, offering a streamlined and efficient approach for tasks with a limited and manageable knowledge base.</td>
-<td>RAG Enhancement</td>
-<td>December 2024</td>
+<td><a href="https://arxiv.org/pdf/2412.15605">RAG를 수행하지 마세요: 캐시 기반 생성이 지식 작업에 필요한 모든 경우</a></td>
+<td>이 논문에서는 RAG(Retrieval-Augmented Generation)의 대안으로 CAG(Cache-Augmented Generation)를 제안합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 12월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2411.07396">Toward Optimal Search and Retrieval for RAG</a></td>
-<td>This paper investigates how to optimize the retrieval component in Retrieval-Augmented Generation (RAG) systems, particularly for Question Answering tasks. The authors find that reducing search accuracy has minimal impact on RAG performance while potentially enhancing retrieval speed and memory efficiency.</td>
-<td>Retrieval Improvement</td>
-<td>November 2024</td>
+<td><a href="https://arxiv.org/abs/2411.07396">RAG에 대한 프리미엄의 검색을 향하여</a></td>
+<td>이 문서에서는 특히 질문 응답 작업에 대해 검색 증강 생성(RAG) 시스템에서 검색 구성 요소를 최적화하는 방법을 조사합니다. </td>
+<td>검색 개선</td>
+<td>2024년 11월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2411.19443">Auto-RAG: Autonomous Retrieval-Augmented Generation for Large Language Models</a></td>
-<td>Auto-RAG introduces an autonomous iterative retrieval model that leverages large language models&#39; reasoning capabilities. By engaging in multi-turn dialogues with the retriever, Auto-RAG plans and refines queries to gather valuable knowledge, adjusting the number of iterations based on question difficulty and retrieved information utility.</td>
-<td>RAG Enhancement</td>
-<td>November 2024</td>
+<td><a href="https://arxiv.org/abs/2411.19443">Auto-RAG: 추가 기능 모델을 사용하여 자동으로 강화 생성</a></td>
+<td>Auto-RAG는 대규모 언어 모델의 추론 기능을 활용하는 자율 반복 검색 모델을 도입합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 11월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2411.02959v1">HtmlRAG: HTML is Better Than Plain Text for Modeling Retrieved Knowledge in RAG Systems</a></td>
-<td>This paper proposes HtmlRAG, a system that uses HTML instead of plain text to retain structural and semantic information in Retrieval-Augmented Generation (RAG) systems. The authors introduce methods for cleaning and pruning HTML content to remove irrelevant parts while preserving essential information. Experiments on six QA datasets demonstrate that HtmlRAG outperforms traditional plain-text-based RAG approaches.</td>
-<td>RAG Enhancement</td>
-<td>November 2024</td>
+<td><a href="https://arxiv.org/abs/2411.02959v1">HtmlRAG: RAG 시스템에서 검색된 지식을 모델링하는 데 HTML이 일반 텍스트보다 낫습니다</a></td>
+<td>본 논문에서는 RAG(Retrieval-Augmented Generation) 시스템에서 구조적, 의미적 정보를 유지하기 위해 일반 텍스트 대신 HTML을 사용하는 시스템인 HtmlRAG를 제안합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 11월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2410.21943">Beyond Text: Optimizing RAG with Multimodal Inputs for Industrial Applications</a></td>
-<td>This paper explores integrating multimodal models into Retrieval-Augmented Generation (RAG) systems for industrial applications. It examines whether combining images with text enhances RAG performance and identifies optimal configurations for such systems. The study employs two image processing strategies?봫ultimodal embeddings and textual summaries from images?봞nd utilizes GPT-4V and LLaVA for answer synthesis. Findings indicate that multimodal RAG can outperform single-modality settings, with textual summaries from images offering greater flexibility and potential for advancement.</td>
-<td>RAG Enhancement</td>
-<td>October 2024</td>
+<td><a href="https://arxiv.org/abs/2410.21943">텍스트를 넘어서: 편집을 다양하게 입력하여 RAG 최적화</a></td>
+<td>이 문서에서는 산업용 애플리케이션을 위한 검색 증강 생성(RAG) 시스템에 다중 모드 모델을 통합하는 방법을 살펴봅니다. </td>
+<td>RAG 향상</td>
+<td>2024년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2410.18050">LongRAG</a></td>
-<td>?딻he paper introduces LongRAG, a system designed to improve long-context question answering by combining two perspectives: global understanding of lengthy documents and precise factual details. Traditional methods often break documents into chunks, losing the overall context and introducing noise. LongRAG addresses this by integrating both broad and detailed information, leading to more accurate answers. Experiments show it outperforms existing models by up to 17.25%. ??/td>
-<td>RAG Enhancement</td>
-<td>October 2024</td>
+<td><a href="https://arxiv.org/abs/2410.18050">롱RAG</a></td>
+<td>?”이 논문에서는 긴 문서에 대한 전체적인 이해와 정확한 사실적 세부 사항이라는 두 가지 관점을 결합하여 긴 컨텍스트 질문 응답을 개선하도록 설계된 시스템인 LongRAG를 소개합니다. </td>
+<td>2024년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2409.12941">Fact, Fetch, and Reason: A Unified Evaluation of Retrieval-Augmented Generation</a></td>
-<td>FRAMES is a newly proposed evaluation dataset aimed at testing large language models (LLMs) in end-to-end Retrieval-Augmented Generation (RAG) scenarios, focusing on factuality, retrieval, and reasoning. Unlike previous benchmarks that assess these abilities separately, FRAMES provides a unified framework to evaluate LLMs&#39; performance in generating accurate, multi-hop responses that require synthesizing information from multiple sources. Baseline results show that state-of-the-art LLMs struggle with this task, achieving 0.40 accuracy without retrieval. However, the accuracy improves to 0.66 with a multi-step retrieval pipeline, highlighting the dataset&#39;s value in advancing RAG system development.</td>
-<td>RAG Evaluation</td>
-<td>September 2024</td>
+<td><a href="https://arxiv.org/abs/2409.12941">사실, 가져온 이유: 검색 기록에 대한 통합 평가</a></td>
+<td>FRAMES는 사실성, 검색 및 추론에 중점을 두고 엔드투엔드 RAG(검색 증강 생성) 시나리오에서 LLM(대형 언어 모델)을 테스트하는 것을 목표로 새로 제안된 평가 데이터 세트입니다. </td>
+<td>RAG 평가</td>
+<td>2024년 9월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2409.15127">Boosting Healthcare LLMs Through Retrieved Context</a></td>
-<td>This paper examines the limitations and potential of context retrieval methods to improve factuality and reliability in large language models (LLMs), specifically within healthcare. By optimizing retrieval components, the research shows that open LLMs can perform on par with private solutions in healthcare benchmarks, such as multiple-choice question answering. To address the unrealistic inclusion of possible answers in benchmark setups, the study introduces OpenMedPrompt, a pipeline designed to generate more reliable open-ended answers, moving LLM technology closer to practical use in healthcare settings.</td>
-<td>Retrieval Improvement</td>
-<td>September 2024</td>
+<td><a href="https://arxiv.org/abs/2409.15127">검색된 범위를 통해 의료 LLM 강화</a></td>
+<td>이 문서에서는 특히 의료 분야에서 LLM(대형 언어 모델)의 사실성과 신뢰성을 향상시키기 위한 컨텍스트 검색 방법의 한계와 잠재력을 조사합니다. </td>
+<td>검색 개선</td>
+<td>2024년 9월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2409.17580">Enhancing Structured-Data Retrieval with GraphRAG: Soccer Data Case Study</a></td>
-<td>Structured-GraphRAG is a new framework designed to improve information retrieval from structured datasets in natural language queries by utilizing multiple knowledge graphs. These graphs capture complex relationships between entities, enabling more accurate and comprehensive information retrieval compared to traditional methods. By grounding responses in structured data, Structured-GraphRAG enhances the reliability of language model outputs. In a case study on soccer data, it showed improved query processing efficiency and reduced response times, demonstrating its broad applicability across various structured data domains.</td>
-<td>Retrieval Improvement</td>
-<td>September 2024</td>
+<td><a href="https://arxiv.org/pdf/2409.17580">GraphRAG로 축구 구조 데이터 검색 향상: 데이터 지표 연구</a></td>
+<td>Structured-GraphRAG는 여러 지식 그래프를 활용하여 자연어 쿼리의 구조화된 데이터 세트에서 정보 검색을 개선하도록 설계된 새로운 프레임워크입니다. </td>
+<td>검색 개선</td>
+<td>2024년 9월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2409.05591">MemoRAG: Moving towards Next-Gen RAG Via Memory-Inspired Knowledge Discovery</a></td>
-<td>MemoRAG is a new approach to Retrieval-Augmented Generation (RAG) that enhances long-term memory capabilities for handling complex tasks, where conventional RAG struggles. It uses a dual-system setup: a lightweight long-range model to generate draft answers and guide retrieval, and a more powerful model to generate the final answer. This design allows MemoRAG to perform better not only on straightforward tasks but also on those involving ambiguous information and unstructured knowledge. MemoRAG shows superior performance in experiments, outperforming traditional RAG systems across a range of tasks.</td>
-<td>RAG Enhancement</td>
-<td>September 2024</td>
+<td><a href="https://arxiv.org/pdf/2409.05591">MemoRAG: 메모리 기반 지식 발견을 통해 RAG로 노력기</a></td>
+<td>MemoRAG는 기존 RAG가 어려움을 겪고 있는 복잡한 작업을 처리하기 위해 장기 메모리 기능을 향상시키는 검색 증강 생성(RAG)에 대한 새로운 접근 방식입니다. </td>
+<td>RAG 향상</td>
+<td>2024년 9월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2409.10516">RetrievalAttention: Accelerating Long-Context LLM Inference via Vector Retrieval</a></td>
-<td>This paper introduces RetrievalAttention, a training-free method to speed up attention computation in large language models by addressing the challenge of high GPU memory consumption and inference latency in long-context scenarios. It uses approximate nearest neighbor search (ANNS) to retrieve relevant key-value vectors during generation, significantly reducing the memory needed while maintaining accuracy. With an attention-aware vector search algorithm, RetrievalAttention reduces the data accessed to just 1-3%, achieving faster performance with sub-linear time complexity, and requires only 16GB GPU memory for serving 128K tokens on models with 8B parameters.</td>
-<td>Retrieval Improvement</td>
-<td>September 2024</td>
+<td><a href="https://arxiv.org/abs/2409.10516">RetrievalAttention: 벡터 검색을 통해 장기 설명 LLM 보존 기념</a></td>
+<td>이 문서에서는 긴 컨텍스트 시나리오에서 높은 GPU 메모리 소비 및 추론 대기 시간 문제를 해결하여 대규모 언어 모델에서 주의 계산 속도를 높이는 훈련이 필요 없는 방법인 RetrievalAttention을 소개합니다. </td>
+<td>검색 개선</td>
+<td>2024년 9월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2409.11136">Promptriever: Instruction-Trained Retrievers Can Be Prompted Like Language Models</a></td>
-<td>Promptriever is a new retrieval model designed to be prompted like a language model, providing a more intuitive interface for users. Trained on nearly 500k instances from MS MARCO, it excels in standard retrieval tasks and instruction-following. Key results include achieving state-of-the-art performance on relevance tasks, increased robustness to query phrasing, and the ability to improve performance through prompting for hyperparameter search. This work bridges LM prompting techniques with information retrieval, opening up new possibilities for future research.</td>
-<td>Retrieval Improvement</td>
-<td>September 2024</td>
+<td><a href="https://arxiv.org/abs/2409.11136">스트레칭: 긴장 훈련을 목적으로 검색하는 사용자의 언어 모델처럼 자세를 표시할 수 있습니다.</a></td>
+<td>Promptriever는 언어 모델처럼 프롬프트되도록 설계된 새로운 검색 모델로, 사용자에게 보다 직관적인 인터페이스를 제공합니다. </td>
+<td>검색 개선</td>
+<td>2024년 9월</td>
 </tr>
 <tr>
-<td><a href="https://www.arxiv.org/abs/2408.08921">Graph Retrieval-Augmented Generation: A Survey</a></td>
-<td>This paper introduces GraphRAG, a novel approach that enhances RAG by leveraging the structural relationships among entities in databases to improve the precision and context-awareness of LLM outputs. Unlike traditional RAG systems, GraphRAG captures relational knowledge to address challenges like hallucination, lack of domain-specific knowledge, and outdated information. The paper provides the first comprehensive overview of GraphRAG methodologies, formalizing its workflow, key technologies, and training methods. It also reviews application domains, evaluation strategies, and industrial use cases, and suggests future research directions to advance the field.</td>
-<td>Domain-Specific RAG</td>
-<td>August 2024</td>
+<td><a href="https://www.arxiv.org/abs/2408.08921">그래프 검색-증강 생성: 설문 조사</a></td>
+<td>이 문서에서는 LLM 출력의 정확성과 상황 인식을 향상시키기 위해 데이터베이스 엔터티 간의 구조적 관계를 활용하여 RAG를 향상시키는 새로운 접근 방식인 GraphRAG를 소개합니다. </td>
+<td>도메인별 RAG</td>
+<td>2024년 8월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2408.14484">Agentic Retrieval-Augmented Generation for Time Series Analysis</a></td>
-<td>This paper introduces a novel agentic Retrieval-Augmented Generation framework for time series analysis, designed to overcome challenges like complex spatio-temporal dependencies and distribution shifts. The framework uses a hierarchical, multi-agent architecture where a master agent coordinates specialized sub-agents, each fine-tuned for specific time series tasks. These sub-agents leverage smaller, pre-trained language models (SLMs) and retrieve relevant prompts from a shared repository to enhance predictions. The proposed modular RAG approach offers flexibility and achieves state-of-the-art performance across various time series tasks, outperforming traditional task-specific methods.</td>
-<td>Domain-Specific RAG</td>
-<td>August 2024</td>
+<td><a href="https://arxiv.org/abs/2408.14484">시계 열 분석을 유지하는 서비스 생성</a></td>
+<td>이 문서에서는 복잡한 시공간 종속성 및 분포 이동과 같은 문제를 극복하도록 설계된 시계열 분석을 위한 새로운 에이전트 검색-증강 생성 프레임워크를 소개합니다. </td>
+<td>도메인별 RAG</td>
+<td>2024년 8월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2408.13533">Pandora&#39;s Box or Aladdin&#39;s Lamp: A Comprehensive Analysis Revealing the Role of RAG Noise in Large Language Models</a></td>
-<td>This paper explores the impact of different noise types on Retrieval-Augmented Generation (RAG) systems, challenging the assumption that all noise is detrimental to large language models (LLMs). By defining seven distinct linguistic noise types, the authors introduce NoiserBench, a benchmark framework for evaluating RAG systems across various datasets and reasoning tasks. Empirical analysis of eight LLMs reveals that noise can be categorized into beneficial and harmful types, with beneficial noise potentially enhancing model performance. The findings provide insights for developing more robust RAG solutions and reducing hallucinations in diverse retrieval scenarios.</td>
-<td>RAG Survey</td>
-<td>August 2024</td>
+<td><a href="https://arxiv.org/abs/2408.13533">판도라의 상자 또는 알라딘의 램프: 궁전 모델에서 RAG 같은의 역할을 한다는 것을 분석합니다</a></td>
+<td>이 문서에서는 모든 노이즈가 LLM(대형 언어 모델)에 해롭다는 가정에 도전하면서 다양한 노이즈 유형이 검색 증강 생성(RAG) 시스템에 미치는 영향을 탐구합니다. </td>
+<td>RAG 설문조사</td>
+<td>2024년 8월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2408.02545">RAG Foundry: A Framework for Enhancing LLMs for Retrieval Augmented Generation</a></td>
-<td>This paper presents RAG Foundry, an open-source framework designed to simplify the implementation of Retrieval-Augmented Generation (RAG) systems. RAG Foundry integrates data creation, training, inference, and evaluation into a unified workflow, enabling rapid prototyping and experimentation with various RAG techniques. The framework is demonstrated by augmenting and fine-tuning Llama-3 and Phi-3 models, resulting in consistent improvements across multiple knowledge-intensive datasets. The code is available on GitHub.</td>
-<td>RAG Framework</td>
-<td>August 2024</td>
+<td><a href="https://arxiv.org/pdf/2408.02545">RAG Foundry: 서명 생성을 위해 LLM 강화를 프레임워크</a></td>
+<td>이 문서에서는 RAG(Retrieval-Augmented Generation) 시스템 구현을 단순화하도록 설계된 오픈 소스 프레임워크인 RAG Foundry를 소개합니다. </td>
+<td>RAG 프레임워크</td>
+<td>2024년 8월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2407.01219">Searching for Best Practices in Retrieval-Augmented Generation</a></td>
-<td>The paper explores the effectiveness of Retrieval-Augmented Generation techniques in providing up-to-date information, reducing hallucinations, and improving response quality, especially in specialized fields. Despite their benefits, RAG methods often face challenges with complexity and slow response times. Through comprehensive experiments, the authors propose strategies to optimize RAG practices, balancing performance and efficiency. Additionally, the study highlights how multimodal retrieval techniques can enhance question-answering for visual inputs and expedite multimodal content generation using a &quot;retrieval as generation&quot; approach.</td>
-<td>RAG Survey</td>
-<td>July 2024</td>
+<td><a href="https://arxiv.org/abs/2407.01219">검색 생성의 우수 전시 검색</a></td>
+<td>이 논문은 특히 전문 분야에서 최신 정보를 제공하고, 환각을 줄이고, 응답 품질을 향상시키는 검색 증강 생성 기술의 효과를 탐구합니다. </td>
+<td>RAG 설문조사</td>
+<td>2024년 7월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2407.02485v1">RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs</a></td>
-<td>The paper introduces RankRAG, an innovative instruction fine-tuning framework for LLMs that optimizes both context ranking and answer generation in Retrieval-Augmented Generation. By incorporating a small amount of ranking data, RankRAG surpasses traditional expert ranking models and even performs better than LLMs fine-tuned exclusively on extensive ranking data. The Llama3-RankRAG model outperforms Llama3-ChatQA-1.5 and GPT-4 across nine knowledge-intensive benchmarks and matches GPT-4&#39;s performance on five biomedical RAG benchmarks without domain-specific fine-tuning, showcasing its strong generalization abilities.</td>
-<td>Retrieval Improvement</td>
-<td>July 2024</td>
+<td><a href="https://arxiv.org/abs/2407.02485v1">RankRAG: LLM의 검색 기록으로 데스크탑 스트리밍 통합</a></td>
+<td>이 논문에서는 검색 증강 생성(Retrieval-Augmented Generation)에서 컨텍스트 순위와 답변 생성을 모두 최적화하는 LLM을 위한 혁신적인 지침 미세 조정 프레임워크인 RankRAG를 소개합니다. </td>
+<td>검색 개선</td>
+<td>2024년 7월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2407.09252">Context Embeddings for Efficient Answer Generation in RAG</a></td>
-<td>The paper introduces COCOM, a context compression method that accelerates the performance of Retrieval-Augmented Generation (RAG) by reducing lengthy contextual inputs to a few Context Embeddings. This approach significantly decreases decoding time, allowing for different compression rates that balance speed and answer quality. COCOM outperforms previous methods by effectively managing multiple contexts and demonstrates a speed-up of up to 5.69횞 while maintaining superior performance.</td>
-<td>RAG Enhancement</td>
-<td>July 2024</td>
+<td><a href="https://arxiv.org/abs/2407.09252">RAG의 효율적인 답변 생성을 실행하는 임베딩</a></td>
+<td>이 논문에서는 긴 컨텍스트 입력을 몇 가지 컨텍스트 임베딩으로 줄여 RAG(검색 증강 생성)의 성능을 가속화하는 컨텍스트 압축 방법인 COCOM을 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 7월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2407.16833">Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach</a></td>
-<td>The paper compares Retrieval Augmented Generation (RAG) and long-context (LC) capabilities of modern LLMs, such as Gemini-1.5 and GPT-4, which excel in understanding extended contexts. The findings indicate that LC models generally outperform RAG in average performance when adequately resourced, although RAG is more cost-effective. To optimize efficiency and maintain performance, the authors propose &quot;Self-Route,&quot; a method that directs queries to either RAG or LC based on model self-reflection, reducing computation costs while achieving results similar to LC.</td>
-<td>Comparison Papers</td>
-<td>July 2024</td>
+<td><a href="https://arxiv.org/abs/2407.16833">증강 생성 또는 장기 컨텍스트 LLM 검색? </td>
+<td>이 백서에서는 확장된 컨텍스트를 이해하는 데 탁월한 Gemini-1.5 및 GPT-4와 같은 최신 LLM의 RAG(검색 증강 생성) 및 LC(장문맥락) 기능을 비교합니다. </td>
+<td>비교 논문</td>
+<td>2024년 7월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2407.05131">RULE: Reliable Multimodal RAG for Factuality in Medical Vision Language Models</a></td>
-<td>The emergence of Medical Large Vision Language Models (Med-LVLMs) has improved medical diagnosis, but these models often produce factually inaccurate responses. The paper introduces RULE, a method to enhance factual accuracy by calibrating the number of retrieved contexts in Retrieval-Augmented Generation (RAG) and fine-tuning the model with a preference dataset. RULE significantly improves factual accuracy, achieving an average improvement of 20.8% on three medical VQA datasets. The benchmark and code are publicly available on GitHub.</td>
-<td>Domain-Specific RAG</td>
-<td>July 2024</td>
+<td><a href="https://arxiv.org/pdf/2407.05131">규칙: 의료 비전 언어 모델의 사실성을 위한 신뢰할 수 있는 다중 모드 RAG</a></td>
+<td>Med-LVLM(의료용 대형 비전 언어 모델)의 출현으로 의료 진단이 향상되었지만 이러한 모델은 실제로 부정확한 응답을 생성하는 경우가 많습니다. </td>
+<td>도메인별 RAG</td>
+<td>2024년 7월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2407.14482">ChatQA 2: Bridging the Gap to Proprietary LLMs in Long Context and RAG Capabilities</a></td>
-<td>The paper introduces ChatQA 2, a Llama3-based model designed to rival proprietary models like GPT-4-Turbo in long-context understanding and retrieval-augmented generation. By extending Llama3&#39;s context window from 8K to 128K tokens and employing a three-stage instruction tuning process, ChatQA 2 achieves comparable accuracy to GPT-4-Turbo and surpasses it on RAG benchmarks. The study highlights how state-of-the-art retrievers can mitigate context fragmentation, improving performance on long-context tasks.</td>
-<td>RAG Enhancement</td>
-<td>July 2024</td>
+<td><a href="https://arxiv.org/pdf/2407.14482">ChatQA 2: 확장 확장 및 RAG 기능에서 독점 LLM과의 북쪽</a></td>
+<td>이 논문에서는 장기 컨텍스트 이해 및 검색 증강 생성 분야에서 GPT-4-Turbo와 같은 독점 모델과 경쟁하도록 설계된 Llama3 기반 모델인 ChatQA 2를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 7월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2407.01370">Summary of a Haystack: A Challenge to Long-Context LLMs and RAG Systems</a></td>
-<td>LLMs and RAG systems can now handle large input sizes, but evaluating their performance on long-context tasks remains difficult. To address this, the &quot;Summary of a Haystack&quot; (SummHay) task is introduced, requiring systems to summarize insights from synthesized document collections, with precise citations. This approach allows for automatic evaluation based on coverage and citation. Testing across multiple domains revealed that current systems struggle with SummHay, often scoring below human performance benchmarks. SummHay can also be used to examine enterprise RAG systems and position bias in long-context models.</td>
-<td>RAG Evaluation</td>
-<td>July 2024</td>
+<td><a href="https://arxiv.org/pdf/2407.01370">건초 사용자 요약: 확장 확장 LLM 및 RAG 시스템에 대한 주제</a></td>
+<td>LLM 및 RAG 시스템은 이제 대규모 입력 크기를 처리할 수 있지만 긴 컨텍스트 작업에 대한 성능을 평가하는 것은 여전히 ​​어렵습니다. </td>
+<td>RAG 평가</td>
+<td>2024년 7월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2406.14783">Evaluating RAG-Fusion with RAGElo: an Automated Elo-based Framework</a></td>
-<td>The paper addresses challenges in evaluating Retrieval-Augmented Generation (RAG) QA systems, focusing on domain-specific knowledge hallucination and the lack of suitable benchmarks for internal tasks at Infineon Technologies. To tackle these issues, the authors propose a comprehensive evaluation framework using Large Language Models (LLMs) to generate synthetic queries, assess retrieved documents and answers with LLM-based judging, and rank RAG variants using an automated Elo-based competition called RAGElo.</td>
-<td>RAG Evaluation</td>
-<td>June 2024</td>
+<td><a href="https://arxiv.org/abs/2406.14783">RAGElo를 사용하여 RAG-Fusion 평가: 자동화된 Elo 기반 프레임워크</a></td>
+<td>이 백서는 도메인별 지식 환각과 Infineon Technologies의 내부 작업에 대한 적절한 벤치마크의 부족에 중점을 두고 RAG(검색 증강 생성) QA 시스템을 평가할 때의 과제를 다룹니다. </td>
+<td>RAG 평가</td>
+<td>2024년 6월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2406.15319">LongRAG: Enhancing Retrieval-Augmented Generation with Long-context LLMs</a></td>
-<td>In the traditional RAG framework, short retrieval units like those from DPR work with 100-word Wikipedia paragraphs, leading to inefficiencies. To address this, LongRAG introduces a &quot;long retriever&quot; and &quot;long reader&quot; framework, processing Wikipedia into 4K-token units, 30 times longer than before. This reduces the number of units significantly while achieving higher retrieval scores: answer recall@1=71% on NQ and answer recall@2=72% on HotpotQA (full-wiki). LongRAG feeds these retrieved units to a long-context LLM for zero-shot answer extraction, achieving EM scores of 62.7% on NQ and 64.3% on HotpotQA, showcasing state-of-the-art performance without training.</td>
-<td>RAG Enhancement</td>
-<td>June 2024</td>
+<td><a href="https://arxiv.org/abs/2406.15319">LongRAG: 장기간 LLM을 사용하여 생성 강화</a></td>
+<td>전통적인 RAG 프레임워크에서 DPR과 같은 짧은 검색 단위는 100단어 Wikipedia 단락과 함께 작동하므로 비효율적입니다. </td>
+<td>RAG 향상</td>
+<td>2024년 6월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2406.12430">PlanRAG: A Plan-then-Retrieval Augmented Generation for Generative Large Language Models as Decision Makers</a></td>
-<td>This paper introduces the Decision QA benchmark (DQA) for video game scenarios like Europa Universalis IV and Victoria 3, addressing decision-making tasks. It also proposes PlanRAG, a new RAG technique where a language model generates decision plans and uses a retriever for data queries. PlanRAG outperforms existing iterative RAG methods by 15.8% in the Locating scenario and 7.4% in the Building scenario.</td>
-<td>RAG Enhancement</td>
-<td>June 2024</td>
+<td><a href="https://arxiv.org/abs/2406.12430">PlanRAG: 의사 결정자로서 생성된 대형 음향 모델을 계획한 후 저장하십시오.</a></td>
+<td>이 문서에서는 Europa Universalis IV 및 Victoria 3와 같은 비디오 게임 시나리오에 대한 의사결정 QA 벤치마크(DQA)를 소개하여 의사결정 작업을 다룹니다. </td>
+<td>RAG 향상</td>
+<td>2024년 6월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2406.12824">From RAGs to rich parameters: Probing how language models utilize external knowledge over parametric information for factual queries</a></td>
-<td>In this paper, the authors mechanistically examine RAG, revealing that language models predominantly rely on contextual information rather than parametric memory to answer questions. They employ Causal Mediation Analysis to illustrate minimal utilization of parametric memory and analyze Attention Contributions and Knockouts to show that the last token residual stream enriches from informative context tokens rather than directly from the question&#39;s subject token.</td>
-<td>RAG Enhancement</td>
-<td>June 2024</td>
+<td><a href="https://arxiv.org/abs/2406.12824">RAG 부분에서 다양하게: 언어 모델이 사실적 쿼리를 위해 개별 정보에 대한 외부 지식을 활용하는 방법 조사</a></td>
+<td>이 논문에서 저자는 RAG를 기계적으로 조사하여 언어 모델이 질문에 답하기 위해 파라메트릭 메모리보다는 문맥 정보에 주로 의존한다는 사실을 밝혔습니다. </td>
+<td>RAG 향상</td>
+<td>2024년 6월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2406.04271">Buffer of Thoughts: Thought-Augmented Reasoning with Large Language Models</a></td>
-<td>The paper introduces Buffer of Thoughts (BoT), a novel approach enhancing LLMs by using meta-buffer to store and adapt informative thought-templates for efficient reasoning across tasks. BoT achieves significant performance improvements over SOTA methods on 10 reasoning-intensive tasks, demonstrating superior generalization and robustness while maintaining lower computational costs compared to multi-query prompting methods.</td>
-<td>RAG Enhancement</td>
-<td>June 2024</td>
+<td><a href="https://arxiv.org/abs/2406.04271">생각하는 것: 보관된 언어 모델을 사용하여 소비하는 것이 좋습니다.</a></td>
+<td>이 논문에서는 메타 버퍼를 사용하여 작업 전반에 걸쳐 효율적인 추론을 위해 유익한 사고 템플릿을 저장하고 적용함으로써 LLM을 향상시키는 새로운 접근 방식인 생각 버퍼(BoT)를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 6월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2406.19215">SeaKR: Self-aware Knowledge Retrieval for Adaptive Retrieval Augmented Generation</a></td>
-<td>This paper introduces Self-aware Knowledge Retrieval (SeaKR), a novel adaptive RAG model that leverages LLMs&#39; self-aware uncertainty to enhance knowledge retrieval and integration. SeaKR activates retrieval when LLMs exhibit high uncertainty, re-ranking retrieved snippets based on their potential to reduce this uncertainty. For tasks requiring multiple retrievals, SeaKR uses self-aware uncertainty to select optimal reasoning strategies. Experimental results on diverse Question Answering datasets demonstrate SeaKR&#39;s superiority over existing adaptive RAG methods.</td>
-<td>RAG Enhancement</td>
-<td>June 2024</td>
+<td><a href="https://arxiv.org/abs/2406.19215">SeaKR: 대용량 검색 생성을 위한 인식 기능 검색</a></td>
+<td>이 백서에서는 LLM의 자기 인식 불확실성을 활용하여 지식 검색 및 통합을 향상시키는 새로운 적응형 RAG 모델인 자기 인식 지식 검색(SeaKR)을 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 6월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2406.14764">RE-AdaptIR: Improving Information Retrieval through Reverse Engineered Adaptation</a></td>
-<td>This paper explores the use of reverse engineered adaptation (RE-AdaptIR) to enhance large language models (LLMs) for information retrieval (IR) without the need for numerous labeled examples. By applying RE-AdaptIR, the research demonstrates improved performance in both training domains and zero-shot scenarios where models encounter previously unseen queries. The findings highlight significant performance improvements and provide actionable insights for practitioners in the field.</td>
-<td>Retrieval Improvement</td>
-<td>June 2024</td>
+<td><a href="https://arxiv.org/abs/2406.14764">RE-AdaptIR: 리버스 매력적인 적극적 정보 제공</a></td>
+<td>이 문서에서는 수많은 레이블이 지정된 예제 없이 정보 검색(IR)을 위한 대규모 언어 모델(LLM)을 향상시키기 위해 역엔지니어링 적응(RE-AdaptIR)을 사용하는 방법을 살펴봅니다. </td>
+<td>검색 개선</td>
+<td>2024년 6월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2406.04744">CRAG -- Comprehensive RAG Benchmark</a></td>
-<td>The Comprehensive RAG Benchmark (CRAG) addresses the limitations of existing RAG datasets by providing a diverse and dynamic set of 4,409 question-answer pairs and mock APIs for simulating web and Knowledge Graph searches. CRAG evaluates LLMs&#39; QA capabilities across various domains and question categories, revealing that even state-of-the-art RAG solutions struggle with accuracy, especially on questions with higher dynamism, lower popularity, or higher complexity. The benchmark has already fostered significant engagement, paving the way for future research and improvements in RAG and general QA solutions.</td>
-<td>RAG Evaluation</td>
-<td>June 2024</td>
+<td><a href="https://arxiv.org/abs/2406.04744">CRAG - 종합 RAG 벤치마크</a></td>
+<td>CRAG(Comprehensive RAG Benchmark)는 다양하고 동적인 4,409개의 질문-답변 쌍 세트와 웹 및 지식 그래프 검색을 시뮬레이션하기 위한 모의 API를 제공하여 기존 RAG 데이터 세트의 한계를 해결합니다. </td>
+<td>RAG 평가</td>
+<td>2024년 6월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2406.14972">A Tale of Trust and Accuracy: Base vs. Instruct LLMs in RAG Systems</a></td>
-<td>Contrary to common practices that favor &quot;instructed&quot; LLMs fine-tuned for instruction-following, this study finds that base models outperform instructed ones by 20% on average in RAG tasks. This challenges prevailing assumptions about instructed LLMs&#39; superiority in RAG applications and highlights the need for further investigation and discussion.</td>
-<td>RAG Enhancement</td>
-<td>June 2024</td>
+<td><a href="https://arxiv.org/abs/2406.14972">신뢰와 정확성의 이야기: RAG 시스템의 기본 및 교육 LLM</a></td>
+<td>지침을 따르도록 미세 조정된 "지시된" LLM을 선호하는 일반적인 관행과는 달리, 이 연구에서는 기본 모델이 RAG 작업에서 지시받은 모델보다 평균 20% 더 나은 성능을 보인다는 사실을 발견했습니다. </td>
+<td>RAG 향상</td>
+<td>2024년 6월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2405.19893">Similarity is Not All You Need: Endowing Retrieval Augmented Generation with Multi Layered Thoughts</a></td>
-<td>The work highlights the limitations of current large language models in knowledge-intensive tasks due to issues like untimeliness, high costs of knowledge updates, and hallucinations. It introduces METRAG, a Multi-layered Thoughts enhanced Retrieval-Augmented Generation framework, which goes beyond traditional similarity-oriented methods by incorporating both similarity- and utility-oriented thoughts, and uses an LLM as a task-adaptive summarizer. Extensive experiments demonstrate that METRAG significantly improves the performance of retrieval-augmented generation in knowledge-intensive tasks.</td>
-<td>RAG Enhancement</td>
-<td>May 2024</td>
+<td><a href="https://arxiv.org/pdf/2405.19893">동일성이 모두 필요한 것은 아닙니다: 다층 적 사고로 검색 생성 생성</a></td>
+<td>이 작업은 시기적절함, 높은 지식 업데이트 비용 및 환각과 같은 문제로 인해 지식 집약적 작업에서 현재 대규모 언어 모델의 한계를 강조합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2405.14831">HippoRAG Neurobiologically Inspired Long-Term Memory for Large Language Models</a></td>
-<td>The paper introduces HippoRAG, a retrieval framework inspired by the hippocampal indexing theory to enhance knowledge integration in large language models. By combining LLMs, knowledge graphs, and the Personalized PageRank algorithm, HippoRAG mimics human memory processes. Experiments show it significantly outperforms existing methods in multi-hop question answering, offering improved performance, cost efficiency, and speed.</td>
-<td>RAG Enhancement</td>
-<td>May 2024</td>
+<td><a href="https://arxiv.org/abs/2405.14831">HippoRAG 신경생물체로 구분되는 하위 언어 모델을 장기 기억</a></td>
+<td>이 논문에서는 대규모 언어 모델에서 지식 통합을 향상시키기 위해 해마 색인 이론에서 영감을 받은 검색 프레임워크인 HippoRAG를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2405.18414">Don&#39;t Forget to Connect! Improving RAG with Graph-based Reranking</a></td>
-<td>The paper addresses challenges in Retrieval Augmented Generation when documents have partial information or less obvious connections to the context. Introducing G-RAG, a reranker based on graph neural networks (GNNs), the method combines document connections and semantic information to enhance RAG. G-RAG outperforms state-of-the-art approaches with a smaller computational footprint, and significantly outperforms PaLM 2 as a reranker, highlighting the importance of effective reranking in RAG.</td>
-<td>Retrieval Improvement</td>
-<td>May 2024</td>
+<td><a href="https://arxiv.org/abs/2405.18414">연결하는 것을 잊지 마세요! </td>
+<td>이 논문은 문서에 부분적인 정보가 있거나 문맥과의 연결이 덜 명확할 때 검색 증강 생성의 문제를 다룹니다. </td>
+<td>검색 개선</td>
+<td>2024년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2405.20139">GNN-RAG: Graph Neural Retrieval for Large Language Model Reasoning</a></td>
-<td>The paper introduces GNN-RAG, a method that combines LLMs and Graph Neural Networks (GNNs) for Knowledge Graph Question Answering (KGQA). GNN-RAG uses GNNs to retrieve answer candidates from dense KG subgraphs and LLMs to reason over extracted paths. This approach significantly improves performance on KGQA benchmarks, outperforming state-of-the-art models, including GPT-4, especially in multi-hop and multi-entity questions.</td>
-<td>Domain-Specific RAG</td>
-<td>May 2024</td>
+<td><a href="https://arxiv.org/abs/2405.20139">GNN-RAG: 대규모 언어 모델 추론을 위한 그래프 신경 검색</a></td>
+<td>이 논문에서는 KGQA(지식 그래프 질문 응답)를 위해 LLM과 GNN(그래프 신경망)을 결합한 방법인 GNN-RAG를 소개합니다. </td>
+<td>도메인별 RAG</td>
+<td>2024년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2404.00657">Observations on Building RAG Systems for Technical Documents</a></td>
-<td>Retrieval augmented generation (RAG) for technical documents creates challenges as embeddings do not often capture domain information. The paper reviews prior art for important factors affecting RAG and perform experiments to highlight best practices and potential challenges to build RAG systems for technical documents.</td>
-<td>RAG Survey</td>
-<td>May 2024</td>
+<td><a href="https://arxiv.org/pdf/2404.00657">기술용 RAG 시스템 구축에 대한 전망</a></td>
+<td>기술 문서에 대한 검색 증강 생성(RAG)은 임베딩이 도메인 정보를 캡처하지 않는 경우가 많기 때문에 문제가 발생합니다. </td>
+<td>RAG 설문조사</td>
+<td>2024년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2404.19543">RAG and RAU: A Survey on Retrieval-Augmented Language Model in Natural Language Processing</a></td>
-<td>The paper surveys how LLMs tackle NLP challenges, integrating external information to boost performance. It explores Retrieval-Augmented Language Models (RALMs) like RAG and RAU, detailing their evolution, taxonomy, and applications in various NLP tasks. Key components and evaluation methods are discussed, emphasizing strengths, limitations, and avenues for future research to enhance retrieval quality and efficiency. Overall, it offers structured insights into RALMs&#39; potential for advancing NLP.</td>
-<td>RAG Survey</td>
-<td>April 2024</td>
+<td><a href="https://arxiv.org/pdf/2404.19543">RAG 및 RAU: 자연어 처리의 검색 언어 모델에 관한 설문조사</a></td>
+<td>이 논문에서는 LLM이 NLP 문제를 해결하고 외부 정보를 통합하여 성과를 높이는 방법을 조사합니다. </td>
+<td>RAG 설문조사</td>
+<td>2024년 4월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2404.19705">When to Retrieve: Teaching LLMs to Utilize Information Retrieval Effectively</a></td>
-<td>The paper illustrates how LLMs can effectively integrate with information retrieval (IR) systems, especially when additional context is necessary for answering questions. It suggests that while popular questions are often answered by LLMs&#39; parametric memory, less popular ones benefit from IR usage. A tailored training approach introduces a special token, ?쮀ET?? for questions where LLMs lack answers, leading to improvements demonstrated by the Adaptive Retrieval LLM (ADAPT-LLM) on the PopQA dataset. Evaluation reveals ADAPT-LLM&#39;s ability to use ?쮀ET??for questions needing IR, while maintaining high accuracy relying solely on parametric memory.</td>
-<td>RAG Enhancement</td>
-<td>April 2024</td>
+<td><a href="https://arxiv.org/pdf/2404.19705">검색 시기: LLM에게 정보 검색을 활용하도록 교육</a></td>
+<td>이 문서에서는 특히 질문에 답변하기 위해 추가 컨텍스트가 필요한 경우 LLM이 정보 검색(IR) 시스템과 효과적으로 통합할 수 있는 방법을 보여줍니다. </td>
+<td>RAG 향상</td>
+<td>2024년 4월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2404.10981">A Survey on Retrieval-Augmented Text Generation for Large Language Models</a></td>
-<td>The paper introduces Retrieval-Augmented Generation which combines retrieval methods with deep learning to overcome the static limitations of large language models by integrating real-time external information. Focusing on text, RAG mitigates LLMs&#39; tendency to generate inaccurate responses, enhancing reliability through real-world data. Organized into pre-retrieval, retrieval, post-retrieval, and generation stages, the paper outlines RAG&#39;s evolution and evaluates its performance, aiming to consolidate research, clarify its technology, and broaden LLMs&#39; applicability.</td>
-<td>RAG Survey</td>
-<td>April 2024</td>
+<td><a href="https://arxiv.org/pdf/2404.10981">사용자 로그인 생성에 관한 설문 조사</a></td>
+<td>본 논문에서는 실시간 외부 정보를 통합하여 대규모 언어 모델의 정적 한계를 극복하기 위해 검색 방법과 딥러닝을 결합한 검색-증강 생성(Retrieval-Augmented Generation)을 소개합니다. </td>
+<td>RAG 설문조사</td>
+<td>2024년 4월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2403.06840">RA-ISF: Learning to Answer and Understand from Retrieval Augmentation via Iterative Self-Feedback</a></td>
-<td>RA-ISF proposes Retrieval Augmented Iterative Self-Feedback to enhance large language models&#39; problem-solving abilities by iteratively decomposing tasks and processing them in three submodules. Experiments demonstrate its superiority over existing benchmarks like GPT3.5 and Llama2, notably improving factual reasoning and reducing hallucinations.</td>
-<td>RAG Enhancement</td>
-<td>March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.06840">RA-ISF: 반복적 자기소개를 사랑하며 확대를 위한 응답 및 이해</a></td>
+<td>RA-ISF는 작업을 반복적으로 분해하고 이를 3개의 하위 모듈에서 처리함으로써 대규모 언어 모델의 문제 해결 능력을 향상시키기 위해 검색 증강 반복 자체 피드백을 제안합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 3월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2403.10131">RAFT: Adapting Language Model to Domain Specific RAG</a></td>
-<td>This paper introduces RAFT (Retrieval Augmented FineTuning), a training approach designed to enhance a pre-trained Large Language Model&#39;s ability to answer questions in domain-specific contexts. RAFT focuses on adapting the model to gain new knowledge by fine-tuning it to ignore irrelevant documents retrieved during the question-answering process. By selectively citing relevant information from retrieved documents, RAFT improves the model&#39;s reasoning capabilities and performance across various datasets like PubMed, HotpotQA, and Gorilla.</td>
-<td>RAG Enhancement</td>
-<td>March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.10131">RAFT: 펭귄별 RAG에 언어 적용</a></td>
+<td>이 문서에서는 도메인별 컨텍스트에서 질문에 답할 수 있는 사전 훈련된 대형 언어 모델의 능력을 향상시키기 위해 설계된 훈련 접근 방식인 RAFT(Retrieval Augmented FineTuning)를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 3월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/pdf/2403.01432.pdf">Fine Tuning vs. Retrieval Augmented Generation for Less Popular Knowledge</a></td>
-<td>This paper investigates the effectiveness of Retrieval Augmented Generation and fine-tuning (FT) approaches in improving the performance of Large Language Models  on low-frequency entities in question answering tasks. While FT shows significant improvement across entities of different popularity levels, RAG outperforms other methods. Furthermore, advancements in retrieval and data augmentation techniques enhance the success of both RAG and FT approaches in customizing LLMs for handling low-frequency entities.</td>
-<td>Comparison Paper</td>
-<td>March 2024</td>
+<td><a href="https://arxiv.org/pdf/2403.01432.pdf">더 많은 정보를 제공하고 저장하여 생성할 수 있습니다.</a></td>
+<td>이 문서에서는 질문 응답 작업에서 저주파 엔터티에 대한 대규모 언어 모델의 성능을 향상시키는 검색 증강 생성 및 미세 조정(FT) 접근 방식의 효과를 조사합니다. </td>
+<td>비교 논문</td>
+<td>2024년 3월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2112.04426">Improving language models by retrieving from trillions of tokens</a></td>
-<td>This paper introduces RETRO, a Retrieval-Enhanced Transformer, which enhances auto-regressive language models by conditioning on document chunks retrieved from a massive corpus. Despite using significantly fewer parameters compared to existing models like GPT-3 and Jurassic-1, RETRO achieves comparable performance on tasks like question answering after fine-tuning. By combining a frozen Bert retriever, a differentiable encoder, and a chunked cross-attention mechanism, RETRO leverages an order of magnitude more data during prediction. This approach presents new possibilities for improving language models through explicit memory at an unprecedented scale.</td>
-<td>RAG Enhanced LLMs</td>
-<td>March 2024</td>
+<td><a href="https://arxiv.org/abs/2112.04426">언어 모델 개선을 통해 검색할 수 있습니다.</a></td>
+<td>이 문서에서는 대규모 코퍼스에서 검색된 문서 청크를 조건으로 자동 회귀 언어 모델을 향상시키는 검색 강화 변환기인 RETRO를 소개합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2024년 3월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2403.05313">RAT: Retrieval Augmented Thoughts Elicit Context-Aware Reasoning in Long-Horizon Generation</a></td>
-<td>The RAT method enhances large language models&#39; reasoning and generation capabilities in long-horizon tasks by iteratively revising a chain of thoughts with relevant information retrieved through information retrieval. By incorporating retrieval-augmented thoughts into models like GPT-3.5, GPT-4, and CodeLLaMA-7b, RAT significantly improves performance across various tasks, including code generation, mathematical reasoning, creative writing, and embodied task planning, with average rating score increases of 13.63%, 16.96%, 19.2%, and 42.78%, respectively.</td>
-<td>RAG Enhancement</td>
-<td>March 2024</td>
+<td><a href="https://arxiv.org/abs/2403.05313">RAT: 확장된 생각 검색은 장수평 영화에서 인식을 통해 유도됩니다.</a></td>
+<td>RAT 방법은 정보 검색을 통해 검색된 관련 정보로 일련의 사고를 반복적으로 수정함으로써 장거리 작업에서 대규모 언어 모델의 추론 및 생성 능력을 향상시킵니다. </td>
+<td>RAG 향상</td>
+<td>2024년 3월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2402.12847">Instruction-tuned Language Models are Better Knowledge Learners</a></td>
-<td>Instruction-tuned Language Models are Better Knowledge Learners introduces pre-instruction-tuning (PIT), a method that instruction-tunes on questions before training on documents, contrary to the standard approach. PIT significantly enhances LLMs&#39; ability to absorb knowledge from new documents, outperforming standard instruction-tuning by 17.8%, as demonstrated in extensive experiments and ablation studies.</td>
-<td>Instruction Tuning</td>
-<td>February 2024</td>
+<td><a href="https://arxiv.org/abs/2402.12847">클라스 언어 모델은 더 나은 지식을 갖고 있습니다.</a></td>
+<td>학습 조정 언어 모델은 더 나은 지식입니다. 학습자는 표준 접근 방식과 달리 문서에 대한 교육을 시작하기 전에 질문에 대한 학습 조정을 수행하는 방법인 사전 학습 조정(PIT)을 도입합니다. </td>
+<td>명령어 튜닝</td>
+<td>2024년 2월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2402.10612">Retrieve Only When It Needs: Adaptive Retrieval Augmentation for Hallucination Mitigation in Large Language Models</a></td>
-<td>Hallucinations present a significant challenge for large language models often resulting from limited internal knowledge. While incorporating external information can mitigate this, it also risks introducing irrelevant details, leading to external hallucinations. In response, The authors introduce Rowen, which selectively augments LLMs with retrieval when detecting inconsistencies across languages, indicative of hallucinations. This semantic-aware process balances internal reasoning with external evidence, effectively mitigating hallucinations. Empirical analysis shows Rowen surpasses existing methods in detecting and mitigating hallucinated content in LLM outputs.</td>
-<td>RAG Enhancement</td>
-<td>February 2024</td>
+<td><a href="https://arxiv.org/abs/2402.10612">사용자용 서비스: 플러그인 모델의 환각 br을 활용하는 검색 기능</a></td>
+<td>환각은 제한된 내부 지식으로 인해 대규모 언어 모델에 심각한 문제를 야기하는 경우가 많습니다. </td>
+<td>RAG 향상</td>
+<td>2024년 2월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2402.07630">G-Retriever: Retrieval-Augmented Generation for Textual Graph Understanding and Question Answering</a></td>
-<td>The paper introduces GraphQA, a framework enabling users to interactively query textual graphs through conversational interfaces for various real-world applications. They propose G-Retriever, which combines graph neural networks, large language models, and Retrieval-Augmented Generation to navigate large textual graphs effectively. Through soft prompting and optimization techniques, G-Retriever achieves superior performance and scalability while mitigating issues like hallucination. Empirical evaluations across multiple domains demonstrate its effectiveness, showcasing its potential for practical applications.</td>
-<td>Retriever Improvement</td>
-<td>February 2024</td>
+<td><a href="https://arxiv.org/abs/2402.07630">G-Retriever: 텍스트 그래프 이해 및 질문 응답을 검색 생성합니다.</a></td>
+<td>이 논문에서는 사용자가 다양한 실제 애플리케이션에 대한 대화형 인터페이스를 통해 텍스트 그래프를 대화형으로 쿼리할 수 있는 프레임워크인 GraphQA를 소개합니다. </td>
+<td>리트리버 개선</td>
+<td>2024년 2월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2402.13482">Retrieval-Augmented Data Augmentation for Low-Resource Domain Tasks</a></td>
-<td>Retrieval-Augmented Data Augmentation (RADA) is a method aimed at improving model performance in low-resource settings with limited training data. RADA addresses the challenge of suboptimal and less diverse synthetic data generation by incorporating examples from other datasets. It retrieves relevant instances based on similarities with the given seed data and prompts Large Language Models to generate new samples with contextual information from both original and retrieved samples. Experimental results demonstrate the effectiveness of RADA in training and test-time data augmentation scenarios, outperforming existing LLM-powered data augmentation methods.</td>
-<td>Domain Specific RAG</td>
-<td>February 2024</td>
+<td><a href="https://arxiv.org/abs/2402.13482">작성자원 작성을 위해 로그인하십시오.</a></td>
+<td>RADA(Retrieval-Augmented Data Augmentation)는 제한된 교육 데이터를 사용하여 리소스가 부족한 환경에서 모델 성능을 향상시키는 것을 목표로 하는 방법입니다. </td>
+<td>도메인 특정 RAG</td>
+<td>2024년 2월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2401.18059">RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval</a></td>
-<td>RAPTOR presents a new approach to retrieval-augmented language modeling by introducing a method that constructs a hierarchical summary tree from large documents, enabling more nuanced and comprehensive retrieval of information. Unlike conventional methods that pull short, direct excerpts from texts, RAPTOR&#39;s recursive process embeds, clusters, and summarizes text chunks at multiple abstraction levels. This structured retrieval allows for a deeper understanding and integration of information across entire documents, significantly enhancing performance on complex tasks requiring multi-step reasoning. Demonstrated improvements on various benchmarks, including a remarkable 20% absolute accuracy increase on the QuALITY benchmark with GPT-4, underline RAPTOR&#39;s potential to revolutionize how models access and leverage extensive knowledge bases, setting new standards for question-answering and beyond.</td>
-<td>RAG Enhancement</td>
-<td>January 2024</td>
+<td><a href="https://arxiv.org/abs/2401.18059">RAPTOR: 트리 구성 검색을 재귀적 추상 처리</a></td>
+<td>RAPTOR는 대규모 문서에서 계층적 요약 트리를 구성하는 방법을 도입하여 검색이 강화된 언어 모델링에 대한 새로운 접근 방식을 제시하여 보다 미묘하고 포괄적인 정보 검색을 가능하게 합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 1월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2401.08406">RAG vs Fine-tuning: Pipelines, Tradeoffs, and a Case Study on Agriculture</a></td>
-<td>The paper explores two methods used by developers to integrate proprietary and domain-specific data into Large Language Models : Retrieval-Augmented Generation  and Fine-Tuning. It presents a detailed pipeline for applying these methods to LLMs like Llama2-13B, GPT-3.5, and GPT-4, focusing on extracting information, generating questions and answers, fine-tuning, and evaluation. The paper demonstrates the capacity of fine-tuned models to leverage cross-geographic information, enhancing answer similarity significantly, and underscores the broader applicability and benefits of LLMs in various industrial domains.</td>
-<td>Comparison Paper</td>
-<td>January 2024</td>
+<td><a href="https://arxiv.org/abs/2401.08406">RAG 대감축 조정파이프라인, 댄스충 및 농업 농업 연구</a></td>
+<td>이 문서에서는 개발자가 독점 및 도메인별 데이터를 대규모 언어 모델에 통합하기 위해 사용하는 두 가지 방법인 검색 증강 생성 및 미세 조정을 탐구합니다. </td>
+<td>비교 논문</td>
+<td>2024년 1월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2401.15884">Corrective Retrieval Augmented Generation</a></td>
-<td>CRAG introduces a novel strategy to enhance the robustness and accuracy of large language models during retrieval-augmented generation  processes. Addressing the potential pitfalls of relying on the relevance of retrieved documents, CRAG employs a retrieval evaluator to gauge the quality and relevance of documents for a given query, enabling adaptive retrieval strategies based on confidence scores. To overcome the limitations of static databases, CRAG integrates large-scale web searches, providing a richer pool of documents. Additionally, its unique decompose-then-recompose algorithm ensures the model focuses on pertinent information while discarding the irrelevant, thereby refining the quality of generation. Designed as a versatile, plug-and-play solution, CRAG significantly enhances RAG-based models&#39; performance across a range of generation tasks, demonstrated through substantial improvements in four diverse datasets.</td>
-<td>RAG Enhancement</td>
-<td>January 2024</td>
+<td><a href="https://arxiv.org/abs/2401.15884">확장 검색 생성</a></td>
+<td>CRAG는 검색 증강 생성 프로세스 중에 대규모 언어 모델의 견고성과 정확성을 향상시키는 새로운 전략을 도입합니다. </td>
+<td>RAG 향상</td>
+<td>2024년 1월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2401.13256">UniMS-RAG: A Unified Multi-source Retrieval-Augmented Generation for Personalized Dialogue Systems</a></td>
-<td>The paper introduces UniMS-RAG, a novel framework designed to address the personalization challenge in dialogue systems by incorporating multiple knowledge sources. It decomposes the task into three sub-tasks: Knowledge Source Selection, Knowledge Retrieval, and Response Generation, and unifies them into a single sequence-to-sequence paradigm during training. This allows the model to dynamically retrieve and evaluate relevant evidence using special tokens, facilitating interaction with diverse knowledge sources. Furthermore, a self-refinement mechanism is proposed to iteratively refine generated responses based on consistency and relevance scores.</td>
-<td>Domain Specific RAG</td>
-<td>January 2024</td>
+<td><a href="https://arxiv.org/abs/2401.13256">UniMS-RAG: 개인화 대화 시스템을 통합 다중 소스 제공 강화</a></td>
+<td>이 논문에서는 여러 지식 소스를 통합하여 대화 시스템의 개인화 문제를 해결하도록 설계된 새로운 프레임워크인 UniMS-RAG를 소개합니다. </td>
+<td>도메인 특정 RAG</td>
+<td>2024년 1월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2312.10997">Retrieval-Augmented Generation for Large Language Models: A Survey</a></td>
-<td>This survey delves into Retrieval-Augmented Generation as a solution to challenges faced by Large Language Models, including hallucination and outdated knowledge. RAG integrates external databases to enhance accuracy and credibility, particularly for knowledge-intensive tasks, and enables continuous knowledge updates. The paper reviews the evolution of RAG paradigms, covering Naive RAG, Advanced RAG, and Modular RAG, while examining the retrieval, generation, and augmentation techniques. It discusses state-of-the-art technologies and introduces an updated evaluation framework and benchmark, concluding with insights into current challenges and future research directions.</td>
-<td>RAG Survey</td>
-<td>December 2023</td>
+<td><a href="https://arxiv.org/abs/2312.10997">플러그인 사용자 삽입 만들기: 사용자 참여 참여</a></td>
+<td>이 설문 조사에서는 환각 및 오래된 지식을 포함하여 대규모 언어 모델이 직면한 문제에 대한 솔루션인 검색 증강 생성에 대해 자세히 조사합니다. </td>
+<td>RAG 설문조사</td>
+<td>2023년 12월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2311.09210">Chain-of-Note: Enhancing Robustness in Retrieval-Augmented Language Models</a></td>
-<td>Chain-of-Noting (CoN) introduces an innovative approach to enhance the robustness and reliability of retrieval-augmented language models (RALMs) by addressing the issue of processing irrelevant or noisy information and improving the model&#39;s ability to recognize when it lacks sufficient knowledge to answer a question. CoN&#39;s strategy involves creating sequential reading notes on retrieved documents, facilitating a more detailed assessment of their relevance and integrating this evaluation into the answer generation process. This method not only helps in filtering out unhelpful information but also empowers RALMs to more confidently identify and admit when an answer is beyond their current knowledge or data scope. Leveraging ChatGPT for training data creation and implementing CoN on a LLaMa-2 7B model, this approach has demonstrated significant performance improvements over traditional RALMs in open-domain question answering tasks. The results include a notable increase in Exact Match (EM) scores amidst noisy document retrieval and enhanced rejection rates for questions outside the model&#39;s pre-training knowledge, underscoring CoN&#39;s potential in making RALMs more reliable and trustworthy.</td>
-<td>RAG Enhanced LLMs</td>
-<td>November 2023</td>
+<td><a href="https://arxiv.org/abs/2311.09210">Chain-of-Note: 검색 기능 모델의 키보드 기능 강화</a></td>
+<td>CoN(Chain-of-Noting)은 관련이 없거나 시끄러운 정보를 처리하는 문제를 해결하고 질문에 대답할 충분한 지식이 부족한 경우를 인식하는 모델의 능력을 향상시켜 검색 증강 언어 모델(RALM)의 견고성과 신뢰성을 향상시키는 혁신적인 접근 방식을 도입합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 11월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2311.06595">From Classification to Generation: Insights into Crosslingual Retrieval Augmented ICL</a></td>
-<td>The paper introduces CREA-ICL, an innovative method designed to enhance the zero-shot learning capabilities of multilingual pre-trained language models (MPLMs) in low-resource languages through cross-lingual retrieval-augmented in-context learning. By retrieving semantically similar prompts from high-resource languages, this approach seeks to bolster the models&#39; performance across a range of tasks. The findings indicate consistent improvements in classification tasks; however, the approach encounters obstacles when applied to generation tasks. These outcomes provide valuable insights into the distinctions in effectiveness between classification and generation domains when utilizing retrieval-augmented in-context learning, highlighting the nuanced challenges and potential strategies for advancing the application of MPLMs in multilingual settings.</td>
-<td>Domain Specific RAG</td>
-<td>November 2023</td>
+<td><a href="https://arxiv.org/abs/2311.06595">구분에서 독립된 언어 검색에 대해 ICL에 대한 통찰</a></td>
+<td>이 논문에서는 교차 언어 검색 증강 상황 내 학습을 통해 자원이 적은 언어에서 다중 언어 사전 훈련된 언어 모델(MPLM)의 제로샷 학습 기능을 향상시키도록 설계된 혁신적인 방법인 CREA-ICL을 소개합니다. </td>
+<td>도메인 특정 RAG</td>
+<td>2023년 11월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2311.08252">REST: Retrieval-Based Speculative Decoding</a></td>
-<td>The paper introduces REST, a novel algorithm called Retrieval-Based Speculative Decoding, aimed at accelerating language model generation. Unlike prior methods, REST leverages retrieval to generate draft tokens based on common phases and patterns observed during text generation. It seamlessly integrates with existing language models without additional training, achieving notable speedups of 1.62X to 2.36X on code or text generation tasks when benchmarked against 7B and 13B language models in a single-batch setting.</td>
-<td>RAG Enhancement</td>
-<td>November 2023</td>
+<td><a href="https://arxiv.org/abs/2311.08252">REST: 검색 기반 요소 반응</a></td>
+<td>이 논문에서는 언어 모델 생성 가속화를 목표로 하는 검색 기반 추측 디코딩이라는 새로운 알고리즘인 REST를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2023년 11월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2311.08377">Learning to Filter Context for Retrieval-Augmented Generation</a></td>
-<td>The FILCO method is introduced to enhance the quality of context provided to generation models in retrieval-augmented systems. By identifying useful context and training context filtering models, FILCO aims to mitigate issues arising from irrelevant passages during generation. Experimental results across various knowledge-intensive tasks demonstrate the effectiveness of FILCO in improving output quality, surpassing existing approaches in tasks such as question answering, fact verification, and dialog generation. This method proves beneficial regardless of whether the retrieved context aligns perfectly with the desired output.</td>
-<td>RAG Enhancement</td>
-<td>November 2023</td>
+<td><a href="https://arxiv.org/abs/2311.08377">써비스 생성을 위한 남은 기간</a></td>
+<td>검색 증강 시스템에서 생성 모델에 제공되는 컨텍스트의 품질을 향상시키기 위해 FILCO 방법이 도입되었습니다. </td>
+<td>RAG 향상</td>
+<td>2023년 11월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.11511">Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection</a></td>
-<td>Self-RAG introduces a novel approach to enhance the quality and accuracy of large language models by incorporating a process of retrieval and self-reflection. Unlike traditional retrieval-augmented generation models that may retrieve and use external passages indiscriminately, Self-RAG employs a more dynamic method. It enables an LLM to adaptively decide when to retrieve information and critically assess the relevance of retrieved content and its own generated responses through the use of special &quot;reflection tokens.&quot; This innovative mechanism allows the model to adjust its behavior based on the specifics of the task at hand, offering a higher degree of control during inference. Testing on a variety of tasks, including open-domain question answering, reasoning, and fact verification, demonstrates that Self-RAG models (with 7B and 13B parameters) surpass both conventional LLMs and other retrieval-augmented models in performance, showcasing notable improvements in generating factual and accurately cited long-form content.</td>
-<td>RAG Enhancement</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.11511">Self-RAG: 자기 성찰을 불러, 생성 및</a></td>
+<td>Self-RAG는 검색 및 자기 성찰 프로세스를 통합하여 대규모 언어 모델의 품질과 정확성을 향상시키는 새로운 접근 방식을 도입합니다. </td>
+<td>RAG 향상</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2309.01431">Benchmarking Large Language Models in Retrieval-Augmented Generation</a></td>
-<td>This paper tackles the critical task of evaluating how Retrieval-Augmented Generation influences the performance of large language models across a spectrum of capabilities essential for effective RAG application. Through the establishment of the Retrieval-Augmented Generation Benchmark (RGB), a novel corpus designed for RAG evaluation in both English and Chinese, the study meticulously assesses LLMs against four core abilities: noise robustness, negative rejection, information integration, and counterfactual robustness. The analysis of six representative LLMs using RGB exposes their relative strengths and weaknesses, revealing that while these models demonstrate resilience against noise, they falter significantly in rejecting irrelevant information, integrating diverse information sources, and countering false information. The findings underscore the need for further advancements in LLMs to harness the full potential of RAG, highlighting the complexity and challenges of improving LLMs&#39; factual accuracy and decision-making processes.</td>
-<td>RAG Evaluation</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2309.01431">검색을 통해 생성된 쿠키 벤치마킹</a></td>
+<td>이 문서에서는 검색 증강 생성이 효과적인 RAG 애플리케이션에 필수적인 다양한 기능에 걸쳐 대규모 언어 모델의 성능에 어떻게 영향을 미치는지 평가하는 중요한 작업을 다룹니다. </td>
+<td>RAG 평가</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.12836">Knowledge-Augmented Language Model Verification</a></td>
-<td>The paper introduces a novel method aimed at improving the factual accuracy of language model responses by incorporating a verification step into the knowledge-augmentation process. Recognizing that LMs often produce factually incorrect answers due to the limitations of their internalized knowledge, this approach enhances text generation by identifying and correcting errors in both the retrieval of relevant external knowledge and the reflection of this knowledge in the generated text. A specialized verifier, a smaller LM trained via instruction-finetuning, is employed to detect inaccuracies in both retrieval and generation. Errors identified by the verifier can be corrected by updating the retrieved knowledge or modifying the generated text. Moreover, the use of an ensemble of outputs guided by different instructions, combined with a single verifier, boosts the verification&#39;s reliability. Tested across multiple question answering benchmarks, this method significantly increases the factual accuracy of responses, demonstrating the verifier&#39;s effectiveness in pinpointing and addressing errors in knowledge retrieval and text generation.</td>
-<td>RAG Enhancement</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.12836">지식 기반 언어 검증</a></td>
+<td>이 논문에서는 지식 확대 프로세스에 검증 단계를 통합하여 언어 모델 응답의 사실적 정확성을 향상시키는 것을 목표로 하는 새로운 방법을 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.13682">Optimizing Retrieval-augmented Reader Models via Token Elimination</a></td>
-<td>This study introduces an approach to enhance the efficiency of Fusion-in-Decoder (FiD), a retrieval-augmented language model widely used in open-domain tasks like question answering and fact checking. By analyzing the importance of each retrieved passage to the model&#39;s performance, the researchers propose a method for selectively eliminating non-critical information at the token level. This token elimination strategy significantly reduces decoding time?봟y up to 62.2%?봶ith minimal impact on the model&#39;s effectiveness, only reducing performance by 2%. Surprisingly, in some instances, this approach not only maintains but also improves the model&#39;s performance. This method offers a promising direction for optimizing the balance between computational efficiency and accuracy in retrieval-augmented reader models.</td>
-<td>RAG Enhanced LLMs</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.13682">의미를 제거하기 위해 강화 리더 모델 최적화</a></td>
+<td>본 연구에서는 질문 답변 및 사실 확인과 같은 개방형 도메인 작업에 널리 사용되는 검색 증강 언어 모델인 FiD(Fusion-in-Decoder)의 효율성을 향상시키는 접근 방식을 소개합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.05002">Self-Knowledge Guided Retrieval Augmentation for Large Language Models</a></td>
-<td>SKR (Self-Knowledge guided Retrieval) is a novel method designed to enhance the performance of large language models by intelligently incorporating external knowledge. Recognizing the limitations of LLMs in terms of the completeness and updatability of their knowledge, SKR focuses on improving LLMs&#39; ability to discern what they know and what they don&#39;t, allowing them to selectively seek external information. This approach aims to mitigate the issues with retrieval-based methods that sometimes detract from the model&#39;s original responses. By enabling LLMs to refer to previously encountered questions and judiciously utilize external resources for new queries, SKR has shown to outperform existing methods in various datasets, leveraging models like InstructGPT or ChatGPT for improved question-answering capabilities.</td>
-<td>Retriever Improvement</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.05002">확장된 버전의 사용자 인터페이스 기반 검색 확대</a></td>
+<td>SKR(Self-Knowledge Guided Retrieval)은 외부 지식을 지능적으로 통합하여 대규모 언어 모델의 성능을 향상시키도록 설계된 새로운 방법입니다. </td>
+<td>리트리버 개선</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.14696">Tree of Clarifications: Answering Ambiguous Questions with Retrieval-Augmented Large Language Models</a></td>
-<td>The &quot;Tree of Clarifications&quot; (ToC) framework addresses the challenge of ambiguous questions in open-domain question answering by creating a structured tree of potential interpretations, allowing for the generation of comprehensive long-form answers. This method leverages few-shot prompting and external knowledge to recursively disambiguate questions and gather relevant information. ToC not only surpasses other few-shot methods across various metrics but also outperforms fully-supervised approaches in Disambig-F1 and Disambig-ROUGE scores, offering a robust solution to understanding and answering ambiguously posed questions effectively.</td>
-<td>RAG Enhanced LLMs</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.14696">설명 트리: 검색용 플러그인 모델을 사용하여 모호한 질문에 대한 답변</a></td>
+<td>"ToC(명확화 트리)" 프레임워크는 구조화된 잠재적 해석 트리를 생성하여 포괄적인 긴 형식의 답변을 생성함으로써 개방형 도메인 질문 답변에서 모호한 질문 문제를 해결합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.05149">Retrieval-Generation Synergy Augmented Large Language Models</a></td>
-<td>The paper introduces a novel iterative framework that combines retrieval and generation processes to enhance large language models for knowledge-intensive tasks. This collaborative approach allows the model to access both parametric knowledge (built into the model itself) and non-parametric knowledge (from external sources) and iteratively refine its understanding and output through interactions between retrieval and generation phases. This synergy is particularly beneficial for complex tasks requiring multi-step reasoning. Tested across single-hop and multi-hop question-answering datasets, the method demonstrates a marked improvement in LLMs&#39; reasoning capabilities, surpassing existing approaches in performance.</td>
-<td>RAG Enhancement</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.05149">게임을 생성하여 사용할 수 있는 언어 파일</a></td>
+<td>이 논문에서는 검색 및 생성 프로세스를 결합하여 지식 집약적인 작업을 위한 대규모 언어 모델을 향상시키는 새로운 반복 프레임워크를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.04408">RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation</a></td>
-<td>RECOMP introduces a method to optimize the efficiency of retrieval-augmented language models by compressing retrieved documents into concise summaries before integrating them into the model&#39;s context. This approach aims to make the inference process less resource-intensive and helps LMs more effectively discern pertinent information from retrieved documents. RECOMP employs two types of compressors: an extractive compressor, which identifies and uses key sentences from documents, and an abstractive compressor, which creates summaries by combining information from various sources. These compressors are designed to enhance LMs&#39; task performance while generating brief summaries, even capable of omitting augmentation when retrieved documents are not beneficial.</td>
-<td>RAG Enhancement</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.04408">추천: 압축 및 군사 확장을 통해 검색 강화 LM 개선</a></td>
+<td>RECOMP는 검색된 문서를 모델의 컨텍스트에 통합하기 전에 간결한 요약으로 압축하여 검색 증강 언어 모델의 효율성을 최적화하는 방법을 도입합니다. </td>
+<td>RAG 향상</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.03025">Retrieval meets Long Context Large Language Models</a></td>
-<td>The paper delves into the comparative benefits of retrieval-augmentation and extended context windows in large language models, and whether their combination could yield superior results for various downstream tasks. Using two advanced LLMs for analysis, the findings reveal that a model with a smaller context window (4K tokens) supplemented by retrieval-augmentation can match the performance of a model with a larger context window (16K tokens) fine-tuned for long-context tasks, but with significantly lower computational demand. Moreover, incorporating retrieval into LLMs enhances performance across all context window sizes. The standout model, a retrieval-augmented Llama2-70B with a 32K context window, notably outperformed leading models like GPT-3.5-turbo-16k and Davinci003 across various tasks, including question answering and summarization, while also achieving faster generation speeds. This research underscores the effectiveness of retrieval-augmentation in improving LLMs&#39; efficiency and accuracy, offering valuable guidance for future model development strategies.</td>
-<td>Comparison Paper</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.03025">검색과 긴 확장 연결 언어의 만남</a></td>
+<td>이 논문에서는 대규모 언어 모델에서 검색 확대 및 확장된 컨텍스트 창의 비교 이점과 이들의 조합이 다양한 다운스트림 작업에 대해 우수한 결과를 얻을 수 있는지 여부를 조사합니다. </td>
+<td>비교 논문</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.01558">Making Retrieval-Augmented Language Models Robust to Irrelevant Context</a></td>
-<td>This paper addresses the challenge of ensuring that retrieval-augmented language models (RALMs) remain effective and accurate, especially when confronted with irrelevant information during multi-hop reasoning tasks. Through an extensive analysis across five open-domain question answering benchmarks, the authors identify instances where retrieval augmentation actually hampers model performance. To combat this, they introduce two strategies: first, a baseline approach using a natural language inference model to filter out passages that don&#39;t support the question-answer pairs, ensuring the model isn&#39;t misled by irrelevant data. While effective in reducing inaccuracies, this method risks excluding useful information. To refine this approach, the authors develop a technique for enhancing the language model&#39;s ability to discern and appropriately use retrieved passages, by training with a combination of relevant and irrelevant contexts. Remarkably, they demonstrate that a modest dataset of just 1,000 examples can significantly improve the model&#39;s resilience to irrelevant information without compromising its performance on pertinent examples.</td>
-<td>RAG Enhanced LLMs</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.01558">관련 없는 문맥에 대해 검색해 보세요.</a></td>
+<td>이 문서에서는 특히 다중 홉 추론 작업 중에 관련 없는 정보에 직면할 때 검색 증강 언어 모델(RALM)이 효과적이고 정확한 상태를 유지하도록 보장하는 과제를 다룹니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.01352">RA-DIT: Retrieval-Augmented Dual Instruction Tuning</a></td>
-<td>RA-DIT presents a novel approach to enhancing retrieval-augmented language models (RALMs) by introducing a two-step, lightweight fine-tuning process that can be applied to any large language model to equip it with retrieval capabilities. The first step focuses on fine-tuning the LLM to better utilize retrieved information, while the second step optimizes the retriever to fetch more relevant information as determined by the LLM&#39;s needs. This method stands out by not requiring costly modifications to the model&#39;s pre-training phase or relying on less effective post-hoc integration of data stores. Tested across various zero- and few-shot learning benchmarks, RA-DIT achieves unprecedented performance improvements, showcasing its effectiveness in knowledge-intensive tasks and significantly surpassing existing models in both zero-shot and few-shot scenarios.</td>
-<td>RAG Enhanced LLMs</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.01352">RA-DIT: 서비스 제공</a></td>
+<td>RA-DIT는 검색 기능을 갖추기 위해 모든 대규모 언어 모델에 적용할 수 있는 2단계 경량 미세 조정 프로세스를 도입하여 검색 증강 언어 모델(RALM)을 향상시키는 새로운 접근 방식을 제시합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.07713">InstructRetro: Instruction Tuning post Retrieval-Augmented Pretraining</a></td>
-<td>InstructRetro builds on the idea of enhancing auto-regressive large language models  through retrieval-augmented pretraining, presenting the largest model of its kind, Retro 48B. This model, an expansion of a 43B GPT model pretrained with an additional 100 billion tokens and leveraging Retro&#39;s method from 1.2 trillion tokens, demonstrates remarkable improvements in perplexity and factual accuracy while requiring minimal additional computational resources. The process not only showcases the scalability of retrieval-augmented pretraining but also significantly enhances instruction tuning and zero-shot generalization capabilities. InstructRetro, when fine-tuned with instructions, surpasses its GPT counterpart across various tasks, including short-form QA, reading comprehension, long-form QA, and summarization, with notable margins. Interestingly, the study also reveals that removing the encoder and utilizing only the decoder of InstructRetro yields comparable results, suggesting a promising route for optimizing GPT decoders through retrieval-augmented pretraining followed by instruction tuning.</td>
-<td>RAG Enhanced LLMs</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.07713">InstructRetro: 표준화 후 검색-증강 학습 사전</a></td>
+<td>InstructRetro는 검색 증강 사전 학습을 통해 자동 회귀 대형 언어 모델을 향상시키는 아이디어를 기반으로 하며 동종 모델 중 가장 큰 모델인 Retro 48B를 제시합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.20158">GAR-meets-RAG Paradigm for Zero-Shot Information Retrieval</a></td>
-<td>The GAR-meets-RAG approach innovatively combines two paradigms?봥eneration-augmented retrieval (GAR) and retrieval-augmented generation (RAG)?봳o address the zero-shot information retrieval challenge, where no labeled data from the target domain is available. This method iteratively enhances both the retrieval and rewriting stages, significantly improving recall and precision in document ranking without requiring domain-specific training data. By integrating the generative capabilities of large language models with embedding-based retrieval, the proposed methodology not only addresses the common pitfalls of high-recall retrieval and high-precision ranking in a zero-shot context but also sets new benchmarks on the BEIR and TREC-DL datasets. It achieves remarkable improvements in key metrics like Recall@100 and nDCG@10, showing up to 17% relative gains over prior state-of-the-art results, demonstrating its effectiveness in zero-shot passage retrieval tasks.</td>
-<td>Retriever Improvement</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.20158">GAR-meets-RAG를 통해 정보를 검색하실 수 있습니다</a></td>
+<td>GAR과 RAG의 만남 접근 방식은 두 가지 패러다임인 GAR(생성 증강 검색)과 RAG(검색 증강 생성)를 혁신적으로 결합하여 대상 도메인에서 레이블이 지정된 데이터를 사용할 수 없는 제로샷 정보 검색 문제를 해결합니다. </td>
+<td>리트리버 개선</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.07554">Retrieve Anything To Augment Large Language Models</a></td>
-<td>The paper proposes LLM-Embedder, a unified model designed to address the challenges faced by large language models by leveraging retrieval augmentation. Unlike conventional methods, LLM-Embedder optimizes retrieval for diverse LLM needs with one model. Training this unified model poses challenges due to the varied semantic relationships targeted by different retrieval tasks. To overcome this, the paper presents optimized training methodologies, including reward formulation, stabilized knowledge distillation, multi-task fine-tuning, and homogeneous negative sampling. These strategies lead to outstanding empirical performance, offering a promising solution for enhancing LLM capabilities through retrieval augmentation.</td>
-<td>Retriever Improvement</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.07554">관계된 언어 모델을 강화하기 위해 무엇을 검색할 것인지</a></td>
+<td>이 논문에서는 검색 증강을 활용하여 대규모 언어 모델이 직면한 문제를 해결하도록 설계된 통합 모델인 LLM-Embedder를 제안합니다. </td>
+<td>리트리버 개선</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.03714">DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines</a></td>
-<td>DSPy introduces a systematic approach for developing and optimizing language model (LM) pipelines, abstracting them as text transformation graphs. These imperative computational graphs enable declarative modules to invoke LMs, which can then learn to apply various techniques through parameterization. With a compiler that optimizes DSPy pipelines, it maximizes given metrics, allowing for sophisticated LM pipelines to be expressed and optimized efficiently. Case studies demonstrate DSPy&#39;s effectiveness in outperforming standard prompting and expert-created demonstrations across various tasks, showcasing its competitive performance even with smaller LM models.</td>
-<td>RAG Enhancement</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.03714">DSPy: 선언적 언어 자격 취득을 위한 자체 개선 파이프라인으로</a></td>
+<td>DSPy는 언어 모델(LM) 파이프라인을 개발하고 최적화하기 위한 체계적인 접근 방식을 도입하여 이를 텍스트 변환 그래프로 추상화합니다. </td>
+<td>RAG 향상</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.10567">RegaVAE: A Retrieval-Augmented Gaussian Mixture Variational Auto-Encoder for Language Modeling</a></td>
-<td>RegaVAE, a novel retrieval-augmented language model, addresses the challenges of determining relevant information retrieval and effective integration during generation. By considering both source and target text, it encodes them into a latent space using a variational auto-encoder (VAE). Leveraging this compact representation, RegaVAE outperforms existing models in text generation quality and hallucination removal, as demonstrated through theoretical analysis and experiments across diverse datasets.</td>
-<td>RAG Enhanced LLMs</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.10567">RegaVAE: 변형을 적용하여 변형 가우스를 변형할 수 있습니다.</a></td>
+<td>새로운 검색 증강 언어 모델인 RegaVAE는 생성 중 관련 정보 검색 및 효과적인 통합을 결정하는 과제를 해결합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.06816">Text Embeddings Reveal (Almost) As Much As Text</a></td>
-<td>The paper explores text embedding inversion, aiming to reconstruct original text from embeddings. While a basic model performs poorly, a multi-step approach achieves 92% accuracy in recovering 32-token text inputs. This method, trained on two embedding models, successfully retrieves personal information like full names from clinical notes, highlighting potential privacy risks associated with text embeddings.</td>
-<td>Embeddings</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.06816">텍스트 임베딩은 문자만큼(거의) 많은 것을 선택합니다.</a></td>
+<td>이 논문에서는 임베딩으로부터 원본 텍스트를 재구성하는 것을 목표로 텍스트 임베딩 반전을 탐구합니다. </td>
+<td>임베딩</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2310.12150">Understanding Retrieval Augmentation for Long-Form Question Answering</a></td>
-<td>This paper investigates the effects of retrieval-augmented language models on long-form question answering. By comparing answers generated from LMs using the same evidence documents, the impact of retrieval augmentation on different LMs is analyzed. The study also examines various attributes of generated answers and evaluates methods for automatically judging attribution to evidence documents. Insights are provided on how retrieval augmentation influences long, knowledge-rich text generation, including attribution patterns and analysis of attribution errors, offering directions for future research in this area</td>
-<td>RAG Enhanced LLMs</td>
-<td>October 2023</td>
+<td><a href="https://arxiv.org/abs/2310.12150">장문 질문 답변을 검색 확대 이해</a></td>
+<td>이 논문은 긴 형식의 질문 답변에 대한 검색 증강 언어 모델의 효과를 조사합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 10월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2209.10063">Generate rather than Retrieve: Large Language Models are Strong Context Generators</a></td>
-<td>This study introduces GenRead, a novel approach for handling knowledge-intensive tasks like open-domain question answering, by leveraging large language models to generate rather than retrieve contextual documents. This method prompts the language model to produce context relevant to the given question, which is then used to determine the final answer. Additionally, GenRead employs a novel clustering-based prompting technique that ensures the diversity of generated documents, covering a broader range of perspectives and thereby enhancing the accuracy of answers. Through rigorous testing across multiple tasks, including QA, fact checking, and dialogue systems, GenRead has shown to significantly surpass traditional retrieval-based methods, achieving notably higher exact match scores on benchmarks like TriviaQA and WebQ without relying on external knowledge sources. This marks a significant advancement in efficiently accessing and utilizing knowledge for AI tasks.</td>
-<td>RAG Enhancement</td>
-<td>September 2023</td>
+<td><a href="https://arxiv.org/abs/2209.10063">검색보다는 생성: 기능 파일을 저장 생성기</a></td>
+<td>이 연구에서는 대규모 언어 모델을 활용하여 상황별 문서를 검색하는 대신 생성함으로써 개방형 도메인 질문 답변과 같은 지식 집약적 작업을 처리하기 위한 새로운 접근 방식인 GenRead를 소개합니다. </td>
+<td>RAG 향상</td>
+<td>2023년 9월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2309.15217">RAGAS: Automated Evaluation of Retrieval Augmented Generation</a></td>
-<td>RAGAs introduces a new way to evaluate Retrieval Augmented Generation systems without the need for human-annotated references. RAG systems enhance language models by fetching information from textual databases, which helps to minimize inaccuracies or &quot;hallucinations&quot; in generated text. Evaluating these systems is complex due to the need to assess the retrieval&#39;s relevance, the LLM&#39;s ability to use the retrieved information accurately, and the overall quality of the generated text. RAGAs offers a comprehensive set of metrics for assessing these aspects quickly and without human annotations, facilitating more efficient development and refinement of RAG technologies. This is particularly valuable in the rapidly evolving field of large language models.</td>
-<td>RAG Evaluation</td>
-<td>September 2023</td>
+<td><a href="https://arxiv.org/abs/2309.15217">RAGAS: 검색 생성의 자동 평가</a></td>
+<td>RAGA는 사람이 주석을 추가할 필요 없이 검색 증강 생성 시스템을 평가하는 새로운 방법을 도입합니다. </td>
+<td>RAG 평가</td>
+<td>2023년 9월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2308.10633">RaLLe: A Framework for Developing and Evaluating Retrieval-Augmented Large Language Models</a></td>
-<td>RaLLe introduces an open-source framework aimed at enhancing the development and evaluation of retrieval-augmented large language models (R-LLMs), specifically for tasks requiring a high degree of factual accuracy, like question-answering. Addressing the lack of transparency in current tools, RaLLe provides a detailed view into each step of the R-LLM process, from retrieval to generation. This enables developers to refine prompts, evaluate the efficacy of different components, and quantitatively measure the performance improvements in their models. Essentially, RaLLe offers a comprehensive toolkit for boosting the effectiveness and precision of R-LLMs in handling complex, knowledge-based tasks.</td>
-<td>RAG Enhanced LLMs</td>
-<td>August 2023</td>
+<td><a href="https://arxiv.org/abs/2308.10633">RaLLe: 검색 기능 대형 언어 모델 개발 및 평가를 프레임워크</a></td>
+<td>RaLLe은 특히 질문 답변과 같이 높은 수준의 사실적 정확성이 필요한 작업을 위해 검색 증강 대형 언어 모델(R-LLM)의 개발 및 평가를 향상시키는 것을 목표로 하는 오픈 소스 프레임워크를 도입합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 8월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2308.07922">RAVEN: In-Context Learning with Retrieval Augmented Encoder-Decoder Language Models</a></td>
-<td>The paper presents RAVEN, an approach to improving in-context learning in encoder-decoder language models through retrieval augmentation. By analyzing the ATLAS model, the authors pinpoint challenges like mismatches between training and usage, and limited context availability. RAVEN addresses these by integrating retrieval-augmented masked and prefix language modeling, alongside a novel technique called Fusion-in-Context Learning. This method boosts few-shot learning capabilities without extra training or changes to the model structure. Testing shows RAVEN surpassing ATLAS and holding its ground against some of the most sophisticated models, even with fewer parameters. This study highlights the efficacy and potential of retrieval-augmented models in enhancing in-context learning, paving the way for future advancements in the field.</td>
-<td>RAG Enhanced LLMs</td>
-<td>August 2023</td>
+<td><a href="https://arxiv.org/abs/2308.07922">RAVEN: 요구사항-디코더 언어 모델을 사용하는 상황별 학습</a></td>
+<td>이 논문은 검색 증강을 통해 인코더-디코더 언어 모델의 상황 내 학습을 개선하는 접근 방식인 RAVEN을 제시합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 8월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2308.11761">KnowledGPT: Enhancing Large Language Models with Retrieval and Storage Access on Knowledge Bases</a></td>
-<td>KnowledGPT introduces a novel framework aimed at overcoming the limitations of large language models regarding completeness, timeliness, faithfulness, and adaptability by integrating them with knowledge bases. This integration allows for enhanced retrieval and storage of knowledge, making LLMs more powerful and versatile. The framework uses &quot;program of thought&quot; prompting to generate search queries in code format, facilitating precise operations within KBs. Additionally, KnowledGPT enables the creation of personalized KBs to store user-specific knowledge. Through comprehensive testing, KnowledGPT has shown to significantly expand the range of questions LLMs can answer by utilizing both public and personalized knowledge sources, marking a significant step forward in making LLMs more informed and adaptable.</td>
-<td>Input Preprocessing</td>
-<td>August 2023</td>
+<td><a href="https://arxiv.org/abs/2308.11761">KnowledGPT: 지식 기반 검색 및 저장 액세스를 통해 전용 언어 모델 강화</a></td>
+<td>KnowledGPT는 완전성, 적시성, 충실성 및 적응성에 관한 대규모 언어 모델의 한계를 지식 기반과 통합하여 극복하기 위한 새로운 프레임워크를 도입합니다. </td>
+<td>입력 전처리</td>
+<td>2023년 8월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2307.07164">Learning to Retrieve In-Context Examples for Large Language Models</a></td>
-<td>This paper introduces a novel framework for improving in-context learning for large language models by iteratively training dense retrievers to identify high-quality examples. The framework involves training a reward model based on LLM feedback to evaluate candidate examples, followed by knowledge distillation to train a bi-encoder based dense retriever. Experimental results across 30 tasks demonstrate significant performance enhancements, showcasing the framework&#39;s generalization ability to unseen tasks. Analysis reveals that the model improves performance by retrieving examples with similar patterns, consistently benefiting LLMs of different sizes.</td>
-<td>Retriever Improvement</td>
-<td>July 2023</td>
+<td><a href="https://arxiv.org/abs/2307.07164">관련 언어 모델에 대한 상황 내 예제를 검색하는 방법을 학습합니다.</a></td>
+<td>이 문서에서는 고품질 예제를 식별하기 위해 밀집 검색기를 반복적으로 훈련하여 대규모 언어 모델에 대한 상황 내 학습을 개선하기 위한 새로운 프레임워크를 소개합니다. </td>
+<td>리트리버 개선</td>
+<td>2023년 7월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.06983">Active Retrieval Augmented Generation</a></td>
-<td>This paper explores how to enhance large language models through Active Retrieval Augmented Generation, addressing the common issue of factual inaccuracies or &quot;hallucinations&quot; in generated content. The proposed method, FLARE (Forward-Looking Active REtrieval augmented generation), innovates by not just retrieving information once before generation but actively deciding when and what to retrieve as the generation progresses. This process involves predicting future content needs and using those predictions to fetch relevant information dynamically. Tested across four long-form, knowledge-intensive generation tasks, FLARE shows either superior or competitive performance compared to baseline methods. This approach proves particularly useful in generating lengthy texts where the need for external information can arise at multiple points, showcasing a significant advancement in generating more accurate and reliable content.</td>
-<td>Retriever Improvement</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.06983">유용한 서비스 생성</a></td>
+<td>이 문서에서는 생성된 콘텐츠의 사실적 부정확성 또는 "환각"이라는 일반적인 문제를 해결하면서 Active Retrieval Augmented Generation을 통해 대규모 언어 모델을 향상하는 방법을 탐구합니다. </td>
+<td>리트리버 개선</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.04757">Augmented Large Language Models with Parametric Knowledge Guiding</a></td>
-<td>The paper presents a novel Parametric Knowledge Guiding (PKG) framework aimed at improving the performance of Large Language Models on domain-specific tasks. By integrating a knowledge-guiding module, PKG allows LLMs to access specialized knowledge without needing to modify the original model parameters. This approach is particularly advantageous for enhancing &quot;black-box&quot; LLMs, which are typically not open for modification or fine-tuning. The PKG framework leverages open-source models for creating an offline knowledge base, addressing both the transparency issues and data privacy concerns associated with proprietary LLMs. The effectiveness of PKG is showcased through significant performance improvements across a variety of knowledge-intensive tasks.</td>
-<td>Domain Specific RAG</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.04757">베이스 플레이트 지식 안내를 게스트로 제공하는 연주 모델</a></td>
+<td>이 논문은 도메인별 작업에서 대규모 언어 모델의 성능을 향상시키는 것을 목표로 하는 새로운 PKG(Parametric Knowledge Guiding) 프레임워크를 제시합니다. </td>
+<td>도메인 특정 RAG</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.02437">Lift Yourself Up: Retrieval-augmented Text Generation with Self Memory</a></td>
-<td>This paper introduces &quot;selfmem,&quot; a  framework for retrieval-augmented text generation that addresses the limitations of traditional memory retrieval methods by leveraging the model&#39;s own outputs as an unbounded memory pool. This self-memory approach allows for iterative improvements in text generation tasks by using the model&#39;s generated content as new memory sources for subsequent generations. Tested across neural machine translation, abstractive text summarization, and dialogue generation tasks, the selfmem framework has shown remarkable performance, setting new benchmarks in several domains. The study also provides a detailed analysis of the framework&#39;s components, offering valuable insights for future research in retrieval-augmented text generation.</td>
-<td>Memory Improvement</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.02437">Lift Yourself Up: 라이브 기억을 연주하는 텍스트 생성</a></td>
+<td>이 논문에서는 모델의 자체 출력을 무제한 메모리 풀로 활용하여 기존 메모리 검색 방법의 한계를 해결하는 검색 증강 텍스트 생성을 위한 프레임워크인 "selfmem"을 소개합니다. </td>
+<td>기억력 향상</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.14283">Query Rewriting for Retrieval-Augmented Large Language Models</a></td>
-<td>The study proposes a  framework for improving retrieval-augmented Large Language Models through query rewriting, named Rewrite-Retrieve-Read. Unlike conventional approaches that focus on enhancing either the retrieval process or the reading comprehension capabilities of LLMs, this framework emphasizes refining the search queries themselves to bridge the gap between the input text and the necessary knowledge for retrieval. By generating an initial query with an LLM and then refining it using a trainable small language model, the approach uses web search engines for more accurate context retrieval. The rewriter is further optimized with reinforcement learning based on feedback from the LLM reader. Demonstrated across open-domain and multiple-choice QA tasks, this method shows significant performance improvements, highlighting its effectiveness and scalability for retrieval-augmented LLM applications</td>
-<td>Input Preprocessing</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.14283">검색이 강화된 라이브러리 모델을 사용하여 쿼리를 재작성합니다.</a></td>
+<td>본 연구에서는 Rewrite-Retrieve-Read라는 쿼리 재작성을 통해 검색이 강화된 대규모 언어 모델을 개선하기 위한 프레임워크를 제안합니다. </td>
+<td>입력 전처리</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.18846">Knowledge Graph-Augmented Language Models for Knowledge-Grounded Dialogue Generation</a></td>
-<td>The paper introduces SURGE, a  framework designed to enhance knowledge-grounded dialogue generation by integrating Knowledge Graphs (KGs) into the language model&#39;s response process. SURGE improves the relevance and factual accuracy of dialogue responses by retrieving context-specific subgraphs from KGs and ensuring consistency in the generated text through innovative word embedding perturbations and contrastive learning. This approach guarantees that the dialogue is grounded in accurate and relevant knowledge. Tested on the OpendialKG and KOMODIS datasets, SURGE demonstrates its ability to produce high-quality, knowledge-rich dialogues, addressing the challenge of ensuring the use of pertinent knowledge in dialogue generation.</td>
-<td>Retriever Improvement</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.18846">지식 기반 대화형 생성을 도표로 표현하는 도구 모음</a></td>
+<td>이 논문에서는 지식 그래프(KG)를 언어 모델의 응답 프로세스에 통합하여 지식 기반 대화 생성을 향상하도록 설계된 프레임워크인 SURGE를 소개합니다. </td>
+<td>리트리버 개선</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.19912">Structure-Aware Language Model Pretraining Improves Dense Retrieval on Structured Data</a></td>
-<td>The SANTA model focuses on improving the retrieval of structured data through a unique approach that educates language models on the intricacies of structured content. By aligning structured and unstructured data and honing in on entities within structured data, SANTA creates a shared embedding space for both types of data, enhancing its retrieval capabilities. This method has shown impressive results in tasks like code and product searches, even in scenarios where it hasn&#39;t been directly trained, thanks to its specialized pretraining techniques. Essentially, SANTA stands out by teaching language models to better understand and utilize structured data&#39;s distinct characteristics.</td>
-<td>Retriever Improvement</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.19912">구조 언어 모델 사전 훈련으로 구조화된 데이터를 검색할 수 있습니다.</a></td>
+<td>SANTA 모델은 구조화된 콘텐츠의 복잡성에 대해 언어 모델을 교육하는 고유한 접근 방식을 통해 구조화된 데이터 검색을 개선하는 데 중점을 둡니다. </td>
+<td>리트리버 개선</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.17331">Augmentation-Adapted Retriever Improves Generalization of Language Models as Generic Plug-In</a></td>
-<td>The paper introduces an new approach to retrieval augmentation for language models through the Augmentation-Adapted Retriever (AAR). Unlike previous methods that tightly integrate the retriever and LM, AAR acts as a flexible plug-in, capable of working with various LMs without requiring joint fine-tuning. This adaptability allows AAR to provide relevant external information to enhance LMs on knowledge-intensive tasks, even if these LMs were not part of its initial training set. Tested across a range of model sizes, AAR shows remarkable ability to boost zero-shot generalization capabilities of LMs from small to very large, demonstrating that learning from one LM&#39;s preferences can benefit a wide array of others. This research highlights the potential of making retrieval augmentation more universally applicable across different LMs.</td>
-<td>Retriever Improvement</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.17331">활용형 활용형 검색기는 일반 활용으로 언어 모델의 일반화를 향상시킵니다.</a></td>
+<td>이 논문에서는 AAR(Augmentation-Adapted Retriever)을 통해 언어 모델의 검색 증대에 대한 새로운 접근 방식을 소개합니다. </td>
+<td>리트리버 개선</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.15294">Enhancing Retrieval-Augmented Large Language Models with Iterative Retrieval-Generation Synergy</a></td>
-<td>The paper introduces Iter-RetGen, a method that enhances retrieval-augmented large language models by initiating a dynamic interaction between retrieval and generation processes. This iterative synergy allows the model to refine its search for external knowledge based on initial outputs and then improve subsequent generations using the newly retrieved information. Unlike other methods that may impose structural constraints by interleaving retrieval with generation, Iter-RetGen treats retrieved knowledge as a unified whole, maintaining generation flexibility. Tested on tasks like multi-hop question answering, fact verification, and commonsense reasoning, Iter-RetGen not only efficiently combines parametric and non-parametric knowledge but also shows superior or competitive results compared to leading models, all while minimizing retrieval and generation overheads.</td>
-<td>RAG Enhanced LLMs</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.15294">반복 검색 생성 효과를 유지하기 위해 휴대용 오디오 강화 기능을 제공합니다.</a></td>
+<td>이 논문에서는 검색과 생성 프로세스 간의 동적 상호 작용을 시작하여 검색이 강화된 대규모 언어 모델을 향상시키는 방법인 Iter-RetGen을 소개합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.17653">Prompt-Guided Retrieval Augmentation for Non-Knowledge-Intensive Tasks</a></td>
-<td>This paper introduces PGRA, a two-stage framework designed to enhance non-knowledge-intensive (NKI) tasks using retrieval-augmented methods. Unlike previous research focused on knowledge-intensive tasks, PGRA addresses the unique challenges of NKI tasks by first using a task-agnostic retriever to efficiently select candidate evidence from a shared static index. Then, a prompt-guided reranker tailors the evidence to the specific task needs. The approach not only surpasses existing retrieval-augmented methods in performance but also showcases flexibility across different tasks, marking a significant step forward in applying retrieval augmentation to a broader range of NLP tasks.</td>
-<td>Retriever Innovation</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.17653">업무를 수행하지 않는 업무를 계속하여 보호하도록 강화합니다.</a></td>
+<td>이 논문에서는 검색 증강 방법을 사용하여 비지식 집약적(NKI) 작업을 향상하도록 설계된 2단계 프레임워크인 PGRA를 소개합니다. </td>
+<td>리트리버 혁신</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.14322">RET-LLM: Towards a General Read-Write Memory for Large Language Models</a></td>
-<td>RET-LLM introduces a  framework that integrates a general write-read memory unit into Large Language Models, addressing their limitation in explicitly storing and retrieving knowledge. This approach, rooted in Davidsonian semantics, allows LLMs to handle information more dynamically, storing knowledge in scalable, updatable triplets. The framework enhances LLMs&#39; performance on question answering tasks, particularly those requiring an understanding of time-dependent information, and outperforms traditional models in both effectiveness and interpretability</td>
-<td>Memory Improvement</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.14322">RET-LLM: 호환 언어 모델을 기념하여 일반 읽기-쓰기 메모리를 지원합니다.</a></td>
+<td>RET-LLM은 일반 쓰기-읽기 메모리 단위를 대형 언어 모델에 통합하여 지식을 명시적으로 저장하고 검색하는 데 따른 한계를 해결하는 프레임워크를 도입합니다. </td>
+<td>기억력 향상</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2305.13269">Chain-of-Knowledge: Grounding Large Language Models via Dynamic Knowledge Adapting over Heterogeneous Sources</a></td>
-<td>Chain-of-Knowledge (CoK) is a  framework designed to enhance Large Language Models  by dynamically integrating grounding information from diverse sources, aiming to produce more accurate and hallucination-free content. CoK operates through a three-stage process: starting with reasoning preparation, it moves to dynamic knowledge adapting where it corrects initial rationales by incorporating knowledge from relevant domains, and concludes with answer consolidation. Unique to CoK is its ability to utilize both structured (e.g., Wikidata, tables) and unstructured knowledge, facilitated by an adaptive query generator capable of handling various query languages. This methodology ensures a robust foundation for generating factual responses by minimizing errors through a step-by-step rationale correction process. CoK has demonstrated its effectiveness in improving LLMs&#39; performance on a broad spectrum of knowledge-intensive tasks.</td>
-<td>Retriever Improvement</td>
-<td>May 2023</td>
+<td><a href="https://arxiv.org/abs/2305.13269">지식 체인: 이기종 소스에 활발히 활동하는 커뮤니티 지식을 통해 언어 모델 기반</a></td>
+<td>CoK(Chain-of-Knowledge)는 보다 정확하고 환각이 없는 콘텐츠를 생성하는 것을 목표로 다양한 소스의 기본 정보를 동적으로 통합하여 대규모 언어 모델을 향상하도록 설계된 프레임워크입니다. </td>
+<td>리트리버 개선</td>
+<td>2023년 5월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2304.06762">Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study</a></td>
-<td>The paper investigates whether large autoregressive language models should be pretrained with retrieval. They conduct a comprehensive analysis using RETRO, a scalable retrieval-augmented LM, compared to standard GPT models. Findings reveal that RETRO outperforms GPT in text generation, demonstrating less degeneration and higher factual accuracy, with lower toxicity. Additionally, RETRO excels in knowledge-intensive tasks on the LM Evaluation Harness benchmark. They introduce RETRO++, a variant improving open-domain QA results, showcasing the potential of pretraining autoregressive LMs with retrieval.</td>
-<td>RAG Enhanced LLMs</td>
-<td>April 2023</td>
+<td><a href="https://arxiv.org/abs/2304.06762">검색을 통해 자기회귀 언어 모델을 사전 훈련해야 합니까? </td>
+<td>이 논문에서는 대규모 자동 회귀 언어 모델이 검색을 통해 사전 학습되어야 하는지 여부를 조사합니다. </td>
+<td>RAG 강화 LLM</td>
+<td>2023년 4월</td>
 </tr>
 <tr>
-<td><a href="https://arxiv.org/abs/2303.08518">UPRISE: Universal Prompt Retrieval for Improving Zero-Shot Evaluation</a></td>
-<td>UPRISE aims to enhance the versatility of Large Language Models by introducing a method that automatically retrieves suitable prompts for any given zero-shot task without the need for model or task-specific adjustments. This approach proves effective across various tasks and models, even those not seen during training, and demonstrates its capability to reduce the occurrence of hallucinations in models like ChatGPT. UPRISE&#39;s lightweight retriever is trained with GPT-Neo-2.7B but shows remarkable performance improvements on a wide range of larger LLMs, highlighting its potential to universally enhance LLM performance.</td>
-<td>LLM Generalization</td>
-<td>March 2023</td>
+<td><a href="https://arxiv.org/abs/2303.08518">UPRISE: 제로샷 평가 개선을 위한 범용 프롬프트 검색</a></td>
+<td>UPRISE는 모델이나 작업별 조정 없이 주어진 제로 샷 작업에 적합한 프롬프트를 자동으로 검색하는 방법을 도입하여 대규모 언어 모델의 다양성을 향상시키는 것을 목표로 합니다. </td>
+<td>LLM 일반화</td>
+<td>2023년 3월</td>
 </tr>
 </tbody></table>
 

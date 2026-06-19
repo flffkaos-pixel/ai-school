@@ -45,110 +45,106 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Part 9: Real-world Agentic Systems (Under the hood)</h1>
+<h1>9부: 실제 에이전트 시스템(내부)</h1>
 <hr>
-<p>So far, we?셶e covered all the ingredients that make up an agent:<br><strong>tools</strong>, <strong>planning</strong>, <strong>RAG</strong>, <strong>memory</strong>, <strong>structure</strong>, and <strong>coordination</strong> in multi-agent setups.</p>
-<p>But you might be thinking:  </p>
+<p>지금까지 다중 에이전트 설정의 <br><strong>도구</strong>, <strong>계획</strong>, <strong>RAG</strong>, <strong>메모리</strong>, <strong>구조</strong>, <strong>조정</strong> 등 에이전트를 구성하는 모든 요소를 ​​다루었습니다.</p>
+<p>하지만 당신은 이렇게 생각할 수도 있습니다.</p>
 <blockquote>
-<p>?쏻here does all this actually show up in the real world???/p>
-</blockquote>
-<p>Let?셲 walk through a few public-facing systems that exhibit <strong>agentic behavior</strong> ??as far as we can tell.</p>
-<p>?좑툘 <strong>Note:</strong><br>These aren?셳 open source. We don?셳 know their exact internals.<br>What follows is an informed simplification based on how they behave externally ??just enough to understand how the agentic stack might show up in practice.</p>
+<p>?쏻이 모든 것이 실제로 현실 세계에 나타나는가???/p>
+</p>
+<p>?좑툘 <strong>참고:</strong><br>이것들은 ?셳 오픈 소스입니다. </p>
 <hr>
-<h2><strong>NotebookLM (Google): Agentic Search on Your Own Data</strong></h2>
-<p>Google?셲 NotebookLM acts like a personal research assistant. You upload your files, and it helps you work with them ??summarizing, answering questions, even generating audio versions or study guides.</p>
-<p><strong>Core focus:</strong> Q&amp;A over your content ??essentially a scaled-up, personal RAG system.</p>
-<p><strong>How it likely works:</strong></p>
+<h2><strong>NotebookLM(Google): 자체 데이터에 대한 에이전트 검색</strong></h2>
+<p>Google?셲 NotebookLM은 개인 연구 보조원처럼 작동합니다. </p>
+<p><strong>핵심 초점:</strong> 콘텐츠에 대한 Q&A(본질적으로는 확장된 개인 RAG 시스템)입니다.</p>
+<p><strong>작동 방식:</strong></p>
 <ol>
-<li><strong>User uploads files</strong> (PDFs, notes, slides, etc.)  </li>
-<li><strong>Preprocessing</strong> ??Stores them for retrieval later.  </li>
-<li><strong>User asks a question</strong> ??e.g., <em>?쏻hat were the key insights from my Q2 strategy deck???/em>  </li>
-<li><strong>Planning</strong> ??Interprets task type (summary, Q&amp;A, comparison?), identifies relevant docs/sections.  </li>
-<li><strong>RAG</strong> ??Retrieves the most relevant document chunks.  </li>
-<li><strong>LLM Generation</strong> ??Responds clearly, grounded in your content.  </li>
-<li><strong>Memory</strong> ?? <ul>
-<li>Short-term: Tracks the conversation.  </li>
-<li>Long-term: Likely minimal or none.</li>
+<li><strong>사용자가 파일을 업로드합니다</strong>(PDF, 메모, 슬라이드 등)</li>
+<li><strong>전처리</strong> ??나중에 검색할 수 있도록 저장합니다.</li>
+<li><strong>사용자가 질문을 합니다</strong> ??예: <em>?쏻내 2분기 전략 자료의 핵심 정보는 무엇이었나요???/em></li>
+<li><strong>계획</strong> ??작업 유형(요약, Q&A, 비교?)을 해석하고 관련 문서/섹션을 식별합니다.</li>
+<li><strong>RAG</strong> ??가장 관련성이 높은 문서 덩어리를 검색합니다.</li>
+<li><strong>LLM 세대</strong> ??귀하의 콘텐츠를 바탕으로 명확하게 응답합니다.</li>
+<li><strong>메모리</strong> ?? </li>
+<li>장기적: 거의 없거나 전혀 없을 가능성이 높습니다.</li>
 </ul>
 </li>
-<li><strong>Tools</strong> ??Possibly file viewers, summarization modules.</li>
+<li><strong>도구</strong> ??파일 뷰어, 요약 모듈일 수 있습니다.</li>
 </ol>
-<p><strong>What makes it agentic:</strong> Interprets goals, searches across your data, and composes responses ??not just static outputs.</p>
+<p><strong>에이전트적인 이유:</strong> 목표를 해석하고 데이터 전체를 검색하며 정적 출력뿐만 아니라 응답을 작성합니다.</p>
 <hr>
-<h2><strong>Perplexity: Agentic Search on the Open Web</strong></h2>
-<p>Perplexity gives you a direct, answer-like response with sources ??instead of a page of links.</p>
-<p><strong>How it likely works:</strong></p>
+<h2><strong>복잡함: 오픈 웹의 에이전트 검색</strong></h2>
+<p>Perplexity는 링크 페이지 대신 소스를 사용하여 직접적이고 답변과 유사한 응답을 제공합니다.</p>
+<p><strong>작동 방식:</strong></p>
 <ol>
-<li><strong>User asks a question</strong> ??e.g., <em>?쏻hat?셲 the latest research on Alzheimer?셲 treatments???/em>  </li>
-<li><strong>Planning</strong> ??Interprets intent (?쐋atest,???쐁redible??, decides search approach.  </li>
-<li><strong>Tool Use</strong> ??Issues queries via web APIs.  </li>
-<li><strong>RAG</strong> ??Retrieves relevant page snippets.  </li>
-<li><strong>LLM Response</strong> ??Synthesizes an answer with citations.  </li>
-<li><strong>Memory</strong> ?? <ul>
-<li>Short-term: Session context.  </li>
-<li>Long-term: May store preferences (e.g., ?쏿lways use WSJ for news??.</li>
+<li><strong>사용자가 질문을 합니다</strong> ??예: <em>?쏻모자?셲 알츠하이머에 대한 최신 연구?셲 치료법???/em></li>
+<li><strong>기획</strong> ??의도를 해석(?쐋가장,???쐁가능??, 검색 접근 방식을 결정합니다.</li>
+<li><strong>도구 사용</strong> ??웹 API를 통해 쿼리를 발행합니다.</li>
+<li><strong>RAG</strong> ??관련 페이지 스니펫을 검색합니다.</li>
+<li><strong>LLM 응답</strong> ??인용을 통해 답변을 종합합니다.</li>
+<li><strong>메모리</strong> ?? </li>
+<li>장기적: 선호도를 저장할 수 있습니다(예: ?쏿뉴스에는 항상 WSJ를 사용합니까??.</li>
 </ul>
 </li>
 </ol>
-<p><strong>What makes it agentic:</strong> Fetches info, decides what to use, and constructs an answer in a multi-step loop.</p>
+<p><strong>에이전트적인 요소:</strong> 정보를 가져오고 무엇을 사용할지 결정하며 다단계 루프에서 답변을 구성합니다.</p>
 <hr>
-<h2><strong>DeepResearch (OpenAI): Deep Agentic Workflows</strong></h2>
-<p>DeepResearch tackles <strong>open-ended, complex research tasks</strong> ??e.g., market analysis, competitive landscapes, technical deep dives.</p>
-<p><strong>How it likely works:</strong></p>
+<h2><strong>DeepResearch(OpenAI): 심층 에이전트 워크플로</strong></h2>
+<p>DeepResearch는 <strong>개방형의 복잡한 연구 작업</strong>(예: 시장 분석, 경쟁 환경, 기술 심층 분석)을 다룹니다.</p>
+<p><strong>작동 방식:</strong></p>
 <ol>
-<li><strong>User asks a broad task</strong> ??e.g., <em>?쏛nalyze the generative AI landscape for education startups.??/em>  </li>
-<li><strong>Planning</strong> ??Breaks into subtasks (funding, trends, companies, risks), forms an execution plan.  </li>
-<li><strong>Tools</strong> ??Likely includes:  <ul>
-<li>Web search  </li>
-<li>Document readers (PDFs)  </li>
-<li>Data tools (spreadsheets, graphs)  </li>
-<li>Report generation modules</li>
+<li><strong>사용자는 광범위한 작업을 요청합니다</strong> ??예: <em>?쏛교육 스타트업을 위한 생성 AI 환경을 분석합니다.??/em></li>
+<li><strong>기획</strong> ??하위 작업(자금, 동향, 회사, 위험)으로 나누어 실행 계획을 수립합니다.</li>
+<li><strong>도구</strong> ??포함될 가능성이 있는 항목: <ul>
+</li>
+<li>문서 리더(PDF)</li>
+<li>데이터 도구(스프레드시트, 그래프)</li>
+<li>보고서 생성 모듈</li>
 </ul>
 </li>
-<li><strong>Agentic RAG</strong> ??Not one-shot retrieval ??fetches, reflects, re-fetches as task evolves.  </li>
-<li><strong>Memory</strong> ?? <ul>
-<li>Episodic: Tracks which parts are done.  </li>
-<li>Semantic: Stores key facts/names.</li>
+<li><strong>에이전트 RAG</strong> ??일회성 검색이 아님 ??작업이 진행됨에 따라 가져오고, 반영하고, 다시 가져옵니다.</li>
+<li><strong>메모리</strong> ?? </li>
+<li>의미: 주요 사실/이름을 저장합니다.</li>
 </ul>
 </li>
-<li><strong>Multi-step Reasoning</strong> ??Loops: plan ??retrieve ??read ??rethink ??generate ??refine ??repeat.</li>
+<li><strong>다단계 추론</strong> ??루프: 계획 ??검색 ??읽기 ??다시 생각 ??생성 ??정제 ??반복.</li>
 </ol>
-<p><strong>What makes it agentic:</strong> Heavy planning, iterative tool use, self-directed progress.</p>
+<p><strong>행위적 요소:</strong> 철저한 계획, 반복적인 도구 사용, 자기주도적 진행.</p>
 <hr>
-<h2><strong>Connecting to Day 2: Levels of Autonomy</strong></h2>
+<h2><strong>2일차 연결: 자율성 수준</strong></h2>
 <img width="694" height="370" alt="image" src="https://github.com/user-attachments/assets/48812496-309d-42cd-9c86-8ef3cb345ec2" />
-<img width="969" height="231" alt="image" src="https://github.com/user-attachments/assets/12489209-a75b-4a31-853e-33dda02e1aaa" /><p><strong>NotebookLM</strong> ??Between Level 2 and Level 3.  </p>
+<img width="969" height="231" alt="image" src="https://github.com/user-attachments/assets/12489209-a75b-4a31-853e-33dda02e1aaa" /><p><strong>NotebookLM</strong> ??레벨 2와 레벨 3 사이.</p>
 <ul>
-<li>High-control workflow agent.  </li>
-<li>Strong retrieval, limited autonomous decision-making.</li>
+<li>강력한 제어 워크플로 에이전트.</li>
+<li>강력한 검색, 제한적인 자율적 의사결정.</li>
 </ul>
-<p><strong>Perplexity</strong> ??Level 3 (maybe touching Level 4).  </p>
+<p><strong>당혹감</strong> ??레벨 3(레벨 4에 닿을 수도 있음).</p>
 <ul>
-<li>Plans queries, organizes sources, crafts answers.</li>
+<li>쿼리를 계획하고, 소스를 구성하고, 답변을 작성합니다.</li>
 </ul>
-<p><strong>DeepResearch</strong> ??Strong Level 4.  </p>
+<p><strong>DeepResearch</strong> ??강함 레벨 4.</p>
 <ul>
-<li>Takes high-level goals, breaks down tasks, works iteratively with minimal guidance.</li>
+<li>높은 수준의 목표를 세우고, 작업을 세분화하고, 최소한의 지침으로 반복적으로 작업합니다.</li>
 </ul>
 <hr>
-<h2>Try It Yourself</h2>
-<p>They all have free versions ??experiment and watch for:  </p>
+<h2>직접 시도해 보세요</h2>
+<p>모두 무료 버전이 있습니다. 실험하고 살펴보세요.</p>
 <ul>
-<li>How much <strong>control</strong> you have  </li>
-<li>How much the <strong>system decides</strong> on its own</li>
+<li>귀하가 갖고 있는 <strong>통제력</strong>은 어느 정도입니까?</li>
+<li><strong>시스템이 스스로 결정</strong>하는 정도</li>
 </ul>
-<p>It?셲 a great way to sharpen your instinct for agent design.</p>
+<p>그것은 에이전트 디자인에 대한 본능을 갈고 닦을 수 있는 좋은 방법입니다.</p>
 <hr>
-<h2>Up Next</h2>
-<p>In the next part, we?셪l wrap up the series:  </p>
+<h2>다음</h2>
+<p>다음 부분에서는 시리즈를 마무리하겠습니다.</p>
 <ul>
-<li>Summarize what we?셶e learned  </li>
-<li>Share best practices  </li>
-<li>Take a quick look at where <strong>agentic AI</strong> is headed</li>
+<li>우리가 배운 것을 요약해 보세요.</li>
+<li>모범 사례 공유</li>
+<li><strong>에이전트 AI</strong>가 어디로 향하고 있는지 간단히 살펴보세요.</li>
 </ul>
 
 </div>

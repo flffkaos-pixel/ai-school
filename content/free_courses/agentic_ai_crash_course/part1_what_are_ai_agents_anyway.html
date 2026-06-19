@@ -45,82 +45,80 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Part 1: What Are Agents Anyway?</h1>
-<p>Hi there,</p>
-<p>These days, everyone seems to be racing to ?쐀uild agents?? but pause for a second.<br>What even is an AI agent? And why is the whole world suddenly obsessed?  </p>
-<p>To be honest, there?셲 no widely accepted definition.<br>But here?셲 a simple and useful one for our purposes:  </p>
-<blockquote>
-<p>Generative AI is great at understanding and generating content.<br><strong>Agentic AI goes a step further ??it understands, generates content, and performs actions.</strong></p>
-</blockquote>
+<h1>1부: 에이전트란 ​​무엇인가요?</h1>
+<p>안녕하세요,</p>
+<p>요즘 다들 '유일드 에이전트'에 열광하는 것 같은데요?? </p>
+<p>솔직히 말해서 널리 받아들여지는 정의는 없습니다.<br>하지만 여기에는 우리의 목적에 맞는 간단하고 유용한 정의가 있습니다.</p>
+<blockquote><p>Generative AI는 콘텐츠를 이해하고 생성하는 데 탁월합니다.<br><strong>Agentic AI는 한 단계 더 발전하여 콘텐츠를 이해하고 생성하며 작업을 수행합니다.</strong></p></blockquote>
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/3bf03a13-eb32-487f-9ddb-2c97919f1e80" /><hr>
-<h2>A Quick Rewind</h2>
-<p>In 2022, ChatGPT blew up because, for the first time, AI felt conversational.<br>You didn?셳 need to write code or train models ??you could just talk to it.  </p>
-<p>Let?셲 compare:  </p>
+<h2>빠른 되감기</h2>
+<p>2022년에는 처음으로 AI가 대화식으로 느껴졌기 때문에 ChatGPT가 폭발적으로 성장했습니다.<br>그렇지 않았습니까?셳 코드를 작성하거나 모델을 훈련해야 하고, 그냥 대화만 하면 됩니다.</p>
+<p>비교해볼까요?</p>
 <ul>
-<li><strong>Traditional programming</strong> ??Needed code to operate  </li>
-<li><strong>Traditional ML</strong> ??Needed feature engineering  </li>
-<li><strong>Deep learning</strong> ??Needed task-specific training  </li>
-<li><strong>ChatGPT</strong> ??Could reason across tasks and respond without training</li>
+<li><strong>전통적인 프로그래밍</strong> ??작동하려면 코드가 필요함</li>
+<li><strong>기존 ML</strong> ??특성 추출이 필요함</li>
+<li><strong>딥러닝</strong> ??작업별 교육이 필요함</li>
+<li><strong>ChatGPT</strong> ??교육 없이 작업 전반에 걸쳐 추론하고 응답할 수 있음</li>
 </ul>
-<p>This is known as <strong>zero-shot learning</strong> (no examples needed) or <strong>in-context learning</strong> (understands tasks just from instructions).</p>
+<p>이를 <strong>제로샷 학습</strong>(예시 필요 없음) 또는 <strong>상황 내 학습</strong>(지침만으로 작업 이해)이라고 합니다.</p>
 <hr>
-<h2>By 2024, People Wanted More</h2>
-<p>Talking was cool ??but what if the AI could actually do things?</p>
-<p>For example:  </p>
+<h2>2024년까지 사람들은 더 많은 것을 원합니다</h2>
+<p>말하는 것은 멋지지만 AI가 실제로 일을 할 수 있다면 어떨까요?</p>
+<p>예를 들어:</p>
 <ul>
-<li>Instead of just giving you a list of leads, could it email them?  </li>
-<li>Instead of summarizing a doc, could it file it in the right folder and create a task in your workflow?  </li>
-<li>Instead of suggesting a product to a user, could it automatically customize the landing page?</li>
+<li>단순히 리드 목록을 제공하는 대신 이메일로 보낼 수 있습니까?</li>
+<li>문서를 요약하는 대신 올바른 폴더에 정리하고 작업 흐름에 작업을 생성할 수 있나요?</li>
+<li>사용자에게 제품을 제안하는 대신 랜딩 페이지를 자동으로 맞춤 설정할 수 있나요?</li>
 </ul>
-<p>That?셲 where <strong>agents</strong> came in.</p>
+<p>그게?셲 <strong>에이전트</strong>가 들어온 곳이죠.</p>
 <hr>
-<h2>How Do Agents Take Action?</h2>
-<p>The magic lies in the <strong>tools</strong>.  </p>
-<p>Most agents are paired with APIs, function calls, or plugins that let them interact with external systems.<br>The LLM doesn?셳 just respond with text ??it outputs structured commands like:  </p>
+<h2>상담원은 어떻게 조치를 취합니까?</h2>
+<p>마법은 <strong>도구</strong>에 있습니다.</p>
+<p>대부분의 에이전트는 외부 시스템과 상호 작용할 수 있는 API, 함수 호출 또는 플러그인과 쌍을 이룹니다.<br>LLM은 텍스트로 응답만 하고 다음과 같은 구조화된 명령을 출력합니다.</p>
 <ul>
-<li><code>Call the send_email() function with the following inputs??/code>  </li>
-<li><code>Fetch records from the CRM using this query??/code>  </li>
-<li><code>Schedule a meeting for Tuesday at 2PM??/code></li>
+<li><code>다음 입력을 사용하여 send_email() 함수를 호출합니까??/code></li>
+<li><code>이 쿼리를 사용하여 CRM에서 레코드를 가져오나요??/code></li>
+<li><code>화요일 오후 2시에 회의 예약??/code></li>
 </ul>
-<p>This works because of a mechanism called <strong>tool use</strong> (or <strong>function calling</strong>).<br>The agent is told what tools are available, and it figures out when and how to use them ??either directly or through some planning mechanism.</p>
+<p>이는 <strong>도구 사용</strong>(또는 <strong>함수 호출</strong>)이라는 메커니즘으로 인해 작동합니다.<br>에이전트는 어떤 도구를 사용할 수 있는지 알려주고 직접 또는 일부 계획 메커니즘을 통해 해당 도구를 언제, 어떻게 사용할지 파악합니다.</p>
 <hr>
-<h2>More Advanced Agents Include:</h2>
+<h2>더 많은 고급 에이전트에는 다음이 포함됩니다.</h2>
 <ul>
-<li><strong>Memory</strong> ??To remember past steps or context  </li>
-<li><strong>Planning modules</strong> ??To decide what to do next, especially for multi-step tasks  </li>
-<li><strong>State management</strong> ??So the agent can track progress and avoid loops or failures</li>
+<li><strong>기억</strong> ??과거 단계나 상황을 기억하기 위해</li>
+<li><strong>계획 모듈</strong> ??특히 다단계 작업의 경우 다음에 수행할 작업을 결정합니다.</li>
+<li><strong>상태 관리</strong> ??따라서 에이전트는 진행 상황을 추적하고 루프나 실패를 방지할 수 있습니다.</li>
 </ul>
-<p>Think of the LLM as the <strong>brain</strong>, and tools as the <strong>hands</strong>.<br>Without tools, an agent just talks. With tools, it acts.</p>
+<p>LLM을 <strong>뇌</strong>로 생각하고 도구를 <strong>손</strong>으로 생각하세요.<br>도구가 없으면 상담원은 말만 할 뿐입니다. </p>
 <img width="1216" height="413" alt="image" src="https://github.com/user-attachments/assets/9cd7fa10-21a0-42a3-95fb-3bf081e10af1" /><hr>
-<h2>Two Ways to Define Agents</h2>
-<p><strong>Technical view</strong> ??Agents = LLM + Tools + Planning + Memory (and the components above)<br><strong>Business view</strong> ??Agents = Systems that complete tasks end-to-end  </p>
-<p><strong>Important:</strong> Today&#39;s agents are not AI innovations.<br>They are <strong>engineering wrappers</strong> around AI models. The underlying intelligence still comes from the AI models ??the agent just helps act on that intelligence.</p>
+<h2>에이전트를 정의하는 두 가지 방법</h2>
+<p><strong>기술적 관점</strong> ??에이전트 = LLM + 도구 + 계획 + 메모리(및 위의 구성 요소)<br><strong>비즈니스 관점</strong> ??에이전트 = 작업을 처음부터 끝까지 완료하는 시스템</p>
+<p><strong>중요:</strong> 오늘날의 에이전트는 AI 혁신이 아닙니다.<br>이 에이전트는 AI 모델을 둘러싼 <strong>엔지니어링 래퍼</strong>입니다. </p>
 <hr>
-<h2>How to Actually Build Agentic AI Applications</h2>
-<p>Here?셲 where most people go wrong:<br>They start with ?쏬et?셲 build an agent!??instead of ?쏻hat real-world problem are we solving???/p>
-<p>Flip the narrative.<br>Start with <strong>real-world/enterprise pain points</strong>, like:  </p>
+<h2>Agentic AI 애플리케이션을 실제로 구축하는 방법</h2>
+<p>여기서는?셲 대부분의 사람들이 잘못 생각하는 부분입니다.<br>그들은 ?쏻실제 문제를 우리가 해결하고 있습니까???/p 대신에 ?쏬?셲 에이전트 구축!??으로 시작합니다.>
+</p>
 <ul>
-<li>A support team drowning in repetitive queries  </li>
-<li>An analyst switching between dashboards to find insights  </li>
-<li>A sales team manually logging and tracking customer activity</li>
+<li>반복적인 문의에 빠져 있는 지원팀</li>
+<li>통찰력을 찾기 위해 대시보드 사이를 전환하는 분석가</li>
+<li>영업팀이 고객 활동을 수동으로 기록하고 추적합니다.</li>
 </ul>
-<p>This course is focused on building agents that work in the real world ??not just demos.<br>Sure, you can spin up quick personal agents or prototypes without much structure, but when you&#39;re building for the enterprise, <strong>design choices matter</strong>.</p>
+<p>이 과정은 데모뿐만 아니라 실제 세계에서 작동하는 에이전트를 구축하는 데 중점을 둡니다.<br>물론 많은 구조 없이 빠른 개인 에이전트나 프로토타입을 실행할 수 있지만 기업용으로 구축할 때는 <strong>설계 선택이 중요합니다</strong>.</p>
 <hr>
-<h2>A Useful Mental Model: Autonomy vs. Control</h2>
-<p>Once you&#39;ve identified the problem, the next decision is:<br><strong>How autonomous should your agent be?</strong></p>
-<p>Think of it as a tradeoff:  </p>
+<h2>유용한 정신 모델: 자율성 대 통제</h2>
+<p>문제를 식별한 후 다음 결정은 <br><strong>에이전트가 얼마나 자율적이어야 합니까?</strong>입니다.</p>
+<p>이를 절충안으로 생각하십시오.</p>
 <ul>
-<li>How much autonomy are you giving the agent  </li>
-<li>vs.  </li>
-<li>How much control do you want to retain on the human side</li>
+<li>에이전트에게 얼마나 많은 자율성을 부여하고 있습니까?</li>
+<li>대</li>
+<li>인간 측에서 얼마나 많은 통제권을 유지하고 싶습니까?</li>
 </ul>
-<p>This isn&#39;t a one-size-fits-all decision ??it&#39;s contextual.<br>Different problems demand different levels of agent involvement.</p>
+<p>이는 일률적으로 적용되는 결정이 아니라 상황에 따라 결정됩니다.<br>문제가 다르면 상담원 참여 수준도 달라야 합니다.</p>
 <hr>
-<p>In the next part, we?셪l go deeper into this autonomy-control tradeoff and walk through how to design agents based on the level of autonomy your use case actually needs.</p>
+<p>다음 부분에서는 이러한 자율성-제어 트레이드오프에 대해 더 자세히 살펴보고 사용 사례에 실제로 필요한 자율성 수준에 따라 에이전트를 설계하는 방법을 살펴보겠습니다.</p>
 
 </div>
 <footer>

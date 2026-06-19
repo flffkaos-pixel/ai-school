@@ -45,347 +45,334 @@
 <a href="../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Fine-Tuning 101 Guide</h1>
+<h1>미세 조정 101 가이드</h1>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/fine-tuning-main.png" alt="main_agentic_rag.png"></p>
-<h2>What is Fine Tuning?</h2>
-<p>Fine Tuning is the process of adapting a pre-trained language model for specific tasks or domains by further training it on a smaller, targeted dataset. This approach leverages the general knowledge and capabilities the model acquired during its initial pre-training phase while optimizing its performance for particular applications.</p>
-<p>During fine tuning, most of the model&#39;s parameters are updated, but at a lower learning rate than initial training. This allows the model to retain its foundational knowledge while adapting to new contexts.</p>
+<h2>미세 조정이란 무엇입니까?</h2>
+<p>미세 조정은 사전 훈련된 언어 모델을 더 작은 대상 데이터 세트에서 추가로 훈련하여 특정 작업이나 도메인에 맞게 조정하는 프로세스입니다. </p>
+<p>미세 조정 중에 대부분의 모델 매개변수가 업데이트되지만 초기 학습보다 학습률이 낮습니다. </p>
 <hr>
-<h2>Why Fine Tune?</h2>
-<p>Fine Tuning addresses several limitations of pre-trained models:</p>
+<h2>왜 미세 조정해야 할까요?</h2>
+<p>미세 조정은 사전 훈련된 모델의 몇 가지 제한 사항을 해결합니다.</p>
 <ul>
-<li><p><strong>Domain-specific needs</strong>: Pre-trained models have broad knowledge but may lack depth in specialized fields like medicine, law, or technical domains. Fine Tuning can teach models domain-specific terminology, conventions, and knowledge.</p>
-</li>
-<li><p><strong>Task specialization</strong>: General-purpose models might not excel at specific tasks like sentiment analysis, text classification, or summarization without additional training.</p>
-</li>
-<li><p><strong>Improved performance</strong>: Fine Tuning typically yields better results than prompting alone for targeted applications, especially when consistent, reliable outputs are required.</p>
-</li>
-<li><p><strong>Reduced prompt engineering</strong>: A well-fine tuned model often requires less elaborate prompting to achieve desired results.</p>
-</li>
-<li><p><strong>Adaptation to organizational style</strong>: Organizations can align model outputs with their communication style, tone, and guidelines.</p>
-</li>
+<li><p><strong>영역별로 요구하는 사항</strong>: 사전 학습된 모델은 광범위한 지식을 제공하지만, 절차, 기술과 같은 전문 분야에 대한 범위가 불가능할 수 있습니다. </li>
+<li><p><strong>작업 전문화</strong>: 일반적인 모델은 추가 교육 없이는 감정 분석, 텍스트 분류, 요약과 같은 특정 소녀에서 제외되지 않을 수 있습니다.</p></li>
+<li><p><strong>향상된 특성</strong>: 일반적으로 소음은 특별히 일관되고 출력될 때 전용 대상에 대해 단독으로 메시지를 표시하는 것보다 더 나은 결과를 제공합니다.</p></li>
+<li><p><strong>감소된 수용력 엔지니어링</strong>: 잘 조정된 모델에서 원하는 성능을 감당하기 위해 필요한 경우를 요구합니다.</p></li>
+<li><p><strong> 조직 스타일에 대한 활용도가 높습니다.</strong>: 조직은 모델 결과 커뮤니케이션, 어조 및 지침에 관계할 수 있습니다.</p></li>
 </ul>
 <hr>
-<h2>Fine Tuning vs. Prompting vs. Training from Scratch: When to Use What?</h2>
-<h3>Prompting</h3>
-<p><strong>Best for</strong>: Quick implementations, general tasks, limited resources, or when flexibility is needed<br><strong>Advantages</strong>: No additional training, immediate deployment, adaptable on-the-fly<br><strong>Limitations</strong>: May require complex prompt engineering, can be inconsistent, consumes token budget<br><strong>Use when</strong>: You need quick solutions, have limited data, or requirements change frequently</p>
+<h2>미세 조정 vs 프롬프트 vs 처음부터 훈련: 언제 무엇을 사용해야 할까요?</h2>
+<h3>격려</h3>
+<p><strong>최적의 용도</strong>: 빠른 구현, 일반 작업, 제한된 리소스 또는 유연성이 필요한 경우<br><strong>장점</strong>: 추가 교육 없음, 즉각적인 배포, 즉각 조정 가능<br><strong>제한 사항</strong>: 복잡한 프롬프트 엔지니어링이 필요할 수 있음, 일관성이 없을 수 있음, 토큰 예산 소모<br><strong>사용 시기</strong>: 빠른 솔루션이 필요하거나, 데이터가 제한적이거나 요구사항이 자주 변경됨</p>
 <hr>
-<h3>Fine Tuning</h3>
-<p><strong>Best for</strong>: Specialized applications, consistent outputs, improved efficiency<br><strong>Advantages</strong>: Better performance on specific tasks, reduced prompt length, more consistent results<br><strong>Limitations</strong>: Requires quality training data, computational resources, and expertise<br><strong>Use when</strong>: You have a well-defined use case, sufficient domain-specific data, and need reliable performance</p>
+<h3>미세 조정</h3>
+<p><strong>최적의 용도</strong>: 전문화된 애플리케이션, 일관된 출력, 향상된 효율성<br><strong>장점</strong>: 특정 작업에 대한 더 나은 성능, 프롬프트 길이 감소, 더 일관된 결과<br><strong>제한 사항</strong>: 고품질 교육 데이터, 계산 리소스 및 전문 지식이 필요합니다.<br><strong>사용 시기</strong>: 잘 정의된 사용 사례, 충분한 도메인별 데이터가 있고 안정적인 성능이 필요합니다.</p>
 <hr>
-<h3>Training from Scratch</h3>
-<p><strong>Best for</strong>: Highly specialized applications, proprietary systems, or when privacy is paramount<br><strong>Advantages</strong>: Complete control over model architecture and training, no reliance on external foundations<br><strong>Limitations</strong>: Extremely resource-intensive, requires massive datasets and expertise<br><strong>Use when</strong>: Pre-trained models fundamentally cannot meet your needs, you have massive computational resources, or you&#39;re developing novel architectures</p>
+<h3>처음부터 훈련</h3>
+<p><strong>최적의 용도</strong>: 고도로 전문화된 애플리케이션, 독점 시스템 또는 개인 정보 보호가 중요한 경우<br><strong>장점</strong>: 모델 아키텍처 및 학습을 완벽하게 제어하고 외부 기반에 의존하지 않음<br><strong>제한 사항</strong>: 리소스 집약적이며 대규모 데이터 세트와 전문 지식이 필요함<br><strong>사용 시기</strong>: 사전 학습된 모델은 근본적으로 요구 사항을 충족할 수 없거나, 엄청난 계산 리소스가 있거나, 새로운 아키텍처를 개발 중입니다.</p>
 <hr>
-<p>In practice, many organizations start with prompting to validate use cases, then move to fine tuning as requirements solidify. Training from scratch remains rare outside of large AI research organizations.</p>
-<h2>Prerequisites for Fine Tuning LLMs</h2>
+<p>실제로 많은 조직에서는 사용 사례 검증을 요청한 후 요구 사항이 강화됨에 따라 미세 조정으로 이동합니다. </p>
+<h2>미세 조정 LLM의 전제 조건</h2>
 <hr>
-<h3>Tools and Libraries</h3>
-<p>The essential toolkit for LLM fine tuning includes:</p>
+<h3>도구 및 라이브러리</h3>
+<p>LLM 미세 조정을 위한 필수 툴킷에는 다음이 포함됩니다.</p>
 <ul>
-<li><strong>PyTorch or TensorFlow</strong>: These deep learning frameworks provide the foundation for model training  </li>
-<li><strong>Hugging Face Transformers</strong>: A library that makes it easy to work with pre-trained models  </li>
-<li><strong>Hugging Face Datasets</strong>: For efficiently loading and processing training data  </li>
-<li><strong>Accelerate</strong>: For distributed training across multiple GPUs  </li>
-<li><strong>PEFT/LoRA libraries</strong>: For parameter-efficient fine tuning methods  </li>
-<li><strong>Weights &amp; Biases</strong> or <strong>TensorBoard</strong>: For experiment tracking and visualization</li>
+<li><strong>PyTorch 또는 TensorFlow</strong>: 이러한 딥 러닝 프레임워크는 모델 학습의 기반을 제공합니다.</li>
+<li><strong>Hugging Face Transformers</strong>: 사전 훈련된 모델을 사용하여 쉽게 작업할 수 있게 해주는 라이브러리</li>
+<li><strong>Hugging Face 데이터 세트</strong>: 훈련 데이터를 효율적으로 로드하고 처리하기 위해</li>
+<li><strong>가속</strong>: 여러 GPU에 분산된 훈련용</li>
+<li><strong>PEFT/LoRA 라이브러리</strong>: 매개변수 효율적인 미세 조정 방법용</li>
+<li><strong>가중치 및 편향</strong> 또는 <strong>텐서보드</strong>: 실험 추적 및 시각화용</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/fine-tuning-stack.png" alt="main_agentic_rag.png"></p>
 <hr>
-<h3>Hardware Requirements</h3>
-<p>Fine tuning requirements vary based on model size:</p>
+<h3>하드웨어 요구 사항</h3>
+<p>미세 조정 요구 사항은 모델 크기에 따라 다릅니다.</p>
 <ul>
-<li><strong>Small models (&lt; 1B parameters)</strong>: Consumer GPUs (8??6GB VRAM) can handle these  </li>
-<li><strong>Medium models (1??B parameters)</strong>: Require high-end GPUs (24??8GB VRAM) or multiple GPUs  </li>
-<li><strong>Large models (&gt; 7B parameters)</strong>: Need multiple high-end GPUs, TPUs, or specialized hardware</li>
+<li><strong>소형 모델(< 1B 매개변수)</strong>: 소비자 GPU(8~6GB VRAM)는 이러한 문제를 처리할 수 있습니다.</li>
+<li><strong>중형 모델(1??B 매개변수)</strong>: 고급 GPU(24??8GB VRAM) 또는 다중 GPU 필요</li>
+<li><strong>대형 모델(> 7B 매개변수)</strong>: 여러 개의 고급 GPU, TPU 또는 특수 하드웨어 필요</li>
 </ul>
-<p><strong>Alternative approaches for resource constraints</strong>:</p>
+<p><strong>리소스 제약에 대한 대체 접근 방식</strong>:</p>
 <ul>
-<li>Parameter-efficient fine tuning (LoRA, QLoRA, etc.)</li>
-<li>Quantization to reduce memory footprint</li>
-<li>Gradient checkpointing to trade computation for memory</li>
-<li>Cloud-based solutions (e.g., Google Colab Pro, AWS, Azure)</li>
+<li>매개변수 효율적인 미세 조정(LoRA, QLoRA 등)</li>
+<li>메모리 공간을 줄이기 위한 양자화</li>
+<li>계산을 메모리로 교환하기 위한 그라데이션 체크포인트</li>
+<li>클라우드 기반 솔루션(예: Google Colab Pro, AWS, Azure)</li>
 </ul>
 <hr>
-<h3>Data Requirements</h3>
-<p>Effective fine tuning depends heavily on your data:</p>
+<h3>데이터 요구 사항</h3>
+<p>효과적인 미세 조정은 데이터에 따라 크게 달라집니다.</p>
 <ul>
-<li><strong>Quality</strong>: Clean, relevant, and representative of your target task  </li>
-<li><strong>Quantity</strong>:<ul>
-<li>Classification: At least 100+ examples per class  </li>
-<li>Generation: 1,000+ examples recommended  </li>
-<li>More complex tasks may need significantly more data</li>
+<li><strong>품질</strong>: 깔끔하고 관련성이 높으며 목표 작업을 대표합니다.</li>
+<li><strong>수량</strong>:<ul>
+</li>
+<li>생성: 1,000개 이상의 예시 권장</li>
+<li>더 복잡한 작업에는 훨씬 더 많은 데이터가 필요할 수 있습니다.</li>
 </ul>
 </li>
-<li><strong>Format</strong>: Typically JSON or CSV with clear inputs and desired outputs  </li>
-<li><strong>Diversity</strong>: Cover the range of scenarios the model should handle  </li>
-<li><strong>Preprocessing</strong>: Tokenization, cleaning, and formatting for the specific model  </li>
-<li><strong>Train/validation split</strong>: To monitor overfitting during training</li>
+<li><strong>형식</strong>: 일반적으로 명확한 입력과 원하는 출력이 포함된 JSON 또는 CSV</li>
+<li><strong>다양성</strong>: 모델이 처리해야 하는 다양한 시나리오를 포괄합니다.</li>
+<li><strong>사전 처리</strong>: 특정 모델에 대한 토큰화, 정리 및 형식 지정</li>
+<li><strong>학습/검증 분할</strong>: 학습 중 과적합을 모니터링합니다.</li>
 </ul>
-<p><em>Data preparation is often the most critical and time-consuming part of successful fine tuning. Even the best models can&#39;t overcome poor quality training data.</em></p>
+<p><em>데이터 준비는 성공적인 미세 조정을 위해 가장 중요하고 시간이 많이 걸리는 부분입니다. </p>
 <hr>
-<h2>The LLM Fine Tuning Workflow: A Step-by-Step Guide</h2>
-<p>Fine tuning a large language model transforms a general-purpose foundation model into a specialized tool tailored to your needs. Below is a concise, step-by-step overview of the process, highlighting critical stages and best practices:</p>
+<h2>LLM 미세 조정 작업 흐름: 단계별 가이드</h2>
+<p>대규모 언어 모델을 미세 조정하면 범용 기반 모델을 요구 사항에 맞는 특수 도구로 변환할 수 있습니다. </p>
 <ol>
-<li><p><strong>Define the Objective</strong></p>
-<ul>
-<li>What task are you fine tuning for? (e.g., classification, summarization, code generation)</li>
-<li>What outcome do you expect from the fine tuned model?</li>
+<li><p><strong>목표 정의</strong></p>
+</li>
+<li>미세 조정된 모델에서 어떤 결과를 기대하시나요?</li>
 </ul>
 </li>
-<li><p><strong>Gather and Prepare Data</strong></p>
-<ul>
-<li>Collect clean, diverse, task-relevant data</li>
-<li>Format the dataset for training (usually input-output pairs)</li>
-<li>Split into training and validation sets</li>
+<li><p><strong>데이터 수집 및 준비</strong></p>
+</li>
+<li>훈련을 위한 데이터 세트 형식 지정(일반적으로 입력-출력 쌍)</li>
+<li>훈련 세트와 검증 세트로 분할</li>
 </ul>
 </li>
-<li><p><strong>Choose the Right Model</strong></p>
-<ul>
-<li>Pick a base model aligned with your compute resources and task complexity</li>
-<li>Use smaller models for low-latency or edge deployments, larger models for higher accuracy</li>
+<li><p><strong>올바른 모델 선택</strong></p>
+</li>
+<li>지연 시간이 짧거나 엣지 배포를 위해서는 더 작은 모델을 사용하고, 정확성을 높이려면 더 큰 모델을 사용하세요.</li>
 </ul>
 </li>
-<li><p><strong>Select Fine Tuning Approach</strong></p>
-<ul>
-<li>Full fine tuning (update all parameters)</li>
-<li>Parameter-efficient fine tuning (e.g., LoRA, adapters)</li>
+<li><p><strong>미세 조정 방식 선택</strong></p>
+</li>
+<li>매개변수 효율적인 미세 조정(예: LoRA, 어댑터)</li>
 </ul>
 </li>
-<li><p><strong>Configure Training Setup</strong></p>
-<ul>
-<li>Set up the environment using Accelerate or native PyTorch/TF</li>
-<li>Choose loss function, optimizer, batch size, learning rate</li>
+<li><p><strong>교육 설정 구성</strong></p>
+</li>
+<li>손실 함수, 최적화 도구, 배치 크기, 학습 속도 선택</li>
 </ul>
 </li>
-<li><p><strong>Train the Model</strong></p>
-<ul>
-<li>Monitor training and validation loss</li>
-<li>Use checkpoints and experiment tracking (e.g., Weights &amp; Biases)</li>
+<li><p><strong>모델 학습</strong></p>
+</li>
+<li>체크포인트 및 실험 추적(예: 가중치 및 편향) 사용</li>
 </ul>
 </li>
-<li><p><strong>Evaluate Performance</strong></p>
-<ul>
-<li>Run the fine tuned model on a held-out test set or real examples</li>
-<li>Analyze metrics relevant to your task (accuracy, BLEU, ROUGE, etc.)</li>
+<li><p><strong>실적 평가</strong></p>
+</li>
+<li>작업과 관련된 지표(정확도, BLEU, ROUGE 등)를 분석합니다.</li>
 </ul>
 </li>
-<li><p><strong>Iterate or Deploy</strong></p>
-<ul>
-<li>Refine with more data or better hyperparameters if needed</li>
-<li>Once satisfied, deploy your model into production or integrate into workflows</li>
+<li><p><strong>반복 또는 배포</strong></p>
+</li>
+<li>만족스러우면 모델을 프로덕션에 배포하거나 워크플로에 통합하세요.</li>
 </ul>
 </li>
 </ol>
 <hr>
-<h2>The LLM Fine Tuning Workflow: A Step-by-Step Guide</h2>
-<p>Fine tuning a large language model transforms a general-purpose foundation model into a specialized tool tailored to your needs. Below is a structured, step-by-step workflow covering essential stages and tools.</p>
+<h2>LLM 미세 조정 작업 흐름: 단계별 가이드</h2>
+<p>대규모 언어 모델을 미세 조정하면 범용 기반 모델을 요구 사항에 맞는 특수 도구로 변환할 수 있습니다. </p>
 <hr>
-<h3>1. Model Selection</h3>
-<p>Begin by choosing a pre-trained LLM that aligns with your task?셲 requirements?봲uch as domain, size, and computational constraints. Platforms like Hugging Face host a vast library of models (e.g., BERT, LLaMA, GPT variants), each with distinct architectures and pre-training objectives.</p>
-<p>This decision sets the foundation for your fine tuning success, balancing capability and resource demands.</p>
+<h3>1. 모델 선정</h3>
+<p>도메인, 크기, 계산 제약 등 작업, 요구 사항, 요구 사항에 맞는 사전 교육된 LLM을 선택하는 것부터 시작하세요. </p>
+<p>이 결정은 미세 조정 성공, 균형 조정 기능 및 리소스 요구 사항을 위한 기반을 설정합니다.</p>
 <hr>
-<h3>2. Data Preparation</h3>
-<p>High-quality training data is the backbone of effective fine tuning. This step involves:</p>
+<h3>2. 데이터 준비</h3>
+<p>고품질 훈련 데이터는 효과적인 미세 조정의 핵심입니다. </p>
 <ul>
-<li><strong>Collection</strong>: Gather task-specific datasets using libraries like Hugging Face Datasets, NVIDIA?셲 data tools, or Pandas  </li>
-<li><strong>Preprocessing</strong>: Clean and standardize text (e.g., normalization, removing noise) for consistency  </li>
-<li><strong>Formatting</strong>: Tokenize and structure data into model-compatible inputs, such as input-output pairs or instruction templates  </li>
-<li><strong>Splitting</strong>: Divide the dataset into training, validation, and test sets to ensure robust evaluation</li>
+<li><strong>수집</strong>: Hugging Face Datasets, NVIDIA®셲 데이터 도구 또는 Pandas와 같은 라이브러리를 사용하여 작업별 데이터세트를 수집합니다.</li>
+<li><strong>사전 처리</strong>: 일관성을 위해 텍스트를 정리하고 표준화합니다(예: 정규화, 노이즈 제거).</li>
+<li><strong>형식화</strong>: 데이터를 토큰화하고 입력-출력 쌍 또는 명령 템플릿과 같은 모델 호환 입력으로 구조화합니다.</li>
+<li><strong>분할</strong>: 강력한 평가를 보장하기 위해 데이터세트를 학습, 검증, 테스트 세트로 나눕니다.</li>
 </ul>
 <hr>
-<h3>3. Data Annotation</h3>
-<p>For supervised fine tuning, annotate your data with precise labels or structures. Tools like <strong>Labelbox</strong>, <strong>SuperAnnotate</strong>, <strong>CVAT</strong>, or <strong>Label Studio</strong> streamline this process.</p>
-<p>High-quality annotations are especially vital for domain-specific tasks, where unique terminology or context may require expert input.</p>
+<h3>3. 데이터 주석</h3>
+<p>감독된 미세 조정을 위해 정확한 레이블이나 구조로 데이터에 주석을 추가하세요. </p>
+<p>고품질 주석은 고유한 용어나 맥락에 전문가의 의견이 필요할 수 있는 분야별 작업에 특히 중요합니다.</p>
 <hr>
-<h3>4. Synthetic Data Generation</h3>
-<p>To bolster dataset size and diversity, generate synthetic examples using tools like <strong>MostlyAI</strong> or LLM-driven data augmentation.</p>
-<p>This enhances model robustness, mitigates data scarcity, and improves generalization across varied inputs?봯articularly useful for niche or low-resource domains.</p>
+<h3>4. 합성 데이터 생성</h3>
+<p>데이터세트 크기와 다양성을 강화하려면 <strong>MostlyAI</strong> 또는 LLM 기반 데이터 증대와 같은 도구를 사용하여 합성 예시를 생성하세요.</p>
+<p>이는 모델 견고성을 향상시키고, 데이터 부족을 완화하며, 다양한 입력에 대한 일반화를 향상시킵니다. 특히 틈새 시장이나 리소스가 부족한 도메인에 유용합니다.</p>
 <hr>
-<h3>5. Fine Tuning Framework Selection</h3>
-<p>Select a fine tuning strategy and framework suited to your goals and resources. Options include:</p>
+<h3>5. 미세 조정 프레임워크 선택</h3>
+<p>귀하의 목표와 리소스에 적합한 미세 조정 전략과 프레임워크를 선택하세요. </p>
 <ul>
-<li><strong>Full Fine Tuning</strong>: Update all model parameters (resource-intensive but thorough)  </li>
-<li><strong>Parameter-Efficient Fine Tuning (PEFT)</strong>: Use methods like <strong>LoRA</strong>, <strong>QLoRA</strong>, or <strong>Adapters</strong> to adjust only a subset of parameters, reducing compute costs  </li>
-<li><strong>Instruction Tuning</strong>: Adapt the model to follow specific prompts or formats (e.g., Alpaca-style instructions)</li>
+<li><strong>전체 미세 조정</strong>: 모든 모델 매개변수 업데이트(리소스 집약적이지만 철저함)</li>
+<li><strong>PEFT(매개변수 효율적인 미세 조정)</strong>: <strong>LoRA</strong>, <strong>QLoRA</strong> 또는 <strong>Adapters</strong>와 같은 방법을 사용하여 매개변수의 하위 집합만 조정하여 컴퓨팅 비용을 줄입니다.</li>
+<li><strong>명령 조정</strong>: 특정 프롬프트나 형식(예: Alpaca 스타일 지침)을 따르도록 모델을 조정합니다.</li>
 </ul>
-<p>Frameworks like <strong>Unsloth</strong>, <strong>LLaMA Factory</strong>, <strong>Axolotl</strong>, <strong>PyTorch</strong>, or <strong>TensorFlow</strong> offer optimized implementations for these approaches.</p>
+<p><strong>Unsloth</strong>, <strong>LLaMA Factory</strong>, <strong>Axolotl</strong>, <strong>PyTorch</strong> 또는 <strong>TensorFlow</strong>와 같은 프레임워크는 이러한 접근 방식에 최적화된 구현을 제공합니다.</p>
 <hr>
-<h3>6. Experimentation and Tracking</h3>
-<p>Track and compare fine tuning runs to refine performance. Tools like <strong>Weights &amp; Biases</strong>, <strong>TensorBoard</strong>, or <strong>Comet</strong> enable:</p>
+<h3>6. 실험 및 추적</h3>
+<p>미세 조정 실행을 추적하고 비교하여 성능을 개선합니다. </p>
 <ul>
-<li>Monitoring of loss, accuracy, and other metrics in real time  </li>
-<li>Logging of hyperparameters (e.g., learning rate, batch size) and their impact  </li>
-<li>Visualization of training dynamics for actionable insights</li>
+<li>손실, 정확성 및 기타 지표를 실시간으로 모니터링</li>
+<li>하이퍼파라미터(예: 학습률, 배치 크기) 및 그 영향 로깅</li>
+<li>실행 가능한 통찰력을 위한 훈련 역학 시각화</li>
 </ul>
-<p>This systematic approach prevents wasted effort and ensures reproducibility.</p>
+<p>이러한 체계적인 접근 방식은 노력 낭비를 방지하고 재현성을 보장합니다.</p>
 <hr>
-<h3>7. Model Evaluation</h3>
-<p>Assess the fine tuned model?셲 performance using task-specific benchmarks and frameworks like <strong>DeepEval</strong>. Key evaluation aspects include:</p>
+<h3>7. 모델 평가</h3>
+<p><strong>DeepEval</strong>과 같은 작업별 벤치마크 및 프레임워크를 사용하여 미세 조정된 모델의 성능을 평가합니다. </p>
 <ul>
-<li><strong>Quantitative metrics</strong>: BLEU, F1, perplexity, etc., tailored to your use case  </li>
-<li><strong>Qualitative analysis</strong>: Output coherence, factual accuracy, and relevance  </li>
-<li><strong>Bias detection and robustness checks</strong></li>
+<li><strong>정량적 측정항목</strong>: 사용 사례에 맞게 조정된 BLEU, F1, Perplexity 등</li>
+<li><strong>정성적 분석</strong>: 출력 일관성, 사실적 정확성 및 관련성</li>
+<li><strong>편향 감지 및 견고성 검사</strong></li>
 </ul>
-<p>Compare results against the base model to quantify improvements.</p>
+<p>결과를 기본 모델과 비교하여 개선 사항을 정량화합니다.</p>
 <hr>
-<h3>8. Deployment and Serving</h3>
-<p>Deploy the fine tuned model for practical use via platforms like <strong>Hugging Face Inference Endpoints</strong> or custom LLM serving solutions. This step involves:</p>
+<h3>8. 배포 및 서비스</h3>
+<p><strong>허깅 페이스 추론 엔드포인트</strong> 또는 맞춤형 LLM 제공 솔루션과 같은 플랫폼을 통해 실제 사용을 위해 미세 조정된 모델을 배포하세요. </p>
 <ul>
-<li><strong>Optimization</strong>: Apply quantization or pruning to reduce latency and memory footprint  </li>
-<li><strong>Integration</strong>: Build APIs or endpoints for seamless access  </li>
-<li><strong>Scaling</strong>: Configure infrastructure to handle expected loads  </li>
-<li><strong>Monitoring</strong>: Track usage and performance in production with analytics</li>
-</ul>
-<hr>
-<h3>Foundational Tools</h3>
-<p>Throughout the workflow, core machine learning libraries like <strong>PyTorch</strong> and <strong>TensorFlow</strong> underpin model manipulation, gradient computation, and optimization, ensuring flexibility and control.</p>
-<hr>
-<h2>Unlocking the Power of LLMs: A Deep Dive into Fine-Tuning Techniques &amp; Strategies</h2>
-<h2>Exploring Categories of Fine-Tuning in LLMs</h2>
-<p>Now, let?셲 explore the three major categories of fine-tuning: <strong>Task Adaptation</strong>, <strong>Alignment</strong>, and <strong>Parameter-Efficient Fine-Tuning</strong>?봞nd the strategies within each that are shaping the possibilities with LLMs for different problem statements.</p>
-<hr>
-<h3>1. Task Adaptation Fine-Tuning: Mastering Specific Jobs</h3>
-<p>This category focuses on adapting LLMs to perform particular tasks with high precision.</p>
-<h4>Supervised Fine-Tuning (SFT)</h4>
-<ul>
-<li><strong>Concept</strong>: Uses labeled examples to teach the model specific tasks.</li>
-<li><strong>Example</strong>: Categorizing customer feedback as positive, negative, or neutral.</li>
-<li><strong>Technical Insight</strong>: Adjusts model weights to minimize error on labeled data.</li>
-</ul>
-<h4>Unsupervised Fine-Tuning</h4>
-<ul>
-<li><strong>Concept</strong>: Learns patterns from unlabeled data.</li>
-<li><strong>Example</strong>: Training on hospital records to understand medical terminology.</li>
-<li><strong>Technical Insight</strong>: Uses self-supervised learning.</li>
-</ul>
-<h4>Instruction-Based Fine-Tuning</h4>
-<ul>
-<li><strong>Concept</strong>: Trains models using instruction-response pairs.</li>
-<li><strong>Example</strong>: Chatbot trained to answer software bug queries.</li>
-<li><strong>Technical Insight</strong>: Often used to make models more interactive and user-friendly.</li>
-</ul>
-<h4>Group Relative Policy Optimization (GRPO)</h4>
-<ul>
-<li><strong>Concept</strong>: Improves models by having them compete against their own outputs.</li>
-<li><strong>Example</strong>: Math tutoring app selecting best solutions from multiple outputs.</li>
-<li><strong>Technical Insight</strong>: Reinforcement learning technique comparing outputs against group average.</li>
+<li><strong>최적화</strong>: 양자화 또는 정리를 적용하여 지연 시간과 메모리 사용량을 줄입니다.</li>
+<li><strong>통합</strong>: 원활한 액세스를 위해 API 또는 엔드포인트 구축</li>
+<li><strong>확장</strong>: 예상 로드를 처리하도록 인프라 구성</li>
+<li><strong>모니터링</strong>: 분석을 통해 프로덕션에서의 사용량 및 성능 추적</li>
 </ul>
 <hr>
-<h3>2. Alignment Fine-Tuning: Matching Human Values</h3>
-<p>Focuses on aligning model behavior with human preferences.</p>
-<h4>Reinforcement Learning from Human Feedback (RLHF)</h4>
+<h3>기초 도구</h3>
+<p>워크플로 전반에 걸쳐 <strong>PyTorch</strong> 및 <strong>TensorFlow</strong>와 같은 핵심 기계 학습 라이브러리는 모델 조작, 경사 계산 및 최적화를 지원하여 유연성과 제어를 보장합니다.</p>
+<hr>
+<h2>LLM의 힘 활용: 미세 조정 기술 및 전략에 대한 심층 분석</h2>
+<h2>LLM의 미세 조정 범주 탐색</h2>
+<p>이제 미세 조정의 세 가지 주요 범주인 <strong>작업 적응</strong>, <strong>정렬</strong> 및 <strong>매개변수 효율적인 미세 조정</strong>을 살펴보고 다양한 문제 설명에 대한 LLM의 가능성을 형성하는 각각의 전략을 살펴보겠습니다.</p>
+<hr>
+<h3>1. 작업 적응 미세 조정: 특정 작업 마스터하기</h3>
+<p>이 카테고리는 높은 정밀도로 특정 작업을 수행하기 위해 LLM을 적용하는 데 중점을 둡니다.</p>
+<h4>감독형 미세 조정(SFT)</h4>
 <ul>
-<li><strong>Concept</strong>: Uses human ratings as feedback.</li>
-<li><strong>Example</strong>: Ensuring polite, helpful chatbot responses.</li>
+<li><strong>개념</strong>: 라벨이 지정된 예를 사용하여 모델에 특정 작업을 가르칩니다.</li>
+<li><strong>예</strong>: 고객 피드백을 긍정적, 부정적, 중립으로 분류합니다.</li>
+<li><strong>기술적 통찰력</strong>: 라벨이 지정된 데이터의 오류를 최소화하기 위해 모델 가중치를 조정합니다.</li>
 </ul>
-<h4>Direct Preference Optimization (DPO)</h4>
+<h4>감독되지 않은 미세 조정</h4>
 <ul>
-<li><strong>Concept</strong>: Optimizes models directly on preference data.</li>
-<li><strong>Example</strong>: Preferring short summaries over long ones in news summarization.</li>
+<li><strong>개념</strong>: 라벨이 지정되지 않은 데이터에서 패턴을 학습합니다.</li>
+<li><strong>예</strong>: 의학 용어 이해를 위한 병원 기록 교육.</li>
+<li><strong>기술적 통찰력</strong>: 자기 지도 학습을 사용합니다.</li>
 </ul>
-<h4>Odds Ratio Preference Optimization (ORPO)</h4>
+<h4>명령어 기반 미세 조정</h4>
 <ul>
-<li><strong>Concept</strong>: Combines task learning and preference alignment.</li>
-<li><strong>Example</strong>: Accurate, concise article summaries.</li>
+<li><strong>개념</strong>: 명령-응답 쌍을 사용하여 모델을 학습합니다.</li>
+<li><strong>예</strong>: 소프트웨어 버그 문의에 응답하도록 훈련된 챗봇.</li>
+<li><strong>기술적 통찰력</strong>: 모델을 보다 상호작용적이고 사용자 친화적으로 만드는 데 자주 사용됩니다.</li>
+</ul>
+<h4>그룹 상대 정책 최적화(GRPO)</h4>
+<ul>
+<li><strong>개념</strong>: 자체 결과물과 경쟁하게 하여 모델을 개선합니다.</li>
+<li><strong>예</strong>: 여러 결과에서 최상의 솔루션을 선택하는 수학 과외 앱.</li>
+<li><strong>기술적 통찰력</strong>: 출력을 그룹 평균과 비교하는 강화 학습 기술입니다.</li>
 </ul>
 <hr>
-<h3>3. Parameter-Efficient Fine-Tuning (PEFT): Doing More with Less</h3>
-<p>Adapts models without updating all parameters, saving compute and time.</p>
-<h4>Adapters</h4>
+<h3>2. 정렬 미세 조정: 인간 가치 일치</h3>
+<p>모델 동작을 인간의 선호도에 맞추는 데 중점을 둡니다.</p>
+<h4>인간 피드백을 통한 강화 학습(RLHF)</h4>
 <ul>
-<li><strong>Concept</strong>: Insert small modules to fine-tune specific capabilities.</li>
-<li><strong>Example</strong>: Detecting sarcasm in user comments.</li>
+<li><strong>개념</strong>: 사람의 평가를 피드백으로 사용합니다.</li>
+<li><strong>예</strong>: 정중하고 유용한 챗봇 응답을 보장합니다.</li>
 </ul>
-<h4>LoRA (Low-Rank Adaptation)</h4>
+<h4>직접 선호도 최적화(DPO)</h4>
 <ul>
-<li><strong>Concept</strong>: Uses low-rank matrix updates for weight adjustment.</li>
-<li><strong>Example</strong>: Adapting to Spanish text generation.</li>
+<li><strong>개념</strong>: 선호도 데이터를 바탕으로 직접 모델을 최적화합니다.</li>
+<li><strong>예</strong>: 뉴스 요약에서 긴 요약보다 짧은 요약을 선호합니다.</li>
+</ul>
+<h4>ORPO(승산비 선호 최적화)</h4>
+<ul>
+<li><strong>개념</strong>: 작업 학습과 선호도 정렬을 결합합니다.</li>
+<li><strong>예</strong>: 정확하고 간결한 기사 요약.</li>
+</ul>
+<hr>
+<h3>3. 매개변수 효율적인 미세 조정(PEFT): 적은 비용으로 더 많은 작업 수행</h3>
+<p>모든 매개변수를 업데이트하지 않고 모델을 조정하여 컴퓨팅과 시간을 절약합니다.</p>
+<h4>어댑터</h4>
+<ul>
+<li><strong>개념</strong>: 특정 기능을 미세 조정하려면 작은 모듈을 삽입하세요.</li>
+<li><strong>예</strong>: 사용자 댓글에서 풍자를 감지합니다.</li>
+</ul>
+<h4>LoRA(낮은 순위 적응)</h4>
+<ul>
+<li><strong>개념</strong>: 가중치 조정을 위해 하위 행렬 업데이트를 사용합니다.</li>
+<li><strong>예</strong>: 스페인어 텍스트 생성에 적응.</li>
 </ul>
 <h4>QLoRA</h4>
 <ul>
-<li><strong>Concept</strong>: Combines LoRA with quantization for lower memory usage.</li>
-<li><strong>Example</strong>: Fine-tuning on laptop GPU for French translation.</li>
+<li><strong>개념</strong>: 메모리 사용량을 줄이기 위해 LoRA와 양자화를 결합합니다.</li>
+<li><strong>예</strong>: 프랑스어 번역을 위해 노트북 GPU를 미세 조정합니다.</li>
 </ul>
-<h4>Prompt Tuning</h4>
+<h4>프롬프트 튜닝</h4>
 <ul>
-<li><strong>Concept</strong>: Trains special prompts to steer model behavior.</li>
-<li><strong>Example</strong>: Creating poetic outputs without altering the model.</li>
+<li><strong>개념</strong>: 모델 행동을 조정하기 위한 특별한 메시지를 학습합니다.</li>
+<li><strong>예</strong>: 모델을 변경하지 않고 시적인 결과물 만들기.</li>
 </ul>
 <hr>
-<h2>Fine-Tuning Technique Selection Matrix</h2>
-<p><strong>Multi-Goal Domain Adaptation</strong>:</p>
+<h2>미세 조정 기술 선택 매트릭스</h2>
+<p><strong>다중 목표 영역 적응</strong>:</p>
 <ul>
-<li><strong>Limited Resources</strong>: Prompt Tuning + LoRA</li>
-<li><strong>Efficiency</strong>: LoRA or Adapters depending on available compute</li>
-<li><strong>Abundant Resources</strong>: QLoRA for multilingual tasks</li>
+<li><strong>제한된 리소스</strong>: 신속한 조정 + LoRA</li>
+<li><strong>효율성</strong>: 사용 가능한 컴퓨팅에 따라 LoRA 또는 어댑터</li>
+<li><strong>풍부한 리소스</strong>: 다국어 작업을 위한 QLoRA</li>
 </ul>
-<p><strong>Behavior Alignment</strong>:</p>
+<p><strong>행동 정렬</strong>:</p>
 <ul>
-<li><strong>Limited Resources</strong>: DPO</li>
-<li><strong>Moderate Resources</strong>: RLHF</li>
-<li><strong>Abundant Resources</strong>: ORPO</li>
+<li><strong>제한된 리소스</strong>: DPO</li>
+<li><strong>보통 리소스</strong>: RLHF</li>
+<li><strong>풍부한 자원</strong>: ORPO</li>
 </ul>
-<p><strong>Task Performance</strong>:</p>
+<p><strong>작업 성과</strong>:</p>
 <ul>
-<li><strong>Limited Resources</strong>: Supervised Fine-Tuning</li>
-<li><strong>Moderate Resources</strong>: Instruction-Based Fine-Tuning</li>
-<li><strong>Abundant Resources</strong>: GRPO</li>
-</ul>
-<hr>
-<h2>Mastering LLM Fine-Tuning: How to Measure Success</h2>
-<h3>Why Fine-Tuning Metrics Are Different</h3>
-<p>Fine-tuned models must be evaluated based on task-specific performance, not general fluency.</p>
-<h3>Key Metrics</h3>
-<h4>Task-Specific Metrics</h4>
-<ul>
-<li><strong>Accuracy</strong>: Ideal for classification</li>
-<li><strong>F1 Score</strong>: Balances precision and recall</li>
-<li><strong>Exact Match (EM)</strong>: Used for QA tasks</li>
-<li><strong>BLEU &amp; ROUGE</strong>: Text generation and summarization</li>
-</ul>
-<h4>Perplexity</h4>
-<ul>
-<li>Measures fluency and domain adaptation</li>
-</ul>
-<h4>Hallucination Detection</h4>
-<ul>
-<li>Tools: SelfCheckGPT, NLI Scorers</li>
-</ul>
-<h4>Toxicity and Bias Metrics</h4>
-<ul>
-<li>Tools: Detoxify, G-Eval</li>
-</ul>
-<h4>Semantic Similarity</h4>
-<ul>
-<li>Tools: BERTScore, embedding-based comparisons</li>
-</ul>
-<h4>Diversity</h4>
-<ul>
-<li>Important for creative tasks</li>
-</ul>
-<h4>Prompt Alignment</h4>
-<ul>
-<li>Tests if the model follows instructions faithfully</li>
+<li><strong>제한된 리소스</strong>: 감독된 미세 조정</li>
+<li><strong>보통 리소스</strong>: 지침 기반 미세 조정</li>
+<li><strong>풍부한 자원</strong>: GRPO</li>
 </ul>
 <hr>
-<h2>Pro Tips</h2>
+<h2>LLM 미세 조정 마스터하기: 성공을 측정하는 방법</h2>
+<h3>미세 조정 측정항목이 다른 이유</h3>
+<p>미세 조정된 모델은 일반적인 유창함이 아닌 작업별 성능을 기준으로 평가해야 합니다.</p>
+<h3>주요 지표</h3>
+<h4>작업별 측정항목</h4>
 <ul>
-<li>Build custom benchmarks</li>
-<li>Compare baseline vs fine-tuned</li>
-<li>Watch for overfitting</li>
+<li><strong>정확성</strong>: 분류에 적합</li>
+<li><strong>F1 점수</strong>: 정밀도와 재현율의 균형</li>
+<li><strong>일치검색(EM)</strong>: QA 작업에 사용됩니다.</li>
+<li><strong>BLEU & ROUGE</strong>: 텍스트 생성 및 요약</li>
+</ul>
+<h4>당황</h4>
+<ul>
+<li>유창성과 도메인 적응을 측정합니다.</li>
+</ul>
+<h4>환각 감지</h4>
+<ul>
+<li>도구: SelfCheckGPT, NLI 득점자</li>
+</ul>
+<h4>독성 및 편향 측정항목</h4>
+<ul>
+<li>도구: 해독, G-Eval</li>
+</ul>
+<h4>의미론적 유사성</h4>
+<ul>
+<li>도구: BERTScore, 임베딩 기반 비교</li>
+</ul>
+<h4>다양성</h4>
+<ul>
+<li>창의적인 작업에 중요</li>
+</ul>
+<h4>프롬프트 정렬</h4>
+<ul>
+<li>모델이 지침을 충실히 따르는지 테스트합니다.</li>
 </ul>
 <hr>
-<h2>Resources</h2>
+<h2>전문가 팁</h2>
 <ul>
-<li><a href="https://github.com/unslothai/unsloth">Unsloth Fine-Tuning Notebooks</a></li>
-<li><a href="https://github.com/hiyouga/LLaMA-Factory">LLaMA Factory Framework</a></li>
-<li><a href="https://github.com/Curated-Awesome-Lists/awesome-llms-fine-tuning">Awesome LLM Fine-Tuning List</a></li>
+<li>맞춤형 벤치마크 구축</li>
+<li>기준선과 미세 조정 비교</li>
+<li>과적합을 주의하세요</li>
 </ul>
-<p>Written by <a href="https://www.linkedin.com/in/towhidultonmoy/">Towhidul Islam</a></p>
+<hr>
+<h2>자원</h2>
+<ul>
+<li><a href="https://github.com/unslothai/unsloth">Unsloth 후방 안정 노트북</a></li>
+<li><a href="https://github.com/hiyouga/LLaMA-Factory">LLaMA 팩토리 프레임워크</a></li>
+<li><a href="https://github.com/Curated-Awesome-Lists/awesome-llms-fine-tuning">멋진 LLM 목록을 확인하세요</a></li>
+</ul>
+<p>작성자: <a href="https://www.linkedin.com/in/towhidultonmoy/">토휘는 말했다</a></p>
 
 </div>
 <footer>

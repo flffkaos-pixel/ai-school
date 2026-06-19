@@ -45,108 +45,102 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Part 8: Multi-Agent Systems</h1>
+<h1>8부: 다중 에이전트 시스템</h1>
 <hr>
-<p>So far, we?셶e talked a lot about what makes a <strong>single agent</strong> act ??from <strong>tools</strong> and <strong>RAG</strong> to <strong>memory</strong> and <strong>planning</strong>.</p>
-<p>But what if your agentic pipeline needs to:  </p>
+<p>지금까지 우리는 <strong>도구</strong>와 <strong>RAG</strong>부터 <strong>메모리</strong>와 <strong>계획</strong>에 이르기까지 <strong>단일 에이전트</strong>가 행동하게 만드는 요소에 대해 많이 이야기했습니다.</p>
+<p>하지만 에이전트 파이프라인이 다음을 수행해야 한다면 어떻게 될까요?</p>
 <ul>
-<li>Parallelize tasks to speed things up  </li>
-<li>Use different agent personas for different parts of a task  </li>
-<li>Break up complexity across specialized units, like in a team</li>
+<li>작업 속도를 높이기 위해 작업을 병렬화</li>
+<li>작업의 다양한 부분에 대해 다양한 상담원 페르소나 사용</li>
+<li>팀과 같은 전문 단위 전반에 걸쳐 복잡성을 해소합니다.</li>
 </ul>
-<p>That?셲 where <strong>multi-agent systems</strong> come in.</p>
+<p>그게?셲 <strong>다중 에이전트 시스템</strong>이 들어오는 곳이죠.</p>
 <hr>
-<h2>Why Use Multi-Agent Systems?</h2>
-<p>Sometimes, a single agent just can?셳 cut it because the problem demands <strong>scale</strong>, <strong>specialization</strong>, or <strong>parallel thinking</strong>.</p>
-<p><strong>Examples:</strong></p>
+<h2>다중 에이전트 시스템을 사용하는 이유는 무엇입니까?</h2>
+<p>문제가 <strong>규모</strong>, <strong>전문화</strong> 또는 <strong>평행적 사고</strong>를 요구하기 때문에 단일 상담원이 그냥 잘라낼 수 있는 경우도 있습니다.</p>
+<p><strong>예:</strong></p>
 <ul>
-<li>Generating a marketing strategy that needs <strong>market insights</strong>, <strong>legal review</strong>, and <strong>creative suggestions</strong>.  </li>
-<li>Building a compliance assistant that needs to <strong>extract information</strong>, <strong>flag risks</strong>, and <strong>cross-check policies</strong>.  </li>
-<li>Automating a sales process where <strong>one agent</strong> talks to the user, <strong>another</strong> enriches data, and <strong>a third</strong> handles follow-ups.</li>
+<li><strong>시장 통찰력</strong>, <strong>법적 검토</strong>, <strong>창의적인 제안</strong>이 필요한 마케팅 전략을 수립합니다.</li>
+<li><strong>정보 추출</strong>, <strong>위험 신고</strong>, <strong>정책 대조</strong>에 필요한 규정 준수 도우미를 구축합니다.</li>
+<li><strong>한 에이전트</strong>가 사용자와 대화하고 <strong>다른 에이전트</strong>가 데이터를 풍부하게 하며 <strong>세 번째</strong>가 후속 조치를 처리하는 판매 프로세스를 자동화합니다.</li>
 </ul>
-<p>Could you do this with one beefy agent?<br><strong>Maybe.</strong></p>
-<p>But splitting it into <strong>multiple, specialized agents</strong> can enable:  </p>
+<p>강력한 에이전트 하나로 이 작업을 수행할 수 있나요?<br><strong>아마도.</strong></p>
+<p>하지만 <strong>여러 전문 에이전트</strong>로 분할하면 다음을 수행할 수 있습니다.</p>
 <ul>
-<li><strong>Parallelization</strong> ??Agents work on parts of a task simultaneously  </li>
-<li><strong>Specialization</strong> ??One agent is great at legalese, another at writing emails  </li>
-<li><strong>Tooling independence</strong> ??Each agent can have its own tools and memory</li>
+<li><strong>병렬화</strong> ??에이전트는 작업의 일부를 동시에 작업합니다.</li>
+<li><strong>전문 분야</strong> ??한 상담원은 법률 용어에 능숙하고 다른 상담원은 이메일 작성에 능숙합니다.</li>
+<li><strong>도구 독립성</strong> ??각 에이전트는 자체 도구와 메모리를 가질 수 있습니다.</li>
 </ul>
 <hr>
-<h2>Flat vs Hierarchical Agent Coordination</h2>
+<h2>평면 대 계층적 에이전트 조정</h2>
 <p>All multi-agent systems need some way to <strong>coordinate</strong>.<br>Two common communication patterns:<br><img width="1144" height="626" alt="image" src="https://github.com/user-attachments/assets/c6e2c1c0-bb92-48c8-ba53-dfbfdc6e3926" /></p>
 <hr>
-<h3>1. Hierarchical Patterns (More Controllable)</h3>
-<p>An <strong>orchestrator agent</strong> delegates subtasks to others.<br>It sees the full picture and controls the flow.</p>
-<p><strong>Use when:</strong></p>
+<h3>1. 계층적 패턴(보다 제어 가능)</h3>
+<p><strong>조정자 에이전트</strong>는 하위 작업을 다른 사람에게 위임합니다.<br>전체 그림을 보고 흐름을 제어합니다.</p>
+<p><strong>사용할 경우:</strong></p>
 <ul>
-<li>Tasks can be clearly decomposed  </li>
-<li>You want tight control  </li>
-<li>You have known agent roles (e.g., summarizer, generator, checker)</li>
+<li>작업을 명확하게 분해할 수 있습니다.</li>
+<li>당신은 엄격한 통제를 원합니다</li>
+<li>알려진 상담원 역할(예: 요약자, 생성자, 검사자)이 있습니다.</li>
 </ul>
-<p><strong>Think:</strong> enterprise workflows, tool suites, parallel pipelines.</p>
+<p><strong>생각해 보세요:</strong> 기업 워크플로, 도구 모음, 병렬 파이프라인.</p>
 <hr>
-<h3>2. Flat Patterns (More Dynamic)</h3>
-<p>Agents talk to each other as <strong>peers</strong> ??no boss.</p>
-<p><strong>Use when:</strong></p>
+<h3>2. 플랫 패턴(더 역동적)</h3>
+<p>에이전트는 상사가 아닌 <strong>동료</strong>로서 서로 대화합니다.</p>
+<p><strong>사용할 경우:</strong></p>
 <ul>
-<li>Tasks need creativity or debate  </li>
-<li>You want agents to evaluate each other  </li>
-<li>There?셲 no one ?쐁orrect??answer path</li>
+<li>작업에는 창의성이나 토론이 필요합니다.</li>
+<li>에이전트가 서로를 평가하기를 원합니다.</li>
+<li>거기?셲 아무도 없나요?쐁맞나요??답변 경로</li>
 </ul>
-<p><strong>Think:</strong> brainstorming, ranking options, multi-view reasoning.</p>
+<p><strong>생각:</strong> 브레인스토밍, 순위 지정 옵션, 다중 보기 추론.</p>
 <hr>
-<h2>What Nobody Tells You: Multi-Agent Systems Are a Pain</h2>
-<p>On paper, this sounds great.<br>And sure, you can build quick multi-agent prototypes and have fun with them.  </p>
-<p>But for <strong>customer/enterprise</strong> use cases??it?셲 painful.</p>
-<p>Most people read a blog on multi-agent systems and get excited about modularity ?? </p>
-<blockquote>
-<p>?쏧t?셲 like microservices!??they say.</p>
-</blockquote>
-<p>But <strong>AI agents are not microservices</strong>.</p>
-<p>Unlike code, AI models are <strong>non-deterministic</strong>. They don?셳 always behave the same way.<br>Adding more agents means:  </p>
+<h2>아무도 말하지 않는 것: 다중 에이전트 시스템은 고통스럽습니다</h2>
+<p>이론상으로는 훌륭해 보입니다.<br>물론, 멀티 에이전트 프로토타입을 신속하게 구축하고 재미있게 즐길 수도 있습니다.</p>
+<p>하지만 <strong>고객/기업</strong> 사용 사례의 경우??그것은?셲 고통스럽습니다.</p>
+<p>대부분의 사람들은 다중 에이전트 시스템에 대한 블로그를 읽고 모듈성에 대해 흥미를 느낍니다.</p>
+<blockquote><p>?쏧?셲 마이크로서비스 같다!??그들은 말합니다.</p></blockquote>
+<p>그러나 <strong>AI 에이전트는 마이크로서비스가 아닙니다</strong>.</p>
+<p>코드와 달리 AI 모델은 <strong>비결정적</strong>입니다. </p>
 <ul>
-<li>More <strong>non-determinism</strong> (variation across agents, not just within one)  </li>
-<li>More <strong>memory and state complexity</strong> (who knows what, and when?)  </li>
-<li>Higher <strong>latency</strong> and <strong>cost</strong>  </li>
-<li>More <strong>coordination bugs</strong> and failure points  </li>
-<li>More <strong>collusion</strong>, where agents agree when they shouldn?셳 (happens more than you think)</li>
+<li>더 많은 <strong>비결정론</strong>(하나의 에이전트 내뿐만 아니라 에이전트 전반에 걸친 변형)</li>
+<li>더 많은 <strong>메모리 및 상태 복잡성</strong>(무엇을, 언제 아는가?)</li>
+<li><strong>지연 시간</strong> 및 <strong>비용</strong> 증가</li>
+<li>더 많은 <strong>조정 버그</strong> 및 실패 지점</li>
+<li>에이전트가 해야 할 때 동의하는 더 많은 <strong>공모</strong>?셳 (생각보다 많이 발생함)</li>
 </ul>
-<p>Honestly, I could write a book on how painful it is to get multi-agent systems working reliably.</p>
+<p>솔직히 다중 에이전트 시스템을 안정적으로 작동시키는 것이 얼마나 고통스러운지에 대한 책을 쓸 수도 있습니다.</p>
 <hr>
-<h2>So??Should You Use Them?</h2>
-<p>My personal rule:  </p>
-<blockquote>
-<p><strong>In the enterprise, don?셳 start with multi-agents. Start with one.</strong></p>
-</blockquote>
-<p>Let that <strong>one agent</strong> fail ??empirically (via eval metrics) or operationally ??before you scale.</p>
-<p>From my experience, <strong>70%+ of enterprise use cases</strong> work just fine with a single well-designed agent ??one that uses <strong>tools</strong>, <strong>memory</strong>, <strong>RAG</strong>, and <strong>planning</strong>.</p>
+<h2>그럼??이것을 사용해야 할까요?</h2>
+<p>내 개인적인 규칙:</p>
+<blockquote><p><strong>기업에서는 멀티 에이전트로 시작하지 마세요. </blockquote>
+<p>확장하기 전에 <strong>한 에이전트</strong>가 경험적으로(평가 측정항목을 통해) 또는 운영적으로 실패하도록 하세요.</p>
+<p>내 경험에 따르면 <strong>70% 이상의 기업 사용 사례</strong>는 <strong>도구</strong>, <strong>메모리</strong>, <strong>RAG</strong> 및 <strong>계획</strong>을 사용하는 잘 설계된 단일 에이전트로 잘 작동합니다.</p>
 <hr>
-<h3>Multi-agent systems shine when:</h3>
+<h3>다중 에이전트 시스템은 다음과 같은 경우에 빛을 발합니다.</h3>
 <ul>
-<li>The task is big enough to need <strong>parallel execution</strong>  </li>
-<li>You need <strong>clear specialization</strong>  </li>
-<li>You want <strong>creative debate</strong>, evaluation, or distributed decision-making</li>
+<li>작업이 <strong>병렬 실행</strong>이 필요할 만큼 큽니다.</li>
+<li><strong>명확한 전문화</strong>가 필요합니다.</li>
+<li><strong>창조적인 토론</strong>, 평가 또는 분산된 의사결정을 원합니다.</li>
 </ul>
-<p>Even then, you need <strong>strong design</strong> ??especially around <strong>memory</strong>, <strong>state</strong>, and <strong>communication protocols</strong>.</p>
+<p>그럼에도 불구하고 <strong>강력한 디자인</strong>, 특히 <strong>메모리</strong>, <strong>상태</strong> 및 <strong>통신 프로토콜</strong>에 대한 설계가 필요합니다.</p>
 <hr>
-<h2>Final Word: Problem First, Always</h2>
-<p>This has been our mantra from Day 1:  </p>
-<blockquote>
-<p>Don?셳 build a multi-agent system because it sounds ?쏿gentic.??br>Build it if ??and only if ??your problem needs it.</p>
-</blockquote>
-<p>The only way to know?  </p>
+<h2>마지막 말: 문제가 먼저, 항상</h2>
+<p>이것은 첫날부터 우리의 주문이었습니다:</p>
+<blockquote><p>다중 에이전트 시스템을 구축하지 마세요. </blockquote>
+<p>알 수 있는 유일한 방법은?</p>
 <ul>
-<li>Have the right <strong>metrics</strong>  </li>
-<li>Test  </li>
-<li>Let simpler systems fail first</li>
+<li>올바른 <strong>측정항목</strong> 보유</li>
+<li>시험</li>
+<li>단순한 시스템이 먼저 실패하도록 놔두세요</li>
 </ul>
 <hr>
-<h2>Up Next</h2>
-<p>In the next part, we?셪l talk about <strong>real-world agents</strong> and how they function.</p>
+<h2>다음</h2>
+<p>다음 부분에서는 <strong>실제 에이전트</strong>와 이들이 작동하는 방식에 대해 이야기하겠습니다.</p>
 
 </div>
 <footer>

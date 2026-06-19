@@ -45,113 +45,109 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>Part 6: Planning in Agents + Reasoning Models</h1>
+<h1>6부: 에이전트 계획 + 추론 모델</h1>
 <hr>
-<h2>Woah! We?셱e more than halfway through our course!</h2>
-<p>Over the past few parts, we talked about what agents can do:  </p>
+<h2>와! </h2>
+<p>지난 몇 부분에서 우리는 상담원이 할 수 있는 일에 대해 이야기했습니다.</p>
 <ul>
-<li>Use tools  </li>
-<li>Retrieve information through RAG  </li>
-<li>Pass everything in a clean format using MCP</li>
+<li>도구 사용</li>
+<li>RAG를 통해 정보 검색</li>
+<li>MCP를 사용하여 모든 것을 깨끗한 형식으로 전달</li>
 </ul>
-<p>But all of that assumes something fundamental:<br><strong>That the agent actually knows what to do next.</strong><br>And that?셲 where things often break.</p>
-<p>Today, we shift focus from tools and inputs to <strong>how agents think</strong> ??more specifically, how modern models are starting to plan and why that changes how we design real-world systems.</p>
+<p>하지만 이 모든 것은 근본적인 것을 가정합니다.<br><strong>에이전트가 실제로 다음에 수행할 작업을 알고 있다는 것입니다.</strong><br>그리고 그것은?셲 문제가 자주 발생하는 경우입니다.</p>
+<p>오늘날 우리는 도구와 입력에서 <strong>상담원의 사고 방식</strong>, 즉 최신 모델이 계획을 시작하는 방식과 이것이 실제 시스템 설계 방식을 변화시키는 이유에 초점을 맞췄습니다.</p>
 <hr>
-<h2>Why Planning Matters in Agentic Systems</h2>
-<p>Here are a few examples to start with.</p>
-<p>If you ask an agent:  </p>
+<h2>에이전트 시스템에서 계획이 중요한 이유</h2>
+<p>다음은 시작하기 위한 몇 가지 예입니다.</p>
+<p>상담원에게 문의하는 경우:</p>
+<blockquote><p>?쏻모자?셲 13 셀하기 47???br>?t는 직접 풀거나 플레이어를 호출할 수 있습니다. </blockquote>
+<p>이제 다음과 같은 질문을 상상해 보세요.</p>
 <blockquote>
-<p>?쏻hat?셲 13 multiplied by 47???br>?쫒t can either solve it directly or call a calculator. This is a one-step task ??no real planning needed.</p>
-</blockquote>
-<p>Now imagine asking:  </p>
-<blockquote>
-<p>?쏤ind all our Q1 clients in the healthcare sector, check which ones are overdue on payments, and draft personalized emails with new payment links.??/p>
-</blockquote>
-<p>In this case, the agent needs to:  </p>
+<p>?쏤의료 분야의 모든 Q1 고객을 찾고, 지불 기한이 지난 고객을 확인하고, 새로운 지불 링크가 포함된 개인 이메일 초안을 작성하세요.??/p>
+</p>
 <ul>
-<li>Understand the instruction  </li>
-<li>Break it into manageable parts  </li>
-<li>Retrieve the right data  </li>
-<li>Choose tools  </li>
-<li>Perform steps in order  </li>
-<li>Handle exceptions  </li>
-<li>Know when the task is done</li>
+<li>지시사항을 이해하세요.</li>
+<li>관리 가능한 부분으로 나누기</li>
+<li>올바른 데이터 검색</li>
+<li>도구 선택</li>
+<li>단계를 순서대로 수행</li>
+<li>예외 처리</li>
+<li>작업이 언제 완료되는지 확인</li>
 </ul>
-<p>That loop of interpreting, sequencing, and acting is <strong>planning</strong>.  </p>
-<p>The agent (meaning the model) is expected to figure this out on its own ??including which tools to use and how to apply the information it has.</p>
+<p>해석, 순서 지정, 실행의 순환이 <strong>계획</strong>입니다.</p>
+<p>에이전트(모델을 의미)는 사용할 도구와 보유한 정보를 적용하는 방법을 포함하여 이를 스스로 파악해야 합니다.</p>
 <hr>
-<h2>Why Traditional LLMs Struggle With Planning</h2>
-<p>Most general-purpose LLMs were never trained to do this.</p>
-<p>They are trained to <strong>predict the next token</strong> based on the previous context ??nothing more.<br>They excel at:  </p>
+<h2>기존 LLM이 계획 수립에 어려움을 겪는 이유</h2>
+<p>대부분의 범용 LLM은 이러한 작업을 수행하도록 교육받은 적이 없습니다.</p>
+<p>이들은 이전 컨텍스트를 기반으로 <strong>다음 토큰을 예측</strong>하도록 훈련받았습니다.<br>다음과 같은 분야에서 탁월합니다.</p>
 <ul>
-<li>Continuing sentences  </li>
-<li>Generating summaries  </li>
-<li>Answering direct questions</li>
+<li>계속되는 문장</li>
+<li>요약 생성</li>
+<li>직접적인 질문에 답하기</li>
 </ul>
-<p>?쫇ut they behave more like <strong>short-sighted generators</strong>.<br>They complete what?셲 in front of them but aren?셳 wired to think ahead.</p>
-<p>When asked to act as agents in multi-step, decision-making tasks, they tend to:  </p>
+<p>?쫇그러나 그들은 <strong>근시안적인 발전기</strong>처럼 행동합니다.<br>그들은 무엇을 완료합니까?셲 앞에 있지만?셳 미리 생각하도록 연결되어 있습니다.</p>
+<p>다단계 의사결정 작업에서 대리인 역할을 하도록 요청받을 때 그들은 다음과 같은 경향이 있습니다.</p>
 <ul>
-<li>Skip steps  </li>
-<li>Repeat actions  </li>
-<li>Overcomplicate simple things  </li>
-<li>Lose the plot halfway through</li>
+<li>단계 건너뛰기</li>
+<li>작업 반복</li>
+<li>단순한 일을 지나치게 복잡하게 만든다</li>
+<li>중간에 줄거리를 잃습니다.</li>
 </ul>
 <hr>
-<h2>Early Attempts to Improve Reasoning</h2>
-<p>To patch this gap, builders experimented with prompting techniques to nudge planning behavior.</p>
-<p>A popular example: <strong>Chain-of-Thought prompting</strong> ??adding ?쏬et?셲 think step by step??to break tasks into stages.</p>
-<p>This worked for logic puzzles and structured Q&amp;A, but fell short for <strong>real agents</strong> working with:  </p>
+<h2>추론을 개선하기 위한 초기 시도</h2>
+<p>이러한 격차를 해소하기 위해 건축업자들은 계획 행동을 넛지하기 위한 프롬프트 기법을 실험했습니다.</p>
+<p>유명한 예: 작업을 단계별로 나누기 위해 <strong>사고 사슬 유도</strong> "단계별 생각"을 추가하는 것입니다.</p>
+<p>이는 논리 퍼즐과 구조화된 Q&A에는 효과적이었지만 다음 작업을 수행하는 <strong>실제 상담원</strong>에게는 부족했습니다.</p>
 <ul>
-<li>Tools  </li>
-<li>Unpredictable inputs  </li>
-<li>Changing state</li>
+<li>도구</li>
+<li>예측할 수 없는 입력</li>
+<li>상태 변경</li>
 </ul>
-<p>Because underneath, these models still weren?셳 trained for planning ??they were just responding to <strong>prompt tricks</strong>.</p>
+<p>그 아래에는 이들 모델이 여전히 계획 교육을 받았고 <strong>즉각적인 트릭</strong>에만 반응하고 있었기 때문입니다.</p>
 <hr>
-<h2>Then Came Reasoning Models</h2>
-<p>The next shift: train models to plan <strong>by design</strong>.</p>
+<h2>그런 다음 추론 모델이 나타났습니다.</h2>
+<p>다음 변화: <strong>설계에 따라</strong> 계획하도록 모델을 훈련시킵니다.</p>
 <p>This gave rise to <strong>Large Reasoning Models (LRMs)</strong>.<br><img width="743" height="663" alt="image" src="https://github.com/user-attachments/assets/ce4d8d91-b539-4003-adfc-1fa6dcfd3631" /></p>
-<p><strong>LLMs:</strong><br>input ??LLM ??output statement</p>
-<p><strong>LRMs:</strong><br>input ??LRM ??plan step + output statement</p>
-<p>All still text, but LRMs are nudged during training to <strong>think before acting</strong>.</p>
+<p><strong>LLM:</strong><br>입력 ??LLM ??출력 문</p>
+<p><strong>LRM:</strong><br>입력 ??LRM ??계획 단계 + 출력 문</p>
+<p>모두 여전히 텍스트이지만 LRM은 훈련 중에 <strong>행동하기 전에 생각</strong>하도록 유도됩니다.</p>
 <hr>
-<p><strong>Examples:</strong>  </p>
+<p><strong>예:</strong></p>
 <ul>
-<li>OpenAI?셲 <strong>o-series</strong> (o1, o3) ??first public examples  </li>
-<li>DeepSeek?셲 <strong>DeepSeek-R1</strong> ??tuned for tool-augmented reasoning and planning  </li>
-<li>Google?셲 <strong>Gemini thinking models</strong>  </li>
-<li>Anthropic?셲 <strong>Claude 3.7 reasoning mode</strong></li>
+<li>OpenAI?셲 <strong>o 시리즈</strong> (o1, o3) ??최초의 공개 사례</li>
+<li>DeepSeek?셲 <strong>DeepSeek-R1</strong> ??도구를 활용한 추론 및 계획에 맞게 조정됨</li>
+<li>Google?셲 <strong>제미니 사고 모델</strong></li>
+<li>인류애?셲 <strong>클로드 3.7 추론 모드</strong></li>
 </ul>
-<p>Some even activate reasoning <strong>only when needed</strong>.</p>
+<p>일부는 <strong>필요할 때만</strong> 추론을 활성화하기도 합니다.</p>
 <hr>
-<h2>How They Fit in Agentic Design</h2>
-<p>The main value of reasoning models is in improving the <strong>planning component</strong> ??the part that asks:  </p>
+<h2>Agentic 디자인에 적합한 방법</h2>
+<p>추론 모델의 주요 가치는 <strong>계획 구성요소</strong>, 즉 다음을 묻는 부분을 개선하는 데 있습니다.</p>
 <blockquote>
-<p>?쏻hat should I do next, and why???/p>
-</blockquote>
-<p>In enterprise use cases, <strong>planning is where agents often fail</strong>.<br>Reasoning models can help, but they aren?셳 magic.</p>
+<p>?쏻다음에는 무엇을 해야 하고, 왜???/p>
+</p>
 <hr>
-<h2>Use Them With Caution</h2>
-<p>Reasoning models are still <strong>new</strong> and come with tradeoffs:  </p>
+<h2>주의해서 사용하세요</h2>
+<p>추론 모델은 여전히 ​​<strong>새로운</strong> 것이며 다음과 같은 장단점이 있습니다.</p>
 <ul>
-<li>Overthink simple tasks  </li>
-<li>Generate longer outputs  </li>
-<li>Increase latency and cost  </li>
-<li>Can hallucinate logical-sounding but incorrect plans</li>
+<li>단순한 작업을 지나치게 생각하다</li>
+<li>더 긴 출력 생성</li>
+<li>지연 시간 및 비용 증가</li>
+<li>논리적으로 들리지만 잘못된 계획을 환각할 수 있음</li>
 </ul>
-<p><strong>Rule of thumb:</strong>  </p>
+<p><strong>경험 법칙:</strong></p>
 <ul>
-<li>Don?셳 start with a reasoning model.  </li>
-<li>Begin with a mid-size base model.  </li>
-<li>Only switch if you see clear planning failures ??and even then, evaluate the real impact.</li>
+<li>돈? 추론 모델부터 시작하세요.</li>
+<li>중형 기본 모델로 시작하세요.</li>
+<li>명확한 계획 실패가 발견된 경우에만 전환하고, 그런 경우에도 실제 영향을 평가하십시오.</li>
 </ul>
 <hr>
-<h2>Up Next</h2>
-<p>In the next part, we?셪l shift to another <strong>core component of agents</strong>: <strong>memory</strong> ??how agents can remember effectively and why it matters.</p>
+<h2>다음</h2>
+<p>다음 부분에서는 또 다른 <strong>에이전트의 핵심 구성요소</strong>인 <strong>기억</strong>, 즉 에이전트가 효과적으로 기억할 수 있는 방법과 그것이 중요한 이유에 대해 살펴보겠습니다.</p>
 
 </div>
 <footer>

@@ -45,175 +45,157 @@
 <a href="../../../ko/index.html" style="font-weight:600;color:var(--primary)">KO</a>
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
 </div>
-<button class="mobile-menu-btn" id="mobile-menu-btn">☰/button>
+<button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
 </div>
 </nav>
 <div class="content-viewer">
-<h1>[Week 6] LLM Evaluation Techniques</h1>
-<h2>ETMI5: Explain to Me in 5</h2>
-<p>In this section of the content, we dive deep into the evaluation techniques applied to LLMs, focusing on two dimensions- pipeline and model evaluations. We examine how prompts are assessed for their effectiveness, leveraging tools like Prompt Registry and Playground. Additionally, we explore the importance of evaluating the quality of retrieved documents in RAG pipelines, utilizing metrics such as Context Precision and Relevancy. We then discuss the relevance metrics used to gauge response pertinence, including Perplexity and Human Evaluation, along with specialized RAG-specific metrics like Faithfulness and Answer Relevance. Additionally, we emphasize the significance of alignment metrics in ensuring LLMs adhere to human standards, covering dimensions such as Truthfulness and Safety. Lastly, we highlight the role of task-specific benchmarks like GLUE and SQuAD in assessing LLM performance across diverse real-world applications.</p>
-<h2>Evaluating Large Language Models (Dimensions)</h2>
-<p>Understanding whether LLMs meet our specific needs is crucial. We must establish clear metrics to gauge the value added by LLM applications. When we refer to &quot;LLM evaluation&quot; in this section, we encompass assessing the entire pipeline, including the LLM itself, all input sources, and the content processed by it. This includes the prompts used for the LLM and, in the case of RAG use-cases, the quality of retrieved documents. To evaluate systems effectively, we&#39;ll break down LLM evaluation into dimensions:</p>
-<p>A. <strong>Pipeline Evaluation</strong>: Assessing the effectiveness of individual components within the LLM pipeline, including prompts and retrieved documents.<br>B. <strong>Model Evaluation</strong>: Evaluating the performance of the LLM model itself, focusing on the quality and relevance of its generated output.</p>
-<p>Now we?셪l dig deeper into each of these two dimensions</p>
-<h2>A. LLM Pipeline Evaluation</h2>
-<p>In this section, we?셪l look at 2 types of evaluation:</p>
+<h1>[6주차] LLM 평가 기법</h1>
+<h2>ETMI5: 5에서 설명해주세요</h2>
+<p>이 콘텐츠 섹션에서는 파이프라인 평가와 모델 평가라는 두 가지 차원에 중점을 두고 LLM에 적용되는 평가 기술을 자세히 살펴봅니다. </p>
+<h2>대규모 언어 모델 평가(차원)</h2>
+<p>LLM이 우리의 특정 요구 사항을 충족하는지 이해하는 것이 중요합니다. </p>
+<p>A. <strong>파이프라인 평가</strong>: 프롬프트 및 검색된 문서를 포함하여 LLM 파이프라인 내 개별 구성요소의 효율성을 평가합니다.<br>B. </p>
+<p>이제 우리는 이 두 가지 차원 각각에 대해 더 깊이 파고들겠습니다.</p>
+<h2>A. LLM 파이프라인 평가</h2>
+<p>이 섹션에서는 2가지 유형의 평가를 살펴보겠습니다.</p>
 <ol>
-<li><strong>Evaluating Prompts</strong>: Given the significant impact prompts have on the output of LLM pipelines, we will delve into various methods for assessing and experimenting with prompts.</li>
-<li><strong>Evaluating the Retrieval Pipeline</strong>: Essential for LLM pipelines incorporating RAG, this involves retrieving the top-k documents to assess the LLM&#39;s performance.</li>
+<li><strong>프롬프트 평가</strong>: 프롬프트가 LLM 파이프라인의 결과에 미치는 중요한 영향을 고려하여 프롬프트를 평가하고 실험하는 다양한 방법을 탐구하겠습니다.</li>
+<li><strong>검색 파이프라인 평가</strong>: RAG를 통합한 LLM 파이프라인에 필수적입니다. 여기에는 LLM 성능을 평가하기 위해 상위 k 문서를 검색하는 작업이 포함됩니다.</li>
 </ol>
-<h3>A1. Evaluating Prompts</h3>
-<p>The effectiveness of prompts can be evaluated by experimenting with various prompts and observing the changes in LLM performance. This process is facilitated by prompt testing frameworks, which generally include:</p>
+<h3>A1. </h3>
+<p>다양한 프롬프트를 실험하고 LLM 성과의 변화를 관찰함으로써 프롬프트의 효과를 평가할 수 있습니다. </p>
 <ul>
-<li>Prompt Registry: A space for users to list prompts they wish to evaluate on the LLM.</li>
-<li>Prompt Playground: A feature to experiment with different prompts, observe the responses generated, and log them. This function calls the LLM API to get responses.</li>
-<li>Evaluation: A section with a user-defined function for evaluating how various prompts perform.</li>
-<li>Analytics and Logging: Features providing additional information such as logging and resource usage, aiding in the selection of the most effective prompts.</li>
+<li>프롬프트 레지스트리: 사용자가 LLM에서 평가하고 싶은 프롬프트를 나열할 수 있는 공간입니다.</li>
+<li>프롬프트 플레이그라운드: 다양한 프롬프트를 실험하고 생성된 응답을 관찰하고 기록하는 기능입니다. </li>
+<li>평가: 다양한 프롬프트가 어떻게 수행되는지 평가하기 위한 사용자 정의 기능이 있는 섹션입니다.</li>
+<li>분석 및 로깅: 로깅 및 리소스 사용과 같은 추가 정보를 제공하여 가장 효과적인 프롬프트를 선택하는 데 도움을 주는 기능입니다.</li>
 </ul>
-<p>Commonly used tools for prompt testing include Promptfoo, PromptLayer, and others.</p>
-<p><strong>Automatic Prompt Generation</strong></p>
-<p>More recently there have also been methods to optimize prompts in an automatic manner, for instance-  <a href="https://arxiv.org/abs/2211.01910">Zhou et al., (2022)</a> introduced Automatic Prompt EngineerAPE, a framework for automatically generating and selecting instructions. It treats prompt generation as a language synthesis problem and uses the LLM itself to generate and explore candidate solutions. First, an LLM generates prompt candidates based on output demonstrations. These candidates guide the search process. Then, the prompts are executed using a target model, and the best instruction is chosen based on evaluation scores.</p>
+<p>프롬프트 테스트에 일반적으로 사용되는 도구에는 Promptfoo, PromptLayer 등이 있습니다.</p>
+<p><strong>자동 프롬프트 생성</strong></p>
+<p>최근에는 자동 방식으로 프롬프트를 최적화하는 방법도 있습니다. 예를 들어 <a href="https://arxiv.org/abs/2211.01910">저우 외., (2022)</a>은 지침을 자동으로 생성하고 선택하기 위한 프레임워크인 Automatic Prompt EngineerAPE를 도입했습니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/Applied_LLMs_Mastery_2024/img/eval_1.png" alt="eval_1.png"></p>
-<h3>A2. Evaluating Retrieval Pipeline</h3>
-<p>In RAG use-cases, solely assessing the end outcome doesn&#39;t capture the complete picture. Essentially, the LLM responds to queries based on the context provided. It&#39;s crucial to evaluate intermediate results, including the quality of retrieved documents. If the term RAG is unfamiliar to you, please refer to the Week 4 content explaining how RAG operates. Throughout this discussion, we&#39;ll refer to the top-k retrieved documents as &quot;context&quot; for the LLM, which requires evaluation. Below are some typical metrics to evaluate the quality of RAG context.</p>
-<p>The below mentioned metrics are sourced from <a href="https://docs.ragas.io/en/stable/concepts/metrics/faithfulness.html">RAGas</a> an open-source library for RAG pipeline evaluations</p>
+<h3>A2. </h3>
+<p>RAG 사용 사례에서는 최종 결과만 평가하는 것만으로는 전체 그림을 파악할 수 없습니다. </p>
+<p>아래에 언급된 측정항목은 RAG 파이프라인 평가를 위한 오픈 소스 라이브러리인 <a href="https://docs.ragas.io/en/stable/concepts/metrics/faithfulness.html">RAGas</a>에서 가져온 것입니다.</p>
 <ol>
-<li><strong>Context Precision (From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>):</strong></li>
+<li><strong>컨텍스트 정밀도(RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">문서</a>에서 발췌):</strong></li>
 </ol>
-<p>Context Precision is a metric that evaluates whether all of the ground-truth relevant items present in the혻contexts혻are ranked higher or not. Ideally all the relevant chunks must appear at the top ranks. This metric is computed using the혻question혻and the혻contexts, with values ranging between 0 and 1, where higher scores indicate better precision.</p>
-<p>$$<br>\text{Context Precision@k} = {\sum {\text{precision@k}} \over \text{total number of relevant items in the top K results}}<br>$$</p>
-<p>$$<br>\text{Precision@k} = {\text{true positives@k} \over  (\text{true positives@k} + \text{false positives@k})}<br>$$</p>
-<p>Where k is the total number of chunks in혻contexts</p>
+<p>Context Precision은 컨텍스트에 존재하는 모든 실측 관련 항목의 순위가 더 높은지 여부를 평가하는 측정 기준입니다. </p>
+<p>$$<br>\text{Context Precision@k} = {\sum {\text{precision@k}} \over \text{상위 K개 결과에 있는 관련 항목의 총 개수}}<br>$$</p>
+<p>$$<br>\text{정밀도@k} = {\text{참양성@k} \over (\text{참양성@k} + \text{거짓양성@k})}<br>$$</p>
+<p>여기서 k는 컨텍스트 내 총 청크 수입니다.</p>
 <ol start="2">
-<li><strong>Context Relevancy(From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>)</strong></li>
+<li><strong>컨텍스트 관련성(RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">문서</a>에서 발췌)</strong></li>
 </ol>
-<p>This metric gauges the relevancy of the retrieved context, calculated based on both the question and contexts. The values fall within the range of (0, 1), with higher values indicating better relevancy. Ideally, the retrieved context should exclusively contain essential information to address the provided query. To compute this, we initially estimate the value of<br>by identifying sentences within the retrieved context that are relevant for answering the given question. The final score is determined by the following formula:</p>
-<p>$$<br>\text{context relevancy} = {|S| \over |\text{Total number of sentences in retrived context}|}<br>$$</p>
-<pre><code class="language-python">Hint
+<p>이 측정항목은 질문과 컨텍스트를 모두 기반으로 계산하여 검색된 컨텍스트의 관련성을 측정합니다. </p>
+<p>$$<br>\text{컨텍스트 관련성} = {|S| </p>
+<pre><code class="언어-python">힌트
 
-Question: What is the capital of France?
-
-High context relevancy: France, in Western Europe, encompasses medieval cities, alpine villages and Mediterranean beaches. Paris, its capital, is famed for its fashion houses, classical art museums including the Louvre and monuments like the Eiffel Tower.
-
-Low context relevancy: France, in Western Europe, encompasses medieval cities, alpine villages and Mediterranean beaches. Paris, its capital, is famed for its fashion houses, classical art museums including the Louvre and monuments like the Eiffel Tower. The country is also renowned for its wines and sophisticated cuisine. Lascaux?셲 ancient cave drawings, Lyon?셲 Roman theater and the vast Palace of Versailles attest to its rich history.
-</code></pre>
-<ol start="3">
-<li><p><strong>Context Recall(From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>):</strong> Context recall measures the extent to which the retrieved context aligns with the annotated answer, treated as the ground truth. It is computed based on the ground truth and the retrieved context, and the values range between 0 and 1, with higher values indicating better performance. To estimate context recall from the ground truth answer, each sentence in the ground truth answer is analyzed to determine whether it can be attributed to the retrieved context or not. In an ideal scenario, all sentences in the ground truth answer should be attributable to the retrieved context.</p>
-<p> The formula for calculating context recall is as follows:</p>
-<p> $$<br> \text{context recall} = {|\text{GT sentences that can be attributed to context}| \over |\text{Number of sentences in GT}|}<br> $$</p>
+</p>
+<p>맥락 회상을 계산하는 공식은 다음과 같습니다.</p>
+<p>$$<br> \text{컨텍스트 회상} = {|\text{컨텍스트에 귀속될 수 있는 GT 문장}| </p>
 </li>
 </ol>
-<p>General retrieval metrics can also be used to evaluate the quality of retrieved documents or context, however, note that these metrics provide a lot more weight to the ranks of retrieved documents which might not be super crucial for RAG use-cases:</p>
+<p>일반 검색 지표를 사용하여 검색된 문서 또는 컨텍스트의 품질을 평가할 수도 있습니다. 그러나 이러한 지표는 RAG 사용 사례에 그다지 중요하지 않을 수 있는 검색된 문서 순위에 훨씬 더 많은 가중치를 제공한다는 점에 유의하세요.</p>
 <ol>
-<li><strong>Mean Average Precision (MAP)</strong>: Averages the precision scores after each relevant document is retrieved, considering the order of the documents. It is particularly useful when the order of retrieval is important.</li>
-<li><strong>Normalized Discounted Cumulative Gain (nDCG)</strong>: Measures the gain of a document based on its position in the result list. The gain is accumulated from the top of the result list to the bottom, with the gain of each result discounted at lower ranks.</li>
-<li><strong>Reciprocal Rank</strong>: Focuses on the rank of the first relevant document, with higher scores for cases where the first relevant document is ranked higher.</li>
-<li><strong>Mean Reciprocal Rank (MRR)</strong>: Averages the reciprocal ranks of results for a sample of queries. It is particularly used when the interest is in the rank of the first correct answer.</li>
+<li><strong>평균 평균 정밀도(MAP)</strong>: 문서의 순서를 고려하여 각 관련 문서가 검색된 후 정밀도 점수의 평균을 계산합니다. </li>
+<li><strong>nDCG(정규화된 할인 누적 이득)</strong>: 결과 목록에서의 위치를 ​​기준으로 문서의 이득을 측정합니다. </li>
+<li><strong>상호 순위</strong>: 첫 번째 관련 문서의 순위에 중점을 두고, 첫 번째 관련 문서의 순위가 높은 경우 점수가 높아집니다.</li>
+<li><strong>MRR(평균 상호 순위)</strong>: 쿼리 샘플에 대한 결과의 상호 순위의 평균을 계산합니다. </li>
 </ol>
-<h2>B. LLM Model Evaluation</h2>
-<p>Now that we&#39;ve discussed evaluating LLM pipeline components, let&#39;s delve into the heart of the pipeline: the LLM model itself. Assessing LLM models isn&#39;t straightforward due to their broad applicability and versatility. Different use cases may require focusing on certain dimensions more than others. For instance, in applications where accuracy is paramount, evaluating whether the model avoids hallucinations (generating responses that are not factual) can be crucial. Conversely, in other scenarios where maintaining impartiality across different populations is essential, adherence to principles to avoid bias is paramount. LLM evaluation can be broadly categorized into these dimensions:</p>
+<h2>B. LLM 모델 평가</h2>
+<p>이제 LLM 파이프라인 구성요소 평가에 대해 논의했으므로 파이프라인의 핵심인 LLM 모델 자체를 자세히 살펴보겠습니다. </p>
 <ul>
-<li><strong>Relevance Metrics</strong>: Assess the pertinence of the response to the user&#39;s query and context.</li>
-<li><strong>Alignment Metrics</strong>: Evaluate how well the model aligns with human preferences in the given use-case, in aspects such as fairness, robustness, and privacy.</li>
-<li><strong>Task-Specific Metrics</strong>: Gauge the performance of LLMs across different downstream tasks, such as multihop reasoning, mathematical reasoning, and more.</li>
+<li><strong>관련성 측정항목</strong>: 사용자의 검색어 및 문맥에 대한 응답의 관련성을 평가합니다.</li>
+<li><strong>정렬 측정항목</strong>: 공정성, 견고성, 개인 정보 보호와 같은 측면에서 모델이 특정 사용 사례에서 인간 선호도와 얼마나 잘 일치하는지 평가합니다.</li>
+<li><strong>작업별 측정항목</strong>: 멀티홉 추론, 수학적 추론 등과 같은 다양한 다운스트림 작업 전반에 걸쳐 LLM의 성능을 측정합니다.</li>
 </ul>
-<h3>B1. Relevance Metrics</h3>
-<p>Some common response relevance metrics include:</p>
+<h3>B1. </h3>
+<p>몇 가지 일반적인 응답 관련성 지표는 다음과 같습니다.</p>
 <ol>
-<li>Perplexity: Measures how well the LLM predicts a sample of text. Lower perplexity values indicate better performance. <a href="https://huggingface.co/docs/transformers/en/perplexity">Formula and mathematical explanation</a></li>
-<li>Human Evaluation: Involves human evaluators assessing the quality of the model&#39;s output based on criteria such as relevance, fluency, coherence, and overall quality.</li>
-<li>BLEU (Bilingual Evaluation Understudy): Compares the  LLM generated output with reference answer to measure similarity. Higher BLEU scores signify better performance. <a href="https://www.youtube.com/watch?v=M05L1DhFqcw">Formula</a></li>
-<li>Diversity: Measures the variety and uniqueness of generated LLM responses, including metrics like n-gram diversity or semantic similarity. Higher diversity scores indicate more diverse and unique outputs.</li>
-<li>ROUGE (Recall-Oriented Understudy for Gisting Evaluation) is a metric used to evaluate the quality of LLM generated text by comparing it with reference text. It assesses how well the generated text captures the key information present in the reference text. ROUGE calculates precision, recall, and F1-score, providing insights into the similarity between the generated and reference texts. <a href="https://www.youtube.com/watch?v=TMshhnrEXlg">Formula</a></li>
+<li>Perplexity: LLM이 텍스트 샘플을 얼마나 잘 예측하는지 측정합니다. </li>
+<li>인간 평가: 관련성, 유창성, 일관성 및 전반적인 품질과 같은 기준을 기반으로 모델 출력의 품질을 평가하는 인간 평가자가 참여합니다.</li>
+<li>BLEU(이중 언어 평가 언더스터디): LLM에서 생성된 출력을 참조 답변과 비교하여 유사성을 측정합니다. </li>
+<li>다양성: n-그램 다양성 또는 의미론적 유사성과 같은 측정항목을 포함하여 생성된 LLM 응답의 다양성과 고유성을 측정합니다. </li>
+<li>ROUGE(Recall-Oriented Understudy for Gisting Evaluation)는 LLM 생성 텍스트를 참조 텍스트와 비교하여 품질을 평가하는 데 사용되는 측정 기준입니다. </li>
 </ol>
-<p><strong>RAG specific relevance metrics</strong></p>
-<p>Apart from the above mentioned generic relevance metrics, RAG pipelines use additional metrics to judge if the answer is relevant to the context provided and to the query posed. Some metrics as defined by <a href="https://docs.ragas.io/en/stable/concepts/metrics/faithfulness.html">RAGas</a> are:</p>
+<p><strong>RAG별 관련성 측정항목</strong></p>
+<p>위에서 언급한 일반적인 관련성 메트릭 외에도 RAG 파이프라인은 추가 메트릭을 사용하여 답변이 제공된 컨텍스트 및 제기된 쿼리와 관련이 있는지 판단합니다. </p>
 <ol>
-<li><strong>Faithfulness(From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>)</strong></li>
+<li><strong>신뢰성(RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">문서</a>에서 발췌)</strong></li>
 </ol>
-<p>This measures the factual consistency of the generated answer against the given context. It is calculated from answer and retrieved context. The answer is scaled to (0,1) range. Higher the better.</p>
-<p>The generated answer is regarded as faithful if all the claims that are made in the answer can be inferred from the given context. To calculate this a set of claims from the generated answer is first identified. Then each one of these claims are cross checked with given context to determine if it can be inferred from given context or not. The faithfulness score is given by:</p>
-<p>$$<br>{|\text{Number of claims in the generated answer that can be inferred from given context}| \over |\text{Total number of claims in the generated answer}|}<br>$$</p>
-<pre><code class="language-markdown">Hint
+<p>이는 주어진 맥락에 대해 생성된 답변의 사실적 일관성을 측정합니다. </p>
+<p>답변에 포함된 모든 주장이 주어진 맥락에서 추론될 수 있으면 생성된 답변은 충실한 것으로 간주됩니다. </p>
+<p>$$<br>{|\text{주어진 맥락에서 추론할 수 있는 생성된 답변의 주장 수}| </p>
+<pre><code class="언어-markdown">힌트
 
-Question: Where and when was Einstein born?
-
-Context: Albert Einstein (born 14 March 1879) was a German-born theoretical physicist, widely held to be one of the greatest and most influential scientists of all time
-
-High faithfulness answer: Einstein was born in Germany on 14th March 1879.
-
-Low faithfulness answer: Einstein was born in Germany on 20th March 1879.
-</code></pre>
-<ol start="2">
-<li><strong>Answer Relevance(From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>)</strong></li>
-</ol>
-<p>The evaluation metric, Answer Relevancy, focuses on assessing how pertinent the generated answer is to the given prompt. A lower score is assigned to answers that are incomplete or contain redundant information. This metric is computed using the혻 question and the answer with values ranging between 0 and 1, where higher scores indicate better relevancy.</p>
-<p>An answer is deemed relevant when it directly and appropriately addresses the original question. Importantly, our assessment of answer relevance does not consider factuality but instead penalizes cases where the answer lacks completeness or contains redundant details. To calculate this score, the LLM is prompted to generate an appropriate question for the generated answer multiple times, and the mean cosine similarity between these generated questions and the original question is measured. The underlying idea is that if the generated answer accurately addresses the initial question, the LLM should be able to generate questions from the answer that align with the original question.</p>
+</p>
+<p>답변은 원래 질문을 직접적이고 적절하게 다룰 때 관련성이 있는 것으로 간주됩니다. </p>
 <ol start="3">
-<li><strong>Answer semantic similarity(From RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">documentation</a>)</strong></li>
+<li><strong>의미론적 유사성 답변(RAGas <a href="https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html">문서</a>에서)</strong></li>
 </ol>
-<p>The concept of Answer Semantic Similarity pertains to the assessment of the semantic resemblance between the generated answer and the ground truth. This evaluation is based on the ground truth answer and the generated LLM answer혻, with values falling within the range of 0 to 1. A higher score signifies a better alignment between the generated answer and the ground truth.</p>
-<p>Measuring the semantic similarity between answers can offer valuable insights into the quality of the generated response. This evaluation utilizes a cross-encoder model to calculate the semantic similarity score.</p>
-<h3>B2. Alignment Metrics</h3>
-<p>Metrics of this type are crucial, especially when LLMs are utilized in applications that interact directly with people, to ensure they conform to acceptable human standards. The challenge with these metrics is their difficulty to quantify mathematically. Instead, the assessment of LLM alignment involves conducting specific tests on benchmarks designed to evaluate alignment, using the results as an indirect measure. For instance, to evaluate a model&#39;s fairness, datasets are employed where the model must recognize stereotypes, and its performance in this regard serves as an indirect indicator of the LLM&#39;s fairness alignment. Thus, there&#39;s no universally correct method for this evaluation. In our course, we will adopt the approaches outlined in the influential study ??a href="https://arxiv.org/pdf/2401.05561.pdf">TRUSTLLM: Trustworthiness in Large Language Models</a>??to explore alignment dimensions and the proxy tasks that help gauge LLM alignment.</p>
-<p>There is no single definition for Alignment, but here are some dimensions to quantify alignment, we use definitions from the paper mentioned above:</p>
+<p>답변 의미 유사성 개념은 생성된 답변과 실제 답변 간의 의미 유사성을 평가하는 것과 관련이 있습니다. </p>
+<p>답변 간의 의미적 유사성을 측정하면 생성된 응답의 품질에 대한 귀중한 통찰력을 얻을 수 있습니다. </p>
+<h3>B2. </h3>
+<p>이러한 유형의 측정 항목은 LLM이 사람과 직접 상호 작용하는 응용 프로그램에서 활용되어 수용 가능한 인간 표준을 준수하는지 확인하는 데 특히 중요합니다. </p>
+<p>정렬에 대한 단일 정의는 없지만 정렬을 정량화하기 위한 몇 가지 차원은 다음과 같습니다. 위에서 언급한 논문의 정의를 사용합니다.</p>
 <ol>
-<li><strong>Truthfulness</strong>-Pertains to the accurate representation of information by LLMs. It encompasses evaluations of their tendency to generate misinformation, hallucinate, exhibit sycophantic behavior, and correct adversarial facts.</li>
-<li><strong>Safety</strong>: Entails ability of LLMs avoiding unsafe or illegal outputs and promoting healthy conversations. </li>
-<li><strong>Fairness</strong>: Entails preventing biased or discriminatory outcomes from LLMs, with assessing stereotypes, disparagement, and preference biases. </li>
-<li><strong>Robustness:</strong> Refers to LLM?셲 stability and performance across various input conditions, distinct from resilience against attacks. </li>
-<li><strong>Privacy</strong>: Emphasizes preserving human and data autonomy, focusing on evaluating LLMs&#39; privacy awareness and potential leakage. </li>
-<li><strong>Machine Ethics</strong>: Defining machine ethics for LLMs remains challenging due to the lack of a comprehensive ethical theory. Instead, we can divide it into three segments: implicit ethics, explicit ethics, and emotional awareness. E</li>
-<li><strong>Transparency</strong>: Concerns the availability of information about LLMs and their outputs to users.</li>
-<li><strong>Accountability</strong>: The LLMs ability to autonomously provide explanations and justifications for their behavior.</li>
-<li><strong>Regulations and Laws</strong>: Ability of LLMs to abide by rules and regulations posed by nations and organizations.</li>
+<li><strong>진실성</strong>-LLM이 정보를 정확하게 표현하는 것과 관련됩니다. </li>
+<li><strong>안전성</strong>: 안전하지 않거나 불법적인 결과를 방지하고 건전한 대화를 촉진하는 LLM의 능력이 필요합니다.</li>
+<li><strong>공정성</strong>: 고정관념, 비방, 선호 편향을 평가하여 LLM의 편향되거나 차별적인 결과를 방지하는 것을 수반합니다.</li>
+<li><strong>강건성:</strong> LLM의 다양한 입력 조건에서의 안정성과 성능을 말하며, 공격에 대한 복원력과는 다릅니다.</li>
+<li><strong>개인정보 보호</strong>: LLM의 개인정보 보호 인식과 잠재적 유출 가능성을 평가하는 데 중점을 두고 인간과 데이터 자율성 보존을 강조합니다.</li>
+<li><strong>기계 윤리</strong>: LLM의 기계 윤리를 정의하는 것은 포괄적인 윤리 이론이 부족하기 때문에 여전히 어려운 일입니다. </li>
+<li><strong>투명성</strong>: LLM 및 그 결과에 대한 정보가 사용자에게 제공되는지에 관한 것입니다.</li>
+<li><strong>책임</strong>: 자신의 행동에 대한 설명과 정당성을 자율적으로 제공하는 LLM의 능력입니다.</li>
+<li><strong>규정 및 법률</strong>: LLM이 국가 및 조직에서 제시하는 규칙과 규정을 준수할 수 있는 능력.</li>
 </ol>
-<p>In the paper, the authors further dissect each of these dimensions into more specific categories, as illustrated in the image below. For instance, Truthfulness is segmented into aspects such as misinformation, hallucination, sycophancy, and adversarial factuality. Moreover, each of these sub-dimensions is accompanied by corresponding datasets and metrics designed to quantify them.</p>
-<p>?뮕This serves as a basic illustration of utilizing proxy tasks, datasets, and metrics to evaluate an LLM&#39;s performance within a specific dimension. The choice of which dimensions are relevant will vary based on your specific task, requiring you to select the most applicable ones for your needs.</p>
+<p>이 논문에서 저자는 아래 이미지에 설명된 것처럼 이러한 각 차원을 보다 구체적인 범주로 더 세분화합니다. </p>
+<p>?뮕이는 특정 차원 내에서 LLM의 성과를 평가하기 위해 프록시 작업, 데이터세트 및 측정항목을 활용하는 기본 예시 역할을 합니다. </p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/Applied_LLMs_Mastery_2024/img/Name.png" alt="Name.png"></p>
-<h3>B3. Task-Specific Metrics</h3>
-<p>Often, it&#39;s necessary to create tailored benchmarks, including datasets and metrics, to evaluate an LLM&#39;s performance in a specific task. For example, if developing a chatbot requiring strong reasoning abilities, utilizing common-sense reasoning benchmarks can be beneficial. Similarly, for multilingual understanding, machine translation benchmarks are valuable. </p>
-<p>Below, we outline some popular examples.</p>
+<h3>B3. </h3>
+<p>특정 작업에서 LLM의 성과를 평가하기 위해 데이터 세트 및 지표를 포함한 맞춤형 벤치마크를 생성해야 하는 경우가 많습니다. </p>
+<p>아래에서는 몇 가지 인기 있는 예를 간략하게 설명합니다.</p>
 <ol>
-<li><strong>GLUE (General Language Understanding Evaluation)</strong>: A collection of nine tasks designed to measure a model&#39;s ability to understand English text. Tasks include sentiment analysis, question answering, and textual entailment.</li>
-<li><strong>SuperGLUE</strong>: An extension of GLUE with more challenging tasks, aimed at pushing the limits of models&#39; comprehension capabilities. It includes tasks like word sense disambiguation, more complex question answering, and reasoning.</li>
-<li><strong>SQuAD (Stanford Question Answering Dataset)</strong>: A benchmark for models on reading comprehension, where the model must predict the answer to a question based on a given passage of text.</li>
-<li><strong>Commonsense Reasoning Benchmarks</strong>:<ul>
-<li><strong>Winograd Schema Challenge</strong>: Tests models on commonsense reasoning and understanding by asking them to resolve pronoun references in sentences.</li>
-<li><strong>SWAG (Situations With Adversarial Generations)</strong>: Evaluates a model&#39;s ability to predict the most likely ending to a given sentence based on commonsense knowledge.</li>
+<li><strong>GLUE(일반 언어 이해 평가)</strong>: 영어 텍스트를 이해하는 모델의 능력을 측정하기 위해 고안된 9가지 작업 모음입니다. </li>
+<li><strong>SuperGLUE</strong>: 모델의 이해력 한계를 뛰어넘는 것을 목표로 하는 더욱 까다로운 작업을 포함하는 GLUE의 확장입니다. </li>
+<li><strong>SQuAD(Stanford 질문 응답 데이터 세트)</strong>: 독해력 모델에 대한 벤치마크로, 모델은 주어진 텍스트 구절을 기반으로 질문에 대한 답변을 예측해야 합니다.</li>
+<li><strong>상식추론 벤치마크</strong>:<ul>
+</li>
+<li><strong>SWAG(적대적 세대의 상황)</strong>: 상식적 지식을 바탕으로 주어진 문장의 가장 가능성 있는 결말을 예측하는 모델의 능력을 평가합니다.</li>
 </ul>
 </li>
-<li><strong>Natural Language Inference (NLI) Benchmarks</strong>:<ul>
-<li><strong>MultiNLI</strong>: Tests a model&#39;s ability to predict whether a given hypothesis is true (entailment), false (contradiction), or undetermined (neutral) based on a given premise.</li>
-<li><strong>SNLI (Stanford Natural Language Inference)</strong>: Similar to MultiNLI but with a different dataset for evaluation.</li>
+<li><strong>자연어 추론(NLI) 벤치마크</strong>:<ul>
+</li>
+<li><strong>SNLI(스탠포드 자연어 추론)</strong>: MultiNLI와 비슷하지만 평가용 데이터 세트가 다릅니다.</li>
 </ul>
 </li>
-<li><strong>Machine Translation Benchmarks</strong>:<ul>
-<li><strong>WMT (Workshop on Machine Translation)</strong>: Annual competition with datasets for evaluating translation quality across various language pairs.</li>
+<li><strong>기계 번역 벤치마크</strong>:<ul>
+</li>
 </ul>
 </li>
-<li><strong>Task-Oriented Dialogue Benchmarks</strong>:<ul>
-<li><strong>MultiWOZ</strong>: A dataset for evaluating dialogue systems in task-oriented conversations, like booking a hotel or finding a restaurant.</li>
+<li><strong>작업 중심 대화 벤치마크</strong>:<ul>
+</li>
 </ul>
 </li>
-<li><strong>Code Generation and Understanding Benchmarks</strong>:<ul>
-<li>MBPP Dataset: The benchmark consists of around 1,000 crowd-sourced Python programming problems, designed to be solvable by entry level programmers.</li>
+<li><strong>코드 생성 및 벤치마크 이해</strong>:<ul>
+</li>
 </ul>
 </li>
-<li><strong>Chart Understanding Benchmarks</strong>:<ol>
-<li>ChartQA: Contains machine-generated questions based on chart summaries, focusing on complex reasoning tasks that existing datasets often overlook due to their reliance on template-based questions and fixed vocabularies.</li>
+<li><strong>차트 벤치마크 이해</strong>:<ol>
+</li>
 </ol>
 </li>
 </ol>
-<p>The <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">Hugging Face OpenLLM Leaderboard</a> features an array of datasets and tasks used to assess foundational models and chatbots</p>
+<p><a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">Hugging Face OpenLLM 리더보드</a>에는 기본 모델과 챗봇을 평가하는 데 사용되는 다양한 데이터세트와 작업이 포함되어 있습니다.</p>
 <p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/Applied_LLMs_Mastery_2024/img/eval_0.png" alt="eval_0.png"></p>
-<h2>Read/Watch These Resources (Optional)</h2>
+<h2>다음 리소스 읽기/보기(선택 사항)</h2>
 <ol>
-<li>LLM Evaluation by Klu.ai: <a href="https://klu.ai/glossary/llm-evaluation">https://klu.ai/glossary/llm-evaluation</a></li>
-<li>Microsoft LLM Evaluation Leaderboard: <a href="https://llm-eval.github.io/">https://llm-eval.github.io/</a></li>
-<li>Evaluating and Debugging Generative AI Models Using Weights and Biases course: <a href="https://www.deeplearning.ai/short-courses/evaluating-debugging-generative-ai/">https://www.deeplearning.ai/short-courses/evaluating-debugging-generative-ai/</a></li>
+<li>Klu.ai의 LLM 평가: <a href="https://klu.ai/glossary/llm-evaluation">https://klu.ai/glossary/llm-evaluation</a></li>
+<li>Microsoft LLM 평가 리더보드: <a href="https://llm-eval.github.io/">https://llm-eval.github.io/</a></li>
+<li>가중치와 편향을 사용한 생성적 AI 모델 평가 및 디버깅 과정: <a href="https://www.deeplearning.ai/short-courses/evaluating-debugging-generative-ai/">https://www.deeplearning.ai/short-courses/evaluating-debugging-generative-ai/</a></li>
 </ol>
-<h2>Read These Papers (Optional)</h2>
+<h2>이 논문 읽기(선택 사항)</h2>
 <ol>
 <li><a href="https://arxiv.org/abs/2310.19736">https://arxiv.org/abs/2310.19736</a></li>
 <li><a href="https://arxiv.org/abs/2401.05561">https://arxiv.org/abs/2401.05561</a></li>
