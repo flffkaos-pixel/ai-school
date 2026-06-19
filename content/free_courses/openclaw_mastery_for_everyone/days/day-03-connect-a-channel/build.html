@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Build — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>3일차 빌드: 채널 연결</h1>
+<p>이것은 3일차에 대한 사용자용 가이드입니다. 오늘 Telegram을 연결하여 휴대폰에서 Claw와 대화할 수 있습니다.</p>
+<p>운영 단계는 <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/./claw-instructions-connect-telegram.md"><code>claw-instructions-connect-telegram.md</code></a>에 있습니다. </p>
+<hr>
+<h2>시작하기 전에 필요한 것</h2>
+<ul>
+<li>1일차 완료: OpenClaw 설치 및 작동</li>
+<li>2일차 완료: ID 파일이 생성되고 올바르게 로드됨</li>
+<li>휴대폰이나 데스크탑에 설치된 텔레그램</li>
+<li>웹 채팅을 통해 Claw에 접근</li>
+</ul>
+<p>이 단계의 모든 구성은 <code>~/.openclaw/openclaw.json</code>에 있습니다.</p>
+<hr>
+<h2>1단계: 웹 채팅에서 설정 시작</h2>
+<p>다음 메시지를 복사하여 웹 채팅에 붙여넣습니다.</p>
+<blockquote><p><code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/claw-instructions-connect-telegram.md</code>을 이해하고 모든 단계를 추가하세요. </blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/./claw-instructions-connect-telegram.md"><code>claw-instructions-connect-telegram.md</code></a>은 Claw에게 다음을 지시합니다.</p>
+<ul>
+<li>텔레그램 봇 토큰과 사용자 ID를 한 번에 하나씩 수집하세요.</li>
+<li><code>~/.openclaw/openclaw.json</code> 업데이트</li>
+<li>기본적으로 텔레그램을 비공개로 유지</li>
+<li>게이트웨이 다시 시작</li>
+<li>휴대폰에서 페어링 및 실시간 테스트 방법을 안내합니다.</li>
+</ul>
+<p>높은 수준에서 수행하는 작업은 다음과 같습니다.</p>
+<ul>
+<li>Telegram에서 BotFather를 사용하여 봇을 만들고 토큰을 얻습니다.</li>
+<li>Claw가 요청할 때 해당 토큰을 Claw에 제공하세요.</li>
+<li>Claw가 페어링 과정을 안내하는 동안 Telegram의 지침을 따르세요.</li>
+<li>불분명한 점이 있으면 이동하는 동안 웹 채팅에서 Claw에 대해 질문하세요.</li>
+</ul>
+<p>설정이 완료되면 Telegram에서 봇에게 문자 메시지를 보내고 응답을 받을 수 있습니다.</p>
+<hr>
+<h2>발톱이 당신에게 요구해야 할 것</h2>
+<p>설정 중에 Claw가 다음을 요청할 것으로 예상됩니다.</p>
+<ul>
+<li>BotFather의 텔레그램 봇 토큰</li>
+<li>숫자로 된 텔레그램 사용자 ID</li>
+</ul>
+<p>그런 다음 <code>~/.openclaw/openclaw.json</code>의 <code>channels.telegram</code> 아래에 Telegram을 구성하고 채널을 제한적으로 유지해야 합니다.</p>
+<ul>
+<li><code>dmPolicy: &quot;pairing&quot;</code></li>
+<li><code>groupPolicy: &quot;disabled&quot;</code></li>
+</ul>
+<p>텔레그램을 <code>plugins.entries.telegram</code> 아래에 배치하면 잘못된 것입니다. </p>
+<hr>
+<h2>편성</h2>
+<p>Claw가 Telegram을 구성하고 게이트웨이를 다시 시작하면 다음이 수행됩니다.</p>
+<ol>
+<li>텔레그램에서 봇 찾기</li>
+<li><code>/start</code> 보내기</li>
+<li>페어링 요청 승인</li>
+<li>휴대폰에서 실제 메시지 보내기</li>
+</ol>
+<p>작동하면 채널이 활성화됩니다.</p>
+<hr>
+<h2>검증하다</h2>
+<p>이는 빠른 승리보다 더 간단해야 합니다. </p>
+<p>웹 채팅에서 Claw에게 물어보세요:</p>
+<pre><code class="언어-text">이 채널이 완벽하게 작동하는지 확인할 수 있도록 텔레그램에서 이모티콘과 함께 짧고 유쾌한 인사말을 보내주세요.
+</p>
+<hr>
+<h2>두 번의 빠른 승리</h2>
+<p>Telegram이 작동한다는 것을 알게 되면 휴대폰에서 실제로 수행하는 작업에 Telegram을 사용하십시오.</p>
+<p><strong>빠른 승리 1</strong></p>
+<pre><code class="언어-text">지금 통화 중이에요. </p>
+<pre><code class="언어-text">이것을 실용적으로 만들어 보겠습니다. </p>
+<hr>
+<h2>3일차 이후에는 무엇이 사실이어야 할까요?</h2>
+<ul>
+<li><input 비활성화="" type="checkbox"> BotFather를 통해 생성된 텔레그램 봇</li>
+<li><input 비활성화="" type="checkbox"> <code>channels.telegram.botToken</code>에 저장된 봇 토큰</li>
+<li><input 비활성화="" type="checkbox"> 귀하의 텔레그램 사용자 ID가 <code>allowFrom</code>에 추가되었습니다</li>
+<li><input 비활성화="" type="checkbox"> <code>dmPolicy</code>이 <code>&quot;pairing&quot;</code>으로 설정되었습니다.</li>
+<li><input 비활성화="" type="checkbox"> <code>groupPolicy</code>이 <code>&quot;disabled&quot;</code>으로 설정되었습니다.</li>
+<li><input 비활성화="" type="checkbox"> 게이트웨이가 성공적으로 다시 시작되었습니다.</li>
+<li><input 비활성화="" type="checkbox"> 휴대폰에서 페어링이 완료되었습니다.</li>
+<li><input 비활성화="" type="checkbox"> 텔레그램으로 Claw에 메시지를 보내고 응답을 받을 수 있습니다.</li>
+<li><input 비활성화="" type="checkbox"> Claw는 귀하의 신원 파일 및 채널 규칙을 반영하는 방식으로 Telegram에서 응답합니다.</li>
+</ul>
+<hr>
+<h2>문제 해결</h2>
+<p><strong>Claw에서는 Telegram이 플러그인이라고 말합니다</strong><br>그렇지 않습니다. </p>
+<p><strong>설정 후 봇이 응답하지 않습니다.</strong><br>Claw에게 게이트웨이 로그를 확인하고 봇 토큰이 누락된 문자나 추가 공백 없이 올바르게 복사되었는지 확인하도록 합니다.</p>
+<p><strong>페어링이 작동하지 않습니다</strong><br>숫자 텔레그램 사용자 ID가 <code>allowFrom</code>에 있고 따옴표 붙은 문자열이 아닌 숫자로 저장되어 있는지 확인하세요.</p>
+<p><strong>Claw는 텔레그램에서 응답하지만 일반적으로 들립니다.</strong><br>작업 공간 경로가 여전히 올바른지, 2일차의 ID 파일이 로드되는지 확인하세요.</p>
+<p><strong>토큰은 유효한 것처럼 보이지만 Telegram은 여전히 ​​실패합니다.</strong><br>Claw에게 콜론 앞의 숫자 접두사를 포함하여 전체 BotFather 토큰이 한 줄에 복사되었는지 확인하도록 요청하세요.</p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/./learn.md">??3일차 학습</a> | </p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

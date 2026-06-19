@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fine tuning 101 — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../index.html">Home</a>
+<a href="../../courses.html">Courses</a>
+<a href="../../interview.html">Interview</a>
+<a href="../../research.html">Research</a>
+<a href="../../resources.html">Resources</a>
+<a href="../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Fine-Tuning 101 Guide</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/fine-tuning-main.png" alt="main_agentic_rag.png"></p>
+<h2>What is Fine Tuning?</h2>
+<p>Fine Tuning is the process of adapting a pre-trained language model for specific tasks or domains by further training it on a smaller, targeted dataset. This approach leverages the general knowledge and capabilities the model acquired during its initial pre-training phase while optimizing its performance for particular applications.</p>
+<p>During fine tuning, most of the model&#39;s parameters are updated, but at a lower learning rate than initial training. This allows the model to retain its foundational knowledge while adapting to new contexts.</p>
+<hr>
+<h2>Why Fine Tune?</h2>
+<p>Fine Tuning addresses several limitations of pre-trained models:</p>
+<ul>
+<li><p><strong>Domain-specific needs</strong>: Pre-trained models have broad knowledge but may lack depth in specialized fields like medicine, law, or technical domains. Fine Tuning can teach models domain-specific terminology, conventions, and knowledge.</p>
+</li>
+<li><p><strong>Task specialization</strong>: General-purpose models might not excel at specific tasks like sentiment analysis, text classification, or summarization without additional training.</p>
+</li>
+<li><p><strong>Improved performance</strong>: Fine Tuning typically yields better results than prompting alone for targeted applications, especially when consistent, reliable outputs are required.</p>
+</li>
+<li><p><strong>Reduced prompt engineering</strong>: A well-fine tuned model often requires less elaborate prompting to achieve desired results.</p>
+</li>
+<li><p><strong>Adaptation to organizational style</strong>: Organizations can align model outputs with their communication style, tone, and guidelines.</p>
+</li>
+</ul>
+<hr>
+<h2>Fine Tuning vs. Prompting vs. Training from Scratch: When to Use What?</h2>
+<h3>Prompting</h3>
+<p><strong>Best for</strong>: Quick implementations, general tasks, limited resources, or when flexibility is needed<br><strong>Advantages</strong>: No additional training, immediate deployment, adaptable on-the-fly<br><strong>Limitations</strong>: May require complex prompt engineering, can be inconsistent, consumes token budget<br><strong>Use when</strong>: You need quick solutions, have limited data, or requirements change frequently</p>
+<hr>
+<h3>Fine Tuning</h3>
+<p><strong>Best for</strong>: Specialized applications, consistent outputs, improved efficiency<br><strong>Advantages</strong>: Better performance on specific tasks, reduced prompt length, more consistent results<br><strong>Limitations</strong>: Requires quality training data, computational resources, and expertise<br><strong>Use when</strong>: You have a well-defined use case, sufficient domain-specific data, and need reliable performance</p>
+<hr>
+<h3>Training from Scratch</h3>
+<p><strong>Best for</strong>: Highly specialized applications, proprietary systems, or when privacy is paramount<br><strong>Advantages</strong>: Complete control over model architecture and training, no reliance on external foundations<br><strong>Limitations</strong>: Extremely resource-intensive, requires massive datasets and expertise<br><strong>Use when</strong>: Pre-trained models fundamentally cannot meet your needs, you have massive computational resources, or you&#39;re developing novel architectures</p>
+<hr>
+<p>In practice, many organizations start with prompting to validate use cases, then move to fine tuning as requirements solidify. Training from scratch remains rare outside of large AI research organizations.</p>
+<h2>Prerequisites for Fine Tuning LLMs</h2>
+<hr>
+<h3>Tools and Libraries</h3>
+<p>The essential toolkit for LLM fine tuning includes:</p>
+<ul>
+<li><strong>PyTorch or TensorFlow</strong>: These deep learning frameworks provide the foundation for model training  </li>
+<li><strong>Hugging Face Transformers</strong>: A library that makes it easy to work with pre-trained models  </li>
+<li><strong>Hugging Face Datasets</strong>: For efficiently loading and processing training data  </li>
+<li><strong>Accelerate</strong>: For distributed training across multiple GPUs  </li>
+<li><strong>PEFT/LoRA libraries</strong>: For parameter-efficient fine tuning methods  </li>
+<li><strong>Weights &amp; Biases</strong> or <strong>TensorBoard</strong>: For experiment tracking and visualization</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/resources/img/fine-tuning-stack.png" alt="main_agentic_rag.png"></p>
+<hr>
+<h3>Hardware Requirements</h3>
+<p>Fine tuning requirements vary based on model size:</p>
+<ul>
+<li><strong>Small models (&lt; 1B parameters)</strong>: Consumer GPUs (8??6GB VRAM) can handle these  </li>
+<li><strong>Medium models (1??B parameters)</strong>: Require high-end GPUs (24??8GB VRAM) or multiple GPUs  </li>
+<li><strong>Large models (&gt; 7B parameters)</strong>: Need multiple high-end GPUs, TPUs, or specialized hardware</li>
+</ul>
+<p><strong>Alternative approaches for resource constraints</strong>:</p>
+<ul>
+<li>Parameter-efficient fine tuning (LoRA, QLoRA, etc.)</li>
+<li>Quantization to reduce memory footprint</li>
+<li>Gradient checkpointing to trade computation for memory</li>
+<li>Cloud-based solutions (e.g., Google Colab Pro, AWS, Azure)</li>
+</ul>
+<hr>
+<h3>Data Requirements</h3>
+<p>Effective fine tuning depends heavily on your data:</p>
+<ul>
+<li><strong>Quality</strong>: Clean, relevant, and representative of your target task  </li>
+<li><strong>Quantity</strong>:<ul>
+<li>Classification: At least 100+ examples per class  </li>
+<li>Generation: 1,000+ examples recommended  </li>
+<li>More complex tasks may need significantly more data</li>
+</ul>
+</li>
+<li><strong>Format</strong>: Typically JSON or CSV with clear inputs and desired outputs  </li>
+<li><strong>Diversity</strong>: Cover the range of scenarios the model should handle  </li>
+<li><strong>Preprocessing</strong>: Tokenization, cleaning, and formatting for the specific model  </li>
+<li><strong>Train/validation split</strong>: To monitor overfitting during training</li>
+</ul>
+<p><em>Data preparation is often the most critical and time-consuming part of successful fine tuning. Even the best models can&#39;t overcome poor quality training data.</em></p>
+<hr>
+<h2>The LLM Fine Tuning Workflow: A Step-by-Step Guide</h2>
+<p>Fine tuning a large language model transforms a general-purpose foundation model into a specialized tool tailored to your needs. Below is a concise, step-by-step overview of the process, highlighting critical stages and best practices:</p>
+<ol>
+<li><p><strong>Define the Objective</strong></p>
+<ul>
+<li>What task are you fine tuning for? (e.g., classification, summarization, code generation)</li>
+<li>What outcome do you expect from the fine tuned model?</li>
+</ul>
+</li>
+<li><p><strong>Gather and Prepare Data</strong></p>
+<ul>
+<li>Collect clean, diverse, task-relevant data</li>
+<li>Format the dataset for training (usually input-output pairs)</li>
+<li>Split into training and validation sets</li>
+</ul>
+</li>
+<li><p><strong>Choose the Right Model</strong></p>
+<ul>
+<li>Pick a base model aligned with your compute resources and task complexity</li>
+<li>Use smaller models for low-latency or edge deployments, larger models for higher accuracy</li>
+</ul>
+</li>
+<li><p><strong>Select Fine Tuning Approach</strong></p>
+<ul>
+<li>Full fine tuning (update all parameters)</li>
+<li>Parameter-efficient fine tuning (e.g., LoRA, adapters)</li>
+</ul>
+</li>
+<li><p><strong>Configure Training Setup</strong></p>
+<ul>
+<li>Set up the environment using Accelerate or native PyTorch/TF</li>
+<li>Choose loss function, optimizer, batch size, learning rate</li>
+</ul>
+</li>
+<li><p><strong>Train the Model</strong></p>
+<ul>
+<li>Monitor training and validation loss</li>
+<li>Use checkpoints and experiment tracking (e.g., Weights &amp; Biases)</li>
+</ul>
+</li>
+<li><p><strong>Evaluate Performance</strong></p>
+<ul>
+<li>Run the fine tuned model on a held-out test set or real examples</li>
+<li>Analyze metrics relevant to your task (accuracy, BLEU, ROUGE, etc.)</li>
+</ul>
+</li>
+<li><p><strong>Iterate or Deploy</strong></p>
+<ul>
+<li>Refine with more data or better hyperparameters if needed</li>
+<li>Once satisfied, deploy your model into production or integrate into workflows</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>The LLM Fine Tuning Workflow: A Step-by-Step Guide</h2>
+<p>Fine tuning a large language model transforms a general-purpose foundation model into a specialized tool tailored to your needs. Below is a structured, step-by-step workflow covering essential stages and tools.</p>
+<hr>
+<h3>1. Model Selection</h3>
+<p>Begin by choosing a pre-trained LLM that aligns with your task?셲 requirements?봲uch as domain, size, and computational constraints. Platforms like Hugging Face host a vast library of models (e.g., BERT, LLaMA, GPT variants), each with distinct architectures and pre-training objectives.</p>
+<p>This decision sets the foundation for your fine tuning success, balancing capability and resource demands.</p>
+<hr>
+<h3>2. Data Preparation</h3>
+<p>High-quality training data is the backbone of effective fine tuning. This step involves:</p>
+<ul>
+<li><strong>Collection</strong>: Gather task-specific datasets using libraries like Hugging Face Datasets, NVIDIA?셲 data tools, or Pandas  </li>
+<li><strong>Preprocessing</strong>: Clean and standardize text (e.g., normalization, removing noise) for consistency  </li>
+<li><strong>Formatting</strong>: Tokenize and structure data into model-compatible inputs, such as input-output pairs or instruction templates  </li>
+<li><strong>Splitting</strong>: Divide the dataset into training, validation, and test sets to ensure robust evaluation</li>
+</ul>
+<hr>
+<h3>3. Data Annotation</h3>
+<p>For supervised fine tuning, annotate your data with precise labels or structures. Tools like <strong>Labelbox</strong>, <strong>SuperAnnotate</strong>, <strong>CVAT</strong>, or <strong>Label Studio</strong> streamline this process.</p>
+<p>High-quality annotations are especially vital for domain-specific tasks, where unique terminology or context may require expert input.</p>
+<hr>
+<h3>4. Synthetic Data Generation</h3>
+<p>To bolster dataset size and diversity, generate synthetic examples using tools like <strong>MostlyAI</strong> or LLM-driven data augmentation.</p>
+<p>This enhances model robustness, mitigates data scarcity, and improves generalization across varied inputs?봯articularly useful for niche or low-resource domains.</p>
+<hr>
+<h3>5. Fine Tuning Framework Selection</h3>
+<p>Select a fine tuning strategy and framework suited to your goals and resources. Options include:</p>
+<ul>
+<li><strong>Full Fine Tuning</strong>: Update all model parameters (resource-intensive but thorough)  </li>
+<li><strong>Parameter-Efficient Fine Tuning (PEFT)</strong>: Use methods like <strong>LoRA</strong>, <strong>QLoRA</strong>, or <strong>Adapters</strong> to adjust only a subset of parameters, reducing compute costs  </li>
+<li><strong>Instruction Tuning</strong>: Adapt the model to follow specific prompts or formats (e.g., Alpaca-style instructions)</li>
+</ul>
+<p>Frameworks like <strong>Unsloth</strong>, <strong>LLaMA Factory</strong>, <strong>Axolotl</strong>, <strong>PyTorch</strong>, or <strong>TensorFlow</strong> offer optimized implementations for these approaches.</p>
+<hr>
+<h3>6. Experimentation and Tracking</h3>
+<p>Track and compare fine tuning runs to refine performance. Tools like <strong>Weights &amp; Biases</strong>, <strong>TensorBoard</strong>, or <strong>Comet</strong> enable:</p>
+<ul>
+<li>Monitoring of loss, accuracy, and other metrics in real time  </li>
+<li>Logging of hyperparameters (e.g., learning rate, batch size) and their impact  </li>
+<li>Visualization of training dynamics for actionable insights</li>
+</ul>
+<p>This systematic approach prevents wasted effort and ensures reproducibility.</p>
+<hr>
+<h3>7. Model Evaluation</h3>
+<p>Assess the fine tuned model?셲 performance using task-specific benchmarks and frameworks like <strong>DeepEval</strong>. Key evaluation aspects include:</p>
+<ul>
+<li><strong>Quantitative metrics</strong>: BLEU, F1, perplexity, etc., tailored to your use case  </li>
+<li><strong>Qualitative analysis</strong>: Output coherence, factual accuracy, and relevance  </li>
+<li><strong>Bias detection and robustness checks</strong></li>
+</ul>
+<p>Compare results against the base model to quantify improvements.</p>
+<hr>
+<h3>8. Deployment and Serving</h3>
+<p>Deploy the fine tuned model for practical use via platforms like <strong>Hugging Face Inference Endpoints</strong> or custom LLM serving solutions. This step involves:</p>
+<ul>
+<li><strong>Optimization</strong>: Apply quantization or pruning to reduce latency and memory footprint  </li>
+<li><strong>Integration</strong>: Build APIs or endpoints for seamless access  </li>
+<li><strong>Scaling</strong>: Configure infrastructure to handle expected loads  </li>
+<li><strong>Monitoring</strong>: Track usage and performance in production with analytics</li>
+</ul>
+<hr>
+<h3>Foundational Tools</h3>
+<p>Throughout the workflow, core machine learning libraries like <strong>PyTorch</strong> and <strong>TensorFlow</strong> underpin model manipulation, gradient computation, and optimization, ensuring flexibility and control.</p>
+<hr>
+<h2>Unlocking the Power of LLMs: A Deep Dive into Fine-Tuning Techniques &amp; Strategies</h2>
+<h2>Exploring Categories of Fine-Tuning in LLMs</h2>
+<p>Now, let?셲 explore the three major categories of fine-tuning: <strong>Task Adaptation</strong>, <strong>Alignment</strong>, and <strong>Parameter-Efficient Fine-Tuning</strong>?봞nd the strategies within each that are shaping the possibilities with LLMs for different problem statements.</p>
+<hr>
+<h3>1. Task Adaptation Fine-Tuning: Mastering Specific Jobs</h3>
+<p>This category focuses on adapting LLMs to perform particular tasks with high precision.</p>
+<h4>Supervised Fine-Tuning (SFT)</h4>
+<ul>
+<li><strong>Concept</strong>: Uses labeled examples to teach the model specific tasks.</li>
+<li><strong>Example</strong>: Categorizing customer feedback as positive, negative, or neutral.</li>
+<li><strong>Technical Insight</strong>: Adjusts model weights to minimize error on labeled data.</li>
+</ul>
+<h4>Unsupervised Fine-Tuning</h4>
+<ul>
+<li><strong>Concept</strong>: Learns patterns from unlabeled data.</li>
+<li><strong>Example</strong>: Training on hospital records to understand medical terminology.</li>
+<li><strong>Technical Insight</strong>: Uses self-supervised learning.</li>
+</ul>
+<h4>Instruction-Based Fine-Tuning</h4>
+<ul>
+<li><strong>Concept</strong>: Trains models using instruction-response pairs.</li>
+<li><strong>Example</strong>: Chatbot trained to answer software bug queries.</li>
+<li><strong>Technical Insight</strong>: Often used to make models more interactive and user-friendly.</li>
+</ul>
+<h4>Group Relative Policy Optimization (GRPO)</h4>
+<ul>
+<li><strong>Concept</strong>: Improves models by having them compete against their own outputs.</li>
+<li><strong>Example</strong>: Math tutoring app selecting best solutions from multiple outputs.</li>
+<li><strong>Technical Insight</strong>: Reinforcement learning technique comparing outputs against group average.</li>
+</ul>
+<hr>
+<h3>2. Alignment Fine-Tuning: Matching Human Values</h3>
+<p>Focuses on aligning model behavior with human preferences.</p>
+<h4>Reinforcement Learning from Human Feedback (RLHF)</h4>
+<ul>
+<li><strong>Concept</strong>: Uses human ratings as feedback.</li>
+<li><strong>Example</strong>: Ensuring polite, helpful chatbot responses.</li>
+</ul>
+<h4>Direct Preference Optimization (DPO)</h4>
+<ul>
+<li><strong>Concept</strong>: Optimizes models directly on preference data.</li>
+<li><strong>Example</strong>: Preferring short summaries over long ones in news summarization.</li>
+</ul>
+<h4>Odds Ratio Preference Optimization (ORPO)</h4>
+<ul>
+<li><strong>Concept</strong>: Combines task learning and preference alignment.</li>
+<li><strong>Example</strong>: Accurate, concise article summaries.</li>
+</ul>
+<hr>
+<h3>3. Parameter-Efficient Fine-Tuning (PEFT): Doing More with Less</h3>
+<p>Adapts models without updating all parameters, saving compute and time.</p>
+<h4>Adapters</h4>
+<ul>
+<li><strong>Concept</strong>: Insert small modules to fine-tune specific capabilities.</li>
+<li><strong>Example</strong>: Detecting sarcasm in user comments.</li>
+</ul>
+<h4>LoRA (Low-Rank Adaptation)</h4>
+<ul>
+<li><strong>Concept</strong>: Uses low-rank matrix updates for weight adjustment.</li>
+<li><strong>Example</strong>: Adapting to Spanish text generation.</li>
+</ul>
+<h4>QLoRA</h4>
+<ul>
+<li><strong>Concept</strong>: Combines LoRA with quantization for lower memory usage.</li>
+<li><strong>Example</strong>: Fine-tuning on laptop GPU for French translation.</li>
+</ul>
+<h4>Prompt Tuning</h4>
+<ul>
+<li><strong>Concept</strong>: Trains special prompts to steer model behavior.</li>
+<li><strong>Example</strong>: Creating poetic outputs without altering the model.</li>
+</ul>
+<hr>
+<h2>Fine-Tuning Technique Selection Matrix</h2>
+<p><strong>Multi-Goal Domain Adaptation</strong>:</p>
+<ul>
+<li><strong>Limited Resources</strong>: Prompt Tuning + LoRA</li>
+<li><strong>Efficiency</strong>: LoRA or Adapters depending on available compute</li>
+<li><strong>Abundant Resources</strong>: QLoRA for multilingual tasks</li>
+</ul>
+<p><strong>Behavior Alignment</strong>:</p>
+<ul>
+<li><strong>Limited Resources</strong>: DPO</li>
+<li><strong>Moderate Resources</strong>: RLHF</li>
+<li><strong>Abundant Resources</strong>: ORPO</li>
+</ul>
+<p><strong>Task Performance</strong>:</p>
+<ul>
+<li><strong>Limited Resources</strong>: Supervised Fine-Tuning</li>
+<li><strong>Moderate Resources</strong>: Instruction-Based Fine-Tuning</li>
+<li><strong>Abundant Resources</strong>: GRPO</li>
+</ul>
+<hr>
+<h2>Mastering LLM Fine-Tuning: How to Measure Success</h2>
+<h3>Why Fine-Tuning Metrics Are Different</h3>
+<p>Fine-tuned models must be evaluated based on task-specific performance, not general fluency.</p>
+<h3>Key Metrics</h3>
+<h4>Task-Specific Metrics</h4>
+<ul>
+<li><strong>Accuracy</strong>: Ideal for classification</li>
+<li><strong>F1 Score</strong>: Balances precision and recall</li>
+<li><strong>Exact Match (EM)</strong>: Used for QA tasks</li>
+<li><strong>BLEU &amp; ROUGE</strong>: Text generation and summarization</li>
+</ul>
+<h4>Perplexity</h4>
+<ul>
+<li>Measures fluency and domain adaptation</li>
+</ul>
+<h4>Hallucination Detection</h4>
+<ul>
+<li>Tools: SelfCheckGPT, NLI Scorers</li>
+</ul>
+<h4>Toxicity and Bias Metrics</h4>
+<ul>
+<li>Tools: Detoxify, G-Eval</li>
+</ul>
+<h4>Semantic Similarity</h4>
+<ul>
+<li>Tools: BERTScore, embedding-based comparisons</li>
+</ul>
+<h4>Diversity</h4>
+<ul>
+<li>Important for creative tasks</li>
+</ul>
+<h4>Prompt Alignment</h4>
+<ul>
+<li>Tests if the model follows instructions faithfully</li>
+</ul>
+<hr>
+<h2>Pro Tips</h2>
+<ul>
+<li>Build custom benchmarks</li>
+<li>Compare baseline vs fine-tuned</li>
+<li>Watch for overfitting</li>
+</ul>
+<hr>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://github.com/unslothai/unsloth">Unsloth Fine-Tuning Notebooks</a></li>
+<li><a href="https://github.com/hiyouga/LLaMA-Factory">LLaMA Factory Framework</a></li>
+<li><a href="https://github.com/Curated-Awesome-Lists/awesome-llms-fine-tuning">Awesome LLM Fine-Tuning List</a></li>
+</ul>
+<p>Written by <a href="https://www.linkedin.com/in/towhidultonmoy/">Towhidul Islam</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../js/main.js"></script>
+</body>
+</html>

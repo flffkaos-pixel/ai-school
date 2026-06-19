@@ -1,0 +1,639 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Best openclaw resources — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>카테고리별 최고의 OpenClaw 리소스</h1>
+<p>Claw를 최대한 활용하기 위한 80개 이상의 엄선된 가이드, 도구, 비디오, 보안 리소스 및 커뮤니티 콘텐츠.</p>
+<p>각 섹션은 필요한 항목으로 바로 이동할 수 있도록 구성되어 있습니다. </p>
+<hr>
+<h2>목차</h2>
+<ol>
+<li><a href="#official-documentation">공식 문서</a></li>
+<li><a href="#getting-started-guides">시작하기 가이드</a></li>
+<li><a href="#security">보안</a></li>
+<li><a href="#identity-memory-and-workspace-files">ID, 메모리 및 작업공간 파일</a></li>
+<li><a href="#video-walkthroughs">동영상 탐색보기</a></li>
+<li><a href="#practitioner-deep-dives">활용방안 분석</a></li>
+<li><a href="#skills-and-integrations">기술 및 통합</a></li>
+<li><a href="#cost-optimization">비용조정</a></li>
+<li><a href="#community-tools">커뮤니티 도구</a></li>
+<li><a href="#community-and-events">커뮤니티 및 이벤트</a></li>
+<li><a href="#what-people-are-actually-doing-with-openclaw">사람들이 실제로 OpenClaw로 무엇을 하고 있는지</a></li>
+</ol>
+<hr>
+<h2>공식 문서</h2>
+<p>여기에서 시작하세요. </p>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://docs.openclaw.ai/start/getting-started">시작하기</a></td>
+<td>설치, 온보딩 마법사, 첫 실행</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/gateway/configuration">구성 참조</a></td>
+<td><code>openclaw.json</code>의 모든 설정, 환경 변수, 공급자 설정</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/gateway/security">보안 참조</a></td>
+<td>토큰 인증, DM 정책, 허용 목록, 샌드박스 모드, 도구 권한</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/gateway/troubleshooting">문제 해결</a></td>
+<td>일반적인 오류, 진단, <code>openclaw doctor</code></td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/install/updating">OpenClaw 업데이트</a></td>
+<td>버전 관리, 주요 변경 사항, 롤백</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/channels/telegram">채널 설정: 텔레그램</a></td>
+<td>연결이 가장 빠른 채널(이 과정의 3일차)</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/channels/whatsapp">채널 설정: WhatsApp</a></td>
+<td>WhatsApp 비즈니스 API 통합</td>
+</tr>
+<tr>
+<td><a href="https://docs.openclaw.ai/channels/discord">채널 설정: Discord</a></td>
+<td>Discord 봇 설정 및 권한</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw">GitHub 활동</a></td>
+<td>소스 코드, 문제, 토론, 별 25만 개 이상</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md">변경 로그</a></td>
+<td>기능, 수정 사항, 손상 및 보안으로 분류된 모든 릴리스</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw/security">보안주의사항</a></td>
+<td>공식 CVE 공개 및 패치</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>시작하기 가이드</h2>
+<p>"방금 OpenClaw를 설치했는데 이제 어떻게 해야 하나요?" </p>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://every.to/guides/claw-school">Every.to: 클로스쿨</a></td>
+<td>가장 초보자 친화적인 가이드입니다. </td>
+</tr>
+<tr>
+<td><a href="https://www.freecodecamp.org/news/openclaw-full-tutorial-for-beginners/">freeCodeCamp: 응용 프로그램 전체 튜토리얼</a></td>
+<td>freeCodeCamp YouTube 동영상과 함께 작성된 글입니다. </td>
+</tr>
+<tr>
+<td><a href="https://habr.com/en/articles/992720/">Habr: 전체 설치 연습</a></td>
+<td>스크린샷이 포함된 단계별 설명, 모든 화면을 보고 싶은 시각적 학습자에게 적합</td>
+</tr>
+<tr>
+<td><a href="https://www.hostinger.com/support/how-to-secure-and-harden-openclaw-security/">Hostinger: OpenClaw 보안 및 강화</a></td>
+<td>이 과정에서 권장하는 호스팅 제공업체의 VPS 관련 강화 가이드</td>
+</tr>
+<tr>
+<td><a href="https://learnopenclaw.com/cheatsheet">OpenClaw를 사용하기: 시트시트</a></td>
+<td>한 페이지에 아키텍처 개요, 구성 파일, CLI 명령, 채널 설정, 보안 기본값, 크론 예제 및 문제 해결이 포함되어 있습니다.</td>
+</tr>
+<tr>
+<td><a href="https://amankhan1.substack.com/p/how-to-get-clawdbotmoltbotopenclaw">Aman Khan: 오후에 OpenClaw를 설정하는 방법</a></td>
+<td>일반적인 함정을 포함한 실무자의 실제 연습</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>보안</h2>
+<p>보안은 OpenClaw의 움직이는 표적입니다. </p>
+<h3>위험 이해</h3>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.crowdstrike.com/en-us/blog/what-security-teams-need-to-know-about-openclaw-ai-super-agent/">CrowdStrike: 보안 팀 OpenClaw에 대해 관련 내용</a></td>
+<td>기업 위험 평가. </td>
+</tr>
+<tr>
+<td><a href="https://jfrog.com/blog/giving-openclaw-the-keys-to-your-kingdom-read-this-first/">JFrog: OpenClaw에 대한 효력 제공</a></td>
+<td>스킬 등록 리스크, AI 기반 악성 스킬 분석, 큐레이션 전략</td>
+</tr>
+<tr>
+<td><a href="https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/">Snyk: ToxicSkills 감사합니다</a></td>
+<td>3,984개의 ClawHub 스킬을 스캔했습니다. </td>
+</tr>
+<tr>
+<td><a href="https://www.lakera.ai/blog/the-agent-skill-ecosystem-when-ai-extensions-become-a-malware-delivery-channel">Lakera: AI 확장 프로그램이 코드 전달 채널이 있는 경우</a></td>
+<td>ClawHavoc 캠페인에 대한 심층 분석: 확인된 악성 코드와 관련된 44개 기술, 12,559+ 다운로드</td>
+</tr>
+<tr>
+<td><a href="https://repello.ai/blog/malicious-openclaw-skills-exposed-a-full-teardown">Repello AI: 대신 OpenClaw 기술 따라</a></td>
+<td>악의적인 기술의 작동 방식, 대상 및 탐지 방법에 대한 전체 기술 분석</td>
+</tr>
+<tr>
+<td><a href="https://www.eye.security/blog/log-poisoning-openclaw-ai-agent-injection-risk">눈 보안: OpenClaw의 죄책감</a></td>
+<td>공격자가 제어하는 ​​콘텐츠를 에이전트 로그에 기록하는 WebSocket 헤더 삽입입니다. </td>
+</tr>
+<tr>
+<td><a href="https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html">VirusTotal: 자동화에서 접속까지</a></td>
+<td>VirusTotal의 관점에서 OpenClaw 기술이 무기화되는 방식</td>
+</tr>
+<tr>
+<td><a href="https://www.trendmicro.com/en_us/research/26/b/openclaw-skills-used-to-distribute-atomic-macos-stealer.html">Trend Micro: OpenClaw Skills를 사랑합니다 Atomic macOS Stealer</a></td>
+<td>ClawHub를 통해 macOS 사용자를 노리는 AMOS 스틸러입니다. </td>
+</tr>
+<tr>
+<td><a href="https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html">해커뉴스: 341가지 등등 ClawHub 기술</a></td>
+<td>Koi Security의 ClawHub 전체 감사. </td>
+</tr>
+</tbody></table>
+<h3>경화 가이드</h3>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://nebius.com/blog/posts/openclaw-security">Nebius: OpenClaw 보안 유지 및 강화</a></td>
+<td>생산 등급 경화. </td>
+</tr>
+<tr>
+<td><a href="https://repello.ai/blog/technical-best-practices-to-securely-deploy-openclaw">Repello AI: 기술 구현 체크리스트</a></td>
+<td>OpenClaw를 안전하게 배포하기 위한 단계별 보안 체크리스트</td>
+</tr>
+<tr>
+<td><a href="https://gist.github.com/jordanlyall/8b9e566c1ee0b74db05e43f119ef4df4">Jordan Lyall: 보안 강화 외부</a></td>
+<td>기계 수준, OpenClaw 수준, SOUL.md 규칙 및 지속적인 유지 관리. </td>
+</tr>
+<tr>
+<td><a href="https://github.com/slowmist/openclaw-security-practice-guide">SlowMist: 보안 가드 안내</a></td>
+<td>OpenClaw 자체가 따르도록 설계된 에이전트 대응 보안 가이드입니다. </td>
+</tr>
+<tr>
+<td><a href="https://alirezarezvani.medium.com/openclaw-security-my-complete-hardening-guide-for-vps-and-docker-deployments-14d754edfc1e">Reza Rezvani: 완전한 VPS 및 Docker 강화</a></td>
+<td>VPS 베어메탈 및 Docker 배포 패턴을 모두 다루는 실무자 강화 가이드</td>
+</tr>
+<tr>
+<td><a href="https://www.clawctl.com/blog/openclaw-hardening-guide">Clawctl: 작성하고 싶지 않은 강화 가이드</a></td>
+<td>특정 권장 사항이 포함된 독선적이고 실용적인 강화 가이드</td>
+</tr>
+</tbody></table>
+<h3>보안 도구</h3>
+<table>
+<thead><tr>
+</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/adversa-ai/secureclaw">SecureClaw(적대 AI)</a></td>
+<td>OpenClaw용 OWASP 기반 보안 플러그인 및 기술입니다. </td>
+</tr>
+<tr>
+<td><a href="https://github.com/prompt-security/clawsec">ClawSec(신속한 보안)</a></td>
+<td>보안 기술 제품군: SOUL.md 드리프트 감지, 실시간 보안 권장 사항, 자동화된 감사, 기술 무결성 확인</td>
+</tr>
+<tr>
+<td><a href="https://github.com/adibirzu/openclaw-security-monitor">OpenClaw 보안 모니터</a></td>
+<td>사전 위협 탐지. </td>
+</tr>
+<tr>
+<td><a href="https://github.com/2pidata/openclaw-security-guard">OpenClaw 보안 가드</a></td>
+<td>CLI 스캐너 + 라이브 대시보드. </td>
+</tr>
+<tr>
+<td><a href="https://github.com/jgamblin/OpenClawCVEs/">OpenClaw CVE 추적기</a></td>
+<td>상태 및 패치 버전이 포함된 모든 OpenClaw CVE의 커뮤니티 유지 추적기</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>ID, 메모리 및 작업 공간 파일</h2>
+<p>이러한 리소스는 귀하의 Claw가 누구인지, Claw가 사물을 어떻게 기억하는지 정의하는 파일에 대해 자세히 설명합니다. </p>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://amankhan1.substack.com/p/how-to-make-your-openclaw-agent-useful">Aman Khan: OpenClaw 에이전트를 유용하고 안전하게 먹는 방법</a></td>
+<td>SOUL.md, USER.md 및 AGENTS.md 설정에 대해 자세히 알아보세요. </td>
+</tr>
+<tr>
+<td><a href="https://velvetshark.com/openclaw-memory-masterclass">VelvetShark: 메모리 마스터클래스</a></td>
+<td>코드베이스 기여자가 작성했습니다. </td>
+</tr>
+<tr>
+<td><a href="https://capodieci.medium.com/ai-agents-003-openclaw-workspace-files-explained-soul-md-agents-md-heartbeat-md-and-more-5bdfbee4827a">Roberto Capodieci: 작업공간 파일 설명</a></td>
+<td>SOUL.md, AGENTS.md, HEARTBEAT.md 등. </td>
+</tr>
+<tr>
+<td><a href="https://alirezarezvani.medium.com/openclaw-moltbot-identity-md-how-i-built-professional-ai-personas-that-actually-work-c964a44001ab">Reza Rezvani: 전문 AI 나비소나 구축</a></td>
+<td>SOUL.md가 에이전트가 누구인지 정의하는 방법과 IDENTITY.md가 세계가 에이전트를 경험하는 방식을 정의하는 방법</td>
+</tr>
+<tr>
+<td><a href="https://creatoreconomy.so/p/use-openclaw-to-build-a-business-that-runs-itself-nat-eliason">Nat Eliason: 3레이어 메모리 시스템</a></td>
+<td>지식 그래프(PARA 시스템), 야간 통합이 포함된 일일 메모 및 암묵적 지식입니다. </td>
+</tr>
+<tr>
+<td><a href="https://github.com/ucsandman/OpenClaw-Setup">OpenClaw 설정</a></td>
+<td>계층적 메모리, 명상 프롬프트 및 도구 구성을 갖춘 완전한 예제 작업 공간입니다. </td>
+</tr>
+</tbody></table>
+<hr>
+<h2>비디오 연습</h2>
+<p>초보자 친화적인 개요부터 심층적인 기술 다이빙까지 구성되어 있습니다.</p>
+<h3>여기서 시작하세요</h3>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.youtube.com/watch?v=_6D4shWDnEc">Eric 이전: ClawdBot이 5분 만에 설명함(과대광고 없음)</a></td>
+<td>최고의 출발점. </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=n1sfrc-RjyM">freeCodeCamp: 적용을 위한 OpenClaw 전체 튜토리얼</a></td>
+<td>1시간 구조의 코스. </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=ji_Sd4si7jo">Peter Yang: OpenClaw 마스터하기 30분</a></td>
+<td>Google Workspace 통합, 메모리 심층 분석, 5가지 실제 사용 사례 </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=U8kXfk8enrY">Greg Isenberg: ClawdBot이(가) 설명하게 되었습니다</a></td>
+<td>가장 명확한 "이것이 무엇이며 실제로 어떻게 사용합니까?" 연습입니다. </td>
+</tr>
+</tbody></table>
+<h3>사용 사례 및 워크플로</h3>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://youtu.be/NZ1mKAWJPr4">VelvetShark: 50일 후의 OpenClaw, 20가지 실제 활동 플로어</a></td>
+<td>최고의 파워 유저 비디오. </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=MUDvwqJWWIw">Matthew Berman: 주말에 ClawdBot과 함께 놀았어요</a></td>
+<td>주말에는 설정, 사용자 정의, 통합 및 로컬 모델에 대해 자세히 알아보세요. </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=Qkqe-uRhQJE">Alex Finn: ClawdBot은 제가 활동하는 AI 도구 중 가장 강력한 도구입니다.</a></td>
+<td>OpenClaw가 주류로 진출하는 데 도움을 준 동영상입니다. </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=kFwzPJZoZoc">Samin Yasar: 8가지 실용적인 ClawdBot 활용 활동</a></td>
+<td>가장 실용적인 튜토리얼. </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=YRhGtHfs1Lw">Greg Isenberg: ClawdBot을 사용하여 잠시 휴 24시간 비즈니스를 운영하는 방법</a></td>
+<td>기업가의 일일 작업 흐름. </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=GLwTSlRn6-k">Matt Wolfe:사람들이 ClawdBot에 열광하는 이유</a></td>
+<td>정직한 평가: 무엇이 진짜이고, 무엇이 과대평가되었는지, 보안 결함은 무엇인지, "자율 에이전트" 게시물의 실제 내용은 무엇이었습니까? </td>
+</tr>
+</tbody></table>
+<h3>인터뷰와 깊은 맥락</h3>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.youtube.com/watch?v=YFjfBk8HI5o">Lex Fridman #491: Peter Steinberger(OpenClaw 제작자)</a></td>
+<td>창작자와의 3시간 대화. </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=8lF7HmQ_RgY">유능한 엔지니어: "나는 쓰지 않는 코드를 배송합니다"</a></td>
+<td>Gergely Orosz가 Steinberger를 인터뷰합니다. </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=1iCcUjnAIOM">GitHub: ClawdBot을 연주하는 금요일 오픈소스</a></td>
+<td>프로젝트에 대한 GitHub의 스포트라이트. </td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=ktU0ABfrfM8">Antoine Rousseaux: ClawdBot 리뷰, 실제로 가치가 있나요?</a></td>
+<td>일일 사용자의 균형 잡힌 리뷰입니다. </td>
+</tr>
+</tbody></table>
+<h3>로컬 및 무료 설정</h3>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://ollama.com/blog/openclaw-tutorial">Ollama 블로그: OpenClaw를 설정하는 가장 간단한 방법</a></td>
+<td>완전한 로컬 작동을 위한 OpenClaw + Ollama. </td>
+</tr>
+</tbody></table>
+<hr>
+<h2>실무자 심층 분석</h2>
+<p>OpenClaw를 매일 사용하는 사람들의 장문 글입니다. </p>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/">MacStories: 개인 AI의 미래는 어떤 차이가 있나요?</a></td>
+<td>실제 워크플로 예시를 통해 실무자가 심층적으로 검토합니다. </td>
+</tr>
+<tr>
+<td><a href="https://forwardfuture.ai/p/what-people-are-actually-doing-with-openclaw-25-use-cases">미래의 미래: 25개 이상 보유</a></td>
+<td>실제 사용 사례에 대한 가장 포괄적인 컬렉션을 한 곳에 모아보세요. </td>
+</tr>
+<tr>
+<td><a href="https://creatoreconomy.so/p/use-openclaw-to-build-a-business-that-runs-itself-nat-eliason">Nat Eliason: 스스로 운영되는 비즈니스 구축</a></td>
+<td>3계층 메모리 시스템, 멀티스레드 채팅, 보안 관행. </td>
+</tr>
+<tr>
+<td><a href="https://www.platformer.news/moltbot-clawdbot-review-ai-agent/">포머: Moltbot과 사랑에만</a></td>
+<td>솔직한 장기 리뷰입니다. </td>
+</tr>
+<tr>
+<td><a href="https://www.chatprd.ai/how-i-ai/24-hours-with-clawdbot-moltbot-3-workflows-for-ai-agent">ChatPRD: ClawdBot과 함께 24시간</a></td>
+<td>제품 관리자의 관점에서 본 세 가지 완전한 워크플로입니다. </td>
+</tr>
+<tr>
+<td><a href="https://capodieci.medium.com/ai-agents-008-beyond-the-demo-making-your-openclaw-agent-work-every-day-7fcf9316e6b6">Roberto Capodieci: 데모를 넘어</a></td>
+<td>OpenClaw를 일상적인 사용에 안정적으로 만듭니다. </td>
+</tr>
+<tr>
+<td><a href="https://towardsdatascience.com/use-openclaw-to-make-a-personal-ai-assistant/">데이터 과학을 분석하여: OpenClaw를 사용하여 개인 AI 목록 만들기</a></td>
+<td>데이터 과학 관점을 통한 기술 연습. </td>
+</tr>
+<tr>
+<td><a href="https://capodieci.medium.com/ai-agents-006-openclaw-google-workspace-build-an-agent-that-manages-your-gmail-and-drive-2a345a2ce7fe">로베르토 Capodieci: OpenClaw + Google Workspace</a></td>
+<td>Gmail과 드라이브 통합. </td>
+</tr>
+</tbody></table>
+<hr>
+<h2>기술 및 통합</h2>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/VoltAgent/awesome-openclaw-skills">멋진 OpenClaw 기술</a></td>
+<td>5,400개 이상의 커뮤니티 기술이 공식 레지스트리에서 필터링 및 분류되었습니다. </td>
+</tr>
+<tr>
+<td><a href="https://www.digitalocean.com/resources/articles/what-are-openclaw-skills">DigitalOcean: OpenClaw 기술이란 무엇입니까?</a></td>
+<td>스킬 생태계에 대한 개발자 가이드입니다. </td>
+</tr>
+<tr>
+<td><a href="https://capodieci.medium.com/ai-agents-012-mcp-is-eating-your-agents-brain-why-openclaw-uses-clis-instead-of-schemas-a1eadc318c6e">로베르토 카포디에치: MCP와 CLI</a></td>
+<td>OpenClaw가 MCP 스키마 대신 CLI 기반 도구를 사용하는 이유 </td>
+</tr>
+<tr>
+<td><a href="https://openrouter.ai/docs/guides/openclaw-integration">OpenRouter: OpenClaw와 통합</a></td>
+<td>OpenRouter를 사용하여 단일 엔드포인트를 통해 여러 AI 공급자에 액세스</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>비용 최적화</h2>
+<p>OpenClaw를 연중무휴 24시간 실행하면 추가됩니다. </p>
+<table>
+<thead><tr>
+</th>
+<th>다루는 내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://lumadock.com/tutorials/openclaw-cost-optimization-budgeting">LumaDock: OpenClaw API 비용을 90% 하더군요</a></td>
+<td>종합 가이드: 모델 선택, 프롬프트 캐싱, 컨텍스트 창 관리, cron 기술을 통한 예산 모니터링</td>
+</tr>
+<tr>
+<td><a href="https://tomaszs2.medium.com/i-traced-every-token-in-openclaw-and-cut-my-bill-by-90-6c33e4b255f6">Tom Smykowski: 모든 의미를 추적하여 청구서 90%라고 했어요</a></td>
+<td>직접 토큰 추적. </td>
+</tr>
+<tr>
+<td><a href="https://blog.laozhang.ai/en/posts/openclaw-save-money-practical-guide">LaoZhang AI: 월 $600에서 $20까지</a></td>
+<td>최대 97%의 비용 절감을 달성하는 3계층 최적화 프레임워크입니다. </td>
+</tr>
+<tr>
+<td><a href="https://perelweb.be/blog/openclaw-token-management-smart-model-manager/">PerelWeb: 비용을 많이 들이지 않고 소수휴 OpenClaw 실행</a></td>
+<td>자동 모델 라우팅을 위한 Smart Model Manager: 복잡한 작업에는 고가의 모델, 일상 점검에는 저가 모델</td>
+</tr>
+<tr>
+<td><a href="https://nerdy.dev/openclaw-token-dashboard">Nerdy.dev: 의미 대시보드</a></td>
+<td>토큰 사용량 및 API 지출을 실시간으로 추적하기 위한 경량 대시보드</td>
+</tr>
+</tbody></table>
+<p>짧은 버전: 작업의 90%에 Claude Sonnet(또는 동급)을 사용하고, 복잡한 추론을 위해 값비싼 모델을 예약하고, 일일 지출이 임계값을 초과하는 경우 경고하도록 크론 작업을 설정합니다. </p>
+<hr>
+<h2>커뮤니티 도구</h2>
+<p>이는 커뮤니티에서 구축한 오픈 소스이며 OpenClaw 프로젝트와 독립적으로 유지 관리됩니다.</p>
+<h3>대시보드 및 모니터링</h3>
+<table>
+<thead><tr>
+</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/tugcantopaloglu/openclaw-dashboard">OpenClaw 대시보드</a></td>
+<td>TOTP MFA, 비용 추적, 라이브 에이전트 피드 및 메모리 브라우저를 통한 실시간 모니터링. </td>
+</tr>
+<tr>
+<td><a href="https://www.producthunt.com/products/clawmetry">클로메트리</a></td>
+<td>오픈 소스 관찰 가능성. </td>
+</tr>
+<tr>
+<td><a href="https://openclaw.watch/">OpenClaw 시계</a></td>
+<td>변경 로그 추적 및 비용 경고. </td>
+</tr>
+<tr>
+<td><a href="https://nerdy.dev/openclaw-token-dashboard">Nerdy.dev의 의미 대시보드</a></td>
+<td>API 지출 추적을 위한 경량 토큰 사용량 및 비용 대시보드</td>
+</tr>
+</tbody></table>
+<h3>백업 및 마이그레이션</h3>
+<table>
+<thead><tr>
+</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/LeoYeAI/openclaw-backup">오픈클로 백업</a></td>
+<td>원클릭 백업 및 복원. </td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw/discussions/5809">GitClaw</a></td>
+<td>일정에 따라 작업공간을 GitHub에 자동 커밋하고 푸시합니다. </td>
+</tr>
+<tr>
+<td><a href="https://github.com/lancelot3777-svg/openclaw-backup-guide">OpenClaw 백업 가이드</a></td>
+<td>Linux, macOS 및 Windows에서 테스트된 4계층 백업 전략</td>
+</tr>
+<tr>
+<td><a href="https://github.com/seanford/openclaw-helper-scripts">OpenClaw 펼쳐보기</a></td>
+<td>마이그레이션 도구: 사용자 이름 바꾸기, 경로 업데이트, 레이아웃 표준화</td>
+</tr>
+</tbody></table>
+<h3>호스팅</h3>
+<table>
+<thead><tr>
+</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/bfzli/clawhost">클로호스트</a></td>
+<td>OpenClaw 배포를 위한 자체 호스팅 가능한 클라우드 플랫폼입니다. </td>
+</tr>
+<tr>
+<td><a href="https://www.hostinger.com/vps/docker/openclaw">Hostinger 원클릭 폴더</a></td>
+<td>이 과정에서 사용하는 VPS 템플릿입니다. </td>
+</tr>
+</tbody></table>
+<hr>
+<h2>커뮤니티 및 이벤트</h2>
+<h3>도움을 받을 수 있는 곳</h3>
+<table>
+<thead><tr>
+</th>
+<th>무엇을 기대해야 할까요?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://discord.com/invite/clawd">Discord: 갑각류의 친구들</a></td>
+<td>주요 커뮤니티 서버입니다. </td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw/discussions">GitHub 토론</a></td>
+<td>기능 요청, 심층적인 기술 질문, 커뮤니티 프로젝트 쇼케이스</td>
+</tr>
+<tr>
+<td><a href="https://www.reddit.com/r/clawdbot/">레딧: r/clawdbot</a></td>
+<td>광범위한 토론, 사용 사례 아이디어 및 문제 해결. </td>
+</tr>
+</tbody></table>
+<h3>이벤트</h3>
+<table>
+<thead><tr>
+</th>
+<th>그것은 무엇입니까</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.claw-con.com/">클로콘</a></td>
+<td>SF, NYC, 오스틴 등에서 커뮤니티 모임이 열립니다. </td>
+</tr>
+<tr>
+<td><a href="https://luma.com/claw">OpenClaw 모임</a></td>
+<td>모든 OpenClaw 커뮤니티 이벤트에 대한 Luma 기반 이벤트 캘린더</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>사람들이 실제로 OpenClaw로 무엇을 하고 있는지</h2>
+<p>사람들이 가치를 얻고 있다고 보고하는 워크플로는 설정하는 데 걸리는 시간을 기준으로 구성됩니다.</p>
+<h3>빠른 승리(과정 후 첫 주)</h3>
+<ul>
+<li><strong>아침 브리핑.</strong> 업무를 시작하기 전에 캘린더, 이메일, 뉴스, 공개 작업을 Telegram으로 전달합니다. </li>
+<li><strong>이메일 분류 및 요약.</strong> 긴급성에 따라 수신 이메일을 분류하고, 긴 스레드를 요약하고, 답장이 필요한 항목에 플래그를 지정합니다.</li>
+<li><strong>캘린더 요약.</strong> 이메일과 메모에서 가져온 내용을 바탕으로 오늘의 요약을 제공하므로 회의에 참석할 준비가 되어 있습니다.</li>
+<li><strong>빠른 조사.</strong> 질문을 하고 출처와 추론이 포함된 종합적인 답변을 얻으세요.</li>
+</ul>
+<h3>미드티어(2~4주)</h3>
+<ul>
+<li><strong>다중 계정 이메일 관리.</strong> 별도의 개인 및 업무용 받은편지함은 동일한 Claw에 의해 서로 다른 규칙으로 분류됩니다.</li>
+<li><strong>메시지를 통한 받은 편지함 정리.</strong> Telegram 또는 WhatsApp에서 Claw에 메시지를 보내면 명령에 따라 받은 편지함을 처리합니다.</li>
+<li><strong>지식 기반 통합.</strong> Claw가 자신의 글과 연구를 참조할 수 있도록 Obsidian 금고나 메모 폴더를 연결하세요.</li>
+<li><strong>후속 초안 작성.</strong> Claw에게 특정 주제에 대해 다른 사람에게 후속 조치를 요청하면 승인을 위한 이메일이 작성됩니다.</li>
+<li><strong>콘텐츠 요약.</strong> 이메일을 전달하고, URL을 삭제하고, YouTube 링크를 공유하면 Claw가 이를 요약해 줍니다.</li>
+</ul>
+<h3>고급(2개월 이상)</h3>
+<ul>
+<li><strong>CRM 파이프라인.</strong> Gmail + Google 캘린더 + 회의 기록이 로컬 데이터베이스에 공급됩니다. </li>
+<li><strong>회의 파이프라인.</strong> 성적 기록 수집, CRM 업데이트, 작업 항목 추출, 사용자 승인, 작업 생성. </li>
+<li><strong>다중 에이전트 팀.</strong> 동시에 실행하고 권장 사항을 종합하는 전문 에이전트(재무 분석가, 기술 검토자, 작가)입니다.</li>
+<li><strong>보안 위원회.</strong> 다양한 보안 관점에서 야간 코드 검토를 진행합니다. </li>
+<li><strong>지식 기반 구축 도구.</strong> Telegram에 URL, 기사 또는 PDF를 삭제하면 Claw가 나중에 의미 체계 검색을 위해 이를 로컬로 벡터화합니다.</li>
+<li><strong>비용 추적.</strong> 모든 LLM API 호출은 토큰 수와 함께 기록되므로 지출 금액을 정확히 알 수 있습니다.</li>
+<li><strong>자동 업데이트 에이전트.</strong> 새로운 OpenClaw 버전을 확인하고, 변경 로그를 표시하고, 승인에 대한 업데이트를 표시하는 야간 하트비트 작업입니다.</li>
+<li><strong>자동 백업.</strong> 버전 기록과 함께 클라우드 저장소에 대한 암호화된 데이터베이스 스냅샷입니다. </li>
+</ul>
+<hr>
+<h2>한 가지 조언</h2>
+<p>이와 같은 과정을 마친 후 가장 흔히 저지르는 실수는 모든 것을 한 번에 추가하려고 하는 것입니다. </p>
+<p>OpenClaw를 최대한 활용하는 사람들은 매일 OpenClaw와 상호 작용하고 천천히 반복하는 사람들입니다. </p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/README.md">??과정 개요로 백업기</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../js/main.js"></script>
+</body>
+</html>

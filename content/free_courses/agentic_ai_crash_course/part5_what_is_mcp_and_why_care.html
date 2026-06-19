@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Part 5: what is mcp and why care — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Part 5: What Is MCP and Why Should You Care?</h1>
+<hr>
+<h2>First, a Quick Recap</h2>
+<ul>
+<li><strong>Part 3:</strong> We learned that tools let models <strong>do things</strong>.  </li>
+<li><strong>Part 4:</strong> We saw that RAG helps models <strong>find relevant info</strong> before answering.</li>
+</ul>
+<p>These are <strong>external supports</strong> ??they help the model act smarter, but the coordination still sits outside the model.  </p>
+<p>But what if you could pass <strong>all the context a model needs</strong> ??tools, retrieved data, memory, instructions ??in one clean, structured format?</p>
+<p>That?셲 what <strong>Model Context Protocol (MCP)</strong> is trying to solve.</p>
+<hr>
+<h2>So What Is MCP?</h2>
+<img width="737" height="452" alt="image" src="https://github.com/user-attachments/assets/2e17fcb6-ab35-4a4c-88b4-c74db165e4b8" /><p>At its core, <strong>Model Context Protocol</strong> is a standardized way to give an LLM everything it needs to reason and respond.</p>
+<p>Think of it like packaging up:</p>
+<ul>
+<li>The task you want the model to do  </li>
+<li>The tools/APIs it can use  </li>
+<li>The documents or memory it might need  </li>
+<li>The prior messages in the conversation</li>
+</ul>
+<p>?쫆nd then handing all of that over in one go.</p>
+<p>It?셲 <strong>not</strong> a tool, library, or product.<br>It?셲 a <strong>protocol</strong> ??a structure for communication between the model and the outside world.</p>
+<p>If you?셱e from the tech world, equivalents would be: <strong>HTTP</strong>, <strong>TCP/IP</strong>, or <strong>SMTP</strong>.<br>If you?셱e not, just remember: tech folks love standardization ??it makes things easier to reuse and plug together.</p>
+<hr>
+<h2>Why Does This Matter?</h2>
+<p>Let?셲 say you?셱e building an agent.<br>Right now, you?셱e probably juggling:</p>
+<ul>
+<li>Sending a prompt  </li>
+<li>Passing retrieved documents  </li>
+<li>Registering tools  </li>
+<li>Managing state  </li>
+<li>Keeping track of what happened before</li>
+</ul>
+<p>MCP says:  </p>
+<blockquote>
+<p>?쏬et?셲 standardize how we give all of that to the model, so we don?셳 reinvent the wheel for every use case.??/p>
+</blockquote>
+<p>And for <strong>enterprises</strong>, this matters a lot.<br>As agents get more complex, coordinating <strong>tools</strong>, <strong>RAG</strong>, <strong>memory</strong>, and <strong>outputs</strong> becomes messy.</p>
+<p>MCP makes that orchestration <strong>composable</strong>, <strong>modular</strong>, and easier to plug into other systems.</p>
+<p>If you?셶e ever worked with APIs, think of MCP like a <strong>well-defined request schema</strong>.<br>Instead of tossing everything into one long string and hoping the model figures it out, the model still sees text ??but it?셲 <strong>structured</strong>, with <strong>clear context, options, and grounding</strong>.</p>
+<hr>
+<h2>Why Did MCP Catch On So Fast?</h2>
+<p>Given that MCP is just a protocol, you might be wondering:  </p>
+<blockquote>
+<p>What makes it better, and why did everyone jump on board?</p>
+</blockquote>
+<p>Here?셲 what helped:</p>
+<ol>
+<li><strong>AI-Native</strong> ??MCP was built for AI agents. It makes space for everything agents use today: tools, prompts, memory, documents, and more.</li>
+<li><strong>Strong docs and examples</strong> ??Anthropic (creators of MCP) released not just the spec but also clients, SDKs, testing tools, and real-world demos.</li>
+<li><strong>Network effect</strong> ??Released quietly in Nov 2024, most people slept on it??until 2025, when it exploded. Tools, startups, and even OpenAI began supporting it.</li>
+</ol>
+<hr>
+<h2>Common Misunderstandings</h2>
+<ul>
+<li><strong>MCP isn?셳 a new API or product</strong> ??It?셲 just a pattern, a clean way to frame what you send to the model.  </li>
+<li><strong>It doesn?셳 make models smarter</strong> ??It just gives them better, more structured context.  </li>
+<li><strong>It?셲 not just for agents</strong> ??Even simple assistants benefit from better context management.</li>
+</ul>
+<hr>
+<h2>So??Should You Care?</h2>
+<p>If you?셱e building toy prompts or quick demos ??probably not (yet).  </p>
+<p>But if you?셱e working on:</p>
+<ul>
+<li>Enterprise-grade agents  </li>
+<li>Multi-tool workflows  </li>
+<li>LLMs that need to access <strong>memory + RAG + planning</strong>  </li>
+<li>Systems where <strong>context management</strong> is a bottleneck</li>
+</ul>
+<p>?쫡hen <strong>yes</strong>, you should care. MCP is about getting better at passing evolving, structured context into models.</p>
+<p>But keep in mind: MCP is just a protocol.<br>Like all standards, it only works if it?셲 widely adopted.<br>If something better comes along before MCP becomes ?쐔he HTTP of agents,??the ecosystem might shift again.</p>
+<hr>
+<h2>Further Reading &amp; Resources</h2>
+<ul>
+<li>We did a <strong><a href="https://thenuancedperspective.substack.com/p/mcp-overhyped-misunderstood-and-actually">full deep-dive article</a></strong> on MCP, including clients, servers, and real-world use cases (written by Kiriti Badam, OpenAI).  </li>
+<li>We also ran a <strong>free live session</strong> ??you can catch the <a href="https://maven.com/p/82345a">recording</a> here.</li>
+</ul>
+<hr>
+<p>In the next part, we?셪l learn about the <strong>planning</strong> component of agentic systems and why it matters.</p>
+<p>PS: We also teach a widely loved course on how to actually build AI systems in this fast-changing environment, using a problem-first approach. It?셲 designed for PMs, leaders, engineers, decision-makers etc. who are working within real-world constraints. Alumni come from Google, Meta, Apple, Netflix, AWS, Spotify, Snapchat, Deloitte, and more. Our next cohort starts soon. Our next cohort starts soon. Early bird pricing is live: use the code &quot;GITHUB&quot; to get $300 off (Valid only for August 2025) to <a href="https://maven.com/aishwarya-kiriti/genai-system-design">register here</a>!!</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Build — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>빌드 1일차: OpenClaw 설치 및 보안</h1>
+<p>이것은 1일 차 빌드 가이드입니다. 전반부에서는 Hostinger에 OpenClaw를 배포하는 과정을 안내합니다. </p>
+<hr>
+<h2>1단계: Hostinger에 배포</h2>
+<h3>Hostinger 계정을 만들고 VPS에서 OpenClaw를 시작하세요</h3>
+<p>LLM 중 하나에 대한 API 키가 아직 없는 경우 <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-01-install-secure/../../getting-your-api-key.md">이 가이드</a>에 따라 API 키를 받으세요.</p>
+<p><a href="https://levelup-labs.ai/HOSTINGER-OPENCLAW">여기</a>를 클릭하고 아래 동영상을 따라 Hostinger 계정을 만들고, VPS를 만들고, OpenClaw를 실행하세요.</p>
+<p><a href="https://youtu.be/JXWmkPCcF7E"><img src="https://img.youtube.com/vi/JXWmkPCcF7E/0.jpg" alt="Watch the video"></a></p>
+<p>채팅창에 응답이 표시되면 Claw가 활성화된 것입니다. </p>
+<hr>
+<h2>2단계: 보안 확인</h2>
+<p>이제부터 모든 것은 Claw와의 대화입니다. </p>
+<h3>4단계: 보안 확인 실행</h3>
+<p>다음 메시지를 복사하여 웹 채팅에 붙여넣습니다.</p>
+<blockquote><p><code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-01-install-secure/claw-instructions-security.md</code>을 이해하고 모든 단계를 추가하세요. </blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-01-install-secure/./claw-instructions-security.md"><code>claw-instructions-security.md</code></a>에는 OS, 개방형 포트, 방화벽, OpenClaw의 보안 감사, 게이트웨이 구성, 파일 권한, 채널, </p>
+<p>실행되는 동안 채팅에 이와 같은 진행 블록이 표시됩니다. </p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-01-install-secure/../../diagrams/day-01-security-audit-progress.png" alt="OpenClaw running the Day 1 security audit"></p>
+<p>완료되면 각 항목이 PASS, FAIL 또는 EXPECTED로 표시된 요약이 표시됩니다. </p>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-01-install-secure/./claw-instructions-security.md"><code>claw-instructions-security.md</code></a>을 직접 열어 자신의 속도에 맞춰 점검 사항과 예상 결과를 읽어보실 수도 있습니다.</p>
+<hr>
+<h3>5단계: 클로 이름 지정</h3>
+<p>귀하의 Claw는 귀하의 이름을 묻고 이름을 지정하도록 요청할 것입니다. </p>
+<p>또한 몇 가지 추가 설정 질문을 물을 수도 있습니다. </p>
+<h3>한 번의 빠른 승리</h3>
+<p>감사가 완료되면 다음을 시도해 보십시오.</p>
+<blockquote><p>내 설정을 간단하게 영어로 설명해주세요. </blockquote>
+<p>이렇게 하면 설정을 읽기 쉽게 만듭니다. </p>
+<hr>
+<h2>1일차 이후에 사실이어야 하는 사항</h2>
+<ul>
+<li><input 비활성화="" type="checkbox"> Claw가 웹 채팅에서 응답합니다.</li>
+<li><input 비활성화="" type="checkbox"> <code>openclaw security audit</code>에는 심각한 오류가 표시되지 않습니다.</li>
+<li><input 비활성화="" type="checkbox"> 토큰 인증이 활성화된 <code>127.0.0.1</code>에 바인딩된 게이트웨이</li>
+<li><input 비활성화="" type="checkbox"> DM 및 그룹 정책은 제한적입니다(명시적으로 설정하거나 안전한 기본값을 사용함).</li>
+<li><input 비활성화="" type="checkbox"> <code>~/.openclaw/credentials</code>에는 <code>700</code> 권한이 있습니다.</li>
+<li><input 비활성화="" type="checkbox"> 하트비트가 <code>0m</code>으로 설정됨</li>
+<li><input 비활성화="" type="checkbox"> 아직 자격 증명이 저장된 채널이 없습니다.</li>
+<li><input 비활성화="" type="checkbox"> 웹 검색이 비활성화되었습니다.</li>
+<li><input 비활성화="" type="checkbox"> 발톱에 이름이 있습니다</li>
+</ul>
+<p>이 모든 사항이 충족되면 Day 1이 완료됩니다.</p>
+<hr>
+<h2>문제 해결</h2>
+<p><strong>Claw가 웹 채팅에서 응답하지 않습니다.</strong><br>게이트웨이를 다시 시작해야 할 수도 있습니다. </p>
+<p><strong>Claw가 문제를 해결하려고 시도한 후 보안 감사에 실패가 표시됩니다.</strong><br>일부 수정 사항은 적용되기 전에 게이트웨이를 다시 시작해야 합니다. </p>
+<p><strong>Claw는 일반적인 응답을 제공하고 검사를 실행하지 않습니다.</strong><br><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-01-install-secure/./claw-instructions-security.md"><code>claw-instructions-security.md</code></a>에 액세스하지 못할 수도 있습니다. </p>
+<p><strong>방화벽이 FAIL로 표시됩니다.</strong><br>이는 Docker 컨테이너 내부에서 예상되는 현상입니다. </p>
+<p><strong>60000+ 범위의 0.0.0.0 포트</strong><br>이것은 Hostinger의 프록시가 Claw에 도달하기 위해 사용하는 제어 UI 포트입니다. </p>
+<p><strong>Claw가 위험 상황에 대해 묻습니다.</strong><br><strong>VPS 강화</strong>를 선택합니다. </p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-01-install-secure/../../README.md">??과정 개요로 백업기</a> | </p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

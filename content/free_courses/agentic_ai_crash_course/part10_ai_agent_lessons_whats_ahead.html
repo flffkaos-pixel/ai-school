@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Part 10: ai agent lessons whats ahead — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Part 10: AI Agent Lessons and What&#39;s Ahead</h1>
+<h2>A Quick Recap</h2>
+<p>Here?셲 what we covered over the last 9 parts:</p>
+<ul>
+<li><strong>Part 1 ??What agents are:</strong> Not just chatbots that generate text, but systems that can decide and act.  </li>
+<li><strong>Part 2 ??Types of agents:</strong> From tightly controlled workflow agents to fully autonomous ones, depending on how much decision-making you hand over.  </li>
+<li><strong>Part 3?? ??Tools and RAG:</strong> The bread and butter of agent action and knowledge grounding.  </li>
+<li><strong>Part 5 ??MCP:</strong> A clean way to structure everything an agent needs (tools, memory, prior messages) into one payload.  </li>
+<li><strong>Part 6 ??Planning and reasoning models:</strong> Why plain LLMs aren?셳 enough for complex decisions, and how newer models are built for multi-step tasks.  </li>
+<li><strong>Part 7 ??Memory:</strong> Short-term vs. long-term memory, what to store, how to retrieve, and why it matters for continuity.  </li>
+<li><strong>Part 8 ??Multi-agent systems:</strong> Orchestration, peer-to-peer collaboration, and the messiness of coordination.  </li>
+<li><strong>Part 9 ??Real-world systems:</strong> How Perplexity, NotebookLM, and DeepResearch likely use these patterns in different ways.</li>
+</ul>
+<p>We?셶e covered the <strong>moving parts</strong> that show up in real-world systems.<br>But all of it falls apart if you?셱e not thinking about two things: <strong>observability</strong> and <strong>evaluation</strong>.</p>
+<hr>
+<h2>What?셲 Still Hard</h2>
+<h3>Observability</h3>
+<p>Observability means tracking what your agent is doing ??at every step. You?셪l want:</p>
+<ul>
+<li>Logs of tool calls, decisions, retries  </li>
+<li>Metrics to spot bottlenecks in latency and cost  </li>
+<li>Visibility into when things go off-rail  </li>
+<li>Step-wise traceability for debugging</li>
+</ul>
+<p>Tools like <strong>Comet Opik</strong> help with this.<br>Design observability <strong>from day one</strong>, especially for high-autonomy agents.</p>
+<hr>
+<h3>Evaluation</h3>
+<p>Agents are <strong>non-deterministic</strong>.<br>You need <strong>continuous evaluation</strong>, not just manual testing.</p>
+<p>At a minimum, track:</p>
+<ul>
+<li>Goal or task completion rates  </li>
+<li>Tool call success/failure  </li>
+<li>RAG quality and hallucination metrics  </li>
+<li>Model overthinking or inefficiency  </li>
+<li>Latency and token usage at each step</li>
+</ul>
+<p>Evaluation is how you <strong>understand</strong> and <strong>improve</strong> your system.<br>Too many teams do <em>vibe checks</em> instead of real evals ??and get stuck in <strong>PoC purgatory</strong>.</p>
+<p>Think of evals + observability as your <strong>testing pipeline</strong> ??the agentic equivalent of software QA.<br>Metrics will vary by use case, but the discipline is the same.</p>
+<hr>
+<h2>Where Things Are Headed in Agentic AI</h2>
+<p>This space is early, but here are clear trends:</p>
+<hr>
+<h3>1. Protocols &gt; Prompts</h3>
+<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/13b78c2e-fc2b-41fd-a0e5-aa88c60187ea" /><p><em>Image Source: Reuven?셲 LinkedIn post</em></p>
+<p>As systems grow, we?셪l move away from handcrafted prompts toward shared <strong>standards</strong>.</p>
+<ul>
+<li><strong>MCP</strong> (Model Context Protocol) standardizes how we package structured context ??tools, memory, RAG, prior instructions.  </li>
+<li><strong>A2A</strong> (Agent-to-Agent), released by Google, focuses on cross-platform agent communication with a shared schema.</li>
+</ul>
+<p>Expect cleaner abstractions over time ??though it?셪l take a while before anything becomes as standard as HTTP.</p>
+<hr>
+<h3>2. Hybrid Reasoning Models</h3>
+<p>Reasoning models will evolve toward <strong>selective planning</strong> ??knowing when to plan vs. act fast.</p>
+<p>We?셱e already seeing this with <strong>Claude 3.7</strong> and others.<br>The aim: balance intelligence with efficiency ??without overthinking every task.</p>
+<hr>
+<h3>3. Better Memory Systems</h3>
+<p>Today?셲 memory is mostly <strong>duct-taped in</strong>.<br>The future: memory that knows <strong>what to recall, when, and why</strong>.<br>Expect:</p>
+<ul>
+<li>Task-scoped memory  </li>
+<li>Session-based memory  </li>
+<li>Persona-specific memory</li>
+</ul>
+<p>And <strong>easier management</strong>.</p>
+<hr>
+<h3>4. Tool Ecosystem Maturity</h3>
+<p>Right now, everyone?셲 building custom tools/wrappers. Over time:</p>
+<ul>
+<li>Trusted, plug-and-play APIs  </li>
+<li>Better abstraction layers  </li>
+<li>Shared security practices</li>
+</ul>
+<p>Just like microservices matured in traditional software, tools will mature in the <strong>agentic stack</strong>.</p>
+<hr>
+<h2>A Final Word</h2>
+<p>If you?셶e followed along, you?셶e seen the theme:</p>
+<p>We didn?셳 start with <strong>architecture</strong>.<br>We started with <strong>problems</strong>.</p>
+<p>That?셲 the real mindset shift:  </p>
+<blockquote>
+<p>Don?셳 chase agents for the hype.<br>Build them when they make solving a problem easier, faster, or smarter.</p>
+</blockquote>
+<p><strong>Start simple. Measure everything. Scale when needed.</strong><br>Agent-first thinking breaks. Problem-first thinking scales.</p>
+<hr>
+<p>Thanks for reading, sharing, and thinking along during these 10 parts.<br>If you take away one thing from this series ??let it be this:</p>
+<blockquote>
+<p><strong>Problem first, always.</strong></p>
+</blockquote>
+<p>Check out the readme for more lectures and advanced topics. If this was helpful, feel free to forward it to someone looking to learn in this space. And if you?셝 like to go deeper, our full 6-week course covers system design, applied agentic concepts, and real evaluation workflows, the kind that support production-grade applications. The course is built for everyone, whether you?셱e a Product Manager, Architect, Director, C-suite leader, or someone seriously exploring agentic AI.</p>
+<p>Our next cohort starts soon. Our next cohort starts soon. Early bird pricing is live: use the code &quot;GITHUB&quot; to get $300 off (Valid only for August 2025) to <a href="https://maven.com/aishwarya-kiriti/genai-system-design">register here</a>!!</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../js/main.js"></script>
+</body>
+</html>

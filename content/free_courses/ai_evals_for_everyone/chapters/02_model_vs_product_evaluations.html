@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Model vs product evaluations — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../index.html">Home</a>
+<a href="../../../../courses.html">Courses</a>
+<a href="../../../../interview.html">Interview</a>
+<a href="../../../../research.html">Research</a>
+<a href="../../../../resources.html">Resources</a>
+<a href="../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Chapter 2: Model vs Product Evaluations</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/model_vs_product_evaluation.png" alt="Model vs Product Evaluation"></p>
+<h2>From Model Creation to Product Implementation</h2>
+<p>이전 장에서 우리는 AI 평가가 불가피하다는 것을 확인했습니다. </p>
+<p>When AI companies build models, they evaluate them to understand their general capabilities. But these same models get used in thousands of different applications, from customer support chatbots to legal document analysis to medical diagnosis tools. Each application has its own requirements, constraints, and success criteria.</p>
+<p>This creates a natural progression: models are evaluated for their general abilities, then they need additional evaluation when you use them for specific purposes. The first tells you what a model can do in theory. The second tells you whether it actually works for your particular use case.</p>
+<p>Model creators have their own perspective on evaluation worth understanding first.</p>
+<h2>Model Evaluations: Measuring General Capability</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/evaluation_benchmark_process.png" alt="Evaluation Benchmark Process"></p>
+<p>When AI companies develop models, they need to understand and communicate what their models can do. <strong>Model evaluations</strong> serve this purpose, measuring general capability across broad domains. Their goal is straightforward: <em>How capable is this model compared to others?</em></p>
+<p>연구 논문, 공급업체 마케팅 자료, 리더보드에서 이러한 평가를 확인할 수 있습니다.</p>
+<p>이러한 평가에서는 모델 기능의 다양한 측면을 테스트하는 표준화된 벤치마크를 사용합니다.</p>
+<ul>
+<li><strong>MMLU(대규모 다중 작업 언어 이해)</strong>: 초등 수학부터 전문 법률까지 57개 학문 과목에 대한 지식을 테스트합니다.</li>
+<li><strong>HumanEval</strong>: Measures coding ability by testing whether models can write Python functions that pass unit tests</li>
+<li><strong>GSM8K</strong>: Tests grade-school level mathematical reasoning</li>
+<li><strong>GPQA</strong>: 물리학, 화학, 생물학 분야에서 대학원 수준의 추론을 테스트합니다.</li>
+</ul>
+<p>모델 평가는 AI 제공업체의 경쟁 구도 역할을 합니다. </p>
+<p>업계에서는 이러한 표준화를 통해 여러 가지 이점을 누리고 있습니다. </p>
+<p>벤치마크는 다양한 모델에서 객관적이고 반복 가능하며 비교할 수 있도록 신중하게 설계되었습니다. </p>
+<h2>Why Model Evaluations Don&#39;t Predict Product Success</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/benchmark_vs_product_split.png" alt="Benchmark vs Product Split"></p>
+<p>여기에 구체적인 예가 있습니다. </p>
+<ul>
+<li><strong>모델 A</strong>는 MMLU에서 92%, HumanEval에서 85%를 기록했습니다.</li>
+<li><strong>Model B</strong> scores 87% on MMLU and 79% on HumanEval</li>
+</ul>
+<p>벤치마크 점수를 기준으로 보면 모델 A가 확실히 우수해 보입니다. </p>
+<p>왜? </p>
+<ul>
+<li><strong>Domain knowledge</strong>: Understanding insurance terminology, regulations, and claim types</li>
+<li><strong>위험 허용 범위</strong>: 허위 청구를 승인하는 비용과 합법적인 청구를 거부하는 비용</li>
+<li><strong>Business constraints</strong>: Processing time requirements, escalation policies, compliance needs</li>
+<li><strong>현실 세계의 혼란</strong>: 불완전한 양식, 모호한 언어, 보험과 관련된 특이한 사례</li>
+</ul>
+<p>모델 B는 훈련 중에 더 많은 보험 관련 데이터를 보았을 수도 있고, 해당 아키텍처가 청구 처리에 필요한 구조적 추론에 더 적합할 수도 있습니다. </p>
+<h2>Real-World Context Is Far More Complicated</h2>
+<p>비즈니스에 힘을 실어주는 데이터는 벤치마크 작성자가 결코 볼 수 없는 산업별 사일로에 있습니다. </p>
+<p>이는 벤치마크 성능이 실제 동작을 예측하지 못하는 경우가 많다는 것을 의미합니다. </p>
+<ul>
+<li>감정적 맥락과 에스컬레이션 내역을 인식합니다.</li>
+<li>Know when to apologize versus when to escalate immediately</li>
+<li>Understand your company&#39;s specific policies and capabilities</li>
+<li>Balance being helpful with managing expectations appropriately</li>
+</ul>
+<p>이러한 미묘한 요구 사항은 특정 비즈니스 상황, 고객 기반 및 운영 제약 조건에서 나타납니다. </p>
+<h2>AI 제품 평가: 비즈니스에 실제로 중요한 것은 무엇입니까?</h2>
+<p><strong>AI 제품 평가</strong>는 다른 질문에 초점을 맞춥니다. <em>이 시스템이 우리 도메인에서 사용자와 관련된 특정 사용 사례에 맞게 작동합니까?</em></p>
+<p>제품 평가는 설계상 상황에 따라 달라집니다. </p>
+<ul>
+<li>Handles your specific user inputs appropriately</li>
+<li>Follows your business rules and constraints</li>
+<li>Escalates correctly when uncertain</li>
+<li>브랜드에 적합한 톤과 스타일을 유지합니다.</li>
+<li>Manages risk according to your tolerance levels</li>
+</ul>
+<p>제품 평가에서 추적하는 측정항목은 모델 평가 측정항목과 매우 다르게 보이는 경우가 많습니다. </p>
+<ul>
+<li><strong>Escalation accuracy</strong>: Does the system correctly identify when it should hand off to a human?</li>
+<li><strong>Policy compliance</strong>: Does it follow your company&#39;s specific guidelines and constraints?</li>
+<li><strong>Risk management</strong>: How often does it make decisions you later have to reverse?</li>
+<li><strong>사용자 경험</strong>: 사용자가 작업을 효율적으로 완료할 수 있습니까?</li>
+</ul>
+<h2>실제 사례: 법률 문서 분석</h2>
+<p>변호사가 계약서를 검토하는 데 도움이 되는 AI 시스템을 구축한다고 상상해 보세요. </p>
+<h3>Model Evaluation Approach</h3>
+<ul>
+<li>Test general reading comprehension on legal text</li>
+<li>Measure accuracy on standardized legal reasoning benchmarks</li>
+<li>Compare performance to other models on academic legal datasets</li>
+</ul>
+<h3>제품 평가 접근 방식</h3>
+<ul>
+<li>Test on your firm&#39;s actual contract types and templates</li>
+<li>Measure how often it catches the specific risk patterns your lawyers care about</li>
+<li>Evaluate whether it flags clauses that your legal team would want to review</li>
+<li>Test escalation behavior when it encounters unusual or high-risk terms</li>
+<li>Measure time savings for your lawyers while maintaining quality standards</li>
+</ul>
+<p>모델 평가는 AI가 일반적으로 법적 언어를 이해할 수 있음을 알려줍니다. </p>
+<h2>Focus on Product Evaluation for Builders</h2>
+<p>이제 두 가지 접근 방식을 모두 이해했으므로 모델 평가만으로는 빌더에게 실제로 유용하지 않다는 것이 분명해졌습니다. </p>
+<p><strong>기준 능력 평가</strong>: 관련 일반 벤치마크에서 모델의 성능이 좋지 않으면 특정 영역에서 제대로 작동하지 않을 가능성이 높습니다. </p>
+<p><strong>비교 분석</strong>: 유사한 아키텍처를 갖춘 모델 중에서 선택할 때 벤치마크 점수는 특히 제품별 테스트와 결합될 때 상대적인 기능에 대한 유용한 신호를 제공할 수 있습니다.</p>
+<p><strong>진행 상황 추적</strong>: 모델을 미세 조정하거나 맞춤화하는 경우 일반 벤치마크를 통해 분야별 지식을 추가하면서 핵심 기능을 저하시키지 않는지 확인할 수 있습니다.</p>
+<p>그러나 모델 평가는 평가 프로세스의 끝점이 아니라 시작점에 불과해야 합니다.</p>
+<h2>Building Your Product Evaluation Strategy</h2>
+<p>이러한 차이를 고려할 때 AI 제품 평가에 어떻게 접근해야 합니까?</p>
+<p><strong>모델 평가를 필터로 시작하세요</strong>. </p>
+<p><strong>그러나 제품 평가에 시간을 투자하세요</strong>. </p>
+<ul>
+<li>Your specific user inputs and edge cases</li>
+<li>비즈니스 제약 조건 및 요구 사항</li>
+<li>위험 허용 범위 및 에스컬레이션 요구 사항</li>
+<li>Your quality standards and success metrics</li>
+</ul>
+<p><strong>가능한 경우 실제 데이터를 사용하세요</strong>. </p>
+<p><strong>지속적인 프로세스로 만드세요</strong>. </p>
+<h2>평가 계층 구조</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/evaluation_questions_overview.png" alt="Evaluation Questions Overview"></p>
+<p>평가를 계층 구조로 생각하십시오.</p>
+<ol>
+<li><strong>모델 기능</strong>: 이 모델이 나에게 필요한 작업 유형을 처리할 수 있나요? </li>
+<li><strong>Domain fit</strong>: Does it work well with my specific data and requirements? (Basic product evaluation)</li>
+<li><strong>Production readiness</strong>: Does it behave safely and reliably with real users? (Comprehensive product evaluation)</li>
+<li><strong>Continuous improvement</strong>: How do I maintain and improve performance over time? (Ongoing product evaluation)</li>
+</ol>
+<p>대부분의 팀은 레벨 1에 너무 많은 시간을 보내고 레벨 2-4에는 충분하지 않습니다. </p>
+<h2>주요 시사점</h2>
+<p>모델 평가와 제품 평가는 근본적으로 다른 목적으로 사용됩니다. </p>
+<p>The benchmark illusion (assuming strong model evaluations guarantee product success) is one of the most common reasons AI projects fail to translate from demos to production.</p>
+<p>평가 전략은 모델 평가를 초기 필터로 사용해야 하지만 실제 사용 사례, 실제 데이터 및 실제 비즈니스 요구 사항을 테스트하는 제품별 평가에 대부분의 노력을 투자해야 합니다.</p>
+<p>다음 장에서는 실제로 실제 성능을 예측하는 제품 평가를 설계하는 데 도움이 되는 AI 시스템 동작을 생각하기 위한 체계적인 프레임워크를 살펴보겠습니다.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

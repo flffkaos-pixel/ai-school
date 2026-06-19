@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Wth are ai evals — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../index.html">Home</a>
+<a href="../../../../courses.html">Courses</a>
+<a href="../../../../interview.html">Interview</a>
+<a href="../../../../research.html">Research</a>
+<a href="../../../../resources.html">Resources</a>
+<a href="../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>1장: AI 평가란 무엇인가요?</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/evaluation_questions_overview.png" alt="Evaluation Questions Overview"></p>
+<h2>평가판이란 무엇이며 왜 갑자기 중요한가요?</h2>
+<p>특히 제품 공간에서 최근 AI 업데이트를 따라왔다면 아마도 <em>평가</em>라는 용어가 반복해서 나오는 것을 들어보셨을 것입니다. </p>
+<p>평가의 유용성에 대해서는 사람들이 실제로 무엇을 언급하고 있는지, 어디에서 왔는지 명확하지 않은 경우가 많아 많은 논의가 이루어지고 있습니다. </p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/chaos_to_structure.png" alt="Chaos to Structure"></p>
+<p>우리는 실용적인 출발점으로 이 가이드를 구성했습니다. </p>
+<p>우리는 이 과정이 끝날 때쯤에는 신호에서 잡음을 분리하고 현장 실무자가 평가에 대해 어떻게 생각하는지 이해하고 첫 번째 원칙 접근 방식을 사용하여 평가 구축을 시작할 수 있기를 바랍니다.</p>
+<h2>평가를 피할 수 없게 만드는 변화</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/deterministic_software.png" alt="Deterministic Software"></p>
+<p>평가 자체를 시작하기 전에 훨씬 더 큰 변화에 대한 직관을 구축해야 합니다. </p>
+<p>우리 대부분은 전통적인 소프트웨어 제품을 다루면서 경력을 쌓았습니다. </p>
+<p>제품이 의도한 대로 작동하는지 확인하기 위해 팀은 단위 테스트와 통합 테스트에 의존합니다. </p>
+<p>표준 소프트웨어 수명주기는 익숙한 패턴을 따릅니다. </p>
+<p>배송 전에 x부터 y까지 철저하게 테스트했다면 생산 문제가 상대적으로 드물고 관리하기 쉬울 것으로 예상됩니다. </p>
+<h2>AI 제품이 고전적 가정을 깨는 방법</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/nondeterministic_ai.png" alt="Non-deterministic AI"></p>
+<p>AI 제품은 두 가지 근본적인 방식으로 이러한 가정을 깨뜨립니다.</p>
+<p><strong>첫째, 입력 공간이 실질적으로 무한해집니다.</strong> 대부분의 AI 제품은 텍스트, 음성, 이미지 또는 동영상을 입력으로 받아들입니다. </p>
+<p><strong>두 번째, 출력이 더 이상 보장되지 않습니다.</strong> 동일한 입력이나 문구의 작은 변경이라도 실행 전반에 걸쳐 다른 응답을 낳을 수 있습니다. </p>
+<p>전통적인 단위 및 통합 테스트는 좁은 질문에 답합니다. </p>
+<p>첫째, 최종 사용자가 시스템과 어떻게 상호 작용하는지 완전히 알지 못합니다.</p>
+<p>둘째, 모델이 답변에 어떻게 도달하는지 직접적으로 볼 수 없습니다.</p>
+<p>대형 언어 모델은 블랙박스입니다. </p>
+<h2>그렇다면 팀이 자신감을 갖고 어떻게 구축할 수 있을까요?</h2>
+<p>실제로 팀은 사용자가 시스템과 상호 작용하는 방식을 추정하는 것부터 시작합니다. </p>
+<p>이에 대해 생각하는 간단한 방법은 다음과 같은 표입니다.</p>
+<table>
+<thead><tr>
+</th>
+<th>예상 정답</th>
+<th>상담원이 생성한 답변</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>신발을 환불할 수 없는 것 같아요. 45일이 지났어요</td>
+<td>반품 정책을 설명하고 에스컬레이션하세요.</td>
+<td>[System Response]</td>
+</tr>
+<tr>
+<td>일주일전에 환불요청했는데 아직 못받았어요</td>
+<td>Check status and provide update</td>
+<td>[System Response]</td>
+</tr>
+</tbody></table>
+<p>사람들이 평가라는 개념을 처음 접하는 경우가 종종 있습니다. </p>
+<h2>"평가"라는 단어가 혼란을 일으키는 이유</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/evals_confusion_diagram.png" alt="Evals Confusion Diagram"></p>
+<p>혼란의 주요 원인은 <em>평가</em>라는 용어가 매우 다른 것을 지칭하기 위해 느슨하게 사용된다는 것입니다. </p>
+<p>평가에는 크게 두 가지가 있습니다.</p>
+<h3>모델 평가</h3>
+<p><strong>모델 평가</strong>는 주로 첨단 연구실과 연구팀에서 수행됩니다. </p>
+<p>이러한 평가는 추론, 사실적 회상, 코딩 능력 또는 학업 스타일 작업 성과를 테스트하는 표준화된 벤치마크에 의존합니다. </p>
+<p>모델 평가는 가치가 있습니다. </p>
+<p>그러나 의도적으로 광범위하고 도메인에 구애받지 않습니다. </p>
+<h3>AI 제품 평가</h3>
+<p><strong>AI 제품 평가</strong>는 실무자가 실제 제품을 제작할 때 가장 신경써야 할 부분입니다. </p>
+<p>실제 데이터는 벤치마크 데이터 세트보다 훨씬 더 미묘한 차이가 있습니다. </p>
+<p>프론티어 연구소에서 광범위한 모델 평가를 수행했더라도 제품 팀에는 여전히 자체 평가 프로세스가 필요합니다. </p>
+<p>이 과정의 나머지 부분에서는 모델 평가가 아닌 AI 제품 평가 및 제품 평가 지표에 중점을 둡니다. </p>
+<h2>용어 정리</h2>
+<p>계속 진행하기 전에 이 과정 전체에서 사용할 용어를 명확하게 정의하겠습니다. </p>
+<p><strong>평가</strong>는 AI 시스템의 작동 방식을 평가하는 전반적인 프로세스를 의미합니다. </p>
+<p><strong>벤치마크 또는 평가 하네스</strong>는 반복 가능한 방식으로 평가를 실행하는 데 사용되는 설정입니다. </p>
+<p><strong>평가 측정항목</strong>은 시스템 동작을 판단하는 기준입니다. </p>
+<p>동일한 측정항목이 도메인에 따라 매우 다른 의미를 가질 수 있습니다. </p>
+<p>보험이나 의료 업무 흐름에서 도움이 된다는 것은 언제 대답하지 <em>않을</em>지를 아는 것을 의미할 수 있습니다. </p>
+<p>이 때문에 평가 지표는 거의 항상 명시적인 <em>루브릭</em>을 따라야 합니다. </p>
+<p><strong>모델 평가</strong>는 특정 제품과 관계없이 일반 모델 기능을 평가합니다.</p>
+<p><strong>AI 제품 평가</strong>는 모델이 실제 제품 내에서 허용 가능한 수준으로 작동하는지 평가합니다.</p>
+<p>이 과정 전체에서 평가에 관해 이야기할 때 별도로 명시하지 않는 한 AI 제품 평가를 언급합니다. </p>
+<h2>주요 시사점</h2>
+<p>보시다시피 <em>평가</em>는 다양한 이해관계자에게 서로 다른 의미를 갖는 오버로드된 용어입니다. </p>
+<p>이러한 차이점을 이해하는 것은 실제로 더 나은 AI 제품을 출시하는 데 도움이 되는 효과적인 평가 시스템을 구축하는 데 중요합니다.</p>
+<p>이 시점에서 당신은 더 명확한 정신 지도를 가져야 합니다. </p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

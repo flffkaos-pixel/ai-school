@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claw instructions enable teamwork — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>9일차: 팀워크 활성화</h1>
+<p>다음 지침을 정확하게 따르십시오. </p>
+<p>변경하기 전에 다음 파일이 있으면 읽어보십시오.</p>
+<ul>
+<li><code>~/.openclaw/openclaw.json</code></li>
+<li><code>~/.openclaw/workspace/AGENTS.md</code></li>
+<li><code>~/.openclaw/workspace-writer/SOUL.md</code></li>
+<li><code>~/.openclaw/workspace-writer/AGENTS.md</code></li>
+</ul>
+<p>이를 사용하여 작성자가 존재하는지 확인하고 기존 구성을 보존합니다.</p>
+<hr>
+<h2>1. 전제 조건 확인</h2>
+<p>계속하기 전에 다음 사항이 모두 사실인지 확인하세요.</p>
+<ul>
+<li><code>writer</code>이라는 에이전트가 존재합니다</li>
+<li><code>~/.openclaw/workspace-writer/SOUL.md</code>이 존재합니다</li>
+<li><code>~/.openclaw/workspace-writer/USER.md</code>이 존재합니다</li>
+<li><code>~/.openclaw/workspace-writer/AGENTS.md</code>이 존재합니다</li>
+<li><code>~/.openclaw/workspace-writer/MEMORY.md</code>이 존재합니다</li>
+</ul>
+<p>누락된 항목이 있는 경우 중지하고 사용자에게 먼저 수정해야 할 사항을 알려주세요.</p>
+<hr>
+<h2>2. 기본에서 작성자로의 위임 활성화</h2>
+<p><code>main</code> 및 <code>writer</code>이 9일차 설정에 에이전트 간 메시징을 사용할 수 있도록 현재 구성을 업데이트하세요.</p>
+<p>규칙:</p>
+<ul>
+<li>관련되지 않은 기존 구성을 유지합니다.</li>
+<li>중복된 블록을 피하세요</li>
+<li>더 좁은 안전 규칙이 이미 마련되어 있지 않은 한 이번 강의에서는 허용 목록의 범위를 <code>main</code> 및 <code>writer</code>으로 지정합니다.</li>
+<li>필요한 경우에만 다시 로드하거나 다시 시작하세요.</li>
+</ul>
+<hr>
+<h2>3. 기본 작업 공간에 긴 형식의 위임 규칙 추가</h2>
+<p><code>~/.openclaw/workspace/AGENTS.md</code>을 업데이트하세요.</p>
+<p>적합한 섹션이 이미 존재하는 경우 확장합니다. </p>
+<pre><code class="언어-md">## 지정 대리인 위임
+
+</p>
+<hr>
+<h2>4. 완료 확인</h2>
+<p>변경이 완료된 후:</p>
+<ul>
+<li>무엇이 바뀌었는지 정확하게 요약해 보세요</li>
+<li>다시 로드 또는 다시 시작이 발생했는지 확인</li>
+<li>다음 단계를 위해 사용자에게 정확한 두 가지 테스트 프롬프트를 제공하세요.<ol>
+</li>
+<li><code>I need a Substack draft about how personal AI assistants are becoming the new operating system for knowledge work. Delegate this to the writer agent and bring me back the draft.</code></li>
+</ol>
+</li>
+<li>멈추다</li>
+</ul>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

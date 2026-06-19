@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Part 2: the 4 types of agentic systems — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Part 2: The 4 Types of Agentic Systems (and When to Use What)</h1>
+<p>Hi there,</p>
+<p>In the previous part, we looked at what makes AI agentic ??it?셲 not just about understanding or generating content, it?셲 about performing actions and handling tasks end-to-end.</p>
+<p>But as teams rush to ?쏿dd agents??to their stack, here?셲 the catch:<br>Not all agents are built the same, and not all problems need highly autonomous systems.</p>
+<p>In this lesson, we?셪l walk through four types of agentic systems (as discussed yesterday), using a simple but powerful lens:</p>
+<ul>
+<li>How much autonomy does the agent have?  </li>
+<li>How much control does the human or system retain?</li>
+</ul>
+<p>This balance impacts how the system behaves, how you evaluate it, and what infrastructure you need to build.</p>
+<hr>
+<img width="1216" height="413" alt="image" src="https://github.com/user-attachments/assets/58097651-e6d0-4835-9c13-042f647cf437" /><h2>The Tool-Augmented LLM</h2>
+<p>At the core of most modern agents is an <strong>LLM (Large Language Model)</strong> acting as the brain of the system.<br>Throughout this course, we use the term LLM to refer broadly to generative AI models ??not just text-only models.</p>
+<p>On its own, it can generate content, but to turn it into an agent, you augment it with:  </p>
+<ul>
+<li><strong>Tools</strong> ??APIs, functions, databases it can call  </li>
+<li><strong>Planning</strong> ??The ability to break a goal into multiple steps  </li>
+<li><strong>Memory</strong> ??So it can track past actions and outcomes  </li>
+<li><strong>State and Control Logic</strong> ??To know what?셲 done, what failed, and what to do next</li>
+</ul>
+<p>When connected to these components, the LLM becomes more than a chatbot.<br>It becomes a goal-driven system that can reason, take action, and adapt.</p>
+<p>But depending on how much you trust it to act without supervision, you end up with different types of agents.<br>Let?셲 walk through them, starting from the least autonomous.</p>
+<hr>
+<h2>1. Rule-Based Systems/Agents</h2>
+<p><strong>Low Autonomy, Low Control</strong></p>
+<p>These systems don?셳 use LLMs at all. They?셱e built with traditional <em>if-this-then-that</em> logic. Every decision path is manually scripted. There?셲 no reasoning or learning. Rule-based agents have existed long before the LLM era.</p>
+<blockquote>
+<p>Wait, aren?셳 we talking about AI agents?<br>Yes ??but not every problem needs an AI model. Start with the problem, not the AI. If you can solve it without AI, don?셳 overcomplicate it.</p>
+</blockquote>
+<p><strong>What problems do they solve?</strong><br>Well-structured, repetitive tasks with fixed inputs and outputs.</p>
+<p><strong>Examples:</strong>  </p>
+<ul>
+<li>Automatically approve reimbursements under a fixed amount  </li>
+<li>Rename files in a folder based on filename patterns  </li>
+<li>Copy data from Excel sheets into form fields</li>
+</ul>
+<p><strong>Pros:</strong> Fast, auditable, predictable<br><strong>Cons:</strong> Brittle to change, can?셳 handle ambiguity<br><strong>Best used when:</strong> You know all the conditions ahead of time and there?셲 no need for flexibility.</p>
+<hr>
+<h2>2. Workflow Agents</h2>
+<p><strong>Low Autonomy, High Control</strong></p>
+<p>This is often the first step for enterprises introducing LLMs into their workflows.<br>Here, the LLM enhances an existing workflow but doesn?셳 execute actions independently. A human stays in control.</p>
+<p><strong>What problems do they solve?</strong><br>Repetitive tasks that benefit from natural language understanding, summarization, or generation, but still need human decision-making.</p>
+<p><strong>Examples:</strong>  </p>
+<ul>
+<li>Suggesting first-draft responses in a support tool like Zendesk  </li>
+<li>Generating summaries of meeting transcripts  </li>
+<li>Translating natural language queries into structured search inputs for BI dashboards</li>
+</ul>
+<p><strong>How the LLM is used:</strong><br>It reads input (text, tickets, documents), understands context, and generates useful content, but doesn?셳 act on it.<br>A human still decides what to do.</p>
+<p><strong>Pros:</strong> Easy to deploy, low risk, quick value<br><strong>Cons:</strong> Can?셳 execute or plan, limited end-to-end value<br><strong>Best used when:</strong> You want to augment your team?셲 productivity without giving up oversight.</p>
+<hr>
+<h2>3. Semi-Autonomous Agents</h2>
+<p><strong>Moderate to High Autonomy, Moderate Control</strong></p>
+<p>These are true agentic systems. They not only understand tasks but can plan multi-step actions, invoke tools, and complete goals with minimal supervision. However, they often operate with some constraints or monitoring built in.</p>
+<p><strong>What problems do they solve?</strong><br>Multi-step workflows that are well-understood but too tedious or time-consuming for humans.</p>
+<p><strong>Examples:</strong>  </p>
+<ul>
+<li>A lead follow-up agent that drafts, personalizes, and sends emails based on CRM data, while logging results  </li>
+<li>A document automation agent that extracts details from contracts and updates internal systems  </li>
+<li>A research agent that pulls data from multiple sources, compares findings, and sends a structured report</li>
+</ul>
+<p><strong>How the LLM is used:</strong><br>The LLM plans the steps, calls APIs to fetch or push data, keeps track of progress, and adapts if something goes wrong.<br>It often includes fallback paths or checkpoints for human review.</p>
+<p><strong>Pros:</strong> Automates complex workflows, saves time, higher ROI<br><strong>Cons:</strong> Needs infrastructure (planning, memory, tool calling), harder to test<br><strong>Best used when:</strong> You want to automate well-bounded business workflows while retaining some control.</p>
+<hr>
+<h2>4. Autonomous Agents</h2>
+<p><strong>High Autonomy, Low Control</strong></p>
+<p>These agents are fully goal-driven. You give them a broad objective, and they figure out what to do, how to do it, when to retry, and when to escalate. They act independently, often across systems and over time.</p>
+<p><strong>What problems do they solve?</strong><br>High-effort, async, or long-running tasks that span multiple systems or steps and don?셳 need constant human input.</p>
+<p><strong>Examples:</strong>  </p>
+<ul>
+<li>A competitive research agent that pulls data over days, summarizes updates, and generates weekly insight briefs  </li>
+<li>An ops automation agent that detects issues in pipelines, diagnoses root causes, and files tickets with suggested fixes  </li>
+<li>A testing agent that autonomously runs product flows, logs results, and suggests new edge-case scenarios</li>
+</ul>
+<p><strong>How the LLM is used:</strong><br>The LLM is the planner, decision-maker, tool-user, memory tracker, and communicator. It manages retries, evaluates whether goals are met, and decides when to stop or adapt.</p>
+<p><strong>Pros:</strong> Extremely scalable, can handle complex tasks<br><strong>Cons:</strong> High risk if not monitored, hard to evaluate or trace, infra-heavy<br><strong>Best used when:</strong> The task is high-leverage, async, and doesn?셳 require human feedback at every step.</p>
+<hr>
+<img width="683" height="316" alt="image" src="https://github.com/user-attachments/assets/cbea3f8f-b2c5-4dbc-8d0f-5b102430d675" /><h2>How to Decide What to Build</h2>
+<p>Not by picking your favorite architecture.<br>You start with the <strong>problem</strong>.</p>
+<p>Ask yourself:  </p>
+<ul>
+<li>Is it repetitive and structured?  </li>
+<li>Does it involve language understanding or generation?  </li>
+<li>Is it a multi-step task that needs decision-making?  </li>
+<li>Do you trust an AI system to execute the entire task, or do you want a human in the loop?</li>
+</ul>
+<p>Here?셲 the key:  </p>
+<ul>
+<li>These approaches aren?셳 mutually exclusive.  </li>
+<li>A single system can mix them ??some parts might require high control, others can benefit from high autonomy.  </li>
+<li>Each problem type can be tackled by either a single agent or a group of collaborating agents.</li>
+</ul>
+<p>We?셪l dive deeper into <strong>single-agent vs. multi-agent design</strong> later in the course.<br>For now, remember:  </p>
+<blockquote>
+<p>Don?셳 start with ?쏦ow do I build a multi-agent system???br>Start with ?쏻hat?셲 the problem I?셫 solving, and what kind of autonomy does it require??? </p>
+</blockquote>
+<p>Let the problem shape the agentic design, not the other way around.</p>
+<hr>
+<p>In the next part, we?셪l dive deeper into the <strong>role of tools</strong> in agentic systems. They?셱e the reason AI has become far more usable ??and we?셪l break down exactly how and why in our deep dive.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../js/main.js"></script>
+</body>
+</html>

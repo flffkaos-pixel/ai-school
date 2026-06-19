@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FAQ — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Frequently Asked Questions</h1>
+<hr>
+<h3>Do I need a Mac mini or any external hardware?</h3>
+<p>No. The entire course runs on a cloud VPS (Virtual Private Server). You rent one from Hostinger using their one-click OpenClaw template, and Day 1 walks you through it. All you need is a laptop or desktop with a browser and a Telegram account on your phone.</p>
+<p>Some experienced users run OpenClaw on a Mac mini at home. That works well, and you can always port to hardware once you have learned how OpenClaw works. But most people get overwhelmed with the hardware setup requirements and end up never configuring their Claw properly. This course is designed to save you from that overwhelm: you learn the concepts and build a working setup first, on infrastructure that is ready in minutes.</p>
+<p>?럞 Complete the course and score 10/10 on the certification assessment? You could walk away with a free Mac mini. You will learn more about it as you go through the course.</p>
+<hr>
+<h3>How does the certification work?</h3>
+<p>The assessment has a few questions to check your understanding of OpenClaw concepts: identity files, security, the three eras of AI tools, skills, multi-agent systems, and more. There is also an optional question where your Claw verifies your hands-on setup and generates a unique code that you paste into the form.</p>
+<p>You can earn the certificate by completing the questions. The optional Claw verification is there for those who want to prove their setup is fully operational.</p>
+<p>Take the assessment here: <a href="https://docs.google.com/forms/d/e/1FAIpQLSeoR5wfheIkD0hCaf3eYmJ6s8aNMbylfJ00hi6djlkpIuF1FA/viewform">OpenClaw Mastery Assessment</a></p>
+<hr>
+<h3>Why does the course start with security?</h3>
+<p>Because the features that make OpenClaw useful are the same features that create risk. An agent that runs continuously, reads your email, and sends messages on your behalf has a larger attack surface than a tool you open and close. The community learned this the hard way through uncontrolled agent actions, malicious skills on ClawHub, and prompt injection through email.</p>
+<p>Day 1 locks down the gateway before anything else gets connected. Every day after that adds capability incrementally, with guardrails in place before each new integration goes live. This is deliberate. You understand what each capability does and where the risks are before you turn it on.</p>
+<hr>
+<h3>Is my data private?</h3>
+<p>Yes. OpenClaw runs on a VPS that you control. Your conversations, emails, files, and API keys stay on your server. Nothing is routed through a third party beyond the AI provider you choose for model inference (Anthropic, OpenAI, or Google). The course does not use any shared infrastructure.</p>
+<hr>
+<h3>Can I use any AI provider?</h3>
+<p>OpenClaw supports Anthropic (Claude), OpenAI (GPT), Google (Gemini), DeepSeek, and local models. You pick the provider and model you want during setup and can switch later. The course recommends starting with a mid-tier model (Claude Sonnet, GPT-5.4, or Gemini Flash) for daily use, and explains when to upgrade or downgrade for specific tasks.</p>
+<hr>
+<h3>How much does this cost to run?</h3>
+<p>Three costs to consider:</p>
+<ol>
+<li><strong>VPS hosting</strong>: About $25/month on Hostinger.</li>
+<li><strong>AI API usage</strong>: Depends on your provider and how much you use your Claw. Mid-tier models are significantly cheaper than top-tier. We cover which providers work well and how to reduce your costs in the <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/getting-your-api-key.md">API key guide</a>.</li>
+<li><strong>The course itself</strong>: Free. Always will be.</li>
+</ol>
+<hr>
+<h3>What if I am not technical?</h3>
+<p>Zero prior experience with servers, Docker, or AI agents is required. The course is AI-first: you read the concepts in <code>learn.md</code>, then hand the <code>build.md</code> file to an AI coding agent (Claude Code, Cursor, or Codex on Days 1 and 2, then your own Claw from Day 3 onward). The agent handles the technical setup. You focus on understanding what each piece does and why.</p>
+<hr>
+<h3>Can I skip days or do them out of order?</h3>
+<p>Not recommended. Each day builds on the previous one. Day 3 requires the security setup from Day 1 and the identity files from Day 2. Day 6 requires the channel from Day 3. The progressive layering is the point: you verify each capability works before adding the next.</p>
+<p>If you already have a running OpenClaw instance, you can skim the learn files for earlier days and focus on the builds for the days that cover what you have not set up yet.</p>
+<hr>
+<h3>What if something breaks during a build?</h3>
+<p>Every <code>build.md</code> file has a troubleshooting section at the bottom covering the most common issues for that day. If you hit something not covered there, you have a few options:</p>
+<ul>
+<li><strong>Live sessions</strong>: Join one of our scheduled sessions and ask directly.</li>
+<li><strong>OpenClaw community</strong>: Browse questions and answers on the <a href="https://docs.openclaw.ai">OpenClaw community</a>.</li>
+<li><strong>Open an issue</strong>: If you found a bug or a gap in the troubleshooting guide, <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide/issues">open an issue on this repository</a>. We will add it to the troubleshooting section so it helps everyone who comes after you. Help us make this the best free course out there.</li>
+</ul>
+<hr>
+<h3>I finished the course. Now what?</h3>
+<p>Use what you built. Talk to your Claw every day for a week. Notice where the tone is off, where the rules are too strict or too loose, where the memory is missing context. Then update SOUL.md, USER.md, or AGENTS.md to fix those specific gaps. After that, explore new integrations one at a time: Google Calendar, Obsidian, Slack, or more specialist agents. Day 10&#39;s learn file has a full list of next steps.</p>
+<p>For ideas on what to build next, check out our <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/best-openclaw-resources.md">Best OpenClaw Resources by Category</a>. It has use cases, community content, and the best guides we found for getting more out of OpenClaw.</p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/README.md">??Back to Course Overview</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../js/main.js"></script>
+</body>
+</html>

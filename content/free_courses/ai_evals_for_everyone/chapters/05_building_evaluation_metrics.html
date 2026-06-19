@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Building evaluation metrics — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../index.html">Home</a>
+<a href="../../../../courses.html">Courses</a>
+<a href="../../../../interview.html">Interview</a>
+<a href="../../../../research.html">Research</a>
+<a href="../../../../resources.html">Resources</a>
+<a href="../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Chapter 5: Implementing Evaluation Metrics</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/metrics_to_automated_system.png" alt="Metrics to Automated System"></p>
+<h2>From What to How</h2>
+<p>In the previous chapter, we walked through building reference datasets and identifying which metrics matter for your system. You now have a clear list of behaviors you want to track, such as escalation accuracy, response time, or tone appropriateness.</p>
+<p>Now comes the practical question: how do you actually measure these behaviors?</p>
+<p>This chapter covers the different approaches you can use to implement your metrics. We&#39;ll explore when each approach works well, their trade-offs, and how to choose the right mix for your specific situation.</p>
+<h2>Three Ways to Measure AI Behavior</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/three_evaluation_approaches.png" alt="Three Evaluation Approaches"></p>
+<p>There are three main approaches to implementing evaluation metrics:</p>
+<p><strong>Human evaluation</strong>: Having people assess AI system behavior based on their expertise and judgment<br><strong>Code-based metrics</strong>: Deterministic checks written in code that look for specific patterns or properties<br><strong>LLM judges</strong>: Using one model to evaluate another model&#39;s behavior</p>
+<p>Each approach has strengths and weaknesses. Most effective evaluation systems use a combination of multiple approaches.</p>
+<h2>Human Evaluation: The Gold Standard</h2>
+<p>Human evaluation is exactly what we did when building the reference dataset in the previous chapter. You show examples to domain experts, product managers, or other stakeholders and ask them to judge whether the AI system&#39;s behavior was acceptable.</p>
+<p>This approach has major advantages:</p>
+<ul>
+<li><strong>Nuanced judgment</strong>: Humans can assess complex, subjective qualities like appropriateness, empathy, and contextual correctness</li>
+<li><strong>Domain expertise</strong>: Subject matter experts understand subtleties that automated systems miss</li>
+<li><strong>Flexibility</strong>: Humans can adapt their evaluation criteria on the fly when they encounter edge cases</li>
+<li><strong>Ground truth</strong>: Human judgment often serves as the standard that other metrics try to approximate</li>
+</ul>
+<h3>Why Human Evaluation Doesn&#39;t Scale</h3>
+<p>The problem with human evaluation is obvious: it&#39;s slow and expensive. If you had to have a human evaluate every single conversation your AI system has in production, you&#39;d need an army of evaluators working around the clock.</p>
+<p>Imagine a customer support AI that handles 10,000 interactions per day. Having domain experts review each one would be impractical and cost-prohibitive. Even sampling 1% would require evaluating 100 interactions daily.</p>
+<p>This is why we need the other automated approaches. They&#39;re attempts to capture human-like judgment at scale. The goal is finding automated methods that correlate well with human evaluation while being fast and cost-effective enough to run in production.</p>
+<h3>When to Use Human Evaluation</h3>
+<p>Human evaluation still has important roles:</p>
+<ul>
+<li><strong>Calibrating automated metrics</strong>: Use human judgment to test whether your LLM judges or other metrics align with expert assessment</li>
+<li><strong>Edge case analysis</strong>: When automated metrics flag something as problematic, humans can investigate whether it&#39;s a real issue</li>
+<li><strong>Periodic sampling</strong>: Regularly evaluate a small sample of interactions to ensure your automated systems are working correctly</li>
+<li><strong>High-stakes decisions</strong>: For critical interactions or when the cost of errors is very high</li>
+</ul>
+<h2>Code-Based Metrics: When Rules Work</h2>
+<p>Code-based metrics are deterministic checks you can implement with regular programming. They&#39;re fast, reliable, and easy to understand.</p>
+<p>These work well when you can define success clearly and objectively:</p>
+<p><strong>Structure validation</strong>: Check if the response contains required fields, follows JSON format, or includes mandatory disclaimers</p>
+<p><strong>Performance metrics</strong>: Measure response time, token count, or API call frequency</p>
+<p><strong>Content detection</strong>: Verify specific phrases appear (like &quot;please consult your doctor&quot; in medical responses) or don&#39;t appear (like specific banned words)</p>
+<p><strong>Classification flags</strong>: Check if the system correctly tagged a query as &quot;billing,&quot; &quot;technical support,&quot; or &quot;escalation needed&quot;</p>
+<h3>Example: Structured Output Validation</h3>
+<p>Say you&#39;re building an AI system that helps sales teams qualify leads. The system needs to extract key information from customer conversations and output it in a structured format for the CRM system.</p>
+<p>Your AI system should output JSON like this:</p>
+<pre><code class="language-json">{
+  &quot;customer_name&quot;: &quot;John Smith&quot;,
+  &quot;company&quot;: &quot;TechCorp&quot;,
+  &quot;budget_range&quot;: &quot;50000-100000&quot;,
+  &quot;timeline&quot;: &quot;Q2 2024&quot;,
+  &quot;decision_maker&quot;: true,
+  &quot;contact_email&quot;: &quot;john@techcorp.com&quot;
+}
+</code></pre>
+<p>A code-based metric can easily verify:</p>
+<ul>
+<li>Is the output valid JSON?</li>
+<li>Are all required fields present (customer_name, company, budget_range)?</li>
+<li>Is the budget_range in the expected format?</li>
+<li>Is the decision_maker field a boolean?</li>
+<li>Is the contact_email field a valid email format?</li>
+</ul>
+<p>This kind of check is perfect for code-based metrics because the requirements are objective and well-defined.</p>
+<h3>When Code-Based Metrics Fall Short</h3>
+<p>Code-based metrics struggle with subjective qualities like tone, appropriateness, or nuanced decision-making. You can&#39;t easily write code to detect whether a customer service response shows appropriate empathy or whether an escalation decision was justified.</p>
+<p>They also miss nuanced meaning and context. A response might pass all the structural checks but still be unhelpful, inappropriate, or incorrect in ways that matter to users.</p>
+<h2>LLM Judges: Automating Human-Like Evaluation</h2>
+<p>LLM judges use one model to evaluate another model&#39;s behavior. The idea is to replace the manual human evaluation process we used when building reference datasets with an automated system that can make similar judgments at scale.</p>
+<p>Instead of having domain experts review every response, you give an LLM the same criteria and ask it to assess whether the behavior was appropriate. This lets you evaluate thousands of interactions with the same standards a human expert would apply.</p>
+<p>This approach works for subjective or complex evaluations:</p>
+<p><strong>Tone assessment</strong>: Is the response professional and empathetic?<br><strong>Escalation decisions</strong>: Should this query have been escalated to a human?<br><strong>Reasoning quality</strong>: Does the explanation make logical sense?<br><strong>Safety evaluation</strong>: Does the response avoid harmful content?</p>
+<h3>Example: Customer Service Tone</h3>
+<p>For evaluating whether a customer service response shows appropriate empathy, an LLM judge can assess nuanced qualities like tone, professionalism, and contextual appropriateness that would be difficult to capture with code-based metrics.</p>
+<p>Whether you&#39;re using LLM judges or human evaluators, you need clear criteria for what constitutes good and poor performance. This is where rubrics become essential.</p>
+<p>A good rubric defines:</p>
+<ul>
+<li><strong>Acceptable performance</strong>: Specific characteristics of good behavior</li>
+<li><strong>Not acceptable performance</strong>: Clear failure criteria</li>
+<li><strong>Examples</strong>: Concrete instances of each category</li>
+<li><strong>Edge case guidance</strong>: How to handle ambiguous situations</li>
+</ul>
+<h3>Example: From Error Pattern to LLM Judge Rubric</h3>
+<p>Here&#39;s how you&#39;d build an LLM judge based on the customer support example from Chapter 4. </p>
+<p><strong>The Problem</strong>: In your reference dataset evaluation, you found that when customers expressed frustration and mentioned switching providers (like &quot;Service is terrible, switching&quot;), your system gave generic help offers instead of escalating to the retention team.</p>
+<p><strong>The Pattern</strong>: Analysis revealed this was part of a broader &quot;escalation accuracy&quot; issue. The system wasn&#39;t recognizing when situations required specialized human intervention.</p>
+<p><strong>The Metric</strong>: You decided to track &quot;escalation accuracy&quot; as an ongoing metric since this behavior could reappear in many different forms.</p>
+<p><strong>The LLM Judge Rubric</strong>:</p>
+<p><strong>Acceptable</strong>: </p>
+<ul>
+<li>Correctly identifies customer retention situations (mentions switching, canceling, competitor comparisons, dissatisfaction with service)</li>
+<li>Escalates billing disputes over significant amounts ($100+)</li>
+<li>Recognizes technical issues beyond basic troubleshooting scope</li>
+<li>Provides relevant context when escalating (customer sentiment, issue details, urgency level)</li>
+</ul>
+<p><strong>Not Acceptable</strong>:</p>
+<ul>
+<li>Misses clear retention signals and attempts generic problem-solving</li>
+<li>Fails to escalate high-value billing disputes </li>
+<li>Tries to handle complex technical issues that require specialized expertise</li>
+<li>Escalates routine questions that could be resolved automatically</li>
+<li>Escalates without sufficient context for the human agent</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><strong>Acceptable</strong>: &quot;Your service is terrible and I&#39;m switching to CompetitorX&quot; ??Escalates to retention team noting customer dissatisfaction and competitor mention</li>
+<li><strong>Not Acceptable</strong>: &quot;I want to cancel my subscription to save money&quot; ??Provides generic retention offer instead of escalating to retention specialists</li>
+<li><strong>Acceptable</strong>: &quot;I was charged $500 for services I never ordered&quot; ??Escalates to billing team with charge amount and dispute details</li>
+<li><strong>Not Acceptable</strong>: &quot;How do I reset my password?&quot; ??Escalates to technical support instead of providing standard reset instructions</li>
+</ul>
+<p>This rubric now gives you a measurable way to track the escalation behavior that was failing in your reference dataset, turning the discovered error pattern into an ongoing monitoring capability.</p>
+<p><strong>LLM Judge Prompt Example</strong>:</p>
+<p>Here&#39;s how you might structure a prompt for an LLM judge using this rubric:</p>
+<pre><code>You are evaluating customer service responses for escalation accuracy. Your job is to determine if the AI system correctly identified when human intervention was needed.
+
+EVALUATION CRITERIA:
+
+Acceptable Performance:
+- Correctly identifies customer retention situations (mentions switching, canceling, competitors)
+- Escalates billing disputes over $100
+- Recognizes complex technical issues beyond basic troubleshooting
+- Provides relevant context when escalating (sentiment, details, urgency)
+
+Not Acceptable Performance:
+- Misses clear retention signals and tries generic problem-solving
+- Fails to escalate high-value billing disputes
+- Attempts to handle complex technical issues requiring specialized expertise
+- Escalates routine questions that could be resolved automatically
+- Escalates without sufficient context for human agents
+
+EXAMPLES:
+- Customer: &quot;Your service is terrible and I&#39;m switching to CompetitorX&quot;
+  Acceptable Response: Escalates to retention team noting dissatisfaction and competitor mention
+  Not Acceptable: Offers generic troubleshooting help
+
+- Customer: &quot;I was charged $500 for services I never ordered&quot;
+  Acceptable Response: Escalates to billing team with charge details
+  Not Acceptable: Asks customer to verify their account information
+
+TASK:
+Review the customer input and AI response below. Determine if the escalation decision was:
+- Acceptable
+- Not Acceptable
+
+Provide a brief explanation for your judgment.
+
+Customer Input: [INPUT]
+AI Response: [RESPONSE]
+
+Your Evaluation:
+</code></pre>
+<p>This prompt gives the LLM judge the same detailed criteria that human evaluators would use, allowing it to make consistent assessments at scale.</p>
+<h2>A Note on LLM Judge Calibration</h2>
+<p>While we&#39;ve shown you how to build an LLM judge with clear criteria and rubrics, remember that in practice, calibrating an LLM judge is a much longer and more data-driven process than what we&#39;ve demonstrated here. LLM judges are powerful but challenging to implement well. They can be inconsistent, biased, or misaligned with human judgment. They&#39;re also more expensive and slower than other approaches.</p>
+<p>Effective LLM judge calibration requires extensive testing against human judgment across hundreds of examples, not just a few. You need to systematically identify where the LLM judge disagrees with human evaluators, understand why those disagreements happen, and iteratively refine your prompts and criteria until alignment is acceptable for your specific use case.</p>
+<p><strong>Calibration is Essential</strong></p>
+<p>The biggest challenge with LLM judges is ensuring they actually align with human judgment. Just because you write detailed criteria doesn&#39;t mean the LLM will interpret them the same way a human expert would. In fact, if not calibrated properly they can add more problems to your system because they add another layer of non-determinism.</p>
+<p>You need to test your LLM judge against human evaluations:</p>
+<ul>
+<li>Have humans evaluate a sample of examples using your rubric</li>
+<li>Run your LLM judge on the same examples</li>
+<li>Compare the results to see where they agree and disagree</li>
+<li>Refine your prompt and criteria based on the differences</li>
+<li>Repeat until alignment is acceptable</li>
+</ul>
+<p>We leave you here since this is a 101 course, but building reliable LLM judges can be a course on its own. Remember to dig deeper to learn these concepts well.</p>
+<p><strong>Want to go deeper?</strong> Choose the course that fits your journey:</p>
+<ul>
+<li><strong>New to AI?</strong> Check out our <strong><a href="https://maven.com/aishwarya-kiriti/genai-system-design">#1 rated Enterprise AI Course on Maven</a></strong> for comprehensive guidance on building production-ready AI systems from scratch.</li>
+<li><strong>Already building AI?</strong> Take our newly launched <strong><a href="https://maven.com/aishwarya-kiriti/evals-problem-first">Advanced Evals course</a></strong> for systematically improving your AI products through advanced evaluation techniques.</li>
+</ul>
+<p><em>?뱷 Note: Use code <strong>GITHUB15</strong> for 15% off on Maven courses (valid until January 15th, 2025)</em></p>
+<h2>What You End Up With</h2>
+<p>After implementing your metrics, you&#39;ll have a measurement system that can:</p>
+<ul>
+<li>Automatically track the behaviors you care about most</li>
+<li>Run consistently across different examples</li>
+<li>Provide actionable feedback for system improvement</li>
+<li>Scale with your evaluation needs</li>
+</ul>
+<p>This system becomes the foundation for continuous improvement. You can run it on new examples, track performance over time, and identify areas where your AI system needs work. However, you probably have questions on how to deploy these metrics in a production setup. Should you be running them on all your production inputs and outputs or just samples? Are these metrics enough or should you keep reinventing? We&#39;ll talk about all this in the next chapter.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/evaluation_methods_comparison.png" alt="Evaluation Methods Comparison"></p>
+<p>In the next chapter, we&#39;ll explore how to use these metrics in an improvement loop that helps your system get better over time.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

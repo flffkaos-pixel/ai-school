@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Learn — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>3일차: 채널 연결</h1>
+<hr>
+<p><strong>오늘 배울 내용:</strong></p>
+<ul>
+<li>메시징 앱(OpenClaw에서 "채널"이라고 부름)을 연결하면 Claw가 휴대폰을 통해 연결되는 방식으로 변합니다.</li>
+<li>휴대폰, 텔레그램 서버, VPS 게이트웨이 간의 연결 작동 방식</li>
+<li>낯선 사람이 들어오지 못하게 하는 페어링 모드의 역할</li>
+<li>미드티어 모델이 일상적인 사용에 적합한 출발점이 되는 이유</li>
+</ul>
+<p><strong>오늘 만들 내용:</strong> 오늘이 끝날 때쯤이면 다른 사람에게 문자를 보내는 것과 같은 방식으로 휴대전화에서 Claw에 문자를 보낼 수 있습니다. </p>
+<hr>
+<h2>오늘은 어떤 변화가 있나요?</h2>
+<p>처음 이틀 동안 Claw와의 모든 상호 작용은 브라우저 대시보드나 터미널 창을 통해 이루어졌습니다. </p>
+<p>OpenClaw 용어로 말하면 채널은 Telegram, WhatsApp, Slack 등 Claw에 연결하는 모든 메시징 앱을 의미합니다. </p>
+<p>Telegram이 연결되면 다른 사람에게 문자를 보내는 것과 같은 방식으로 휴대폰에서 Claw에 문자를 보낼 수 있습니다. </p>
+<p>생각을 하는 것과 그에 따라 행동하는 것 사이의 단계 수에 따라 도구가 실제로 사용되는지 여부가 결정됩니다. </p>
+<p>에이전트를 사용할 때 마찰 차이가 바뀌고, 그에 따라 에이전트가 달라지게 됩니다. </p>
+<p>이는 또한 "상시 접속" 아키텍처가 가시화되는 시기이기도 합니다. </p>
+<hr>
+<h2>연결 작동 방식</h2>
+<p>오늘날의 변화는 통합에 관한 것입니다. </p>
+<p>메시지를 보내면 다음과 같은 일이 발생합니다.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/../../diagrams/day-03-message-flow.png" alt="How messages flow between your phone and your Claw"></p>
+<p>게이트웨이(첫 번째 날부터 항상 실행되는 프로세스)는 설정 중에 생성한 봇 토큰을 사용하여 Telegram 서버에 대한 개방형 연결을 유지합니다. </p>
+<p>다이어그램을 다시 살펴보세요. </p>
+<p>어디에서나 대화할 수 있는 AI 에이전트 같은 느낌을 주는 것은 대부분 인프라와 UX(상시 게이트웨이, 채널 브리지, 메시지 라우팅)입니다. </p>
+<p>오늘날 구축되고 있는 가장 강력한 AI 애플리케이션 중 다수는 바로 이 문제를 해결하고 있습니다. 즉, 모델에 도달하는 방법, 모델이 도달하는 시기, 상호 작용의 느낌을 다시 생각하는 것입니다. </p>
+<hr>
+<h2>텔레그램이 먼저인 이유</h2>
+<p>OpenClaw는 20개 이상의 메시징 채널을 지원합니다. </p>
+<p><strong>설정에는 몇 분밖에 걸리지 않습니다.</strong> Telegram Bot API는 토큰 기반 인증을 사용합니다. </p>
+<p><strong>봇 API는 성숙해졌습니다.</strong> Telegram은 2015년부터 봇을 지원해 왔습니다. API는 잘 문서화되어 있고 잘 테스트되었으며 안정적입니다. </p>
+<p><strong>귀하의 개인 Telegram 계정은 작동합니다.</strong> 사람에게 메시지를 보내는 것과 같은 방식으로 Telegram 봇에도 메시지를 보냅니다. </p>
+<p>WhatsApp은 Telegram이 작동하면 자연스러운 두 번째 채널이 됩니다. </p>
+<hr>
+<h2>보안: 이미 존재하는 것</h2>
+<p>1일차에 <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/../day-01-install-secure/build.md">build.md</a>를 진행했다면 연결하는 모든 채널에 적용되는 두 가지 보안 설정을 이미 구성했습니다. </p>
+<p><strong>당신만이 Claw와 대화할 수 있습니다.</strong> Claw의 텔레그램 사용자 이름을 찾아 메시지를 보내는 사람은 누구나 페어링 챌린지를 받게 됩니다. 즉, 상호 작용하기 전에 입력해야 하는 코드입니다. </p>
+<p><strong>그룹 채팅이 꺼졌습니다.</strong> 귀하의 Claw는 모든 그룹 채팅 메시지를 완전히 무시합니다. </p>
+<p><strong>귀하의 Telegram 계정이 승인된 목록에 있는 유일한 계정입니다.</strong> 페어링 문제 외에도 귀하의 Claw가 귀하가 보낸 메시지만 구체적으로 수락하도록 자신만의 Telegram 사용자 ID를 구성해야 합니다. </p>
+<hr>
+<h2>모델 선택: 미드티어 시작</h2>
+<p>기본 모델은 Hostinger의 에이전트 설정에 있습니다. </p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/../../diagrams/day-03-hostinger-model-selection.png" alt="Hostinger agent settings showing model selection"></p>
+<p>모델 계층 표에는 각 공급자가 선을 그리는 위치가 표시됩니다.</p>
+<pre><code>Provider        Top Tier              Mid-Tier (start here)     Fast/Cheap
+??????????      ??????????            ??????????????????????    ??????????????????
+Anthropic       Claude Opus 4.6       Claude Sonnet 4.6         Claude Haiku 4.5
+OpenAI          GPT-5.4 Pro           GPT-5.4                   GPT-5.4 mini
+Google          Gemini 3.1 Pro        Gemini 3 Flash            Gemini 3.1 Flash Lite
+</code></pre>
+</p>
+<p>이 시점에서는 채널 연결을 테스트하고 기본 메시지를 보냅니다. </p>
+<p>중간 계층이 처리할 수 있는 작업의 한계를 뛰어넘는 작업이 무엇인지 파악한 후에는 해당 특정 작업을 최상위 모델로 라우팅할 수 있습니다. </p>
+<hr>
+<h2>구축할 준비가 되셨나요?</h2>
+<p>이제 채널 연결이 전화기를 VPS의 게이트웨이에 연결하는 방법과 Telegram이 올바른 첫 번째 채널인 이유를 이해하게 되었습니다. </p>
+<p>Claw를 텔레그램에 연결하려면 <a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/build.md"><code>build.md</code></a>의 단계를 따르세요.</p>
+<p>내일 Claw가 먼저 문자 메시지를 보내기 시작합니다.</p>
+<hr>
+<h2>더 깊게</h2>
+<ul>
+<li>WhatsApp을 설정하려면 전화번호 등록과 전용번호(두 번째 SIM 또는 가상번호 서비스)가 필요합니다. </li>
+<li>다중 채널 아키텍처는 하나의 채널이 작동하면 일반적인 패턴입니다. 개인용 Telegram, 업무용 Slack, 채널별로 구성된 다양한 응답 스타일이 있습니다. </li>
+<li>암호화된 채널이나 Apple 생태계 채널을 원하는 사용자에게는 Signal 및 iMessage(Mac에서 <a href="https://bluebubbles.app">블루버블스</a>를 통해)도 지원됩니다.</li>
+<li>개발에 Claude Code를 사용한다면 <a href="https://code.claude.com/docs/en/remote-control">클로드코드 리모콘</a>을 살펴볼 가치가 있습니다. </li>
+</ul>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-03-connect-a-channel/../day-02-give-it-a-soul/learn.md">??2일차: 개인화하기</a> | </p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

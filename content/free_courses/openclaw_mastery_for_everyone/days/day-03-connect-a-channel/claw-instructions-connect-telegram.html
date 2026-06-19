@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claw instructions connect telegram — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>3일차: 텔레그램 연결</h1>
+<p>다음 지침을 정확하게 따르십시오. </p>
+<p>어떤 작업을 수행하기 전에:</p>
+<ul>
+<li><code>~/.openclaw/openclaw.json</code>이 존재하는지 확인하세요</li>
+<li>존재하는 경우 현재 <code>channels.telegram</code> 구성을 읽습니다.</li>
+<li>텔레그램이 이미 구성되어 있는 경우 무엇이 있는지 보고하고 교체할지 아니면 검증할지 물어보세요.</li>
+<li>한 번에 하나씩 물어보세요</li>
+<li>봇 토큰 전체를 다시 인쇄하지 마세요. </li>
+</ul>
+<hr>
+<h2>1. 필수 값 수집</h2>
+<p>사용자에게 다음 항목을 순서대로 물어보세요.</p>
+<ol>
+<li>이미 BotFather를 사용하여 Telegram 봇을 생성했는지 여부</li>
+<li>텔레그램 봇 토큰</li>
+<li>숫자로 된 텔레그램 사용자 ID</li>
+</ol>
+<p>텔레그램 사용자 ID를 모르는 경우, 먼저 ID를 얻은 다음, 얻은 후 계속 진행하라고 안내하세요. </p>
+<hr>
+<h2>2. 쓰기 작업 설명</h2>
+<p>무엇이든 편집하기 전에 다음 사항을 명확하게 명시하세요.</p>
+<ul>
+<li><code>~/.openclaw/openclaw.json</code>을 업데이트하려고 합니다</li>
+<li><code>channels.telegram</code>에서 텔레그램을 구성하게 됩니다.</li>
+<li><code>dmPolicy</code>을 <code>&quot;pairing&quot;</code>으로 유지합니다.</li>
+<li><code>groupPolicy</code>을 <code>&quot;disabled&quot;</code>으로 유지합니다.</li>
+</ul>
+<p>그런 다음 파일을 쓰기 전에 명시적인 확인을 기다립니다.</p>
+<hr>
+<h2>3. 구성 업데이트</h2>
+<p><code>~/.openclaw/openclaw.json</code>의 <code>channels.telegram</code> 아래에 텔레그램을 쓰거나 업데이트하세요.</p>
+<p>최종 텔레그램 구성에는 다음이 포함되어야 합니다.</p>
+<ul>
+<li><code>botToken</code></li>
+<li>사용자의 숫자로 된 텔레그램 ID를 포함한 <code>allowFrom</code></li>
+<li><code>dmPolicy: &quot;pairing&quot;</code></li>
+<li><code>groupPolicy: &quot;disabled&quot;</code></li>
+</ul>
+<p>관련되지 않은 모든 구성을 유지합니다.</p>
+<p>텔레그램이 <code>plugins.entries.telegram</code> 아래에 나타나면 <code>channels.telegram</code>으로 이동하세요. </p>
+<p>파일을 쓴 후 다시 읽고 보고만 합니다.</p>
+<ul>
+<li><code>channels.telegram</code>이 존재하는지</li>
+<li>마스크된 토큰</li>
+<li><code>allowFrom</code></li>
+<li><code>dmPolicy</code></li>
+<li><code>groupPolicy</code></li>
+</ul>
+<hr>
+<h2>4. 게이트웨이 다시 시작</h2>
+<p>달리다:</p>
+<pre><code class="언어-bash">openclaw 게이트웨이 다시 시작
+</p>
+<hr>
+<h2>5. 페어링 및 확인</h2>
+<p>사용자에게 다음 단계를 안내하세요.</p>
+<ol>
+<li>텔레그램에서 봇을 찾아보세요</li>
+<li><code>/start</code>을 보내세요</li>
+<li>페어링 흐름을 완료하세요</li>
+<li>휴대전화로 실제 메시지를 보내세요.</li>
+</ol>
+<p>작동하지 않으면 가장 가능성이 높은 원인을 진단하십시오.</p>
+<ul>
+<li>봇 토큰이 잘못 복사되었습니다.</li>
+<li>텔레그램 사용자 ID가 잘못되었거나 잘못된 유형으로 저장되었습니다.</li>
+<li>게이트웨이 다시 시작이 완전히 적용되지 않았습니다.</li>
+<li>내장 채널 대신 플러그인으로 구성된 텔레그램</li>
+</ul>
+<p>텔레그램 채널이 성공적으로 응답할 때까지 사용자와 함께 있거나 여전히 차단된 내용을 정확하게 보고하십시오.</p>
+<hr>
+<h2>6. 최종 보고서</h2>
+<p>각 항목에 대해 PASS 또는 FAIL을 보고합니다.</p>
+<ul>
+<li><code>~/.openclaw/openclaw.json</code>이 존재합니다</li>
+<li><code>channels.telegram</code>에 구성된 텔레그램</li>
+<li><code>channels.telegram.botToken</code>에 저장된 봇 토큰</li>
+<li><code>allowFrom</code>에 사용자의 텔레그램 ID가 추가되었습니다.</li>
+<li><code>dmPolicy</code>은 <code>&quot;pairing&quot;</code>입니다.</li>
+<li><code>groupPolicy</code>은 <code>&quot;disabled&quot;</code>입니다.</li>
+<li>게이트웨이 다시 시작 성공</li>
+<li>페어링 성공</li>
+<li>텔레그램은 사용자의 휴대폰에서 보낸 실제 메시지에 응답했습니다.</li>
+</ul>
+<p>보고서가 완료되면 중지하세요.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

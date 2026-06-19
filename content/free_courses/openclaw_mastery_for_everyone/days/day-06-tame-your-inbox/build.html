@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Build — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>6일 차 구축: 받은 편지함 관리하기</h1>
+<p>이것은 6일차에 대한 사용자용 가이드입니다. 오늘은 받은 편지함 흐름을 단계별로 수행합니다. </p>
+<p>하루 종일 개인 Gmail받은 편지함을 가정합니다. </p>
+<hr>
+<h2>시작하기 전에 필요한 것</h2>
+<ul>
+<li>1일차 완료: OpenClaw 설치 및 보안</li>
+<li>2일차 완료: ID 파일이 생성되고 올바르게 로드됨</li>
+<li>3일차 완료: 텔레그램 연결 및 작동 중</li>
+<li>4일차 완료: 사전 예방적 워크플로가 이미 존재합니다.</li>
+<li>5일차 완료: 이미 ClawHub 스킬을 한 번 검사하고 설치했습니다.</li>
+<li>웹 채팅을 통해 Claw에 접근</li>
+<li>개인 Gmail 계정에 액세스</li>
+<li>브라우저에서 Google 계정 설정을 여는 기능</li>
+</ul>
+<hr>
+<h2>6일차 달리기 방법</h2>
+<p>다음 순서로 파일을 살펴보세요.</p>
+<ol>
+<li>Gmail 앱 비밀번호 만들기</li>
+<li>채팅에서 <code>imap-smtp-email</code> 검사</li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-install-imap-smtp-email.md"><code>claw-instructions-install-imap-smtp-email.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-create-email-triage.md"><code>claw-instructions-create-email-triage.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-finalize-inbox.md"><code>claw-instructions-finalize-inbox.md</code></a></li>
+</ol>
+<p>이 순서가 중요합니다. </p>
+<p>이 날에는 4일차에 사용한 것과 동일한 크론 경로를 유지하세요. 이는 정확한 시간 아침 배송을 위해 Hostinger에 더 적합합니다.</p>
+<hr>
+<h2>1단계: Gmail 앱 비밀번호 만들기</h2>
+<p><a href="https://myaccount.google.com/apppasswords">앱 포스틱</a>를 엽니다.</p>
+<p>Google에서 먼저 다른 곳으로 보내는 경우 <a href="https://myaccount.google.com/security">2단계인증</a>을 사용 설정하고 앱 비밀번호 페이지로 돌아오세요. </p>
+<p>새 앱 비밀번호를 만드세요:</p>
+<ul>
+<li>앱 이름:<code>openclaw-imap</code></li>
+<li>Google이 생성한 16자리 비밀번호를 복사하세요.</li>
+</ul>
+<p>Google은 각 앱 비밀번호를 한 번씩 표시합니다. </p>
+<hr>
+<h2>2단계: <code>imap-smtp-email</code> 검사</h2>
+<p>다음 내용을 복사하여 OpenClaw 웹 채팅에 붙여넣으세요.</p>
+<blockquote><p>ClawHub에서 <code>imap-smtp-email</code>을 검사하고 그 기능, 필요한 Gmail 자격 증명, 구성 위치, 위험할 수 있는 항목, 해당 편지함 밖에만 6일차를 찾을 수 있는 방법을 일반 영어로 설명합니다. </blockquote>
+<p>여기서는 스킬이 이름과 일치하는지, 동작이 오늘의 경계에 맞는지 두 가지를 확인합니다. </p>
+<hr>
+<h2>3단계: <code>imap-smtp-email</code> 설치</h2>
+<p>검사가 만족스러우면 다음 내용을 복사하여 웹 채팅에 붙여넣으세요.</p>
+<blockquote><p><code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/claw-instructions-install-imap-smtp-email.md</code>을 이해하고 모든 단계를 추가하세요. </blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-install-imap-smtp-email.md">지침 파일</a>은 Claw에게 다음을 지시합니다.</p>
+<ul>
+<li>이 작업 공간에 <code>imap-smtp-email</code>을 설치하세요</li>
+<li>필요한 경우 Gmail 주소와 앱 비밀번호를 물어보세요.</li>
+<li><code>~/.config/imap-smtp-email/.env</code>에서 Gmail IMAP 측을 구성하십시오.</li>
+<li>8일차에는 SMTP 측을 떠나십시오.</li>
+<li>스킬과 구성이 어디에 있는지 알려주세요.</li>
+</ul>
+<p>이 단계를 마친 후 계속 진행하기 전에 OpenClaw에 <code>/new</code>을 입력하세요.</p>
+<hr>
+<h2>4단계: <code>email-triage</code> 생성</h2>
+<p>다음 내용을 복사하여 웹 채팅에 붙여넣으세요.</p>
+<blockquote><p><code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/claw-instructions-create-email-triage.md</code>을 이해하고 모든 단계를 추가하세요. </blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-create-email-triage.md">지침 파일</a>은 Claw에게 다음을 지시합니다.</p>
+<ul>
+<li><code>email-triage</code> 작업 공간 스킬 생성</li>
+<li>특정 이메일을 요청하지 않는 한 보낸 사람, 제목, 카테고리 및 개수에 대한 요약을 유지합니다.</li>
+<li>AGENTS.md에 <code>Email Security Protocols</code>을 추가하세요.</li>
+<li>아침에 반복되는 Gmail 크론 작업 만들기</li>
+</ul>
+<p>받은 편지함을 자신의 편지함처럼 느끼게 하는 레이어입니다. </p>
+<p>이 단계를 마친 후 계속 진행하기 전에 OpenClaw에 <code>/new</code>을 입력하세요.</p>
+<hr>
+<h2>5단계: 마무리 및 확인</h2>
+<p>다음 내용을 복사하여 웹 채팅에 붙여넣으세요.</p>
+<blockquote><p><code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/claw-instructions-finalize-inbox.md</code>을 이해하고 모든 단계를 추가하세요. </blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./claw-instructions-finalize-inbox.md">지침 파일</a>은 다음을 알려줍니다.</p>
+<ul>
+<li>Gmail IMAP 설정이 존재하는지 확인하세요</li>
+<li>6일차 받은 편지함 읽기에 'CODE0'이 사용 가능한지 확인하세요.</li>
+<li><code>email-triage</code>, AGENTS.md 및 아침 크론 작업이 있는지 확인하세요.</li>
+<li>확인 결과를 PASS 또는 FAIL로 보고합니다.</li>
+</ul>
+<hr>
+<h2>6일차 이후에는 무엇이 사실이어야 할까요?</h2>
+<ul>
+<li><input disabled="" type="checkbox"> A personal Gmail App Password was created</li>
+<li><input 비활성화="" type="checkbox"> 설치 전 <code>imap-smtp-email</code>을 검사했습니다.</li>
+<li><input disabled="" type="checkbox"> <code>imap-smtp-email</code> was installed from ClawHub for this workspace</li>
+<li><input disabled="" type="checkbox"> Gmail IMAP settings were stored in <code>~/.config/imap-smtp-email/.env</code></li>
+<li><input disabled="" type="checkbox"> <code>~/.config/imap-smtp-email/.env</code> permissions are owner-only</li>
+<li><input disabled="" type="checkbox"> SMTP settings are still left for Day 8</li>
+<li><input 비활성화="" type="checkbox"> <code>email-triage</code>이 작업 공간 스킬로 존재합니다.</li>
+<li><input 비활성화="" type="checkbox"> AGENTS.md에는 이메일 보안 프로토콜이 포함되어 있습니다.</li>
+<li><input 비활성화="" type="checkbox"> 아침 Gmail 요약에 대한 반복 크론 작업이 있습니다.</li>
+<li><input 비활성화="" type="checkbox"> 크론 작업 일정이 선택한 아침 시간과 일치합니다.</li>
+<li><input 비활성화="" type="checkbox"> 크론 작업 시간대가 귀하의 시간대와 일치합니다.</li>
+<li><input 비활성화="" type="checkbox"> Claw는 구조화된 Gmail 분류 요약을 반환할 수 있습니다.</li>
+<li><input 비활성화="" type="checkbox"> Claw가 프롬프트 주입 텍스트를 따르는 대신 플래그를 지정합니다.</li>
+</ul>
+<hr>
+<h2>문제 해결</h2>
+<p><strong>Google 계정에서 앱 비밀번호를 찾을 수 없습니다.</strong><br>공식 Google 도움말 페이지(<a href="https://support.google.com/accounts/answer/185833">앱 포스트로 로그인</a>)를 확인하세요. </p>
+<p><strong>Gmail에서 비밀번호가 잘못되었다고 합니다.</strong><br>일반 Gmail 비밀번호가 아닌 16자리 앱 ​​비밀번호를 사용하세요. </p>
+<p><strong>스킬은 Gmail을 읽을 수 있지만 전송 측도 구성된 것처럼 보입니다.</strong><br>6일차에는 SMTP가 범위를 벗어납니다. </p>
+<p><strong>요약에 이메일 본문 텍스트가 너무 많이 표시됩니다.</strong><br>특정 이메일을 요청하지 않는 한 요약이 보낸 사람, 제목, 카테고리 및 개수에 머물도록 Claw에 'CODE0' 기능을 강화하도록 요청하세요.</p>
+<p><strong>아침 요약이 도착하지 않습니다</strong><br>Claw에게 크론 작업 일정, 시간대, 세션 대상, 텔레그램 전달 대상을 함께 검사하도록 요청하세요. </p>
+<p><strong>중복된 아침 요약을 받기 시작합니다.</strong><br>Claw에 활성 크론 작업 목록을 요청하고 비활성화하거나 제거해야 하는 오래된 아침 요약 작업을 찾으세요.</p>
+<p><strong>새 기술이 아직 활성화되지 않은 것 같습니다.</strong><br>테스트하기 전에 OpenClaw에 <code>/new</code>을 입력하세요. </p>
+<hr>
+<h2>검증하다</h2>
+<p>OpenClaw에 먼저 <code>/new</code>을 입력하세요.</p>
+<p>그런 다음 클로에게 물어보세요.</p>
+<pre><code class="언어-text">방금 생성한 아침 Gmail 크론 작업(일정, 시간대, 세션 대상 및 전달 위치)을 알려주십시오.
+</p>
+<p>그런 다음 클로에게 물어보세요.</p>
+<pre><code class="언어-text">Gmail 받은편지함을 스캔하여 지난 48시간 동안의 분류 요약을 알려주세요.
+</p>
+<ul>
+<li>네 가지 카테고리를 사용하세요</li>
+<li>긴급 및 중요에 대한 발신자와 제목 표시</li>
+<li>전체 본문 텍스트를 제외하세요</li>
+<li>실행 대신 요약에 머물다</li>
+</ul>
+<p>그런 다음 Claw가 마무리 단계에서 제공하는 주입 테스트를 실행하세요.</p>
+<hr>
+<h2>빠른 승리</h2>
+<p>텔레그램에서 다음을 보내세요:</p>
+<pre><code class="언어-text">내 Gmail을 확인하고 오늘 주의가 필요한 사항만 알려주세요.
+</p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-06-tame-your-inbox/./learn.md">??6일차 학습</a> | </p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

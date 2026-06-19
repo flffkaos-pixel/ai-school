@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Part 3: what are tools in ai — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Part 3: What are Tools in AI?</h1>
+<p>In the previous part, we talked about different types of agents, from rule-based to fully autonomous, and how the right level of autonomy depends on the problem you&#39;re solving.</p>
+<p>But here&#39;s a shared trait across all agent types, no matter how simple or complex:</p>
+<blockquote>
+<p><strong>They rely on tools to perform actions.</strong></p>
+</blockquote>
+<hr>
+<h2>What Are ?쏷ools??in AI?</h2>
+<p>In the context of agentic AI, tools are external capabilities the LLM can invoke, things like:  </p>
+<ul>
+<li>APIs  </li>
+<li>Database queries  </li>
+<li>Internal services  </li>
+<li>Third-party systems  </li>
+<li>Internal functions written in code</li>
+</ul>
+<p>They turn the LLM from something that just <strong>talks</strong> into something that can <strong>act</strong>.</p>
+<p>Remember, LLMs on their own are <strong>stateless</strong>, have <strong>no access to real-time systems</strong>, and <strong>can?셳 take action</strong>.</p>
+<hr>
+<h2>But Give Them Tools, and They Can:</h2>
+<ul>
+<li>Fetch data from your internal systems  </li>
+<li>Trigger events (e.g., send an email, create a JIRA ticket)  </li>
+<li>Access structured data like calendars, dashboards, or CRMs  </li>
+<li>Run pre-written logic based on business rules</li>
+</ul>
+<p>This is how <strong>generation turns into execution</strong>.</p>
+<hr>
+<h2>Why Tools Matter</h2>
+<ol>
+<li><p><strong>They unlock execution</strong><br>Without tools, your agent is just an assistant that makes suggestions.<br>With tools, it can complete workflows end-to-end.</p>
+</li>
+<li><p><strong>They increase precision</strong><br>Rather than hallucinating, the LLM can ask the right system directly ??br>?쏻hat?셲 the actual order status???instead of making up a delay reason.</p>
+</li>
+<li><p><strong>They let you control risk</strong><br>You define what?셲 exposed. The LLM can?셳 do anything outside of the tools you register.</p>
+</li>
+<li><p><strong>They enable composability</strong><br>If you want to combine your CRM, calendar, and email stack into one assistant,<br>you can expose each of those as tools and let the LLM orchestrate them.</p>
+</li>
+</ol>
+<hr>
+<h2>Step-by-Step Example: End-to-End Agent Task Using Tools</h2>
+<p><strong>Task:</strong>  </p>
+<blockquote>
+<p>?쏧nform a customer that their order is delayed and offer a new delivery time.??/p>
+</blockquote>
+<p><strong>Here?셲 how the system works with tools:</strong></p>
+<p><strong>Input</strong> ??A human types:<br><em>?쏦ey, can you let John know his order is delayed and reschedule it for tomorrow???/em></p>
+<p><strong>Planning</strong> ??The LLM breaks it down:  </p>
+<ul>
+<li>Check the order status  </li>
+<li>If delayed, check delivery slots  </li>
+<li>Draft an email  </li>
+<li>Send the email  </li>
+<li>Log the interaction</li>
+</ul>
+<p><strong>Tool calls:</strong>  </p>
+<pre><code class="language-text">get_order_status(order_id=12345)
+get_available_slots(date=today+1)
+send_email(to=john@example.com, content=...)
+log_event(event_type=&quot;reschedule&quot;, status=&quot;completed&quot;)
+</code></pre>
+<p><strong>Text generation</strong> ??The LLM composes the message:<br><em>?쏦i John, just letting you know your order has been delayed. We?셶e rescheduled it for tomorrow. Thanks for your patience.??/em></p>
+<p><strong>Execution</strong> ??The system runs the actions, logs the output, and optionally sends a status update to a dashboard.</p>
+<hr>
+<h2>How This Works (Visual)</h2>
+<img width="808" height="357" alt="image" src="https://github.com/user-attachments/assets/f7ce3097-873f-4519-b7ba-30b80785deae" /><p>Here?셲 what?셲 happening:</p>
+<ol>
+<li>The user asks a question or gives a task.  </li>
+<li>The LLM understands what needs to be done and plans its next step.  </li>
+<li>A parser converts the LLM?셲 idea into a structured format (like <code>get_order_status(order_id=12345)</code>).  </li>
+<li>The agent calls the right tool ??API, database query, or internal function.  </li>
+<li>The tool returns a result ??this is called an <strong>observation</strong>.  </li>
+<li>The LLM looks at the result, decides what?셲 missing or what comes next.  </li>
+<li>This loop continues until it has enough to generate the final answer or complete the task.</li>
+</ol>
+<p>The LLM is using each tool?셲 result to guide its next decision.</p>
+<hr>
+<p><strong>Key reminder:</strong><br>The LLM itself is still just generating text.<br>That text is structured into tool calls, executed externally, and the results are fed back into the LLM ??creating a loop of reasoning, action, and reflection (<strong>a.k.a. an agent</strong>).</p>
+<p>This structure is used by frameworks like <strong>LangChain</strong>, <strong>CrewAI</strong>, <strong>AutoGen</strong>, and even custom orchestration setups in production teams.</p>
+<hr>
+<h2>What Makes a Tool Usable by an LLM?</h2>
+<p>To register a tool with an agent system, you typically define:  </p>
+<ul>
+<li><strong>Name</strong> (e.g., <code>create_meeting</code>)  </li>
+<li><strong>Description</strong> (so the model knows when to use it)  </li>
+<li><strong>Input parameters</strong> (and types)  </li>
+<li><strong>Output structure</strong> (so the model can use the result)</li>
+</ul>
+<p>This metadata is what allows the LLM to reason about which tool to use and how.</p>
+<hr>
+<h2>A Note on Parsing and Structured Outputs</h2>
+<p>The parser plays a key role in converting the LLM?셲 response into a structured tool call ??something the system can reliably execute (like <code>get_order_status(order_id=12345)</code>).</p>
+<p>But in many modern setups, you don?셳 always need a separate parser.<br>Most popular LLMs, especially those designed for tool use, can directly produce structured outputs ??like JSON or function calls ??that can be consumed by your backend as-is.</p>
+<p>Similarly, well-designed tools return structured data, making it easier for the LLM to reason about what to do next.</p>
+<p><strong>The structure on both sides</strong> (input and output) is what makes agent loops <strong>robust, traceable, and production-grade</strong>.</p>
+<hr>
+<h2>The Takeaway</h2>
+<p>A lot of this will feel familiar if you&#39;ve built or worked with APIs before.<br>But if you&#39;re not from that world, don?셳 overthink the wiring.</p>
+<p>Just remember this:  </p>
+<blockquote>
+<p>AI models on their own can <strong>understand</strong> and <strong>generate</strong>.<br>When they?셱e connected to software, tools, APIs, and internal systems ??they can actually <strong>do things</strong>.</p>
+</blockquote>
+<hr>
+<p>In the next part, we?셪l learn about <strong>Retrieval-Augmented Generation (RAG)</strong> ??what it is, when to use it, and how it fits naturally into agentic pipelines as a memory or context layer.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../js/main.js"></script>
+</body>
+</html>

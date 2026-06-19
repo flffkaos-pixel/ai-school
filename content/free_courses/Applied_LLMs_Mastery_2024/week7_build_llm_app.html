@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Week 7: build llm app — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>[7주차] 나만의 LLM 지원서 만들기</h1>
+<h2>ETMI5: 5에서 설명해주세요</h2>
+<p>과정의 이전 부분에서는 프롬프트, RAG 및 미세 조정과 같은 기술을 다루었습니다. 이 섹션에서는 LLM을 응용 프로그램 개발에 사용할 수 있는 방법을 보여주기 위해 실용적인 실습 접근 방식을 채택합니다. </p>
+<h2>소개</h2>
+<p>LLM이 점점 보편화됨에 따라 이제 LLM을 활용하는 방법도 다양해졌습니다. </p>
+<p>이 가이드는 간단한 적용을 통해 기본 요소를 익히는 것을 목표로 기본 사항을 다루도록 설계되었습니다. </p>
+<p>모든 섹션에서는 구성요소를 설명할 뿐만 아니라 자체 구현을 개발하는 데 도움이 되는 코드 샘플을 찾을 수 있는 리소스도 제공합니다. </p>
+<p>각 섹션을 탐색하면서 구성 요소로 앱을 빌드하는 데 도움이 되는 몇 가지 리소스를 선택하고 계속 진행하세요.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-resources/main/free_courses/Applied_LLMs_Mastery_2024/img/llm_app_steps.png" alt="llm_app_steps.png"></p>
+<h2>1. 간단한 LLM 앱(프롬프트 + LLM)</h2>
+<p><strong>프롬프트:</strong> 이 맥락에서 프롬프트는 기본적으로 모델이 응답을 생성하도록 안내하는 신중하게 구성된 요청 또는 지침입니다. </p>
+<p>LLM 애플리케이션 개발의 기본 측면은 사용자 정의 프롬프트와 LLM 자체 간의 상호 작용입니다. </p>
+<pre><code class="언어-python"># 자리 표시자로 프롬프트 템플릿 정의
+</p>
+<h3>리소스/코드</h3>
+<ol>
+<li>[<strong>문서/코드</strong>] 간단한 LLM 애플리케이션을 위한 LangChain 요리책(<a href="https://python.langchain.com/docs/expression_언어/cookbook/prompt_llm_parser">링크</a>)</li>
+<li>[<strong>동영상</strong>] AI Jason의 5분 만에 Hugging Face + LangChain(<a href="https://www.youtube.com/watch?v=_j7JEDWuqLE">링크</a>)</li>
+<li>[<strong>문서/코드</strong>] LlamaIndex와 함께 LLM 사용하기(<a href="https://docs.llamaindex.ai/en/stable/understanding/using_llms/using_llms.html">링크</a>)</li>
+<li>[<strong>블로그</strong>] Leonie Monigatti의 LangChain 시작하기(<a href="https://towardsdatascience.com/getting-started-with-langchain-a-beginners-guide-to-building-llm-powered-applications-95fc8898732c">링크</a>)</li>
+<li>[<strong>노트북</strong>] LearnDataWithMark의 노트북에서 LLM 실행(<a href="https://github.com/mneedham/LearnDataWithMark/blob/main/llm-own-laptop/notebooks/LLMOwnLaptop.ipynb">링크</a>)</li>
+</ol>
+<hr>
+<h2>2. 프롬프트 체인 연결(프롬프트 체인 + LLM)</h2>
+<p>프롬프트 템플릿을 활용하고 LLM을 호출하는 것이 효과적이지만 때로는 다음 질문을 하기 위해 이전에 얻은 답변을 사용하여 LLM에 여러 질문을 차례로 질문해야 할 수도 있습니다. </p>
+<p>LangChain은 LLM 응용 프로그램 작성을 위해 널리 사용되는 라이브러리로 등장하여 LLM을 통해 여러 질문과 답변을 연결하여 단일 최종 응답을 생성할 수 있습니다. </p>
+<pre><code class="언어-python">prompt1 ="{질문}에 관한 다음 질문은 어떤 주제입니까?"
+</p>
+<p>RAG(Retrieval-Augmented Generation)는 LLM에게 답변하기 전에 확인할 개인 라이브러리를 제공하는 것과 같습니다. </p>
+<p>LLM 및 프롬프트를 넘어서 RAG(Retrieval-Augmented Generation)를 구현하려면 다음과 같은 기술 요소가 필요합니다.</p>
+<p><strong>지식 기반, 특히 벡터 데이터베이스</strong></p>
+<p>시스템이 정보를 찾기 위해 활용할 수 있는 문서, 기사 또는 데이터 항목의 포괄적인 모음입니다. </p>
+<p>벡터화된 지식 기반을 갖는 목적은 효율적인 유사성 검색을 가능하게 하는 것입니다. </p>
+<p><strong>검색 구성요소</strong></p>
+<p>검색 구성 요소는 사용자의 쿼리와 관련된 정보를 찾기 위해 지식 기반의 실제 검색을 수행하는 엔진입니다. </p>
+<ol>
+<li><strong>쿼리 인코딩:</strong> 지식 베이스를 벡터화하는 데 사용된 것과 동일한 모델이나 방법을 사용하여 사용자의 쿼리를 벡터로 변환합니다. </li>
+<li><strong>유사성 검색:</strong> 쿼리가 벡터화되면 검색 구성요소는 벡터 데이터베이스에서 가장 가까운 벡터를 검색합니다. </li>
+<li><strong>정보 검색:</strong> 가장 가까운 벡터를 식별한 후 검색 구성요소는 지식 베이스에서 해당 항목을 가져옵니다. </li>
+<li><strong>집계(선택사항):</strong> 일부 구현에서는 검색 구성요소가 여러 소스의 정보를 집계하거나 요약하여 통합 응답을 제공할 수도 있습니다. </li>
+</ol>
+<p>RAG 프레임워크에서는 검색 구성 요소의 출력(즉, 검색된 정보)이 원본 쿼리와 함께 LLM에 제공됩니다. </p>
+<p>By combining a vectorized knowledge base with an efficient retrieval mechanism, RAG systems can provide answers that are both highly relevant and deeply informed by a wide array of sources. This approach is particularly useful in applications requiring up-to-date information, domain-specific knowledge, or detailed explanations that go beyond the pre-existing knowledge of an LLM.</p>
+<p>LangChain과 같은 프레임워크는 이미 RAG 프레임워크를 구축하기 위한 좋은 추상화를 갖추고 있습니다.</p>
+<p>A simple example from LangChain is shown <a href="https://python.langchain.com/docs/expression_language/cookbook/retrieval">여기</a></p>
+<h3>리소스/코드</h3>
+<ol>
+<li>[<strong>문서</strong>] Dominik Polzer의 첫 번째 LLM 앱을 구축하기 위해 알아야 할 모든 것(<a href="https://towardsdatascience.com/all-you-need-to-know-to-build-your-first-llm-app-eb982c78ffac">링크</a>)</li>
+<li>[<strong>동영상</strong>] LangChain의 RAG from Scratch 시리즈(<a href="https://www.youtube.com/watch?v=wd7TZ4w1mSw&list=PLfaIDFEXuae2LXbO1_PKyVJiQ23ZztA0x">링크</a>)</li>
+<li>[<strong>동영상</strong>] LlamaIndex를 사용한 검색 증강 생성에 대한 심층 분석(<a href="https://www.youtube.com/watch?v=Y0FL7BcSigI&t=3s">링크</a>)</li>
+<li>[<strong>노트북</strong>] Amazon Bedrock Titan 텍스트와 함께 LangChain을 사용하는 RAG 및 OpenSearch 벡터 엔진 노트북을 사용하여 삽입(<a href="https://github.com/aws-samples/rag-using-langchain-amazon-bedrock-and-opensearch">링크</a>)</li>
+<li>[<strong>동영상</strong>] LangChain - 충돌 코스 코딩을 통한 더 나은 검색 성능을 위한 고급 RAG 기술(<a href="https://www.youtube.com/watch?v=KQjZ68mToWo">링크</a>)</li>
+<li>[<strong>동영상</strong>] RAG를 사용한 챗봇: James Briggs의 LangChain 전체 연습(<a href="https://www.youtube.com/watch?v=LhnCsygAvzY&t=11s">링크</a>)</li>
+</ol>
+<hr>
+<h2><strong>4. </h2>
+<p>We&#39;ve explored chaining and incorporating knowledge. Now, consider the scenario where we need to remember past interactions in lengthy conversations with the LLM, where previous dialogues play a role.</p>
+<p>This is where the concept of Memory comes into play as a vital component. Memory mechanisms, such as those available on platforms like LangChain, enable the storage of conversation history. For example, LangChain&#39;s ConversationBufferMemory feature allows for the preservation of messages, which can then be retrieved and used as context in subsequent interactions. You can discover more about these memory abstractions and their applications on LangChain&#39;s <a href="https://python.langchain.com/docs/modules/memory/types/">선적 서류 비치</a>.</p>
+<h3>리소스/코드</h3>
+<ol>
+<li>[<strong>기사</strong>] Pinecone의 LangChain을 사용한 LLM용 대화 메모리(<a href="https://www.pinecone.io/learn/series/langchain/langchain-conversational-memory/">링크</a>)</li>
+<li>[<strong>블로그</strong>] 채팅 LLM 모델에 메모리를 추가하는 방법 작성자: Nikolay Penkov(<a href="https://medium.com/@penkow/how-to-add-memory-to-a-chat-llm-model-34e024b63e0c">링크</a>)</li>
+<li>[<strong>문서</strong>] LlamaIndex 문서의 메모리(<a href="https://docs.llamaindex.ai/en/latest/api_reference/memory.html">링크</a>)</li>
+<li>[<strong>동영상</strong>] LangChain: 프롬프트 엔지니어링을 통해 LLM에 메모리 제공(<a href="https://www.youtube.com/watch?v=dxO6pzlgJiY">링크</a>)</li>
+<li>[<strong>동영상</strong>] 메모리를 갖춘 LangChain 맞춤형 의료 에이전트 구축(<a href="https://www.youtube.com/watch?v=6UFtRwWnHws">링크</a>)</li>
+</ol>
+<hr>
+<h2><strong>5. </h2>
+<p>여행 계획자와 같은 LLM 애플리케이션 내에서 목적지나 명소의 가용성이 계절별 개장 여부에 따라 달라지는 시나리오를 생각해 보세요. </p>
+<p>LangChain과 같은 프레임워크에서는 이러한 외부 도구 통합이 API, 데이터 소스 및 기타 도구와 같은 새로운 요소를 원활하게 통합할 수 있는 체인 프레임워크를 통해 간소화됩니다.</p>
+<h3>리소스/코드</h3>
+<ol>
+<li>[<strong>문서/코드</strong>] LangChain의 LLM 도구 목록(<a href="https://python.langchain.com/docs/integrations/tools">링크</a>)</li>
+<li>[<strong>문서/코드</strong>]LlamaIndex의 도구(<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/root.html">링크</a>)</li>
+<li>[<strong>동영상</strong>] Sam Witteveen의 LangChain을 사용한 맞춤 도구 및 에이전트 구축(<a href="https://www.youtube.com/watch?v=biS8G8x8DdA">링크</a>)</li>
+</ol>
+<hr>
+<h2><strong>6. </h2>
+<p>이전 섹션에서는 도구 및 메모리와 같은 복잡한 LLM 구성 요소를 살펴보았습니다. </p>
+<p>LLM 에이전트는 바로 이 작업을 수행하며 LLM을 계획, 메모리 및 도구 사용과 같은 다른 모듈과 결합하여 복잡한 작업을 수행하도록 설계된 시스템입니다. </p>
+<p>예를 들어, LLM 에이전트가 재무 계획을 지원하기를 원하는 시나리오를 생각해 보세요. </p>
+<p>이 작업을 수행하기 위해 에이전트는 먼저 메모리 모듈을 활용하여 개인의 지출, 수입원 및 재정적 목표에 관해 저장된 데이터에 액세스합니다. </p>
+<ol>
+<li><strong>데이터 분석</strong>: 에이전트는 외부 도구를 사용하여 재무 데이터를 처리하고, 비용을 분류하고, 추세를 파악하고, 총 지출, 저축률, 지출 분포와 같은 주요 측정항목을 계산합니다.</li>
+<li><strong>예산 평가</strong>: LLM 에이전트는 분석된 데이터를 기반으로 개인의 재무 목표를 달성하는 데 있어 현재 예산의 효율성을 평가합니다. </li>
+<li><strong>추천 생성</strong>: 에이전트는 재무 원칙과 최적화 전략에 대한 이해를 활용하여 개인의 재무 건전성을 개선하기 위한 맞춤 추천을 작성합니다. </li>
+<li><strong>커뮤니케이션</strong>: 마지막으로 LLM 에이전트는 자연어 생성 기능을 사용하여 각 제안의 근거와 잠재적 이점을 설명함으로써 명확하고 이해하기 쉬운 방식으로 사용자에게 권장 사항을 전달합니다.</li>
+</ol>
+<p>이 프로세스 전반에 걸쳐 LLM 에이전트는 의사 결정 능력을 외부 도구, 메모리 저장소 및 계획 메커니즘과 원활하게 통합하여 사용자의 재정 상황에 맞는 실행 가능한 통찰력을 제공합니다.</p>
+<p>Here&#39;s how LLM agents combine various components to make decisions:</p>
+<ol>
+<li><strong>언어 모델(LLM)</strong>: LLM은 에이전트의 중앙 컨트롤러 또는 '브레인' 역할을 합니다. </li>
+<li><strong>주요 모듈</strong>:<ul>
+</li>
+<li><strong>메모리</strong>: 메모리 모듈을 사용하면 에이전트가 현재 작업과 관련된 정보를 저장하고 검색할 수 있습니다. </li>
+<li><strong>도구 사용</strong>: 에이전트는 외부 도구나 API를 활용하여 데이터를 수집하고 계산을 수행하거나 출력을 생성할 수 있습니다. </li>
+</ul>
+</li>
+</ol>
+<p>기존 프레임워크는 에이전트 구성을 위한 내장 모듈과 추상화를 제공합니다. </p>
+<h3>리소스/코드</h3>
+<ol>
+<li>[<strong>문서/코드</strong>] LangChain의 에이전트(<a href="https://python.langchain.com/docs/modules/agents/">링크</a>)</li>
+<li>[<strong>문서/코드</strong>] LlamaIndex의 에이전트(<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/root.html">링크</a>)</li>
+<li>[<strong>동영상</strong>] LangChain 에이전트 - Sam Witteveen의 결정에 따라 도구 및 체인 가입(<a href="https://www.youtube.com/watch?v=ziu87EXZVUE&t=59s">링크</a>)</li>
+<li>[<strong>문서</strong>] Nvidia의 첫 번째 LLM 에이전트 애플리케이션 구축(<a href="https://developer.nvidia.com/blog/building-your-first-llm-agent-application">링크</a>)</li>
+<li>[<strong>동영상</strong>] OpenAI 기능 + LangChain: 다중 도구 에이전트 구축 - Sam Witteveen(<a href="https://www.youtube.com/watch?v=4KXK6c6TVXQ">링크</a>)</li>
+</ol>
+<hr>
+<h2><strong>7. </h2>
+<p>이전 섹션에서는 추가 구성 요소와 함께 사전 훈련된 LLM을 사용하는 방법을 살펴보았습니다. </p>
+<p>다양한 플랫폼이 미세 조정 기능을 제공하지만, 미세 조정에는 원하는 주제에 대한 정보를 이해하고 생성하기 위한 모델 교육이 포함되므로 단순히 LLM의 응답을 이끌어내는 것보다 더 많은 리소스가 필요하다는 점에 유의하는 것이 중요합니다.</p>
+<h3>리소스/코드</h3>
+<ol>
+<li>[<strong>기사</strong>] philschmid의 Hugging Face를 통해 2024년 LLM을 미세 조정하는 방법(<a href="https://www.philschmid.de/fine-tune-llms-in-2024-with-trl">링크</a>)</li>
+<li>[<strong>동영상</strong>] LLM(대형 언어 모델) 미세 조정 | </li>
+<li>[<strong>동영상</strong>] Sam Witteveen의 PEFT 및 LoRA를 사용한 LLM 미세 조정(<a href="https://www.youtube.com/watch?v=Us5ZFp16PaU&t=261s">링크</a>)</li>
+<li>[<strong>동영상</strong>] LLM 미세 조정 집중 과정: AI Anytime의 1시간 종합 가이드(<a href="https://www.youtube.com/watch?v=mrKuDK9dGlg">링크</a>)</li>
+<li>[<strong>문서</strong>] 가중치와 편향을 기준으로 LLM 계열을 미세 조정하는 방법(<a href="https://wandb.ai/capecape/alpaca_ft/reports/How-to-Fine-Tune-an-LLM-Part-1-Preparing-a-Dataset-for-Instruction-Tuning--Vmlldzo1NTcxNzE2">링크</a>)</li>
+</ol>
+<hr>
+<h2>다음 리소스 읽기/보기(선택 사항)</h2>
+<ol>
+<li>aishwaryanr의 LLM 노트북 목록(<a href="https://github.com/aishwaryanr/awesome-generative-ai-guide?tab=readme-ov-file#notebook-code-notebooks">링크</a>)</li>
+<li>Sam Witteveen의 LangChain 방법 및 가이드(<a href="https://www.youtube.com/watch?v=J_0qvRt4LNk&list=PL8motc6AQftk1Bs42EW45kwYbyJ4jOdiZ">링크</a>)</li>
+<li>초보자를 위한 LangChain 집중 강좌 | </li>
+<li>LangChain 시리즈로 구축(<a href="https://www.youtube.com/watch?v=mmBo8nlu2j0&list=PLfaIDFEXuae06tclDATrMYY0idsTdLg9v">링크</a>)</li>
+<li>Maxime Labonne의 LLM 실습 과정(<a href="https://github.com/mlabonne/llm-course">링크</a>)</li>
+</ol>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../js/main.js"></script>
+</body>
+</html>

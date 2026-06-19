@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Build — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>9일차 빌드: 팀 제공</h1>
+<p>이것은 9일차에 대한 사용자용 가이드입니다. 전체 강의 동안 OpenClaw 채팅에 참여하세요. </p>
+<hr>
+<h2>시작하기 전에 필요한 것</h2>
+<ul>
+<li>1일차 완료: OpenClaw 설치 및 보안</li>
+<li>2일차 완료: ID 파일이 생성되고 올바르게 로드됨</li>
+<li>3일차 완료: 텔레그램 연결 및 작동 중</li>
+<li>4일차 완료: 사전 예방적 워크플로가 이미 존재합니다.</li>
+<li>5일차 완료: 기술이 작동 중입니다.</li>
+<li>6일차 완료: 이메일 분류가 작동 중입니다.</li>
+<li>7일차 완료: 웹 검색이 작동 중입니다.</li>
+<li>8일차 완료: 승인이 포함된 아웃바운드 이메일이 작동 중입니다.</li>
+<li>웹 채팅을 통해 OpenClaw에 접근</li>
+</ul>
+<hr>
+<h2>9일차를 달리는 방법</h2>
+<p>다음 순서대로 단계를 진행하세요.</p>
+<ol>
+<li>채팅에서 작가 모델을 확인하세요</li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/./claw-instructions-create-writer-agent.md"><code>claw-instructions-create-writer-agent.md</code></a></li>
+<li><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/./claw-instructions-enable-teamwork.md"><code>claw-instructions-enable-teamwork.md</code></a></li>
+<li>작성자 및 위임 확인 실행</li>
+</ol>
+<p>이 순서는 설정을 명확하게 유지합니다. </p>
+<hr>
+<h2>1단계: 작성자 모델 확인</h2>
+<p>다음 내용을 복사하여 웹 채팅에 붙여넣으세요.</p>
+<blockquote><p>무엇이든 하기 변경하기 때문에 현재 설정을 검사하고 기본 Claw가 어떤 기본 모델을 사용하고 있는지, 작성자가 <code>gpt-5.4</code>, <code>claude-sonnet-4.6</code> 또는 <code>Gemini 3 Flash</code>를 포함한다고 합니다. </blockquote>
+<p>이는 새 에이전트가 존재하기 전에 모델 결정을 명시적으로 만듭니다. </p>
+<hr>
+<h2>2단계: <code>writer</code> 생성</h2>
+<p>계획이 만족스러우면 다음 내용을 복사하여 웹 채팅에 붙여넣으세요.</p>
+<blockquote><p><code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/claw-instructions-create-writer-agent.md</code>을 이해하고 모든 단계를 추가하세요. </blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/./claw-instructions-create-writer-agent.md"><code>claw-instructions-create-writer-agent.md</code></a>은 Claw에게 다음을 지시합니다.</p>
+<ul>
+<li>현재 구성 및 기본 ID 파일을 먼저 검사하십시오.</li>
+<li>주제, 청중, 목소리에 관해 몇 가지 짧은 질문을 해보세요.</li>
+<li>자체 작업 공간을 사용하여 <code>writer</code>이라는 이름의 에이전트를 만듭니다.</li>
+<li>자세한 <code>SOUL.md</code>과 범위가 지정된 <code>USER.md</code>, <code>AGENTS.md</code> 및 시작 <code>MEMORY.md</code>을 작성하세요.</li>
+<li>기본 설정에서 이미 실행 중인 모델 계열을 기반으로 <code>gpt-5.4</code>, <code>claude-sonnet-4.6</code> 또는 <code>Gemini 3 Flash</code>를 선택합니다.</li>
+</ul>
+<p>작가 'CODE0'의 디테일이 포인트다. </p>
+<hr>
+<h2>3단계: 팀 연결</h2>
+<p><code>writer</code>이 생성된 후 이를 복사하여 웹 채팅에 붙여넣습니다.</p>
+<blockquote><p><code>https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/claw-instructions-enable-teamwork.md</code>을 이해하고 모든 단계를 추가하세요. </blockquote>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/./claw-instructions-enable-teamwork.md"><code>claw-instructions-enable-teamwork.md</code></a>은 Claw에게 다음을 지시합니다.</p>
+<ul>
+<li><code>main</code>과 <code>writer</code> 사이에서만 에이전트 간 통신을 활성화합니다.</li>
+<li>기본 작업 공간 `CODE0`에 짧은 위임 규칙 하나를 추가하세요.</li>
+<li>무엇이 변경되었는지, 무엇이든 다시 로드해야 했는지 정확하게 보고하세요.</li>
+</ul>
+<p>이를 통해 책임이 명확해집니다. </p>
+<hr>
+<h2>중요: 작성기를 실행하기 전에 이 내용을 읽으십시오.</h2>
+<p>아래 검사를 실행하기 전에 여기에서 일시 중지하세요. </p>
+<p>대화를 복구하려면 채팅 창 상단에 있는 세션 전환기를 사용하세요.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/../../diagrams/day-09-subagents-section-toggle.png" alt="Session switcher for main and sub-agents"></p>
+<p>작성자 또는 위임 실행 후 채팅이 중단되는 경우:</p>
+<ul>
+<li>채팅창 상단에서 세션 전환기를 엽니다.</li>
+<li>다른 에이전트 또는 하위 에이전트를 클릭하세요.</li>
+<li>다시 <code>main</code>을 클릭하세요</li>
+<li>거기서부터 대화를 계속해</li>
+</ul>
+<p>아래 점검을 시작하기 전에 이 점을 염두에 두십시오. </p>
+<hr>
+<h2>9일차 이후에는 무엇이 사실이어야 할까요?</h2>
+<h3>지정 대리인</h3>
+<ul>
+<li><input 비활성화="" type="checkbox"> <code>writer</code>이라는 에이전트가 존재합니다.</li>
+<li><input 비활성화="" type="checkbox"> 작성자는 기본 설정과 동일한 공급자 제품군에서 선택한 <code>gpt-5.4</code>, <code>claude-sonnet-4.6</code> 또는 <code>Gemini 3 Flash</code>를 사용합니다.</li>
+<li><input 비활성화="" type="checkbox"> 작성기 작업공간에는 긴 형식의 쓰기에 맞게 조정된 자세한 <code>SOUL.md</code>이 있습니다.</li>
+<li><input 비활성화="" type="checkbox"> 작성기 작업공간에는 <code>USER.md</code>, <code>AGENTS.md</code>, <code>MEMORY.md</code>가 있습니다.</li>
+<li><input 비활성화="" type="checkbox"> <code>main</code>과 <code>writer</code> 사이에 에이전트 간 통신이 활성화되어 있습니다.</li>
+<li><input 비활성화="" type="checkbox"> 기본 작업공간에는 장문 쓰기에 대한 짧은 위임 규칙이 있습니다.</li>
+<li><input 비활성화="" type="checkbox"> 작성자 전용 테스트를 통해 설득력 있는 초안이 생성되었습니다.</li>
+<li><input 비활성화="" type="checkbox"> 위임된 초안이 기본 Claw를 통해 돌아왔습니다.</li>
+<li><input 비활성화="" type="checkbox"> 수정 요청이 작성자를 통해 왕복되었습니다.</li>
+</ul>
+<hr>
+<h2>문제 해결</h2>
+<p><strong>메인 Claw는 초안 자체를 작성합니다.</strong><br>보다 직접적으로 질문하십시오: <code>Use the writer agent for this draft.</code> 여전히 해당 부분 자체를 작성하는 경우, 메인 작업공간 <code>AGENTS.md</code>에 추가한 긴 형식 위임 규칙을 보여달라고 요청하십시오.</p>
+<p><strong>작가가 일반적으로 들립니다.</strong><br>Claw에게 작가 <code>SOUL.md</code>을 보여달라고 요청하고 음성 섹션을 조여보세요. </p>
+<p><strong>작성기 에이전트가 아직 인터페이스에 나타나지 않습니다.</strong><br>9일차 설정이 완전히 다시 로드되었는지, 작성기 작업공간이 생성된 위치가 무엇인지 기본 Claw에 문의하세요.</p>
+<p><strong>위임 실패</strong><br>Claw에 현재 에이전트 간 허용 목록을 검사하고 <code>main</code>에서 <code>writer</code> 연결만 수정하도록 요청하세요.</p>
+<p><strong>작성기 실행 후 채팅에서 후속 메시지 수신이 중지됩니다.</strong><br>채팅 창 상단에 있는 세션 전환기를 사용하세요. </p>
+<p><strong>비용이 많이 든다</strong><br>지명된 작가는 초안을 작성할 때마다 유능한 모델을 사용합니다. </p>
+<hr>
+<h2>확인</h2>
+<p>이러한 검사를 실행하는 동안 위의 세션 전환기 해결 방법을 염두에 두십시오.</p>
+<h3>직접 작성자 확인</h3>
+<p>OpenClaw에서 <code>writer</code> 에이전트를 엽니다. </p>
+<pre><code class="언어-text">이 인터페이스에서 직접 작성 에이전트를 여는 방법을 알려주세요.
+</p>
+<pre><code class="언어-text">왜 대부분의 생산성 조언이 거꾸로인지에 대해 500~700단어 정도의 짧은 SubStack 게시물을 작성하세요. </p>
+<ul>
+<li>일반적인 설정 대신 실제 후크</li>
+<li>짧은 단락</li>
+<li>추천 제목 및 부제</li>
+<li>엠 대시 없음</li>
+<li>개요 대신 완전한 초안</li>
+</ul>
+<h3>위임 확인</h3>
+<p>기본 Claw로 다시 전환하고 다음을 보냅니다.</p>
+<pre><code class="언어-text">개인 AI 비서가 어떻게 지식 작업을 위한 새로운 운영 체제로 자리잡고 있는지에 대한 하위 스택 초안이 필요합니다. </p>
+<ul>
+<li>초안을 작성하는 주요 Claw 대신 위임</li>
+<li>작가의 목소리를 담은 반환된 초안</li>
+<li>초안을 자체 톤으로 평탄화하지 않고 표현하는 메인 클로</li>
+</ul>
+<h3>개정 확인</h3>
+<p>동일한 기본 채팅에서 다음을 보냅니다.</p>
+<pre><code class="언어-text">작성 에이전트에게 해당 초안을 수정하도록 요청하세요. </p>
+<hr>
+<h2>빠른 승리</h2>
+<p>작가에게 세 가지 제목 옵션과 관심 있는 실제 주제에 대한 더 날카로운 서문을 요청하세요.</p>
+<p>그런 다음 Main Claw에게 대략적인 메모를 위임된 작문 요약으로 바꾸도록 요청하세요.</p>
+<pre><code class="언어-text">[당신의 주제]에 관한 글을 게시하고 싶습니다. </p>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-09-give-it-a-team/./learn.md">??9일차 학습</a> | </p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

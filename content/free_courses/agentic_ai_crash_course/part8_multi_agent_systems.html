@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Part 8: multi agent systems — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Part 8: Multi-Agent Systems</h1>
+<hr>
+<p>So far, we?셶e talked a lot about what makes a <strong>single agent</strong> act ??from <strong>tools</strong> and <strong>RAG</strong> to <strong>memory</strong> and <strong>planning</strong>.</p>
+<p>But what if your agentic pipeline needs to:  </p>
+<ul>
+<li>Parallelize tasks to speed things up  </li>
+<li>Use different agent personas for different parts of a task  </li>
+<li>Break up complexity across specialized units, like in a team</li>
+</ul>
+<p>That?셲 where <strong>multi-agent systems</strong> come in.</p>
+<hr>
+<h2>Why Use Multi-Agent Systems?</h2>
+<p>Sometimes, a single agent just can?셳 cut it because the problem demands <strong>scale</strong>, <strong>specialization</strong>, or <strong>parallel thinking</strong>.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>Generating a marketing strategy that needs <strong>market insights</strong>, <strong>legal review</strong>, and <strong>creative suggestions</strong>.  </li>
+<li>Building a compliance assistant that needs to <strong>extract information</strong>, <strong>flag risks</strong>, and <strong>cross-check policies</strong>.  </li>
+<li>Automating a sales process where <strong>one agent</strong> talks to the user, <strong>another</strong> enriches data, and <strong>a third</strong> handles follow-ups.</li>
+</ul>
+<p>Could you do this with one beefy agent?<br><strong>Maybe.</strong></p>
+<p>But splitting it into <strong>multiple, specialized agents</strong> can enable:  </p>
+<ul>
+<li><strong>Parallelization</strong> ??Agents work on parts of a task simultaneously  </li>
+<li><strong>Specialization</strong> ??One agent is great at legalese, another at writing emails  </li>
+<li><strong>Tooling independence</strong> ??Each agent can have its own tools and memory</li>
+</ul>
+<hr>
+<h2>Flat vs Hierarchical Agent Coordination</h2>
+<p>All multi-agent systems need some way to <strong>coordinate</strong>.<br>Two common communication patterns:<br><img width="1144" height="626" alt="image" src="https://github.com/user-attachments/assets/c6e2c1c0-bb92-48c8-ba53-dfbfdc6e3926" /></p>
+<hr>
+<h3>1. Hierarchical Patterns (More Controllable)</h3>
+<p>An <strong>orchestrator agent</strong> delegates subtasks to others.<br>It sees the full picture and controls the flow.</p>
+<p><strong>Use when:</strong></p>
+<ul>
+<li>Tasks can be clearly decomposed  </li>
+<li>You want tight control  </li>
+<li>You have known agent roles (e.g., summarizer, generator, checker)</li>
+</ul>
+<p><strong>Think:</strong> enterprise workflows, tool suites, parallel pipelines.</p>
+<hr>
+<h3>2. Flat Patterns (More Dynamic)</h3>
+<p>Agents talk to each other as <strong>peers</strong> ??no boss.</p>
+<p><strong>Use when:</strong></p>
+<ul>
+<li>Tasks need creativity or debate  </li>
+<li>You want agents to evaluate each other  </li>
+<li>There?셲 no one ?쐁orrect??answer path</li>
+</ul>
+<p><strong>Think:</strong> brainstorming, ranking options, multi-view reasoning.</p>
+<hr>
+<h2>What Nobody Tells You: Multi-Agent Systems Are a Pain</h2>
+<p>On paper, this sounds great.<br>And sure, you can build quick multi-agent prototypes and have fun with them.  </p>
+<p>But for <strong>customer/enterprise</strong> use cases??it?셲 painful.</p>
+<p>Most people read a blog on multi-agent systems and get excited about modularity ?? </p>
+<blockquote>
+<p>?쏧t?셲 like microservices!??they say.</p>
+</blockquote>
+<p>But <strong>AI agents are not microservices</strong>.</p>
+<p>Unlike code, AI models are <strong>non-deterministic</strong>. They don?셳 always behave the same way.<br>Adding more agents means:  </p>
+<ul>
+<li>More <strong>non-determinism</strong> (variation across agents, not just within one)  </li>
+<li>More <strong>memory and state complexity</strong> (who knows what, and when?)  </li>
+<li>Higher <strong>latency</strong> and <strong>cost</strong>  </li>
+<li>More <strong>coordination bugs</strong> and failure points  </li>
+<li>More <strong>collusion</strong>, where agents agree when they shouldn?셳 (happens more than you think)</li>
+</ul>
+<p>Honestly, I could write a book on how painful it is to get multi-agent systems working reliably.</p>
+<hr>
+<h2>So??Should You Use Them?</h2>
+<p>My personal rule:  </p>
+<blockquote>
+<p><strong>In the enterprise, don?셳 start with multi-agents. Start with one.</strong></p>
+</blockquote>
+<p>Let that <strong>one agent</strong> fail ??empirically (via eval metrics) or operationally ??before you scale.</p>
+<p>From my experience, <strong>70%+ of enterprise use cases</strong> work just fine with a single well-designed agent ??one that uses <strong>tools</strong>, <strong>memory</strong>, <strong>RAG</strong>, and <strong>planning</strong>.</p>
+<hr>
+<h3>Multi-agent systems shine when:</h3>
+<ul>
+<li>The task is big enough to need <strong>parallel execution</strong>  </li>
+<li>You need <strong>clear specialization</strong>  </li>
+<li>You want <strong>creative debate</strong>, evaluation, or distributed decision-making</li>
+</ul>
+<p>Even then, you need <strong>strong design</strong> ??especially around <strong>memory</strong>, <strong>state</strong>, and <strong>communication protocols</strong>.</p>
+<hr>
+<h2>Final Word: Problem First, Always</h2>
+<p>This has been our mantra from Day 1:  </p>
+<blockquote>
+<p>Don?셳 build a multi-agent system because it sounds ?쏿gentic.??br>Build it if ??and only if ??your problem needs it.</p>
+</blockquote>
+<p>The only way to know?  </p>
+<ul>
+<li>Have the right <strong>metrics</strong>  </li>
+<li>Test  </li>
+<li>Let simpler systems fail first</li>
+</ul>
+<hr>
+<h2>Up Next</h2>
+<p>In the next part, we?셪l talk about <strong>real-world agents</strong> and how they function.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../js/main.js"></script>
+</body>
+</html>

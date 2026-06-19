@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Learn — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>4일차: 사전 대응적으로 만들기</h1>
+<hr>
+<p><strong>오늘 배울 내용:</strong></p>
+<ul>
+<li>사용자가 잠자는 동안 서버가 작업을 실행하는 방법과 데몬 및 스케줄러는 무엇입니까?</li>
+<li><code>HEARTBEAT.md</code>은 무엇이며 일반 영어 지침을 예약된 동작으로 바꾸는 방법</li>
+<li>격리된 세션이 무엇이며 비용과 안정성에 중요한 이유</li>
+</ul>
+<p><strong>오늘 빌드할 항목:</strong> 오늘이 끝날 무렵 Claw가 처음으로 당신에게 다가갑니다. </p>
+<hr>
+<h2>오늘은 어떤 변화가 있나요?</h2>
+<p>Claude Code, Cursor, Codex 또는 ChatGPT를 사용해 본 적이 있다면 패턴이 항상 동일하다는 것을 알 수 있을 것입니다. </p>
+<p>OpenClaw는 사용자에게 먼저 메시지를 보낼 수도 있는 <strong>사전 에이전트</strong>를 도입했습니다. </p>
+<p>대응만 하는 것이 아니라 적극적으로 다가가는 능력이 OpenClaw를 도약하게 만든 큰 부분입니다. </p>
+<hr>
+<h2>사용자가 잠자는 동안 서버가 작업을 실행하는 방법</h2>
+<p>귀하의 VPS는 결코 멈추지 않는 컴퓨터입니다. </p>
+<p>귀하의 컴퓨터(및 귀하의 서버)는 현재 귀하가 볼 수 없는 수십 개의 프로그램을 백그라운드에서 실행하고 있습니다. </p>
+<p>개념은 예상보다 오래되었습니다. </p>
+<p>1일차에 설정한 OpenClaw 게이트웨이는 이러한 데몬 중 하나입니다. </p>
+<p>게이트웨이에는 자체 내장 스케줄러도 있습니다. </p>
+<p>OpenClaw는 정확한 타이밍이 필요한 작업을 위해 <a href="https://docs.openclaw.ai/automation/cron-jobs"><code>cron</code></a>도 지원합니다. </p>
+<hr>
+<h2>HEARTBEAT.md가 무엇인가요?</h2>
+<p><a href="https://docs.openclaw.ai/gateway/heartbeat"><code>HEARTBEAT.md</code></a>은 작업 공간에 있는 일반 마크다운 파일입니다. </p>
+<p>이름이 맞습니다. </p>
+<p>전체 루프는 다음과 같습니다.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-04-make-it-proactive/../../diagrams/day-04-heartbeat-cycle.png" alt="How a heartbeat cycle works"></p>
+<p>게이트웨이의 스케줄러가 작동하고 HEARTBEAT.md를 읽고 예정된 작업을 실행하고 출력을 전달한 다음 다시 대기 상태로 돌아갑니다. </p>
+<p>작업 자체는 일반 영어로 작성됩니다. </p>
+<p>하트비트는 주기적인 인식을 원할 때 가장 좋습니다. </p>
+<hr>
+<h2>클린 룸</h2>
+<p>위 다이어그램에는 놓치기 쉬운 디자인 결정이 있습니다. 바로 "격리된 세션"이라는 단어입니다.</p>
+<p>텔레그램을 통해 Claw와 대화를 나누면 해당 대화에 맥락이 축적됩니다. </p>
+<p>이제 동일한 세션 내에서 하트비트 작업이 실행된다고 상상해 보세요. </p>
+<p>또한 품질 문제도 발생합니다. </p>
+<p>격리된 세션은 두 가지 문제를 모두 해결합니다. </p>
+<p>비용 차이는 극적입니다. </p>
+<p>이는 또한 2일차에 설정한 항목에도 연결됩니다. 4개의 ID 파일(SOUL.md, USER.md, AGENTS.md, MEMORY.md)은 메시지가 바뀔 때마다 디스크에서 다시 로드됩니다. </p>
+<hr>
+<h2>매일의 반성</h2>
+<p>다음은 하트비트 작업이 수행할 수 있는 작업의 한 예입니다. </p>
+<pre><code>Time to reflect on your day.
+
+1. What went well today?
+2. What felt harder than it should have?
+3. What&#39;s one thing you want to carry into tomorrow?
+
+Reply whenever you&#39;re ready. I&#39;ll save your answers to today&#39;s journal.
+</code></pre>
+</p>
+<p>오늘 빌드에서는 리플렉션이 선택한 정확한 시간에 도착해야 하므로 하트비트 대신 <a href="https://docs.openclaw.ai/automation/cron-jobs"><code>cron</code></a>을 사용합니다.</p>
+<hr>
+<h2>구축할 준비가 되셨나요?</h2>
+<p>이제 사용자가 잠자는 동안 서버가 게이트웨이를 계속 실행하는 방법, HEARTBEAT.md가 무엇인지, 게이트웨이의 내부 스케줄러가 이를 구동하는 방법, 격리된 세션이 예약된 작업을 저렴하고 안정적으로 유지하는 이유를 이해하게 되었습니다. </p>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-04-make-it-proactive/build.md"><code>build.md</code></a>의 단계에 따라 Claw를 능동적으로 만드세요.</p>
+<p>내일은 기술을 제공하여 기본 제공 기능 이상으로 수행할 수 있는 작업을 확장합니다.</p>
+<hr>
+<h2>더 깊게</h2>
+<ul>
+<li>하트비트 간격은 구성 가능합니다. </li>
+<li>데몬 아키텍처는 Claw가 재부팅과 몇 주간의 부주의에도 살아남는다는 것을 의미합니다. </li>
+<li>OpenClaw는 또한 고급 사용 사례(작업별 모델 선택을 통해 "매주 월요일 오전 9시 정각"과 같은 정확한 시간)를 위한 정밀한 cron 스타일 스케줄링을 지원합니다. </li>
+</ul>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-04-make-it-proactive/../day-03-connect-a-channel/learn.md">??3일차: 채널 연결</a> | </p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

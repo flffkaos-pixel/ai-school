@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Evaluation building blocks — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../index.html">Home</a>
+<a href="../../../../courses.html">Courses</a>
+<a href="../../../../interview.html">Interview</a>
+<a href="../../../../research.html">Research</a>
+<a href="../../../../resources.html">Resources</a>
+<a href="../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Chapter 3: The Evaluation Framework</h1>
+<h2>Setting Up Evaluation for Your AI Product</h2>
+<p>In the previous chapters, we covered why evaluation matters and the difference between model and product evaluation. Now you understand you need to evaluate your AI products. </p>
+<p>If you want to evaluate a new product you&#39;re building, where do you start?</p>
+<p>We&#39;ll cover the basic concepts that help you approach evaluation strategically. This will set you up to build datasets and evaluation systems that actually help you improve your product.</p>
+<h2>What You&#39;re Actually Evaluating</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/input_expected_actual_framework.png" alt="Input Expected Actual Framework"></p>
+<p>When you evaluate any AI system, you&#39;re looking at three things - <strong>Input</strong> (what goes into the system), <strong>Expected</strong> (what should happen), and <strong>Actual</strong> (what actually happens).</p>
+<p>Sounds simple, but each piece is more complex than it appears.</p>
+<h3>Input: Everything That Affects Your System</h3>
+<p>&quot;Input&quot; isn&#39;t just the user&#39;s question. It includes everything that influences how your system behaves - the user&#39;s actual question or request, previous conversation history and context, data your system retrieves (documents, database entries, API calls), and system configuration (prompts, parameters, business rules).</p>
+<p>This matters because many evaluation problems happen when teams only test the obvious user inputs but ignore how context and configuration changes affect behavior.</p>
+<h3>Expected: What Good Looks Like</h3>
+<p>Defining what should happen is often the hardest part. What should your system actually do?</p>
+<p>Expected behavior depends on your specific requirements:</p>
+<ul>
+<li>Accuracy of information</li>
+<li>Completeness of the response</li>
+<li>Appropriate tone and style</li>
+<li>Safety and compliance</li>
+<li>Following your business rules</li>
+</ul>
+<p>Take a healthcare AI. When someone asks &quot;Is this medication safe for children?&quot;, good behavior isn&#39;t just giving accurate information. It includes:</p>
+<ul>
+<li>Noting that medical advice should come from doctors</li>
+<li>Suggesting they talk to their pediatrician</li>
+<li>Providing general information without specific medical recommendations</li>
+<li>Escalating if the situation seems urgent</li>
+</ul>
+<p>Defining expected behavior requires input from both technical teams and people who understand the domain and business context.</p>
+<h3>Actual: What Your System Really Does</h3>
+<p>This is what your system produces: the response, the actions, the decisions.</p>
+<p>But &quot;actual&quot; includes more than just the final output:</p>
+<ul>
+<li>The content and quality of responses</li>
+<li>Which tools or data sources were used</li>
+<li>Reasoning and decision-making process</li>
+<li>Performance metrics like response time</li>
+</ul>
+<p>Understanding what actually happens often requires logging different parts of your system.</p>
+<h2>Why Generic Metrics Don&#39;t Work</h2>
+<p>Once you understand these three pieces, you can see why simple metrics like &quot;helpfulness&quot; or &quot;correctness&quot; don&#39;t work for real AI products.</p>
+<p>The same metric means completely different things depending on your context and requirements.</p>
+<h3>Context Changes Everything</h3>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/rubric_definition_quality.png" alt="Rubric Definition Quality"></p>
+<p>Take &quot;helpfulness.&quot; What&#39;s helpful depends entirely on the situation:</p>
+<p><strong>Customer service</strong>: Helpful means solving problems quickly and escalating when needed. Explaining too much when someone just wants a refund isn&#39;t helpful.</p>
+<p><strong>Education</strong>: Helpful means guiding students to understanding, not just giving answers. A direct solution without explanation isn&#39;t helpful even if it&#39;s correct.</p>
+<p><strong>Medical information</strong>: Helpful means providing accurate general information while being clear about limitations. Being too specific about medical advice would be harmful.</p>
+<p>This is why you can&#39;t just copy evaluation metrics from other applications. You need to define what quality means for your specific situation.</p>
+<h3>Multiple Dimensions Matter</h3>
+<p>Real systems need evaluation across several specific areas. Here&#39;s why:</p>
+<p>Say a customer asks &quot;Can I return my shoes after 45 days?&quot; and your system responds:</p>
+<p><em>&quot;Unfortunately, our return policy only allows returns within 30 days of purchase. However, since you&#39;re clearly frustrated about this situation and have been a loyal customer, I understand your disappointment. While I cannot process the return myself, I recommend contacting our customer care team who may be able to offer alternative solutions or exceptions based on your purchase history and the specific circumstances of your case.&quot;</em></p>
+<p>You need to evaluate this across several areas:</p>
+<ul>
+<li><strong>Policy accuracy</strong>: Does it correctly state the 30-day policy?</li>
+<li><strong>Escalation</strong>: Does it properly refer to the right team?</li>
+<li><strong>Tone</strong>: Is it professional and empathetic without over-apologizing?</li>
+<li><strong>Business risk</strong>: Does it avoid making unauthorized promises?</li>
+</ul>
+<p>A single &quot;correctness&quot; score would miss important problems. The response could be accurate about the policy but fail to escalate properly, or escalate correctly but use the wrong tone.</p>
+<p>The key is finding the minimum set of areas that give you the most signal about what matters for your specific product.</p>
+<p>These areas are what we call <strong>evaluation metrics</strong>. Some people call these &quot;evals,&quot; but we prefer to be more precise. We use &quot;evaluation&quot; for the overall process and &quot;evaluation metrics&quot; for the specific measures you use to judge quality.</p>
+<h2>Making Subjective Assessment Consistent</h2>
+<p>Many important quality areas require subjective judgment. Different people might evaluate the same response differently when looking at tone, appropriateness, or escalation decisions.</p>
+<p>Rubrics solve this by providing explicit criteria for judgment.</p>
+<h3>Building Simple Rubrics</h3>
+<p>A good rubric defines:</p>
+<ul>
+<li>What counts as acceptable versus not acceptable performance</li>
+<li>Specific things to look for</li>
+<li>Examples of responses in each category</li>
+<li>How to handle edge cases</li>
+</ul>
+<p>For example, a rubric for &quot;appropriate escalation&quot; might specify:</p>
+<p><strong>Acceptable</strong>: Correctly identifies situations that need human intervention (policy exceptions, billing disputes, complex technical issues) and provides appropriate context when escalating</p>
+<p><strong>Not Acceptable</strong>: Fails to escalate when human intervention is needed, escalates unnecessarily for routine questions, or escalates without sufficient context</p>
+<p>Rubrics make subjective evaluation more consistent and help different team members align on quality standards.</p>
+<h2>Why Evaluation Requires Team Collaboration</h2>
+<p>Effective AI evaluation isn&#39;t just a technical problem. It requires collaboration between different roles:</p>
+<p><strong>Subject matter experts</strong> understand what good behavior looks like in the domain. They know the edge cases, risks, and nuances that technical metrics might miss.</p>
+<p><strong>Product teams</strong> understand user needs and business priorities. They know what trade-offs matter and how evaluation connects to user experience.</p>
+<p><strong>Engineers</strong> understand system capabilities and constraints. They know what&#39;s measurable, what&#39;s technically feasible, and how to implement evaluation systems.</p>
+<p>This collaboration matters because evaluation decisions affect every aspect of your AI product. The metrics you choose influence what behaviors you optimize for and how you measure success.</p>
+<h2>Building Team Alignment</h2>
+<p>One of the most valuable outcomes of systematic evaluation is getting everyone aligned on quality. When engineering, product, and domain expert teams can look at the same examples and agree on good versus poor performance, you can move much faster.</p>
+<p>This process often reveals hidden assumptions and disagreements. The product team might prioritize user satisfaction while the legal team prioritizes risk management. Working through evaluation examples helps surface and resolve these tensions before they affect the product.</p>
+<h2>How Do You Identify the Right Dimensions?</h2>
+<p>So far we&#39;ve talked about why you need specific evaluation metrics and why collaboration matters. But how do you actually figure out which dimensions to focus on?</p>
+<p>The process usually starts with understanding your specific failure modes. What could go wrong with your AI system that would be unacceptable for your users or business? What behaviors would make you pull the system offline immediately?</p>
+<p>Different stakeholders will have different answers:</p>
+<ul>
+<li><strong>Domain experts</strong> worry about accuracy, compliance, and safety risks specific to their field</li>
+<li><strong>Product teams</strong> focus on user experience, completion rates, and satisfaction</li>
+<li><strong>Business stakeholders</strong> care about liability, brand risk, and operational costs</li>
+</ul>
+<p>The key is starting with these concerns and translating them into observable, measurable behaviors. Instead of &quot;the system should be safe,&quot; you might define &quot;the system should escalate medical questions to qualified professionals&quot; or &quot;the system should not provide financial advice without appropriate disclaimers.&quot;</p>
+<p>You also need to consider your specific user context. A chatbot for customer service has different quality requirements than one for technical support or educational tutoring. The same AI technology needs completely different evaluation approaches depending on who&#39;s using it and for what purpose.</p>
+<h2>The Pre-Deployment Validation Process</h2>
+<p>The approach we&#39;re describing helps you validate your AI system before you put it in front of real users. This pre-deployment validation is essential because it&#39;s much easier to catch and fix issues in controlled testing than after users start depending on your system.</p>
+<p>Think of this as building confidence in your system&#39;s behavior before the stakes get high. When you&#39;re working with reference datasets and controlled examples, you can iterate quickly, test edge cases thoroughly, and refine your approach without worrying about user impact. You can have domain experts review outputs carefully, engineers can debug issues systematically, and product teams can ensure the behavior aligns with user needs.</p>
+<p>This validation process involves several key activities:</p>
+<p><strong>Building comprehensive test scenarios</strong>: You&#39;ll create examples that represent the full range of situations your system needs to handle, from common user requests to edge cases that could cause problems.</p>
+<p><strong>Establishing clear quality criteria</strong>: You&#39;ll work with stakeholders to define exactly what good behavior looks like in your specific context, creating rubrics that everyone can agree on.</p>
+<p><strong>Testing system behavior systematically</strong>: You&#39;ll run your AI system against your test scenarios and evaluate whether it meets your quality standards across different dimensions.</p>
+<p><strong>Iterating based on findings</strong>: When you discover issues, you&#39;ll fix them and re-test to ensure the problems are resolved without creating new ones.</p>
+<p>Once you deploy and real users start interacting with your AI, you&#39;ll need to adapt these same concepts for ongoing monitoring. Real-world conditions introduce new challenges like unpredictable user behavior, scale issues, and evolving requirements that require different approaches while building on the same evaluation foundation.</p>
+<h2>Where This Leads</h2>
+<p>Understanding what goes into your system, what should happen, and what actually happens helps you see why AI evaluation is more complex than traditional software testing. The challenge isn&#39;t just technical - it&#39;s about getting alignment across different perspectives on quality.</p>
+<p>Generic metrics like &quot;helpfulness&quot; mean different things in different contexts. Effective evaluation requires specific metrics that reflect your domain, users, and business requirements.</p>
+<p>AI evaluation is inherently collaborative. Subject matter experts, product teams, and engineers each bring essential perspectives to defining what good performance looks like.</p>
+<p>But this raises an important question: how do you actually come up with all these metrics? How do you know which ones matter most for your specific situation? How do you balance different team perspectives to create evaluation criteria everyone can agree on?</p>
+<p><strong>Want to go deeper?</strong> Choose the course that fits your journey:</p>
+<ul>
+<li><strong>New to AI?</strong> Check out our <strong><a href="https://maven.com/aishwarya-kiriti/genai-system-design">#1 rated Enterprise AI Course on Maven</a></strong> for comprehensive guidance on building production-ready AI systems from scratch.</li>
+<li><strong>Already building AI?</strong> Take our newly launched <strong><a href="https://maven.com/aishwarya-kiriti/evals-problem-first">Advanced Evals course</a></strong> for systematically improving your AI products through advanced evaluation techniques.</li>
+</ul>
+<p><em>?뱷 Note: Use code <strong>GITHUB15</strong> for 15% off on Maven courses (valid until January 15th, 2025)</em></p>
+<p>In the next chapter, we&#39;ll talk about building a reference dataset so you can understand how to apply this framework and improve your system once you&#39;ve built a version of your product. We&#39;ll cover how you could set this up in a more systematic way.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

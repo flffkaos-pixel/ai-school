@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Building reference datasets — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../index.html">Home</a>
+<a href="../../../../courses.html">Courses</a>
+<a href="../../../../interview.html">Interview</a>
+<a href="../../../../research.html">Research</a>
+<a href="../../../../resources.html">Resources</a>
+<a href="../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>Chapter 4: Building Reference Datasets</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/reference_dataset_steps.png" alt="Reference Dataset Steps"></p>
+<h2>Getting Started with Systematic Evaluation</h2>
+<p>In the previous chapter, we covered why you need specific evaluation metrics and how different stakeholders bring different perspectives to defining quality. Now let&#39;s talk about how to set this up systematically.</p>
+<p>You've built a version of your AI product and you want to evaluate it properly before putting it in front of real users. </p>
+<p>The most practical approach is building a reference dataset. </p>
+<p><strong>A note on system complexity</strong>: In this guide, we&#39;ll focus on single-step AI interactions (where the user asks something and the system responds). Many complex AI systems involve multiple steps like calling tools, multi-turn conversations, or reasoning chains, but the core ideas we&#39;ll cover can be translated to those more complex scenarios as well.</p>
+<h2>참조 데이터 세트란 무엇입니까?</h2>
+<p>A reference dataset is your first concrete representation of how the system should behave when deployed. It&#39;s a collection of realistic inputs paired with what you expect the system to do in those situations.</p>
+<p>여기서 핵심 단어는 "현실적"입니다. </p>
+<p>데이터 세트의 각 예시에는 일반적으로 다음이 포함됩니다.</p>
+<ul>
+<li><strong>입력</strong>: 현실적인 사용자 요청 또는 시나리오</li>
+<li><strong>예상 출력</strong>: 시스템이 수행해야 하는 작업(일반 언어로 작성)</li>
+<li><strong>컨텍스트</strong>: 시스템에 필요한 추가 정보</li>
+</ul>
+<p>예상되는 출력이 완벽한 응답일 필요는 없습니다. </p>
+<h2>Why Start Small and Specific</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/lab_vs_production_50_examples.png" alt="Lab vs Production 50 Examples"></p>
+<p>팀은 첫날부터 포괄적인 테스트 범위를 구축하려고 시도하는 실수를 저지르는 경우가 많습니다. </p>
+<p>Instead, start with a small set of examples that represent scenarios you absolutely cannot get wrong. </p>
+<ul>
+<li>실패를 용납할 수 없는 고위험 상황</li>
+<li>원활하게 작동해야 하는 일반적인 사용자 워크플로</li>
+<li>중요한 시스템 제한 사항을 드러내는 극단적인 사례</li>
+<li>관심 있는 다양한 평가 차원을 노출하는 예</li>
+</ul>
+<p>고객 지원 AI의 경우 여기에는 다음이 포함될 수 있습니다.</p>
+<ul>
+<li>직접 에스컬레이션이 필요한 청구 분쟁</li>
+<li>자동으로 처리되어야 하는 간단한 반품 요청</li>
+<li>세심한 어조 처리가 필요한 분노한 고객 메시지</li>
+<li>회사의 서비스 범위를 벗어나는 요청</li>
+</ul>
+<p>작게 시작하면 양보다 질에 집중할 수 있습니다. </p>
+<h2>Step 1: Generate Your Initial Examples</h2>
+<p>The best source for examples is usually existing data from your domain. If you have historical customer support tickets, user queries, or domain-specific scenarios, start there.</p>
+<p>기존 데이터가 없는 경우 협업이 필수적입니다.</p>
+<p><strong>Subject matter experts</strong> should contribute the majority of initial examples. They know the edge cases, the high-risk scenarios, and the subtle requirements that technical teams might miss. Don&#39;t rely on engineers to generate domain-specific examples because they&#39;ll miss important nuances.</p>
+<p><strong>제품팀</strong>은 관찰한 사용자 조사, 기능 요구사항, 일반적인 사용자 여정을 바탕으로 예시를 제공할 수 있습니다.</p>
+<p><strong>엔지니어</strong>는 기술적 한계 사례와 시스템 경계 조건을 식별하는 데 도움을 줄 수 있습니다.</p>
+<p>이 단계에서는 AI 생성 합성 예제를 피하는 것이 좋습니다. </p>
+<h3>예: 고객 지원 데이터세트</h3>
+<p>고객 지원 시스템의 초기 참조 데이터 세트는 다음과 같습니다.</p>
+<table>
+<thead><tr>
+</th>
+<th>예상되는 동작</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>"신발을 반품하고 싶은데 영수증을 잃어버렸어요"</td>
+<td>주문 번호 또는 이메일을 요청하고, 영수증 대체 방법을 설명하고, 정보가 충분한 경우 처리하세요.</td>
+</tr>
+<tr>
+<td>"귀하의 서비스가 형편없어서 경쟁업체로 바꾸려고 합니다."</td>
+<td>불만을 인정하고, 전문적으로 사과하고, 유지팀으로 에스컬레이션하세요.</td>
+</tr>
+<tr>
+<td>"주문을 어떻게 추적하나요?"</td>
+<td>주문 번호 요청, 추적 정보 제공, 배송 일정 설명</td>
+</tr>
+<tr>
+<td>"동일한 주문에 대해 두 번 청구되었습니다."</td>
+<td>사과하고 사용 가능한 모든 세부정보를 즉시 청구팀에 전달하세요.</td>
+</tr>
+</tbody></table>
+<p>이러한 예에서는 다양한 시나리오(반품, 불만 사항, 추적, 청구)와 다양한 필수 동작(셀프 서비스, 에스컬레이션, 정보 수집)을 다룹니다.</p>
+<h2>Step 2: Run Your System on the Examples</h2>
+<p>Once you have your initial set of examples, run your AI system on these inputs. </p>
+<p>이 단계에서는 시스템 설계, 프롬프트 또는 구성에 즉각적인 문제가 나타나는 경우가 많습니다. </p>
+<p>시스템이 출력하는 내용과 중간 단계(사용한 도구, 검색한 데이터, 신뢰도)를 모두 문서화합니다. </p>
+<h2>3단계: 도메인 전문가와의 일치성 평가</h2>
+<p>이제 입력, 예상 동작, 실제 시스템 출력이라는 세 개의 열이 있습니다. </p>
+<p>이 과정을 단순하게 유지하세요. </p>
+<p>이 단계에서는 숫자로 된 점수를 묻지 마세요. </p>
+<p><strong>Make it easy for domain experts to participate</strong>. Don&#39;t ask them to learn complex rubrics or scoring systems. Frame questions in their language and focus on their expertise.</p>
+<h3>Example Evaluation Session</h3>
+<p>계속해서 고객 지원 예시를 살펴보겠습니다.</p>
+<table>
+<thead><tr>
+</th>
+<th>시스템 출력</th>
+<th>예상되는</th>
+<th>만족스럽다</th>
+<th>그렇지 않다면 왜 그렇습니까?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>"신발 반품 영수증 분실"</td>
+<td>"반품 처리를 도와드릴 수 있습니다. 주문 확인 이메일을 제공해 주세요."</td>
+<td>주문 번호나 이메일을 요청하고 대안을 설명하세요.</td>
+<td>예</td>
+<td>적절하게 처리됨</td>
+</tr>
+<tr>
+<td>"서비스가 형편없어요. 전환하세요."</td>
+<td>"불편하신 점 이해합니다. 문제를 해결하는 데 제가 어떻게 도움을 드릴 수 있는지 알아보겠습니다."</td>
+<td>인정, 사과, 보존으로 에스컬레이션</td>
+<td>아니요</td>
+<td>유지팀으로 에스컬레이션하지 않음</td>
+</tr>
+</tbody></table>
+<p>이를 통해 시스템이 어디에서 실패하는지에 대한 구체적이고 실행 가능한 피드백을 얻을 수 있습니다.</p>
+<h2>Step 4: Identify Error Patterns</h2>
+<p>이제 엔지니어링 관점을 다시 가져오십시오. 도메인 전문가의 주석을 보고 실패의 패턴을 식별하십시오.</p>
+<p>표면적으로 다르게 보이는 많은 문제는 동일한 근본 원인에서 비롯됩니다. </p>
+<p>Add two more columns to your analysis:</p>
+<ul>
+<li><strong>오류 카테고리</strong>: 어떤 유형의 실패인가요?</li>
+<li><strong>잠재적 원인</strong>: 왜 이런 일이 발생할까요?</li>
+</ul>
+<p>일반적인 오류 패턴은 다음과 같습니다.</p>
+<ul>
+<li><strong>컨텍스트 누락</strong>: 시스템이 필요한 정보에 액세스할 수 없습니다.</li>
+<li><strong>즉각적인 문제</strong>: 지침이 명확하지 않거나 충분히 구체적이지 않습니다.</li>
+<li><strong>비즈니스 규칙 실패</strong>: 시스템이 도메인별 정책을 따르지 않습니다.</li>
+<li><strong>에스컬레이션 문제</strong>: 사람의 개입이 필요한 시기를 인식하지 못합니다.</li>
+</ul>
+<h3>오류 분석 예</h3>
+<table>
+<thead><tr>
+</th>
+<th>시스템 출력</th>
+<th>만족스럽다</th>
+<th>오류 카테고리</th>
+<th>잠재적인 원인</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>"서비스가 형편없어요. 전환 중입니다."</td>
+<td>일반 도움말 제공</td>
+<td>아니요</td>
+<td>에스컬레이션 누락</td>
+<td>보존 케이스에 대한 에스컬레이션 논리가 없습니다.</td>
+</tr>
+<tr>
+<td>"두 번 청구되었습니다."</td>
+<td>"그건 제가 도와드릴게요"</td>
+<td>아니요</td>
+<td>긴급성 누락</td>
+<td>높은 우선순위로 표시되지 않은 결제 문제</td>
+</tr>
+</tbody></table>
+<p>이를 통해 수정 사항의 우선순위를 정하고 문제가 구현 문제인지 아니면 더 깊은 설계 문제인지 이해하는 데 도움이 됩니다.</p>
+<h2>Step 5: Decide Which Metrics You Need</h2>
+<p>Here&#39;s a key insight: if an issue can be fixed once and is unlikely to return, fix it and move on. If an issue represents a behavior that can reappear in different forms, you need an ongoing metric to track it.</p>
+<p>예를 들어:</p>
+<ul>
+<li>프롬프트에 누락된 지침은 일반적으로 일회성 수정입니다.</li>
+<li>적절한 에스컬레이션 동작은 모니터링이 필요한 지속적인 문제입니다.</li>
+</ul>
+<p>일회성 버그가 아닌 반복되는 위험에 대한 측정항목을 만듭니다.</p>
+<p><strong>무자비하게 측정하세요</strong>. </p>
+<p>실제로 관심을 갖고 조치를 취할 수 있는 행동에 대한 측정항목만 생성하세요. </p>
+<p>오류 분석을 기반으로 지속적인 측정이 필요한 2~4가지 주요 동작을 식별합니다. </p>
+<p>고객 지원 예시의 경우 다음과 같은 결과가 나올 수 있습니다.</p>
+<ul>
+<li><strong>에스컬레이션 정확성</strong>: 사람의 개입이 필요한 시기를 시스템이 올바르게 식별합니까?</li>
+<li><strong>정보 수집</strong>: 요청을 해결하기 위해 올바른 정보를 요청합니까?</li>
+<li><strong>어조 적합성</strong>: 전문적이고 도움이 되는 브랜드 목소리와 일치합니까?</li>
+</ul>
+<p><strong>구현이 아닌 중요한 것에 집중하세요</strong>. </p>
+<p>현재 추적할 수 있는 측정항목의 예는 다음과 같습니다.</p>
+<ul>
+<li>응답 시간이 허용 가능한 한도 미만으로 유지됩니다.</li>
+<li>필수 법적 고지 사항이 금융 조언 응답에 표시됩니다.</li>
+<li>청구 관련 쿼리는 에스컬레이션을 위해 올바르게 표시됩니다.</li>
+<li>시스템 출력은 다운스트림 처리를 위해 유효한 구조를 유지합니다.</li>
+<li>고객과의 상호작용 시 적절한 어조와 공감</li>
+<li>에스컬레이션 결정을 위한 쿼리 복잡성에 대한 정확한 평가</li>
+<li>반복 없이 관련 정보 수집</li>
+</ul>
+<p>가장 중요한 것은 특정 시스템 및 사용자 요구 사항에 어떤 오류 모드가 중요한지 식별하는 것입니다.</p>
+<h2>Step 6: Iterate and Expand</h2>
+<p>참조 데이터 세트는 정적이 아닙니다. </p>
+<ul>
+<li>프로덕션에서 발견된 엣지 케이스</li>
+<li>새로운 실패 모드 등장</li>
+<li>시스템이 처리해야 하는 추가 시나리오</li>
+</ul>
+<p>데이터세트는 귀하의 도메인에서 좋은 행동이 어떤 모습인지에 대해 어렵게 얻은 이해의 기록으로 성장합니다.</p>
+<h2>피해야 할 일반적인 함정</h2>
+<p><strong>너무 빨리 너무 크게 만들지 마세요</strong>: 평범한 100개의 예시보다는 10~20개의 고품질 예시로 시작하세요.</p>
+<p><strong>합성 데이터에만 전적으로 의존하지 마세요</strong>: AI 생성 사례는 실제 복잡성과 극단적인 경우를 놓치는 경우가 많습니다.</p>
+<p><strong>도메인 전문가의 참여를 건너뛰지 마세요</strong>: 기술 팀만으로는 전문 도메인에서 올바른 행동이 무엇인지 정의할 수 없습니다.</p>
+<p><strong>모든 문제에 대한 측정항목을 만들지 마세요</strong>: 지속적인 모니터링이 필요한 반복적인 위험에 집중하세요.</p>
+<p><strong>루브릭을 너무 복잡하게 만들지 마세요</strong>: 간단한 '허용/허용 안 됨' 카테고리는 정교한 채점 시스템보다 더 효과적입니다.</p>
+<h2>What You End Up With</h2>
+<p>이 과정을 따르면 다음과 같은 결과를 얻을 수 있습니다.</p>
+<ul>
+<li>관심 있는 시나리오를 나타내는 참조 데이터세트</li>
+<li>좋은 행동이 무엇인지에 대한 명확한 정의</li>
+<li>가장 중요한 행동 차원을 추적하는 특정 지표</li>
+<li>주관적인 평가를 일관되게 만드는 루브릭</li>
+<li>시간이 지남에 따라 평가를 확장하고 개선하는 프로세스</li>
+</ul>
+<p>이는 지속적인 평가와 개선을 위한 기반이 됩니다. </p>
+<p>목표는 완벽한 평가가 아니라 체계적인 개선입니다. </p>
+<p>이 장에서는 특정 장애 모드 및 비즈니스 요구 사항을 기반으로 추적하는 데 중요한 측정항목이 무엇인지 확인했습니다. </p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

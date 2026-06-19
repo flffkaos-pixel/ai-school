@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Getting your api key — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../index.html">Home</a>
+<a href="../../../courses.html">Courses</a>
+<a href="../../../interview.html">Interview</a>
+<a href="../../../research.html">Research</a>
+<a href="../../../resources.html">Resources</a>
+<a href="../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>API 키 받기</h1>
+<p>OpenClaw는 여러 AI 제공업체와 협력합니다. </p>
+<hr>
+<h2>API 키란 무엇입니까?</h2>
+<p>API 키는 OpenClaw가 귀하를 대신하여 AI 제공업체(OpenAI, Google, Anthropic)와 통신할 수 있게 해주는 고유 코드입니다. </p>
+<p>이렇게 생각해보세요. 구독하면 <em>귀하</em>가 챗봇을 사용할 수 있습니다. </p>
+<hr>
+<h2>비용에 대한 참고 사항</h2>
+<p>OpenClaw는 상시 작동되는 에이전트입니다. </p>
+<p>이 과정에서 토큰당 비용을 지불하는 경우 API 사용량에 대해 <strong>$20~$30</strong>를 따로 설정하는 것이 좋습니다. </p>
+<blockquote><p><strong>참고:</strong> Anthropic Claude 구독(Pro 및 Max)에는 OpenClaw 사용이 <strong>포함되지 않습니다</strong>. </blockquote>
+<p>OpenClaw 커뮤니티의 많은 사람들은 API 비용을 완전히 피하기 위해 Mac mini 또는 기타 전용 하드웨어에서 로컬 모델을 실행합니다. </p>
+<hr>
+<h2>오픈AI(GPT)</h2>
+<p>OpenAI는 토큰당 지불 방식 대신 구독 기반 OAuth 경로도 지원하는 유일한 제공업체입니다. </p>
+<h3>API 키 받기</h3>
+<ol>
+<li><a href="https://platform.openai.com">platform.openai.com</a>으로 이동하세요.</li>
+<li><strong>'가입'</strong>을 클릭하고 이메일, Google, Microsoft 또는 Apple에 등록하세요.</li>
+<li>이메일 주소를 확인하세요</li>
+<li>SMS를 통해 <strong>전화번호를 확인</strong>하세요(필수).</li>
+<li>왼쪽 사이드바에서 <strong>'API 키'</strong>를 클릭합니다.</li>
+<li><strong>'새 비밀 키 만들기'</strong>를 클릭하고 이름을 지정하세요.</li>
+<li>즉시 키를 복사하세요. </li>
+<li><strong>설정 > 결제</strong>로 이동하여 결제 수단을 추가하고 최소 20달러의 크레딧을 로드하세요.</li>
+</ol>
+<hr>
+<h2>구글 (쌍둥이자리)</h2>
+<p>Google은 시작하기에 가장 넉넉한 무료 등급을 제공합니다. </p>
+<ol>
+<li><a href="https://aistudio.google.com">aistudio.google.com</a>으로 이동하세요.</li>
+<li>Google 계정으로 로그인</li>
+<li>Generative AI 서비스 약관에 동의하세요.</li>
+<li>왼쪽 사이드바에서 <strong>'API 키 가져오기'</strong>를 클릭하세요.</li>
+<li>프로젝트를 선택하세요(또는 Google에서 기본 프로젝트를 생성하도록 하세요).</li>
+<li><strong>'키 만들기'</strong>를 클릭하세요.</li>
+<li>키를 복사하여 안전한 곳에 보관하세요.</li>
+</ol>
+<hr>
+<h2>인류학(클로드)</h2>
+<blockquote><p><strong>참고:</strong> Claude 구독(Pro 및 Max)에는 OpenClaw와 동일한 <strong>타사 도구 사용이 포함되어 있지 않습니다</strong>. </blockquote>
+<h3>API 키 받기</h3>
+<ol>
+<li><a href="https://console.anthropic.com">console.anthropic.com</a>으로 이동하세요.</li>
+<li><strong>'가입'</strong>을 클릭하고 Google, Microsoft, Apple 또는 이메일로 등록하세요.</li>
+<li>이메일로 가입한 경우 이메일을 확인하세요.</li>
+<li>왼쪽 사이드바에서 <strong>설정 > API 키</strong>로 이동합니다.</li>
+<li><strong>'키 만들기'</strong>를 클릭하고 이름을 지정하세요.</li>
+<li>즉시 키를 복사하세요. </li>
+<li>결제 수단을 추가하고 크레딧을 로드하려면 <strong>설정 > 결제</strong>로 이동하세요.</li>
+</ol>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/README.md">??과정 개요로 백업기</a></p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../js/main.js"></script>
+</body>
+</html>

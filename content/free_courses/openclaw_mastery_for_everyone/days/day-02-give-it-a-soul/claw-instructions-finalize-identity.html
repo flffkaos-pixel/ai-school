@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claw instructions finalize identity — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>2일차: ID 설정 마무리</h1>
+<p>다음 지침을 정확하게 따르십시오. </p>
+<p>어떤 작업을 하기 전에 다음 파일이 있는지 확인하세요.</p>
+<ul>
+<li><code>~/.openclaw/workspace/SOUL.md</code></li>
+<li><code>~/.openclaw/workspace/USER.md</code></li>
+<li><code>~/.openclaw/workspace/AGENTS.md</code></li>
+<li><code>~/.openclaw/workspace/MEMORY.md</code></li>
+<li><code>~/.openclaw/workspace/memory/</code></li>
+</ul>
+<p>누락된 것이 있으면 중지하고 누락된 내용을 보고하십시오.</p>
+<hr>
+<h2>1. 파일 권한 설정</h2>
+<p>다음 권한을 설정하십시오.</p>
+<ul>
+<li><code>SOUL.md</code>: <code>600</code></li>
+<li><code>USER.md</code>: <code>600</code></li>
+<li><code>AGENTS.md</code>: <code>600</code></li>
+<li><code>MEMORY.md</code>: <code>600</code></li>
+<li><code>memory/</code> 디렉토리: <code>700</code></li>
+</ul>
+<p>권한을 변경한 후 다시 읽고 결과를 보고하세요.</p>
+<hr>
+<h2>2. 게이트웨이 다시 시작</h2>
+<p>달리다:</p>
+<pre><code class="언어-bash">openclaw 게이트웨이 다시 시작
+</p>
+<hr>
+<h2>3. 로드된 ID 확인</h2>
+<p>활성 OpenClaw 인스턴스를 통해 두 확인 프롬프트를 모두 실행합니다.</p>
+<h3>테스트 1</h3>
+<pre><code class="언어-text">당신은 나에 대해 무엇을 알고 있나요?
+</p>
+<h3>테스트 2</h3>
+<pre><code class="언어-text">당신의 규칙은 무엇입니까?
+</p>
+<p>응답이 일반적인 경우 작업 공간 파일이 로드되지 않았을 수 있다고 보고하고 <code>openclaw.json</code>에 구성된 작업 공간 경로를 확인하라고 말합니다.</p>
+<hr>
+<h2>4. 최종 보고서</h2>
+<p>각 항목의 상태를 PASS 또는 FAIL로 보고합니다.</p>
+<ul>
+<li><code>SOUL.md</code>이 존재합니다</li>
+<li><code>USER.md</code>이 존재합니다</li>
+<li><code>AGENTS.md</code>이 존재합니다</li>
+<li><code>MEMORY.md</code>이 존재합니다</li>
+<li><code>memory/</code>이 존재합니다</li>
+<li>신원 파일은 <code>600</code>입니다.</li>
+<li><code>memory/</code>은 <code>700</code>입니다.</li>
+<li>게이트웨이 다시 시작 성공</li>
+<li>"당신은 나에 대해 무엇을 알고 있나요?" </li>
+<li>"당신의 규칙은 무엇입니까?" </li>
+</ul>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

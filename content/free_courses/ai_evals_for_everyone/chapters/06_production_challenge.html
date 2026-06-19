@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Production challenge — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../index.html">Home</a>
+<a href="../../../../courses.html">Courses</a>
+<a href="../../../../interview.html">Interview</a>
+<a href="../../../../research.html">Research</a>
+<a href="../../../../resources.html">Resources</a>
+<a href="../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>6장: 프로덕션 배포 및 실제 사용자 동작</h1>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/production_scale_10000_interactions.png" alt="Production Scale 10000 Interactions"></p>
+<h2>연구실에서 실제 세계까지</h2>
+<p>지금까지 이 과정에서는 AI 평가의 필수 구성 요소를 다루었습니다. </p>
+<p>이제 견고한 평가 프레임워크가 구축되었습니다. </p>
+<p>하지만 여기서 상황이 더 흥미롭고 복잡해집니다.</p>
+<p>지금까지 논의한 모든 것은 통제된 조건에서 발생합니다. </p>
+<p>생산이 다릅니다. </p>
+<h2>실제 사용자의 현실</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/production_challenges_real_world.png" alt="Production Challenges Real World"></p>
+<p>실제 사용자는 참조 데이터세트처럼 행동하지 않습니다. </p>
+<p><strong>사용자가 예상치 못한 상황을 가져옵니다</strong>: 고객 서비스 AI는 제품 질문을 위해 설계되었을 수 있지만 사용자는 경쟁사 제품에 대해 질문하거나 개인적인 이야기를 공유하거나 범위 밖의 기술 지원 문제에 AI를 사용하려고 합니다.</p>
+<p><strong>당신이 놓친 극단적인 사례를 테스트하는 사용자</strong>: 참조 데이터 세트가 아무리 철저하더라도 실제 사용자는 예상하지 못한 시나리오를 발견하게 될 것입니다. </p>
+<p><strong>사용자 진화</strong>: 사용자가 시스템에 익숙해짐에 따라 사용자의 행동도 진화합니다. </p>
+<p><strong>볼륨이 모든 것을 바꿉니다</strong>: 신중하게 선택한 50개의 예시를 테스트할 때 각 상호작용을 수동으로 검토할 수 있습니다. </p>
+<h2>규모의 도전</h2>
+<p>통제된 테스트에서는 모든 예시를 검토하고 모든 실패를 이해할 수 있습니다. </p>
+<p>매일 5,000개의 대화를 처리하는 고객 지원 AI를 생각해 보세요. </p>
+<p>문제는 규모뿐만 아니라 탐지에 관한 것이기도 합니다. </p>
+<p>이는 평가 질문을 "이 특정 사례 세트에 대해 어떻게 수행했습니까?"에서 전환합니다. </p>
+<h2>평가부터 모니터링까지</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/validation_vs_monitoring_toggle.png" alt="Validation vs Monitoring Toggle"></p>
+<p>프로덕션으로 이동하면 평가와의 관계가 근본적으로 바뀌게 됩니다. </p>
+<p>이는 측정, 대응, 개선에 대한 생각에 영향을 미칩니다.</p>
+<p><strong>배포 전 평가를 통해 신뢰도 구축</strong>: 철저한 테스트를 통해 시스템이 사용자를 사용할 준비가 되었는지 확신을 얻습니다.</p>
+<p><strong>배포 중에 모니터링을 통해 품질 유지</strong>: 성능을 추적하여 문제를 조기에 포착하고 개선 사항을 안내합니다.</p>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/continuous_improvement_flywheel.png" alt="Continuous Improvement Flywheel"></p>
+<p><strong>개선의 플라이휠</strong>: 우수한 생산 모니터링은 평가 프로세스에 반영됩니다. </p>
+<p>이를 통해 자연스러운 진행이 이루어집니다. 강력한 평가를 통해 배포에 대한 자신감을 얻을 수 있고, 효과적인 모니터링을 통해 개선할 수 있으며, 개선된 시스템이 평가에서 더 나은 성능을 발휘합니다.</p>
+<h2>생산의 네 가지 핵심 과제</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/ai_evals_for_everyone/chapters/../images/four_core_production_challenges.png" alt="Four Core Production Challenges"></p>
+<p>통제된 평가에서 생산 모니터링으로 전환하면 신중한 계획이 필요한 네 가지 주요 과제가 발생합니다.</p>
+<h3>1. 로그 필터링</h3>
+<p>매일 수천 건의 이벤트가 발생하므로 모든 것을 수동으로 검토할 수는 없습니다. </p>
+<h3>2. 측정항목 선택</h3>
+<p>평가 지표는 무료가 아니라는 점을 기억하세요. </p>
+<h3>3. 온라인 평가와 오프라인 평가</h3>
+<p>여기서는 생산 모니터링 전략을 형성하는 중요한 차이점을 소개합니다.</p>
+<p><strong>온라인 평가</strong>는 사용자가 시스템과 상호작용할 때 실시간으로 이루어집니다. </p>
+<p><strong>오프라인 평가</strong>는 사후에 이루어지며 대개 일괄 프로세스로 수행됩니다. </p>
+<p>온라인 평가와 오프라인 평가 사이의 선택은 비용, 복잡성 및 대응성에 영향을 미칩니다. </p>
+<h3>4. 새로운 이슈 발견</h3>
+<p>이 모든 것을 체계적으로 수행했음에도 불구하고 일부 문제를 전혀 예상하지 못했을 수도 있습니다. </p>
+<p>아무리 철저한 오프라인 평가 프로세스라도 생산 과정에서 발생할 수 있는 모든 문제를 예측할 수는 없습니다. </p>
+<p>이는 기존 평가 프레임워크가 포착하지 못하는 문제를 발견하기 위한 전략이 필요하다는 것을 의미합니다. </p>
+<p>이 네 가지 과제는 생산 모니터링 전략의 기초를 형성합니다. </p>
+<h2>다음은 무엇입니까</h2>
+<p>통제된 평가에서 생산 모니터링으로 전환하려면 이러한 네 가지 핵심 과제를 체계적으로 해결해야 합니다. </p>
+<p>다음 장에서는 다음에 대한 실용적인 접근 방식을 다룰 것입니다.</p>
+<ul>
+<li><strong>로그 필터링</strong>: 정보에 휩싸이지 않고 주의가 필요한 데이터를 식별하기 위한 전략</li>
+<li><strong>측정항목 선택</strong>: 가치와 비용을 기준으로 올바른 평가 접근 방식 조합을 선택하기 위한 프레임워크</li>
+<li><strong>온라인 평가와 오프라인 평가</strong>: 즉각적인 대응과 철저한 분석의 균형을 맞추는 시스템 설계</li>
+<li><strong>새로운 문제 발견</strong>: 기존 평가 프레임워크가 포착하지 못하는 문제를 식별하는 방법</li>
+</ul>
+<p>이러한 접근 방식은 AI 시스템이 확장됨에 따라 지속 가능하고 비용 효율성을 유지하면서 실행 가능한 통찰력을 제공하는 모니터링 시스템을 구축하는 데 도움이 됩니다.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

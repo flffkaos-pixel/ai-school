@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claw instructions security — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>1일차: 보안 확인</h1>
+<p>이 파일에는 Hostinger의 새로운 OpenClaw 배포에 대한 보안 검사가 포함되어 있습니다. </p>
+<p>각 섹션을 순서대로 실행하세요. </p>
+<p>위험 상태에 대한 메시지가 표시되면 <strong>VPS 강화</strong>를 선택합니다. 기본적으로 거부, 최소 표면, 가장 엄격한 설정입니다.</p>
+<hr>
+<h2>1. OS 정보</h2>
+<p>운영 체제, 커널 버전 및 프로세스가 루트가 아닌 사용자로 실행 중인지 여부를 보고합니다.</p>
+<p><strong>예상:</strong> Debian 12, 13, Ubuntu 22.04/24.04. </p>
+<p>지원되고 패치된 OS가 기반입니다. </p>
+<hr>
+<h2>2. 포트 열기</h2>
+<p>바인딩된 주소와 함께 현재 수신 중인 모든 포트를 나열합니다.</p>
+<pre><code>ss -tlnp
+</code></pre>
+</p>
+<ul>
+<li><code>127.0.0.1</code>(OpenClaw 게이트웨이)의 포트 <code>18789</code></li>
+<li><code>127.0.0.1</code>에 몇 가지 추가 OpenClaw 내부 포트</li>
+<li>일반적으로 60000+ 범위의 <code>0.0.0.0</code>에 포트 1개</li>
+</ul>
+<p>해당 <code>0.0.0.0</code> 포트가 Control UI입니다. </p>
+<p>게이트웨이 자체는 절대로 <code>0.0.0.0</code>에 있어서는 안됩니다. </p>
+<hr>
+<h2>3. 방화벽</h2>
+<p>컨테이너 내부에 방화벽이 활성화되어 있는지 확인하세요.</p>
+<p><strong>예상:</strong> 방화벽 도구가 없습니다(UFW, iptables 또는 nft 없음). </p>
+<p>베어 VPS에서는 방화벽을 활성화해야 합니다. </p>
+<hr>
+<h2>4. OpenClaw 보안 감사</h2>
+<p>기본 제공 보안 감사를 실행합니다.</p>
+<pre><code>openclaw security audit --deep
+</code></pre>
+</p>
+<ul>
+<li>역방향 프록시 헤더가 신뢰할 수 없음(신뢰할 수 있는 프록시가 설정되지 않음)</li>
+<li>확장 플러그인에 대한 허용 도구 정책</li>
+<li>고정되지 않은 플러그인 npm 버전</li>
+</ul>
+<p>이 단계에서는 개인 용도로 사용할 위험이 낮으며 정보 제공용입니다. </p>
+<hr>
+<h2>5. 게이트웨이 구성</h2>
+<p><code>~/.openclaw/openclaw.json</code>을 읽고 다음 값을 확인하세요.</p>
+<table>
+<thead><tr>
+</th>
+<th>기대값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>게이트웨이 모드</td>
+<td><code>local</code></td>
+</tr>
+<tr>
+<td>게이트웨이 주소</td>
+<td><code>127.0.0.1</code></td>
+</tr>
+<tr>
+<td>인증 모드</td>
+<td><code>token</code></td>
+</tr>
+<tr>
+<td>dm정책</td>
+<td>제한적인 값으로 설정하거나 설정하지 않습니다. </td>
+</tr>
+<tr>
+<td>그룹 정책</td>
+<td><code>disabled</code>으로 설정되거나 설정되지 않습니다. </td>
+</tr>
+</tbody></table>
+<p>토큰 인증은 모든 요청에 ​​유효한 토큰이 필요함을 의미합니다. </p>
+<p>잘못된 값이 있으면 <code>openclaw.json</code>에서 수정하세요.</p>
+<hr>
+<h2>6. 파일 권한</h2>
+<p>자격 증명 디렉터리에 대한 권한을 확인합니다.</p>
+<pre><code>ls -ld ~/.openclaw/credentials
+</code></pre>
+</p>
+<pre><code>chmod 700 ~/.openclaw/credentials
+</code></pre>
+</p>
+<hr>
+<h2>7. 채널</h2>
+<p>현재 활성화된 메시징 채널과 저장된 자격 증명이 있는지 여부를 나열합니다.</p>
+<p><strong>예상:</strong> 여러 채널(Telegram, WhatsApp, Discord, Slack 등)이 활성화되어 있지만 구성되지 않은 것으로 표시될 수 있습니다. </p>
+<p>채널에 이미 자격 증명이 있는 경우 해당 자격 증명이 어디서 왔는지 보고하세요.</p>
+<hr>
+<h2>8. 웹 검색</h2>
+<p>웹 검색이 활성화되어 있는지 확인하세요. </p>
+<p><strong>예상:</strong> 이 단계 후에는 비활성화됩니다. </p>
+<hr>
+<h2>9. 하트비트 비활성화</h2>
+<p><code>openclaw.json</code>에서 하트비트 간격을 <code>0m</code>으로 설정합니다:</p>
+<pre><code class="언어-json">{
+  </p>
+<p>하트비트는 루프에서 예약된 작업을 실행합니다. </p>
+<hr>
+<h2>10. 재시작 및 최종 확인</h2>
+<p>게이트웨이를 다시 시작하고 두 검사를 한 번 더 실행합니다.</p>
+<pre><code>openclaw gateway restart
+openclaw doctor
+openclaw security audit
+</code></pre>
+</p>
+<hr>
+<h2>요약</h2>
+<p>모든 섹션을 완료한 후 다음 사항이 충족되어야 합니다.</p>
+<ul>
+<li><input 비활성화="" type="checkbox"> OS가 지원되고 패치되었으며 프로세스가 루트가 아닌 사용자로 실행됩니다.</li>
+<li><input 비활성화="" type="checkbox"> 토큰 인증을 사용하는 <code>127.0.0.1</code>의 게이트웨이</li>
+<li><input 비활성화="" type="checkbox"> DM 및 그룹 정책은 제한적입니다.</li>
+<li><input 비활성화="" type="checkbox"> 자격 증명 디렉터리는 <code>700</code>입니다.</li>
+<li><input 비활성화="" type="checkbox"> 자격 증명이 저장된 채널이 없습니다.</li>
+<li><input 비활성화="" type="checkbox"> 웹 검색이 비활성화되었습니다.</li>
+<li><input 비활성화="" type="checkbox"> 하트비트가 <code>0m</code>으로 설정되었습니다.</li>
+<li><input 비활성화="" type="checkbox"> <code>openclaw doctor</code> 통과</li>
+<li><input 비활성화="" type="checkbox"> <code>openclaw security audit</code>에는 심각한 오류가 표시되지 않습니다.</li>
+</ul>
+<p>각 항목의 최종 상태를 보고합니다.</p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Learn — Awesome Generative AI Guide</title>
+<link rel="stylesheet" href="../../../../../css/style.css">
+<style>
+.content-viewer{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+.content-viewer h1{font-size:2rem;margin:32px 0 16px}
+.content-viewer h2{font-size:1.5rem;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.content-viewer h3{font-size:1.2rem;margin:24px 0 10px}
+.content-viewer p{margin-bottom:16px;line-height:1.7;color:var(--text-secondary)}
+.content-viewer ul,.content-viewer ol{margin:0 0 16px 24px;color:var(--text-secondary)}
+.content-viewer li{margin-bottom:6px}
+.content-viewer img{max-width:100%;border-radius:8px;margin:16px 0;border:1px solid var(--border)}
+.content-viewer blockquote{border-left:4px solid var(--primary);padding:12px 20px;margin:16px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.content-viewer pre{background:var(--bg-secondary);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:.85rem;border:1px solid var(--border)}
+.content-viewer code{background:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.content-viewer pre code{background:none;padding:0}
+.content-viewer table{width:100%;border-collapse:collapse;margin:16px 0}
+.content-viewer th,.content-viewer td{padding:10px 14px;border:1px solid var(--border);text-align:left;font-size:.9rem}
+.content-viewer th{background:var(--bg-secondary);font-weight:600}
+.content-viewer hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.content-viewer a{color:var(--primary)}
+.content-viewer strong{color:var(--text)}
+.viewer-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.viewer-header .back{color:var(--text-secondary);font-size:.9rem;text-decoration:none}
+.viewer-header .back:hover{color:var(--primary)}
+.viewer-header h1{font-size:1.4rem;margin:0;border:none}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="../../../../../index.html" class="logo">awesome<span>GenAI</span></a>
+<div class="nav-links">
+<a href="../../../../../index.html">Home</a>
+<a href="../../../../../courses.html">Courses</a>
+<a href="../../../../../interview.html">Interview</a>
+<a href="../../../../../research.html">Research</a>
+<a href="../../../../../resources.html">Resources</a>
+<a href="../../../../../about.html">About</a>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">??/button>
+</div>
+</nav>
+<div class="content-viewer">
+<h1>5일차: 기술 제공</h1>
+<hr>
+<p><strong>오늘 배울 내용:</strong></p>
+<ul>
+<li>기술은 무엇이며 MCP와 비교하는 방법</li>
+<li>Stripe 게시 기술과 같은 기업이 왜 에이전트의 정확성을 유지하는지 점진적인 공개로 유지하는 방법</li>
+<li>기술 발견의 세 가지 계층이 작동하는 방식과 작업 공간이 적합한 위치</li>
+<li>지금 당장 스킬을 설치하기 전에 검사하는 것이 필수적인 이유</li>
+<li>사용자 정의 스킬을 작성하는 방법(또는 Claw가 대신 작성하도록 함)</li>
+</ul>
+<p><strong>오늘 빌드할 항목:</strong> 오늘 말까지 Claw에는 커뮤니티에서 설치한 새로운 기능과 직접 가르친 맞춤 기능이 있습니다. </p>
+<hr>
+<h2>기술: 주목을 받은 개념</h2>
+<p>현재 AI 에이전트 세계에서 가장 인기 있는 아이디어 중 하나는 스킬이라는 것입니다. </p>
+<p>이제 귀하의 Claw는 주문형으로 응답하고 일정에 대한 일일 반성을 귀하에게 보냅니다. </p>
+<p>"내 이메일을 확인하고, 긴급한 사항을 찾아 요약하고, 텔레그램으로 주제를 보내주세요." </p>
+<p>Claw는 매번 지침을 따르지만 작업 흐름 자체를 기억할 방법은 없습니다. </p>
+<hr>
+<h2>실제로 스킬이란 무엇인가</h2>
+<p>스킬은 SKILL.md라는 파일 하나가 포함된 폴더입니다. </p>
+<p>스킬로 패키지된 위 예의 이메일 분류 루틴은 내부에 SKILL.md가 있는 <code>email-triage/</code>이라는 폴더에 있습니다. </p>
+<p>AI 도구에 대해 읽어본 적이 있다면 MCP(Model Context Protocol)를 접했을 것입니다. </p>
+<p>기술은 행동에 관한 것입니다. 모델이 MCP를 통해 Gmail에 연결되면 기술은 해당 연결로 수행할 작업을 알려줍니다. </p>
+<hr>
+<h2>기술이 인기를 얻은 이유</h2>
+<p>핵심 통찰: 기술은 공유 가능합니다.</p>
+<p><a href="https://clawhub.ai/">클로허브</a>는 OpenClaw의 공개 기술 레지스트리입니다. 즉, 커뮤니티와 회사가 다른 사람들이 재사용할 수 있도록 게시하는 설치 가능한 기술 카탈로그입니다. </p>
+<p>ClawHub는 2026년 초에 공개된 기술이 13,000개를 넘었습니다. 이 패턴은 npm이 JavaScript 라이브러리에 대해 수행한 작업이나 앱 스토어가 전화 앱에 대해 수행한 작업, 즉 사람들이 이미 해결한 문제에 대한 솔루션을 공유하는 마켓플레이스를 반영합니다. </p>
+<p>이 생태계는 OpenClaw가 그토록 빠르게 성장한 이유 중 큰 부분을 차지합니다. </p>
+<hr>
+<h2>기업이 기술을 공개하는 이유</h2>
+<p>스킬 패턴은 개인적 차원에서 작동하지만 대기업이 수년 동안 어려움을 겪고 있는 문제도 해결합니다.</p>
+<p>스트라이프를 고려해보세요. </p>
+<p>Anthropic의 연구에 따르면 AI 모델이 50개 이상의 도구에 동시에 액세스할 때 정확도는 약 49%로 떨어지는 것으로 나타났습니다. </p>
+<p>기술은 점진적 공개라는 개념을 통해 이 문제를 해결합니다. 즉, 지금 당장 관련 있는 내용만 표시하고 요청 시 더 많은 내용을 공개합니다. </p>
+<p>스트라이프는 이미 이 작업을 수행하고 있습니다. </p>
+<hr>
+<h2>3개 계층, 하나의 우선순위 규칙</h2>
+<p><img src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/../../diagrams/day-05-skills-flow.png" alt="How skills flow through your Claw"></p>
+<p>OpenClaw는 세 위치에서 기술을 발견하고 두 기술이 동일한 이름을 공유하면 작업 공간이 승리합니다.</p>
+<p><strong>기술 발견(작업 공간이 항상 승리함)</strong></p>
+<table>
+<thead><tr>
+</th>
+<th>위치</th>
+<th>범위</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>번들로 제공</td>
+<td>OpenClaw와 함께 제공</td>
+<td>항상 사용 가능</td>
+</tr>
+<tr>
+<td>관리됨</td>
+<td><code>~/.openclaw/skills/</code></td>
+<td>모든 작업공간</td>
+</tr>
+<tr>
+<td>작업공간</td>
+<td><code>~/.openclaw/workspace/skills/</code></td>
+<td>이 에이전트에만 해당됩니다. </td>
+</tr>
+</tbody></table>
+<p><strong>번들 기술</strong>은 OpenClaw와 함께 제공되며 설치 없이 항상 사용할 수 있습니다. </p>
+<p><strong>관리 기술</strong>은 <code>~/.openclaw/skills/</code>에 있으며 ClawHub를 통해 설치됩니다. </p>
+<p><strong>작업 공간 기술</strong>은 <code>~/.openclaw/workspace/skills/</code>의 특정 작업 공간 내에 있습니다. </p>
+<p>이 과정에서 사용되는 Hostinger 설정에서는 셸을 열고 이러한 명령을 직접 실행하는 것이 아닙니다. </p>
+<p>동일한 OpenClaw 설치에서 여러 작업 공간을 실행할 수 있으며, 각 작업 공간은 고유한 성격, 규칙 및 기술을 가진 별도의 에이전트입니다. </p>
+<p>두 스킬이 동일한 이름을 공유하는 경우 작업 영역 버전이 우선 적용됩니다. </p>
+<hr>
+<h2>설치 전 검사</h2>
+<p>누구나 ClawHub에 스킬을 게시할 수 있기 때문에 악성 스킬이 표시됩니다. </p>
+<p>실제로 잘 작동하는 이를 잡는 한 가지 방법은 매 설치 전에 <code>clawhub inspect &lt;slug&gt;</code>을 실행하는 것입니다. </p>
+<hr>
+<h2>나만의 기술 쓰기</h2>
+<p><strong>작성 시기:</strong> Claw에 세 번째로 동일한 다단계 지시를 하는 경우. </p>
+<p><strong>생각하는 방법:</strong> 이전에 일반적으로 작업을 수행했지만 이 특정 버전을 수행한 적이 없는 유능한 사람에게 작업을 설명하는 방식으로 지침을 작성합니다. </p>
+<p>다음은 기억에 빠른 메모를 기록하는 완벽한 작업 기술입니다.</p>
+<pre><code>Example: quick-note/SKILL.md
+---
+name: quick-note
+description: &gt;
+  Captures a quick note from messages starting with &quot;note:&quot;.
+  Classifies it, saves it to today&#39;s memory file, and tracks open loops
+  when the note implies future action.
+
+---
+
+When the user sends a message starting with &quot;note:&quot;, &quot;remember:&quot;, or
+&quot;jot down:&quot;, extract the content after the trigger word.
+
+1. Get today&#39;s date in YYYY-MM-DD format.
+2. Open or create the file: memory/YYYY-MM-DD.md
+3. Append the note with a timestamp:
+   ## HH:MM
+   [note content]
+4. Confirm to the user: &quot;Noted: [first 50 chars]...&quot;
+
+If the memory directory is missing, create it first.
+</code></pre>
+</p>
+<p>헤더 아래의 명령 본문은 일반 마크다운입니다. </p>
+<p>위의 퀵노트 스킬은 간단한 예시이지만 패턴이 확장됩니다. </p>
+<p>알아둘 만한 가치가 있는 한 가지 사실은 기술을 완전히 손으로 작성해야 하는 경우가 거의 없다는 것입니다. </p>
+<hr>
+<h2>구축할 준비가 되셨나요?</h2>
+<p>이제 기술이 무엇인지, 기술이 MCP와 어떻게 비교되는지(배선과 동작), 기업이 원시 API를 노출하는 대신 선별된 기술을 게시하는 이유, 작업 공간이 무엇인지, 검색의 세 가지 계층이 어떻게 작동하는지, 설치 전 검사가 중요한 이유, 맞춤형 기술을 작성하거나 Claw 초안을 작성하는 방법을 이해하게 되었습니다. </p>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/build.md"><code>build.md</code></a>을 엽니다. </p>
+<p>내일은 최초의 진정한 통합인 이메일입니다. </p>
+<hr>
+<h2>더 깊게</h2>
+<ul>
+<li>SKILL.md 형식은 메타데이터 게이트를 지원합니다. 즉, 특정 CLI 도구를 설치하거나 환경 변수를 설정하도록 요구하거나 특정 운영 체제에 대한 기술을 제한할 수 있습니다. </li>
+<li><a href="https://docs.openclaw.ai/security/clawvet"><code>clawvet</code> 도구</a>는 기술에 대한 보안 검색을 자동화합니다. </li>
+<li>MCP 서버를 구축했다면 OpenClaw 기술 구축의 90%를 완료한 것입니다. </li>
+</ul>
+<hr>
+<p><a href="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/free_courses/openclaw_mastery_for_everyone/days/day-05-give-it-skills/../day-04-make-it-proactive/learn.md">??4일차: 적극적으로 만들기</a> | </p>
+
+</div>
+<footer>
+<div class="container">
+<p>Part of <a href="https://github.com/aishwaryanr/awesome-generative-ai-guide" target="_blank">awesome-generative-ai-guide</a> by Aishwarya Naresh Reganti &middot; MIT License</p>
+</div>
+</footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>
