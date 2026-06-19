@@ -40,13 +40,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // Language toggle: point EN/KO correctly when viewing content
   const contentPath = new URLSearchParams(location.search).get('path');
   if (contentPath) {
+    const isViewer = location.pathname.includes('viewer.html');
     navLinks?.querySelectorAll('a').forEach(a => {
       if (a.textContent === 'EN') {
-        a.href = '/viewer.html?path=' + contentPath;
+        if (isViewer) {
+          a.href = location.href;
+        } else {
+          a.href = '/viewer.html?path=' + contentPath;
+        }
         a.removeAttribute('target');
       }
       if (a.textContent === 'KO') {
-        a.href = location.href;
+        if (isViewer) {
+          const dir = contentPath.substring(0, contentPath.lastIndexOf('/'));
+          const base = contentPath.split('/').pop().replace(/\.md$/i, '');
+          const slug = base.replace(/[^a-z0-9가-힣\/_\- ]/gi, '').trim().replace(/\s+/g, '-').toLowerCase().replace(/-+/g, '-') + '.html';
+          a.href = '/content/' + (dir ? dir + '/' : '') + slug + '?path=' + encodeURIComponent(contentPath);
+        } else {
+          a.href = location.href;
+        }
         a.removeAttribute('target');
       }
     });
