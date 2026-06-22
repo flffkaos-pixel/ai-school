@@ -21,7 +21,7 @@
       if (typeof marked === 'undefined') throw new Error('marked.js not loaded');
       var html = marked.parse(md);
       html = html.replace(
-        /src="https:\/\/github\.com\/aishwaryanr\/awesome-generative-ai-guide\/blob\/main\/([^"]+)"/g,
+        /src="https:\/\/github\.com\/aishwaryanr\/(?:awesome-generative-ai-guide|awesome-generative-ai-resources)\/blob\/main\/([^"]+)"/g,
         'src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/$1"'
       );
       contentEl.innerHTML = html;
