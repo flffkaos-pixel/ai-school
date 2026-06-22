@@ -27,7 +27,7 @@
       var html = marked.parse(md);
       html = html.replace(
         /src="https:\/\/github\.com\/aishwaryanr\/awesome-generative-ai-guide\/blob\/main\/([^"]+)"/g,
-        'src="https://cdn.jsdelivr.net/gh/aishwaryanr/awesome-generative-ai-guide@main/$1"'
+        'src="https://raw.githubusercontent.com/aishwaryanr/awesome-generative-ai-guide/main/$1"'
       );
       contentEl.innerHTML = html;
     } catch(e) {
