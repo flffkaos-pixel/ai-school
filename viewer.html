@@ -68,33 +68,7 @@
   </div>
 </footer>
 
-<script>
-(function() {
-  const p = new URLSearchParams(location.search).get('path');
-  const contentEl = document.getElementById('content');
-  if (!p) {
-    contentEl.innerHTML = '<div class="error" style="text-align:center;padding:80px 0;color:#e74c3c"><h2>No path specified</h2><p>Use ?path= to specify a file.</p></div>';
-    return;
-  }
-  const jsdelivrUrl = 'https://cdn.jsdelivr.net/gh/aishwaryanr/awesome-generative-ai-guide@main/' + p;
-  
-  fetch(jsdelivrUrl)
-    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
-    .then(md => {
-      if (typeof marked === 'undefined') throw new Error('marked.js not loaded');
-      let html = marked.parse(md);
-      html = html.replace(
-        /src="https:\/\/github\.com\/aishwaryanr\/awesome-generative-ai-guide\/blob\/main\/([^"]+)"/g,
-        'src="https://cdn.jsdelivr.net/gh/aishwaryanr/awesome-generative-ai-guide@main/$1"'
-      );
-      contentEl.innerHTML = html;
-    })
-    .catch(err => {
-      contentEl.innerHTML = 
-        '<div class="error"><h2>Failed to load</h2><p>' + err.message + '</p><p><a href="' + jsdelivrUrl + '" target="_blank">Open on GitHub</a></p></div>';
-    });
-})();
-</script>
+<script src="js/viewer.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
